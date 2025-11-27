@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "loading": "लोड हो रहा है...",
+    "error": "एक त्रुटि हुई",
+    "success": "सफल"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "होम",
+    "diary": "डायरी",
+    "write": "लिखें",
+    "archive": "सीखें",
+    "settings": "सेटिंग्स"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "AI डायरी के साथ भाषाओं में महारत हासिल करें",
+    "subtitle": "अपने दैनिक जीवन को लिखें, AI सुधार प्राप्त करें, और अपना व्यक्तिगत शिक्षण संग्रह बनाएं।",
+    "start": "लिखना शुरू करें",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "प्रतिदिन लिखें",
+      "write_desc": "तस्वीरों के साथ अपनी लक्षित भाषा में एक डायरी रखें।",
+      "correct": "AI सुधार",
+      "correct_desc": "व्याकरण और प्राकृतिक अभिव्यक्तियों पर तुरंत प्रतिक्रिया प्राप्त करें।",
+      "learn": "व्यक्तिगत संग्रह",
+      "learn_desc": "अपनी गलतियों की समीक्षा करें और व्यक्तिगत क्विज़ से सीखें।"
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "मेरी डायरी",
+    "new_entry": "नई प्रविष्टि",
+    "empty": "अभी तक कोई डायरी प्रविष्टि नहीं है। लिखना शुरू करें!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "नई प्रविष्टि लिखें",
+    "placeholder": "अपनी डायरी यहाँ लिखें...",
+    "ai_check": "AI चेक",
+    "upload_image": "छवि अपलोड करें"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "शिक्षण संग्रह",
+    "grammar": "व्याकरण पैटर्न",
+    "vocabulary": "शब्दावली",
+    "empty": "संग्रह में अभी तक कोई आइटम नहीं है।"
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "सेटिंग्स",
+    "ui_language": "मूल भाषा (UI)",
+    "learning_language": "सीखने की भाषा",
+    "theme": "थीम",
+    "dark": "डार्क",
+    "light": "लाइट"
   }
 }

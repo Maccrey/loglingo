@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "success": "สำเร็จ"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "หน้าแรก",
+    "diary": "ไดอารี่",
+    "write": "เขียน",
+    "archive": "เรียนรู้",
+    "settings": "ตั้งค่า"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "เก่งภาษาด้วย AI ไดอารี่",
+    "subtitle": "บันทึกชีวิตประจำวัน รับการแก้ไขจาก AI และสร้างคลังการเรียนรู้ส่วนตัวของคุณ",
+    "start": "เริ่มเขียนไดอารี่",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "เขียนทุกวัน",
+      "write_desc": "เขียนไดอารี่ในภาษาเป้าหมายพร้อมรูปถ่าย",
+      "correct": "การแก้ไขโดย AI",
+      "correct_desc": "รับคำติชมทันทีเกี่ยวกับไวยากรณ์และการแสดงออกที่เป็นธรรมชาติ",
+      "learn": "คลังส่วนตัว",
+      "learn_desc": "ทบทวนข้อผิดพลาดและเรียนรู้จากแบบทดสอบส่วนตัว"
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "ไดอารี่ของฉัน",
+    "new_entry": "รายการใหม่",
+    "empty": "ยังไม่มีรายการไดอารี่ เริ่มเขียนเลย!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "เขียนรายการใหม่",
+    "placeholder": "เขียนไดอารี่ของคุณที่นี่...",
+    "ai_check": "ตรวจสอบด้วย AI",
+    "upload_image": "อัปโหลดรูปภาพ"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "คลังการเรียนรู้",
+    "grammar": "รูปแบบไวยากรณ์",
+    "vocabulary": "คำศัพท์",
+    "empty": "ยังไม่มีรายการในคลัง"
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "ตั้งค่า",
+    "ui_language": "ภาษาแม่ (UI)",
+    "learning_language": "ภาษาที่เรียน",
+    "theme": "ธีม",
+    "dark": "มืด",
+    "light": "สว่าง"
   }
 }

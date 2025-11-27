@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Succès"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "Accueil",
+    "diary": "Journal",
+    "write": "Écrire",
+    "archive": "Apprendre",
+    "settings": "Paramètres"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "Maîtrisez les langues avec le Journal IA",
+    "subtitle": "Écrivez votre vie quotidienne, obtenez des corrections par IA et construisez votre archive d'apprentissage personnelle.",
+    "start": "Commencer à écrire",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "Écrire quotidiennement",
+      "write_desc": "Tenez un journal dans votre langue cible avec des photos.",
+      "correct": "Correction IA",
+      "correct_desc": "Obtenez un retour instantané sur la grammaire et les expressions naturelles.",
+      "learn": "Archive personnelle",
+      "learn_desc": "Révisez vos erreurs et apprenez grâce à des quiz personnalisés."
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "Mon Journal",
+    "new_entry": "Nouvelle entrée",
+    "empty": "Pas encore d'entrées. Commencez à écrire !"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "Nouvelle entrée",
+    "placeholder": "Écrivez votre journal ici...",
+    "ai_check": "Vérification IA",
+    "upload_image": "Télécharger une image"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "Archive d'apprentissage",
+    "grammar": "Modèles grammaticaux",
+    "vocabulary": "Vocabulaire",
+    "empty": "Aucun élément dans l'archive pour le moment."
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "Paramètres",
+    "ui_language": "Langue maternelle (UI)",
+    "learning_language": "Langue d'apprentissage",
+    "theme": "Thème",
+    "dark": "Sombre",
+    "light": "Clair"
   }
 }

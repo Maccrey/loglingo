@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "loading": "جار التحميل...",
+    "error": "حدث خطأ",
+    "success": "نجاح"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "الرئيسية",
+    "diary": "المذكرات",
+    "write": "اكتب",
+    "archive": "تعلم",
+    "settings": "الإعدادات"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "أتقن اللغات مع مذكرات الذكاء الاصطناعي",
+    "subtitle": "اكتب حياتك اليومية، واحصل على تصحيحات الذكاء الاصطناعي، وقم ببناء أرشيف التعلم الشخصي الخاص بك.",
+    "start": "ابدأ الكتابة",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "اكتب يوميًا",
+      "write_desc": "احتفظ بمذكرات بلغتك المستهدفة مع الصور.",
+      "correct": "تصحيح الذكاء الاصطناعي",
+      "correct_desc": "احصل على تعليقات فورية حول القواعد والتعبيرات الطبيعية.",
+      "learn": "الأرشيف الشخصي",
+      "learn_desc": "راجع أخطاءك وتعلم من الاختبارات المخصصة."
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "مذكراتي",
+    "new_entry": "إدخال جديد",
+    "empty": "لا توجد مذكرات بعد. ابدأ الكتابة!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "إدخال جديد",
+    "placeholder": "اكتب مذكراتك هنا...",
+    "ai_check": "فحص الذكاء الاصطناعي",
+    "upload_image": "تحميل صورة"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "أرشيف التعلم",
+    "grammar": "أنماط القواعد",
+    "vocabulary": "المفردات",
+    "empty": "لا توجد عناصر في الأرشيف بعد."
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "الإعدادات",
+    "ui_language": "اللغة الأم (واجهة المستخدم)",
+    "learning_language": "لغة التعلم",
+    "theme": "المظهر",
+    "dark": "داكن",
+    "light": "فاتح"
   }
 }

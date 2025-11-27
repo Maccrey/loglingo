@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "Başarılı"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "Ana Sayfa",
+    "diary": "Günlük",
+    "write": "Yaz",
+    "archive": "Öğren",
+    "settings": "Ayarlar"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "AI Günlük ile Dilleri Öğrenin",
+    "subtitle": "Günlük hayatınızı yazın, AI düzeltmeleri alın ve kişisel öğrenme arşivinizi oluşturun.",
+    "start": "Yazmaya Başla",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "Her Gün Yaz",
+      "write_desc": "Hedef dilinizde fotoğraflarla bir günlük tutun.",
+      "correct": "AI Düzeltme",
+      "correct_desc": "Dilbilgisi ve doğal ifadeler hakkında anında geri bildirim alın.",
+      "learn": "Kişisel Arşiv",
+      "learn_desc": "Hatalarınızı gözden geçirin ve kişiselleştirilmiş testlerle öğrenin."
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "Günlüğüm",
+    "new_entry": "Yeni Giriş",
+    "empty": "Henüz günlük girişi yok. Yazmaya başlayın!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "Yeni Giriş Yaz",
+    "placeholder": "Günlüğünüzü buraya yazın...",
+    "ai_check": "AI Kontrolü",
+    "upload_image": "Resim Yükle"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "Öğrenme Arşivi",
+    "grammar": "Dilbilgisi Kalıpları",
+    "vocabulary": "Kelime Dağarcığı",
+    "empty": "Arşivde henüz öğe yok."
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "Ayarlar",
+    "ui_language": "Ana Dil (UI)",
+    "learning_language": "Öğrenilen Dil",
+    "theme": "Tema",
+    "dark": "Koyu",
+    "light": "Açık"
   }
 }

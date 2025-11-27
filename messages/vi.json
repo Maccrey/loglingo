@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "success": "Thành công"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "Trang chủ",
+    "diary": "Nhật ký",
+    "write": "Viết",
+    "archive": "Học tập",
+    "settings": "Cài đặt"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "Thành thạo ngôn ngữ với Nhật ký AI",
+    "subtitle": "Ghi lại cuộc sống hàng ngày, nhận sửa lỗi từ AI và xây dựng kho lưu trữ học tập cá nhân của bạn.",
+    "start": "Bắt đầu viết",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "Viết hàng ngày",
+      "write_desc": "Viết nhật ký bằng ngôn ngữ mục tiêu cùng với ảnh.",
+      "correct": "Sửa lỗi AI",
+      "correct_desc": "Nhận phản hồi tức thì về ngữ pháp và cách diễn đạt tự nhiên.",
+      "learn": "Lưu trữ cá nhân",
+      "learn_desc": "Xem lại những lỗi sai và học từ các bài kiểm tra được cá nhân hóa."
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "Nhật ký của tôi",
+    "new_entry": "Bài viết mới",
+    "empty": "Chưa có nhật ký nào. Hãy bắt đầu viết!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "Viết bài mới",
+    "placeholder": "Viết nhật ký của bạn ở đây...",
+    "ai_check": "Kiểm tra AI",
+    "upload_image": "Tải ảnh lên"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "Kho lưu trữ học tập",
+    "grammar": "Mẫu ngữ pháp",
+    "vocabulary": "Từ vựng",
+    "empty": "Chưa có mục nào trong kho lưu trữ."
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "Cài đặt",
+    "ui_language": "Ngôn ngữ mẹ đẻ (UI)",
+    "learning_language": "Ngôn ngữ học",
+    "theme": "Giao diện",
+    "dark": "Tối",
+    "light": "Sáng"
   }
 }

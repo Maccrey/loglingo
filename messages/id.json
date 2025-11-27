@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "Simpan",
+    "cancel": "Batal",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "success": "Berhasil"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "Beranda",
+    "diary": "Buku Harian",
+    "write": "Tulis",
+    "archive": "Belajar",
+    "settings": "Pengaturan"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "Kuasai Bahasa dengan Buku Harian AI",
+    "subtitle": "Catat kehidupan sehari-hari, dapatkan koreksi AI, dan bangun arsip pembelajaran pribadi Anda.",
+    "start": "Mulai Menulis",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "Tulis Setiap Hari",
+      "write_desc": "Buat buku harian dalam bahasa target Anda dengan foto.",
+      "correct": "Koreksi AI",
+      "correct_desc": "Dapatkan umpan balik instan tentang tata bahasa dan ekspresi alami.",
+      "learn": "Arsip Pribadi",
+      "learn_desc": "Tinjau kesalahan Anda dan pelajari dari kuis yang dipersonalisasi."
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "Buku Harian Saya",
+    "new_entry": "Entri Baru",
+    "empty": "Belum ada entri buku harian. Mulai menulis!"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "Tulis Entri Baru",
+    "placeholder": "Tulis buku harian Anda di sini...",
+    "ai_check": "Cek AI",
+    "upload_image": "Unggah Gambar"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "Arsip Pembelajaran",
+    "grammar": "Pola Tata Bahasa",
+    "vocabulary": "Kosakata",
+    "empty": "Belum ada item di arsip."
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "Pengaturan",
+    "ui_language": "Bahasa Asli (UI)",
+    "learning_language": "Bahasa Belajar",
+    "theme": "Tema",
+    "dark": "Gelap",
+    "light": "Terang"
   }
 }

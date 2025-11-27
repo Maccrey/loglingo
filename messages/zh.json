@@ -1,54 +1,54 @@
 {
   "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success"
+    "save": "保存",
+    "cancel": "取消",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "成功"
   },
   "nav": {
-    "home": "Home",
-    "diary": "Diary",
-    "write": "Write",
-    "archive": "Learn",
-    "settings": "Settings"
+    "home": "首页",
+    "diary": "日记",
+    "write": "写作",
+    "archive": "学习",
+    "settings": "设置"
   },
   "home": {
-    "title": "Master Languages with AI Diary",
-    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
-    "start": "Start Writing",
+    "title": "用 AI 日记掌握语言",
+    "subtitle": "记录日常生活，获取 AI 纠正，建立您的个人学习档案。",
+    "start": "开始写日记",
     "features": {
-      "write": "Write Daily",
-      "write_desc": "Keep a diary in your target language with photos.",
-      "correct": "AI Correction",
-      "correct_desc": "Get instant feedback on grammar and natural expressions.",
-      "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "write": "每日写作",
+      "write_desc": "用目标语言和照片记录日记。",
+      "correct": "AI 纠正",
+      "correct_desc": "即时获得语法和自然表达的反馈。",
+      "learn": "个人档案",
+      "learn_desc": "复习错误并通过个性化测验进行学习。"
     }
   },
   "diary": {
-    "title": "My Diary",
-    "new_entry": "New Entry",
-    "empty": "No diary entries yet. Start writing!"
+    "title": "我的日记",
+    "new_entry": "新日记",
+    "empty": "还没有日记。开始写作吧！"
   },
   "write": {
-    "title": "New Entry",
-    "placeholder": "Write your diary here...",
-    "ai_check": "AI Check",
-    "upload_image": "Upload Image"
+    "title": "写新日记",
+    "placeholder": "在这里写下您的日记...",
+    "ai_check": "AI 检查",
+    "upload_image": "上传图片"
   },
   "archive": {
-    "title": "Learning Archive",
-    "grammar": "Grammar Patterns",
-    "vocabulary": "Vocabulary",
-    "empty": "No items in archive yet."
+    "title": "学习档案",
+    "grammar": "语法模式",
+    "vocabulary": "词汇",
+    "empty": "档案中还没有项目。"
   },
   "settings": {
-    "title": "Settings",
-    "ui_language": "Native Language (UI)",
-    "learning_language": "Learning Language",
-    "theme": "Theme",
-    "dark": "Dark",
-    "light": "Light"
+    "title": "设置",
+    "ui_language": "母语 (UI)",
+    "learning_language": "学习语言",
+    "theme": "主题",
+    "dark": "深色",
+    "light": "浅色"
   }
 }
