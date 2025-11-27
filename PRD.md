@@ -134,6 +134,12 @@ Scenario: 사용자가 아카이브 문제를 푼다
 - Chrome, Safari, Firefox 최신 2버전
 - 모바일 웹(375px~)
 
+### 아키텍처/구조
+
+- 클린 아키텍처 적용: UI(Next.js) / Application 서비스 / Domain 모델 / Infrastructure(Firebase, Grok API, Storage) 레이어 분리
+- Firebase/AI 호출은 인프라 어댑터를 통해 도메인 서비스가 의존하도록 설계
+- 테스트 용이성을 위해 인터페이스 기반 의존성 역전 및 모킹 가능 구조 유지
+
 ### 보안
 
 - Google OAuth2

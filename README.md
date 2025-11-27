@@ -38,6 +38,7 @@ PolyDiary는 외국어 학습자를 위한 **AI 기반 Web 일기 학습 플랫�
 - pnpm
 - Cloudflare CDN
 - Grok API
+- 클린 아키텍처 기반 폴더링(도메인/애플리케이션/인프라/UI 분리)
 
 ## 상태
 
