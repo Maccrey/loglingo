@@ -1,19 +1,21 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Home, BookOpen, PenTool, Settings, GraduationCap } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export function Navigation() {
   const pathname = usePathname();
+  const t = useTranslations('nav');
 
   const navItems = [
-    { href: "/", label: "Home", icon: Home },
-    { href: "/diary", label: "Diary", icon: BookOpen },
-    { href: "/diary/new", label: "Write", icon: PenTool },
-    { href: "/archive", label: "Learn", icon: GraduationCap },
-    { href: "/settings", label: "Settings", icon: Settings },
+    { href: "/", label: t('home'), icon: Home },
+    { href: "/diary", label: t('diary'), icon: BookOpen },
+    { href: "/diary/new", label: t('write'), icon: PenTool },
+    { href: "/archive", label: t('archive'), icon: GraduationCap },
+    { href: "/settings", label: t('settings'), icon: Settings },
   ];
 
   return (
@@ -33,12 +35,12 @@ export function Navigation() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex flex-col items-center justify-center space-y-1 text-xs font-medium transition-colors hover:text-primary md:flex-row md:space-y-0 md:space-x-2 md:text-sm",
+                  "flex flex-col items-center justify-center space-y-1 text-xs font-medium transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-sm",
                   isActive ? "text-primary" : "text-muted-foreground"
                 )}
               >
-                <Icon className={cn("h-6 w-6 md:h-5 md:w-5", isActive && "fill-current/20")} />
-                <span className="hidden md:inline">{item.label}</span>
+                <Icon className={cn("h-5 w-5", isActive && "animate-pulse")} />
+                <span>{item.label}</span>
               </Link>
             );
           })}

@@ -1,0 +1,54 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "diary": "Diary",
+    "write": "Write",
+    "archive": "Learn",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Master Languages with AI Diary",
+    "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",
+    "start": "Start Writing",
+    "features": {
+      "write": "Write Daily",
+      "write_desc": "Keep a diary in your target language with photos.",
+      "correct": "AI Correction",
+      "correct_desc": "Get instant feedback on grammar and natural expressions.",
+      "learn": "Personal Archive",
+      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+    }
+  },
+  "diary": {
+    "title": "My Diary",
+    "new_entry": "New Entry",
+    "empty": "No diary entries yet. Start writing!"
+  },
+  "write": {
+    "title": "New Entry",
+    "placeholder": "Write your diary here...",
+    "ai_check": "AI Check",
+    "upload_image": "Upload Image"
+  },
+  "archive": {
+    "title": "Learning Archive",
+    "grammar": "Grammar Patterns",
+    "vocabulary": "Vocabulary",
+    "empty": "No items in archive yet."
+  },
+  "settings": {
+    "title": "Settings",
+    "ui_language": "Native Language (UI)",
+    "learning_language": "Learning Language",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  }
+}
