@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 import { Navigation } from "@/components/layout/Navigation";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
-        <Navigation />
-        <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto">
-          {children}
-        </main>
+        <Providers>
+          <Navigation />
+          <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

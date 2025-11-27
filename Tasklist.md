@@ -13,14 +13,14 @@
 - [x] 코딩 규칙/스타일 가이드 정리: ESLint/Prettier/Commit lint 규칙 확인
 
 ## 1. 아키텍처 및 공통
-- [ ] Next.js 15 + TypeScript 프로젝트 기본 구조 검증, 라우트/레이아웃 스켈레톤 구성
-- [ ] Firebase(Auth/Firestore/Storage) 초기 설정 및 보안 규칙 초안 적용
-- [ ] 글로벌 테마(Tailwind 글라스모피즘), 폰트, 색상 토큰, UI 언어/학습 언어 분리된 i18n 셋업
-- [ ] 공통 컴포넌트: 버튼/입력/카드/모달/토스트/로딩 스피너 구축
-- [ ] HTTP/AI 클라이언트 래퍼(Grok API), 에러/로깅/리트라이 정책 적용
-- [ ] React Query/SWR 캐싱 전략 구현(일기 리스트 60s, 유저 프로필 300s), Cloudflare CDN 헤더 세팅 포인트 정의
-- [ ] 접근성/반응형 가드레일(WCAG 2.1 AA, 키보드 포커스, 375px~) 베이스라인 적용
-- [ ] **클린 아키텍처 폴더 구조 정립**: domain/application/infrastructure/ui 레이어 분리, 의존성 역전 인터페이스 정의, 테스트 모킹 경로 확보
+- [x] Next.js 15 + TypeScript 프로젝트 기본 구조 검증, 라우트/레이아웃 스켈레톤 구성
+- [x] Firebase(Auth/Firestore/Storage) 초기 설정 및 보안 규칙 초안 적용
+- [x] 글로벌 테마(Tailwind 글라스모피즘), 폰트, 색상 토큰, UI 언어/학습 언어 분리된 i18n 셋업
+- [x] 공통 컴포넌트: 버튼/입력/카드/모달/토스트/로딩 스피너 구축
+- [x] HTTP/AI 클라이언트 래퍼(Grok API), 에러/로깅/리트라이 정책 적용
+- [x] React Query/SWR 캐싱 전략 구현(일기 리스트 60s, 유저 프로필 300s), Cloudflare CDN 헤더 세팅 포인트 정의
+- [x] 접근성/반응형 가드레일(WCAG 2.1 AA, 키보드 포커스, 375px~) 베이스라인 적용
+- [x] **클린 아키텍처 폴더 구조 정립**: domain/application/infrastructure/ui 레이어 분리, 의존성 역전 인터페이스 정의, 테스트 모킹 경로 확보
 
 ## 2. 디자인 트랙 (Gemini 3.0 담당)
 - [x] **다크모드 + 글라스모피즘 디자인 시스템**: 색상 토큰, 깊이/블러 레이어, 타이포, 아이콘, 간격 스케일 정의
