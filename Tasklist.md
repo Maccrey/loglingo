@@ -8,9 +8,9 @@
 - 모든 구현 후 테스트 통과 시 한국어 커밋 메시지로 커밋한다.
 
 ## 0. 준비
-- [ ] 리포지토리 의존성 설치(`pnpm i`), 환경 변수 샘플 정리(`.env.example`), 개발/테스트/CI 명령 확인
-- [ ] CI 스크립트 점검: `pnpm test`, `pnpm test:e2e`, `pnpm lhci:collect` 실행 가능 상태 확인
-- [ ] 코딩 규칙/스타일 가이드 정리: ESLint/Prettier/Commit lint 규칙 확인
+- [x] 리포지토리 의존성 설치(`npm install`), 환경 변수 샘플 정리(`.env.example`), 개발/테스트/CI 명령 확인
+- [x] CI 스크립트 점검: `npm run test`, `npm run test:e2e`, `npm run lhci:collect` 실행 가능 상태 확인
+- [x] 코딩 규칙/스타일 가이드 정리: ESLint/Prettier/Commit lint 규칙 확인
 
 ## 1. 아키텍처 및 공통
 - [ ] Next.js 15 + TypeScript 프로젝트 기본 구조 검증, 라우트/레이아웃 스켈레톤 구성

@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
-import { Tabs } from "@/components/ui/Tabs"; // Need to implement Tabs or use placeholder
+// import { Tabs } from "@/components/ui/Tabs"; // Need to implement Tabs or use placeholder
 
 export default function ArchivePage() {
   return (

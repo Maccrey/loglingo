@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "echo 'No unit tests yet'",
+    "test:e2e": "echo 'No E2E tests yet'",
+    "lhci:collect": "echo 'No Lighthouse CI yet'"
   },
   "dependencies": {
     "clsx": "^2.1.1",
