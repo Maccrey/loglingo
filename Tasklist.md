@@ -64,7 +64,7 @@
 - [x] AI 요청 실패/지연 시 재시도 및 사용자 피드백(스낵바/재시도 버튼)
 - [x] 사용 지표 로깅: `ai_correct_clicked`, 응답 성공/실패 이벤트 계측(placeholder)
 - [x] 테스트: API 모킹 단위/통합 완료, Playwright로 작성→교정 결과 표시 플로우(환경변수 `PLAYWRIGHT_START_SERVER=1` 시 실행)
-- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
 ## 5. 학습 아카이브 & 문제 생성(기능 3) — Codex
 - [ ] Firestore 스키마(learning_archive, quiz_questions) 리포지토리/타입 정의
