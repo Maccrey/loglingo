@@ -7,7 +7,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Loglingo",
   description: "AI-powered language learning diary",
 };

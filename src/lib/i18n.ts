@@ -11,8 +11,9 @@ export const localeNames: Record<Locale, string> = {
 };
 
 // Mock translation function for now
-export function getDictionary(locale: Locale) {
+export function getDictionary(_locale: Locale) {
   // In a real app, this would load JSON files
+  void _locale;
   return {
     common: {
       save: "Save",
