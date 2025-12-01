@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -21,6 +21,11 @@ export default function ArchivePage() {
   const { create } = useArchiveMutations(userId);
   const [selected, setSelected] = useState<LearningArchive | null>(null);
   const quiz = useQuiz(selected || undefined);
+
+  const filteredArchives = useMemo(
+    () => (type ? archives.filter((a) => a.type === type) : archives),
+    [archives, type]
+  );
 
   const handleAdd = async () => {
     if (!title.trim()) {
@@ -96,10 +101,10 @@ export default function ArchivePage() {
             <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {(type ? archives : archives).length === 0 && (
+            {filteredArchives.length === 0 && (
               <p className="text-muted-foreground">{t("empty")}</p>
             )}
-            {(type ? archives : archives).map((item) => (
+            {filteredArchives.map((item) => (
               <div
                 key={item.id}
                 className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"

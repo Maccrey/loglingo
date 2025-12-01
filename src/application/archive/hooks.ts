@@ -10,6 +10,8 @@ export function useArchiveList(userId: string, type?: string) {
     queryFn: () => getArchives(userId, type),
     enabled: Boolean(userId),
     staleTime: 60_000,
+    placeholderData: (prev) => prev,
+    keepPreviousData: true,
   });
 }
 
