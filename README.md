@@ -38,3 +38,9 @@ npm run test
 npm run test:e2e
 npm run lhci:collect
 ```
+
+## Firebase 보안 규칙
+
+- Firestore: `firebase/firestore.rules` (유저 소유 데이터만 읽기/쓰기 허용)
+- Storage: `firebase/storage.rules` (본인 UID 경로에만 이미지 업로드 허용)
+- 배포 시 `firebase deploy --only firestore:rules,storage:rules` 로 반영하세요.
