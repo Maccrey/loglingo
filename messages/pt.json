@@ -66,7 +66,10 @@
     "validation_too_long": "Content is too long (max 5000 chars).",
     "validation_image": "Please select an image file.",
     "save": "Save entry",
-    "update": "Save changes"
+    "update": "Save changes",
+    "ai_checking": "AI is thinking...",
+    "ai_error": "AI request failed",
+    "ai_applied": "Corrected text applied"
   },
   "archive": {
     "title": "Arquivo de aprendizado",
@@ -81,5 +84,13 @@
     "theme": "Tema",
     "dark": "Escuro",
     "light": "Claro"
+  },
+  "ai": {
+    "result_title": "AI Suggestions",
+    "issues": "Issues detected",
+    "no_issues": "No major issues found.",
+    "apply": "Apply correction",
+    "applying": "Applying...",
+    "root_meaning": "Root meaning guide"
   }
 }

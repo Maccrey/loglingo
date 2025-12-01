@@ -2,6 +2,7 @@ interface GrokCompletionRequest {
   messages: { role: "system" | "user" | "assistant"; content: string }[];
   model?: string;
   temperature?: number;
+  signal?: AbortSignal;
 }
 
 interface GrokCompletionResponse {
@@ -29,6 +30,7 @@ export class GrokClient {
           temperature: request.temperature || 0.7,
           messages: request.messages,
         }),
+        signal: request.signal,
       });
 
       if (!response.ok) {

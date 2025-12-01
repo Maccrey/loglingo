@@ -19,9 +19,11 @@ import enMessages from "../../../messages/en.json";
 
 vi.mock("next-intl", () => ({
   useTranslations: (namespace?: string) => {
-    const dict = (namespace ? (enMessages as any)[namespace] : enMessages) || {};
-    return (key: string) =>
-      key.startsWith("validation_") ? key : dict[key] ?? key;
+    const source = namespace
+      ? (enMessages as Record<string, unknown>)[namespace] ?? {}
+      : enMessages;
+    const dict = source as Record<string, string>;
+    return (key: string) => (key.startsWith("validation_") ? key : dict[key] ?? key);
   },
 }));
 

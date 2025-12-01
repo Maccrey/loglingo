@@ -21,6 +21,10 @@ import { Image as ImageIcon, Loader2, Sparkles, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import NextImage from "next/image";
+import { AiFeedback } from "../ai/AiFeedback";
+import { requestAiCorrection } from "@/application/ai/correction-service";
+import { trackEvent } from "@/lib/analytics";
+import { CorrectionResult } from "@/domain/ai-correction";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -51,6 +55,8 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const [uploadProgress, setUploadProgress] = useState(0);
   const [errors, setErrors] = useState<string[]>([]);
   const [deleting, setDeleting] = useState(false);
+  const [aiResult, setAiResult] = useState<CorrectionResult | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
     if (initial) {
@@ -126,6 +132,32 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     } finally {
       setDeleting(false);
     }
+  };
+
+  const handleAiCheck = async () => {
+    if (!content.trim()) {
+      toast.error(t("validation_empty_content"));
+      return;
+    }
+    setAiLoading(true);
+    setAiResult(null);
+    trackEvent("ai_correct_clicked", { mode: "full" });
+    try {
+      const result = await requestAiCorrection({ content, mode: "full" });
+      setAiResult(result);
+      trackEvent("ai_correct_success");
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "unknown";
+      trackEvent("ai_correct_failure", { message });
+      toast.error(t("ai_error"));
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
+  const applyAiResult = (text: string) => {
+    setContent(text);
+    toast.success(t("ai_applied"));
   };
 
   return (
@@ -262,11 +294,15 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
             <Button
               type="button"
               variant="outline"
-              disabled
-              title="AI correction coming soon"
+              onClick={handleAiCheck}
+              disabled={aiLoading}
             >
-              <Sparkles className="mr-2 h-4 w-4" />
-              {t("ai_check")}
+              {aiLoading ? (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <Sparkles className="mr-2 h-4 w-4" />
+              )}
+              {aiLoading ? t("ai_checking") : t("ai_check")}
             </Button>
           </div>
 
@@ -293,6 +329,9 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
           </div>
         </CardFooter>
       </Card>
+      {aiResult && (
+        <AiFeedback result={aiResult} onApply={applyAiResult} applying={isSubmitting} />
+      )}
     </form>
   );
 }
