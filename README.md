@@ -45,6 +45,10 @@ npm run lhci:collect
 - Storage: `firebase/storage.rules` (본인 UID 경로에만 이미지 업로드 허용)
 - 배포 시 `firebase deploy --only firestore:rules,storage:rules` 로 반영하세요.
 
+HTTPS
+
+- 프로덕션에서는 미들웨어가 `x-forwarded-proto: http` 요청을 HTTPS로 301 리다이렉트합니다.
+
 샘플 규칙
 
 ```firestore

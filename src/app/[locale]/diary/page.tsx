@@ -17,6 +17,7 @@ import { getCurrentUserId } from "@/lib/current-user";
 import { Diary } from "@/domain/diary";
 import { toast } from "sonner";
 import NextImage from "next/image";
+import { formatDate } from "@/lib/intl-format";
 
 const MONTHS = [
   "Jan",

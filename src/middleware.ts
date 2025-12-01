@@ -1,7 +1,22 @@
 import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server';
 import { routing } from './i18n/routing';
 
-export default createMiddleware(routing);
+const intlMiddleware = createMiddleware(routing);
+
+export default function middleware(request: Request) {
+  // Enforce HTTPS in production environments (no-op locally)
+  if (
+    process.env.NODE_ENV === "production" &&
+    request.headers.get("x-forwarded-proto") === "http"
+  ) {
+    const url = new URL(request.url);
+    url.protocol = "https:";
+    return NextResponse.redirect(url.toString(), 301);
+  }
+
+  return intlMiddleware(request);
+}
 
 export const config = {
   // Match only internationalized pathnames

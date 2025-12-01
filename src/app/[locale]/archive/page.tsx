@@ -10,6 +10,7 @@ import { getCurrentUserId } from "@/lib/current-user";
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
+import { formatDate } from "@/lib/intl-format";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
@@ -119,6 +120,9 @@ export default function ArchivePage() {
                   <span className="text-xs text-muted-foreground uppercase">{item.type}</span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
+                <p className="text-[11px] text-muted-foreground mt-1">
+                  {formatDate(item.createdAt, "en-US")}
+                </p>
                 {item.examples.length > 0 && (
                   <p className="text-xs text-primary mt-1">{item.examples[0]}</p>
                 )}
