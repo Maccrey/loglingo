@@ -4,12 +4,13 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Navigation } from "@/components/layout/Navigation";
 import { Providers } from "../providers";
+import { ReactNode } from 'react';
 
 export default async function LocaleLayout({
   children,
   params
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: { locale: string };
 }) {
   const { locale } = params;

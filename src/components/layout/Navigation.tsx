@@ -2,13 +2,15 @@
 
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Home, BookOpen, PenTool, Settings, GraduationCap } from "lucide-react";
+import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/application/auth/AuthProvider";
 
 export function Navigation() {
   const pathname = usePathname();
   const t = useTranslations('nav');
+  const { user, signInWithGoogle, signOutUser, loading } = useAuth();
 
   const navItems = [
     { href: "/", label: t('home'), icon: Home },
@@ -44,6 +46,33 @@ export function Navigation() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="hidden md:flex items-center gap-3 text-sm text-muted-foreground">
+          {user ? (
+            <>
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                <span className="max-w-[180px] truncate">{user.email || user.displayName || "User"}</span>
+              </div>
+              <button
+                onClick={() => signOutUser()}
+                className="inline-flex items-center rounded-lg border border-white/10 px-3 py-1.5 hover:border-primary/50 transition"
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                {t('logout') ?? "Logout"}
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => signInWithGoogle()}
+              className="inline-flex items-center rounded-lg border border-primary/50 px-3 py-1.5 text-primary-foreground bg-primary/80 hover:bg-primary transition disabled:opacity-60"
+              disabled={loading}
+            >
+              <LogIn className="mr-2 h-4 w-4" />
+              {loading ? t('loading') : t('login') ?? "Login"}
+            </button>
+          )}
         </div>
       </div>
     </nav>

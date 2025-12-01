@@ -11,7 +11,9 @@
     "diary": "Diary",
     "write": "Write",
     "archive": "Learn",
-    "settings": "Settings"
+    "settings": "Settings",
+    "login": "Login",
+    "logout": "Logout"
   },
   "home": {
     "title": "Master Languages with AI Diary",
