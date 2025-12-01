@@ -44,3 +44,54 @@ npm run lhci:collect
 - Firestore: `firebase/firestore.rules` (유저 소유 데이터만 읽기/쓰기 허용)
 - Storage: `firebase/storage.rules` (본인 UID 경로에만 이미지 업로드 허용)
 - 배포 시 `firebase deploy --only firestore:rules,storage:rules` 로 반영하세요.
+
+샘플 규칙
+
+```firestore
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /diaries/{docId} {
+      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+    }
+
+    match /learning_archive/{docId} {
+      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+    }
+
+    match /ai_corrections/{docId} {
+      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+    }
+  }
+}
+```
+
+```storage
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /diaryImages/{userId}/{allPaths=**} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}
+```
