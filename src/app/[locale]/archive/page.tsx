@@ -1,30 +1,150 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
-// import { Tabs } from "@/components/ui/Tabs"; // Need to implement Tabs or use placeholder
+"use client";
+
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { useTranslations } from "next-intl";
+import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
+import { getCurrentUserId } from "@/lib/current-user";
+import { LearningArchive } from "@/domain/archive";
+import { toast } from "sonner";
 
 export default function ArchivePage() {
-  const t = useTranslations('archive');
+  const t = useTranslations("archive");
+  const userId = getCurrentUserId();
+  const [type, setType] = useState<string | undefined>(undefined);
+  const [title, setTitle] = useState("");
+  const [root, setRoot] = useState("");
+  const [example, setExample] = useState("");
+  const { data: archives = [] } = useArchiveList(userId, type);
+  const { create } = useArchiveMutations(userId);
+  const [selected, setSelected] = useState<LearningArchive | null>(null);
+  const quiz = useQuiz(selected || undefined);
+
+  const handleAdd = async () => {
+    if (!title.trim()) {
+      toast.error(t("title_required"));
+      return;
+    }
+    try {
+      await create.mutateAsync({
+        userId,
+        type: (type as "grammar" | "word" | undefined) || "grammar",
+        title: title.trim(),
+        rootMeaning: root.trim(),
+        examples: example ? [example] : [],
+      });
+      toast.success(t("saved"));
+      setTitle("");
+      setRoot("");
+      setExample("");
+    } catch {
+      toast.error(t("save_error"));
+    }
+  };
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-foreground">{t('title')}</h1>
-      
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
+        </div>
+        <div className="flex gap-2">
+          <Button variant={type === undefined ? "default" : "outline"} onClick={() => setType(undefined)}>
+            {t("all")}
+          </Button>
+          <Button variant={type === "grammar" ? "default" : "outline"} onClick={() => setType("grammar")}>
+            {t("grammar")}
+          </Button>
+          <Button variant={type === "word" ? "default" : "outline"} onClick={() => setType("word")}>
+            {t("vocabulary")}
+          </Button>
+        </div>
+      </div>
+
+      <Card className="glass-card">
+        <CardHeader>
+          <CardTitle>{t("add_title")}</CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-3 md:grid-cols-4">
+          <Input
+            placeholder={t("title_placeholder")}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <Input
+            placeholder={t("root_placeholder")}
+            value={root}
+            onChange={(e) => setRoot(e.target.value)}
+          />
+          <Input
+            placeholder={t("example_placeholder")}
+            value={example}
+            onChange={(e) => setExample(e.target.value)}
+          />
+          <Button onClick={handleAdd} disabled={create.isPending}>
+            {create.isPending ? t("saving") : t("add_button")}
+          </Button>
+        </CardContent>
+      </Card>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        <Card className="md:col-span-2">
           <CardHeader>
-            <CardTitle>{t('grammar')}</CardTitle>
+            <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">{t('empty')}</p>
+          <CardContent className="space-y-3">
+            {(type ? archives : archives).length === 0 && (
+              <p className="text-muted-foreground">{t("empty")}</p>
+            )}
+            {(type ? archives : archives).map((item) => (
+              <div
+                key={item.id}
+                className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"
+                onClick={() => setSelected(item)}
+              >
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  <span className="text-xs text-muted-foreground uppercase">{item.type}</span>
+                </div>
+                <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
+                {item.examples.length > 0 && (
+                  <p className="text-xs text-primary mt-1">{item.examples[0]}</p>
+                )}
+              </div>
+            ))}
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>{t('vocabulary')}</CardTitle>
+            <CardTitle>{t("quiz_title")}</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">{t('empty')}</p>
+          <CardContent className="space-y-3">
+            {!selected && <p className="text-muted-foreground text-sm">{t("quiz_empty")}</p>}
+            {selected && quiz && (
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-foreground">{quiz.question}</p>
+                {quiz.options.map((opt, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      const correct = idx === quiz.answer;
+                      toast[correct ? "success" : "error"](
+                        correct ? t("quiz_correct") : t("quiz_wrong"),
+                        { description: quiz.explanation }
+                      );
+                    }}
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-left text-sm hover:border-primary/40"
+                  >
+                    {opt}
+                  </button>
+                ))}
+                <p className="text-xs text-muted-foreground">{quiz.explanation}</p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

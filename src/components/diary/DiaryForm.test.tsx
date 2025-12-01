@@ -31,6 +31,22 @@ vi.mock("@/i18n/routing", () => ({
   useRouter: () => ({ push: vi.fn() }),
 }));
 
+vi.mock("@/application/archive/hooks", () => ({
+  useArchiveMutations: () => ({
+    create: { mutateAsync: vi.fn().mockResolvedValue(undefined), isPending: false },
+  }),
+}));
+
+vi.mock("@/lib/firebase", () => ({
+  auth: { currentUser: { uid: "test-user" } },
+  db: {},
+  storage: {},
+}));
+
+vi.mock("@/lib/current-user", () => ({
+  getCurrentUserId: () => "test-user",
+}));
+
 describe("DiaryForm", () => {
   it("submits date and content", async () => {
     const handleSubmit = vi.fn().mockResolvedValue(undefined);

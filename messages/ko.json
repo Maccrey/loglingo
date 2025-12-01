@@ -69,13 +69,29 @@
     "update": "Save changes",
     "ai_checking": "AI is thinking...",
     "ai_error": "AI request failed",
-    "ai_applied": "Corrected text applied"
+    "ai_applied": "Corrected text applied",
+    "ai_saved_archive": "Saved to learning archive"
   },
   "archive": {
     "title": "학습 아카이브",
     "grammar": "문법 패턴",
     "vocabulary": "어휘",
-    "empty": "아카이브에 항목이 없습니다."
+    "empty": "아카이브에 항목이 없습니다.",
+    "subtitle": "Save grammar/words and practice with quick quizzes.",
+    "add_title": "Add to archive",
+    "title_placeholder": "Pattern or word",
+    "root_placeholder": "Root meaning / note",
+    "example_placeholder": "Example sentence",
+    "add_button": "Save",
+    "saving": "Saving...",
+    "list_title": "Saved items",
+    "quiz_title": "Quick quiz",
+    "quiz_empty": "Select an item to practice",
+    "quiz_correct": "Correct!",
+    "quiz_wrong": "Try again",
+    "all": "All",
+    "title_required": "Title is required",
+    "save_error": "Failed to save archive"
   },
   "settings": {
     "title": "설정",
@@ -91,6 +107,8 @@
     "no_issues": "No major issues found.",
     "apply": "Apply correction",
     "applying": "Applying...",
-    "root_meaning": "Root meaning guide"
+    "root_meaning": "Root meaning guide",
+    "save_archive": "Save to archive",
+    "saving": "Saving..."
   }
 }

@@ -1,13 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { CorrectionResult, CorrectionIssue } from "@/domain/ai-correction";
 import { cn } from "@/lib/utils";
-import { Info, Sparkles, Wand2 } from "lucide-react";
+import { Info, Sparkles, Wand2, Archive } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface Props {
   result: CorrectionResult;
   onApply?: (text: string) => void;
   applying?: boolean;
+  onSaveArchive?: () => void;
+  savingArchive?: boolean;
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
@@ -25,7 +27,7 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
   );
 }
 
-export function AiFeedback({ result, onApply, applying }: Props) {
+export function AiFeedback({ result, onApply, applying, onSaveArchive, savingArchive }: Props) {
   const t = useTranslations("ai");
 
   return (
@@ -35,19 +37,34 @@ export function AiFeedback({ result, onApply, applying }: Props) {
           <Sparkles className="h-5 w-5 text-primary" />
           <CardTitle>{t("result_title")}</CardTitle>
         </div>
-        {onApply && (
-          <button
-            className={cn(
-              "inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-1.5 text-xs font-medium text-primary-foreground shadow transition hover:opacity-90",
-              applying && "opacity-70"
-            )}
-            onClick={() => onApply(result.corrected)}
-            disabled={applying}
-          >
-            <Wand2 className="mr-2 h-4 w-4" />
-            {applying ? t("applying") : t("apply")}
-          </button>
-        )}
+        <div className="flex gap-2">
+          {onSaveArchive && (
+            <button
+              className={cn(
+                "inline-flex items-center rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-foreground transition hover:bg-white/20",
+                savingArchive && "opacity-70"
+              )}
+              onClick={onSaveArchive}
+              disabled={savingArchive}
+            >
+              <Archive className="mr-2 h-4 w-4" />
+              {savingArchive ? t("saving") : t("save_archive")}
+            </button>
+          )}
+          {onApply && (
+            <button
+              className={cn(
+                "inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-1.5 text-xs font-medium text-primary-foreground shadow transition hover:opacity-90",
+                applying && "opacity-70"
+              )}
+              onClick={() => onApply(result.corrected)}
+              disabled={applying}
+            >
+              <Wand2 className="mr-2 h-4 w-4" />
+              {applying ? t("applying") : t("apply")}
+            </button>
+          )}
+        </div>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="rounded-lg border border-primary/30 bg-black/20 p-3 text-sm leading-relaxed">

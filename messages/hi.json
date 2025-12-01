@@ -69,13 +69,29 @@
     "update": "Save changes",
     "ai_checking": "AI is thinking...",
     "ai_error": "AI request failed",
-    "ai_applied": "Corrected text applied"
+    "ai_applied": "Corrected text applied",
+    "ai_saved_archive": "Saved to learning archive"
   },
   "archive": {
     "title": "शिक्षण संग्रह",
     "grammar": "व्याकरण पैटर्न",
     "vocabulary": "शब्दावली",
-    "empty": "संग्रह में अभी तक कोई आइटम नहीं है।"
+    "empty": "संग्रह में अभी तक कोई आइटम नहीं है।",
+    "subtitle": "Save grammar/words and practice with quick quizzes.",
+    "add_title": "Add to archive",
+    "title_placeholder": "Pattern or word",
+    "root_placeholder": "Root meaning / note",
+    "example_placeholder": "Example sentence",
+    "add_button": "Save",
+    "saving": "Saving...",
+    "list_title": "Saved items",
+    "quiz_title": "Quick quiz",
+    "quiz_empty": "Select an item to practice",
+    "quiz_correct": "Correct!",
+    "quiz_wrong": "Try again",
+    "all": "All",
+    "title_required": "Title is required",
+    "save_error": "Failed to save archive"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -91,6 +107,8 @@
     "no_issues": "No major issues found.",
     "apply": "Apply correction",
     "applying": "Applying...",
-    "root_meaning": "Root meaning guide"
+    "root_meaning": "Root meaning guide",
+    "save_archive": "Save to archive",
+    "saving": "Saving..."
   }
 }

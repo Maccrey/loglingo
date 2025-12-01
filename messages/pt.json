@@ -69,13 +69,29 @@
     "update": "Save changes",
     "ai_checking": "AI is thinking...",
     "ai_error": "AI request failed",
-    "ai_applied": "Corrected text applied"
+    "ai_applied": "Corrected text applied",
+    "ai_saved_archive": "Saved to learning archive"
   },
   "archive": {
     "title": "Arquivo de aprendizado",
     "grammar": "Padrões gramaticais",
     "vocabulary": "Vocabulário",
-    "empty": "Ainda não há itens no arquivo."
+    "empty": "Ainda não há itens no arquivo.",
+    "subtitle": "Save grammar/words and practice with quick quizzes.",
+    "add_title": "Add to archive",
+    "title_placeholder": "Pattern or word",
+    "root_placeholder": "Root meaning / note",
+    "example_placeholder": "Example sentence",
+    "add_button": "Save",
+    "saving": "Saving...",
+    "list_title": "Saved items",
+    "quiz_title": "Quick quiz",
+    "quiz_empty": "Select an item to practice",
+    "quiz_correct": "Correct!",
+    "quiz_wrong": "Try again",
+    "all": "All",
+    "title_required": "Title is required",
+    "save_error": "Failed to save archive"
   },
   "settings": {
     "title": "Configurações",
@@ -91,6 +107,8 @@
     "no_issues": "No major issues found.",
     "apply": "Apply correction",
     "applying": "Applying...",
-    "root_meaning": "Root meaning guide"
+    "root_meaning": "Root meaning guide",
+    "save_archive": "Save to archive",
+    "saving": "Saving..."
   }
 }

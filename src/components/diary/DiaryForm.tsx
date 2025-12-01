@@ -25,6 +25,8 @@ import { AiFeedback } from "../ai/AiFeedback";
 import { requestAiCorrection } from "@/application/ai/correction-service";
 import { trackEvent } from "@/lib/analytics";
 import { CorrectionResult } from "@/domain/ai-correction";
+import { useArchiveMutations } from "@/application/archive/hooks";
+import { getCurrentUserId } from "@/lib/current-user";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -41,6 +43,8 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const t = useTranslations("write");
   const tDiary = useTranslations("diary");
   const router = useRouter();
+  const userId = getCurrentUserId();
+  const { create: createArchive } = useArchiveMutations(userId);
   const validationKeyMap: Record<string, string> = {
     "invalid-date": "validation_invalid_date",
     "empty-content": "validation_empty_content",
@@ -57,6 +61,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const [deleting, setDeleting] = useState(false);
   const [aiResult, setAiResult] = useState<CorrectionResult | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
+  const [savingArchive, setSavingArchive] = useState(false);
 
   useEffect(() => {
     if (initial) {
@@ -158,6 +163,26 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const applyAiResult = (text: string) => {
     setContent(text);
     toast.success(t("ai_applied"));
+  };
+
+  const handleSaveArchive = async () => {
+    if (!aiResult) return;
+    try {
+      setSavingArchive(true);
+      await createArchive.mutateAsync({
+        userId,
+        type: "grammar",
+        title: aiResult.corrected.slice(0, 80),
+        rootMeaning: aiResult.rootMeaningGuide || "AI suggestion",
+        examples: aiResult.issues?.map((i) => i.suggestion).slice(0, 2),
+      });
+      toast.success(t("ai_saved_archive"));
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "error";
+      toast.error(`${t("upload_failed")} (${message})`);
+    } finally {
+      setSavingArchive(false);
+    }
   };
 
   return (
@@ -330,7 +355,13 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
         </CardFooter>
       </Card>
       {aiResult && (
-        <AiFeedback result={aiResult} onApply={applyAiResult} applying={isSubmitting} />
+        <AiFeedback
+          result={aiResult}
+          onApply={applyAiResult}
+          applying={isSubmitting}
+          onSaveArchive={handleSaveArchive}
+          savingArchive={savingArchive}
+        />
       )}
     </form>
   );
