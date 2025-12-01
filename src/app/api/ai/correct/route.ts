@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { GrokClient } from "@/infrastructure/api/grok";
 import { CorrectionMode, CorrectionResult } from "@/domain/ai-correction";
 
-const MODEL = "grok-1";
+const MODEL = process.env.GROK_MODEL || "grok-4-1-fast-non-reasoning";
 const TIMEOUT_MS = 3000;
 
 function buildPrompt(content: string, mode: CorrectionMode) {
