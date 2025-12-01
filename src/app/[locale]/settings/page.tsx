@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/routing";
 import { ChangeEvent, useTransition } from "react";
+import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 
 export default function SettingsPage() {
   const t = useTranslations('settings');
@@ -11,6 +12,7 @@ export default function SettingsPage() {
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
+  const { learningLanguage, setLearningLanguage } = useLearningLanguage();
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -72,7 +74,8 @@ export default function SettingsPage() {
               <select
                 id="learning-language"
                 className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                defaultValue="en"
+                value={learningLanguage}
+                onChange={(e) => setLearningLanguage(e.target.value)}
               >
                 {languages.map((lang) => (
                   <option key={lang.code} value={lang.code}>
