@@ -1,7 +1,9 @@
 export type AnalyticsEvent =
   | "ai_correct_clicked"
   | "ai_correct_success"
-  | "ai_correct_failure";
+  | "ai_correct_failure"
+  | "quiz_started"
+  | "quiz_answered";
 
 export function trackEvent(
   event: AnalyticsEvent,

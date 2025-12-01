@@ -9,6 +9,7 @@ import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/arch
 import { getCurrentUserId } from "@/lib/current-user";
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
@@ -108,7 +109,10 @@ export default function ArchivePage() {
               <div
                 key={item.id}
                 className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"
-                onClick={() => setSelected(item)}
+                onClick={() => {
+                  setSelected(item);
+                  trackEvent("quiz_started", { archiveId: item.id, type: item.type });
+                }}
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>
@@ -137,6 +141,11 @@ export default function ArchivePage() {
                     key={idx}
                     onClick={() => {
                       const correct = idx === quiz.answer;
+                      trackEvent("quiz_answered", {
+                        archiveId: quiz.archiveId,
+                        selected: idx,
+                        correct,
+                      });
                       toast[correct ? "success" : "error"](
                         correct ? t("quiz_correct") : t("quiz_wrong"),
                         { description: quiz.explanation }
