@@ -9,7 +9,13 @@ export function trackEvent(
   event: AnalyticsEvent,
   payload?: Record<string, unknown>
 ) {
-  // Placeholder: replace with real analytics provider
+  // Fire-and-forget to Firebase Analytics if available
+  if (typeof window !== "undefined") {
+    import("./firebase-analytics")
+      .then((mod) => mod.logAnalyticsEvent(event, payload))
+      .catch(() => {});
+  }
+
   if (process.env.NODE_ENV !== "production") {
     console.debug("[analytics]", event, payload);
   }
