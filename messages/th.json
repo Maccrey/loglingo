@@ -11,7 +11,10 @@
     "diary": "ไดอารี่",
     "write": "เขียน",
     "archive": "เรียนรู้",
-    "settings": "ตั้งค่า"
+    "settings": "ตั้งค่า",
+    "loading": "Loading...",
+    "login": "เข้าสู่ระบบ",
+    "logout": "ออกจากระบบ"
   },
   "home": {
     "title": "เก่งภาษาด้วย AI ไดอารี่",

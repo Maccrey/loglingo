@@ -11,7 +11,10 @@
     "diary": "डायरी",
     "write": "लिखें",
     "archive": "सीखें",
-    "settings": "सेटिंग्स"
+    "settings": "सेटिंग्स",
+    "loading": "Loading...",
+    "login": "लॉग इन",
+    "logout": "लॉग आउट"
   },
   "home": {
     "title": "AI डायरी के साथ भाषाओं में महारत हासिल करें",

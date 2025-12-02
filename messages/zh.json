@@ -11,7 +11,10 @@
     "diary": "日记",
     "write": "写作",
     "archive": "学习",
-    "settings": "设置"
+    "settings": "设置",
+    "loading": "Loading...",
+    "login": "登录",
+    "logout": "退出登录"
   },
   "home": {
     "title": "用 AI 日记掌握语言",

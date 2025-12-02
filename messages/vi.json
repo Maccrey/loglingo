@@ -11,7 +11,10 @@
     "diary": "Nhật ký",
     "write": "Viết",
     "archive": "Học tập",
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "loading": "Loading...",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất"
   },
   "home": {
     "title": "Thành thạo ngôn ngữ với Nhật ký AI",

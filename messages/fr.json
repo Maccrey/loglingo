@@ -11,7 +11,10 @@
     "diary": "Journal",
     "write": "Écrire",
     "archive": "Apprendre",
-    "settings": "Paramètres"
+    "settings": "Paramètres",
+    "loading": "Loading...",
+    "login": "Connexion",
+    "logout": "Déconnexion"
   },
   "home": {
     "title": "Maîtrisez les langues avec le Journal IA",

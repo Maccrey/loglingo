@@ -13,7 +13,8 @@
     "archive": "Learn",
     "settings": "Settings",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "loading": "Loading..."
   },
   "home": {
     "title": "Master Languages with AI Diary",

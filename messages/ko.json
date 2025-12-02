@@ -11,7 +11,10 @@
     "diary": "일기",
     "write": "쓰기",
     "archive": "학습",
-    "settings": "설정"
+    "settings": "설정",
+    "loading": "Loading...",
+    "login": "로그인",
+    "logout": "로그아웃"
   },
   "home": {
     "title": "AI 일기로 언어 마스터하기",

@@ -11,7 +11,10 @@
     "diary": "Diario",
     "write": "Escribir",
     "archive": "Aprender",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "loading": "Loading...",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión"
   },
   "home": {
     "title": "Domina idiomas con Diario IA",

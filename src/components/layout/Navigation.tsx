@@ -70,7 +70,7 @@ export function Navigation() {
               disabled={loading}
             >
               <LogIn className="mr-2 h-4 w-4" />
-              {loading ? t('loading') : t('login') ?? "Login"}
+              {loading ? t('loading', { defaultMessage: 'Loading...' }) : t('login')}
             </button>
           )}
         </div>

@@ -11,7 +11,10 @@
     "diary": "Tagebuch",
     "write": "Schreiben",
     "archive": "Lernen",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "loading": "Loading...",
+    "login": "Anmelden",
+    "logout": "Abmelden"
   },
   "home": {
     "title": "Sprachen meistern mit KI-Tagebuch",

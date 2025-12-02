@@ -11,7 +11,10 @@
     "diary": "Buku Harian",
     "write": "Tulis",
     "archive": "Belajar",
-    "settings": "Pengaturan"
+    "settings": "Pengaturan",
+    "loading": "Loading...",
+    "login": "Masuk",
+    "logout": "Keluar"
   },
   "home": {
     "title": "Kuasai Bahasa dengan Buku Harian AI",

@@ -33,6 +33,7 @@ export default function SettingsPage() {
 
   const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });

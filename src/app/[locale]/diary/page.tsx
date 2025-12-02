@@ -34,15 +34,6 @@ const MONTHS = [
   "Dec",
 ];
 
-function formatDate(date: string, locale: string) {
-  const parsed = new Date(`${date}T00:00:00`);
-  return parsed.toLocaleDateString(locale, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
-
 export default function DiaryListPage() {
   const t = useTranslations("diary");
   const locale = useLocale();

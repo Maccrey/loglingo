@@ -11,7 +11,10 @@
     "diary": "Günlük",
     "write": "Yaz",
     "archive": "Öğren",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "loading": "Loading...",
+    "login": "Giriş yap",
+    "logout": "Çıkış yap"
   },
   "home": {
     "title": "AI Günlük ile Dilleri Öğrenin",
