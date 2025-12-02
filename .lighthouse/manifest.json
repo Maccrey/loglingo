@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:3000/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/maccrey/Development/Loglingo/.lighthouse/localhost--2025_12_02_06_25_14.report.html",
+    "jsonPath": "/Users/maccrey/Development/Loglingo/.lighthouse/localhost--2025_12_02_06_25_14.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.93,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]
