@@ -162,18 +162,109 @@ async function callGrok(
   }
 }
 
-function fallbackResult(content: string) {
+const fallbackMessages: Record<
+  string,
+  { correctedSuffix: string; sample: string; explanation: string; rootGuide: string }
+> = {
+  en: {
+    correctedSuffix: "(sample correction)",
+    sample: "Sample suggestion",
+    explanation: "This is a mock explanation. Provide real Grok API key for live data.",
+    rootGuide: "Root meaning guide will appear here when Grok API is configured.",
+  },
+  ko: {
+    correctedSuffix: "(샘플 교정)",
+    sample: "예시 제안",
+    explanation: "샘플 응답입니다. 실제 Grok API 키를 설정하면 실데이터가 반환됩니다.",
+    rootGuide: "Grok API가 설정되면 어근/문법 안내가 표시됩니다.",
+  },
+  ja: {
+    correctedSuffix: "（サンプル修正）",
+    sample: "サンプル提案",
+    explanation: "これはサンプルです。実際のデータを受け取るには Grok API キーを設定してください。",
+    rootGuide: "Grok API を設定すると語根/文法ガイドが表示されます。",
+  },
+  zh: {
+    correctedSuffix: "（示例校正）",
+    sample: "示例建议",
+    explanation: "这是示例响应。配置 Grok API 密钥后会返回真实数据。",
+    rootGuide: "配置 Grok API 后会显示词根/语法提示。",
+  },
+  es: {
+    correctedSuffix: "(corrección de muestra)",
+    sample: "Sugerencia de muestra",
+    explanation: "Esta es una respuesta de ejemplo. Configura la clave de Grok para datos reales.",
+    rootGuide: "La guía aparecerá cuando se configure Grok API.",
+  },
+  pt: {
+    correctedSuffix: "(correção de exemplo)",
+    sample: "Sugestão de exemplo",
+    explanation: "Esta é uma resposta de exemplo. Configure a chave Grok para dados reais.",
+    rootGuide: "O guia aparecerá quando o Grok API estiver configurado.",
+  },
+  fr: {
+    correctedSuffix: "(correction d'exemple)",
+    sample: "Suggestion d'exemple",
+    explanation: "Réponse de démonstration. Configurez la clé Grok pour obtenir des données réelles.",
+    rootGuide: "Le guide apparaîtra quand l'API Grok sera configurée.",
+  },
+  de: {
+    correctedSuffix: "(Beispielkorrektur)",
+    sample: "Beispielvorschlag",
+    explanation: "Dies ist eine Beispielantwort. Konfigurieren Sie den Grok-API-Schlüssel für echte Daten.",
+    rootGuide: "Die Anleitung erscheint, sobald die Grok-API eingerichtet ist.",
+  },
+  tr: {
+    correctedSuffix: "(örnek düzeltme)",
+    sample: "Örnek öneri",
+    explanation: "Bu bir örnek yanıttır. Gerçek veri için Grok API anahtarını ayarlayın.",
+    rootGuide: "Grok API yapılandırıldığında kök/gramer rehberi görünecek.",
+  },
+  ar: {
+    correctedSuffix: "(تصحيح تجريبي)",
+    sample: "اقتراح تجريبي",
+    explanation: "هذه استجابة تجريبية. أضف مفتاح Grok للحصول على بيانات حقيقية.",
+    rootGuide: "سيظهر دليل الجذر/القواعد عند تهيئة Grok API.",
+  },
+  hi: {
+    correctedSuffix: "(नमूना सुधार)",
+    sample: "उदाहरण सुझाव",
+    explanation: "यह एक नमूना उत्तर है। वास्तविक डेटा के लिए Grok API कुंजी सेट करें।",
+    rootGuide: "Grok API सेट होने पर मूल अर्थ/व्याकरण गाइड दिखेगा।",
+  },
+  id: {
+    correctedSuffix: "(contoh koreksi)",
+    sample: "Saran contoh",
+    explanation: "Ini respons contoh. Atur kunci Grok untuk data asli.",
+    rootGuide: "Panduan akar/tata bahasa akan muncul setelah Grok API dikonfigurasi.",
+  },
+  th: {
+    correctedSuffix: "(ตัวอย่างการแก้ไข)",
+    sample: "ข้อเสนอแนะตัวอย่าง",
+    explanation: "นี่คือคำตอบตัวอย่าง ตั้งค่า Grok API key เพื่อรับข้อมูลจริง",
+    rootGuide: "คู่มือรากศัพท์/ไวยากรณ์จะแสดงเมื่อกำหนดค่า Grok API แล้ว",
+  },
+  vi: {
+    correctedSuffix: "(chỉnh sửa mẫu)",
+    sample: "Gợi ý mẫu",
+    explanation: "Đây là phản hồi mẫu. Cấu hình khóa Grok để nhận dữ liệu thật.",
+    rootGuide: "Hướng dẫn gốc/ngữ pháp sẽ hiển thị khi cấu hình Grok API.",
+  },
+};
+
+function fallbackResult(content: string, locale: string) {
+  const msg = fallbackMessages[locale] || fallbackMessages.en;
   return {
-    corrected: `${content.trim()} (sample correction)`,
+    corrected: `${content.trim()} ${msg.correctedSuffix}`,
     issues: [
       {
         type: "grammar",
         original: "sample",
-        suggestion: "Sample suggestion",
-        explanation: "This is a mock explanation. Provide real Grok API key for live data.",
+        suggestion: msg.sample,
+        explanation: msg.explanation,
       },
     ],
-    rootMeaningGuide: "Root meaning guide will appear here when Grok API is configured.",
+    rootMeaningGuide: msg.rootGuide,
     fallback: true,
   };
 }
@@ -196,11 +287,11 @@ export async function POST(req: Request) {
       if (!aiResponse) {
         console.warn("Grok returned null/failed to parse. Falling back.", { model: getModel() });
       }
-      const result = aiResponse || fallbackResult(content);
+      const result = aiResponse || fallbackResult(content, locale);
       return NextResponse.json(result, { status: aiResponse ? 200 : 202 });
     } catch (error) {
       console.error("AI correction failed, returning fallback:", error);
-      return NextResponse.json(fallbackResult(content), { status: 202 });
+      return NextResponse.json(fallbackResult(content, locale), { status: 202 });
     }
   } catch (error: unknown) {
     const status =
