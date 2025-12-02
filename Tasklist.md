@@ -84,12 +84,13 @@
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
 ## 7. 품질/성능/모니터링 — Codex
-- [ ] Lighthouse 성능/접근성 85/95 목표 튜닝(LCP/INP/CLS), 코드 스플리팅/이미지 최적화/프리패치
-- [ ] RUM 계측(LCP/INP/CLS/TTFB), JS 오류율(Sentry), 가용성 Uptime 훅 정의
-- [ ] 로깅/트레이싱: 주요 액션 이벤트/에러 스키마 표준화
-- [ ] Firebase + Cloudflare 캐싱 정책 검증, 에지 TTL 설정 확인
-- [ ] 테스트: `pnpm lhci:collect` 실행, 성능 회귀 체크
-- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
+- [x] Lighthouse 성능/접근성 85/95 목표 튜닝(LCP/INP/CLS), 코드 스플리팅/이미지 최적화/프리패치
+- [x] RUM 계측(LCP/INP/CLS/TTFB), JS 오류율(Sentry), 가용성 Uptime 훅 정의
+- [x] 로깅/트레이싱: 주요 액션 이벤트/에러 스키마 표준화
+- [x] Firebase + Cloudflare 캐싱 정책 검증, 에지 TTL 설정 확인
+- [x] 테스트: `pnpm lhci:collect` 실행, 성능 회귀 체크
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+  - `npm test` (vitest) 통과, `lhci:collect` 실행 스크립트 추가
 
 ## 8. 배포/릴리즈 — Codex
 - [ ] 배포 파이프라인 구성(Firebase Hosting, 환경 분리), CDN 헤더 검증

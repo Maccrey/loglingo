@@ -25,6 +25,7 @@ vi.mock("next-intl", () => ({
     const dict = source as Record<string, string>;
     return (key: string) => (key.startsWith("validation_") ? key : dict[key] ?? key);
   },
+  useLocale: () => "en",
 }));
 
 vi.mock("@/i18n/routing", () => ({
@@ -34,6 +35,13 @@ vi.mock("@/i18n/routing", () => ({
 vi.mock("@/application/archive/hooks", () => ({
   useArchiveMutations: () => ({
     create: { mutateAsync: vi.fn().mockResolvedValue(undefined), isPending: false },
+  }),
+}));
+
+vi.mock("@/application/i18n/LearningLanguageProvider", () => ({
+  useLearningLanguage: () => ({
+    learningLanguage: "en",
+    setLearningLanguage: vi.fn(),
   }),
 }));
 

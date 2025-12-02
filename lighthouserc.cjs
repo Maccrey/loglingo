@@ -1,0 +1,16 @@
+module.exports = {
+  ci: {
+    collect: {
+      numberOfRuns: 1,
+      startServerCommand: "npm run start",
+      url: ["http://localhost:3000"],
+      settings: {
+        preset: "desktop",
+      },
+    },
+    upload: {
+      target: "filesystem",
+      outputDir: ".lighthouse",
+    },
+  },
+};

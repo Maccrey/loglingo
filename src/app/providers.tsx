@@ -5,12 +5,15 @@ import { queryClient } from "@/lib/query-client";
 import { Toaster } from "@/components/ui/Toast";
 import { AuthProvider } from "@/application/auth/AuthProvider";
 import { LearningLanguageProvider } from "@/application/i18n/LearningLanguageProvider";
+import { ObservabilityProvider } from "@/application/observability/ObservabilityProvider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <LearningLanguageProvider>{children}</LearningLanguageProvider>
+        <LearningLanguageProvider>
+          <ObservabilityProvider>{children}</ObservabilityProvider>
+        </LearningLanguageProvider>
       </AuthProvider>
       <Toaster />
     </QueryClientProvider>

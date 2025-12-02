@@ -10,7 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "lhci:collect": "echo 'No Lighthouse CI yet'"
+    "lhci:collect": "npm run build && npx @lhci/cli autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.11",

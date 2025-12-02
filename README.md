@@ -39,6 +39,14 @@ npm run test:e2e
 npm run lhci:collect
 ```
 
+## 품질/모니터링
+
+- **RUM 계측**: LCP/INP/CLS/TTFB를 클라이언트에서 수집하여 `/api/observability/rum`으로 전송합니다.
+- **JS 오류/Sentry 연동**: 전역 에러 및 Promise rejection을 `/api/observability/log`로 전달하며, `SENTRY_DSN`이 설정된 경우 Sentry로 포워딩합니다.
+- **업타임 하트비트**: 클라이언트가 `/api/uptime`을 주기적으로 호출하여 가용성 로그를 남깁니다.
+- **Lighthouse**: `npm run lhci:collect`로 빌드 후 LHCI를 실행해 성능/접근성 회귀를 확인합니다(`.lighthouse` 출력).
+- **캐싱 가이드**: 정적 자산(`/_next/static`)은 1년 immutable, 이미지 변환(`/_next/image`)은 1일 + S-W-R 30일로 캐시됩니다(Cloudflare/Firebase CDN 호환).
+
 ## Firebase 보안 규칙
 
 - Firestore: `firebase/firestore.rules` (유저 소유 데이터만 읽기/쓰기 허용)
