@@ -40,7 +40,8 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
   "rootMeaningGuide": "<short note of key roots/grammar patterns>"
 }
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
-Do not add Markdown, code fences, or commentary. Use UI language (${locale}) for explanations and suggestions.
+Do not add Markdown, code fences, or commentary.
+Use the UI language (${locale}) for ALL text fields (corrected, issues, explanations, rootMeaningGuide).
 User diary text:
 ${content}`;
 }
