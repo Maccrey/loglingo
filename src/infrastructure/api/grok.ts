@@ -3,6 +3,7 @@ interface GrokCompletionRequest {
   model?: string;
   temperature?: number;
   signal?: AbortSignal;
+  response_format?: Record<string, unknown>;
 }
 
 interface GrokCompletionResponse {
@@ -31,6 +32,7 @@ export class GrokClient {
           model: request.model || "grok-1", // Default model
           temperature: request.temperature || 0.7,
           messages: request.messages,
+          response_format: request.response_format,
         }),
         signal: request.signal,
       });

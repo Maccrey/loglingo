@@ -69,6 +69,36 @@ async function callGrok(content: string, mode: CorrectionMode, locale: string): 
       model: getModel(),
       temperature: 0.3,
       signal: controller.signal,
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "CorrectionResult",
+          schema: {
+            type: "object",
+            properties: {
+              corrected: { type: "string" },
+              issues: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    type: { type: "string", enum: ["grammar", "word", "style", "other"] },
+                    original: { type: "string" },
+                    suggestion: { type: "string" },
+                    explanation: { type: "string" }
+                  },
+                  required: ["type", "original", "suggestion", "explanation"],
+                  additionalProperties: false
+                }
+              },
+              rootMeaningGuide: { type: "string" }
+            },
+            required: ["corrected", "issues"],
+            additionalProperties: false
+          },
+          strict: true
+        }
+      }
     });
 
     const parsed = tryParseJsonResponse(response);
@@ -93,6 +123,7 @@ function fallbackResult(content: string) {
       },
     ],
     rootMeaningGuide: "Root meaning guide will appear here when Grok API is configured.",
+    fallback: true,
   };
 }
 
@@ -109,6 +140,9 @@ export async function POST(req: Request) {
 
     try {
       const aiResponse = await callGrok(content, mode, locale);
+      if (!aiResponse) {
+        console.warn("Grok returned null/failed to parse. Falling back.", { model: getModel() });
+      }
       const result = aiResponse || fallbackResult(content);
       return NextResponse.json(result, { status: aiResponse ? 200 : 202 });
     } catch (error) {

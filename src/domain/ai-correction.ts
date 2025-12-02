@@ -11,4 +11,5 @@ export interface CorrectionResult {
   corrected: string;
   issues: CorrectionIssue[];
   rootMeaningGuide?: string;
+  fallback?: boolean;
 }
