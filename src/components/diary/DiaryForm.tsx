@@ -27,6 +27,7 @@ import { trackEvent } from "@/lib/analytics";
 import { CorrectionResult } from "@/domain/ai-correction";
 import { useArchiveMutations } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
+import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -45,6 +46,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const locale = useLocale();
   const router = useRouter();
   const userId = getCurrentUserId();
+  const { learningLanguage } = useLearningLanguage();
   const { create: createArchive } = useArchiveMutations(userId);
   const validationKeyMap: Record<string, string> = {
     "invalid-date": "validation_invalid_date",
@@ -149,7 +151,12 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     setAiResult(null);
     trackEvent("ai_correct_clicked", { mode: "full" });
     try {
-      const result = await requestAiCorrection({ content, mode: "full", locale });
+      const result = await requestAiCorrection({
+        content,
+        mode: "full",
+        locale,
+        learningLanguage,
+      });
       setAiResult(result);
       trackEvent("ai_correct_success");
     } catch (error: unknown) {

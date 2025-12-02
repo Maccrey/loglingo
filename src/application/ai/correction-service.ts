@@ -4,7 +4,8 @@ export async function requestAiCorrection(params: {
   content: string;
   mode?: CorrectionMode;
   signal?: AbortSignal;
-  locale?: string;
+  locale?: string; // UI language
+  learningLanguage?: string; // target language for AI output
 }): Promise<CorrectionResult> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
@@ -12,6 +13,7 @@ export async function requestAiCorrection(params: {
     content: params.content,
     mode: params.mode || "full",
     locale: params.locale,
+    learningLanguage: params.learningLanguage,
   });
 
   try {
