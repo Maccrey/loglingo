@@ -105,13 +105,13 @@
     "light": "สว่าง"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "ข้อเสนอจาก AI",
+    "issues": "พบปัญหา",
+    "no_issues": "ไม่พบปัญหาสำคัญ",
+    "apply": "ใช้การแก้ไข",
+    "applying": "กำลังใช้...",
+    "root_meaning": "คำแนะนำรากศัพท์/ไวยากรณ์",
+    "save_archive": "บันทึกลงคลัง",
+    "saving": "กำลังบันทึก..."
   }
 }

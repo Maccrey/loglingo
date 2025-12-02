@@ -105,13 +105,13 @@
     "light": "Açık"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "Yapay Zeka Önerileri",
+    "issues": "Tespit edilen sorunlar",
+    "no_issues": "Önemli bir sorun bulunmadı",
+    "apply": "Düzeltmeyi uygula",
+    "applying": "Uygulanıyor...",
+    "root_meaning": "Kök/gramer rehberi",
+    "save_archive": "Arşive kaydet",
+    "saving": "Kaydediliyor..."
   }
 }

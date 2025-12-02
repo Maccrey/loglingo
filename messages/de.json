@@ -105,13 +105,13 @@
     "light": "Hell"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "KI-Vorschläge",
+    "issues": "Gefundene Probleme",
+    "no_issues": "Keine größeren Probleme gefunden",
+    "apply": "Korrektur anwenden",
+    "applying": "Wird angewendet...",
+    "root_meaning": "Hinweis zu Stamm/Grammatik",
+    "save_archive": "In Archiv speichern",
+    "saving": "Speichern..."
   }
 }

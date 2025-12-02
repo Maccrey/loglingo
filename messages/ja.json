@@ -105,13 +105,13 @@
     "light": "ライト"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "AIの提案",
+    "issues": "検出された問題",
+    "no_issues": "大きな問題はありません",
+    "apply": "修正を適用",
+    "applying": "適用中...",
+    "root_meaning": "語根・文法ガイド",
+    "save_archive": "アーカイブに保存",
+    "saving": "保存中..."
   }
 }

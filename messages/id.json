@@ -105,13 +105,13 @@
     "light": "Terang"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "Saran AI",
+    "issues": "Masalah terdeteksi",
+    "no_issues": "Tidak ada masalah besar",
+    "apply": "Terapkan koreksi",
+    "applying": "Menerapkan...",
+    "root_meaning": "Panduan makna dasar/tata bahasa",
+    "save_archive": "Simpan ke arsip",
+    "saving": "Menyimpan..."
   }
 }

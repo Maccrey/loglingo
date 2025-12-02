@@ -105,13 +105,13 @@
     "light": "فاتح"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "اقتراحات الذكاء الاصطناعي",
+    "issues": "المشكلات المكتشفة",
+    "no_issues": "لا توجد مشكلات كبيرة",
+    "apply": "تطبيق التصحيح",
+    "applying": "جارٍ التطبيق...",
+    "root_meaning": "دليل المعنى الجذري/القواعد",
+    "save_archive": "حفظ في الأرشيف",
+    "saving": "جارٍ الحفظ..."
   }
 }

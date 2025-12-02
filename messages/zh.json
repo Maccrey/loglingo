@@ -105,13 +105,13 @@
     "light": "浅色"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "AI 建议",
+    "issues": "发现的问题",
+    "no_issues": "未发现重大问题",
+    "apply": "应用修改",
+    "applying": "正在应用...",
+    "root_meaning": "词根/语法提示",
+    "save_archive": "保存到归档",
+    "saving": "正在保存..."
   }
 }

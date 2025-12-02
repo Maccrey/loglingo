@@ -105,13 +105,13 @@
     "light": "Sáng"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "Gợi ý AI",
+    "issues": "Vấn đề phát hiện",
+    "no_issues": "Không thấy vấn đề lớn",
+    "apply": "Áp dụng chỉnh sửa",
+    "applying": "Đang áp dụng...",
+    "root_meaning": "Hướng dẫn gốc/ngữ pháp",
+    "save_archive": "Lưu vào kho lưu trữ",
+    "saving": "Đang lưu..."
   }
 }

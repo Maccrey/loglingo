@@ -105,13 +105,13 @@
     "light": "लाइट"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "एआई सुझाव",
+    "issues": "पता चली समस्याएँ",
+    "no_issues": "कोई बड़ी समस्या नहीं मिली",
+    "apply": "सुधार लागू करें",
+    "applying": "लागू किया जा रहा है...",
+    "root_meaning": "मूल अर्थ/व्याकरण मार्गदर्शिका",
+    "save_archive": "आर्काइव में सहेजें",
+    "saving": "सहेजा जा रहा है..."
   }
 }

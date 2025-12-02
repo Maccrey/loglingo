@@ -105,13 +105,13 @@
     "light": "라이트"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "AI 제안",
+    "issues": "발견된 문제",
+    "no_issues": "특별한 문제 없음",
+    "apply": "교정 적용",
+    "applying": "적용 중...",
+    "root_meaning": "어근/문법 안내",
+    "save_archive": "아카이브에 저장",
+    "saving": "저장 중..."
   }
 }

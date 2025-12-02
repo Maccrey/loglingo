@@ -105,13 +105,13 @@
     "light": "Clair"
   },
   "ai": {
-    "result_title": "AI Suggestions",
-    "issues": "Issues detected",
-    "no_issues": "No major issues found.",
-    "apply": "Apply correction",
-    "applying": "Applying...",
-    "root_meaning": "Root meaning guide",
-    "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "result_title": "Suggestions IA",
+    "issues": "Problèmes détectés",
+    "no_issues": "Aucun problème majeur",
+    "apply": "Appliquer la correction",
+    "applying": "Application...",
+    "root_meaning": "Guide du sens/grammaire",
+    "save_archive": "Enregistrer dans les archives",
+    "saving": "Enregistrement..."
   }
 }
