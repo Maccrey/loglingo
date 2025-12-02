@@ -29,8 +29,45 @@ function safeParse(text: string): CorrectionResult | null {
   }
 }
 
+function languageLabel(locale: string) {
+  switch (locale) {
+    case "en":
+      return "English";
+    case "ko":
+      return "Korean";
+    case "ja":
+      return "Japanese";
+    case "zh":
+      return "Chinese";
+    case "th":
+      return "Thai";
+    case "vi":
+      return "Vietnamese";
+    case "id":
+      return "Indonesian";
+    case "es":
+      return "Spanish";
+    case "pt":
+      return "Portuguese";
+    case "fr":
+      return "French";
+    case "de":
+      return "German";
+    case "tr":
+      return "Turkish";
+    case "ar":
+      return "Arabic";
+    case "hi":
+      return "Hindi";
+    default:
+      return locale;
+  }
+}
+
 function buildPrompt(content: string, mode: CorrectionMode, locale: string) {
+  const targetLanguage = languageLabel(locale);
   return `You are a language tutor.
+Target language: ${targetLanguage} (${locale})
 Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text>",
@@ -41,7 +78,7 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 }
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
-Use the UI language (${locale}) for ALL text fields (corrected, issues, explanations, rootMeaningGuide).
+Use the target language for ALL text fields (corrected, issues, explanations, rootMeaningGuide), even if the user's text is in another language.
 User diary text:
 ${content}`;
 }
@@ -64,7 +101,7 @@ async function callGrok(content: string, mode: CorrectionMode, locale: string): 
   try {
     const response = await client.chatCompletion({
       messages: [
-        { role: "system", content: "You are a helpful language tutor." },
+        { role: "system", content: "You are a helpful language tutor. Always respond in the target UI language specified in the prompt, regardless of the user's input language." },
         { role: "user", content: buildPrompt(content, mode, locale) },
       ],
       model: getModel(),
