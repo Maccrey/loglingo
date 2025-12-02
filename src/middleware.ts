@@ -1,13 +1,14 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
 
-const intlMiddleware = createMiddleware(routing, {
+const intlMiddleware = createMiddleware({
+  ...routing,
   // Respect the browser's Accept-Language on first visit and keep using it
-  localeDetection: true
+  localeDetection: true,
 });
 
-export default function middleware(request: Request) {
+export default function middleware(request: NextRequest) {
   // Enforce HTTPS in production environments (no-op locally)
   if (
     process.env.NODE_ENV === "production" &&

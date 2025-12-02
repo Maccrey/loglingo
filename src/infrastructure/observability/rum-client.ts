@@ -3,6 +3,9 @@ import { sendClientLog } from "./send-client-log";
 
 const RUM_ENDPOINT = "/api/observability/rum";
 
+type LayoutShiftEntry = PerformanceEntry & { value: number; hadRecentInput: boolean };
+type EventTimingEntry = PerformanceEntry & { interactionId?: number; duration: number };
+
 function roundValue(value: number, fractionDigits: number) {
   return Number(value.toFixed(fractionDigits));
 }
@@ -116,7 +119,7 @@ export function startRumObservers() {
 
   try {
     const clsObserver = new PerformanceObserver((entryList) => {
-      for (const entry of entryList.getEntries() as LayoutShift[]) {
+      for (const entry of entryList.getEntries() as LayoutShiftEntry[]) {
         if (!entry.hadRecentInput) {
           clsValue += entry.value;
         }
@@ -130,7 +133,7 @@ export function startRumObservers() {
 
   try {
     const inpObserver = new PerformanceObserver((entryList) => {
-      for (const entry of entryList.getEntries() as PerformanceEventTiming[]) {
+      for (const entry of entryList.getEntries() as EventTimingEntry[]) {
         if (entry.interactionId && entry.duration > inpValue) {
           inpValue = entry.duration;
         }

@@ -1,24 +1,30 @@
 import createNextIntlPlugin from 'next-intl/plugin';
+import type { RemotePattern } from "next/dist/shared/lib/image-config";
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+const remotePatterns: RemotePattern[] = [
+  {
+    protocol: "https",
+    hostname: "firebasestorage.googleapis.com",
+    pathname: "/**",
+  },
+  {
+    protocol: "https",
+    hostname: "lh3.googleusercontent.com",
+    pathname: "/**",
+  },
+  {
+    protocol: "https",
+    hostname: "logling-34fc9.firebasestorage.app",
+    pathname: "/**",
+  },
+];
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: import("next").NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "firebasestorage.googleapis.com",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "logling-34fc9.firebasestorage.app",
-      },
-    ],
+    remotePatterns,
   },
   async headers() {
     return [

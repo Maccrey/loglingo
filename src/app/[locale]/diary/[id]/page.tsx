@@ -42,8 +42,12 @@ export default function DiaryDetailPage({ params }: { params: { id: string } }) 
     <div className="mx-auto max-w-3xl space-y-6">
       <DiaryForm
         initial={data}
-        onSubmit={(payload) => update.mutateAsync({ id: params.id, payload })}
-        onDelete={() => remove.mutateAsync(params.id)}
+        onSubmit={async (payload) => {
+          await update.mutateAsync({ id: params.id, payload });
+        }}
+        onDelete={async () => {
+          await remove.mutateAsync(params.id);
+        }}
         isSubmitting={update.isPending || remove.isPending}
       />
     </div>

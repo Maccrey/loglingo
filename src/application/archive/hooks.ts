@@ -5,13 +5,12 @@ import { getArchives, saveArchiveEntry, generateQuiz } from "./archive-service";
 import { LearningArchive } from "@/domain/archive";
 
 export function useArchiveList(userId: string, type?: string) {
-  return useQuery({
+  return useQuery<LearningArchive[]>({
     queryKey: ["archives", userId, type ?? "all"],
     queryFn: () => getArchives(userId, type),
     enabled: Boolean(userId),
     staleTime: 60_000,
     placeholderData: (prev) => prev,
-    keepPreviousData: true,
   });
 }
 

@@ -273,7 +273,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
                   </Button>
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     onClick={() => {
                       setRemoveImage(false);
@@ -328,7 +328,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
             </Button>
             <Button
               type="button"
-              variant="outline"
+              variant="glass"
               onClick={handleAiCheck}
               disabled={aiLoading}
               className="border-primary/60 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary-foreground"

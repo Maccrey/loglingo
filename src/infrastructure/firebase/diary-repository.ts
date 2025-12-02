@@ -15,7 +15,8 @@ import {
   getDocs,
   orderBy,
   query,
-  QueryDocumentSnapshot,
+  type DocumentSnapshot,
+  type QueryDocumentSnapshot,
   serverTimestamp,
   Timestamp,
   updateDoc,
@@ -30,8 +31,13 @@ import {
 
 const diariesCollection = collection(db, "diaries");
 
-function mapDiary(snapshot: QueryDocumentSnapshot<DocumentData>): Diary {
+function mapDiary(
+  snapshot: DocumentSnapshot<DocumentData> | QueryDocumentSnapshot<DocumentData>
+): Diary {
   const data = snapshot.data();
+  if (!data) {
+    throw new Error("Diary snapshot is missing data");
+  }
   const createdAt =
     data.createdAt instanceof Timestamp
       ? data.createdAt.toDate()

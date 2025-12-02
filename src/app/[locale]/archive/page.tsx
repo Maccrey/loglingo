@@ -20,14 +20,15 @@ export default function ArchivePage() {
   const [title, setTitle] = useState("");
   const [root, setRoot] = useState("");
   const [example, setExample] = useState("");
-  const { data: archives = [] } = useArchiveList(userId, type);
+  const { data: archives } = useArchiveList(userId, type);
+  const archiveList: LearningArchive[] = (archives ?? []) as LearningArchive[];
   const { create } = useArchiveMutations(userId);
   const [selected, setSelected] = useState<LearningArchive | null>(null);
   const quiz = useQuiz(selected || undefined);
 
   const filteredArchives = useMemo(
-    () => (type ? archives.filter((a) => a.type === type) : archives),
-    [archives, type]
+    () => (type ? archiveList.filter((a) => a.type === type) : archiveList),
+    [archiveList, type]
   );
 
   const handleAdd = async () => {
@@ -60,13 +61,13 @@ export default function ArchivePage() {
           <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
         </div>
         <div className="flex gap-2">
-          <Button variant={type === undefined ? "default" : "outline"} onClick={() => setType(undefined)}>
+          <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)}>
             {t("all")}
           </Button>
-          <Button variant={type === "grammar" ? "default" : "outline"} onClick={() => setType("grammar")}>
+          <Button variant={type === "grammar" ? "primary" : "ghost"} onClick={() => setType("grammar")}>
             {t("grammar")}
           </Button>
-          <Button variant={type === "word" ? "default" : "outline"} onClick={() => setType("word")}>
+          <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
             {t("vocabulary")}
           </Button>
         </div>
