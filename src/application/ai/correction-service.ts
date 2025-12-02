@@ -9,7 +9,11 @@ export async function requestAiCorrection(params: {
   targetLanguage?: string; // preferred target language for AI output
 }): Promise<CorrectionResult> {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
+  // Align with server timeout; give the model enough time before aborting.
+  const timeout = setTimeout(
+    () => controller.abort(new DOMException("AI request timed out", "TimeoutError")),
+    30000
+  );
   const body = JSON.stringify({
     content: params.content,
     mode: params.mode || "full",
