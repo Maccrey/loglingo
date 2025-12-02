@@ -331,6 +331,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
               variant="outline"
               onClick={handleAiCheck}
               disabled={aiLoading}
+              className="border-primary/60 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary-foreground"
             >
               {aiLoading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
