@@ -57,7 +57,7 @@
     "edit_title": "编辑日记",
     "date_label": "日期",
     "content_label": "日记内容",
-    "upload_hint": "最多 1 张图片，自动压缩为 300KB WebP。",
+    "upload_hint": "最多 1 张图片，会自动压缩为 300KB 的 WebP。",
     "remove_image": "删除图片",
     "replace_image": "替换图片",
     "uploading": "正在上传...",

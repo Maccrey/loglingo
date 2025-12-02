@@ -57,7 +57,7 @@
     "edit_title": "แก้ไขรายการ",
     "date_label": "วันที่",
     "content_label": "เนื้อหาไดอารี่",
-    "upload_hint": "สูงสุด 1 รูป อัดเป็น WebP 300KB อัตโนมัติ",
+    "upload_hint": "สูงสุด 1 รูป ระบบจะบีบอัดเป็น WebP 300KB อัตโนมัติ",
     "remove_image": "ลบรูป",
     "replace_image": "แทนที่รูป",
     "uploading": "กำลังอัปโหลด...",

@@ -57,7 +57,7 @@
     "edit_title": "Chỉnh sửa mục",
     "date_label": "Ngày",
     "content_label": "Nội dung nhật ký",
-    "upload_hint": "Tối đa 1 hình, tự nén thành WebP 300KB.",
+    "upload_hint": "Tối đa 1 hình, tự động nén thành WebP 300KB.",
     "remove_image": "Xóa hình",
     "replace_image": "Thay hình",
     "uploading": "Đang tải lên...",

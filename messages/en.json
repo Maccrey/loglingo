@@ -57,7 +57,7 @@
     "edit_title": "Edit Entry",
     "date_label": "Date",
     "content_label": "Diary content",
-    "upload_hint": "1 image max, auto resized to 300KB WebP.",
+    "upload_hint": "Max 1 image, auto-resized to 300KB WebP.",
     "remove_image": "Remove image",
     "replace_image": "Replace image",
     "uploading": "Uploading...",

@@ -57,7 +57,7 @@
     "edit_title": "일기 편집",
     "date_label": "날짜",
     "content_label": "일기 내용",
-    "upload_hint": "이미지 1개, 자동 300KB WebP로 리사이즈.",
+    "upload_hint": "이미지는 최대 1개, 자동으로 300KB WebP로 압축됩니다.",
     "remove_image": "이미지 제거",
     "replace_image": "이미지 교체",
     "uploading": "업로드 중...",

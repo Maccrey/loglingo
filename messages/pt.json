@@ -57,7 +57,7 @@
     "edit_title": "Editar entrada",
     "date_label": "Data",
     "content_label": "Conteúdo do diário",
-    "upload_hint": "Máx. 1 imagem, redimensionada para WebP 300KB automaticamente.",
+    "upload_hint": "Máx. 1 imagem, redimensionada automaticamente para WebP de 300KB.",
     "remove_image": "Remover imagem",
     "replace_image": "Substituir imagem",
     "uploading": "Enviando...",

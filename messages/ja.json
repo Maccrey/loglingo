@@ -57,7 +57,7 @@
     "edit_title": "日記を編集",
     "date_label": "日付",
     "content_label": "日記の内容",
-    "upload_hint": "画像は1枚まで、300KB WebPに自動変換されます。",
+    "upload_hint": "画像は1枚まで、自動で300KB WebPに圧縮されます。",
     "remove_image": "画像を削除",
     "replace_image": "画像を差し替え",
     "uploading": "アップロード中...",

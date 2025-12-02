@@ -57,7 +57,7 @@
     "edit_title": "Girdiyi düzenle",
     "date_label": "Tarih",
     "content_label": "Günlük içeriği",
-    "upload_hint": "En fazla 1 resim, otomatik 300KB WebP'ye sıkıştırılır.",
+    "upload_hint": "En fazla 1 görsel, otomatik olarak 300KB WebP'ye sıkıştırılır.",
     "remove_image": "Resmi kaldır",
     "replace_image": "Resmi değiştir",
     "uploading": "Yükleniyor...",

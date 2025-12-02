@@ -57,7 +57,7 @@
     "edit_title": "एंट्री संपादित करें",
     "date_label": "तारीख",
     "content_label": "डायरी सामग्री",
-    "upload_hint": "अधिकतम 1 चित्र, स्वतः 300KB WebP में।",
+    "upload_hint": "अधिकतम 1 चित्र, स्वतः 300KB WebP में संकुचित।",
     "remove_image": "चित्र हटाएँ",
     "replace_image": "चित्र बदलें",
     "uploading": "अपलोड हो रहा है...",

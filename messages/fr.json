@@ -57,7 +57,7 @@
     "edit_title": "Modifier l'entrée",
     "date_label": "Date",
     "content_label": "Contenu du journal",
-    "upload_hint": "1 image max, redimensionnée en WebP 300KB automatiquement.",
+    "upload_hint": "1 image max, redimensionnée automatiquement en WebP 300KB.",
     "remove_image": "Supprimer l'image",
     "replace_image": "Remplacer l'image",
     "uploading": "Téléversement...",
