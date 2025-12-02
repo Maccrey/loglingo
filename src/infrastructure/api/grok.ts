@@ -11,10 +11,12 @@ interface GrokCompletionResponse {
 
 export class GrokClient {
   private apiKey: string;
-  private baseUrl: string = "https://api.grok.x.ai/v1/chat/completions"; // Hypothetical URL, adjust if needed
+  // Allow overriding via env; default to x.ai endpoint
+  private baseUrl: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, baseUrl?: string) {
     this.apiKey = apiKey;
+    this.baseUrl = baseUrl || "https://api.x.ai/v1/chat/completions";
   }
 
   async chatCompletion(request: GrokCompletionRequest): Promise<string> {
@@ -34,7 +36,8 @@ export class GrokClient {
       });
 
       if (!response.ok) {
-        throw new Error(`Grok API Error: ${response.status} ${response.statusText}`);
+        const errorText = await response.text();
+        throw new Error(`Grok API Error: ${response.status} ${response.statusText} - ${errorText}`);
       }
 
       const data: GrokCompletionResponse = await response.json();

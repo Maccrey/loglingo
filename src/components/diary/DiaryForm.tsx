@@ -18,7 +18,7 @@ import {
 import { getImagePreview } from "@/lib/image";
 import { toast } from "sonner";
 import { Image as ImageIcon, Loader2, Sparkles, Trash2 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import NextImage from "next/image";
 import { AiFeedback } from "../ai/AiFeedback";
@@ -42,6 +42,7 @@ function today() {
 export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFormProps) {
   const t = useTranslations("write");
   const tDiary = useTranslations("diary");
+  const locale = useLocale();
   const router = useRouter();
   const userId = getCurrentUserId();
   const { create: createArchive } = useArchiveMutations(userId);
@@ -148,7 +149,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     setAiResult(null);
     trackEvent("ai_correct_clicked", { mode: "full" });
     try {
-      const result = await requestAiCorrection({ content, mode: "full" });
+      const result = await requestAiCorrection({ content, mode: "full", locale });
       setAiResult(result);
       trackEvent("ai_correct_success");
     } catch (error: unknown) {

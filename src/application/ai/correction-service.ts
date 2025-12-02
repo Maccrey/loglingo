@@ -4,12 +4,14 @@ export async function requestAiCorrection(params: {
   content: string;
   mode?: CorrectionMode;
   signal?: AbortSignal;
+  locale?: string;
 }): Promise<CorrectionResult> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
   const body = JSON.stringify({
     content: params.content,
     mode: params.mode || "full",
+    locale: params.locale,
   });
 
   try {

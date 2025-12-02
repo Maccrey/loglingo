@@ -2,30 +2,61 @@ import { NextResponse } from "next/server";
 import { GrokClient } from "@/infrastructure/api/grok";
 import { CorrectionMode, CorrectionResult } from "@/domain/ai-correction";
 
-const MODEL = process.env.GROK_MODEL || "grok-4-1-fast-non-reasoning";
-const TIMEOUT_MS = 3000;
+const TIMEOUT_MS = 15000;
 
-function buildPrompt(content: string, mode: CorrectionMode) {
-  return `You are a language tutor. Analyze the user's diary text and return a JSON object with keys:
-{
- "corrected": "<fully corrected text>",
- "issues": [
-   { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<suggestion>", "explanation": "<root meaning or grammar rule>" }
- ],
- "rootMeaningGuide": "<short note of key roots/grammar patterns>"
+function getModel() {
+  return process.env.GROK_MODEL?.trim() || "grok-4-fast-non-reasoning";
 }
-Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"} and keep explanations concise. The user text:\n${content}`;
+
+function tryParseJsonResponse(text: string): CorrectionResult | null {
+  const direct = safeParse(text);
+  if (direct) return direct;
+
+  // Attempt to extract the first JSON object if model adds extra prose/code fences
+  const match = text.match(/\{[\s\S]*\}/);
+  if (match) {
+    const parsed = safeParse(match[0]);
+    if (parsed) return parsed;
+  }
+  return null;
+}
+
+function safeParse(text: string): CorrectionResult | null {
+  try {
+    return JSON.parse(text) as CorrectionResult;
+  } catch {
+    return null;
+  }
+}
+
+function buildPrompt(content: string, mode: CorrectionMode, locale: string) {
+  return `You are a language tutor.
+Respond with ONLY valid JSON, no prose, using this exact shape:
+{
+  "corrected": "<fully corrected text>",
+  "issues": [
+    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<suggestion>", "explanation": "<root meaning or grammar rule>" }
+  ],
+  "rootMeaningGuide": "<short note of key roots/grammar patterns>"
+}
+Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
+Do not add Markdown, code fences, or commentary. Use UI language (${locale}) for explanations and suggestions.
+User diary text:
+${content}`;
 }
 
 async function getClient() {
   const key = process.env.GROK_API_KEY;
   if (!key) return null;
-  return new GrokClient(key);
+  return new GrokClient(key, process.env.GROK_BASE_URL);
 }
 
-async function callGrok(content: string, mode: CorrectionMode): Promise<CorrectionResult | null> {
+async function callGrok(content: string, mode: CorrectionMode, locale: string): Promise<CorrectionResult | null> {
   const client = await getClient();
-  if (!client) return null;
+  if (!client) {
+    console.error("Grok client unavailable: missing GROK_API_KEY");
+    return null;
+  }
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -33,18 +64,18 @@ async function callGrok(content: string, mode: CorrectionMode): Promise<Correcti
     const response = await client.chatCompletion({
       messages: [
         { role: "system", content: "You are a helpful language tutor." },
-        { role: "user", content: buildPrompt(content, mode) },
+        { role: "user", content: buildPrompt(content, mode, locale) },
       ],
-      model: MODEL,
+      model: getModel(),
       temperature: 0.3,
       signal: controller.signal,
     });
 
-    try {
-      return JSON.parse(response) as CorrectionResult;
-    } catch {
-      return null;
+    const parsed = tryParseJsonResponse(response);
+    if (!parsed) {
+      console.error("Grok response JSON parse failed, raw response:", response);
     }
+    return parsed;
   } finally {
     clearTimeout(timer);
   }
@@ -70,20 +101,25 @@ export async function POST(req: Request) {
     const body = await req.json();
     const content = (body?.content || "").toString().trim();
     const mode: CorrectionMode = body?.mode === "sentence" ? "sentence" : "full";
+    const locale = (body?.locale || "en").toString();
 
     if (!content) {
       return NextResponse.json({ message: "content required" }, { status: 400 });
     }
 
-    const aiResponse = await callGrok(content, mode);
-    const result = aiResponse || fallbackResult(content);
-
-    return NextResponse.json(result, { status: aiResponse ? 200 : 202 });
+    try {
+      const aiResponse = await callGrok(content, mode, locale);
+      const result = aiResponse || fallbackResult(content);
+      return NextResponse.json(result, { status: aiResponse ? 200 : 202 });
+    } catch (error) {
+      console.error("AI correction failed, returning fallback:", error);
+      return NextResponse.json(fallbackResult(content), { status: 202 });
+    }
   } catch (error: unknown) {
     const status =
       error instanceof Error && error.name === "AbortError" ? 504 : 500;
     return NextResponse.json(
-      { message: error?.message || "AI correction failed" },
+      { message: (error as Error)?.message || "AI correction failed" },
       { status }
     );
   }
