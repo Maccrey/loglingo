@@ -79,6 +79,7 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
 Use the target language for ALL text fields (corrected, issues, explanations, rootMeaningGuide), even if the user's text is in another language.
+If the user's text is not in the target language, translate it while correcting.
 User diary text:
 ${content}`;
 }
