@@ -64,22 +64,29 @@ function languageLabel(locale: string) {
   }
 }
 
-function buildPrompt(content: string, mode: CorrectionMode, targetLanguageCode: string) {
+function buildPrompt(
+  content: string,
+  mode: CorrectionMode,
+  targetLanguageCode: string,
+  uiLanguageCode: string
+) {
   const targetLanguage = languageLabel(targetLanguageCode);
+  const uiLanguage = languageLabel(uiLanguageCode);
   return `You are a language tutor.
 Target language: ${targetLanguage} (${targetLanguageCode})
+UI language: ${uiLanguage} (${uiLanguageCode})
 Respond with ONLY valid JSON, no prose, using this exact shape:
 {
-  "corrected": "<fully corrected text>",
+  "corrected": "<fully corrected text in target language>",
   "issues": [
-    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<suggestion>", "explanation": "<root meaning or grammar rule>" }
+    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<suggestion in target language>", "explanation": "<root meaning or grammar rule in UI language>" }
   ],
-  "rootMeaningGuide": "<short note of key roots/grammar patterns>"
+  "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
 }
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
-Use the target language for ALL text fields (corrected, issues, explanations, rootMeaningGuide), even if the user's text is in another language.
-If the user's text is not in the target language, translate it while correcting.
+Use the target language ONLY for 'corrected' and 'suggestion'. Use the UI language ONLY for 'explanation' and 'rootMeaningGuide'.
+If the user's text is not in the target language, translate it while correcting. Maintain consistent language usage as specified.
 User diary text:
 ${content}`;
 }
@@ -90,7 +97,12 @@ async function getClient() {
   return new GrokClient(key, process.env.GROK_BASE_URL);
 }
 
-async function callGrok(content: string, mode: CorrectionMode, targetLanguage: string): Promise<CorrectionResult | null> {
+async function callGrok(
+  content: string,
+  mode: CorrectionMode,
+  targetLanguage: string,
+  uiLanguage: string
+): Promise<CorrectionResult | null> {
   const client = await getClient();
   if (!client) {
     console.error("Grok client unavailable: missing GROK_API_KEY");
@@ -103,7 +115,7 @@ async function callGrok(content: string, mode: CorrectionMode, targetLanguage: s
     const response = await client.chatCompletion({
       messages: [
         { role: "system", content: "You are a helpful language tutor. Always respond in the target language specified in the prompt, regardless of the user's input language." },
-        { role: "user", content: buildPrompt(content, mode, targetLanguage) },
+        { role: "user", content: buildPrompt(content, mode, targetLanguage, uiLanguage) },
       ],
       model: getModel(),
       temperature: 0.3,
@@ -180,7 +192,7 @@ export async function POST(req: Request) {
     }
 
     try {
-      const aiResponse = await callGrok(content, mode, targetLanguage);
+      const aiResponse = await callGrok(content, mode, targetLanguage, locale);
       if (!aiResponse) {
         console.warn("Grok returned null/failed to parse. Falling back.", { model: getModel() });
       }
