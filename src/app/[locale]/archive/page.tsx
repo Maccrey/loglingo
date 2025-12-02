@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
 import { LearningArchive } from "@/domain/archive";
@@ -14,6 +14,7 @@ import { formatDate } from "@/lib/intl-format";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
+  const locale = useLocale();
   const userId = getCurrentUserId();
   const [type, setType] = useState<string | undefined>(undefined);
   const [title, setTitle] = useState("");
@@ -117,11 +118,13 @@ export default function ArchivePage() {
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                  <span className="text-xs text-muted-foreground uppercase">{item.type}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {item.type === "word" ? t("vocabulary") : t("grammar")}
+                  </span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
                 <p className="text-[11px] text-muted-foreground mt-1">
-                  {formatDate(item.createdAt, "en-US")}
+                  {formatDate(item.createdAt, locale)}
                 </p>
                 {item.examples.length > 0 && (
                   <p className="text-xs text-primary mt-1">{item.examples[0]}</p>

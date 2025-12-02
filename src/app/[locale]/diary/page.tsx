@@ -19,21 +19,6 @@ import { toast } from "sonner";
 import NextImage from "next/image";
 import { formatDate } from "@/lib/intl-format";
 
-const MONTHS = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
 export default function DiaryListPage() {
   const t = useTranslations("diary");
   const locale = useLocale();
@@ -44,6 +29,13 @@ export default function DiaryListPage() {
 
   const { data: diaries = [], isLoading } = useDiaryList(userId, year);
   const { remove } = useDiaryMutations(userId);
+  const monthLabels = useMemo(
+    () =>
+      Array.from({ length: 12 }, (_, idx) =>
+        new Intl.DateTimeFormat(locale, { month: "short" }).format(new Date(2020, idx, 1))
+      ),
+    [locale]
+  );
 
   const yearOptions = useMemo(() => {
     const years = new Set<number>();
@@ -125,7 +117,7 @@ export default function DiaryListPage() {
               >
                 {t("all_months")}
               </button>
-              {MONTHS.map((label, index) => (
+              {monthLabels.map((label, index) => (
                 <button
                   key={label}
                   className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
@@ -214,7 +206,7 @@ export default function DiaryListPage() {
                       {t("year_label")}: {diary.date.split("-")[0]}
                     </span>
                     <span>
-                      {t("month_label")}: {MONTHS[new Date(`${diary.date}T00:00:00`).getMonth()]}
+                      {t("month_label")}: {monthLabels[new Date(`${diary.date}T00:00:00`).getMonth()]}
                     </span>
                   </CardFooter>
                 </Card>
