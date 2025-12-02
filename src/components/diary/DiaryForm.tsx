@@ -155,6 +155,8 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
         content,
         mode: "full",
         locale,
+        // UI 언어로 결과를 받도록 targetLanguage를 명시
+        targetLanguage: locale,
         learningLanguage,
       });
       setAiResult(result);

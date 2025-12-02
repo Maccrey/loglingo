@@ -64,10 +64,10 @@ function languageLabel(locale: string) {
   }
 }
 
-function buildPrompt(content: string, mode: CorrectionMode, learningLanguage: string) {
-  const targetLanguage = languageLabel(learningLanguage);
+function buildPrompt(content: string, mode: CorrectionMode, targetLanguageCode: string) {
+  const targetLanguage = languageLabel(targetLanguageCode);
   return `You are a language tutor.
-Target language: ${targetLanguage} (${learningLanguage})
+Target language: ${targetLanguage} (${targetLanguageCode})
 Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text>",
@@ -89,7 +89,7 @@ async function getClient() {
   return new GrokClient(key, process.env.GROK_BASE_URL);
 }
 
-async function callGrok(content: string, mode: CorrectionMode, learningLanguage: string): Promise<CorrectionResult | null> {
+async function callGrok(content: string, mode: CorrectionMode, targetLanguage: string): Promise<CorrectionResult | null> {
   const client = await getClient();
   if (!client) {
     console.error("Grok client unavailable: missing GROK_API_KEY");
@@ -102,7 +102,7 @@ async function callGrok(content: string, mode: CorrectionMode, learningLanguage:
     const response = await client.chatCompletion({
       messages: [
         { role: "system", content: "You are a helpful language tutor. Always respond in the target language specified in the prompt, regardless of the user's input language." },
-        { role: "user", content: buildPrompt(content, mode, learningLanguage) },
+        { role: "user", content: buildPrompt(content, mode, targetLanguage) },
       ],
       model: getModel(),
       temperature: 0.3,
@@ -172,13 +172,14 @@ export async function POST(req: Request) {
     const mode: CorrectionMode = body?.mode === "sentence" ? "sentence" : "full";
     const locale = (body?.locale || "en").toString();
     const learningLanguage = (body?.learningLanguage || locale || "en").toString();
+    const targetLanguage = (body?.targetLanguage || learningLanguage || locale || "en").toString();
 
     if (!content) {
       return NextResponse.json({ message: "content required" }, { status: 400 });
     }
 
     try {
-      const aiResponse = await callGrok(content, mode, learningLanguage);
+      const aiResponse = await callGrok(content, mode, targetLanguage);
       if (!aiResponse) {
         console.warn("Grok returned null/failed to parse. Falling back.", { model: getModel() });
       }
