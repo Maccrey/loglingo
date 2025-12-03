@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Plus, CalendarDays, Edit3, Trash2 } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useDiaryList, useDiaryMutations } from "@/application/diary/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
@@ -24,6 +24,7 @@ import { AuthGate } from "@/components/auth/AuthGate";
 export default function DiaryListPage() {
   const t = useTranslations("diary");
   const locale = useLocale();
+  const router = useRouter(); // Added router variable
   const { user, loading } = useAuth();
   const userId = user?.uid ?? "";
   const currentYear = new Date().getFullYear();
@@ -185,7 +186,12 @@ export default function DiaryListPage() {
           ) : (
             <div className="grid gap-4">
               {filtered.map((diary) => (
-                <Card key={diary.id} className="glass-card border-white/10">
+              <div 
+                key={diary.id} 
+                onClick={() => router.push(`/diary/${diary.id}`)}
+                className="block"
+              >
+                <Card className="glass-card border-white/10 transition-all hover:shadow-lg hover:border-primary/40 cursor-pointer">
                   <CardHeader className="flex flex-row items-center justify-between">
                     <div>
                       <p className="text-sm text-muted-foreground">
@@ -196,16 +202,24 @@ export default function DiaryListPage() {
                       </CardTitle>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Link href={`/diary/${diary.id}`}>
-                        <Button variant="secondary" size="sm">
-                          <Edit3 className="mr-2 h-4 w-4" />
-                          {t("edit")}
-                        </Button>
-                      </Link>
+                      <Button 
+                        variant="secondary" 
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(`/diary/${diary.id}/edit`);
+                        }}
+                      >
+                        <Edit3 className="h-4 w-4" />
+                      </Button>
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handleDelete(diary)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleDelete(diary);
+                        }}
                         disabled={remove.isPending}
                       >
                         <Trash2 className="mr-2 h-4 w-4" />
@@ -238,7 +252,8 @@ export default function DiaryListPage() {
                     </span>
                   </CardFooter>
                 </Card>
-              ))}
+              </div>
+            ))}
             </div>
           )}
         </div>

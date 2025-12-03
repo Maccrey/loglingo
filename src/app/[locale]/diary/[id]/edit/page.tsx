@@ -1,33 +1,30 @@
 "use client";
 
 import { use } from "react";
-import { useDiaryDetail } from "@/application/diary/hooks";
+import { DiaryForm } from "@/components/diary/DiaryForm";
+import { useDiaryDetail, useDiaryMutations } from "@/application/diary/hooks";
 import { useArchiveList } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { useTranslations } from "next-intl";
 import { AuthGate } from "@/components/auth/AuthGate";
 import { useRouter } from "@/i18n/routing";
-import { Archive, Sparkles, Edit3, ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import NextImage from "next/image";
-import { formatDate } from "@/lib/intl-format";
-import { useLocale } from "next-intl";
+import { Archive, Sparkles } from "lucide-react";
 
-export default function DiaryViewPage({ params }: { params: Promise<{ id: string }> }) {
+export default function DiaryDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const userId = getCurrentUserId();
   const t = useTranslations("diary");
   const tArchive = useTranslations("archive");
-  const locale = useLocale();
   const router = useRouter();
   const { data, isLoading } = useDiaryDetail(userId, id);
+  const { update, remove } = useDiaryMutations(userId);
   const { data: archives = [], isLoading: archivesLoading } = useArchiveList(userId);
 
   if (isLoading) {
     return (
       <AuthGate>
-        <Card className="max-w-3xl mx-auto">
+        <Card className="max-w-3xl">
           <CardHeader>
             <CardTitle>{t("loading")}</CardTitle>
           </CardHeader>
@@ -42,7 +39,7 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
   if (!data) {
     return (
       <AuthGate>
-        <Card className="max-w-3xl mx-auto">
+        <Card className="max-w-3xl">
           <CardHeader>
             <CardTitle>{t("not_found")}</CardTitle>
           </CardHeader>
@@ -57,47 +54,18 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
   return (
     <AuthGate>
       <div className="mx-auto max-w-3xl space-y-6">
-        {/* 일기 내용 */}
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => router.push("/diary")}
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                {t("back")}
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="sm"
-                onClick={() => router.push(`/diary/${id}/edit`)}
-              >
-                <Edit3 className="mr-2 h-4 w-4" />
-                {t("edit")}
-              </Button>
-            </div>
-            <CardTitle className="text-2xl mt-4">
-              {formatDate(new Date(`${data.date}T00:00:00`), locale)}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {data.imageUrl && (
-              <NextImage
-                src={data.imageUrl}
-                alt="Diary image"
-                width={1200}
-                height={800}
-                className="w-full rounded-lg object-cover"
-                loading="lazy"
-              />
-            )}
-            <p className="whitespace-pre-wrap text-foreground leading-relaxed">
-              {data.content}
-            </p>
-          </CardContent>
-        </Card>
+        <DiaryForm
+          initial={data}
+          onSubmit={async (payload) => {
+            await update.mutateAsync({ id, payload });
+            router.push("/diary");
+          }}
+          onDelete={async () => {
+            await remove.mutateAsync(id);
+            router.push("/diary");
+          }}
+          isSubmitting={update.isPending || remove.isPending}
+        />
 
         {/* 관련 아카이브 항목 표시 */}
         <Card>

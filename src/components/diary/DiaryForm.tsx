@@ -171,9 +171,12 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     }
   };
 
-  const applyAiResult = (text: string) => {
+  const applyAiResult = async (text: string) => {
     setContent(text);
     toast.success(t("ai_applied"));
+    
+    // 교정 적용 시 아카이브에도 저장
+    await handleSaveArchive();
   };
 
   const handleSaveArchive = async () => {
@@ -183,28 +186,51 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
 
       const entries = [];
 
-      if (aiResult.corrected.trim()) {
-        entries.push({
-          userId,
-          type: "grammar" as const,
-          title: aiResult.corrected.slice(0, 80),
-          rootMeaning: aiResult.rootMeaningGuide || "AI suggestion",
-          examples: [aiResult.corrected],
-        });
+      // 교정된 전체 문장을 아카이브에 저장
+      if (aiResult.corrected.trim() && aiResult.rootMeaningGuide) {
+        const title = aiResult.corrected.slice(0, 80);
+        // 중복 체크를 위해 dynamic import
+        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+        const isDuplicate = await checkDuplicate(userId, title);
+        
+        if (!isDuplicate) {
+          entries.push({
+            userId,
+            type: "grammar" as const,
+            title,
+            rootMeaning: aiResult.rootMeaningGuide,
+            examples: [aiResult.corrected],
+          });
+        } else {
+          console.log("⏭️ Skipping duplicate:", title);
+        }
       }
 
-      aiResult.issues?.forEach((issue) => {
-        entries.push({
-          userId,
-          type: "grammar" as const,
-          title: issue.suggestion.slice(0, 80),
-          rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
-          examples: [issue.original, issue.suggestion].filter(Boolean),
-        });
-      });
+      // 각 이슈별로 저장 (중복 체크 포함)
+      for (const issue of aiResult.issues || []) {
+        const title = issue.suggestion.slice(0, 80);
+        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+        const isDuplicate = await checkDuplicate(userId, title);
+        
+        if (!isDuplicate) {
+          entries.push({
+            userId,
+            type: "grammar" as const,
+            title,
+            rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
+            examples: [issue.original, issue.suggestion].filter(Boolean),
+          });
+        } else {
+          console.log("⏭️ Skipping duplicate:", title);
+        }
+      }
 
-      await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
-      toast.success(t("ai_saved_archive"));
+      if (entries.length > 0) {
+        await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
+        toast.success(t("ai_saved_archive"));
+      } else {
+        toast.info("모두 이미 아카이브에 저장되어 있습니다");
+      }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "error";
       toast.error(`${t("upload_failed")} (${message})`);

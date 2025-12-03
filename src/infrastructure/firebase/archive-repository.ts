@@ -65,6 +65,31 @@ export async function listArchive(userId: string, type?: string) {
   }
 }
 
+export async function checkDuplicate(userId: string, title: string): Promise<boolean> {
+  console.log("🔍 Archive Repository: checkDuplicate", { userId, title });
+  
+  if (!userId || !title) {
+    return false;
+  }
+
+  try {
+    const q = query(
+      archiveCol,
+      where("userId", "==", userId),
+      where("title", "==", title)
+    );
+    
+    const snapshot = await getDocs(q);
+    const exists = !snapshot.empty;
+    
+    console.log(exists ? "⚠️ Archive Repository: Duplicate found" : "✅ Archive Repository: No duplicate");
+    return exists;
+  } catch (error) {
+    console.error("❌ Archive Repository: Check duplicate failed", error);
+    return false;
+  }
+}
+
 export async function createArchive(input: LearningArchiveDraft): Promise<LearningArchive> {
   const payload = {
     ...input,
