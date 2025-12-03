@@ -5,6 +5,7 @@ import { useDiaryDetail, useDiaryMutations } from "@/application/diary/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { useTranslations } from "next-intl";
+import { AuthGate } from "@/components/auth/AuthGate";
 
 export default function DiaryDetailPage({ params }: { params: { id: string } }) {
   const userId = getCurrentUserId();
@@ -14,42 +15,48 @@ export default function DiaryDetailPage({ params }: { params: { id: string } }) 
 
   if (isLoading) {
     return (
-      <Card className="max-w-3xl">
-        <CardHeader>
-          <CardTitle>{t("loading")}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="h-32 animate-pulse rounded-lg bg-white/5" />
-        </CardContent>
-      </Card>
+      <AuthGate>
+        <Card className="max-w-3xl">
+          <CardHeader>
+            <CardTitle>{t("loading")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-32 animate-pulse rounded-lg bg-white/5" />
+          </CardContent>
+        </Card>
+      </AuthGate>
     );
   }
 
   if (!data) {
     return (
-      <Card className="max-w-3xl">
-        <CardHeader>
-          <CardTitle>{t("not_found")}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">{t("not_found_desc")}</p>
-        </CardContent>
-      </Card>
+      <AuthGate>
+        <Card className="max-w-3xl">
+          <CardHeader>
+            <CardTitle>{t("not_found")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">{t("not_found_desc")}</p>
+          </CardContent>
+        </Card>
+      </AuthGate>
     );
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      <DiaryForm
-        initial={data}
-        onSubmit={async (payload) => {
-          await update.mutateAsync({ id: params.id, payload });
-        }}
-        onDelete={async () => {
-          await remove.mutateAsync(params.id);
-        }}
-        isSubmitting={update.isPending || remove.isPending}
-      />
-    </div>
+    <AuthGate>
+      <div className="mx-auto max-w-3xl space-y-6">
+        <DiaryForm
+          initial={data}
+          onSubmit={async (payload) => {
+            await update.mutateAsync({ id: params.id, payload });
+          }}
+          onDelete={async () => {
+            await remove.mutateAsync(params.id);
+          }}
+          isSubmitting={update.isPending || remove.isPending}
+        />
+      </div>
+    </AuthGate>
   );
 }

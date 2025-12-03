@@ -16,6 +16,20 @@
     "login": "Connexion",
     "logout": "Déconnexion"
   },
+  "auth": {
+    "title": "Connectez-vous pour démarrer",
+    "description": "Loglingo enregistre vos journaux, retours IA et archive d’apprentissage dans votre compte. Connectez-vous avec Google.",
+    "requirement": "La connexion est requise pour utiliser Loglingo.",
+    "after_login": "Après connexion, vous reviendrez à la page précédente.",
+    "cta": "Continuer avec Google",
+    "loading": "Vérification de votre session...",
+    "languages_label": "Langues prises en charge",
+    "steps": {
+      "write": "Écrivez un court journal dans la langue cible.",
+      "review": "L’IA fournit instantanément corrections et explications.",
+      "save": "Enregistrez les expressions utiles dans votre archive et révisez-les."
+    }
+  },
   "home": {
     "title": "Maîtrisez les langues avec le Journal IA",
     "subtitle": "Écrivez votre vie quotidienne, obtenez des corrections par IA et construisez votre archive d'apprentissage personnelle.",

@@ -18,6 +18,7 @@ import { Diary } from "@/domain/diary";
 import { toast } from "sonner";
 import NextImage from "next/image";
 import { formatDate } from "@/lib/intl-format";
+import { AuthGate } from "@/components/auth/AuthGate";
 
 export default function DiaryListPage() {
   const t = useTranslations("diary");
@@ -71,12 +72,13 @@ export default function DiaryListPage() {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
-          <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
-        </div>
+    <AuthGate>
+      <div className="space-y-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-1">
+            <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
+            <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
+          </div>
         <Link href="/diary/new">
           <Button>
             <Plus className="mr-2 h-4 w-4" />
@@ -215,6 +217,7 @@ export default function DiaryListPage() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </AuthGate>
   );
 }

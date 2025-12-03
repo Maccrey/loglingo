@@ -16,6 +16,20 @@
     "logout": "Logout",
     "loading": "Loading..."
   },
+  "auth": {
+    "title": "Sign in to start learning",
+    "description": "Loglingo keeps your diaries, AI feedback, and learning archive in your account. Continue with Google to sync safely.",
+    "requirement": "Login is required to use Loglingo.",
+    "after_login": "You'll be redirected back after signing in.",
+    "cta": "Continue with Google",
+    "loading": "Checking your session...",
+    "languages_label": "Supported languages",
+    "steps": {
+      "write": "Write a short diary entry in your target language.",
+      "review": "Get instant AI corrections and explanations.",
+      "save": "Save useful phrases to your archive and practice them."
+    }
+  },
   "home": {
     "title": "Master Languages with AI Diary",
     "subtitle": "Write your daily life, get AI corrections, and build your personal learning archive.",

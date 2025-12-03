@@ -16,6 +16,20 @@
     "login": "Anmelden",
     "logout": "Abmelden"
   },
+  "auth": {
+    "title": "Melde dich an, um zu starten",
+    "description": "Loglingo speichert deine Tagebücher, KI-Feedback und Lernarchiv in deinem Konto. Melde dich mit Google an.",
+    "requirement": "Zum Nutzen von Loglingo ist ein Login erforderlich.",
+    "after_login": "Nach dem Login kehrst du zur vorherigen Seite zurück.",
+    "cta": "Mit Google anmelden",
+    "loading": "Anmeldung wird geprüft...",
+    "languages_label": "Unterstützte Sprachen",
+    "steps": {
+      "write": "Schreibe einen kurzen Tagebucheintrag in der Zielsprache.",
+      "review": "Die KI liefert sofort Korrekturen und Erklärungen.",
+      "save": "Speichere nützliche Sätze im Archiv und wiederhole sie."
+    }
+  },
   "home": {
     "title": "Sprachen meistern mit KI-Tagebuch",
     "subtitle": "Schreiben Sie über Ihren Alltag, erhalten Sie KI-Korrekturen und bauen Sie Ihr persönliches Lernarchiv auf.",

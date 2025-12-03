@@ -16,6 +16,20 @@
     "login": "Đăng nhập",
     "logout": "Đăng xuất"
   },
+  "auth": {
+    "title": "Đăng nhập để bắt đầu học",
+    "description": "Loglingo lưu nhật ký, phản hồi AI và kho học tập của bạn trong tài khoản. Hãy đăng nhập bằng Google.",
+    "requirement": "Cần đăng nhập để sử dụng Loglingo.",
+    "after_login": "Sau khi đăng nhập bạn sẽ được đưa trở lại trang trước.",
+    "cta": "Đăng nhập với Google",
+    "loading": "Đang kiểm tra trạng thái đăng nhập...",
+    "languages_label": "Ngôn ngữ hỗ trợ",
+    "steps": {
+      "write": "Viết một đoạn nhật ký ngắn bằng ngôn ngữ mục tiêu.",
+      "review": "AI chỉnh sửa và giải thích ngay.",
+      "save": "Lưu cụm từ hữu ích vào kho và ôn tập."
+    }
+  },
   "home": {
     "title": "Thành thạo ngôn ngữ với Nhật ký AI",
     "subtitle": "Ghi lại cuộc sống hàng ngày, nhận sửa lỗi từ AI và xây dựng kho lưu trữ học tập cá nhân của bạn.",

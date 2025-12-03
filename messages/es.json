@@ -16,6 +16,20 @@
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión"
   },
+  "auth": {
+    "title": "Inicia sesión para empezar",
+    "description": "Loglingo guarda tus diarios, comentarios de IA y archivo de aprendizaje en tu cuenta. Continúa con Google.",
+    "requirement": "Debes iniciar sesión para usar Loglingo.",
+    "after_login": "Después de iniciar sesión volverás a la página anterior.",
+    "cta": "Continuar con Google",
+    "loading": "Comprobando tu sesión...",
+    "languages_label": "Idiomas compatibles",
+    "steps": {
+      "write": "Escribe un diario breve en tu idioma objetivo.",
+      "review": "La IA devuelve correcciones y explicaciones al instante.",
+      "save": "Guarda frases útiles en tu archivo y repásalas."
+    }
+  },
   "home": {
     "title": "Domina idiomas con Diario IA",
     "subtitle": "Escribe tu vida diaria, recibe correcciones de IA y construye tu archivo de aprendizaje personal.",

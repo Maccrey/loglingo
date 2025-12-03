@@ -11,6 +11,7 @@ import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
 import { formatDate } from "@/lib/intl-format";
+import { AuthGate } from "@/components/auth/AuthGate";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
@@ -54,12 +55,13 @@ export default function ArchivePage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
-          <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
-        </div>
+    <AuthGate>
+      <div className="space-y-6">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
+            <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
+          </div>
         <div className="flex gap-2">
           <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)}>
             {t("all")}
@@ -170,6 +172,7 @@ export default function ArchivePage() {
           </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+    </AuthGate>
   );
 }

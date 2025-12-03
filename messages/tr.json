@@ -16,6 +16,20 @@
     "login": "Giriş yap",
     "logout": "Çıkış yap"
   },
+  "auth": {
+    "title": "Başlamak için giriş yap",
+    "description": "Loglingo günlüklerinizi, yapay zeka geri bildirimlerini ve öğrenme arşivinizi hesabınızda saklar. Devam etmek için Google ile giriş yapın.",
+    "requirement": "Loglingo'yu kullanmak için giriş gerekir.",
+    "after_login": "Girişten sonra önceki sayfaya döneceksiniz.",
+    "cta": "Google ile devam et",
+    "loading": "Oturumun kontrol ediliyor...",
+    "languages_label": "Desteklenen diller",
+    "steps": {
+      "write": "Hedef dilde kısa bir günlük yazın.",
+      "review": "Yapay zeka anında düzeltme ve açıklama verir.",
+      "save": "İşe yarar ifadeleri arşive kaydedip tekrar edin."
+    }
+  },
   "home": {
     "title": "AI Günlük ile Dilleri Öğrenin",
     "subtitle": "Günlük hayatınızı yazın, AI düzeltmeleri alın ve kişisel öğrenme arşivinizi oluşturun.",

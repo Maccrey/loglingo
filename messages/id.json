@@ -16,6 +16,20 @@
     "login": "Masuk",
     "logout": "Keluar"
   },
+  "auth": {
+    "title": "Masuk untuk mulai belajar",
+    "description": "Loglingo menyimpan jurnal, umpan balik AI, dan arsip belajar di akun Anda. Masuk dengan Google untuk melanjutkan.",
+    "requirement": "Login diperlukan untuk menggunakan Loglingo.",
+    "after_login": "Setelah login Anda akan kembali ke halaman sebelumnya.",
+    "cta": "Lanjutkan dengan Google",
+    "loading": "Memeriksa status login...",
+    "languages_label": "Bahasa yang didukung",
+    "steps": {
+      "write": "Tulis catatan harian singkat dalam bahasa target.",
+      "review": "AI memberi koreksi dan penjelasan seketika.",
+      "save": "Simpan frasa berguna ke arsip dan pelajari ulang."
+    }
+  },
   "home": {
     "title": "Kuasai Bahasa dengan Buku Harian AI",
     "subtitle": "Catat kehidupan sehari-hari, dapatkan koreksi AI, dan bangun arsip pembelajaran pribadi Anda.",

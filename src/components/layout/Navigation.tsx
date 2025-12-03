@@ -1,15 +1,33 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User } from "lucide-react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
 
+const languages = [
+  { code: "en", name: "English" },
+  { code: "ko", name: "한국어" },
+  { code: "ja", name: "日本語" },
+  { code: "zh", name: "中文" },
+  { code: "th", name: "ไทย" },
+  { code: "vi", name: "Tiếng Việt" },
+  { code: "id", name: "Bahasa Indonesia" },
+  { code: "es", name: "Español" },
+  { code: "pt", name: "Português" },
+  { code: "fr", name: "Français" },
+  { code: "de", name: "Deutsch" },
+  { code: "tr", name: "Türkçe" },
+  { code: "ar", name: "العربية" },
+  { code: "hi", name: "हिन्दी" },
+];
+
 export function Navigation() {
-  const pathname = usePathname();
+  const locale = useLocale();
+  const router = useRouter();
   const t = useTranslations('nav');
+  const tSettings = useTranslations('settings');
   const { user, signInWithGoogle, signOutUser, loading } = useAuth();
 
   const navItems = [
@@ -29,19 +47,15 @@ export function Navigation() {
         
         <div className="flex w-full justify-around md:w-auto md:space-x-8">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
             const Icon = item.icon;
-            
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={cn(
-                  "flex flex-col items-center justify-center space-y-1 text-xs font-medium transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-sm",
-                  isActive ? "text-primary" : "text-muted-foreground"
-                )}
+                className="flex flex-col items-center justify-center space-y-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-sm"
               >
-                <Icon className={cn("h-5 w-5", isActive && "animate-pulse")} />
+                <Icon className="h-5 w-5" />
                 <span>{item.label}</span>
               </Link>
             );
@@ -49,6 +63,23 @@ export function Navigation() {
         </div>
 
         <div className="hidden md:flex items-center gap-3 text-sm text-muted-foreground">
+          <select
+            aria-label={tSettings('ui_language')}
+            className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/60"
+            value={locale}
+            onChange={(e) => {
+              const nextLocale = e.target.value;
+              document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
+              router.replace("/", { locale: nextLocale });
+            }}
+          >
+            {languages.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+
           {user ? (
             <>
               <div className="flex items-center gap-2">

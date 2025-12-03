@@ -16,6 +16,20 @@
     "login": "登录",
     "logout": "退出登录"
   },
+  "auth": {
+    "title": "登录后开始学习",
+    "description": "Loglingo 会把日记、AI 反馈和学习档案保存在你的账号中。请使用 Google 登录。",
+    "requirement": "使用本服务需要登录。",
+    "after_login": "登录后会回到之前的页面。",
+    "cta": "使用 Google 登录",
+    "loading": "正在检查登录状态...",
+    "languages_label": "支持语言",
+    "steps": {
+      "write": "用目标语言写一段简短日记。",
+      "review": "AI 会立即给出纠正和说明。",
+      "save": "把有用的句子保存到档案并复习。"
+    }
+  },
   "home": {
     "title": "用 AI 日记掌握语言",
     "subtitle": "记录日常生活，获取 AI 纠正，建立您的个人学习档案。",
