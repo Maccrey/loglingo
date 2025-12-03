@@ -13,7 +13,8 @@ import { Plus, CalendarDays, Edit3, Trash2 } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useDiaryList, useDiaryMutations } from "@/application/diary/hooks";
-import { getCurrentUserId } from "@/lib/current-user";
+import { useAuth } from "@/application/auth/AuthProvider";
+import { auth } from "@/lib/firebase";
 import { Diary } from "@/domain/diary";
 import { toast } from "sonner";
 import NextImage from "next/image";
@@ -23,12 +24,16 @@ import { AuthGate } from "@/components/auth/AuthGate";
 export default function DiaryListPage() {
   const t = useTranslations("diary");
   const locale = useLocale();
-  const userId = getCurrentUserId();
+  const { user, loading } = useAuth();
+  const userId = user?.uid ?? auth.currentUser?.uid ?? "";
   const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState(currentYear);
+  const [year, setYear] = useState<number | null>(null);
   const [month, setMonth] = useState<number | null>(null);
 
-  const { data: diaries = [], isLoading } = useDiaryList(userId, year);
+  const enabled = Boolean(userId) && !loading;
+  const { data: diaries = [], isLoading } = useDiaryList(userId, undefined, {
+    enabled,
+  });
   const { remove } = useDiaryMutations(userId);
   const monthLabels = useMemo(
     () =>
@@ -41,25 +46,29 @@ export default function DiaryListPage() {
   const yearOptions = useMemo(() => {
     const years = new Set<number>();
     diaries.forEach((diary) => years.add(Number(diary.date.split("-")[0])));
-    years.add(currentYear);
     return Array.from(years).sort((a, b) => b - a);
   }, [diaries, currentYear]);
 
+  const byYear = useMemo(() => {
+    if (year === null) return diaries;
+    return diaries.filter((diary) => Number(diary.date.split("-")[0]) === year);
+  }, [diaries, year]);
+
   const monthCounts = useMemo(() => {
     const counts: Record<number, number> = {};
-    diaries.forEach((diary) => {
+    byYear.forEach((diary) => {
       const m = new Date(`${diary.date}T00:00:00`).getMonth();
       counts[m] = (counts[m] || 0) + 1;
     });
     return counts;
-  }, [diaries]);
+  }, [byYear]);
 
   const filtered = useMemo(() => {
-    if (month === null) return diaries;
-    return diaries.filter(
+    if (month === null) return byYear;
+    return byYear.filter(
       (diary) => new Date(`${diary.date}T00:00:00`).getMonth() === month
     );
-  }, [diaries, month]);
+  }, [byYear, month]);
 
   const handleDelete = async (diary: Diary) => {
     if (!confirm(t("confirm_delete"))) return;
@@ -70,6 +79,8 @@ export default function DiaryListPage() {
       toast.error(t("delete_error"));
     }
   };
+
+  const loadingState = loading || isLoading || !enabled;
 
   return (
     <AuthGate>
@@ -98,9 +109,13 @@ export default function DiaryListPage() {
           <CardContent className="space-y-2">
             <select
               className="w-full rounded-lg border border-white/10 bg-white/5 p-2 text-sm"
-              value={year}
-              onChange={(e) => setYear(Number(e.target.value))}
+              value={year === null ? "" : year}
+              onChange={(e) => {
+                const next = e.target.value === "" ? null : Number(e.target.value);
+                setYear(next);
+              }}
             >
+              <option value="">{t("all_years", { default: "All years" })}</option>
               {yearOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -142,7 +157,7 @@ export default function DiaryListPage() {
         </Card>
 
         <div className="md:col-span-2 space-y-4">
-          {isLoading ? (
+          {loadingState ? (
             <Card className="border-dashed bg-transparent p-6 text-center">
               <p className="text-muted-foreground">{t("loading")}</p>
             </Card>

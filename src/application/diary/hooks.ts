@@ -18,11 +18,11 @@ const listKey = (userId: string, year?: number) => [
 ];
 const detailKey = (id: string) => ["diary", id];
 
-export function useDiaryList(userId: string, year?: number) {
+export function useDiaryList(userId: string, year?: number, opts?: { enabled?: boolean }) {
   return useQuery({
     queryKey: listKey(userId, year),
     queryFn: () => listDiaries(userId, year),
-    enabled: Boolean(userId),
+    enabled: Boolean(userId) && (opts?.enabled ?? true),
   });
 }
 
