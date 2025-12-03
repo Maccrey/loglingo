@@ -27,5 +27,10 @@ service cloud.firestore {
       allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
       allow read: if isSignedIn() && isOwner(resource.data.userId);
     }
+
+    match /quizzes/{docId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+    }
   }
 }

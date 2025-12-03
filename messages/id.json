@@ -97,6 +97,7 @@
     "empty": "Tidak ada item di arsip.",
     "subtitle": "Simpan tata bahasa/kosakata dan ulangi dengan kuis cepat.",
     "add_title": "Tambahkan ke arsip",
+    "type_label": "Tipe",
     "title_placeholder": "Pola atau kata",
     "root_placeholder": "Makna inti / catatan",
     "example_placeholder": "Kalimat contoh",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Coba lagi",
     "all": "Semua",
     "title_required": "Judul wajib diisi",
-    "save_error": "Gagal menyimpan arsip"
+    "save_error": "Gagal menyimpan arsip",
+    "quiz_question": "Apa arti/pola utama dari \"{title}\"?"
   },
   "settings": {
     "title": "Pengaturan",

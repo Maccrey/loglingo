@@ -63,20 +63,36 @@ function mapDiary(
 }
 
 async function listByUser(userId: string, year?: number): Promise<Diary[]> {
-  const constraints = [where("userId", "==", userId)];
-  if (year) {
-    constraints.push(where("date", ">=", `${year}-01-01`));
-    constraints.push(where("date", "<=", `${year}-12-31`));
+  console.log("🔍 Diary Repository: listByUser called", { userId, year });
+  
+  if (!userId) {
+    console.log("⚠️ Diary Repository: No userId, returning empty array");
+    return [];
   }
 
-  const q = query(
-    diariesCollection,
-    ...constraints,
-    orderBy("date", "desc")
-  );
+  try {
+    const constraints = [where("userId", "==", userId)];
+    if (year) {
+      constraints.push(where("date", ">=", `${year}-01-01`));
+      constraints.push(where("date", "<=", `${year}-12-31`));
+    }
 
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(mapDiary);
+    // orderBy를 임시로 제거하여 인덱스 문제인지 확인
+    const q = query(diariesCollection, ...constraints);
+
+    console.log("🔍 Diary Repository: Executing query...");
+    const snapshot = await getDocs(q);
+    const results = snapshot.docs.map(mapDiary);
+    
+    // 클라이언트 사이드에서 정렬
+    results.sort((a, b) => b.date.localeCompare(a.date));
+    
+    console.log("✅ Diary Repository: Query complete", { count: results.length, results: results.slice(0, 2) });
+    return results;
+  } catch (error) {
+    console.error("❌ Diary Repository: Query failed", error);
+    throw error;
+  }
 }
 
 async function getById(userId: string, id: string): Promise<Diary | null> {

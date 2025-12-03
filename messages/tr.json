@@ -97,6 +97,7 @@
     "empty": "Arşivde öğe yok.",
     "subtitle": "Dilbilgisi/kelimeleri kaydedin ve hızlı quizlerle pekiştirin.",
     "add_title": "Arşive ekle",
+    "type_label": "Tür",
     "title_placeholder": "Kalıp veya kelime",
     "root_placeholder": "Temel anlam / not",
     "example_placeholder": "Örnek cümle",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Tekrar dene",
     "all": "Hepsi",
     "title_required": "Başlık gerekli",
-    "save_error": "Arşive kaydetme başarısız"
+    "save_error": "Arşive kaydetme başarısız",
+    "quiz_question": "\"{title}\" için ana anlam/desen nedir?"
   },
   "settings": {
     "title": "Ayarlar",

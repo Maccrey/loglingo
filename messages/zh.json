@@ -97,6 +97,7 @@
     "empty": "档案中暂无内容。",
     "subtitle": "保存语法/词汇并通过测验复习。",
     "add_title": "添加到档案",
+    "type_label": "类型",
     "title_placeholder": "模式或单词",
     "root_placeholder": "核心含义 / 备注",
     "example_placeholder": "例句",
@@ -109,7 +110,8 @@
     "quiz_wrong": "再试一次",
     "all": "全部",
     "title_required": "标题为必填",
-    "save_error": "保存档案失败"
+    "save_error": "保存档案失败",
+    "quiz_question": "\"{title}\"的关键意思/模式是什么？"
   },
   "settings": {
     "title": "设置",

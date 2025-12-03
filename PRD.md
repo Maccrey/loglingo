@@ -47,10 +47,15 @@
 - 해결: Grok API로 문장 단위 교정/문장 전체 교정 선택 가능
 - 지표: 교정 요청 대비 예시 문장 클릭 ≥ 45%
 
-### 기능 3. 개인화 학습 아카이브 & 문제 자동 생성
+### 기능 3. 개인화 학습 아카이브 & AI 퀵퀴즈 생성
 
 - 문제: 틀린 문법/단어가 반복되며 사용자별 약점이 명확하지 않음
-- 해결: 잘 틀리는 문법·단어를 자동 저장 + 객관식 문제 자동 생성
+- 해결: 
+  - 잘 틀리는 문법·단어를 자동 저장
+  - Grok AI로 4지선다 퀴즈 자동 생성 및 Firebase 저장
+  - 보기 순서 랜덤화로 학습 효과 증대
+  - 정답/오답 시각적 피드백 (초록색/빨간색, 3초 자동 리셋)
+  - 퀴즈 재사용으로 AI API 비용 절감
 - 지표: 주간 학습 문제 풀이 ≥ 3회/주 사용자 비율 30%
 
 ---
@@ -237,16 +242,22 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
-### 5. quiz_questions
+### 5. quizzes (신규)
 
-| 필드        | TypeScript | Firestore | 제약 | 인덱스      | 설명             |
-| ----------- | ---------- | --------- | ---- | ----------- | ---------------- |
-| id          | string     | string    | PK   | PK          | 문제 ID          |
-| archiveId   | string     | string    | FK   | idx_archive | 학습 아카이브 ID |
-| question    | string     | string    | -    | -           | 문제             |
-| options     | string[]   | array     | -    | -           | 보기             |
-| answer      | number     | number    | -    | -           | 0~3 인덱스       |
-| explanation | string     | string    | -    | -           | 해설             |
+| 필드         | TypeScript | Firestore | 제약 | 인덱스       | 설명               |
+| ------------ | ---------- | --------- | ---- | ------------ | ------------------ |
+| id           | string     | string    | PK   | PK           | 퀴즈 ID            |
+| archiveId    | string     | string    | FK   | idx_archive  | 학습 아카이브 ID   |
+| question     | string     | string    | -    | -            | 번역된 질문        |
+| options      | string[]   | array     | -    | -            | 4개 보기           |
+| correctIndex | number     | number    | -    | -            | 정답 인덱스 (0~3)  |
+| explanation  | string     | string    | -    | -            | 해설 (모국어)      |
+| createdAt    | Date       | timestamp | -    | idx_created  | AI 생성 시각       |
+
+**특징**:
+- Grok AI로 자동 생성 (문법/단어 패턴 기반)
+- Firebase에 저장하여 재사용 (API 비용 절감)
+- 매 로드 시 `randomizeQuizOptions()`로 보기 순서 랜덤화
 
 ---
 

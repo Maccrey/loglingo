@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { useLocale, useTranslations } from "next-intl";
 import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
-import { getCurrentUserId } from "@/lib/current-user";
+import { useAuth } from "@/application/auth/AuthProvider";
+import { auth } from "@/lib/firebase";
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
@@ -15,17 +16,40 @@ import { AuthGate } from "@/components/auth/AuthGate";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
+  const tCommon = useTranslations("common");
   const locale = useLocale();
-  const userId = getCurrentUserId();
+  const { user, loading } = useAuth();
+  const userId = user?.uid ?? "";
+  const typeLabel = t("type_label", { defaultMessage: "Type" });
   const [type, setType] = useState<string | undefined>(undefined);
+  const [addType, setAddType] = useState<"grammar" | "word">("grammar");
   const [title, setTitle] = useState("");
   const [root, setRoot] = useState("");
   const [example, setExample] = useState("");
-  const { data: archives } = useArchiveList(userId, type);
+  const canLoad = Boolean(userId) && !loading;
+  const { data: archives, isLoading } = useArchiveList(userId, type, { enabled: canLoad });
   const archiveList: LearningArchive[] = (archives ?? []) as LearningArchive[];
+  
+  // 디버깅 로그
+  console.log("📚 Archive Page State:", {
+    userId,
+    loading,
+    canLoad,
+    isLoading,
+    archivesCount: archiveList.length,
+    archives: archiveList.slice(0, 2), // 처음 2개만 표시
+  });
+  
   const { create } = useArchiveMutations(userId);
   const [selected, setSelected] = useState<LearningArchive | null>(null);
-  const quiz = useQuiz(selected || undefined);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [showResult, setShowResult] = useState(false);
+  const { quiz, isLoading: quizLoading, error: quizError } = useQuiz(
+    selected || undefined,
+    selected ? t("quiz_question", { title: selected.title }) : undefined,
+    locale,
+    locale // TODO: Get from user settings
+  );
 
   const filteredArchives = useMemo(
     () => (type ? archiveList.filter((a) => a.type === type) : archiveList),
@@ -37,15 +61,19 @@ export default function ArchivePage() {
       toast.error(t("title_required"));
       return;
     }
+    if (!userId) {
+      toast.error(tCommon("error"));
+      return;
+    }
     try {
       await create.mutateAsync({
         userId,
-        type: (type as "grammar" | "word" | undefined) || "grammar",
+        type: addType,
         title: title.trim(),
         rootMeaning: root.trim(),
         examples: example ? [example] : [],
       });
-      toast.success(t("saved"));
+      toast.success(tCommon("success"));
       setTitle("");
       setRoot("");
       setExample("");
@@ -80,6 +108,15 @@ export default function ArchivePage() {
           <CardTitle>{t("add_title")}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-3 md:grid-cols-4">
+          <select
+            aria-label={typeLabel}
+            className="h-[42px] rounded-md border border-white/10 bg-white/5 px-3 text-sm"
+            value={addType}
+            onChange={(e) => setAddType(e.target.value as "grammar" | "word")}
+          >
+            <option value="grammar">{t("grammar")}</option>
+            <option value="word">{t("vocabulary")}</option>
+          </select>
           <Input
             placeholder={t("title_placeholder")}
             value={title}
@@ -107,7 +144,10 @@ export default function ArchivePage() {
             <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {filteredArchives.length === 0 && (
+            {(loading || isLoading || !canLoad) && (
+              <p className="text-muted-foreground">{tCommon("loading")}</p>
+            )}
+            {!loading && !isLoading && canLoad && filteredArchives.length === 0 && (
               <p className="text-muted-foreground">{t("empty")}</p>
             )}
             {filteredArchives.map((item) => (
@@ -142,31 +182,98 @@ export default function ArchivePage() {
             <CardTitle>{t("quiz_title")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {!selected && <p className="text-muted-foreground text-sm">{t("quiz_empty")}</p>}
-            {selected && quiz && (
+            {!quiz && !quizLoading && selected && (
+              <p className="text-sm text-muted-foreground">{t("quiz_empty")}</p>
+            )}
+            {quizLoading && (
+              <p className="text-sm text-muted-foreground animate-pulse">AI 생성 중...</p>
+            )}
+            {quizError && (
+              <p className="text-sm text-destructive">퀴즈 생성 실패</p>
+            )}
+            {quiz && (
               <div className="space-y-2">
                 <p className="text-sm font-semibold text-foreground">{quiz.question}</p>
-                {quiz.options.map((opt, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      const correct = idx === quiz.answer;
-                      trackEvent("quiz_answered", {
-                        archiveId: quiz.archiveId,
-                        selected: idx,
-                        correct,
-                      });
-                      toast[correct ? "success" : "error"](
-                        correct ? t("quiz_correct") : t("quiz_wrong"),
-                        { description: quiz.explanation }
-                      );
-                    }}
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-left text-sm hover:border-primary/40"
-                  >
-                    {opt}
-                  </button>
-                ))}
-                <p className="text-xs text-muted-foreground">{quiz.explanation}</p>
+                {quiz.options.map((opt, idx) => {
+                  const isCorrect = idx === quiz.correctIndex;
+                  const isSelected = idx === selectedAnswer;
+                  
+                  console.log(`Option ${idx}:`, { isCorrect, isSelected, showResult, selectedAnswer });
+                  
+                  // 버튼 스타일 결정 - render 시점에 계산
+                  let btnStyle = {};
+                  let btnClasses = "w-full text-left px-4 py-2 rounded-lg border transition-all text-sm ";
+                  
+                  if (showResult) {
+                    if (isCorrect) {
+                      // 정답은 항상 초록색
+                      btnStyle = { 
+                        backgroundColor: 'rgba(34, 197, 94, 0.2)', 
+                        borderColor: 'rgb(34, 197, 94)',
+                        color: 'rgb(220, 252, 231)'
+                      };
+                      btnClasses += "font-semibold";
+                    } else if (isSelected) {
+                      // 선택한 오답은 빨간색
+                      btnStyle = { 
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)', 
+                        borderColor: 'rgb(239, 68, 68)',
+                        color: 'rgb(254, 226, 226)'
+                      };
+                    } else {
+                      // 선택하지 않은 오답은 반투명
+                      btnClasses += "opacity-30";
+                    }
+                  } else {
+                    btnClasses += "bg-card border-border hover:bg-accent hover:border-accent-foreground";
+                  }
+                  
+                  return (
+                    <button
+                      key={idx}
+                      disabled={showResult}
+                      onClick={() => {
+                        const correct = idx === quiz.correctIndex;
+                        
+                        console.log('🎯 Quiz answer clicked:', { 
+                          idx, 
+                          correct,
+                          beforeState: { selectedAnswer, showResult }
+                        });
+                        
+                        setSelectedAnswer(idx);
+                        setShowResult(true);
+                        
+                        console.log('✅ State updated:', { 
+                          newSelectedAnswer: idx,
+                          newShowResult: true
+                        });
+                        
+                        trackEvent("quiz_answered", {
+                          archiveId: quiz.archiveId,
+                          selected: idx,
+                          correct,
+                        });
+                        toast[correct ? "success" : "error"](
+                          correct ? t("quiz_correct") : t("quiz_wrong"),
+                          { description: quiz.explanation }
+                        );
+                        
+                        // 7초 후 자동으로 리셋
+                        setTimeout(() => {
+                          console.log('🔄 Resetting quiz state');
+                          setSelectedAnswer(null);
+                          setShowResult(false);
+                        }, 7000);
+                      }}
+                      className={btnClasses}
+                      style={btnStyle}
+                    >
+                      {opt}
+                    </button>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
               </div>
             )}
           </CardContent>

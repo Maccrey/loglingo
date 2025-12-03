@@ -97,6 +97,7 @@
     "empty": "Nenhum item no arquivo.",
     "subtitle": "Salve gramática/vocabulário e revise com quizzes rápidos.",
     "add_title": "Adicionar ao arquivo",
+    "type_label": "Tipo",
     "title_placeholder": "Padrão ou palavra",
     "root_placeholder": "Significado central / nota",
     "example_placeholder": "Frase de exemplo",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Tente novamente",
     "all": "Todos",
     "title_required": "Título é obrigatório",
-    "save_error": "Falha ao salvar no arquivo"
+    "save_error": "Falha ao salvar no arquivo",
+    "quiz_question": "Qual é o significado/padrão chave de \"{title}\"?"
   },
   "settings": {
     "title": "Configurações",

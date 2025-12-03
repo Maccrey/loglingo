@@ -97,6 +97,7 @@
     "empty": "Chưa có mục nào trong kho.",
     "subtitle": "Lưu ngữ pháp/từ vựng và ôn với câu hỏi nhanh.",
     "add_title": "Thêm vào kho",
+    "type_label": "Loại",
     "title_placeholder": "Mẫu hoặc từ",
     "root_placeholder": "Ý chính / ghi chú",
     "example_placeholder": "Câu ví dụ",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Thử lại",
     "all": "Tất cả",
     "title_required": "Cần có tiêu đề",
-    "save_error": "Lưu kho thất bại"
+    "save_error": "Lưu kho thất bại",
+    "quiz_question": "Ý nghĩa/mẫu chính của \"{title}\" là gì?"
   },
   "settings": {
     "title": "Cài đặt",

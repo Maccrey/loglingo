@@ -97,6 +97,7 @@
     "empty": "アーカイブに項目がありません。",
     "subtitle": "文法や語彙を保存し、クイズで復習しましょう。",
     "add_title": "アーカイブに追加",
+    "type_label": "種類",
     "title_placeholder": "パターンまたは単語",
     "root_placeholder": "核心の意味 / メモ",
     "example_placeholder": "例文",
@@ -109,7 +110,8 @@
     "quiz_wrong": "もう一度",
     "all": "すべて",
     "title_required": "タイトルは必須です",
-    "save_error": "アーカイブの保存に失敗しました"
+    "save_error": "アーカイブの保存に失敗しました",
+    "quiz_question": "\"{title}\"の主要な意味/パターンは何ですか？"
   },
   "settings": {
     "title": "設定",

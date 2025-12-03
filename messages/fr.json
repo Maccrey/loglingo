@@ -97,6 +97,7 @@
     "empty": "Aucun élément dans l'archive.",
     "subtitle": "Enregistrez grammaire/vocabulaire et révisez avec des quiz rapides.",
     "add_title": "Ajouter à l'archive",
+    "type_label": "Type",
     "title_placeholder": "Schéma ou mot",
     "root_placeholder": "Sens clé / note",
     "example_placeholder": "Phrase d'exemple",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Réessayez",
     "all": "Tout",
     "title_required": "Le titre est requis",
-    "save_error": "Échec de l'enregistrement dans l'archive"
+    "save_error": "Échec de l'enregistrement dans l'archive",
+    "quiz_question": "Quelle est la signification/le modèle clé de \"{title}\"?"
   },
   "settings": {
     "title": "Paramètres",

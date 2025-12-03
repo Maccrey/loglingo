@@ -97,6 +97,7 @@
     "empty": "Keine Einträge im Archiv.",
     "subtitle": "Speichere Grammatik/Vokabeln und übe mit kurzen Quizzen.",
     "add_title": "Zum Archiv hinzufügen",
+    "type_label": "Typ",
     "title_placeholder": "Muster oder Wort",
     "root_placeholder": "Kernbedeutung / Notiz",
     "example_placeholder": "Beispielsatz",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Nochmal versuchen",
     "all": "Alle",
     "title_required": "Titel ist erforderlich",
-    "save_error": "Archiv speichern fehlgeschlagen"
+    "save_error": "Archiv speichern fehlgeschlagen",
+    "quiz_question": "Was ist die Hauptbedeutung/das Hauptmuster von \"{title}\"?"
   },
   "settings": {
     "title": "Einstellungen",

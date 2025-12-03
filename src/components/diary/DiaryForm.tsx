@@ -28,6 +28,7 @@ import { CorrectionResult } from "@/domain/ai-correction";
 import { useArchiveMutations } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
+import { auth } from "@/lib/firebase";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -45,7 +46,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const tDiary = useTranslations("diary");
   const locale = useLocale();
   const router = useRouter();
-  const userId = getCurrentUserId();
+  const userId = getCurrentUserId() || auth.currentUser?.uid || "";
   const { learningLanguage } = useLearningLanguage();
   const { create: createArchive } = useArchiveMutations(userId);
   const validationKeyMap: Record<string, string> = {
@@ -176,16 +177,33 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   };
 
   const handleSaveArchive = async () => {
-    if (!aiResult) return;
+    if (!aiResult || !userId) return;
     try {
       setSavingArchive(true);
-      await createArchive.mutateAsync({
-        userId,
-        type: "grammar",
-        title: aiResult.corrected.slice(0, 80),
-        rootMeaning: aiResult.rootMeaningGuide || "AI suggestion",
-        examples: aiResult.issues?.map((i) => i.suggestion).slice(0, 2),
+
+      const entries = [];
+
+      if (aiResult.corrected.trim()) {
+        entries.push({
+          userId,
+          type: "grammar" as const,
+          title: aiResult.corrected.slice(0, 80),
+          rootMeaning: aiResult.rootMeaningGuide || "AI suggestion",
+          examples: [aiResult.corrected],
+        });
+      }
+
+      aiResult.issues?.forEach((issue) => {
+        entries.push({
+          userId,
+          type: "grammar" as const,
+          title: issue.suggestion.slice(0, 80),
+          rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
+          examples: [issue.original, issue.suggestion].filter(Boolean),
+        });
       });
+
+      await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
       toast.success(t("ai_saved_archive"));
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "error";

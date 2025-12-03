@@ -23,6 +23,7 @@ export function useDiaryList(userId: string, year?: number, opts?: { enabled?: b
     queryKey: listKey(userId, year),
     queryFn: () => listDiaries(userId, year),
     enabled: Boolean(userId) && (opts?.enabled ?? true),
+    refetchOnMount: true,
   });
 }
 

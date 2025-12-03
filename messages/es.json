@@ -97,6 +97,7 @@
     "empty": "No hay elementos en el archivo.",
     "subtitle": "Guarda gramática/vocabulario y repasa con quizzes rápidos.",
     "add_title": "Agregar al archivo",
+    "type_label": "Tipo",
     "title_placeholder": "Patrón o palabra",
     "root_placeholder": "Significado clave / nota",
     "example_placeholder": "Frase de ejemplo",
@@ -109,7 +110,8 @@
     "quiz_wrong": "Inténtalo de nuevo",
     "all": "Todo",
     "title_required": "El título es obligatorio",
-    "save_error": "Error al guardar en el archivo"
+    "save_error": "Error al guardar en el archivo",
+    "quiz_question": "¿Cuál es el significado/patrón clave de \"{title}\"?"
   },
   "settings": {
     "title": "Ajustes",

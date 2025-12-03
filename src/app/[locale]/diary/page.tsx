@@ -25,7 +25,7 @@ export default function DiaryListPage() {
   const t = useTranslations("diary");
   const locale = useLocale();
   const { user, loading } = useAuth();
-  const userId = user?.uid ?? auth.currentUser?.uid ?? "";
+  const userId = user?.uid ?? "";
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState<number | null>(null);
   const [month, setMonth] = useState<number | null>(null);
@@ -34,6 +34,17 @@ export default function DiaryListPage() {
   const { data: diaries = [], isLoading } = useDiaryList(userId, undefined, {
     enabled,
   });
+  
+  // 디버깅 로그
+  console.log("📝 Diary Page State:", {
+    userId,
+    loading,
+    enabled,
+    isLoading,
+    diariesCount: diaries.length,
+    diaries: diaries.slice(0, 2), // 처음 2개만 표시
+  });
+  
   const { remove } = useDiaryMutations(userId);
   const monthLabels = useMemo(
     () =>

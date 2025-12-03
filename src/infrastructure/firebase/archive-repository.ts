@@ -36,11 +36,33 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
 }
 
 export async function listArchive(userId: string, type?: string) {
-  const filters = [where("userId", "==", userId)];
-  if (type) filters.push(where("type", "==", type));
-  const q = query(archiveCol, ...filters, orderBy("createdAt", "desc"));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(mapArchive);
+  console.log("🔍 Archive Repository: listArchive called", { userId, type });
+  
+  if (!userId) {
+    console.log("⚠️ Archive Repository: No userId, returning empty array");
+    return [];
+  }
+
+  try {
+    const filters = [where("userId", "==", userId)];
+    if (type) filters.push(where("type", "==", type));
+
+    // orderBy를 임시로 제거하여 인덱스 문제인지 확인
+    const q = query(archiveCol, ...filters);
+
+    console.log("🔍 Archive Repository: Executing query...");
+    const snapshot = await getDocs(q);
+    const results = snapshot.docs.map(mapArchive);
+    
+    // 클라이언트 사이드에서 정렬
+    results.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    
+    console.log("✅ Archive Repository: Query complete", { count: results.length, results: results.slice(0, 2) });
+    return results;
+  } catch (error) {
+    console.error("❌ Archive Repository: Query failed", error);
+    throw error;
+  }
 }
 
 export async function createArchive(input: LearningArchiveDraft): Promise<LearningArchive> {

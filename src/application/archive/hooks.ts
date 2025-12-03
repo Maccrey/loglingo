@@ -1,32 +1,93 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getArchives, saveArchiveEntry, generateQuiz } from "./archive-service";
-import { LearningArchive } from "@/domain/archive";
+import { getArchives, saveArchiveEntry } from "./archive-service";
+import { LearningArchive, buildQuizFromArchive } from "@/domain/archive";
+import { Quiz } from "@/domain/quiz";
+import { getOrGenerateQuiz } from "@/application/quiz/quiz-service";
+import { useLocale } from "next-intl";
+import { useState, useEffect } from "react";
 
-export function useArchiveList(userId: string, type?: string) {
+export function useArchiveList(userId: string, type?: string, opts?: { enabled?: boolean }) {
   return useQuery<LearningArchive[]>({
     queryKey: ["archives", userId, type ?? "all"],
     queryFn: () => getArchives(userId, type),
-    enabled: Boolean(userId),
+    enabled: (opts?.enabled ?? true) && Boolean(userId),
     staleTime: 60_000,
-    placeholderData: (prev) => prev,
+    refetchOnMount: true,
   });
 }
 
 export function useArchiveMutations(userId: string) {
-  const queryClient = useQueryClient();
+  const client = useQueryClient();
   const create = useMutation({
-    mutationFn: (input: Parameters<typeof saveArchiveEntry>[0]) =>
-      saveArchiveEntry(input),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["archives", userId] });
-    },
+    mutationFn: saveArchiveEntry,
+    onSuccess: () => client.invalidateQueries({ queryKey: ["archives", userId] }),
   });
   return { create };
 }
 
-export function useQuiz(entry?: LearningArchive) {
-  if (!entry) return null;
-  return generateQuiz(entry);
+export function useQuiz(
+  entry?: LearningArchive,
+  translatedQuestion?: string,
+  uiLocale?: string,
+  learningLanguage?: string
+) {
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!entry || !translatedQuestion) {
+      setQuiz(null);
+      setIsLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    async function loadQuiz() {
+      if (!entry || !translatedQuestion) return;
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const result = await getOrGenerateQuiz(
+          entry.id,
+          entry.title,
+          entry.rootMeaning || entry.title,
+          entry.examples || [],
+          translatedQuestion,
+          uiLocale || "en",
+          learningLanguage || "en"
+        );
+
+        if (!cancelled) {
+          setQuiz(result);
+          if (!result) {
+            setError("Quiz generation failed");
+          }
+        }
+      } catch (err) {
+        if (!cancelled) {
+          console.error("Quiz loading error:", err);
+          setError("Failed to load quiz");
+          setQuiz(null);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadQuiz();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [entry?.id, translatedQuestion, uiLocale, learningLanguage]);
+
+  return { quiz, isLoading, error };
 }

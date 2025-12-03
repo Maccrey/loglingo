@@ -97,6 +97,7 @@
     "empty": "لا توجد عناصر في الأرشيف.",
     "subtitle": "احفظ القواعد/المفردات وراجعها باختبارات سريعة.",
     "add_title": "إضافة إلى الأرشيف",
+    "type_label": "النوع",
     "title_placeholder": "نمط أو كلمة",
     "root_placeholder": "المعنى الأساسي / ملاحظة",
     "example_placeholder": "جملة مثال",
@@ -109,7 +110,8 @@
     "quiz_wrong": "حاول مرة أخرى",
     "all": "الكل",
     "title_required": "العنوان مطلوب",
-    "save_error": "فشل حفظ الأرشيف"
+    "save_error": "فشل حفظ الأرشيف",
+    "quiz_question": "ما هو المعنى/النمط الرئيسي لـ \"{title}\"؟"
   },
   "settings": {
     "title": "الإعدادات",
