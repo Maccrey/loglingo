@@ -200,6 +200,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
             title,
             rootMeaning: aiResult.rootMeaningGuide,
             examples: [aiResult.corrected],
+            sourceId: initial?.id,
           });
         } else {
           console.log("⏭️ Skipping duplicate:", title);
@@ -219,6 +220,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
             title,
             rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
             examples: [issue.original, issue.suggestion].filter(Boolean),
+            sourceId: initial?.id,
           });
         } else {
           console.log("⏭️ Skipping duplicate:", title);

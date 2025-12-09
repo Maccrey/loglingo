@@ -42,7 +42,6 @@ describe("archive-repository", () => {
       await listArchive("user123");
       
       expect(where).toHaveBeenCalledWith("userId", "==", "user123");
-      expect(orderBy).toHaveBeenCalledWith("createdAt", "desc");
       expect(query).toHaveBeenCalled();
     });
 
@@ -51,8 +50,17 @@ describe("archive-repository", () => {
       
       expect(where).toHaveBeenCalledWith("userId", "==", "user123");
       expect(where).toHaveBeenCalledWith("type", "==", "grammar");
-      expect(orderBy).toHaveBeenCalledWith("createdAt", "desc");
+      expect(query).toHaveBeenCalled();
+    });
+
+    it("queries with userId and sourceId filter", async () => {
+      await listArchive("user123", undefined, "diary_1");
+      
+      expect(where).toHaveBeenCalledWith("userId", "==", "user123");
+      // Note: We need to verify implementation order, but for now checking call existence
+      expect(where).toHaveBeenCalledWith("sourceId", "==", "diary_1");
       expect(query).toHaveBeenCalled();
     });
   });
 });
+

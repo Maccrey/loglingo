@@ -22,7 +22,7 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
   const locale = useLocale();
   const router = useRouter();
   const { data, isLoading } = useDiaryDetail(userId, id);
-  const { data: archives = [], isLoading: archivesLoading } = useArchiveList(userId);
+  const { data: archives = [], isLoading: archivesLoading } = useArchiveList(userId, undefined, { sourceId: id });
 
   if (isLoading) {
     return (
@@ -115,37 +115,31 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                 <p className="text-sm text-muted-foreground mb-3">
                   이 일기에서 저장된 학습 항목들
                 </p>
-                {archives.slice(0, 5).map((archive) => (
-                  <div
-                    key={archive.id}
-                    className="rounded-lg border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors cursor-pointer"
-                    onClick={() => router.push("/archive")}
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-foreground">
-                          {archive.title}
-                        </p>
-                        {archive.rootMeaning && (
-                          <p className="text-xs text-muted-foreground mt-1">
-                            {archive.rootMeaning}
+                <div className="max-h-60 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
+                  {archives.map((archive) => (
+                    <div
+                      key={archive.id}
+                      className="rounded-lg border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors cursor-pointer"
+                      onClick={() => router.push("/archive")}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-foreground">
+                            {archive.title}
                           </p>
-                        )}
+                          {archive.rootMeaning && (
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {archive.rootMeaning}
+                            </p>
+                          )}
+                        </div>
+                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                          {archive.type === "grammar" ? "문법" : "단어"}
+                        </span>
                       </div>
-                      <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                        {archive.type === "grammar" ? "문법" : "단어"}
-                      </span>
                     </div>
-                  </div>
-                ))}
-                {archives.length > 5 && (
-                  <button
-                    onClick={() => router.push("/archive")}
-                    className="w-full text-sm text-primary hover:underline mt-2"
-                  >
-                    전체 보기 ({archives.length}개)
-                  </button>
-                )}
+                  ))}
+                </div>
               </div>
             ) : (
               <div className="text-center py-6">

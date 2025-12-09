@@ -17,8 +17,8 @@ export async function saveArchiveEntry(input: LearningArchiveDraft) {
   });
 }
 
-export async function getArchives(userId: string, type?: string): Promise<LearningArchive[]> {
-  return listArchive(userId, type);
+export async function getArchives(userId: string, type?: string, sourceId?: string): Promise<LearningArchive[]> {
+  return listArchive(userId, type, sourceId);
 }
 
 export function generateQuiz(entry: LearningArchive): QuizQuestion {

@@ -7,6 +7,7 @@ export interface LearningArchive {
   title: string;
   examples: string[];
   rootMeaning: string;
+  sourceId?: string;
   createdAt: Date;
 }
 
@@ -16,6 +17,7 @@ export interface LearningArchiveDraft {
   title: string;
   examples?: string[];
   rootMeaning?: string;
+  sourceId?: string;
 }
 
 export interface QuizQuestion {

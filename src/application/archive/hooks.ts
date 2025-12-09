@@ -8,10 +8,10 @@ import { getOrGenerateQuiz } from "@/application/quiz/quiz-service";
 import { useLocale } from "next-intl";
 import { useState, useEffect } from "react";
 
-export function useArchiveList(userId: string, type?: string, opts?: { enabled?: boolean }) {
+export function useArchiveList(userId: string, type?: string, opts?: { enabled?: boolean; sourceId?: string }) {
   return useQuery<LearningArchive[]>({
-    queryKey: ["archives", userId, type ?? "all"],
-    queryFn: () => getArchives(userId, type),
+    queryKey: ["archives", userId, type ?? "all", opts?.sourceId ?? "all"],
+    queryFn: () => getArchives(userId, type, opts?.sourceId),
     enabled: (opts?.enabled ?? true) && Boolean(userId),
     staleTime: 60_000,
     refetchOnMount: true,

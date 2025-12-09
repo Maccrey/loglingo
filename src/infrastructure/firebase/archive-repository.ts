@@ -31,12 +31,13 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
     title: data.title,
     examples: data.examples || [],
     rootMeaning: data.rootMeaning || "",
+    sourceId: data.sourceId,
     createdAt,
   };
 }
 
-export async function listArchive(userId: string, type?: string) {
-  console.log("🔍 Archive Repository: listArchive called", { userId, type });
+export async function listArchive(userId: string, type?: string, sourceId?: string) {
+  console.log("🔍 Archive Repository: listArchive called", { userId, type, sourceId });
   
   if (!userId) {
     console.log("⚠️ Archive Repository: No userId, returning empty array");
@@ -46,9 +47,17 @@ export async function listArchive(userId: string, type?: string) {
   try {
     const filters = [where("userId", "==", userId)];
     if (type) filters.push(where("type", "==", type));
+    if (sourceId) filters.push(where("sourceId", "==", sourceId));
 
     // orderBy를 임시로 제거하여 인덱스 문제인지 확인
     const q = query(archiveCol, ...filters);
+    
+    // 복합 쿼리의 경우 Firestore 인덱스가 필요할 수 있음
+    if (sourceId) {
+      // sourceId로 필터링할 때는 orderBy createdAt이 인덱스를 요구할 가능성이 높음
+      // 에러 방지를 위해 orderBy("createdAt", "desc")를 함께 쿼리에 추가하고 싶지만
+      // 현재 코드는 클라이언트 정렬을 사용 중이므로 이대로 유지
+    }
 
     console.log("🔍 Archive Repository: Executing query...");
     const snapshot = await getDocs(q);
