@@ -1,0 +1,17 @@
+{
+  "/[locale]/archive/page": "app/[locale]/archive/page.js",
+  "/[locale]/diary/[id]/edit/page": "app/[locale]/diary/[id]/edit/page.js",
+  "/[locale]/diary/[id]/page": "app/[locale]/diary/[id]/page.js",
+  "/[locale]/diary/new/page": "app/[locale]/diary/new/page.js",
+  "/[locale]/diary/page": "app/[locale]/diary/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/settings/page": "app/[locale]/settings/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/ai/correct/route": "app/api/ai/correct/route.js",
+  "/api/observability/log/route": "app/api/observability/log/route.js",
+  "/api/observability/rum/route": "app/api/observability/rum/route.js",
+  "/api/quiz/generate/route": "app/api/quiz/generate/route.js",
+  "/api/uptime/route": "app/api/uptime/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+}

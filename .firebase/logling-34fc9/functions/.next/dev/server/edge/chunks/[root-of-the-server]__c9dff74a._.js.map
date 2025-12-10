@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/Development/Loglingo/src/middleware.ts"],"sourcesContent":["import createMiddleware from 'next-intl/middleware';\nimport { routing } from './src/i18n/routing';\n\nexport default createMiddleware(routing);\n\nexport const config = {\n  // Match only internationalized pathnames\n  matcher: ['/', '/(ko|en|ja|zh|th|vi|id|es|pt|fr|de|tr|ar|hi)/:path*']\n};\n"],"names":[],"mappings":";;;;;;AAAA;;;;;;;;uCAGe,IAAA,oOAAgB,EAAC;AAEzB,MAAM,SAAS;IACpB,yCAAyC;IACzC,SAAS;QAAC;QAAK;KAAsD;AACvE"}}]
+}

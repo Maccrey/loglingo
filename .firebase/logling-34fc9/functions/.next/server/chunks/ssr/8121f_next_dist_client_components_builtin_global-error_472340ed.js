@@ -1,0 +1,3 @@
+module.exports=[96106,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(20454);a.n(d("[project]/Development/Loglingo/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},4641,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(20454);a.n(d("[project]/Development/Loglingo/node_modules/next/dist/client/components/builtin/global-error.js"))},9350,a=>{"use strict";a.i(96106);var b=a.i(4641);a.n(b)}];
+
+//# sourceMappingURL=8121f_next_dist_client_components_builtin_global-error_472340ed.js.map
