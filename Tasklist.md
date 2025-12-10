@@ -102,6 +102,7 @@
     - [x] 초기 수동 배포 (Firebase Hosting URL: https://logling-34fc9.web.app)
     - [x] Deploy.md (구 implementation_plan.md) 작성 및 git 제외 설정
     - [x] GitHub Actions 워크플로우 파일 생성 (.github/workflows/deploy.yml)
+    - [x] CDN/보안 헤더(HSTS, X-Frame-Options 등) `next.config.ts`에 적용 완료
 - [ ] 마이그레이션 버전 전략 적용(version 필드, shadow write/double read/switch 단계)
 - [ ] 릴리즈 체크리스트 작성 및 실행(테스트 결과, 접근성 스캔, 보안 점검)
 - [ ] 완료 시 최종 통합 테스트 후 한국어 커밋
