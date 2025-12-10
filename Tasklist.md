@@ -98,7 +98,8 @@
   - `npm test` (vitest) 통과, `lhci:collect` 실행 스크립트 추가
 
 ## 8. 배포/릴리즈 — Codex
-- [ ] 배포 파이프라인 구성(Firebase Hosting, 환경 분리), CDN 헤더 검증
+- [/] 배포 파이프라인 구성(Firebase Hosting, 환경 분리), CDN 헤더 검증
+    - [x] 초기 수동 배포 (Firebase Hosting URL: https://logling-34fc9.web.app)
 - [ ] 마이그레이션 버전 전략 적용(version 필드, shadow write/double read/switch 단계)
 - [ ] 릴리즈 체크리스트 작성 및 실행(테스트 결과, 접근성 스캔, 보안 점검)
 - [ ] 완료 시 최종 통합 테스트 후 한국어 커밋
