@@ -20,6 +20,7 @@
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS (Dark Mode, Glassmorphism)
 - **Backend**: Firebase (Auth, Firestore, Storage)
+- **배포**: Firebase Hosting (CI/CD: GitHub Actions 예정)
 - **AI**: Grok API
 - **State Management**: React Query
 

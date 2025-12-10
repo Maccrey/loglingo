@@ -300,4 +300,9 @@ User ───< LearningArchive ───< QuizQuestions
 
 - 비용 절감형 캐싱
 - Flutter WebView 앱
+### GA (12~16주)
+
+- 비용 절감형 캐싱
+- Flutter WebView 앱
 - 광고/구독 추가
+- [진행중] GitHub Actions 기반 배포 자동화
