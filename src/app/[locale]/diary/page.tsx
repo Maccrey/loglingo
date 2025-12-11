@@ -237,6 +237,7 @@ export default function DiaryListPage() {
                         className="h-48 w-full rounded-lg object-cover"
                         loading="lazy"
                         sizes="(max-width: 768px) 100vw, 700px"
+                        unoptimized
                       />
                     )}
                     <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">

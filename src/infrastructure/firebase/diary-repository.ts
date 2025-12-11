@@ -133,10 +133,12 @@ async function uploadDiaryImage(
   userId: string,
   onProgress?: (progress: number) => void
 ): Promise<DiaryImageUploadResult> {
-  const safeName = file.name.replace(/\s+/g, "-").toLowerCase();
+  const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+  const arrayBuffer = await file.arrayBuffer();
+  const fileExtension = file.type.split("/")[1] || "bin";
   const storageRef = ref(
     storage,
-    `diaryImages/${userId}/${Date.now()}-${safeName}`
+    `diaryImages/${userId}/${safeName}.${fileExtension}`
   );
   const uploadTask: UploadTask = uploadBytesResumable(storageRef, file, {
     contentType: file.type,
