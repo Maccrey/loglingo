@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///Users/maccrey/Development/Loglingo/src/app/api/uptime/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\n\nexport async function GET() {\n  return NextResponse.json(\n    {\n      status: \"ok\",\n      region: process.env.VERCEL_REGION ?? \"local\",\n      timestamp: Date.now(),\n    },\n    {\n      status: 200,\n      headers: { \"Cache-Control\": \"no-store, max-age=0\" },\n    }\n  );\n}\n"],"names":[],"mappings":";;;;AAAA;;AAEO,eAAe;IACpB,OAAO,2KAAY,CAAC,IAAI,CACtB;QACE,QAAQ;QACR,QAAQ,QAAQ,GAAG,CAAC,aAAa,IAAI;QACrC,WAAW,KAAK,GAAG;IACrB,GACA;QACE,QAAQ;QACR,SAAS;YAAE,iBAAiB;QAAsB;IACpD;AAEJ"}}]
-}

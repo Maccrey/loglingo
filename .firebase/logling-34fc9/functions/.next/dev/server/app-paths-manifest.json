@@ -1,5 +1,0 @@
-{
-  "/[locale]/page": "app/[locale]/page.js",
-  "/api/observability/rum/route": "app/api/observability/rum/route.js",
-  "/api/uptime/route": "app/api/uptime/route.js"
-}
