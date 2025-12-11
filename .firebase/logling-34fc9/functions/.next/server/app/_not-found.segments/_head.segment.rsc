@@ -3,6 +3,6 @@
 4:I[76564,["/_next/static/chunks/3214e2277acd40d1.js","/_next/static/chunks/3a0e22b4828f7e48.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
 7:I[63647,["/_next/static/chunks/3214e2277acd40d1.js","/_next/static/chunks/3a0e22b4828f7e48.js"],"IconMark"]
-0:{"buildId":"mmyOz6TUCwWfHgvAiJhKM","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"CcmnS-eUfuuQrh1hZQPsb","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:[["$","title","0",{"children":"Loglingo"}],["$","meta","1",{"name":"description","content":"AI-powered language learning diary"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L7","3",{}]]

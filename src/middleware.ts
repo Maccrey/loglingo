@@ -9,12 +9,20 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
+  const url = new URL(request.url);
+  const hostname = request.headers.get("host") || "";
+
+  // Redirect loglingo.com to www.loglingo.com
+  if (process.env.NODE_ENV === "production" && hostname === "loglingo.com") {
+    url.hostname = "www.loglingo.com";
+    return NextResponse.redirect(url.toString(), 301);
+  }
+
   // Enforce HTTPS in production environments (no-op locally)
   if (
     process.env.NODE_ENV === "production" &&
     request.headers.get("x-forwarded-proto") === "http"
   ) {
-    const url = new URL(request.url);
     url.protocol = "https:";
     return NextResponse.redirect(url.toString(), 301);
   }
