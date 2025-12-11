@@ -89,7 +89,11 @@
     "ai_error": "AI request failed",
     "ai_applied": "Corrected text applied",
     "ai_saved_archive": "Saved to learning archive",
-    "ai_saved_archive_pending": "Will be saved to archive upon saving diary"
+    "ai_saved_archive_pending": "Will be saved to archive upon saving diary",
+    "save_prompt_title": "Save Diary",
+    "save_prompt_desc": "Would you like to get AI correction before saving?",
+    "save_prompt_ai": "Get AI Correction",
+    "save_prompt_just_save": "Just Save"
   },
   "archive": {
     "title": "Learning Archive",

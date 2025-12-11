@@ -17,10 +17,10 @@ export default function NewDiaryPage() {
         <DiaryForm
           onSubmit={async (payload) => {
             const newDiary = await create.mutateAsync(payload);
-            router.push("/diary");
             return newDiary;
           }}
           isSubmitting={create.isPending}
+          onSuccess={() => router.push("/diary")}
         />
       </div>
     </AuthGate>

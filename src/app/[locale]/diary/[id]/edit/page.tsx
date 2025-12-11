@@ -58,13 +58,13 @@ export default function DiaryDetailPage({ params }: { params: Promise<{ id: stri
           initial={data}
           onSubmit={async (payload) => {
             await update.mutateAsync({ id, payload });
-            router.push("/diary");
           }}
           onDelete={async () => {
             await remove.mutateAsync(id);
             router.push("/diary");
           }}
           isSubmitting={update.isPending || remove.isPending}
+          onSuccess={() => router.push("/diary")}
         />
 
         {/* 관련 아카이브 항목 표시 */}
