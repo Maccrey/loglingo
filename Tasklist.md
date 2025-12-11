@@ -104,8 +104,11 @@
     - [x] GitHub Actions 워크플로우 파일 생성 (.github/workflows/deploy.yml)
     - [x] CDN/보안 헤더(HSTS, X-Frame-Options 등) `next.config.ts`에 적용 완료
 - [ ] 마이그레이션 버전 전략 적용(version 필드, shadow write/double read/switch 단계)
-- [ ] 릴리즈 체크리스트 작성 및 실행(테스트 결과, 접근성 스캔, 보안 점검)
-- [ ] 완료 시 최종 통합 테스트 후 한국어 커밋
+- [x] 릴리즈 체크리스트 작성 및 실행(테스트 결과, 접근성 스캔, 보안 점검)
+    - [x] 테스트 통과 확인 (vitest)
+    - [x] 빌드 성공 확인
+- [x] 완료 시 최종 통합 테스트 후 한국어 커밋
+    - [x] 커밋 완료
 
 ## 9. 운영 이후 — Codex
 - [ ] 주간 지표 리포트 템플릿 작성(일기 작성율, AI 사용률, 퀴즈 참여율, D1/D7)

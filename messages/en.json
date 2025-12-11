@@ -88,7 +88,8 @@
     "ai_checking": "AI is thinking...",
     "ai_error": "AI request failed",
     "ai_applied": "Corrected text applied",
-    "ai_saved_archive": "Saved to learning archive"
+    "ai_saved_archive": "Saved to learning archive",
+    "ai_saved_archive_pending": "Will be saved to archive upon saving diary"
   },
   "archive": {
     "title": "Learning Archive",
