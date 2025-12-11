@@ -158,7 +158,7 @@ async function remove(id: string): Promise<void> {
 
   await deleteDoc(refDoc);
 }
-}
+
 
 async function uploadDiaryImage(
   file: File,
