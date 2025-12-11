@@ -15,7 +15,11 @@ export default function NewDiaryPage() {
     <AuthGate>
       <div className="mx-auto max-w-3xl space-y-6">
         <DiaryForm
-          onSubmit={(payload) => create.mutateAsync(payload).then(() => router.push("/diary"))}
+          onSubmit={async (payload) => {
+            const newDiary = await create.mutateAsync(payload);
+            router.push("/diary");
+            return newDiary;
+          }}
           isSubmitting={create.isPending}
         />
       </div>

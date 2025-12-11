@@ -22,7 +22,7 @@ export function useDiaryList(userId: string, year?: number, opts?: { enabled?: b
   return useQuery({
     queryKey: listKey(userId, year),
     queryFn: () => listDiaries(userId, year),
-    enabled: Boolean(userId) && (opts?.enabled ?? true),
+    enabled: Boolean(userId) && (opts?.enabled ?? true) && userId !== "demo-user",
     refetchOnMount: true,
   });
 }
@@ -31,7 +31,7 @@ export function useDiaryDetail(userId: string, id?: string) {
   return useQuery({
     queryKey: detailKey(id || "new"),
     queryFn: () => getDiary(userId, id as string),
-    enabled: Boolean(userId && id),
+    enabled: Boolean(userId && id) && userId !== "demo-user",
   });
 }
 

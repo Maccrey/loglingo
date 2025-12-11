@@ -30,9 +30,11 @@ import { getCurrentUserId } from "@/lib/current-user";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 import { auth } from "@/lib/firebase";
 
+import { LearningArchiveDraft } from "@/domain/archive";
+
 type DiaryFormProps = {
   initial?: Diary | null;
-  onSubmit: (payload: DiaryPayload & { onUploadProgress?: (n: number) => void }) => Promise<void>;
+  onSubmit: (payload: DiaryPayload & { onUploadProgress?: (n: number) => void }) => Promise<Diary | void>;
   onDelete?: () => Promise<void>;
   isSubmitting?: boolean;
 };
@@ -66,6 +68,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
   const [aiResult, setAiResult] = useState<CorrectionResult | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
   const [savingArchive, setSavingArchive] = useState(false);
+  const [pendingArchives, setPendingArchives] = useState<LearningArchiveDraft[]>([]);
 
   useEffect(() => {
     if (initial) {
@@ -105,13 +108,32 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     setErrors([]);
 
     try {
-      await onSubmit({
+      const newDiary = await onSubmit({
         date,
         content,
         imageFile,
         removeImage,
         onUploadProgress: (progress) => setUploadProgress(progress),
       });
+
+      // 일기 저장이 성공하고, 대기 중인 아카이브 항목이 있으면 저장
+      if (newDiary && pendingArchives.length > 0) {
+        try {
+          await Promise.all(
+            pendingArchives.map(entry => 
+              createArchive.mutateAsync({
+                ...entry,
+                sourceId: newDiary.id
+              })
+            )
+          );
+          toast.success(t("ai_saved_archive"));
+        } catch (err) {
+          console.error("Failed to save pending archives", err);
+          toast.error(t("archive_save_failed"));
+        }
+      }
+
       toast.success(t("saved"));
       setUploadProgress(0);
       if (!initial) {
@@ -184,7 +206,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
     try {
       setSavingArchive(true);
 
-      const entries = [];
+      const entries: LearningArchiveDraft[] = [];
 
       // 교정된 전체 문장을 아카이브에 저장
       if (aiResult.corrected.trim() && aiResult.rootMeaningGuide) {
@@ -228,8 +250,15 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
       }
 
       if (entries.length > 0) {
-        await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
-        toast.success(t("ai_saved_archive"));
+        // 이미 저장된 일기(수정 모드)인 경우 바로 저장
+        if (initial?.id) {
+          await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
+          toast.success(t("ai_saved_archive"));
+        } else {
+          // 새 일기인 경우 pending 상태로 보관 -> 일기 저장 시 함께 저장
+          setPendingArchives(prev => [...prev, ...entries]);
+          toast.success(t("ai_saved_archive_pending"));
+        }
       } else {
         toast.info("모두 이미 아카이브에 저장되어 있습니다");
       }

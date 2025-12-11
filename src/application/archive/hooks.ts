@@ -11,7 +11,7 @@ export function useArchiveList(userId: string, type?: string, opts?: { enabled?:
   return useQuery<LearningArchive[]>({
     queryKey: ["archives", userId, type ?? "all", opts?.sourceId ?? "all"],
     queryFn: () => getArchives(userId, type, opts?.sourceId),
-    enabled: (opts?.enabled ?? true) && Boolean(userId),
+    enabled: (opts?.enabled ?? true) && Boolean(userId) && userId !== "demo-user",
     staleTime: 60_000,
     refetchOnMount: true,
   });
