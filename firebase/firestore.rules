@@ -14,18 +14,24 @@ service cloud.firestore {
     }
 
     match /diaries/{docId} {
-      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
       allow read: if isSignedIn() && isOwner(resource.data.userId);
+      allow create: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow update: if isSignedIn() && isOwner(request.resource.data.userId) && isOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
     }
 
     match /learning_archive/{docId} {
-      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
       allow read: if isSignedIn() && isOwner(resource.data.userId);
+      allow create: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow update: if isSignedIn() && isOwner(request.resource.data.userId) && isOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
     }
 
     match /ai_corrections/{docId} {
-      allow read, write: if isSignedIn() && isOwner(request.resource.data.userId);
       allow read: if isSignedIn() && isOwner(resource.data.userId);
+      allow create: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow update: if isSignedIn() && isOwner(request.resource.data.userId) && isOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
     }
 
     match /quizzes/{docId} {
