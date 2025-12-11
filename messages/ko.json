@@ -131,7 +131,7 @@
     "result_title": "AI 제안",
     "issues": "발견된 문제",
     "no_issues": "특별한 문제 없음",
-    "apply": "교정 적용",
+    "apply": "교정 적용 및 저장",
     "applying": "적용 중...",
     "root_meaning": "어근/문법 안내",
     "save_archive": "아카이브에 저장",

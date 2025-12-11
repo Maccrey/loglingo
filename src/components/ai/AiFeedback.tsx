@@ -1,15 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { CorrectionResult, CorrectionIssue } from "@/domain/ai-correction";
 import { cn } from "@/lib/utils";
-import { Info, Sparkles, Wand2, Archive } from "lucide-react";
+import { Info, Sparkles, Wand2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface Props {
   result: CorrectionResult;
   onApply?: (text: string) => void;
   applying?: boolean;
-  onSaveArchive?: () => void;
-  savingArchive?: boolean;
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
@@ -27,7 +25,7 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
   );
 }
 
-export function AiFeedback({ result, onApply, applying, onSaveArchive, savingArchive }: Props) {
+export function AiFeedback({ result, onApply, applying }: Props) {
   const t = useTranslations("ai");
 
   return (
@@ -38,19 +36,6 @@ export function AiFeedback({ result, onApply, applying, onSaveArchive, savingArc
           <CardTitle>{t("result_title")}</CardTitle>
         </div>
         <div className="flex gap-2">
-          {onSaveArchive && (
-            <button
-              className={cn(
-                "inline-flex items-center rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-foreground transition hover:bg-white/20",
-                savingArchive && "opacity-70"
-              )}
-              onClick={onSaveArchive}
-              disabled={savingArchive}
-            >
-              <Archive className="mr-2 h-4 w-4" />
-              {savingArchive ? t("saving") : t("save_archive")}
-            </button>
-          )}
           {onApply && (
             <button
               className={cn(

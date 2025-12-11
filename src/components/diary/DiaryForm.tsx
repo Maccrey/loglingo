@@ -463,8 +463,6 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             result={aiResult}
             onApply={applyAiResult}
             applying={isSubmitting}
-            onSaveArchive={handleSaveArchive}
-            savingArchive={savingArchive}
           />
         )}
       </form>

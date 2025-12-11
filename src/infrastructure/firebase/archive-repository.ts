@@ -7,6 +7,8 @@ import {
   addDoc,
   collection,
   getDocs,
+  getDoc,
+  doc,
   query,
   serverTimestamp,
   Timestamp,
@@ -104,6 +106,12 @@ export async function createArchive(input: LearningArchiveDraft): Promise<Learni
     createdAt: serverTimestamp(),
   };
   const ref = await addDoc(archiveCol, payload);
-  const saved = await getDocs(query(archiveCol, where("__name__", "==", ref.id)));
-  return saved.docs.map((doc) => mapArchive(doc as QueryDocumentSnapshot<DocumentData>))[0];
+  // Using getDoc is more efficient and safer with security rules than querying by __name__
+  const savedSnapshot = await getDoc(doc(db, "learning_archive", ref.id));
+  
+  if (!savedSnapshot.exists()) {
+    throw new Error("Failed to retrieve created archive document");
+  }
+  
+  return mapArchive(savedSnapshot as QueryDocumentSnapshot<DocumentData>);
 }
