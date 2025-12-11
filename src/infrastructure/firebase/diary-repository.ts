@@ -138,22 +138,27 @@ async function remove(id: string): Promise<void> {
         console.error("Failed to delete associated image:", error);
       }
     }
-  }
 
-  // Delete associated learning_archive documents
-  try {
-    const archivesRef = collection(db, "learning_archive");
-    const q = query(archivesRef, where("sourceId", "==", id));
-    const snapshot = await getDocs(q);
-    
-    // Delete all found archive documents
-    const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
-    if (deletePromises.length > 0) {
-      await Promise.all(deletePromises);
-      console.log(`Deleted ${deletePromises.length} associated archive documents`);
+    // Delete associated learning_archive documents
+    try {
+      const archivesRef = collection(db, "learning_archive");
+      // Security Rules require filtering by userId to allow listing/reading
+      const q = query(
+        archivesRef, 
+        where("sourceId", "==", id),
+        where("userId", "==", data.userId)
+      );
+      const snapshot = await getDocs(q);
+      
+      // Delete all found archive documents
+      const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
+      if (deletePromises.length > 0) {
+        await Promise.all(deletePromises);
+        console.log(`Deleted ${deletePromises.length} associated archive documents`);
+      }
+    } catch (error) {
+      console.error("Failed to delete associated archives:", error);
     }
-  } catch (error) {
-    console.error("Failed to delete associated archives:", error);
   }
 
   await deleteDoc(refDoc);
