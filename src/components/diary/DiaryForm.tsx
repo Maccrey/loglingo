@@ -302,6 +302,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting }: DiaryFo
                   className="h-48 w-full rounded-md object-cover"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 640px"
+                  unoptimized
                 />
                 <div className="mt-2 flex items-center gap-2">
                   <Button

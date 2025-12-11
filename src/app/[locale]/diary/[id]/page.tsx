@@ -91,6 +91,7 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                 height={800}
                 className="w-full rounded-lg object-cover"
                 loading="lazy"
+                unoptimized
               />
             )}
             <p className="whitespace-pre-wrap text-foreground leading-relaxed">
