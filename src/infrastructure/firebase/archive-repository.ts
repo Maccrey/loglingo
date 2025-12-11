@@ -7,7 +7,6 @@ import {
   addDoc,
   collection,
   getDocs,
-  orderBy,
   query,
   serverTimestamp,
   Timestamp,
@@ -61,7 +60,7 @@ export async function listArchive(userId: string, type?: string, sourceId?: stri
 
     console.log("🔍 Archive Repository: Executing query...");
     const snapshot = await getDocs(q);
-    const results = snapshot.docs.map(mapArchive);
+    const results = snapshot.docs.map((doc) => mapArchive(doc as QueryDocumentSnapshot<DocumentData>));
     
     // 클라이언트 사이드에서 정렬
     results.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
@@ -106,5 +105,5 @@ export async function createArchive(input: LearningArchiveDraft): Promise<Learni
   };
   const ref = await addDoc(archiveCol, payload);
   const saved = await getDocs(query(archiveCol, where("__name__", "==", ref.id)));
-  return saved.docs.map(mapArchive)[0];
+  return saved.docs.map((doc) => mapArchive(doc as QueryDocumentSnapshot<DocumentData>))[0];
 }

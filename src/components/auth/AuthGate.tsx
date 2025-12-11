@@ -23,7 +23,7 @@ export function AuthGate({ children }: AuthGateProps) {
       return routing.locales
         .map((code) => displayNames.of(code) || code)
         .join(" · ");
-    } catch (_error) {
+    } catch {
       return routing.locales.join(" · ");
     }
   }, [locale]);

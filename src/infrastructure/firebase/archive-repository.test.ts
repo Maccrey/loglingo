@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { listArchive } from "./archive-repository";
-import { getDocs, query, where, orderBy } from "firebase/firestore";
+import { getDocs, query, where } from "firebase/firestore";
 
 // Mock firebase/firestore
 vi.mock("firebase/firestore", async () => {
@@ -26,7 +26,7 @@ vi.mock("@/lib/firebase", () => ({
 describe("archive-repository", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    (getDocs as any).mockResolvedValue({
+    (getDocs as unknown as ReturnType<typeof vi.fn>).mockResolvedValue({
       docs: [],
     });
   });

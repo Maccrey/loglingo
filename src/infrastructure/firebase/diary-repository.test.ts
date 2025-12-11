@@ -39,7 +39,7 @@ vi.mock("@/lib/firebase", () => ({
 describe("diary-repository", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    (getDocs as any).mockResolvedValue({
+    (getDocs as unknown as ReturnType<typeof vi.fn>).mockResolvedValue({
       docs: [],
     });
   });
@@ -55,7 +55,6 @@ describe("diary-repository", () => {
       await firebaseDiaryRepository.listByUser("user123");
       
       expect(where).toHaveBeenCalledWith("userId", "==", "user123");
-      expect(orderBy).toHaveBeenCalledWith("date", "desc");
       expect(query).toHaveBeenCalled();
     });
 
@@ -65,7 +64,6 @@ describe("diary-repository", () => {
       expect(where).toHaveBeenCalledWith("userId", "==", "user123");
       expect(where).toHaveBeenCalledWith("date", ">=", "2024-01-01");
       expect(where).toHaveBeenCalledWith("date", "<=", "2024-12-31");
-      expect(orderBy).toHaveBeenCalledWith("date", "desc");
       expect(query).toHaveBeenCalled();
     });
   });

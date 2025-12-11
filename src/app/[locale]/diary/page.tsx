@@ -14,7 +14,7 @@ import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useDiaryList, useDiaryMutations } from "@/application/diary/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
-import { auth } from "@/lib/firebase";
+
 import { Diary } from "@/domain/diary";
 import { toast } from "sonner";
 import NextImage from "next/image";

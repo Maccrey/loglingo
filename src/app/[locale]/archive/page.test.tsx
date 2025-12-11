@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ArchivePage from "./page";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
@@ -52,19 +52,19 @@ describe("ArchivePage", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (useAuth as any).mockReturnValue({ user: { uid: "user123" }, loading: false });
-    (useArchiveMutations as any).mockReturnValue({ create: mockCreate });
-    (useQuiz as any).mockReturnValue(null);
+    (useAuth as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ user: { uid: "user123" }, loading: false });
+    (useArchiveMutations as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ create: mockCreate });
+    (useQuiz as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ quiz: null, isLoading: false, error: null });
   });
 
   it("renders loading state", () => {
-    (useArchiveList as any).mockReturnValue({ data: [], isLoading: true });
+    (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: true });
     render(<ArchivePage />);
     expect(screen.getByText("loading")).toBeInTheDocument();
   });
 
   it("renders empty state", () => {
-    (useArchiveList as any).mockReturnValue({ data: [], isLoading: false });
+    (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: false });
     render(<ArchivePage />);
     expect(screen.getByText("empty")).toBeInTheDocument();
   });
@@ -81,7 +81,7 @@ describe("ArchivePage", () => {
         createdAt: new Date(),
       },
     ];
-    (useArchiveList as any).mockReturnValue({ data: archives, isLoading: false });
+    (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: archives, isLoading: false });
     render(<ArchivePage />);
     expect(screen.getByText("Test Grammar")).toBeInTheDocument();
   });
@@ -107,7 +107,7 @@ describe("ArchivePage", () => {
         createdAt: new Date(),
       },
     ];
-    (useArchiveList as any).mockReturnValue({ data: archives, isLoading: false });
+    (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: archives, isLoading: false });
     render(<ArchivePage />);
 
     // Initially shows all

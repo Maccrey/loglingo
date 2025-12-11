@@ -13,7 +13,6 @@ import {
   doc,
   getDoc,
   getDocs,
-  orderBy,
   query,
   type DocumentSnapshot,
   type QueryDocumentSnapshot,

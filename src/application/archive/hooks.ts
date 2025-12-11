@@ -2,10 +2,9 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getArchives, saveArchiveEntry } from "./archive-service";
-import { LearningArchive, buildQuizFromArchive } from "@/domain/archive";
+import { LearningArchive } from "@/domain/archive";
 import { Quiz } from "@/domain/quiz";
 import { getOrGenerateQuiz } from "@/application/quiz/quiz-service";
-import { useLocale } from "next-intl";
 import { useState, useEffect } from "react";
 
 export function useArchiveList(userId: string, type?: string, opts?: { enabled?: boolean; sourceId?: string }) {
@@ -87,7 +86,7 @@ export function useQuiz(
     return () => {
       cancelled = true;
     };
-  }, [entry?.id, translatedQuestion, uiLocale, learningLanguage]);
+  }, [entry, translatedQuestion, uiLocale, learningLanguage]);
 
   return { quiz, isLoading, error };
 }

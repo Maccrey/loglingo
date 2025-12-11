@@ -34,6 +34,10 @@ vi.mock("@/i18n/routing", () => ({
   Link: ({ children, href }: { children: React.ReactNode; href: string }) => (
     <a href={href}>{children}</a>
   ),
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+  }),
 }));
 
 vi.mock("@/components/auth/AuthGate", () => ({
@@ -57,18 +61,18 @@ describe("DiaryListPage", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (useAuth as any).mockReturnValue({ user: { uid: "user123" }, loading: false });
-    (useDiaryMutations as any).mockReturnValue({ remove: mockRemove });
+    (useAuth as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ user: { uid: "user123" }, loading: false });
+    (useDiaryMutations as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ remove: mockRemove });
   });
 
   it("renders loading state", () => {
-    (useDiaryList as any).mockReturnValue({ data: [], isLoading: true });
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: true });
     render(<DiaryListPage />);
     expect(screen.getByText("loading")).toBeInTheDocument();
   });
 
   it("renders empty state", () => {
-    (useDiaryList as any).mockReturnValue({ data: [], isLoading: false });
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: false });
     render(<DiaryListPage />);
     expect(screen.getByText("empty")).toBeInTheDocument();
   });
@@ -85,7 +89,7 @@ describe("DiaryListPage", () => {
         createdAt: new Date(),
       },
     ];
-    (useDiaryList as any).mockReturnValue({ data: diaries, isLoading: false });
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
     render(<DiaryListPage />);
     expect(screen.getAllByText(/Test diary entry content/i)[0]).toBeInTheDocument();
   });
@@ -111,7 +115,7 @@ describe("DiaryListPage", () => {
         createdAt: new Date(),
       },
     ];
-    (useDiaryList as any).mockReturnValue({ data: diaries, isLoading: false });
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
     render(<DiaryListPage />);
 
     // Initially shows all
@@ -147,7 +151,7 @@ describe("DiaryListPage", () => {
         createdAt: new Date(),
       },
     ];
-    (useDiaryList as any).mockReturnValue({ data: diaries, isLoading: false });
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
     render(<DiaryListPage />);
 
     // Initially shows all

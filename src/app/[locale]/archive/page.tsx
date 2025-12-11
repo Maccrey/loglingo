@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { useLocale, useTranslations } from "next-intl";
 import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
-import { auth } from "@/lib/firebase";
+
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
@@ -28,7 +28,7 @@ export default function ArchivePage() {
   const [example, setExample] = useState("");
   const canLoad = Boolean(userId) && !loading;
   const { data: archives, isLoading } = useArchiveList(userId, type, { enabled: canLoad });
-  const archiveList: LearningArchive[] = (archives ?? []) as LearningArchive[];
+  const archiveList: LearningArchive[] = useMemo(() => (archives ?? []) as LearningArchive[], [archives]);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
