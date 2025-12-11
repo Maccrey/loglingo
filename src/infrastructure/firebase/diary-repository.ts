@@ -22,6 +22,7 @@ import {
   where,
 } from "firebase/firestore";
 import {
+  deleteObject,
   getDownloadURL,
   ref,
   uploadBytesResumable,
@@ -125,6 +126,20 @@ async function update(id: string, input: Partial<DiaryDraft>): Promise<Diary> {
 
 async function remove(id: string): Promise<void> {
   const refDoc = doc(diariesCollection, id);
+  const snapshot = await getDoc(refDoc);
+
+  if (snapshot.exists()) {
+    const data = snapshot.data();
+    if (data.imageUrl) {
+      try {
+        const imageRef = ref(storage, data.imageUrl);
+        await deleteObject(imageRef);
+      } catch (error) {
+        console.error("Failed to delete associated image:", error);
+      }
+    }
+  }
+
   await deleteDoc(refDoc);
 }
 
