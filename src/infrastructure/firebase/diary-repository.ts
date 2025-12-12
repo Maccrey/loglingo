@@ -150,11 +150,25 @@ async function remove(id: string): Promise<void> {
       );
       const snapshot = await getDocs(q);
       
-      // Delete all found archive documents
-      const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
+      // Delete all found archive documents and their related quizzes
+      const deletePromises: Promise<void>[] = [];
+      const quizzesCollection = collection(db, "quizzes");
+
+      for (const archiveDoc of snapshot.docs) {
+        // Find quizzes for this archive
+        const qQuiz = query(quizzesCollection, where("archiveId", "==", archiveDoc.id));
+        const quizSnapshot = await getDocs(qQuiz);
+        quizSnapshot.docs.forEach((quizDoc) => {
+          deletePromises.push(deleteDoc(quizDoc.ref));
+        });
+
+        // Delete the archive itself
+        deletePromises.push(deleteDoc(archiveDoc.ref));
+      }
+
       if (deletePromises.length > 0) {
         await Promise.all(deletePromises);
-        console.log(`Deleted ${deletePromises.length} associated archive documents`);
+        console.log(`Deleted ${deletePromises.length} associated documents (archives + quizzes)`);
       }
     } catch (error) {
       console.error("Failed to delete associated archives:", error);
