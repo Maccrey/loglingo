@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://logling-34fc9.web.app/sitemap.xml',
+    sitemap: 'https://www.loglingo.com/sitemap.xml',
   }
 }

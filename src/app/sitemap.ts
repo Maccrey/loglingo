@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://logling-34fc9.web.app'
+  const baseUrl = 'https://www.loglingo.com'
 
   return [
     {
