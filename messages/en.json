@@ -51,6 +51,7 @@
     "filter_year": "Year",
     "filter_month": "Month",
     "all_months": "All months",
+    "all_months_short": "All\nmonths",
     "all_years": "All years",
     "loading": "Loading diary...",
     "untitled": "Untitled",
