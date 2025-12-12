@@ -117,101 +117,39 @@ export default function DiaryListPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <Card className="md:col-span-1">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-sm text-muted-foreground">
-              {t("filter_year")}
-            </CardTitle>
-            <div className="relative flex items-center gap-2">
-              {specificDate && (
-                 <button 
-                   onClick={() => setSpecificDate(null)}
-                   className="text-muted-foreground hover:text-foreground transition-colors"
-                 >
-                   <X className="h-4 w-4" />
-                 </button>
-              )}
+        <Card className="md:col-span-1 h-fit">
+          <CardHeader className="flex flex-row items-center justify-between py-4">
+            <div className="flex items-center gap-2">
               <div className="relative group cursor-pointer">
-                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'} transition-colors`} />
+                <div className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg transition-colors">
+                  <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'} transition-colors`} />
+                  <span className={`text-sm font-medium ${specificDate ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    {specificDate ? formatDate(specificDate, locale) : t("all_years", { default: "All entries" })}
+                  </span>
+                </div>
                 <input 
                   type="date" 
                   className="absolute inset-0 opacity-0 cursor-pointer"
                   onChange={(e) => {
                     setSpecificDate(e.target.value);
-                    // Reset year/month filters when a specific date is picked for clarity
-                    setYear(null);
-                    setMonth(null);
                   }}
                   value={specificDate || ""}
                 />
               </div>
             </div>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className={`transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
-              <select
-                className="w-full rounded-lg border border-white/10 bg-neutral-900 p-2 text-sm text-white"
-                value={year === null ? "" : year}
-                onChange={(e) => {
-                  const next = e.target.value === "" ? null : Number(e.target.value);
-                  setYear(next);
-                }}
-              >
-                <option value="">{t("all_years", { default: "All years" })}</option>
-                {yearOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-              <p className="text-xs text-muted-foreground mt-2">{t("filter_month")}</p>
-              <div className="grid grid-cols-3 gap-2 text-sm mt-1">
-                <button
-                  className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
-                    month === null
-                      ? "bg-primary/20 text-primary-foreground"
-                      : "hover:bg-white/5"
-                  }`}
-                  onClick={() => setMonth(null)}
-                >
-                  {t("all_months")}
-                </button>
-                {monthLabels.map((label, index) => (
-                  <button
-                    key={label}
-                    className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
-                      month === index
-                        ? "bg-primary/20 text-primary-foreground"
-                        : "hover:bg-white/5"
-                    }`}
-                    onClick={() => setMonth(index)}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span>{label}</span>
-                      <span className="text-xs text-muted-foreground">
-                        {monthCounts[index] || 0}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+            
             {specificDate && (
-              <div className="mt-2 text-center">
-                 <p className="text-sm font-medium text-primary">
-                    {formatDate(specificDate, locale)}
-                 </p>
-                 < Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="mt-1 h-auto py-1 px-2 text-xs"
-                    onClick={() => setSpecificDate(null)}
-                  >
-                    {t("clear_date_filter", { default: "Clear Date" })}
-                 </Button>
-              </div>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="h-8 w-8"
+                onClick={() => setSpecificDate(null)}
+                title={t("clear_date_filter", { default: "Clear Date" })}
+              >
+                <X className="h-4 w-4" />
+              </Button>
             )}
-          </CardContent>
+          </CardHeader>
         </Card>
 
         <div className="md:col-span-2 space-y-4">
