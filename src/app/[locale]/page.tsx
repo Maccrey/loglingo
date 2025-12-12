@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { ArrowRight, BookOpen, Sparkles, GraduationCap } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import KakaoAdFit from "@/components/ads/KakaoAdFit";
 
 export default function Home() {
   const t = useTranslations('home');
@@ -65,6 +66,25 @@ export default function Home() {
           </CardContent>
         </Card>
       </section>
+
+      {/* PC Ad (728x90) - Only visible on md+ screens */}
+      <section className="hidden md:flex justify-center w-full">
+        <KakaoAdFit
+          unit="DAN-OcjGqneif35bCzFF"
+          width={728}
+          height={90}
+        />
+      </section>
+
+      {/* Mobile Ad (320x50) - Only visible on small screens */}
+      <section className="flex md:hidden justify-center w-full">
+        <KakaoAdFit
+          unit="DAN-O3H0DVRSds4Dserg"
+          width={320}
+          height={50}
+        />
+      </section>
+
     </div>
   );
 }
