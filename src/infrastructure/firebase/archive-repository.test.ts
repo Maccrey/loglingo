@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
-import { listArchive } from "./archive-repository";
+import { listArchive, checkDuplicate } from "./archive-repository";
 import { getDocs, query, where } from "firebase/firestore";
 
 // Mock firebase/firestore
@@ -58,6 +58,34 @@ describe("archive-repository", () => {
       
       expect(where).toHaveBeenCalledWith("userId", "==", "user123");
       // Note: We need to verify implementation order, but for now checking call existence
+      expect(where).toHaveBeenCalledWith("sourceId", "==", "diary_1");
+      expect(query).toHaveBeenCalled();
+    });
+  });
+
+  describe("checkDuplicate", () => {
+
+    it("returns false if no userId or title", async () => {
+      expect(await checkDuplicate("", "title")).toBe(false);
+      expect(await checkDuplicate("user", "")).toBe(false);
+      expect(getDocs).not.toHaveBeenCalled();
+    });
+
+    it("checks for duplicate using only userId and title if sourceId is missing", async () => {
+      await checkDuplicate("user123", "test title");
+      
+      expect(where).toHaveBeenCalledWith("userId", "==", "user123");
+      expect(where).toHaveBeenCalledWith("title", "==", "test title");
+      // Should NOT call with sourceId
+      expect(where).not.toHaveBeenCalledWith("sourceId", "==", expect.anything());
+      expect(query).toHaveBeenCalled();
+    });
+
+    it("checks for duplicate using userId, title, AND sourceId if sourceId is provided", async () => {
+      await checkDuplicate("user123", "test title", "diary_1");
+      
+      expect(where).toHaveBeenCalledWith("userId", "==", "user123");
+      expect(where).toHaveBeenCalledWith("title", "==", "test title");
       expect(where).toHaveBeenCalledWith("sourceId", "==", "diary_1");
       expect(query).toHaveBeenCalled();
     });

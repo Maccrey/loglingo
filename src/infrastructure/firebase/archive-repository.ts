@@ -75,19 +75,24 @@ export async function listArchive(userId: string, type?: string, sourceId?: stri
   }
 }
 
-export async function checkDuplicate(userId: string, title: string): Promise<boolean> {
-  console.log("🔍 Archive Repository: checkDuplicate", { userId, title });
+export async function checkDuplicate(userId: string, title: string, sourceId?: string): Promise<boolean> {
+  console.log("🔍 Archive Repository: checkDuplicate", { userId, title, sourceId });
   
   if (!userId || !title) {
     return false;
   }
 
   try {
-    const q = query(
-      archiveCol,
+    const filters = [
       where("userId", "==", userId),
       where("title", "==", title)
-    );
+    ];
+
+    if (sourceId) {
+      filters.push(where("sourceId", "==", sourceId));
+    }
+
+    const q = query(archiveCol, ...filters);
     
     const snapshot = await getDocs(q);
     const exists = !snapshot.empty;

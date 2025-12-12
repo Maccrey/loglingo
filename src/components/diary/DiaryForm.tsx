@@ -233,10 +233,14 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       // 교정된 전체 문장을 아카이브에 저장
       if (aiResult.corrected.trim() && aiResult.rootMeaningGuide) {
         const title = aiResult.corrected.slice(0, 80);
-        // 중복 체크를 위해 dynamic import
-        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
-        const isDuplicate = await checkDuplicate(userId, title);
-        console.log("Archive Save: Checking main sentence duplicate", { title, isDuplicate });
+        
+        let isDuplicate = false;
+        if (initial?.id) {
+          const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+          isDuplicate = await checkDuplicate(userId, title, initial.id);
+        }
+        
+        console.log("Archive Save: Checking main sentence duplicate", { title, isDuplicate, sourceId: initial?.id });
         
         if (!isDuplicate) {
           entries.push({
@@ -253,9 +257,14 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       // 각 이슈별로 저장 (중복 체크 포함)
       for (const issue of aiResult.issues || []) {
         const title = issue.suggestion.slice(0, 80);
-        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
-        const isDuplicate = await checkDuplicate(userId, title);
-        console.log("Archive Save: Checking issue duplicate", { title, isDuplicate });
+        
+        let isDuplicate = false;
+        if (initial?.id) {
+          const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+          isDuplicate = await checkDuplicate(userId, title, initial.id);
+        }
+        
+        console.log("Archive Save: Checking issue duplicate", { title, isDuplicate, sourceId: initial?.id });
         
         if (!isDuplicate) {
           entries.push({
