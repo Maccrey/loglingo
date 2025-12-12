@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import {
   Card,
@@ -31,6 +31,7 @@ export default function DiaryListPage() {
   const [year, setYear] = useState<number | null>(null);
   const [month, setMonth] = useState<number | null>(null);
   const [specificDate, setSpecificDate] = useState<string | null>(null);
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   const enabled = Boolean(userId) && !loading;
   const { data: diaries = [], isLoading } = useDiaryList(userId, undefined, {
@@ -122,7 +123,7 @@ export default function DiaryListPage() {
             <CardTitle className="text-sm text-muted-foreground">
               {t("filter_year")}
             </CardTitle>
-            <div className="relative flex items-center gap-2">
+            <div className="flex items-center gap-2">
               {specificDate && (
                  <button 
                    onClick={() => setSpecificDate(null)}
@@ -132,19 +133,24 @@ export default function DiaryListPage() {
                    <X className="h-4 w-4" />
                  </button>
               )}
-              <div className="relative group cursor-pointer">
-                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-primary'} transition-colors`} />
-                <input 
-                  type="date" 
-                  className="absolute inset-0 opacity-0 cursor-pointer"
-                  onChange={(e) => {
-                    setSpecificDate(e.target.value);
-                    setYear(null);
-                    setMonth(null);
-                  }}
-                  value={specificDate || ""}
-                />
+              <div 
+                className="cursor-pointer p-1 hover:bg-white/10 rounded-md transition-colors"
+                onClick={() => dateInputRef.current?.showPicker()}
+              >
+                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-primary'}`} />
               </div>
+              <input 
+                ref={dateInputRef}
+                type="date" 
+                className="absolute w-0 h-0 opacity-0 pointer-events-none"
+                style={{ visibility: 'hidden', position: 'absolute' }}
+                onChange={(e) => {
+                  setSpecificDate(e.target.value);
+                  setYear(null);
+                  setMonth(null);
+                }}
+                value={specificDate || ""}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
