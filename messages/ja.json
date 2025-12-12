@@ -87,6 +87,8 @@
     "update": "変更を保存",
     "ai_checking": "AIが校正中...",
     "ai_error": "AIリクエストに失敗しました",
+    "ai_timeout": "AIの応答に時間がかかっています。もう一度お試しください。",
+    "ai_server_error": "AIサービスは一時的に利用できません。",
     "ai_applied": "校正結果を適用しました",
     "ai_saved_archive": "学習アーカイブに保存しました"
   },

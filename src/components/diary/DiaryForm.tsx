@@ -203,7 +203,14 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
       trackEvent("ai_correct_failure", { message });
-      toast.error(t("ai_error"));
+      
+      if (message.includes("timed out") || message.includes("504")) {
+        toast.error(t("ai_timeout"));
+      } else if (message.includes("502") || message.includes("500") || message.includes("unavailable")) {
+        toast.error(t("ai_server_error"));
+      } else {
+        toast.error(t("ai_error"));
+      }
     } finally {
       setAiLoading(false);
     }
@@ -296,8 +303,9 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       }
     } catch (error: unknown) {
       console.error("Archive Save: Error occurred", error);
-      const message = error instanceof Error ? error.message : "error";
-      toast.error(`${t("upload_failed")} (${message})`);
+      // const message = error instanceof Error ? error.message : "error"; 
+      // User-facing generic error to avoid leaking English technical details
+      toast.error(t("archive.save_error"));
     } finally {
       setSavingArchive(false);
     }

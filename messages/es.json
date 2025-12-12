@@ -87,6 +87,8 @@
     "update": "Guardar cambios",
     "ai_checking": "La IA está revisando...",
     "ai_error": "Error en la solicitud de IA",
+    "ai_timeout": "La IA tardó demasiado. Por favor, inténtelo de nuevo.",
+    "ai_server_error": "El servicio de IA no está disponible temporalmente.",
     "ai_applied": "Texto corregido aplicado",
     "ai_saved_archive": "Guardado en el archivo de aprendizaje"
   },

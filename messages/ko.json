@@ -88,6 +88,8 @@
     "update": "변경 내용 저장",
     "ai_checking": "AI가 교정 중...",
     "ai_error": "AI 요청 실패",
+    "ai_timeout": "AI 응답 시간이 초과되었습니다. 잠시 후 다시 시도해주세요.",
+    "ai_server_error": "AI 서비스 연결이 원활하지 않습니다.",
     "ai_applied": "교정된 문장을 적용했습니다",
     "ai_saved_archive": "학습 아카이브에 저장됨",
     "ai_saved_archive_pending": "일기 저장 시 아카이브에 함께 저장됩니다",

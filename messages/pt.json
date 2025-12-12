@@ -87,6 +87,8 @@
     "update": "Salvar alterações",
     "ai_checking": "IA está revisando...",
     "ai_error": "Falha na solicitação de IA",
+    "ai_timeout": "A IA demorou muito. Por favor, tente novamente.",
+    "ai_server_error": "O serviço de IA está temporariamente indisponível.",
     "ai_applied": "Texto corrigido aplicado",
     "ai_saved_archive": "Salvo no arquivo de aprendizado"
   },

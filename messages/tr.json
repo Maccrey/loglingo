@@ -87,6 +87,8 @@
     "update": "Değişiklikleri kaydet",
     "ai_checking": "AI kontrol ediyor...",
     "ai_error": "AI isteği başarısız",
+    "ai_timeout": "Yapay zeka yanıt vermesi çok uzun sürdü. Lütfen tekrar deneyin.",
+    "ai_server_error": "Yapay zeka hizmeti geçici olarak kullanılamıyor.",
     "ai_applied": "Düzeltilmiş metin uygulandı",
     "ai_saved_archive": "Öğrenme arşivine kaydedildi"
   },

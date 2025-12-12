@@ -87,6 +87,8 @@
     "update": "Änderungen speichern",
     "ai_checking": "KI prüft...",
     "ai_error": "KI-Anfrage fehlgeschlagen",
+    "ai_timeout": "KI hat zu lange gebraucht. Bitte versuchen Sie es erneut.",
+    "ai_server_error": "KI-Service ist vorübergehend nicht verfügbar.",
     "ai_applied": "Korrigierter Text angewendet",
     "ai_saved_archive": "Im Lernarchiv gespeichert"
   },

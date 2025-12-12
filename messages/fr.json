@@ -87,6 +87,8 @@
     "update": "Enregistrer les modifications",
     "ai_checking": "L'IA vérifie...",
     "ai_error": "Échec de la requête IA",
+    "ai_timeout": "L'IA a pris trop de temps. Veuillez réessayer.",
+    "ai_server_error": "Le service IA est temporairement indisponible.",
     "ai_applied": "Texte corrigé appliqué",
     "ai_saved_archive": "Enregistré dans l'archive d'apprentissage"
   },

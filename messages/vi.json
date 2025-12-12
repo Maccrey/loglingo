@@ -87,7 +87,9 @@
     "update": "Lưu thay đổi",
     "ai_checking": "AI đang kiểm tra...",
     "ai_error": "Yêu cầu AI thất bại",
-    "ai_applied": "Đã áp dụng văn bản đã chỉnh",
+    "ai_timeout": "AI mất quá nhiều thời gian. Vui lòng thử lại.",
+    "ai_server_error": "Dịch vụ AI tạm thời không khả dụng.",
+    "ai_applied": "Đã áp dụng văn bản sửa lỗi",
     "ai_saved_archive": "Đã lưu vào kho học"
   },
   "archive": {

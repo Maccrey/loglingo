@@ -87,6 +87,8 @@
     "update": "Simpan perubahan",
     "ai_checking": "AI sedang memeriksa...",
     "ai_error": "Permintaan AI gagal",
+    "ai_timeout": "AI memakan waktu terlalu lama. Silakan coba lagi.",
+    "ai_server_error": "Layanan AI tidak tersedia untuk sementara.",
     "ai_applied": "Teks koreksi diterapkan",
     "ai_saved_archive": "Disimpan ke arsip pembelajaran"
   },
