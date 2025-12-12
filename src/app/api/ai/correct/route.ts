@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { GrokClient } from "@/infrastructure/api/grok";
 import { CorrectionMode, CorrectionResult } from "@/domain/ai-correction";
 
-const TIMEOUT_MS = 15000;
+const TIMEOUT_MS = 30000;
 
 function getModel() {
   return process.env.GROK_MODEL?.trim() || "grok-4-fast-non-reasoning";
@@ -282,23 +282,36 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: "content required" }, { status: 400 });
     }
 
-    try {
-      const aiResponse = await callGrok(content, mode, targetLanguage, locale);
-      if (!aiResponse) {
-        console.warn("Grok returned null/failed to parse. Falling back.", { model: getModel() });
-      }
-      const result = aiResponse || fallbackResult(content, locale);
-      return NextResponse.json(result, { status: aiResponse ? 200 : 202 });
-    } catch (error) {
-      console.error("AI correction failed, returning fallback:", error);
+    // Check for API Key presence
+    if (!process.env.GROK_API_KEY) {
+      console.warn("Grok API Key missing. Returning fallback sample.");
       return NextResponse.json(fallbackResult(content, locale), { status: 202 });
     }
+
+    try {
+      const aiResponse = await callGrok(content, mode, targetLanguage, locale);
+      
+      if (!aiResponse) {
+        // Did not throw, but returned null (parse error usually)
+        console.error("Grok response parsing failed.");
+        throw new Error("Failed to parse AI response");
+      }
+      
+      return NextResponse.json(aiResponse, { status: 200 });
+    } catch (error) {
+      console.error("AI correction failed:", error);
+      // Return actual error to client so they can see "AI Error" and retry
+      const status = error instanceof Error && error.name === "AbortError" ? 504 : 502;
+      return NextResponse.json(
+        { message: (error as Error)?.message || "AI processing failed" },
+        { status }
+      );
+    }
   } catch (error: unknown) {
-    const status =
-      error instanceof Error && error.name === "AbortError" ? 504 : 500;
+    // Top-level request parsing errors
     return NextResponse.json(
-      { message: (error as Error)?.message || "AI correction failed" },
-      { status }
+      { message: (error as Error)?.message || "Internal Server Error" },
+      { status: 500 }
     );
   }
 }
