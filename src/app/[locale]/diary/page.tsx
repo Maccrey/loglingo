@@ -118,38 +118,95 @@ export default function DiaryListPage() {
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="md:col-span-1 h-fit">
-          <CardHeader className="flex flex-row items-center justify-between py-4">
-            <div className="flex items-center gap-2">
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm text-muted-foreground">
+              {t("filter_year")}
+            </CardTitle>
+            <div className="relative flex items-center gap-2">
+              {specificDate && (
+                 <button 
+                   onClick={() => setSpecificDate(null)}
+                   className="text-muted-foreground hover:text-foreground transition-colors"
+                   title={t("clear_date_filter", { default: "Clear Date" })}
+                 >
+                   <X className="h-4 w-4" />
+                 </button>
+              )}
               <div className="relative group cursor-pointer">
-                <div className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg transition-colors">
-                  <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'} transition-colors`} />
-                  <span className={`text-sm font-medium ${specificDate ? 'text-foreground' : 'text-muted-foreground'}`}>
-                    {specificDate ? formatDate(specificDate, locale) : t("all_years", { default: "All entries" })}
-                  </span>
-                </div>
+                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-primary'} transition-colors`} />
                 <input 
                   type="date" 
                   className="absolute inset-0 opacity-0 cursor-pointer"
                   onChange={(e) => {
                     setSpecificDate(e.target.value);
+                    setYear(null);
+                    setMonth(null);
                   }}
                   value={specificDate || ""}
                 />
               </div>
             </div>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className={`space-y-2 transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
+              <select
+                className="w-full rounded-lg border border-white/10 bg-neutral-900 p-2 text-sm text-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none"
+                value={year === null ? "" : year}
+                onChange={(e) => {
+                  const next = e.target.value === "" ? null : Number(e.target.value);
+                  setYear(next);
+                }}
+              >
+                <option value="" className="text-white bg-neutral-900">{t("all_years", { default: "All years" })}</option>
+                {yearOptions.map((option) => (
+                  <option key={option} value={option} className="text-white bg-neutral-900">
+                    {option}
+                  </option>
+                ))}
+              </select>
+
+              <div className="space-y-2">
+                <p className="text-xs text-muted-foreground font-medium">{t("filter_month")}</p>
+                <div className="grid grid-cols-3 gap-2 text-sm">
+                  <button
+                    className={`rounded-md border border-white/10 px-3 py-2 text-center transition ${
+                      month === null
+                        ? "bg-primary/20 text-primary-foreground border-primary/20"
+                        : "hover:bg-white/5"
+                    }`}
+                    onClick={() => setMonth(null)}
+                  >
+                    <span className="text-xs">{t("all_months")}</span>
+                  </button>
+                  {monthLabels.map((label, index) => (
+                    <button
+                      key={label}
+                      className={`rounded-md border border-white/10 px-2 py-2 text-center transition flex justify-between items-center ${
+                        month === index
+                          ? "bg-primary/20 text-primary-foreground border-primary/20"
+                          : "hover:bg-white/5"
+                      }`}
+                      onClick={() => setMonth(index)}
+                    >
+                      <span className="text-xs">{label}</span>
+                      <span className="text-[10px] opacity-60">
+                        {monthCounts[index] || 0}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
             
             {specificDate && (
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="h-8 w-8"
-                onClick={() => setSpecificDate(null)}
-                title={t("clear_date_filter", { default: "Clear Date" })}
-              >
-                <X className="h-4 w-4" />
-              </Button>
+              <div className="pt-2 border-t border-white/10 text-center">
+                 <p className="text-xs text-muted-foreground mb-1">Selected Date</p>
+                 <p className="text-sm font-medium text-primary">
+                    {formatDate(specificDate, locale)}
+                 </p>
+              </div>
             )}
-          </CardHeader>
+          </CardContent>
         </Card>
 
         <div className="md:col-span-2 space-y-4">

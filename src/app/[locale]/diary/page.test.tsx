@@ -94,6 +94,78 @@ describe("DiaryListPage", () => {
     expect(screen.getAllByText(/Test diary entry content/i)[0]).toBeInTheDocument();
   });
 
+  it("filters diaries by year", () => {
+    const diaries = [
+      {
+        id: "1",
+        userId: "user123",
+        date: "2024-01-15",
+        content: "2024 Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+      {
+        id: "2",
+        userId: "user123",
+        date: "2023-06-10",
+        content: "2023 Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+    ];
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
+    render(<DiaryListPage />);
+
+    // Initially shows all
+    expect(screen.getAllByText(/2024 Entry/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/2023 Entry/i)[0]).toBeInTheDocument();
+
+    // Filter by year
+    const yearSelect = screen.getByRole("combobox");
+    fireEvent.change(yearSelect, { target: { value: "2024" } });
+
+    expect(screen.getAllByText(/2024 Entry/i)[0]).toBeInTheDocument();
+    expect(screen.queryByText(/2023 Entry/i)).not.toBeInTheDocument();
+  });
+
+  it("filters diaries by month", () => {
+    const diaries = [
+      {
+        id: "1",
+        userId: "user123",
+        date: "2024-01-15",
+        content: "January Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+      {
+        id: "2",
+        userId: "user123",
+        date: "2024-06-10",
+        content: "June Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+    ];
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
+    render(<DiaryListPage />);
+
+    // Initially shows all
+    expect(screen.getAllByText(/January Entry/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/June Entry/i)[0]).toBeInTheDocument();
+
+    // Filter to January (month 0)
+    const januaryButton = screen.getByText("Jan"); // Assuming short locale format for month names
+    fireEvent.click(januaryButton.closest('button')!);
+
+    expect(screen.getAllByText(/January Entry/i)[0]).toBeInTheDocument();
+    expect(screen.queryByText(/June Entry/i)).not.toBeInTheDocument();
+  });
+
   it("filters diaries by specific date", () => {
     const diaries = [
       {
