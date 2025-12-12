@@ -218,7 +218,13 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   };
 
   const handleSaveArchive = async () => {
-    if (!aiResult || !userId) return;
+    console.log("Archive Save: Starting save process...", { hasAiResult: !!aiResult, userId });
+    
+    if (!aiResult || !userId) {
+      console.warn("Archive Save: Missing requirements", { aiResult: !!aiResult, userId });
+      return;
+    }
+
     try {
       setSavingArchive(true);
 
@@ -230,6 +236,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         // 중복 체크를 위해 dynamic import
         const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
         const isDuplicate = await checkDuplicate(userId, title);
+        console.log("Archive Save: Checking main sentence duplicate", { title, isDuplicate });
         
         if (!isDuplicate) {
           entries.push({
@@ -240,8 +247,6 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             examples: [aiResult.corrected],
             sourceId: initial?.id,
           });
-        } else {
-          console.log("⏭️ Skipping duplicate:", title);
         }
       }
 
@@ -250,6 +255,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         const title = issue.suggestion.slice(0, 80);
         const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
         const isDuplicate = await checkDuplicate(userId, title);
+        console.log("Archive Save: Checking issue duplicate", { title, isDuplicate });
         
         if (!isDuplicate) {
           entries.push({
@@ -260,10 +266,10 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             examples: [issue.original, issue.suggestion].filter(Boolean),
             sourceId: initial?.id,
           });
-        } else {
-          console.log("⏭️ Skipping duplicate:", title);
         }
       }
+
+      console.log("Archive Save: Entries to save", { count: entries.length, isEdit: !!initial?.id });
 
       if (entries.length > 0) {
         // 이미 저장된 일기(수정 모드)인 경우 바로 저장
@@ -273,12 +279,14 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         } else {
           // 새 일기인 경우 pending 상태로 보관 -> 일기 저장 시 함께 저장
           setPendingArchives(prev => [...prev, ...entries]);
+          console.log("Archive Save: Added to pending", entries);
           toast.success(t("ai_saved_archive_pending"));
         }
       } else {
         toast.info("모두 이미 아카이브에 저장되어 있습니다");
       }
     } catch (error: unknown) {
+      console.error("Archive Save: Error occurred", error);
       const message = error instanceof Error ? error.message : "error";
       toast.error(`${t("upload_failed")} (${message})`);
     } finally {
