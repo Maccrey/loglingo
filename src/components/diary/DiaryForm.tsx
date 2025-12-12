@@ -273,10 +273,10 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         
         console.log("Archive Save: Checking issue duplicate", { title, isDuplicate, sourceId: initial?.id });
         
-        if (!isDuplicate) {
+          if (!isDuplicate) {
           entries.push({
             userId,
-            type: "grammar" as const,
+            type: issue.type === "word" ? "word" : "grammar", // Map AI issue type to ArchiveType
             title,
             rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
             examples: [issue.original, issue.suggestion].filter(Boolean),
