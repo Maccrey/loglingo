@@ -32,6 +32,7 @@ async function generateQuizWithGrok(
 }
 
 export async function getOrGenerateQuiz(
+  userId: string, // Added userId
   archiveId: string,
   title: string,
   rootMeaning: string,
@@ -40,7 +41,7 @@ export async function getOrGenerateQuiz(
   uiLocale: string,
   learningLanguage: string
 ): Promise<Quiz | null> {
-  console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title });
+  console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title, userId });
 
   // 1. Check if quiz exists in Firebase
   const existingQuiz = await getQuizByArchiveId(archiveId);
@@ -67,6 +68,7 @@ export async function getOrGenerateQuiz(
 
   // 3. Save to Firebase
   const draft: QuizDraft = {
+    userId, // Save userId
     archiveId,
     question,
     options: generated.options,

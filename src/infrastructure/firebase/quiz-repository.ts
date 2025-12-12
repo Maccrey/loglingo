@@ -23,6 +23,7 @@ function mapQuiz(snapshot: QueryDocumentSnapshot<DocumentData>): Quiz {
 
   return {
     id: snapshot.id,
+    userId: data.userId || "",
     archiveId: data.archiveId,
     question: data.question,
     options: data.options || [],
@@ -61,7 +62,7 @@ export async function getQuizByArchiveId(
 }
 
 export async function createQuiz(draft: QuizDraft): Promise<Quiz> {
-  console.log("💾 Quiz Repository: Creating quiz", { archiveId: draft.archiveId });
+  console.log("💾 Quiz Repository: Creating quiz", { archiveId: draft.archiveId, userId: draft.userId });
   
   const payload = {
     ...draft,

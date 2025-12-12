@@ -53,6 +53,7 @@ export function useQuiz(
 
       try {
         const result = await getOrGenerateQuiz(
+          entry.userId, // Pass userId
           entry.id,
           entry.title,
           entry.rootMeaning || entry.title,

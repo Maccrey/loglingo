@@ -1,5 +1,6 @@
 export interface Quiz {
   id: string;
+  userId: string;
   archiveId: string;
   question: string;
   options: string[];
@@ -9,6 +10,7 @@ export interface Quiz {
 }
 
 export interface QuizDraft {
+  userId: string;
   archiveId: string;
   question: string;
   options: string[];
