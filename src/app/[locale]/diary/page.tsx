@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Plus, CalendarDays, Edit3, Trash2, X } from "lucide-react";
+import { Plus, CalendarDays, Edit3, Trash2, X, ChevronDown } from "lucide-react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useDiaryList, useDiaryMutations } from "@/application/diary/hooks";
@@ -118,101 +118,117 @@ export default function DiaryListPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <Card className="md:col-span-1 h-fit">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm text-muted-foreground">
-              {t("filter_year")}
-            </CardTitle>
-            <div className="flex items-center gap-2">
-              {specificDate && (
-                 <button 
-                   onClick={() => setSpecificDate(null)}
-                   className="text-muted-foreground hover:text-foreground transition-colors"
-                   title={t("clear_date_filter", { default: "Clear Date" })}
-                 >
-                   <X className="h-4 w-4" />
-                 </button>
-              )}
-              <div 
-                className="cursor-pointer p-1 hover:bg-white/10 rounded-md transition-colors"
-                onClick={() => dateInputRef.current?.showPicker()}
-              >
-                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-primary'}`} />
+        <Card className="md:col-span-1 h-fit bg-[#1e293b] border-white/10 rounded-xl overflow-hidden shadow-xl">
+          <div className="p-5 space-y-6">
+            {/* Year Section */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-white font-semibold text-base">{t("filter_year", { default: "Year"})}</span>
+                <div className="relative group">
+                   {specificDate && (
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSpecificDate(null);
+                        }}
+                        className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors mr-1"
+                        title={t("clear_date_filter", { default: "Clear Date" })}
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                   )}
+                   <div 
+                     className="relative cursor-pointer p-1.5 rounded-md hover:bg-white/5 transition-colors"
+                   >
+                     <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-orange-500 fill-orange-500/10' : 'text-orange-500'}`} />
+                     <input 
+                        ref={dateInputRef}
+                        type="date" 
+                        className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                        onChange={(e) => {
+                          if (e.target.value) {
+                             setSpecificDate(e.target.value);
+                             setYear(null);
+                             setMonth(null);
+                          }
+                        }}
+                        value={specificDate || ""}
+                      />
+                   </div>
+                </div>
               </div>
-              <input 
-                ref={dateInputRef}
-                type="date" 
-                className="absolute w-0 h-0 opacity-0 pointer-events-none"
-                style={{ visibility: 'hidden', position: 'absolute' }}
-                onChange={(e) => {
-                  setSpecificDate(e.target.value);
-                  setYear(null);
-                  setMonth(null);
-                }}
-                value={specificDate || ""}
-              />
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className={`space-y-2 transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
-              <select
-                className="w-full rounded-lg border border-white/10 bg-neutral-900 p-2 text-sm text-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none"
-                value={year === null ? "" : year}
-                onChange={(e) => {
-                  const next = e.target.value === "" ? null : Number(e.target.value);
-                  setYear(next);
-                }}
-              >
-                <option value="" className="text-white bg-neutral-900">{t("all_years", { default: "All years" })}</option>
-                {yearOptions.map((option) => (
-                  <option key={option} value={option} className="text-white bg-neutral-900">
-                    {option}
-                  </option>
-                ))}
-              </select>
-
-              <div className="space-y-2">
-                <p className="text-xs text-muted-foreground font-medium">{t("filter_month")}</p>
-                <div className="grid grid-cols-3 gap-2 text-sm">
-                  <button
-                    className={`rounded-md border border-white/10 px-3 py-2 text-center transition ${
-                      month === null
-                        ? "bg-primary/20 text-primary-foreground border-primary/20"
-                        : "hover:bg-white/5"
-                    }`}
-                    onClick={() => setMonth(null)}
-                  >
-                    <span className="text-xs">{t("all_months")}</span>
-                  </button>
-                  {monthLabels.map((label, index) => (
-                    <button
-                      key={label}
-                      className={`rounded-md border border-white/10 px-2 py-2 text-center transition flex justify-between items-center ${
-                        month === index
-                          ? "bg-primary/20 text-primary-foreground border-primary/20"
-                          : "hover:bg-white/5"
-                      }`}
-                      onClick={() => setMonth(index)}
-                    >
-                      <span className="text-xs">{label}</span>
-                      <span className="text-[10px] opacity-60">
-                        {monthCounts[index] || 0}
-                      </span>
-                    </button>
+              
+              <div className={`relative transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
+                <select
+                  className="w-full bg-[#0f172a] border border-white/5 rounded-lg py-3 px-4 text-white appearance-none cursor-pointer hover:border-white/10 transition-colors focus:ring-1 focus:ring-orange-500/50 outline-none text-sm"
+                  value={year === null ? "" : year}
+                  onChange={(e) => {
+                    const next = e.target.value === "" ? null : Number(e.target.value);
+                    setYear(next);
+                  }}
+                >
+                  <option value="" className="bg-[#0f172a] text-gray-300">{t("all_years", { default: "All years" })}</option>
+                  {yearOptions.map((option) => (
+                    <option key={option} value={option} className="bg-[#0f172a] text-white">
+                      {option}
+                    </option>
                   ))}
+                </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                   <ChevronDown className="h-4 w-4" />
                 </div>
               </div>
             </div>
-            
+
+            {/* Month Section */}
+            <div className={`space-y-3 transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
+               <div className="text-white font-medium text-sm">{t("filter_month", {default: "Month"})}</div>
+               <div className="grid grid-cols-3 gap-2">
+                  <button
+                    onClick={() => setMonth(null)}
+                    className={`
+                      col-span-1 rounded-lg border transition-all duration-200 p-2 flex flex-col items-center justify-center aspect-[4/3]
+                      ${month === null
+                        ? "bg-[#453434] border-orange-500/30 text-orange-200"
+                        : "bg-[#0f172a] border-white/5 text-gray-400 hover:bg-white/5 hover:border-white/10"
+                      }
+                    `}
+                  >
+                     <span className="text-sm font-medium text-center leading-tight">
+                       {t("all_months_short", {default: "All\nmonths"}).split('\n').map((line, i) => (
+                         <span key={i} className="block">{line}</span>
+                       ))}
+                     </span>
+                  </button>
+
+                  {monthLabels.map((label, index) => (
+                     <button
+                       key={label}
+                       onClick={() => setMonth(index)}
+                       className={`
+                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-[4/3]
+                         ${month === index
+                           ? "bg-[#453434] border-orange-500/30 text-orange-200"
+                           : "bg-[#0f172a] border-white/5 text-gray-400 hover:bg-white/5 hover:border-white/10"
+                         }
+                       `}
+                     >
+                        <span className="text-xs font-medium self-start">{label}</span>
+                        <span className="text-xs self-end opacity-60 font-mono">{monthCounts[index] || 0}</span>
+                     </button>
+                  ))}
+               </div>
+            </div>
+
             {specificDate && (
-              <div className="pt-2 border-t border-white/10 text-center">
-                 <p className="text-xs text-muted-foreground mb-1">Selected Date</p>
-                 <p className="text-sm font-medium text-primary">
-                    {formatDate(specificDate, locale)}
-                 </p>
-              </div>
+               <div className="pt-4 border-t border-white/10 text-center animate-in fade-in slide-in-from-top-2">
+                  <p className="text-xs text-orange-200/70 mb-1 font-medium">Filtered by Date</p>
+                  <p className="text-sm font-bold text-orange-400 bg-orange-500/10 py-1 px-3 rounded-full inline-block border border-orange-500/20">
+                     {formatDate(specificDate, locale)}
+                  </p>
+               </div>
             )}
-          </CardContent>
+          </div>
         </Card>
 
         <div className="md:col-span-2 space-y-4">
@@ -232,7 +248,7 @@ export default function DiaryListPage() {
             </Card>
           ) : (
             <div className="grid gap-4">
-              {filtered.map((diary) => (
+              {filtered.map((diary, index) => (
               <div 
                 key={diary.id} 
                 onClick={() => router.push(`/diary/${diary.id}`)}
@@ -282,7 +298,7 @@ export default function DiaryListPage() {
                         width={1200}
                         height={800}
                         className="h-48 w-full rounded-lg object-cover"
-                        loading="lazy"
+                        priority={index < 2}
                         sizes="(max-width: 768px) 100vw, 700px"
                         unoptimized
                       />
