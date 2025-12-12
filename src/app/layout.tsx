@@ -21,15 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-      </head>
-      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         {children}
       </body>
     </html>
