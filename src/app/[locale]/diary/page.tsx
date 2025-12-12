@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Plus, CalendarDays, Edit3, Trash2 } from "lucide-react";
+import { Plus, CalendarDays, Edit3, Trash2, X } from "lucide-react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useDiaryList, useDiaryMutations } from "@/application/diary/hooks";
@@ -30,6 +30,7 @@ export default function DiaryListPage() {
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState<number | null>(null);
   const [month, setMonth] = useState<number | null>(null);
+  const [specificDate, setSpecificDate] = useState<string | null>(null);
 
   const enabled = Boolean(userId) && !loading;
   const { data: diaries = [], isLoading } = useDiaryList(userId, undefined, {
@@ -76,11 +77,16 @@ export default function DiaryListPage() {
   }, [byYear]);
 
   const filtered = useMemo(() => {
+    // If specific date is selected, it takes precedence
+    if (specificDate) {
+      return diaries.filter((diary) => diary.date === specificDate);
+    }
+    
     if (month === null) return byYear;
     return byYear.filter(
       (diary) => new Date(`${diary.date}T00:00:00`).getMonth() === month
     );
-  }, [byYear, month]);
+  }, [byYear, month, diaries, specificDate]);
 
   const handleDelete = async (diary: Diary) => {
     if (!confirm(t("confirm_delete"))) return;
@@ -116,55 +122,95 @@ export default function DiaryListPage() {
             <CardTitle className="text-sm text-muted-foreground">
               {t("filter_year")}
             </CardTitle>
-            <CalendarDays className="h-4 w-4 text-primary" />
+            <div className="relative flex items-center gap-2">
+              {specificDate && (
+                 <button 
+                   onClick={() => setSpecificDate(null)}
+                   className="text-muted-foreground hover:text-foreground transition-colors"
+                 >
+                   <X className="h-4 w-4" />
+                 </button>
+              )}
+              <div className="relative group cursor-pointer">
+                <CalendarDays className={`h-4 w-4 ${specificDate ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'} transition-colors`} />
+                <input 
+                  type="date" 
+                  className="absolute inset-0 opacity-0 cursor-pointer"
+                  onChange={(e) => {
+                    setSpecificDate(e.target.value);
+                    // Reset year/month filters when a specific date is picked for clarity
+                    setYear(null);
+                    setMonth(null);
+                  }}
+                  value={specificDate || ""}
+                />
+              </div>
+            </div>
           </CardHeader>
           <CardContent className="space-y-2">
-            <select
-              className="w-full rounded-lg border border-white/10 bg-white/5 p-2 text-sm"
-              value={year === null ? "" : year}
-              onChange={(e) => {
-                const next = e.target.value === "" ? null : Number(e.target.value);
-                setYear(next);
-              }}
-            >
-              <option value="">{t("all_years", { default: "All years" })}</option>
-              {yearOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-muted-foreground">{t("filter_month")}</p>
-            <div className="grid grid-cols-3 gap-2 text-sm">
-              <button
-                className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
-                  month === null
-                    ? "bg-primary/20 text-primary-foreground"
-                    : "hover:bg-white/5"
-                }`}
-                onClick={() => setMonth(null)}
+            <div className={`transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
+              <select
+                className="w-full rounded-lg border border-white/10 bg-neutral-900 p-2 text-sm text-white"
+                value={year === null ? "" : year}
+                onChange={(e) => {
+                  const next = e.target.value === "" ? null : Number(e.target.value);
+                  setYear(next);
+                }}
               >
-                {t("all_months")}
-              </button>
-              {monthLabels.map((label, index) => (
+                <option value="">{t("all_years", { default: "All years" })}</option>
+                {yearOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs text-muted-foreground mt-2">{t("filter_month")}</p>
+              <div className="grid grid-cols-3 gap-2 text-sm mt-1">
                 <button
-                  key={label}
                   className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
-                    month === index
+                    month === null
                       ? "bg-primary/20 text-primary-foreground"
                       : "hover:bg-white/5"
                   }`}
-                  onClick={() => setMonth(index)}
+                  onClick={() => setMonth(null)}
                 >
-                  <div className="flex items-center justify-between">
-                    <span>{label}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {monthCounts[index] || 0}
-                    </span>
-                  </div>
+                  {t("all_months")}
                 </button>
-              ))}
+                {monthLabels.map((label, index) => (
+                  <button
+                    key={label}
+                    className={`rounded-md border border-white/10 px-3 py-2 text-left transition ${
+                      month === index
+                        ? "bg-primary/20 text-primary-foreground"
+                        : "hover:bg-white/5"
+                    }`}
+                    onClick={() => setMonth(index)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span>{label}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {monthCounts[index] || 0}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
+            {specificDate && (
+              <div className="mt-2 text-center">
+                 <p className="text-sm font-medium text-primary">
+                    {formatDate(specificDate, locale)}
+                 </p>
+                 < Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="mt-1 h-auto py-1 px-2 text-xs"
+                    onClick={() => setSpecificDate(null)}
+                  >
+                    {t("clear_date_filter", { default: "Clear Date" })}
+                 </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
 

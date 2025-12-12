@@ -62,7 +62,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "clear_date_filter": "Clear Date"
   },
   "write": {
     "title": "New Entry",

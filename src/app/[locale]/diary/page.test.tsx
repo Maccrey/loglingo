@@ -165,4 +165,42 @@ describe("DiaryListPage", () => {
     expect(screen.getAllByText(/January Entry/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/June Entry/i)).not.toBeInTheDocument();
   });
+
+  it("filters diaries by specific date", () => {
+    const diaries = [
+      {
+        id: "1",
+        userId: "user123",
+        date: "2024-01-15",
+        content: "Specific Date Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+      {
+        id: "2",
+        userId: "user123",
+        date: "2024-01-16",
+        content: "Other Date Entry",
+        imageUrl: undefined,
+        aiReviewed: false,
+        createdAt: new Date(),
+      },
+    ];
+    (useDiaryList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: diaries, isLoading: false });
+    render(<DiaryListPage />);
+
+    // Initially shows all
+    expect(screen.getAllByText(/Specific Date Entry/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/Other Date Entry/i)[0]).toBeInTheDocument();
+
+    // Find date input - explicit selector since there might not be a label accessible
+    const dateInput = document.querySelector('input[type="date"]');
+    if (!dateInput) throw new Error("Date input not found");
+    
+    fireEvent.change(dateInput, { target: { value: "2024-01-15" } });
+
+    expect(screen.getAllByText(/Specific Date Entry/i)[0]).toBeInTheDocument();
+    expect(screen.queryByText(/Other Date Entry/i)).not.toBeInTheDocument();
+  });
 });
