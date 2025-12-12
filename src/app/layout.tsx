@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "AI-powered language learning diary",
 };
 
+import Script from "next/script"; // Import Script component
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,6 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         {children}
       </body>
