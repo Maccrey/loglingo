@@ -186,9 +186,9 @@ export default function DiaryListPage() {
                       setMonth(null);
                     }}
                     className={`
-                      col-span-1 rounded-lg border transition-all duration-200 p-3 flex flex-col items-center justify-center aspect-[4/3.2]
+                      col-span-1 rounded-lg border transition-all duration-200 p-3 flex flex-col items-center justify-center aspect-square
                       ${month === null
-                        ? "bg-[#453434] border-orange-500/30 text-orange-200"
+                        ? "bg-[#ea580c]/20 border-[#ea580c]/50 text-[#fdba74] shadow-lg shadow-[#ea580c]/10"
                         : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                       }
                     `}
@@ -208,15 +208,15 @@ export default function DiaryListPage() {
                          setMonth(index);
                        }}
                        className={`
-                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-[4/3.2] group
+                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-square group
                          ${month === index
-                           ? "bg-orange-500/20 border-orange-500/50 text-orange-300 shadow-lg shadow-orange-500/10"
+                           ? "bg-[#ea580c]/20 border-[#ea580c]/50 text-[#fdba74] shadow-lg shadow-[#ea580c]/10"
                            : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                          }
                        `}
                      >
                         <span className="text-sm font-medium self-start">{label}</span>
-                        <span className={`text-xs self-end font-mono transition-opacity ${month === index ? 'opacity-100 text-orange-200' : 'opacity-40 group-hover:opacity-70'}`}>
+                        <span className={`text-xs self-end font-mono transition-opacity ${month === index ? 'opacity-100 text-[#fdba74]' : 'opacity-40 group-hover:opacity-70'}`}>
                           {monthCounts[index] || 0}
                         </span>
                      </button>
