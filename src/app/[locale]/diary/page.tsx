@@ -139,7 +139,7 @@ export default function DiaryListPage() {
                    <div 
                      className="relative cursor-pointer p-1 rounded-md hover:bg-white/5 transition-colors"
                    >
-                     <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-orange-500 fill-orange-500/20' : 'text-orange-500'}`} />
+                      <CalendarDays className="h-5 w-5 text-orange-500" />
                      <input 
                         ref={dateInputRef}
                         type="date" 
@@ -186,14 +186,14 @@ export default function DiaryListPage() {
                       setMonth(null);
                     }}
                     className={`
-                      col-span-1 rounded-lg border transition-all duration-200 p-3 flex flex-col items-center justify-center aspect-square
+                      col-span-1 rounded-lg border transition-all duration-200 p-1.5 flex items-center justify-center aspect-square
                       ${month === null
-                        ? "bg-[#ea580c]/20 border-[#ea580c]/50 text-[#fdba74] shadow-lg shadow-[#ea580c]/10"
+                        ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30"
                         : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                       }
                     `}
                   >
-                     <span className="text-sm font-medium text-center leading-tight">
+                     <span className="text-xs font-medium text-center leading-tight">
                        {t("all_months_short", {default: "All\nmonths"}).split('\n').map((line, i) => (
                          <span key={i} className="block">{line}</span>
                        ))}
@@ -201,26 +201,27 @@ export default function DiaryListPage() {
                   </button>
 
                   {monthLabels.map((label, index) => (
-                     <button
-                       key={label}
-                       onClick={() => {
-                         setYear(null); // 월 클릭 시 모든 년도 표시
-                         setMonth(index);
-                       }}
-                       className={`
-                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-square group
-                         ${month === index
-                           ? "bg-[#ea580c]/20 border-[#ea580c]/50 text-[#fdba74] shadow-lg shadow-[#ea580c]/10"
-                           : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
-                         }
-                       `}
-                     >
-                        <span className="text-sm font-medium self-start">{label}</span>
-                        <span className={`text-xs self-end font-mono transition-opacity ${month === index ? 'opacity-100 text-[#fdba74]' : 'opacity-40 group-hover:opacity-70'}`}>
-                          {monthCounts[index] || 0}
-                        </span>
-                     </button>
-                  ))}
+                  <button
+                    key={label}
+                    onClick={() => {
+                      setYear(null); // 월 클릭 시 모든 년도 표시
+                      setMonth(index);
+                    }}
+                    className={`
+                      relative rounded-lg border transition-all duration-200 aspect-square group
+                      flex flex-col items-center justify-center gap-0.5 p-1.5
+                      ${month === index
+                        ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30"
+                        : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
+                      }
+                    `}
+                  >
+                     <span className="text-xs font-medium">{label}</span>
+                     <span className={`text-[10px] font-mono transition-opacity ${month === index ? 'opacity-100 text-white/80' : 'opacity-40 group-hover:opacity-70'}`}>
+                       {monthCounts[index] || 0}
+                     </span>
+                  </button>
+               ))}
                </div>
             </div>
 
