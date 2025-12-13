@@ -27,7 +27,6 @@ export default function DiaryListPage() {
   const router = useRouter(); // Added router variable
   const { user, loading } = useAuth();
   const userId = user?.uid ?? "";
-  const currentYear = new Date().getFullYear();
   const [year, setYear] = useState<number | null>(null);
   const [month, setMonth] = useState<number | null>(null);
   const [specificDate, setSpecificDate] = useState<string | null>(null);
@@ -61,7 +60,7 @@ export default function DiaryListPage() {
     const years = new Set<number>();
     diaries.forEach((diary) => years.add(Number(diary.date.split("-")[0])));
     return Array.from(years).sort((a, b) => b - a);
-  }, [diaries, currentYear]);
+  }, [diaries]);
 
   const byYear = useMemo(() => {
     if (year === null) return diaries;
@@ -118,12 +117,12 @@ export default function DiaryListPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <Card className="md:col-span-1 h-fit bg-[#1e293b] border-white/10 rounded-xl overflow-hidden shadow-xl">
+        <Card className="md:col-span-1 h-fit bg-[#111827] border-white/5 rounded-xl overflow-hidden shadow-xl">
           <div className="p-5 space-y-6">
             {/* Year Section */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-white font-semibold text-base">{t("filter_year", { default: "Year"})}</span>
+                <span className="text-white font-semibold text-lg">{t("filter_year", { default: "Year"})}</span>
                 <div className="relative group">
                    {specificDate && (
                       <button 
@@ -131,16 +130,16 @@ export default function DiaryListPage() {
                           e.stopPropagation();
                           setSpecificDate(null);
                         }}
-                        className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors mr-1"
+                        className="absolute right-8 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors mr-1"
                         title={t("clear_date_filter", { default: "Clear Date" })}
                       >
                         <X className="h-4 w-4" />
                       </button>
                    )}
                    <div 
-                     className="relative cursor-pointer p-1.5 rounded-md hover:bg-white/5 transition-colors"
+                     className="relative cursor-pointer p-1 rounded-md hover:bg-white/5 transition-colors"
                    >
-                     <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-orange-500 fill-orange-500/10' : 'text-orange-500'}`} />
+                     <CalendarDays className={`h-5 w-5 ${specificDate ? 'text-orange-500 fill-orange-500/20' : 'text-orange-500'}`} />
                      <input 
                         ref={dateInputRef}
                         type="date" 
@@ -160,14 +159,14 @@ export default function DiaryListPage() {
               
               <div className={`relative transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
                 <select
-                  className="w-full bg-[#0f172a] border border-white/5 rounded-lg py-3 px-4 text-white appearance-none cursor-pointer hover:border-white/10 transition-colors focus:ring-1 focus:ring-orange-500/50 outline-none text-sm"
+                  className="w-full bg-[#0f172a] border-none rounded-lg py-3 px-4 text-gray-200 appearance-none cursor-pointer hover:bg-[#1e293b] transition-colors focus:ring-1 focus:ring-white/10 outline-none text-sm"
                   value={year === null ? "" : year}
                   onChange={(e) => {
                     const next = e.target.value === "" ? null : Number(e.target.value);
                     setYear(next);
                   }}
                 >
-                  <option value="" className="bg-[#0f172a] text-gray-300">{t("all_years", { default: "All years" })}</option>
+                  <option value="" className="bg-[#0f172a] text-gray-400">{t("all_years", { default: "All years" })}</option>
                   {yearOptions.map((option) => (
                     <option key={option} value={option} className="bg-[#0f172a] text-white">
                       {option}
@@ -182,15 +181,18 @@ export default function DiaryListPage() {
 
             {/* Month Section */}
             <div className={`space-y-3 transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
-               <div className="text-white font-medium text-sm">{t("filter_month", {default: "Month"})}</div>
+               <div className="text-white font-semibold text-lg">{t("filter_month", {default: "Month"})}</div>
                <div className="grid grid-cols-3 gap-2">
                   <button
-                    onClick={() => setMonth(null)}
+                    onClick={() => {
+                      setYear(null); // 월 클릭 시 모든 년도 표시
+                      setMonth(null);
+                    }}
                     className={`
-                      col-span-1 rounded-lg border transition-all duration-200 p-2 flex flex-col items-center justify-center aspect-[4/3]
+                      col-span-1 rounded-lg border transition-all duration-200 p-3 flex flex-col items-center justify-center aspect-[4/3.2]
                       ${month === null
                         ? "bg-[#453434] border-orange-500/30 text-orange-200"
-                        : "bg-[#0f172a] border-white/5 text-gray-400 hover:bg-white/5 hover:border-white/10"
+                        : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                       }
                     `}
                   >
@@ -204,17 +206,22 @@ export default function DiaryListPage() {
                   {monthLabels.map((label, index) => (
                      <button
                        key={label}
-                       onClick={() => setMonth(index)}
+                       onClick={() => {
+                         setYear(null); // 월 클릭 시 모든 년도 표시
+                         setMonth(index);
+                       }}
                        className={`
-                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-[4/3]
+                         relative flex flex-col justify-between p-3 rounded-lg border transition-all duration-200 aspect-[4/3.2] group
                          ${month === index
                            ? "bg-[#453434] border-orange-500/30 text-orange-200"
-                           : "bg-[#0f172a] border-white/5 text-gray-400 hover:bg-white/5 hover:border-white/10"
+                           : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                          }
                        `}
                      >
-                        <span className="text-xs font-medium self-start">{label}</span>
-                        <span className="text-xs self-end opacity-60 font-mono">{monthCounts[index] || 0}</span>
+                        <span className="text-sm font-medium self-start">{label}</span>
+                        <span className={`text-xs self-end font-mono transition-opacity ${month === index ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
+                          {monthCounts[index] || 0}
+                        </span>
                      </button>
                   ))}
                </div>
