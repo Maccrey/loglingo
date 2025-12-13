@@ -173,9 +173,6 @@ export default function DiaryListPage() {
                     </option>
                   ))}
                 </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
-                   <ChevronDown className="h-4 w-4" />
-                </div>
               </div>
             </div>
 
