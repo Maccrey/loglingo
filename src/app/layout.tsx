@@ -10,6 +10,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Loglingo",
   description: "AI-powered language learning diary",
+  icons: {
+    icon: [
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
+  openGraph: {
+    title: "Loglingo",
+    description: "AI-powered language learning diary",
+    images: ['/icon-512.png'],
+  },
 };
 
 import Script from "next/script"; // Import Script component
