@@ -5,7 +5,7 @@ export const routing = defineRouting({
   // A list of all locales that are supported
   locales: [
     'en', 'ko', 'ja', 'zh', 'th', 'vi', 'id', 
-    'es', 'pt', 'fr', 'de', 'tr', 'ar', 'hi'
+    'es', 'pt', 'fr', 'de', 'tr', 'ar', 'hi', 'ru'
   ],
 
   // Used when no locale matches

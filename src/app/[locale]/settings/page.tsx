@@ -30,6 +30,7 @@ export default function SettingsPage() {
     { code: 'tr', name: 'Türkçe' },
     { code: 'ar', name: 'العربية' },
     { code: 'hi', name: 'हिन्दी' },
+    { code: 'ru', name: 'Русский' },
   ];
 
   const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
