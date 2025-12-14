@@ -98,6 +98,8 @@
     "title": "Archive d'apprentissage",
     "grammar": "Schémas grammaticaux",
     "vocabulary": "Vocabulaire",
+    "type_grammar_short": "Grammaire",
+    "type_word_short": "Mot",
     "empty": "Aucun élément dans l'archive.",
     "subtitle": "Enregistrez grammaire/vocabulaire et révisez avec des quiz rapides.",
     "add_title": "Ajouter à l'archive",

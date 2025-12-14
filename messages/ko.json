@@ -104,6 +104,8 @@
     "title": "학습 아카이브",
     "grammar": "문법 패턴",
     "vocabulary": "어휘",
+    "type_grammar_short": "문법",
+    "type_word_short": "단어",
     "empty": "아카이브에 항목이 없습니다.",
     "subtitle": "문법/어휘를 저장하고 퀴즈로 복습하세요.",
     "add_title": "아카이브에 추가",

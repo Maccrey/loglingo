@@ -98,6 +98,8 @@
     "title": "Öğrenme Arşivi",
     "grammar": "Dilbilgisi kalıpları",
     "vocabulary": "Kelime bilgisi",
+    "type_grammar_short": "Dilbilgisi",
+    "type_word_short": "Kelime",
     "empty": "Arşivde öğe yok.",
     "subtitle": "Dilbilgisi/kelimeleri kaydedin ve hızlı quizlerle pekiştirin.",
     "add_title": "Arşive ekle",

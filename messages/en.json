@@ -103,6 +103,8 @@
     "title": "Learning Archive",
     "grammar": "Grammar Patterns",
     "vocabulary": "Vocabulary",
+    "type_grammar_short": "Grammar",
+    "type_word_short": "Word",
     "empty": "No items in archive yet.",
     "subtitle": "Save grammar/words and practice with quick quizzes.",
     "add_title": "Add to archive",

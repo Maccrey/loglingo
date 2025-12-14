@@ -98,6 +98,8 @@
     "title": "Arsip pembelajaran",
     "grammar": "Pola tata bahasa",
     "vocabulary": "Kosakata",
+    "type_grammar_short": "Tata bahasa",
+    "type_word_short": "Kata",
     "empty": "Tidak ada item di arsip.",
     "subtitle": "Simpan tata bahasa/kosakata dan ulangi dengan kuis cepat.",
     "add_title": "Tambahkan ke arsip",

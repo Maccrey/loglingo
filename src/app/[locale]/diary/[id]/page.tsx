@@ -135,7 +135,7 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                           )}
                         </div>
                         <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                          {archive.type === "grammar" ? "문법" : "단어"}
+                          {tArchive(archive.type === "grammar" ? "type_grammar_short" : "type_word_short")}
                         </span>
                       </div>
                     </div>

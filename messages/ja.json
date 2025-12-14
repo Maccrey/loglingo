@@ -97,6 +97,8 @@
     "title": "学習アーカイブ",
     "grammar": "文法パターン",
     "vocabulary": "語彙",
+    "type_grammar_short": "文法",
+    "type_word_short": "単語",
     "empty": "アーカイブに項目がありません。",
     "subtitle": "文法や語彙を保存し、クイズで復習しましょう。",
     "add_title": "アーカイブに追加",

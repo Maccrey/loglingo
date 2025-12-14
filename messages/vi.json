@@ -97,6 +97,8 @@
     "title": "Kho học tập",
     "grammar": "Mẫu ngữ pháp",
     "vocabulary": "Từ vựng",
+    "type_grammar_short": "Ngữ pháp",
+    "type_word_short": "Từ",
     "empty": "Chưa có mục nào trong kho.",
     "subtitle": "Lưu ngữ pháp/từ vựng và ôn với câu hỏi nhanh.",
     "add_title": "Thêm vào kho",

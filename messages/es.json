@@ -97,6 +97,8 @@
     "title": "Archivo de aprendizaje",
     "grammar": "Patrones gramaticales",
     "vocabulary": "Vocabulario",
+    "type_grammar_short": "Gramática",
+    "type_word_short": "Palabra",
     "empty": "No hay elementos en el archivo.",
     "subtitle": "Guarda gramática/vocabulario y repasa con quizzes rápidos.",
     "add_title": "Agregar al archivo",

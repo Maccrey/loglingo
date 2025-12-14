@@ -97,6 +97,8 @@
     "title": "学习档案",
     "grammar": "语法模式",
     "vocabulary": "词汇",
+    "type_grammar_short": "语法",
+    "type_word_short": "单词",
     "empty": "档案中暂无内容。",
     "subtitle": "保存语法/词汇并通过测验复习。",
     "add_title": "添加到档案",

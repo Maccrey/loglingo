@@ -97,6 +97,8 @@
     "title": "Lernarchiv",
     "grammar": "Grammatikmuster",
     "vocabulary": "Wortschatz",
+    "type_grammar_short": "Grammatik",
+    "type_word_short": "Wort",
     "empty": "Keine Einträge im Archiv.",
     "subtitle": "Speichere Grammatik/Vokabeln und übe mit kurzen Quizzen.",
     "add_title": "Zum Archiv hinzufügen",
