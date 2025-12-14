@@ -6,6 +6,8 @@ import { Link, useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
 
+// Language options for UI (15 languages including Russian)
+
 const languages = [
   { code: "en", name: "English" },
   { code: "ko", name: "한국어" },
