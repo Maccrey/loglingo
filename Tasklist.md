@@ -82,6 +82,10 @@
 
 ## 6. 계정/보안/국제화 — Codex
 - [x] Google OAuth2 로그인/로그아웃만 지원(타 로그인 미적용), 세션 만료(24h) 처리
+- [x] **이메일/패스워드 인증 시스템 구현**: 회원가입, 로그인, 비밀번호 재설정, 이메일 변경 기능 완료
+  - [x] 모달 기반 인증 UI 구현 (로그인, 회원가입, 비밀번호 찾기, 이메일 변경)
+  - [x] AuthProvider에 이메일 인증 메서드 통합
+  - [x] 15개 언어로 완전한 다국어 지원
 - [x] Firebase 보안 규칙(유저 데이터 소유권, 일기/학습 데이터 접근 제한) 검증(규칙 파일 추가)
 - [x] UI 언어/학습 언어 분리 i18n 전역 적용, 날짜/숫자/시간대 현지화(Intl 포맷터 추가, 학습 언어 컨텍스트)
 - [x] JWT/토큰 관리, HTTPS 강제, 민감 키 서버사이드 호출(Grok 키 Functions 프락시) — HTTPS 리다이렉트 미들웨어 추가, Grok 키 서버사이드 호출 유지
@@ -98,7 +102,7 @@
   - `npm test` (vitest) 통과, `lhci:collect` 실행 스크립트 추가
 
 ## 8. 배포/릴리즈 — Codex
-- [/] 배포 파이프라인 구성(Firebase Hosting, 환경 분리), CDN 헤더 검증
+- [x] 배포 파이프라인 구성(Firebase Hosting, 환경 분리), CDN 헤더 검증
     - [x] 초기 수동 배포 (Firebase Hosting URL: https://logling-34fc9.web.app)
     - [x] Deploy.md (구 implementation_plan.md) 작성 및 git 제외 설정
     - [x] GitHub Actions 워크플로우 파일 생성 (.github/workflows/deploy.yml)
@@ -109,6 +113,28 @@
     - [x] 빌드 성공 확인
 - [x] 완료 시 최종 통합 테스트 후 한국어 커밋
     - [x] 커밋 완료
+
+## 8-1. SEO 및 광고 통합 — Codex
+- [x] **SEO 기능 구현**
+  - [x] react-helmet-async를 통한 동적 메타 태그 관리
+  - [x] robots.txt 파일 생성
+  - [x] sitemap.xml 생성
+  - [x] 네이버 웹마스터 도구 사이트 소유 확인
+- [x] **광고 통합**
+  - [x] Kakao AdFit 통합 (PC: 728x90, 모바일: 320x50)
+  - [x] 메인 페이지 하단에 반응형 광고 배치
+- [x] **UI/UX 개선**
+  - [x] 파비콘 생성 및 적용
+  - [x] 일기 페이지 사이드바 UI 개선 (다크모드 + 글라스모피즘)
+  - [x] 월 버튼 스타일링 (선택 시 주황색 강조, 정사각형 디자인)
+  - [x] 날짜 필터 기능 개선
+- [x] **데이터 무결성**
+  - [x] 일기 삭제 시 연관 퀴즈 cascade delete 구현
+- [x] **AI 교정 기능 고도화**
+  - [x] 단어 뿌리 이미지(root image) 생성 기능 추가
+  - [x] 완벽한 문장 형태의 교정 제안 제공
+  - [x] explanation 필드 UI 언어로 작성 및 학습 언어 단어 표시
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
 ## 9. 운영 이후 — Codex
 - [ ] 주간 지표 리포트 템플릿 작성(일기 작성율, AI 사용률, 퀴즈 참여율, D1/D7)

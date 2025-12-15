@@ -4,15 +4,21 @@
 
 ## 핵심 기능
 
-- **다국어 일기 작성**: 14개국 언어 지원, 하루 1장 이미지 첨부, 저장 후 자동 목록 이동
+- **다국어 일기 작성**: 15개국 언어 지원, 하루 1장 이미지 첨부, 저장 후 자동 목록 이동
 - **AI 문장 교정**: Grok API 기반 문장/전체 교정 및 "뿌리 의미" 어드바이스, 교정 적용 시 자동 아카이브 저장
+  - 단어 뿌리 이미지(root image) 생성으로 시각적 학습 지원
+  - 완벽한 문장 형태의 교정 제안 제공
+  - 학습 언어와 UI 언어 분리 지원
 - **개인화 학습 아카이브**: 자주 틀리는 문법/단어 자동 저장, 중복 체크로 효율적 관리
 - **AI 퀵퀴즈 생성**: Grok AI로 모국어 기반 4지선다 퀴즈 생성, Firebase 저장/재사용, 보기 랜덤화, 정답/오답 시각적 피드백 (7초)
 - **글라스모피즘 UI**: 몰입감 있는 다크모드 + 글라스모피즘 디자인
+- **다중 인증 지원**: Google OAuth 및 이메일/패스워드 인증
+- **SEO 최적화**: 메타 태그, robots.txt, sitemap.xml을 통한 검색 엔진 최적화
+- **광고 통합**: Kakao AdFit을 통한 수익화 (PC/모바일 반응형)
 
-## 지원 언어 (14개국)
+## 지원 언어 (15개국)
 
-한국어, 영어, 일본어, 중국어, 태국어, 베트남어, 인도네시아어, 스페인어, 포르투갈어, 프랑스어, 독일어, 터키어, 아랍어, 힌디어
+한국어, 영어, 일본어, 중국어, 태국어, 베트남어, 인도네시아어, 스페인어, 포르투갈어, 프랑스어, 독일어, 터키어, 아랍어, 힌디어, 러시아어
 
 ## 기술 스택
 
@@ -20,9 +26,11 @@
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS (Dark Mode, Glassmorphism)
 - **Backend**: Firebase (Auth, Firestore, Storage)
-- **배포**: Firebase Hosting (CI/CD: GitHub Actions 예정)
+- **배포**: Firebase Hosting (CI/CD: GitHub Actions 적용)
 - **AI**: Grok API
 - **State Management**: React Query
+- **SEO**: react-helmet-async, sitemap.xml, robots.txt
+- **광고**: Kakao AdFit (PC/모바일 반응형)
 
 ## 로컬 실행
 
