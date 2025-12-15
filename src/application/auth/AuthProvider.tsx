@@ -9,6 +9,13 @@ import {
   signOut,
   browserLocalPersistence,
   User,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  updateEmail,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
@@ -16,6 +23,11 @@ type AuthContextValue = {
   user: User | null;
   loading: boolean;
   signInWithGoogle: () => Promise<void>;
+  signInWithEmail: (email: string, password: string) => Promise<void>;
+  signUpWithEmail: (email: string, password: string) => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
+  updateUserEmail: (newEmail: string, currentPassword: string) => Promise<void>;
+  sendVerificationEmail: () => Promise<void>;
   signOutUser: () => Promise<void>;
 };
 
@@ -70,6 +82,57 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setLoading(false);
   };
 
+  const signInWithEmail = async (email: string, password: string) => {
+    setLoading(true);
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+      await signInWithEmailAndPassword(auth, email, password);
+      markSessionStart();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signUpWithEmail = async (email: string, password: string) => {
+    setLoading(true);
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Send email verification
+      await sendEmailVerification(userCredential.user);
+      markSessionStart();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const resetPassword = async (email: string) => {
+    await sendPasswordResetEmail(auth, email);
+  };
+
+  const updateUserEmail = async (newEmail: string, currentPassword: string) => {
+    if (!user || !user.email) {
+      throw new Error("No user logged in");
+    }
+    
+    // Re-authenticate user before email change
+    const credential = EmailAuthProvider.credential(user.email, currentPassword);
+    await reauthenticateWithCredential(user, credential);
+    
+    // Update email
+    await updateEmail(user, newEmail);
+    
+    // Send verification to new email
+    await sendEmailVerification(user);
+  };
+
+  const sendVerificationEmail = async () => {
+    if (!user) {
+      throw new Error("No user logged in");
+    }
+    await sendEmailVerification(user);
+  };
+
   const signOutUser = async () => {
     await signOut(auth);
     clearSessionMark();
@@ -77,7 +140,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const value = useMemo<AuthContextValue>(
-    () => ({ user, loading, signInWithGoogle, signOutUser }),
+    () => ({ 
+      user, 
+      loading, 
+      signInWithGoogle, 
+      signInWithEmail,
+      signUpWithEmail,
+      resetPassword,
+      updateUserEmail,
+      sendVerificationEmail,
+      signOutUser 
+    }),
     [user, loading]
   );
 
