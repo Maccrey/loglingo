@@ -79,17 +79,22 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text in target language>",
   "issues": [
-    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<suggestion in target language>", "explanation": "<root meaning or grammar rule in UI language>" }
+    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>" }
   ],
   "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
 }
 
-IMPORTANT for 'explanation' field:
-- If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language.
-  Example: For "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너(소유/통제/연역)로 끌어오는 이미지"
-  Example: For "run" → "두 발이 빠르게 교대로 지면을 차며 앞으로 나아가는 움직임의 이미지"
-- If type is "grammar": Explain the grammar rule in UI language.
-- Always provide clear, visual metaphors for word meanings to help learners understand through imagery.
+CRITICAL INSTRUCTIONS:
+1. For 'suggestion' field: Provide the COMPLETE CORRECTED SENTENCE, not just the corrected word/phrase.
+   - If original is "I has a apple", suggestion should be "I have an apple" (the full corrected sentence)
+   - NOT just "have" or "an apple"
+   
+2. For 'explanation' field:
+   - If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language.
+     Example: For "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너(소유/통제/연역)로 끌어오는 이미지"
+     Example: For "run" → "두 발이 빠르게 교대로 지면을 차며 앞으로 나아가는 움직임의 이미지"
+   - If type is "grammar": Explain the grammar rule in UI language.
+   - Always provide clear, visual metaphors for word meanings to help learners understand through imagery.
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
