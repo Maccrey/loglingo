@@ -85,20 +85,25 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 }
 
 CRITICAL INSTRUCTIONS:
-1. For 'suggestion' field: Provide the COMPLETE CORRECTED SENTENCE, not just the corrected word/phrase.
-   - If original is "I has a apple", suggestion should be "I have an apple" (the full corrected sentence)
-   - NOT just "have" or "an apple"
+1. For 'suggestion' field: 
+   - MUST be written in TARGET LANGUAGE (${targetLanguage})
+   - Provide the COMPLETE CORRECTED SENTENCE, not just the corrected word/phrase
+   - Example: If target language is English and original is "I has a apple"
+     → suggestion: "I have an apple" (complete sentence in English)
+   - Example: If target language is Korean and original is "나는 사과를 먹었어요 yesterday"
+     → suggestion: "나는 어제 사과를 먹었어요" (complete sentence in Korean)
    
 2. For 'explanation' field:
-   - If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language.
+   - MUST be written in UI LANGUAGE (${uiLanguage})
+   - If type is "word": Provide a visual/conceptual root image of the word's core meaning
      Example: For "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너(소유/통제/연역)로 끌어오는 이미지"
      Example: For "run" → "두 발이 빠르게 교대로 지면을 차며 앞으로 나아가는 움직임의 이미지"
-   - If type is "grammar": Explain the grammar rule in UI language.
-   - Always provide clear, visual metaphors for word meanings to help learners understand through imagery.
+   - If type is "grammar": Explain the grammar rule
+   - Always provide clear, visual metaphors for word meanings to help learners understand through imagery
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
-Use the target language ONLY for 'corrected' and 'suggestion'. Use the UI language ONLY for 'explanation' and 'rootMeaningGuide'.
+REMEMBER: Target language (${targetLanguage}) for 'corrected' and 'suggestion'. UI language (${uiLanguage}) for 'explanation' and 'rootMeaningGuide'.
 If the user's text is not in the target language, translate it while correcting. Maintain consistent language usage as specified.
 User diary text:
 ${content}`;
