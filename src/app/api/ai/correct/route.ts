@@ -101,15 +101,22 @@ CRITICAL INSTRUCTIONS:
      → suggestion: "나는 어제 사과를 먹었어요" (complete sentence in Korean)
    
 3. For 'explanation' field:
-   - MUST be written in UI LANGUAGE (${uiLanguage})
-   - If type is "word": Provide a visual/conceptual root image of the word's core meaning
-     Example: For "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너(소유/통제/연역)로 끌어오는 이미지"
-   - If type is "grammar": Explain the grammar rule
+   - MUST be written ENTIRELY in UI LANGUAGE (${uiLanguage})
+   - NEVER write explanation in target language
+   - Example: If UI language is Japanese and target is Korean, and you're explaining "조용한"
+     → CORRECT: "「静か」は音がなく落ち着いた雨のイメージ：風の音もなく静かに落ちる水滴の平和な情景" (Japanese)
+     → WRONG: "'조용한'은 비가 부드럽고 소리 없이 내리는 이미지" (Korean - this is the target language!)
+   - If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language
+     Example for English UI: "get" → "Reaching out to pull something from outside into your container (possession/control)"
+     Example for Korean UI: "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너로 끌어오는 이미지"
+   - If type is "grammar": Explain the grammar rule in UI language
    - Always provide clear, visual metaphors for word meanings to help learners understand through imagery
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
-REMEMBER: Target language (${targetLanguage}) for 'corrected' and 'suggestion'. UI language (${uiLanguage}) for 'explanation' and 'rootMeaningGuide'.
+LANGUAGE RULES - DO NOT VIOLATE:
+- 'corrected' and 'suggestion' → TARGET LANGUAGE (${targetLanguage}) ONLY
+- 'explanation' and 'rootMeaningGuide' → UI LANGUAGE (${uiLanguage}) ONLY
 The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
 User diary text:
 ${content}`;
