@@ -91,7 +91,12 @@
     "ai_timeout": "AIの応答に時間がかかっています。もう一度お試しください。",
     "ai_server_error": "AIサービスは一時的に利用できません。",
     "ai_applied": "校正結果を適用しました",
-    "ai_saved_archive": "学習アーカイブに保存しました"
+    "ai_saved_archive": "学習アーカイブに保存しました",
+    "ai_saved_archive_pending": "日記保存時にアーカイブに保存されます",
+    "save_prompt_title": "日記を保存",
+    "save_prompt_desc": "保存する前にAI校正を受けますか？",
+    "save_prompt_ai": "AI校正を受ける",
+    "save_prompt_just_save": "そのまま保存"
   },
   "archive": {
     "title": "学習アーカイブ",
