@@ -63,7 +63,9 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "clear_date_filter": "日付をクリア",
+    "back": "一覧に戻る"
   },
   "write": {
     "title": "新しい日記を書く",
