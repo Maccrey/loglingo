@@ -103,8 +103,12 @@ CRITICAL INSTRUCTIONS:
 3. For 'explanation' field:
    - MUST be written ENTIRELY in UI LANGUAGE (${uiLanguage})
    - NEVER write explanation in target language
+   - When mentioning the word being explained, use the TARGET LANGUAGE word (from suggestion), not the original
+   - Example: If UI is Japanese, target is Korean, original is "帰りに", suggestion is "귀가길에"
+     → CORRECT: "「귀가길에」は帰宅する道のイメージ：家に向かって馴染みの道を辿る足取り" (Japanese text, but mentions Korean word)
+     → WRONG: "「帰り」は帰宅する道のイメージ" (mentions original word instead of target word)
    - Example: If UI language is Japanese and target is Korean, and you're explaining "조용한"
-     → CORRECT: "「静か」は音がなく落ち着いた雨のイメージ：風の音もなく静かに落ちる水滴の平和な情景" (Japanese)
+     → CORRECT: "「조용한」は音がなく落ち着いた雨のイメージ：風の音もなく静かに落ちる水滴の平和な情景" (Japanese)
      → WRONG: "'조용한'은 비가 부드럽고 소리 없이 내리는 이미지" (Korean - this is the target language!)
    - If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language
      Example for English UI: "get" → "Reaching out to pull something from outside into your container (possession/control)"
@@ -117,6 +121,7 @@ Do not add Markdown, code fences, or commentary.
 LANGUAGE RULES - DO NOT VIOLATE:
 - 'corrected' and 'suggestion' → TARGET LANGUAGE (${targetLanguage}) ONLY
 - 'explanation' and 'rootMeaningGuide' → UI LANGUAGE (${uiLanguage}) ONLY
+- In 'explanation', mention the TARGET LANGUAGE word you are explaining, not the original word
 The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
 User diary text:
 ${content}`;
