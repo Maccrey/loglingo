@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "Voltar à lista"
   },
   "write": {
     "title": "Novo diário",
@@ -91,7 +92,12 @@
     "ai_timeout": "A IA demorou muito. Por favor, tente novamente.",
     "ai_server_error": "O serviço de IA está temporariamente indisponível.",
     "ai_applied": "Texto corrigido aplicado",
-    "ai_saved_archive": "Salvo no arquivo de aprendizado"
+    "ai_saved_archive": "Salvo no arquivo de aprendizado",
+    "ai_saved_archive_pending": "Será salvo no arquivo ao salvar o diário",
+    "save_prompt_title": "Salvar Diário",
+    "save_prompt_desc": "Gostaria de obter correção de IA antes de salvar?",
+    "save_prompt_ai": "Obter Correção de IA",
+    "save_prompt_just_save": "Apenas Salvar"
   },
   "archive": {
     "title": "Arquivo de aprendizado",

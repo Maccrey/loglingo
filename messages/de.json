@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "Zurück zur Liste"
   },
   "write": {
     "title": "Neuer Eintrag",
@@ -91,7 +92,12 @@
     "ai_timeout": "KI hat zu lange gebraucht. Bitte versuchen Sie es erneut.",
     "ai_server_error": "KI-Service ist vorübergehend nicht verfügbar.",
     "ai_applied": "Korrigierter Text angewendet",
-    "ai_saved_archive": "Im Lernarchiv gespeichert"
+    "ai_saved_archive": "Im Lernarchiv gespeichert",
+    "ai_saved_archive_pending": "Wird beim Speichern des Tagebuchs im Archiv gespeichert",
+    "save_prompt_title": "Tagebuch speichern",
+    "save_prompt_desc": "Möchten Sie vor dem Speichern eine KI-Korrektur erhalten?",
+    "save_prompt_ai": "KI-Korrektur erhalten",
+    "save_prompt_just_save": "Einfach speichern"
   },
   "archive": {
     "title": "Lernarchiv",

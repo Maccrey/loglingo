@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "กลับไปที่รายการ"
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",
@@ -91,7 +92,12 @@
     "ai_timeout": "AI ใช้เวลานานเกินไป โปรดลองอีกครั้ง",
     "ai_server_error": "บริการ AI ไม่สามารถใช้งานได้ชั่วคราว",
     "ai_applied": "ใช้ข้อความที่แก้ไขแล้ว",
-    "ai_saved_archive": "บันทึกลงคลังเรียนรู้แล้ว"
+    "ai_saved_archive": "บันทึกลงคลังเรียนรู้แล้ว",
+    "ai_saved_archive_pending": "จะถูกบันทึกในคลังเมื่อบันทึกไดอารี่",
+    "save_prompt_title": "บันทึกไดอารี่",
+    "save_prompt_desc": "คุณต้องการให้ AI แก้ไขก่อนบันทึกหรือไม่?",
+    "save_prompt_ai": "รับการแก้ไขจาก AI",
+    "save_prompt_just_save": "แค่บันทึก"
   },
   "archive": {
     "title": "คลังการเรียนรู้",

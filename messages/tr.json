@@ -64,7 +64,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "clear_date_filter": "Tarihi Temizle"
+    "clear_date_filter": "Tarihi Temizle",
+    "back": "Listeye dön"
   },
   "write": {
     "title": "Yeni Günlük",
@@ -92,7 +93,12 @@
     "ai_timeout": "Yapay zeka yanıt vermesi çok uzun sürdü. Lütfen tekrar deneyin.",
     "ai_server_error": "Yapay zeka hizmeti geçici olarak kullanılamıyor.",
     "ai_applied": "Düzeltilmiş metin uygulandı",
-    "ai_saved_archive": "Öğrenme arşivine kaydedildi"
+    "ai_saved_archive": "Öğrenme arşivine kaydedildi",
+    "ai_saved_archive_pending": "Günlük kaydedildiğinde arşive kaydedilecek",
+    "save_prompt_title": "Günlüğü Kaydet",
+    "save_prompt_desc": "Kaydetmeden önce AI düzeltmesi almak ister misiniz?",
+    "save_prompt_ai": "AI Düzeltmesi Al",
+    "save_prompt_just_save": "Sadece Kaydet"
   },
   "archive": {
     "title": "Öğrenme Arşivi",

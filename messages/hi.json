@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "सूची में वापस"
   },
   "write": {
     "title": "नई डायरी",
@@ -91,7 +92,12 @@
     "ai_timeout": "AI ने बहुत अधिक समय लिया। कृपया पुनः प्रयास करें।",
     "ai_server_error": "AI सेवा अस्थायी रूप से अनुपलब्ध है।",
     "ai_applied": "सुधारा गया पाठ लागू किया",
-    "ai_saved_archive": "लर्निंग आर्काइव में सहेजा गया"
+    "ai_saved_archive": "लर्निंग आर्काइव में सहेजा गया",
+    "ai_saved_archive_pending": "डायरी सेव करते समय आर्काइव में सेव हो जाएगा",
+    "save_prompt_title": "डायरी सेव करें",
+    "save_prompt_desc": "क्या आप सेव करने से पहले AI सुधार प्राप्त करना चाहते हैं?",
+    "save_prompt_ai": "AI सुधार प्राप्त करें",
+    "save_prompt_just_save": "बस सेव करें"
   },
   "archive": {
     "title": "लर्निंग आर्काइव",

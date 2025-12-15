@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "返回列表"
   },
   "write": {
     "title": "写新日记",
@@ -91,7 +92,12 @@
     "ai_timeout": "AI 响应时间过长，请稍后再试。",
     "ai_server_error": "AI 服务暂时不可用。",
     "ai_applied": "已应用校对内容",
-    "ai_saved_archive": "已保存到学习档案"
+    "ai_saved_archive": "已保存到学习档案",
+    "ai_saved_archive_pending": "保存日记时将保存到档案",
+    "save_prompt_title": "保存日记",
+    "save_prompt_desc": "保存前是否要获取AI纠正？",
+    "save_prompt_ai": "获取AI纠正",
+    "save_prompt_just_save": "仅保存"
   },
   "archive": {
     "title": "学习档案",

@@ -64,7 +64,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "clear_date_filter": "Hapus Tanggal"
+    "clear_date_filter": "Hapus Tanggal",
+    "back": "Kembali ke daftar"
   },
   "write": {
     "title": "Entri baru",
@@ -92,7 +93,12 @@
     "ai_timeout": "AI memakan waktu terlalu lama. Silakan coba lagi.",
     "ai_server_error": "Layanan AI tidak tersedia untuk sementara.",
     "ai_applied": "Teks koreksi diterapkan",
-    "ai_saved_archive": "Disimpan ke arsip pembelajaran"
+    "ai_saved_archive": "Disimpan ke arsip pembelajaran",
+    "ai_saved_archive_pending": "Akan disimpan ke arsip saat menyimpan buku harian",
+    "save_prompt_title": "Simpan Buku Harian",
+    "save_prompt_desc": "Apakah Anda ingin mendapatkan koreksi AI sebelum menyimpan?",
+    "save_prompt_ai": "Dapatkan Koreksi AI",
+    "save_prompt_just_save": "Simpan Saja"
   },
   "archive": {
     "title": "Arsip pembelajaran",

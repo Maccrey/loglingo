@@ -63,7 +63,8 @@
     "year_label": "Year",
     "month_label": "Month",
     "not_found": "Diary not found",
-    "not_found_desc": "This diary entry does not exist or was removed."
+    "not_found_desc": "This diary entry does not exist or was removed.",
+    "back": "Quay lại danh sách"
   },
   "write": {
     "title": "Nhật ký mới",
@@ -91,7 +92,12 @@
     "ai_timeout": "AI mất quá nhiều thời gian. Vui lòng thử lại.",
     "ai_server_error": "Dịch vụ AI tạm thời không khả dụng.",
     "ai_applied": "Đã áp dụng văn bản sửa lỗi",
-    "ai_saved_archive": "Đã lưu vào kho học"
+    "ai_saved_archive": "Đã lưu vào kho học",
+    "ai_saved_archive_pending": "Sẽ được lưu vào kho lưu trữ khi lưu nhật ký",
+    "save_prompt_title": "Lưu Nhật Ký",
+    "save_prompt_desc": "Bạn có muốn nhận sửa lỗi AI trước khi lưu không?",
+    "save_prompt_ai": "Nhận Sửa Lỗi AI",
+    "save_prompt_just_save": "Chỉ Lưu"
   },
   "archive": {
     "title": "Kho học tập",
