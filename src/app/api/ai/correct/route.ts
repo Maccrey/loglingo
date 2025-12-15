@@ -85,7 +85,14 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 }
 
 CRITICAL INSTRUCTIONS:
-1. For 'suggestion' field: 
+1. For 'corrected' field:
+   - MUST be written ENTIRELY in TARGET LANGUAGE (${targetLanguage})
+   - If user mixes multiple languages, translate ALL text to target language
+   - Example: If target is Korean and user writes "今日は朝から静かな 비가 내렸다"
+     → corrected must be "오늘은 아침부터 조용한 비가 내렸다" (100% Korean)
+   - NEVER keep mixed languages in the corrected text
+   
+2. For 'suggestion' field: 
    - MUST be written in TARGET LANGUAGE (${targetLanguage})
    - Provide the COMPLETE CORRECTED SENTENCE, not just the corrected word/phrase
    - Example: If target language is English and original is "I has a apple"
@@ -93,18 +100,17 @@ CRITICAL INSTRUCTIONS:
    - Example: If target language is Korean and original is "나는 사과를 먹었어요 yesterday"
      → suggestion: "나는 어제 사과를 먹었어요" (complete sentence in Korean)
    
-2. For 'explanation' field:
+3. For 'explanation' field:
    - MUST be written in UI LANGUAGE (${uiLanguage})
    - If type is "word": Provide a visual/conceptual root image of the word's core meaning
      Example: For "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너(소유/통제/연역)로 끌어오는 이미지"
-     Example: For "run" → "두 발이 빠르게 교대로 지면을 차며 앞으로 나아가는 움직임의 이미지"
    - If type is "grammar": Explain the grammar rule
    - Always provide clear, visual metaphors for word meanings to help learners understand through imagery
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
 REMEMBER: Target language (${targetLanguage}) for 'corrected' and 'suggestion'. UI language (${uiLanguage}) for 'explanation' and 'rootMeaningGuide'.
-If the user's text is not in the target language, translate it while correcting. Maintain consistent language usage as specified.
+The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
 User diary text:
 ${content}`;
 }
