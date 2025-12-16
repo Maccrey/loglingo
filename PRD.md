@@ -269,6 +269,26 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
+### 6. subscriptions (신규)
+
+| 필드 | TypeScript | Firestore | 제약 | 인덱스 | 설명 |
+| ------------ | ---------- | --------- | ---- | ------------ | ------------------ |
+| userId | string | string | PK | PK | 사용자 ID |
+| isPremium | boolean | boolean | NOT NULL | idx_premium | 프리미엄 회원 여부 |
+| subscriptionType | string | string | - | - | 'monthly', 'yearly', 'lifetime' |
+| startDate | Date | timestamp | - | - | 구독 시작일 |
+| endDate | Date | timestamp | - | idx_endDate | 구독 만료일 |
+| createdAt | Date | timestamp | NOT NULL | idx_created | 생성일 |
+| updatedAt | Date | timestamp | NOT NULL | - | 수정일 |
+
+**특징**:
+- 프리미엄 회원 광고 제거 시스템
+- AdProvider로 전체 광고 한번에 제어
+- 구독 만료 자동 확인 및 해제 기능
+- Security Rules로 본인만 읽기 가능
+
+---
+
 ### 캐싱 전략
 
 - User profile: Cloudflare Edge TTL 300s
@@ -306,6 +326,8 @@ User ───< LearningArchive ───< QuizQuestions
 - Flutter WebView 앱
 - 광고/구독 추가
   - [완료] Kakao AdFit 광고 통합 (PC/모바일 반응형)
+  - [완료] 프리미엄 구독 시스템 (AdProvider 기반 광고 제어)
+  - [완료] Firestore 구독 관리 및 Security Rules
 - [완료] GitHub Actions 기반 배포 자동화
 - [완료] SEO 최적화 (메타 태그, sitemap.xml, robots.txt)
 - [완료] 이메일/패스워드 인증 시스템

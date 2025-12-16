@@ -6,6 +6,8 @@ import { useRouter, usePathname } from "@/i18n/routing";
 import { ChangeEvent, useTransition } from "react";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 import { AuthGate } from "@/components/auth/AuthGate";
+import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
+import { AD_UNITS, AD_SIZES } from "@/config/ads";
 
 export default function SettingsPage() {
   const t = useTranslations('settings');
@@ -91,6 +93,16 @@ export default function SettingsPage() {
             </div>
           </CardContent>
         </Card>
+
+        {/* 설정 하단 광고 */}
+        <ResponsiveAd
+          pcUnit={AD_UNITS.SETTINGS_BOTTOM_PC}
+          mobileUnit={AD_UNITS.SETTINGS_BOTTOM_MOBILE}
+          pcWidth={AD_SIZES.PC_LEADERBOARD.width}
+          pcHeight={AD_SIZES.PC_LEADERBOARD.height}
+          mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+          mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+        />
       </div>
     </AuthGate>
   );

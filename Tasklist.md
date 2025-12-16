@@ -134,6 +134,14 @@
   - [x] 단어 뿌리 이미지(root image) 생성 기능 추가
   - [x] 완벽한 문장 형태의 교정 제안 제공
   - [x] explanation 필드 UI 언어로 작성 및 학습 언어 단어 표시
+- [x] **광고 제어 시스템 (유료 가입자 지원)**
+  - [x] AdProvider Context 생성 (전체 광고 제어)
+  - [x] Firestore 기반 구독 관리 시스템 구현
+  - [x] 구독 조회/업데이트 Hook 작성
+  - [x] 광고 컴포넌트 자동 제어 (KakaoAdFit, ResponsiveAd)
+  - [x] App Providers 통합
+  - [x] Security Rules 작성
+  - [x] 광고 배치 전략 문서화 (ad.md)
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
 ## 9. 운영 이후 — Codex

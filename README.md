@@ -15,6 +15,7 @@
 - **다중 인증 지원**: Google OAuth 및 이메일/패스워드 인증
 - **SEO 최적화**: 메타 태그, robots.txt, sitemap.xml을 통한 검색 엔진 최적화
 - **광고 통합**: Kakao AdFit을 통한 수익화 (PC/모바일 반응형)
+- **프리미엄 구독**: 유료 가입자를 위한 광고 제거 시스템 (AdProvider 기반 전체 광고 제어)
 
 ## 지원 언어 (15개국)
 
@@ -31,6 +32,7 @@
 - **State Management**: React Query
 - **SEO**: react-helmet-async, sitemap.xml, robots.txt
 - **광고**: Kakao AdFit (PC/모바일 반응형)
+- **구독 관리**: Firestore 기반 프리미엄 구독 시스템
 
 ## 로컬 실행
 
@@ -103,6 +105,11 @@ service cloud.firestore {
     match /quizzes/{docId} {
       allow read: if isSignedIn();
       allow create: if isSignedIn();
+    }
+
+    match /subscriptions/{userId} {
+      allow read: if isOwner(userId);
+      allow write: if isSignedIn() && (request.auth.token.admin == true || isOwner(userId));
     }
   }
 }

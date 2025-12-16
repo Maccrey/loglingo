@@ -20,6 +20,10 @@ import { toast } from "sonner";
 import NextImage from "next/image";
 import { formatDate } from "@/lib/intl-format";
 import { AuthGate } from "@/components/auth/AuthGate";
+import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
+import KakaoAdFit from "@/components/ads/KakaoAdFit";
+import { AD_UNITS, AD_SIZES } from "@/config/ads";
+import { Fragment } from "react";
 
 export default function DiaryListPage() {
   const t = useTranslations("diary");
@@ -232,7 +236,16 @@ export default function DiaryListPage() {
                      {formatDate(specificDate, locale)}
                   </p>
                </div>
-            )}
+             )}
+            
+            {/* 사이드바 하단 광고 (PC 전용) */}
+            <div className="hidden md:block pt-4 border-t border-white/10">
+              <KakaoAdFit
+                unit={AD_UNITS.DIARY_SIDEBAR}
+                width={AD_SIZES.PC_SQUARE.width}
+                height={AD_SIZES.PC_SQUARE.height}
+              />
+            </div>
           </div>
         </Card>
 
@@ -254,8 +267,8 @@ export default function DiaryListPage() {
           ) : (
             <div className="grid gap-4">
               {filtered.map((diary, index) => (
+              <Fragment key={diary.id}>
               <div 
-                key={diary.id} 
                 onClick={() => router.push(`/diary/${diary.id}`)}
                 className="block"
               >
@@ -322,6 +335,21 @@ export default function DiaryListPage() {
                   </CardFooter>
                 </Card>
               </div>
+              
+              {/* 5번째 항목마다 인피드 광고 삽입 */}
+              {(index + 1) % 5 === 0 && index !== filtered.length - 1 && (
+                <div className="w-full">
+                  <ResponsiveAd
+                    pcUnit={AD_UNITS.DIARY_INFEED_PC}
+                    mobileUnit={AD_UNITS.DIARY_INFEED_MOBILE}
+                    pcWidth={AD_SIZES.PC_LEADERBOARD.width}
+                    pcHeight={AD_SIZES.PC_LEADERBOARD.height}
+                    mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+                    mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+                  />
+                </div>
+              )}
+              </Fragment>
             ))}
             </div>
           )}

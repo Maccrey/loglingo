@@ -13,6 +13,9 @@ import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
 import { formatDate } from "@/lib/intl-format";
 import { AuthGate } from "@/components/auth/AuthGate";
+import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
+import KakaoAdFit from "@/components/ads/KakaoAdFit";
+import { AD_UNITS, AD_SIZES } from "@/config/ads";
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
@@ -137,6 +140,16 @@ export default function ArchivePage() {
           </Button>
         </CardContent>
       </Card>
+
+      {/* 추가 폼과 목록 사이 광고 */}
+      <ResponsiveAd
+        pcUnit={AD_UNITS.ARCHIVE_TOP_PC}
+        mobileUnit={AD_UNITS.ARCHIVE_TOP_MOBILE}
+        pcWidth={AD_SIZES.PC_LEADERBOARD.width}
+        pcHeight={AD_SIZES.PC_LEADERBOARD.height}
+        mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+        mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+      />
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="md:col-span-2">
@@ -276,6 +289,15 @@ export default function ArchivePage() {
                 <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
               </div>
             )}
+            
+            {/* 퀴즈 하단 광고 (PC 전용) */}
+            <div className="hidden md:block pt-4 border-t border-white/10 mt-4">
+              <KakaoAdFit
+                unit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
+                width={AD_SIZES.PC_SQUARE.width}
+                height={AD_SIZES.PC_SQUARE.height}
+              />
+            </div>
           </CardContent>
         </Card>
       </div>

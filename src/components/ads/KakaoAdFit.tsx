@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useAds } from "@/application/ads/AdProvider";
 
 interface KakaoAdFitProps {
   unit: string;
@@ -10,16 +11,16 @@ interface KakaoAdFitProps {
 }
 
 export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
+  const { showAds } = useAds();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (disabled) return;
+    if (disabled || !showAds) return;
 
     if (!containerRef.current) return;
 
     const ins = document.createElement("ins");
     ins.className = "kakao_ad_area";
-    ins.style.display = "none";
     ins.setAttribute("data-ad-unit", unit);
     ins.setAttribute("data-ad-width", width.toString());
     ins.setAttribute("data-ad-height", height.toString());
@@ -37,9 +38,15 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
         containerRef.current.innerHTML = "";
       }
     };
-  }, [unit, width, height, disabled]);
+  }, [unit, width, height, disabled, showAds]);
 
-  if (disabled) return null;
+  if (disabled || !showAds) return null;
 
-  return <div ref={containerRef} className="flex justify-center my-8" />;
+  return (
+    <div 
+      ref={containerRef} 
+      className="flex justify-center my-8" 
+      style={{ minHeight: `${height}px` }}
+    />
+  );
 }
