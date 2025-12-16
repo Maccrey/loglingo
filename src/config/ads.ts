@@ -23,6 +23,7 @@ export const AD_UNITS = {
   ARCHIVE_TOP_PC: 'DAN-Vn2vLzMzBG0bMuWC', // 728x90
   ARCHIVE_TOP_MOBILE: 'DAN-pkC5Xz2lxipxYrJh',   // 320x100
   ARCHIVE_QUIZ_SIDE: 'DAN-w6FoEQSsAFNsj8ry',    // 250x250 (PC)
+  ARCHIVE_QUIZ_MOBILE: 'DAN-uv5V9q4jsG4HyzWV',  // 320x100 (모바일)
   
   // 설정 페이지
   SETTINGS_BOTTOM_PC: 'DAN-d5Zd98v79G6EOlOB',   // 728x90

@@ -231,10 +231,13 @@ export default function ArchivePage() {
           
           {/* 모바일 퀴즈 하단 광고 */}
           <div className="pt-4 border-t border-white/10 mt-4">
-            <KakaoAdFit
-              unit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
-              width={AD_SIZES.PC_SQUARE.width}
-              height={AD_SIZES.PC_SQUARE.height}
+            <ResponsiveAd
+              pcUnit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
+              mobileUnit={AD_UNITS.ARCHIVE_QUIZ_MOBILE}
+              pcWidth={AD_SIZES.PC_SQUARE.width}
+              pcHeight={AD_SIZES.PC_SQUARE.height}
+              mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+              mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
             />
           </div>
         </CardContent>
@@ -382,10 +385,13 @@ export default function ArchivePage() {
             
             {/* 퀴즈 하단 광고 (PC 전용) */}
             <div className="hidden md:block pt-4 border-t border-white/10 mt-4">
-              <KakaoAdFit
-                unit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
-                width={AD_SIZES.PC_SQUARE.width}
-                height={AD_SIZES.PC_SQUARE.height}
+              <ResponsiveAd
+                pcUnit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
+                mobileUnit={AD_UNITS.ARCHIVE_QUIZ_MOBILE}
+                pcWidth={AD_SIZES.PC_SQUARE.width}
+                pcHeight={AD_SIZES.PC_SQUARE.height}
+                mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+                mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
               />
             </div>
           </CardContent>
