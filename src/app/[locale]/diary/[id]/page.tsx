@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 import { useDiaryDetail } from "@/application/diary/hooks";
 import { useArchiveList } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
@@ -8,13 +8,83 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { useTranslations } from "next-intl";
 import { AuthGate } from "@/components/auth/AuthGate";
 import { useRouter } from "@/i18n/routing";
-import { Archive, Sparkles, Edit3, ArrowLeft } from "lucide-react";
+import { Archive, Sparkles, Edit3, ArrowLeft, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import NextImage from "next/image";
 import { formatDate } from "@/lib/intl-format";
 import { useLocale } from "next-intl";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
+import { cn } from "@/lib/utils";
+import type { LearningArchive } from "@/domain/archive";
+
+// 개별 아카이브 카드 컴포넌트
+function ArchiveCard({ 
+  archive, 
+  onViewArchive,
+  tArchive 
+}: { 
+  archive: LearningArchive;
+  onViewArchive: () => void;
+  tArchive: (key: string) => string;
+}) {
+  const [showExamples, setShowExamples] = useState(false);
+  const hasExamples = archive.examples && archive.examples.length > 0;
+
+  return (
+    <div className="rounded-lg border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors">
+      <div 
+        className="flex items-start justify-between gap-2 cursor-pointer"
+        onClick={() => onViewArchive()}
+      >
+        <div className="flex-1">
+          <p className="text-sm font-medium text-foreground">
+            {archive.title}
+          </p>
+          {archive.rootMeaning && (
+            <p className="text-xs text-muted-foreground mt-1">
+              {archive.rootMeaning}
+            </p>
+          )}
+        </div>
+        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+          {tArchive(archive.type === "grammar" ? "type_grammar_short" : "type_word_short")}
+        </span>
+      </div>
+      
+      {hasExamples && (
+        <div className="mt-2 border-t border-white/10 pt-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowExamples(!showExamples);
+            }}
+            className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+          >
+            <ChevronDown 
+              className={cn(
+                "h-3 w-3 transition-transform",
+                showExamples && "rotate-180"
+              )} 
+            />
+            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${archive.examples.length}개)`}</span>
+          </button>
+          
+          {showExamples && (
+            <div className="mt-2 space-y-1 pl-4 border-l-2 border-primary/30">
+              {archive.examples.map((example, idx) => (
+                <p key={idx} className="text-xs text-foreground/80">
+                  • {example}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function DiaryViewPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -130,27 +200,12 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                 </p>
                 <div className="max-h-60 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
                   {archives.map((archive) => (
-                    <div
+                    <ArchiveCard
                       key={archive.id}
-                      className="rounded-lg border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors cursor-pointer"
-                      onClick={() => router.push("/archive")}
-                    >
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex-1">
-                          <p className="text-sm font-medium text-foreground">
-                            {archive.title}
-                          </p>
-                          {archive.rootMeaning && (
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {archive.rootMeaning}
-                            </p>
-                          )}
-                        </div>
-                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                          {tArchive(archive.type === "grammar" ? "type_grammar_short" : "type_word_short")}
-                        </span>
-                      </div>
-                    </div>
+                      archive={archive}
+                      onViewArchive={() => router.push("/archive")}
+                      tArchive={tArchive}
+                    />
                   ))}
                 </div>
               </div>
