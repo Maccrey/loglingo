@@ -248,7 +248,7 @@ export default function ArchivePage() {
           <CardHeader>
             <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
             {(loading || isLoading || !canLoad) && (
               <p className="text-muted-foreground">{tCommon("loading")}</p>
             )}
