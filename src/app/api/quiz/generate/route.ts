@@ -9,8 +9,10 @@ function getModel() {
 
 interface QuizGenerationRequest {
   title: string;
+  type: 'grammar' | 'word'; // Type of quiz to generate
   rootMeaning: string;
   examples: string[];
+  exampleSentences?: string[]; // Example sentences from AI correction
   uiLocale: string;
   learningLanguage: string;
 }
@@ -21,38 +23,128 @@ interface QuizGenerationResponse {
   explanation: string;
 }
 
-function buildPrompt(
+function buildGrammarQuizPrompt(
   title: string,
   rootMeaning: string,
-  examples: string[],
+  exampleSentences: string[],
   uiLocale: string,
   learningLanguage: string
 ): string {
+  const exampleSentence = exampleSentences.length > 0 
+    ? exampleSentences[Math.floor(Math.random() * exampleSentences.length)]
+    : `Example using "${title}"`;
+    
   return `You are a language learning quiz generator.
 
-Create a multiple-choice quiz for this language learning item:
-- Title/Pattern: "${title}" (in ${learningLanguage})
-- Root Meaning: "${rootMeaning}"
-- Examples: ${examples.join(", ")}
+Create a grammar quiz for this pattern:
+- Grammar Pattern: "${title}" (in ${learningLanguage})
+- Explanation: "${rootMeaning}"
+- Example Sentence: "${exampleSentence}" (in ${learningLanguage})
 
-IMPORTANT: Generate all quiz options in the learner's native language (${uiLocale}), NOT in ${learningLanguage}.
-This helps learners better understand and think about the meaning.
+QUIZ FORMAT - Grammar Understanding Test:
+Question: Present the example sentence and ask what grammar rule is demonstrated.
+Example: "다음 문장에서 사용된 문법 규칙은? '${exampleSentence}'"
 
-Generate 4 answer options:
-1. The correct answer (translate or explain the root meaning in ${uiLocale})
-2-4. Plausible but incorrect alternatives in ${uiLocale}, related to the topic but clearly wrong
+IMPORTANT: ALL quiz content must be in the learner's UI language (${uiLocale}):
+- Question: in ${uiLocale}
+- Options: in ${uiLocale} (explain the grammar rule, not translate)
+- Explanation: in ${uiLocale}
 
-Provide a brief explanation in ${uiLocale} (the user's native language).
+Generate 4 answer options explaining the grammar rule:
+1. Correct explanation of the grammar pattern in ${uiLocale}
+2-4. Plausible but incorrect grammar explanations in ${uiLocale}
 
-Respond with ONLY valid JSON using this exact structure:
+Respond with ONLY valid JSON:
 {
-  "options": ["correct answer in ${uiLocale}", "wrong option 1 in ${uiLocale}", "wrong option 2 in ${uiLocale}", "wrong option 3 in ${uiLocale}"],
+  "options": ["correct grammar explanation in ${uiLocale}", "wrong 1", "wrong 2", "wrong 3"],
   "correctIndex": 0,
-  "explanation": "brief explanation in ${uiLocale}"
+  "explanation": "detailed explanation in ${uiLocale}"
 }
 
-Do not add code fences, commentary, or any text outside the JSON.`
-;
+Do not add code fences or commentary.`;
+}
+
+function buildWordQuizPrompt(
+  title: string,
+  rootMeaning: string,
+  exampleSentences: string[],
+  uiLocale: string,
+  learningLanguage: string
+): string {
+  // Randomly choose between spelling test and meaning test
+  const quizType = Math.random() > 0.5 ? 'spelling' : 'meaning';
+  
+  if (quizType === 'spelling') {
+    return `You are a language learning quiz generator.
+
+Create a SPELLING quiz for this word:
+- Word: "${title}" (in ${learningLanguage})
+- Meaning: "${rootMeaning}"
+- Context: ${exampleSentences.join(', ')}
+
+QUIZ FORMAT - Spelling Test:
+Question: Ask which is the correct spelling of the word meaning "${rootMeaning}"
+
+IMPORTANT: ALL quiz content must be in ${uiLocale}:
+- Question: in ${uiLocale}
+- Options: similar-looking words in ${learningLanguage} (the target language)
+- Explanation: in ${uiLocale}
+
+Generate 4 answer options with similar spellings:
+1. Correct spelling: "${title}"
+2-4. Similar but incorrect spellings in ${learningLanguage}
+
+Respond with ONLY valid JSON:
+{
+  "options": ["${title}", "misspelling1", "misspelling2", "misspelling3"],
+  "correctIndex": 0,
+  "explanation": "explanation in ${uiLocale} why this spelling is correct"
+}`;
+  } else {
+    return `You are a language learning quiz generator.
+
+Create a MEANING quiz for this word:
+- Word: "${title}" (in ${learningLanguage})
+- Meaning: "${rootMeaning}"
+- Examples: ${exampleSentences.join(', ')}
+
+QUIZ FORMAT - Meaning Test:
+Question: Ask what "${title}" means
+
+IMPORTANT: ALL quiz content must be in ${uiLocale}:
+- Question: in ${uiLocale}
+- Options: meanings in ${uiLocale} (translate/explain)
+- Explanation: in ${uiLocale}
+
+Generate 4 answer options:
+1. Correct meaning in ${uiLocale}
+2-4. Similar but incorrect meanings in ${uiLocale}
+
+Respond with ONLY valid JSON:
+{
+  "options": ["correct meaning in ${uiLocale}", "wrong meaning 1", "wrong meaning 2", "wrong meaning 3"],
+  "correctIndex": 0,
+  "explanation": "detailed explanation in ${uiLocale}"
+}`;
+  }
+}
+
+function buildPrompt(
+  type: 'grammar' | 'word',
+  title: string,
+  rootMeaning: string,
+  examples: string[],
+  exampleSentences: string[] | undefined,
+  uiLocale: string,
+  learningLanguage: string
+): string {
+  const sentences = exampleSentences && exampleSentences.length > 0 ? exampleSentences : examples;
+  
+  if (type === 'grammar') {
+    return buildGrammarQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage);
+  } else {
+    return buildWordQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage);
+  }
 }
 
 async function getClient() {
@@ -62,9 +154,11 @@ async function getClient() {
 }
 
 async function callGrok(
+  type: 'grammar' | 'word',
   title: string,
   rootMeaning: string,
   examples: string[],
+  exampleSentences: string[] | undefined,
   uiLocale: string,
   learningLanguage: string
 ): Promise<QuizGenerationResponse | null> {
@@ -86,7 +180,7 @@ async function callGrok(
         },
         {
           role: "user",
-          content: buildPrompt(title, rootMeaning, examples, uiLocale, learningLanguage),
+          content: buildPrompt(type, title, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage),
         },
       ],
       model: getModel(),
@@ -137,19 +231,21 @@ async function callGrok(
 export async function POST(req: Request) {
   try {
     const body: QuizGenerationRequest = await req.json();
-    const { title, rootMeaning, examples, uiLocale, learningLanguage } = body;
+    const { title, type, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage } = body;
 
-    if (!title || !rootMeaning) {
+    if (!title || !rootMeaning || !type) {
       return NextResponse.json(
-        { message: "title and rootMeaning required" },
+        { message: "title, rootMeaning, and type required" },
         { status: 400 }
       );
     }
 
     const result = await callGrok(
+      type,
       title,
       rootMeaning,
       examples || [],
+      exampleSentences,
       uiLocale || "en",
       learningLanguage || "en"
     );

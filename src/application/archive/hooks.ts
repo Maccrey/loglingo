@@ -55,9 +55,11 @@ export function useQuiz(
         const result = await getOrGenerateQuiz(
           entry.userId, // Pass userId
           entry.id,
+          entry.type, // Pass type from archive
           entry.title,
           entry.rootMeaning || entry.title,
           entry.examples || [],
+          entry.examples, // exampleSentences are stored in examples array
           translatedQuestion,
           uiLocale || "en",
           learningLanguage || "en"

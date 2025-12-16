@@ -3,8 +3,10 @@ import { getQuizByArchiveId, createQuiz } from "@/infrastructure/firebase/quiz-r
 
 interface GenerateQuizRequest {
   title: string;
+  type: 'grammar' | 'word';
   rootMeaning: string;
   examples: string[];
+  exampleSentences?: string[];
   uiLocale: string;
   learningLanguage: string;
 }
@@ -32,16 +34,18 @@ async function generateQuizWithGrok(
 }
 
 export async function getOrGenerateQuiz(
-  userId: string, // Added userId
+  userId: string,
   archiveId: string,
+  type: 'grammar' | 'word',
   title: string,
   rootMeaning: string,
   examples: string[],
+  exampleSentences: string[] | undefined,
   question: string,
   uiLocale: string,
   learningLanguage: string
 ): Promise<Quiz | null> {
-  console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title, userId });
+  console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title, type, userId });
 
   // 1. Check if quiz exists in Firebase
   const existingQuiz = await getQuizByArchiveId(archiveId);
@@ -55,8 +59,10 @@ export async function getOrGenerateQuiz(
   // 2. Generate quiz with Grok AI
   const generated = await generateQuizWithGrok({
     title,
+    type,
     rootMeaning,
     examples,
+    exampleSentences,
     uiLocale,
     learningLanguage,
   });
@@ -68,12 +74,13 @@ export async function getOrGenerateQuiz(
 
   // 3. Save to Firebase
   const draft: QuizDraft = {
-    userId, // Save userId
+    userId,
     archiveId,
     question,
     options: generated.options,
     correctIndex: generated.correctIndex,
     explanation: generated.explanation,
+    quizType: type, // Save quiz type
   };
 
   const savedQuiz = await createQuiz(draft);
