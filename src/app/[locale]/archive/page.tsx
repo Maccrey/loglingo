@@ -151,6 +151,95 @@ export default function ArchivePage() {
         mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
       />
 
+      {/* 모바일: 퀴즈 섹션을 먼저 표시 */}
+      <Card className="md:hidden mb-4">
+        <CardHeader>
+          <CardTitle>{t("quiz_title")}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {!quiz && !quizLoading && selected && (
+            <p className="text-sm text-muted-foreground">{t("quiz_empty")}</p>
+          )}
+          {quizLoading && (
+            <p className="text-sm text-muted-foreground animate-pulse">AI 생성 중...</p>
+          )}
+          {quizError && (
+            <p className="text-sm text-destructive">퀴즈 생성 실패</p>
+          )}
+          {quiz && (
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-foreground">{quiz.question}</p>
+              {quiz.options.map((opt, idx) => {
+                const isCorrect = idx === quiz.correctIndex;
+                const isSelected = idx === selectedAnswer;
+                
+                console.log(`Option ${idx}:`, { isCorrect, isSelected, showResult, selectedAnswer });
+                
+                // 버튼 스타일 결정 - render 시점에 계산
+                let btnStyle = {};
+                let btnClasses = "w-full text-left px-4 py-2 rounded-lg border transition-all text-sm ";
+                
+                if (showResult) {
+                  if (isCorrect) {
+                    btnClasses += "bg-green-500/20 border-green-500 text-green-100";
+                    btnStyle = {
+                      backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                      borderColor: 'rgb(34, 197, 94)',
+                      color: 'rgb(220, 252, 231)'
+                    };
+                  } else if (isSelected) {
+                    btnClasses += "bg-red-500/20 border-red-500 text-red-100";
+                    btnStyle = {
+                      backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                      borderColor: 'rgb(239, 68, 68)',
+                      color: 'rgb(254, 226, 226)'
+                    };
+                  } else {
+                    btnClasses += "border-white/10 text-muted-foreground";
+                  }
+                } else {
+                  btnClasses += isSelected 
+                    ? "bg-primary/20 border-primary text-primary-foreground" 
+                    : "border-white/10 hover:border-primary/40 text-foreground";
+                }
+
+                return (
+                  <button
+                    key={idx}
+                    disabled={showResult}
+                    onClick={() => {
+                      console.log('🎯 Button clicked:', idx);
+                      setSelectedAnswer(idx);
+                      setShowResult(true);
+                      
+                      setTimeout(() => {
+                        console.log('🔄 Resetting quiz state');
+                        setSelectedAnswer(null);
+                        setShowResult(false);
+                      }, 7000);
+                    }}
+                    className={btnClasses}
+                    style={btnStyle}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
+              <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
+            </div>
+          )}
+          
+          {/* 모바일 퀴즈 하단 광고 */}
+          <div className="pt-4 border-t border-white/10 mt-4">
+            <KakaoAdFit
+              unit={AD_UNITS.ARCHIVE_QUIZ_SIDE}
+              width={AD_SIZES.PC_SQUARE.width}
+              height={AD_SIZES.PC_SQUARE.height}
+            />
+          </div>
+        </CardContent>
+      </Card>
+
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="md:col-span-2">
           <CardHeader>
@@ -190,7 +279,8 @@ export default function ArchivePage() {
           </CardContent>
         </Card>
 
-        <Card>
+        {/* PC: 퀴즈 섹션 */}
+        <Card className="hidden md:block">
           <CardHeader>
             <CardTitle>{t("quiz_title")}</CardTitle>
           </CardHeader>
@@ -219,28 +309,28 @@ export default function ArchivePage() {
                   
                   if (showResult) {
                     if (isCorrect) {
-                      // 정답은 항상 초록색
-                      btnStyle = { 
-                        backgroundColor: 'rgba(34, 197, 94, 0.2)', 
+                      btnClasses += "bg-green-500/20 border-green-500 text-green-100";
+                      btnStyle = {
+                        backgroundColor: 'rgba(34, 197, 94, 0.2)',
                         borderColor: 'rgb(34, 197, 94)',
                         color: 'rgb(220, 252, 231)'
                       };
-                      btnClasses += "font-semibold";
                     } else if (isSelected) {
-                      // 선택한 오답은 빨간색
-                      btnStyle = { 
-                        backgroundColor: 'rgba(239, 68, 68, 0.2)', 
+                      btnClasses += "bg-red-500/20 border-red-500 text-red-100";
+                      btnStyle = {
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
                         borderColor: 'rgb(239, 68, 68)',
                         color: 'rgb(254, 226, 226)'
                       };
                     } else {
-                      // 선택하지 않은 오답은 반투명
-                      btnClasses += "opacity-30";
+                      btnClasses += "border-white/10 text-muted-foreground";
                     }
                   } else {
-                    btnClasses += "bg-card border-border hover:bg-accent hover:border-accent-foreground";
+                    btnClasses += isSelected 
+                      ? "bg-primary/20 border-primary text-primary-foreground" 
+                      : "border-white/10 hover:border-primary/40 text-foreground";
                   }
-                  
+
                   return (
                     <button
                       key={idx}
