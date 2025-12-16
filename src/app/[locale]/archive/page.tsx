@@ -16,6 +16,75 @@ import { AuthGate } from "@/components/auth/AuthGate";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+// 아카이브 리스트 카드 컴포넌트
+function ArchiveListCard({
+  item,
+  onSelect,
+  t,
+  locale
+}: {
+  item: LearningArchive;
+  onSelect: () => void;
+  t: (key: string) => string;
+  locale: string;
+}) {
+  const [showExamples, setShowExamples] = useState(false);
+  const hasExamples = item.examples && item.examples.length > 0;
+
+  return (
+    <div className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition">
+      <div 
+        className="cursor-pointer"
+        onClick={onSelect}
+      >
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-semibold text-foreground">{item.title}</p>
+          <span className="text-xs text-muted-foreground">
+            {item.type === "word" ? t("vocabulary") : t("grammar")}
+          </span>
+        </div>
+        <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
+        <p className="text-[11px] text-muted-foreground mt-1">
+          {formatDate(item.createdAt, locale)}
+        </p>
+      </div>
+      
+      {hasExamples && (
+        <div className="mt-2 border-t border-white/10 pt-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowExamples(!showExamples);
+            }}
+            className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+          >
+            <ChevronDown 
+              className={cn(
+                "h-3 w-3 transition-transform",
+                showExamples && "rotate-180"
+              )} 
+            />
+            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${item.examples.length}개)`}</span>
+          </button>
+          
+          {showExamples && (
+            <div className="mt-2 space-y-1 pl-4 border-l-2 border-primary/30">
+              {item.examples.map((example, idx) => (
+                <p key={idx} className="text-xs text-foreground/80">
+                  • {example}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ArchivePage() {
   const t = useTranslations("archive");
@@ -257,28 +326,16 @@ export default function ArchivePage() {
                 <p className="text-muted-foreground">{t("empty")}</p>
               )}
               {filteredArchives.map((item) => (
-                <div
+                <ArchiveListCard
                   key={item.id}
-                  className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"
-                  onClick={() => {
+                  item={item}
+                  onSelect={() => {
                     setSelected(item);
                     trackEvent("quiz_started", { archiveId: item.id, type: item.type });
                   }}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                    <span className="text-xs text-muted-foreground">
-                      {item.type === "word" ? t("vocabulary") : t("grammar")}
-                    </span>
-                  </div>
-                  <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
-                  <p className="text-[11px] text-muted-foreground mt-1">
-                    {formatDate(item.createdAt, locale)}
-                  </p>
-                  {item.examples.length > 0 && (
-                    <p className="text-xs text-primary mt-1">{item.examples[0]}</p>
-                  )}
-                </div>
+                  t={t}
+                  locale={locale}
+                />
               ))}
             </div>
           </CardContent>
