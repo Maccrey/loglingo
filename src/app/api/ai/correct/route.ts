@@ -193,7 +193,7 @@ async function callGrok(
                       description: "Example sentences in target language (3-5 for grammar, 3-6 for word)"
                     }
                   },
-                  required: ["type", "original", "suggestion", "explanation", "exampleSentences"],
+                  required: ["type", "original", "suggestion", "explanation"],
                   additionalProperties: false
                 }
               },
