@@ -53,9 +53,11 @@ export function Navigation() {
     <>
       <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-black/20 backdrop-blur-lg md:top-0 md:bottom-auto md:border-b md:border-t-0">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-around px-4 md:justify-between">
-          <div className="hidden md:block text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Loglingo
-          </div>
+          <Link href="/" className="hidden md:block">
+            <div className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity">
+              Loglingo
+            </div>
+          </Link>
           
           <div className="flex w-full justify-around md:w-auto md:space-x-8">
             {navItems.map((item) => {
