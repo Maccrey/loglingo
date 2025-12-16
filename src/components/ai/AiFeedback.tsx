@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { CorrectionResult, CorrectionIssue } from "@/domain/ai-correction";
 import { cn } from "@/lib/utils";
-import { Info, Sparkles, Wand2 } from "lucide-react";
+import { ChevronDown, Info, Sparkles, Wand2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 interface Props {
   result: CorrectionResult;
@@ -11,6 +12,9 @@ interface Props {
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
+  const [showExamples, setShowExamples] = useState(false);
+  const hasExamples = issue.exampleSentences && issue.exampleSentences.length > 0;
+
   return (
     <div className="rounded-lg border border-white/10 bg-white/5 p-3">
       <p className="text-xs uppercase text-primary mb-1">{issue.type}</p>
@@ -21,6 +25,33 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
         <span className="text-muted-foreground">Suggestion:</span> {issue.suggestion}
       </p>
       <p className="text-xs text-muted-foreground mt-1">{issue.explanation}</p>
+      
+      {hasExamples && (
+        <div className="mt-2">
+          <button
+            onClick={() => setShowExamples(!showExamples)}
+            className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+          >
+            <ChevronDown 
+              className={cn(
+                "h-3 w-3 transition-transform",
+                showExamples && "rotate-180"
+              )} 
+            />
+            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${issue.exampleSentences!.length}개)`}</span>
+          </button>
+          
+          {showExamples && (
+            <div className="mt-2 space-y-1 pl-4 border-l-2 border-primary/30">
+              {issue.exampleSentences!.map((example, idx) => (
+                <p key={idx} className="text-xs text-foreground/80">
+                  • {example}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
