@@ -79,7 +79,7 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text in target language>",
   "issues": [
-    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>" }
+    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>", "exampleSentences": ["<example in target language>", ...] }
   ],
   "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
 }
@@ -116,10 +116,24 @@ CRITICAL INSTRUCTIONS:
    - If type is "grammar": Explain the grammar rule in UI language
    - Always provide clear, visual metaphors for word meanings to help learners understand through imagery
 
+4. For 'exampleSentences' field (NEW - REQUIRED for ALL types):
+   - MUST be an array of example sentences in TARGET LANGUAGE (${targetLanguage})
+   - If type is "grammar":
+     * Provide 3-5 example sentences demonstrating this grammar pattern
+     * Examples should be practical, everyday sentences in ${targetLanguage}
+   - If type is "word":
+     * Provide 3-6 example sentences showing different meanings of the word
+     * For each meaning mentioned in explanation, include 1-2 example sentences
+     * Examples MUST be in ${targetLanguage}, showing the word in different contexts
+   - Example for "get" in English (when target is English):
+     ["I need to get a book from the library.", "Do you get what I mean?", "When will you get home?"]
+   - Example for past continuous grammar in English:
+     ["I was studying when you called.", "She was working all day yesterday.", "They were playing soccer in the park."]
+
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
 LANGUAGE RULES - DO NOT VIOLATE:
-- 'corrected' and 'suggestion' → TARGET LANGUAGE (${targetLanguage}) ONLY
+- 'corrected', 'suggestion', and 'exampleSentences' → TARGET LANGUAGE (${targetLanguage}) ONLY
 - 'explanation' and 'rootMeaningGuide' → UI LANGUAGE (${uiLanguage}) ONLY
 - In 'explanation', mention the TARGET LANGUAGE word you are explaining, not the original word
 The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
@@ -172,9 +186,14 @@ async function callGrok(
                     type: { type: "string", enum: ["grammar", "word", "style", "other"] },
                     original: { type: "string" },
                     suggestion: { type: "string" },
-                    explanation: { type: "string" }
+                    explanation: { type: "string" },
+                    exampleSentences: {
+                      type: "array",
+                      items: { type: "string" },
+                      description: "Example sentences in target language (3-5 for grammar, 3-6 for word)"
+                    }
                   },
-                  required: ["type", "original", "suggestion", "explanation"],
+                  required: ["type", "original", "suggestion", "explanation", "exampleSentences"],
                   additionalProperties: false
                 }
               },

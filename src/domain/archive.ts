@@ -5,9 +5,10 @@ export interface LearningArchive {
   userId: string;
   type: ArchiveType;
   title: string;
-  examples: string[];
+  examples: string[]; // Includes exampleSentences from AI correction
   rootMeaning: string;
   sourceId?: string;
+  sourceText?: string; // Original text from diary where this came from
   createdAt: Date;
 }
 
@@ -15,9 +16,10 @@ export interface LearningArchiveDraft {
   userId: string;
   type: ArchiveType;
   title: string;
-  examples?: string[];
+  examples?: string[]; // Includes exampleSentences from AI correction
   rootMeaning?: string;
   sourceId?: string;
+  sourceText?: string; // Original text from diary where this came from
 }
 
 export interface QuizQuestion {

@@ -273,14 +273,18 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         
         console.log("Archive Save: Checking issue duplicate", { title, isDuplicate, sourceId: initial?.id });
         
-          if (!isDuplicate) {
+        if (!isDuplicate) {
           entries.push({
             userId,
             type: issue.type === "word" ? "word" : "grammar", // Map AI issue type to ArchiveType
             title,
             rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
-            examples: [issue.original, issue.suggestion].filter(Boolean),
+            // Use exampleSentences if available, otherwise fallback to original and suggestion
+            examples: issue.exampleSentences && issue.exampleSentences.length > 0 
+              ? issue.exampleSentences 
+              : [issue.original, issue.suggestion].filter(Boolean),
             sourceId: initial?.id,
+            sourceText: issue.original, // Store original text for context
           });
         }
       }
