@@ -19,21 +19,27 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
 
     if (!containerRef.current) return;
 
-    const ins = document.createElement("ins");
-    ins.className = "kakao_ad_area";
-    ins.setAttribute("data-ad-unit", unit);
-    ins.setAttribute("data-ad-width", width.toString());
-    ins.setAttribute("data-ad-height", height.toString());
+    // 광고 로딩을 약간 지연시켜 DOM이 완전히 렌더링된 후 실행
+    const timer = setTimeout(() => {
+      if (!containerRef.current) return;
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.type = "text/javascript";
-    script.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+      const ins = document.createElement("ins");
+      ins.className = "kakao_ad_area";
+      ins.setAttribute("data-ad-unit", unit);
+      ins.setAttribute("data-ad-width", width.toString());
+      ins.setAttribute("data-ad-height", height.toString());
 
-    containerRef.current.appendChild(ins);
-    containerRef.current.appendChild(script);
+      const script = document.createElement("script");
+      script.async = true;
+      script.type = "text/javascript";
+      script.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+
+      containerRef.current.appendChild(ins);
+      containerRef.current.appendChild(script);
+    }, 100);
 
     return () => {
+      clearTimeout(timer);
       if (containerRef.current) {
         containerRef.current.innerHTML = "";
       }
@@ -45,8 +51,14 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
   return (
     <div 
       ref={containerRef} 
-      className="flex justify-center my-8" 
-      style={{ minHeight: `${height}px` }}
+      className="flex justify-center my-8"
+      style={{ 
+        minHeight: `${height}px`,
+        minWidth: `${width}px`,
+        width: '100%',
+        maxWidth: `${width}px`,
+        margin: '0 auto'
+      }}
     />
   );
 }
