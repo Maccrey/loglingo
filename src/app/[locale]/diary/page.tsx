@@ -249,110 +249,112 @@ export default function DiaryListPage() {
           </div>
         </Card>
 
-        <div className="md:col-span-2 space-y-4">
-          {loadingState ? (
-            <Card className="border-dashed bg-transparent p-6 text-center">
-              <p className="text-muted-foreground">{t("loading")}</p>
-            </Card>
-          ) : filtered.length === 0 ? (
-            <Card className="flex min-h-[200px] flex-col items-center justify-center border-dashed bg-transparent text-center">
-              <p className="text-muted-foreground">{t("empty")}</p>
-              <Link href="/diary/new" className="mt-3 inline-flex">
-                <Button size="sm">
-                  <Plus className="mr-2 h-4 w-4" />
-                  {t("new_entry")}
-                </Button>
-              </Link>
-            </Card>
-          ) : (
-            <div className="grid gap-4">
-              {filtered.map((diary, index) => (
-              <Fragment key={diary.id}>
-              <div 
-                onClick={() => router.push(`/diary/${diary.id}`)}
-                className="block"
-              >
-                <Card className="glass-card border-white/10 transition-all hover:shadow-lg hover:border-primary/40 cursor-pointer">
-                  <CardHeader className="flex flex-row items-center justify-between">
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        {formatDate(diary.date, locale)}
+        <div className="md:col-span-2">
+          <div className="max-h-[calc(100vh-300px)] min-h-[500px] overflow-y-auto pr-2 space-y-4">
+            {loadingState ? (
+              <Card className="border-dashed bg-transparent p-6 text-center">
+                <p className="text-muted-foreground">{t("loading")}</p>
+              </Card>
+            ) : filtered.length === 0 ? (
+              <Card className="flex min-h-[200px] flex-col items-center justify-center border-dashed bg-transparent text-center">
+                <p className="text-muted-foreground">{t("empty")}</p>
+                <Link href="/diary/new" className="mt-3 inline-flex">
+                  <Button size="sm">
+                    <Plus className="mr-2 h-4 w-4" />
+                    {t("new_entry")}
+                  </Button>
+                </Link>
+              </Card>
+            ) : (
+              <div className="grid gap-4">
+                {filtered.map((diary, index) => (
+                <Fragment key={diary.id}>
+                <div 
+                  onClick={() => router.push(`/diary/${diary.id}`)}
+                  className="block"
+                >
+                  <Card className="glass-card border-white/10 transition-all hover:shadow-lg hover:border-primary/40 cursor-pointer">
+                    <CardHeader className="flex flex-row items-center justify-between">
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          {formatDate(diary.date, locale)}
+                        </p>
+                        <CardTitle className="line-clamp-1 text-xl">
+                          {diary.content.slice(0, 40) || t("untitled")}
+                        </CardTitle>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button 
+                          variant="secondary" 
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/diary/${diary.id}/edit`);
+                          }}
+                        >
+                          <Edit3 className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleDelete(diary);
+                          }}
+                          disabled={remove.isPending}
+                        >
+                          <Trash2 className="mr-2 h-4 w-4" />
+                          {t("delete")}
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      {diary.imageUrl && (
+                        <NextImage
+                          src={diary.imageUrl}
+                          alt="Diary attachment"
+                          width={1200}
+                          height={800}
+                          className="h-48 w-full rounded-lg object-cover"
+                          priority={index < 2}
+                          sizes="(max-width: 768px) 100vw, 700px"
+                          unoptimized
+                        />
+                      )}
+                      <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        {diary.content}
                       </p>
-                      <CardTitle className="line-clamp-1 text-xl">
-                        {diary.content.slice(0, 40) || t("untitled")}
-                      </CardTitle>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Button 
-                        variant="secondary" 
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          router.push(`/diary/${diary.id}/edit`);
-                        }}
-                      >
-                        <Edit3 className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          handleDelete(diary);
-                        }}
-                        disabled={remove.isPending}
-                      >
-                        <Trash2 className="mr-2 h-4 w-4" />
-                        {t("delete")}
-                      </Button>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {diary.imageUrl && (
-                      <NextImage
-                        src={diary.imageUrl}
-                        alt="Diary attachment"
-                        width={1200}
-                        height={800}
-                        className="h-48 w-full rounded-lg object-cover"
-                        priority={index < 2}
-                        sizes="(max-width: 768px) 100vw, 700px"
-                        unoptimized
-                      />
-                    )}
-                    <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                      {diary.content}
-                    </p>
-                  </CardContent>
-                  <CardFooter className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span>
-                      {t("year_label")}: {diary.date.split("-")[0]}
-                    </span>
-                    <span>
-                      {t("month_label")}: {monthLabels[new Date(`${diary.date}T00:00:00`).getMonth()]}
-                    </span>
-                  </CardFooter>
-                </Card>
-              </div>
-              
-              {/* 5번째 항목마다 인피드 광고 삽입 */}
-              {(index + 1) % 5 === 0 && index !== filtered.length - 1 && (
-                <div className="w-full">
-                  <ResponsiveAd
-                    pcUnit={AD_UNITS.DIARY_INFEED_PC}
-                    mobileUnit={AD_UNITS.DIARY_INFEED_MOBILE}
-                    pcWidth={AD_SIZES.PC_LEADERBOARD.width}
-                    pcHeight={AD_SIZES.PC_LEADERBOARD.height}
-                    mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
-                    mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
-                  />
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-between text-xs text-muted-foreground">
+                      <span>
+                        {t("year_label")}: {diary.date.split("-")[0]}
+                      </span>
+                      <span>
+                        {t("month_label")}: {monthLabels[new Date(`${diary.date}T00:00:00`).getMonth()]}
+                      </span>
+                    </CardFooter>
+                  </Card>
                 </div>
-              )}
-              </Fragment>
-            ))}
-            </div>
-          )}
+                
+                {/* 5번째 항목마다 인피드 광고 삽입 */}
+                {(index + 1) % 5 === 0 && index !== filtered.length - 1 && (
+                  <div className="w-full">
+                    <ResponsiveAd
+                      pcUnit={AD_UNITS.DIARY_INFEED_PC}
+                      mobileUnit={AD_UNITS.DIARY_INFEED_MOBILE}
+                      pcWidth={AD_SIZES.PC_LEADERBOARD.width}
+                      pcHeight={AD_SIZES.PC_LEADERBOARD.height}
+                      mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
+                      mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+                    />
+                  </div>
+                )}
+                </Fragment>
+              ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
       </div>

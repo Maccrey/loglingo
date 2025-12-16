@@ -248,37 +248,39 @@ export default function ArchivePage() {
           <CardHeader>
             <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-            {(loading || isLoading || !canLoad) && (
-              <p className="text-muted-foreground">{tCommon("loading")}</p>
-            )}
-            {!loading && !isLoading && canLoad && filteredArchives.length === 0 && (
-              <p className="text-muted-foreground">{t("empty")}</p>
-            )}
-            {filteredArchives.map((item) => (
-              <div
-                key={item.id}
-                className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"
-                onClick={() => {
-                  setSelected(item);
-                  trackEvent("quiz_started", { archiveId: item.id, type: item.type });
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                  <span className="text-xs text-muted-foreground">
-                    {item.type === "word" ? t("vocabulary") : t("grammar")}
-                  </span>
+          <CardContent>
+            <div className="space-y-3 max-h-[calc(100vh-400px)] min-h-[400px] overflow-y-auto pr-2">
+              {(loading || isLoading || !canLoad) && (
+                <p className="text-muted-foreground">{tCommon("loading")}</p>
+              )}
+              {!loading && !isLoading && canLoad && filteredArchives.length === 0 && (
+                <p className="text-muted-foreground">{t("empty")}</p>
+              )}
+              {filteredArchives.map((item) => (
+                <div
+                  key={item.id}
+                  className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition cursor-pointer"
+                  onClick={() => {
+                    setSelected(item);
+                    trackEvent("quiz_started", { archiveId: item.id, type: item.type });
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                    <span className="text-xs text-muted-foreground">
+                      {item.type === "word" ? t("vocabulary") : t("grammar")}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">
+                    {formatDate(item.createdAt, locale)}
+                  </p>
+                  {item.examples.length > 0 && (
+                    <p className="text-xs text-primary mt-1">{item.examples[0]}</p>
+                  )}
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">{item.rootMeaning}</p>
-                <p className="text-[11px] text-muted-foreground mt-1">
-                  {formatDate(item.createdAt, locale)}
-                </p>
-                {item.examples.length > 0 && (
-                  <p className="text-xs text-primary mt-1">{item.examples[0]}</p>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </CardContent>
         </Card>
 
