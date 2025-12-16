@@ -29,6 +29,7 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
       {hasExamples && (
         <div className="mt-2">
           <button
+            type="button"
             onClick={() => setShowExamples(!showExamples)}
             className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
           >
