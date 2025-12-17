@@ -11,6 +11,14 @@ service cloud.firestore {
 
     match /users/{userId} {
       allow read, write: if isOwner(userId);
+
+      match /radio_favorites/{favoriteId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /stats/{statId} {
+        allow read, write: if isOwner(userId);
+      }
     }
 
     match /diaries/{docId} {
