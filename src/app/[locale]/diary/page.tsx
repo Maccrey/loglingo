@@ -114,8 +114,8 @@ export default function DiaryListPage() {
           </div>
         <Link href="/diary/new">
           <Button>
-            <Plus className="mr-2 h-4 w-4" />
-            {t("new_entry")}
+            <Plus className="mr-0 md:mr-2 h-4 w-4" />
+            <span className="hidden md:inline">{t("new_entry")}</span>
           </Button>
         </Link>
       </div>
@@ -304,8 +304,8 @@ export default function DiaryListPage() {
                           }}
                           disabled={remove.isPending}
                         >
-                          <Trash2 className="mr-2 h-4 w-4" />
-                          {t("delete")}
+                          <Trash2 className="mr-0 md:mr-2 h-4 w-4" />
+                          <span className="hidden md:inline">{t("delete")}</span>
                         </Button>
                       </div>
                     </CardHeader>

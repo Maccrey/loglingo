@@ -185,7 +185,7 @@ export default function ArchivePage() {
         <CardHeader>
           <CardTitle>{t("add_title")}</CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-3 md:grid-cols-4">
+        <CardContent className="grid gap-3 grid-cols-1 md:grid-cols-4">
           <select
             aria-label={typeLabel}
             className="h-[42px] rounded-md border border-white/10 bg-white/5 px-3 text-sm"
