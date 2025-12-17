@@ -15,48 +15,40 @@ export default function RadioGlobe({ onStationClick, currentStationId }: RadioGl
   const globeEl = useRef<GlobeMethods | undefined>(undefined);
   const { theme } = useTheme();
   const [stations, setStations] = useState<RadioStation[]>([]);
+  const [isRotating, setIsRotating] = useState(false); // Default to FALSE as requested by user ("too hard to select")
 
   useEffect(() => {
-    // Initial camera position
+    // Initial controls setup
     if (globeEl.current) {
-        globeEl.current.controls().autoRotate = true;
+        globeEl.current.controls().autoRotate = isRotating;
         globeEl.current.controls().autoRotateSpeed = 0.5;
-        // set initial POV
-        globeEl.current.pointOfView({ lat: 20, lng: 0, altitude: 2.5 });
+        globeEl.current.pointOfView({ lat: 36, lng: 127, altitude: 2.0 }); 
     }
+  }, [isRotating]);
 
-    // Fetch initial stations (e.g., top stations globally)
+  useEffect(() => {
+    // Fetch initial stations
     const loadStations = async () => {
       const topStations = await radioApiService.getTopStations();
       setStations(topStations);
     };
     loadStations();
-
   }, []);
+
+  const toggleRotation = () => {
+    setIsRotating(prev => !prev);
+    if (globeEl.current) {
+      globeEl.current.controls().autoRotate = !isRotating;
+    }
+  };
 
   return (
     <div className="relative w-full h-full group">
-      <div 
-        className="absolute inset-0 cursor-move z-0"
-        onMouseEnter={() => {
-          if (globeEl.current) {
-             globeEl.current.controls().autoRotate = false;
-          }
-        }}
-        onMouseLeave={() => {
-          // Only resume if user hasn't explicitly clicked a station? 
-          // Or just resume always. User complained it's hard to select.
-          // Let's keep hover-stop.
-          if (globeEl.current) {
-             globeEl.current.controls().autoRotate = true;
-          }
-        }}
-      >
+      <div className="absolute inset-0 cursor-move z-0">
         <Globe
           ref={globeEl}
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
           backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-          // Create new array ref to force update when currentStationId changes
           pointsData={[...stations]} 
           pointLat="geoLat"
           pointLng="geoLong"
@@ -75,11 +67,14 @@ export default function RadioGlobe({ onStationClick, currentStationId }: RadioGl
         />
       </div>
     
-      {/* Hint overlay */}
-      <div className="absolute top-20 right-4 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500">
-         <span className="text-xs text-white/50 bg-black/40 px-2 py-1 rounded backdrop-blur-sm">
-           Hover to pause rotation
-         </span>
+      {/* Rotation Control Button */}
+      <div className="absolute top-20 right-4 z-50">
+         <button 
+           onClick={toggleRotation}
+           className="bg-black/60 backdrop-blur text-white/80 p-2 rounded-lg border border-white/10 hover:bg-white/10 text-xs font-medium transition"
+         >
+           {isRotating ? '⏸ Pause Rotation' : '▶ Auto-Rotate'}
+         </button>
       </div>
     </div>
   );

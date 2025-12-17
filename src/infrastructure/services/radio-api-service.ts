@@ -62,27 +62,30 @@ export class RadioApiService {
               hasGeoInfo: true
           });
 
-          // Fetch KR/JP specifically to ensure Asian coverage as requested
+          // Fetch KR/JP specifically with higher limits and less strict sorting to find ANY with geo info
           const krStations = await api.searchStations({
              countryCode: 'KR',
-             limit: 20,
+             limit: 100, // Increase limit
              hideBroken: true,
-             order: 'votes',
-             reverse: true,
-             hasGeoInfo: true
+             hasGeoInfo: true // Must have geo info for globe
           });
 
           const jpStations = await api.searchStations({
              countryCode: 'JP',
-             limit: 20,
+             limit: 100, // Increase limit
              hideBroken: true,
-             order: 'votes',
-             reverse: true,
+             hasGeoInfo: true
+          });
+          
+          const cnStations = await api.searchStations({
+             countryCode: 'CN',
+             limit: 50,
+             hideBroken: true,
              hasGeoInfo: true
           });
 
-          // Merge and deduplicate by ID
-          const allStations = [...globalTop, ...krStations, ...jpStations];
+          // Merge: Global Top + Specific Asian Countries
+          const allStations = [...globalTop, ...krStations, ...jpStations, ...cnStations];
           const uniqueStations = Array.from(new Map(allStations.map(s => [s.id, s])).values());
           
           return uniqueStations.map(this.mapToDomain);
