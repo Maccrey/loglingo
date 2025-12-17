@@ -82,6 +82,7 @@ export class RadioApiService {
       votes: station.votes,
       geoLat: station.geoLat,
       geoLong: station.geoLong,
+      codec: station.codec,
     };
   }
 }

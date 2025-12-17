@@ -14,6 +14,7 @@ export interface RadioStation {
   votes: number;
   geoLat: number | null;
   geoLong: number | null;
+  codec: string;
 }
 
 export interface RadioFavorite {

@@ -25,28 +25,87 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
   // Track listening time
   useRadioTracker(
     isPlaying, 
-    station?.language?.[0], // Use first language or undefined
-    60 // interval (commit every 1 min)
+    station?.language?.[0], 
+    60 
   );
 
   useEffect(() => {
+    // Cleanup previous HLS if any
+    const hls = (window as any).__hls_instance;
+    if (hls) {
+      hls.destroy();
+      (window as any).__hls_instance = null;
+    }
+
     if (station && audioRef.current) {
       setError(false);
       setLoading(true);
-      audioRef.current.src = station.urlResolved || station.url;
-      audioRef.current.load();
       
-      if (autoPlay) {
-        audioRef.current.play()
-          .then(() => setIsPlaying(true))
-          .catch(e => {
-            console.error("Playback failed", e);
-            setIsPlaying(false);
-            // setError(true); // Don't show error immediately on autoplay block
-          });
-      }
+      const streamUrl = station.urlResolved || station.url;
+      const isHls = streamUrl.includes('.m3u8') || station.codec === 'HLS';
+
+      // Dynamic import Hls.js to avoid SSR issues if package not strictly client-side friendly or just to be safe
+      const loadStream = async () => {
+        if (isHls) {
+           const Hls = (await import('hls.js')).default;
+           if (Hls.isSupported()) {
+             const hls = new Hls();
+             (window as any).__hls_instance = hls;
+             hls.loadSource(streamUrl);
+             hls.attachMedia(audioRef.current!);
+             hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                if (autoPlay) {
+                  audioRef.current?.play()
+                    .then(() => setIsPlaying(true))
+                    .catch(e => {
+                      console.error("HLS Playback failed", e);
+                      setIsPlaying(false);
+                    });
+                }
+             });
+             hls.on(Hls.Events.ERROR, (event, data) => {
+                if (data.fatal) {
+                   console.error("HLS Fatal Error", data);
+                   setLoading(false);
+                   setError(true);
+                   setIsPlaying(false);
+                   hls.destroy();
+                }
+             });
+             return;
+           }
+        }
+        
+        // Fallback or Standard Audio
+        audioRef.current!.src = streamUrl;
+        audioRef.current!.load();
+        
+        if (autoPlay) {
+          audioRef.current!.play()
+            .then(() => setIsPlaying(true))
+            .catch(e => {
+              // NotSupportedError often happens here if format is native HLS but browser doesn't support, 
+              // or if it's really unsupported.
+              console.error("Playback failed (Standard)", e);
+              setIsPlaying(false);
+              // Check if it's a NotSupportedError and we haven't tried HLS yet?
+              // The isHls check above should cover most.
+            });
+        }
+      };
+
+      loadStream();
+
     } else {
       setIsPlaying(false);
+    }
+    
+    return () => {
+      const hls = (window as any).__hls_instance;
+      if (hls) {
+        hls.destroy();
+        (window as any).__hls_instance = null;
+      }
     }
   }, [station, autoPlay]);
 
