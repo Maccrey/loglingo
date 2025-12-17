@@ -173,5 +173,26 @@
     "saving": "Đang lưu...",
     "show_examples": "Hiển thị ví dụ ({count})",
     "hide_examples": "Ẩn ví dụ"
+  },
+  "radio": {
+    "title": "Radio Toàn Cầu",
+    "subtitle": "Khám phá các đài radio từ khắp nơi trên thế giới.",
+    "listen": "Nghe",
+    "favorites": "Yêu thích",
+    "now_playing": "Đang phát",
+    "search_placeholder": "Tìm đài hoặc quốc gia...",
+    "no_stations": "Không có đài nào trong khu vực này.",
+    "listening_time": "Thời gian nghe",
+    "total": "Tổng cộng",
+    "by_language": "Theo ngôn ngữ",
+    "login_required_title": "Cần đăng nhập",
+    "login_required_desc": "Bạn cần đăng nhập để sử dụng Radio Toàn Cầu và lưu yêu thích.",
+    "login_button": "Đăng nhập",
+    "added_favorite": "Đã thêm vào yêu thích",
+    "removed_favorite": "Đã xóa khỏi yêu thích",
+    "error": "Đã xảy ra lỗi",
+    "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
+    "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D.",
+    "loading": "Đang tải kênh..."
   }
 }

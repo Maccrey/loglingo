@@ -173,5 +173,26 @@
     "saving": "正在保存...",
     "show_examples": "显示示例 ({count}个)",
     "hide_examples": "隐藏示例"
+  },
+  "radio": {
+    "title": "全球广播",
+    "subtitle": "探索世界各地的广播电台。",
+    "listen": "收听",
+    "favorites": "收藏",
+    "now_playing": "正在播放",
+    "search_placeholder": "搜索电台或国家...",
+    "no_stations": "该地区没有电台。",
+    "listening_time": "收听时间",
+    "total": "总计",
+    "by_language": "按语言",
+    "login_required_title": "需要登录",
+    "login_required_desc": "使用全球广播并保存收藏需要登录。",
+    "login_button": "登录",
+    "added_favorite": "已添加到收藏",
+    "removed_favorite": "已从收藏中移除",
+    "error": "发生错误",
+    "meta_title": "全球广播 - 收听世界各地的广播电台 | Loglingo",
+    "meta_description": "发现并收听来自世界各地的广播电台。提供韩语、日语、英语、西班牙语、法语、德语等语言的电台，非常适合语言学习。通过3D地球仪界面享受免费的互联网广播。",
+    "loading": "频道加载中..."
   }
 }

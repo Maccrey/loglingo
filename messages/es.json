@@ -173,5 +173,26 @@
     "saving": "Guardando...",
     "show_examples": "Mostrar ejemplos ({count})",
     "hide_examples": "Ocultar ejemplos"
+  },
+  "radio": {
+    "title": "Radio Global",
+    "subtitle": "Explora emisoras de radio de todo el mundo.",
+    "listen": "Escuchar",
+    "favorites": "Favoritos",
+    "now_playing": "Reproduciendo",
+    "search_placeholder": "Buscar emisora o país...",
+    "no_stations": "No hay emisoras en esta área.",
+    "listening_time": "Tiempo de escucha",
+    "total": "Total",
+    "by_language": "Por idioma",
+    "login_required_title": "Se requiere inicio de sesión",
+    "login_required_desc": "Necesitas iniciar sesión para usar Radio Global y guardar favoritos.",
+    "login_button": "Iniciar sesión",
+    "added_favorite": "Añadido a favoritos",
+    "removed_favorite": "Eliminado de favoritos",
+    "error": "Ocurrió un error",
+    "meta_title": "Radio Global - Escucha Emisoras de Radio de Todo el Mundo | Loglingo",
+    "meta_description": "Descubre y escucha emisoras de radio de todo el mundo. Perfecto para aprender idiomas con estaciones en coreano, japonés, inglés, español, francés, alemán y más. Radio por internet gratis con interfaz de globo 3D.",
+    "loading": "Cargando canal..."
   }
 }

@@ -174,5 +174,26 @@
     "saving": "Kaydediliyor...",
     "show_examples": "Örnekleri göster ({count})",
     "hide_examples": "Örnekleri gizle"
+  },
+  "radio": {
+    "title": "Küresel Radyo",
+    "subtitle": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin.",
+    "listen": "Dinle",
+    "favorites": "Favoriler",
+    "now_playing": "Şimdi Çalıyor",
+    "search_placeholder": "İstasyon veya ülke ara...",
+    "no_stations": "Bu bölgede istasyon yok.",
+    "listening_time": "Dinleme Süresi",
+    "total": "Toplam",
+    "by_language": "Dile Göre",
+    "login_required_title": "Giriş Gerekli",
+    "login_required_desc": "Küresel Radyo'yu kullanmak ve favorileri kaydetmek için giriş yapmanız gerekir.",
+    "login_button": "Giriş Yap",
+    "added_favorite": "Favorilere eklendi",
+    "removed_favorite": "Favorilerden kaldırıldı",
+    "error": "Bir hata oluştu",
+    "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
+    "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu.",
+    "loading": "Kanal yükleniyor..."
   }
 }

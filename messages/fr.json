@@ -174,5 +174,26 @@
     "saving": "Enregistrement...",
     "show_examples": "Afficher les exemples ({count})",
     "hide_examples": "Masquer les exemples"
+  },
+  "radio": {
+    "title": "Radio Mondiale",
+    "subtitle": "Explorez les stations de radio du monde entier.",
+    "listen": "Écouter",
+    "favorites": "Favoris",
+    "now_playing": "En cours de lecture",
+    "search_placeholder": "Rechercher une station ou un pays...",
+    "no_stations": "Aucune station dans cette zone.",
+    "listening_time": "Temps d'écoute",
+    "total": "Total",
+    "by_language": "Par langue",
+    "login_required_title": "Connexion requise",
+    "login_required_desc": "Vous devez vous connecter pour utiliser la Radio Mondiale et sauvegarder des favoris.",
+    "login_button": "Connexion",
+    "added_favorite": "Ajouté aux favoris",
+    "removed_favorite": "Retiré des favoris",
+    "error": "Une erreur s'est produite",
+    "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
+    "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D.",
+    "loading": "Chargement de la chaîne..."
   }
 }

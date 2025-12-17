@@ -174,5 +174,26 @@
     "saving": "保存中...",
     "show_examples": "例を表示 ({count}個)",
     "hide_examples": "例を非表示"
+  },
+  "radio": {
+    "title": "グローバルラジオ",
+    "subtitle": "世界中のラジオ放送局を探索しましょう。",
+    "listen": "聴く",
+    "favorites": "お気に入り",
+    "now_playing": "再生中",
+    "search_placeholder": "放送局または国を検索...",
+    "no_stations": "このエリアに放送局がありません。",
+    "listening_time": "聴取時間",
+    "total": "合計",
+    "by_language": "言語別",
+    "login_required_title": "ログインが必要です",
+    "login_required_desc": "グローバルラジオを利用してお気に入りを保存するには、ログインが必要です。",
+    "login_button": "ログイン",
+    "added_favorite": "お気に入りに追加しました",
+    "removed_favorite": "お気に入りから削除しました",
+    "error": "エラーが発生しました",
+    "meta_title": "グローバルラジオ - 世界中のラジオ放送を聴く | Loglingo",
+    "meta_description": "世界中のラジオ放送局を発見して聴くことができます。韓国語、日本語、英語、スペイン語、フランス語、ドイツ語などの放送局で言語学習に最適です。3D地球儀インターフェースで無料インターネットラジオをお楽しみください。",
+    "loading": "チャンネル読み込み中..."
   }
 }

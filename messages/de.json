@@ -173,5 +173,26 @@
     "saving": "Speichern...",
     "show_examples": "Beispiele anzeigen ({count})",
     "hide_examples": "Beispiele ausblenden"
+  },
+  "radio": {
+    "title": "Weltradio",
+    "subtitle": "Erkunden Sie Radiosender aus der ganzen Welt.",
+    "listen": "Hören",
+    "favorites": "Favoriten",
+    "now_playing": "Läuft gerade",
+    "search_placeholder": "Sender oder Land suchen...",
+    "no_stations": "Keine Sender in diesem Bereich.",
+    "listening_time": "Hörzeit",
+    "total": "Gesamt",
+    "by_language": "Nach Sprache",
+    "login_required_title": "Anmeldung erforderlich",
+    "login_required_desc": "Sie müssen sich anmelden, um Weltradio zu nutzen und Favoriten zu speichern.",
+    "login_button": "Anmelden",
+    "added_favorite": "Zu Favoriten hinzugefügt",
+    "removed_favorite": "Aus Favoriten entfernt",
+    "error": "Ein Fehler ist aufgetreten",
+    "meta_title": "Globales Radio - Höre Radiosender Weltweit | Loglingo",
+    "meta_description": "Entdecke und höre Radiosender aus der ganzen Welt. Perfekt für das Sprachenlernen mit Sendern auf Koreanisch, Japanisch, Englisch, Spanisch, Französisch, Deutsch und mehr. Kostenloses Internetradio mit 3D-Globus-Oberfläche.",
+    "loading": "Kanal wird geladen..."
   }
 }

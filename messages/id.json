@@ -174,5 +174,26 @@
     "saving": "Menyimpan...",
     "show_examples": "Tampilkan contoh ({count})",
     "hide_examples": "Sembunyikan contoh"
+  },
+  "radio": {
+    "title": "Radio Global",
+    "subtitle": "Jelajahi stasiun radio dari seluruh dunia.",
+    "listen": "Dengarkan",
+    "favorites": "Favorit",
+    "now_playing": "Sedang Diputar",
+    "search_placeholder": "Cari stasiun atau negara...",
+    "no_stations": "Tidak ada stasiun di area ini.",
+    "listening_time": "Waktu Mendengarkan",
+    "total": "Total",
+    "by_language": "Berdasarkan Bahasa",
+    "login_required_title": "Login Diperlukan",
+    "login_required_desc": "Anda harus login untuk menggunakan Radio Global dan menyimpan favorit.",
+    "login_button": "Masuk",
+    "added_favorite": "Ditambahkan ke favorit",
+    "removed_favorite": "Dihapus dari favorit",
+    "error": "Terjadi kesalahan",
+    "meta_title": "Radio Global - Dengarkan Stasiun Radio dari Seluruh Dunia | Loglingo",
+    "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D.",
+    "loading": "Memuat saluran..."
   }
 }
