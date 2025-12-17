@@ -52,12 +52,13 @@ export default function RadioGlobe({ onStationClick, currentStationId }: RadioGl
         ref={globeEl}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-        pointsData={stations}
+        // Create new array ref to force update when currentStationId changes
+        pointsData={[...stations]} 
         pointLat="geoLat"
         pointLng="geoLong"
         pointColor={(point: any) => point.id === currentStationId ? "#f97316" : "#ffcc00"}
-        pointAltitude={0.1}
-        pointRadius={0.5}
+        pointAltitude={(point: any) => point.id === currentStationId ? 0.3 : 0.1} // Also pop it up
+        pointRadius={(point: any) => point.id === currentStationId ? 1.0 : 0.5} // Make it bigger
         onPointClick={(point) => onStationClick?.(point as unknown as RadioStation)}
         atmosphereColor="#3a228a"
         atmosphereAltitude={0.2}

@@ -24,7 +24,7 @@ export default function RadioPage() {
 
   return (
     <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden bg-black">
-      <div className="absolute top-4 left-4 z-10 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 pointer-events-none">
+      <div className="absolute top-4 left-4 z-50 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 pointer-events-none">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {t('title')}
         </h1>
@@ -33,7 +33,7 @@ export default function RadioPage() {
 
       <button 
         onClick={() => setIsSidebarOpen(true)}
-        className="absolute top-4 right-4 z-10 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
+        className="absolute top-4 right-4 z-50 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
       >
         <ListMusic className="w-6 h-6" />
       </button>
@@ -45,7 +45,10 @@ export default function RadioPage() {
       />
 
       <div className="w-full h-full">
-        <RadioGlobe onStationClick={handleStationClick} />
+        <RadioGlobe 
+          onStationClick={handleStationClick} 
+          currentStationId={currentStation?.id}
+        />
       </div>
 
       <RadioPlayer station={currentStation} />
