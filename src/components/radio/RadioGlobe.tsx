@@ -35,40 +35,52 @@ export default function RadioGlobe({ onStationClick, currentStationId }: RadioGl
   }, []);
 
   return (
-    <div 
-      className="w-full h-full cursor-move"
-      onMouseEnter={() => {
-        if (globeEl.current) {
-          globeEl.current.controls().autoRotate = false;
-        }
-      }}
-      onMouseLeave={() => {
-        if (globeEl.current) {
-          globeEl.current.controls().autoRotate = true;
-        }
-      }}
-    >
-      <Globe
-        ref={globeEl}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-        // Create new array ref to force update when currentStationId changes
-        pointsData={[...stations]} 
-        pointLat="geoLat"
-        pointLng="geoLong"
-        pointColor={(point: any) => point.id === currentStationId ? "#f97316" : "#ffcc00"}
-        pointAltitude={(point: any) => point.id === currentStationId ? 0.3 : 0.1} // Also pop it up
-        pointRadius={(point: any) => point.id === currentStationId ? 1.0 : 0.5} // Make it bigger
-        onPointClick={(point) => onStationClick?.(point as unknown as RadioStation)}
-        atmosphereColor="#3a228a"
-        atmosphereAltitude={0.2}
-        pointLabel={(point: any) => `
-          <div style="background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
-            <b>${point.name}</b><br/>
-            ${point.country}
-          </div>
-        `}
-      />
+    <div className="relative w-full h-full group">
+      <div 
+        className="absolute inset-0 cursor-move z-0"
+        onMouseEnter={() => {
+          if (globeEl.current) {
+             globeEl.current.controls().autoRotate = false;
+          }
+        }}
+        onMouseLeave={() => {
+          // Only resume if user hasn't explicitly clicked a station? 
+          // Or just resume always. User complained it's hard to select.
+          // Let's keep hover-stop.
+          if (globeEl.current) {
+             globeEl.current.controls().autoRotate = true;
+          }
+        }}
+      >
+        <Globe
+          ref={globeEl}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+          backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+          // Create new array ref to force update when currentStationId changes
+          pointsData={[...stations]} 
+          pointLat="geoLat"
+          pointLng="geoLong"
+          pointColor={(point: any) => point.id === currentStationId ? "#f97316" : "#ffcc00"}
+          pointAltitude={(point: any) => point.id === currentStationId ? 0.3 : 0.1} 
+          pointRadius={(point: any) => point.id === currentStationId ? 1.0 : 0.5}
+          onPointClick={(point) => onStationClick?.(point as unknown as RadioStation)}
+          atmosphereColor="#3a228a"
+          atmosphereAltitude={0.2}
+          pointLabel={(point: any) => `
+            <div style="background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+              <b>${point.name}</b><br/>
+              ${point.country}
+            </div>
+          `}
+        />
+      </div>
+    
+      {/* Hint overlay */}
+      <div className="absolute top-20 right-4 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500">
+         <span className="text-xs text-white/50 bg-black/40 px-2 py-1 rounded backdrop-blur-sm">
+           Hover to pause rotation
+         </span>
+      </div>
     </div>
   );
 }

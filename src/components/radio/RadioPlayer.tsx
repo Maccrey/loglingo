@@ -130,7 +130,7 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
   if (!station) return null;
 
   return (
-    <div className="absolute bottom-16 md:bottom-6 left-4 md:left-6 z-[9999] w-[90%] md:w-[480px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl flex items-center gap-4 transition-all">
+    <div className="fixed bottom-16 md:bottom-12 left-4 z-[9999] w-[90%] md:w-[480px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl flex items-center gap-4 transition-all">
       <audio
         ref={audioRef}
         onWaiting={() => setLoading(true)}

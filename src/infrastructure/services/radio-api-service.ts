@@ -53,17 +53,42 @@ export class RadioApiService {
   
   async getTopStations(): Promise<RadioStation[]> {
       try {
-           const stations = await api.searchStations({
+           // Fetch Global Top
+           const globalTop = await api.searchStations({
               limit: 50,
               hideBroken: true,
-              order: 'votes', // Most popular
+              order: 'votes',
               reverse: true,
               hasGeoInfo: true
           });
-          return stations.map(this.mapToDomain);
+
+          // Fetch KR/JP specifically to ensure Asian coverage as requested
+          const krStations = await api.searchStations({
+             countryCode: 'KR',
+             limit: 20,
+             hideBroken: true,
+             order: 'votes',
+             reverse: true,
+             hasGeoInfo: true
+          });
+
+          const jpStations = await api.searchStations({
+             countryCode: 'JP',
+             limit: 20,
+             hideBroken: true,
+             order: 'votes',
+             reverse: true,
+             hasGeoInfo: true
+          });
+
+          // Merge and deduplicate by ID
+          const allStations = [...globalTop, ...krStations, ...jpStations];
+          const uniqueStations = Array.from(new Map(allStations.map(s => [s.id, s])).values());
+          
+          return uniqueStations.map(this.mapToDomain);
       } catch (error) {
           console.error("Failed to fetch top stations:", error);
-          return[];
+          return [];
       }
   }
 
