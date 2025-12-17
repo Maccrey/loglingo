@@ -130,7 +130,7 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
   if (!station) return null;
 
   return (
-    <div className="fixed bottom-16 md:bottom-12 left-4 z-[9999] w-[90%] md:w-[480px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl flex items-center gap-4 transition-all">
+    <div className="fixed bottom-20 sm:bottom-16 md:bottom-12 left-2 z-[9999] w-[calc(100%-1rem)] md:w-[480px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-3 sm:p-4 shadow-2xl flex items-center gap-2 sm:gap-4 transition-all">
       <audio
         ref={audioRef}
         onWaiting={() => setLoading(true)}
@@ -164,28 +164,28 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
            onClick={() => toggleFavorite(station)}
            className={cn("p-2 rounded-full transition hover:bg-white/10", isFavorite(station.id) ? "text-red-500" : "text-white/40")}
         >
-          <Heart className={cn("w-5 h-5", isFavorite(station.id) && "fill-current")} />
+          <Heart className={cn("w-4 h-4 sm:w-5 sm:h-5", isFavorite(station.id) && "fill-current")} />
         </button>
 
         {/* Play/Pause */}
         <button
           onClick={togglePlay}
           disabled={loading && !isPlaying} // allow pause while loading? usually ok.
-          className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition active:scale-95 shadow-lg shadow-white/10"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition active:scale-95 shadow-lg shadow-white/10"
         >
           {loading ? (
-            <Loader2 className="w-5 h-5 animate-spin" />
+            <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
           ) : isPlaying ? (
-            <Pause className="w-5 h-5 fill-current" />
+            <Pause className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
           ) : (
-             <Play className="w-5 h-5 fill-current ml-0.5" />
+             <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
           )}
         </button>
 
         {/* Volume - Desktop only mostly */}
         <div className="hidden md:flex items-center gap-2 group">
            <button onClick={() => setIsMuted(!isMuted)} className="text-white/60 hover:text-white">
-             {isMuted || volume === 0 ? <VolumeX className="w-5 h-5"/> : <Volume2 className="w-5 h-5"/>}
+             {isMuted || volume === 0 ? <VolumeX className="w-4 h-4 sm:w-5 sm:h-5"/> : <Volume2 className="w-4 h-4 sm:w-5 sm:h-5"/>}
            </button>
            <input
              type="range"

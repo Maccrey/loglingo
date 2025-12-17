@@ -83,7 +83,7 @@ export default function RadioPage() {
 
         <button 
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="absolute top-6 right-4 z-50 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
+          className="absolute top-6 right-4 z-50 p-2 sm:p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
         >
           <ListMusic className="w-6 h-6" />
         </button>

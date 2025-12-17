@@ -101,10 +101,10 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
       </div>
     
       {/* Rotation Control Button */}
-      <div className="absolute top-20 right-4 z-50">
+      <div className="absolute top-[4.5rem] sm:top-20 right-2 sm:right-4 z-50">
          <button 
            onClick={toggleRotation}
-           className="bg-black/60 backdrop-blur text-white/80 p-2 rounded-lg border border-white/10 hover:bg-white/10 text-xs font-medium transition"
+           className="bg-black/60 backdrop-blur text-white/80 px-2 py-1 sm:p-2 rounded-lg border border-white/10 hover:bg-white/10 text-[10px] sm:text-xs font-medium transition"
          >
            {isRotating ? '⏸ Pause Rotation' : '▶ Auto-Rotate'}
          </button>

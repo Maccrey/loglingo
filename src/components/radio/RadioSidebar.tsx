@@ -61,10 +61,21 @@ export default function RadioSidebar({
   });
 
   return (
-    <div className={cn(
-      "absolute top-0 right-0 h-full w-80 bg-black/80 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 z-40 flex flex-col pt-16 md:pt-4",
-      isOpen ? "translate-x-0" : "translate-x-full"
-    )}>
+    <>
+      {/* Backdrop Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity"
+          onClick={onClose}
+          aria-hidden="true"
+        />
+      )}
+      
+      {/* Sidebar */}
+      <div className={cn(
+        "fixed top-0 right-0 h-full w-full sm:w-80 bg-black/80 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 z-40 flex flex-col pt-16 md:pt-4",
+        isOpen ? "translate-x-0" : "translate-x-full"
+      )}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-white/10">
         <div className="flex bg-white/10 rounded-lg p-1">
@@ -183,6 +194,7 @@ export default function RadioSidebar({
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
