@@ -18,18 +18,35 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
   const [stations, setStations] = useState<RadioStation[]>([]);
   const [isRotating, setIsRotating] = useState(true); // Auto-rotate by default
   const [mounted, setMounted] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     setMounted(true);
+    
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+    
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   useEffect(() => {
-    if (mounted && globeEl.current) {
+    if (mounted && globeEl.current && dimensions.width > 0) {
+        const isMobile = dimensions.width < 640;
         globeEl.current.controls().autoRotate = isRotating;
         globeEl.current.controls().autoRotateSpeed = 0.3;
-        globeEl.current.pointOfView({ lat: 20, lng: 100, altitude: 1.8 }); 
+        globeEl.current.pointOfView({ 
+          lat: 20, 
+          lng: 100, 
+          altitude: isMobile ? 2.8 : 1.8 
+        }); 
     }
-  }, [isRotating, mounted]);
+  }, [isRotating, mounted, dimensions.width]);
 
   const loadedRef = useRef(false);
 
@@ -60,13 +77,17 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
     }
   };
 
-  if (!mounted) return null;
+  if (!mounted || dimensions.width === 0) return null;
+
+  const isMobile = dimensions.width < 640; // sm breakpoint
 
   return (
     <div className="relative w-full h-full group">
       <div className="absolute inset-0 cursor-move z-0">
         <Globe
           ref={globeEl}
+          width={dimensions.width}
+          height={dimensions.height}
           rendererConfig={{ alpha: true, antialias: true }}
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
           backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
@@ -75,7 +96,11 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
           pointLng="geoLong"
           pointColor={(point: any) => point.id === currentStationId ? "#f97316" : "#ffcc00"}
           pointAltitude={(point: any) => point.id === currentStationId ? 0.3 : 0.1} 
-          pointRadius={(point: any) => point.id === currentStationId ? 1.0 : 0.5}
+          pointRadius={(point: any) => {
+            const baseRadius = isMobile ? 0.7 : 0.5;
+            const activeRadius = isMobile ? 1.5 : 1.0;
+            return point.id === currentStationId ? activeRadius : baseRadius;
+          }}
           onPointClick={(point) => {
             console.log('🎯 Station clicked:', point);
             const station = point as unknown as RadioStation;
