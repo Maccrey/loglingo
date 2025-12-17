@@ -51,14 +51,15 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
   return (
     <div 
       ref={containerRef} 
-      className="flex justify-center my-8"
+      className="flex justify-center"
       style={{ 
         minHeight: `${height}px`,
         minWidth: `${width}px`,
         width: '100%',
         maxWidth: `${width}px`,
-        margin: '0 auto'
+        margin: '2rem auto'
       }}
+      suppressHydrationWarning
     />
   );
 }

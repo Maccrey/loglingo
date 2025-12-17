@@ -48,7 +48,7 @@ export async function getOrGenerateQuiz(
   console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title, type, userId });
 
   // 1. Check if quiz exists in Firebase
-  const existingQuiz = await getQuizByArchiveId(archiveId);
+  const existingQuiz = await getQuizByArchiveId(archiveId, userId);
   if (existingQuiz) {
     console.log("✅ Quiz Service: Found existing quiz", { quizId: existingQuiz.id });
     return randomizeQuizOptions(existingQuiz);

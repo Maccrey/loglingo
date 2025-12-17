@@ -38,20 +38,30 @@ export function AdProvider({ children }: AdProviderProps) {
   const { user } = useAuth();
   
   const contextValue = useMemo(() => {
+    // 개발 환경 감지
+    const isDevelopment = process.env.NODE_ENV === 'development' || 
+                         (typeof window !== 'undefined' && 
+                          (window.location.hostname === 'localhost' || 
+                           window.location.hostname === '127.0.0.1'));
+    
     // TODO: 실제 구현 시 user.isPremium 또는 Firestore에서 구독 정보 조회
     // 현재는 user의 커스텀 클레임 또는 Firestore 문서에서 확인하는 방식으로 구현 필요
     
-    // 방법 1: Firebase Auth Custom Claims 사용
-    // const isPremium = (user?.customClaims?.isPremium as boolean) ?? false;
-    
-    // 방법 2: 환경 변수로 개발 중 테스트 (임시)
-    // const isPremium = process.env.NEXT_PUBLIC_DISABLE_ADS === 'true';
-    
-    // 방법 3: Firestore에서 사용자 구독 정보 조회 (추천)
+    // Firestore에서 사용자 구독 정보 조회 (추천)
     // useEffect로 별도 조회 필요
     
     const isPremium = false; // 기본값: 무료 사용자
-    const showAds = !isPremium;
+    
+    // 개발 환경이거나 프리미엄 사용자인 경우 광고 비활성화
+    const showAds = !isDevelopment && !isPremium;
+    
+    console.log('🎯 AdProvider:', { 
+      isDevelopment, 
+      isPremium, 
+      showAds,
+      nodeEnv: process.env.NODE_ENV,
+      hostname: typeof window !== 'undefined' ? window.location.hostname : 'N/A'
+    });
     
     return {
       showAds,

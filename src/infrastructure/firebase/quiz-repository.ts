@@ -34,17 +34,23 @@ function mapQuiz(snapshot: QueryDocumentSnapshot<DocumentData>): Quiz {
 }
 
 export async function getQuizByArchiveId(
-  archiveId: string
+  archiveId: string,
+  userId: string
 ): Promise<Quiz | null> {
-  console.log("🔍 Quiz Repository: getQuizByArchiveId called", { archiveId });
+  console.log("🔍 Quiz Repository: getQuizByArchiveId called", { archiveId, userId });
   
-  if (!archiveId) {
-    console.log("⚠️ Quiz Repository: No archiveId provided");
+  if (!archiveId || !userId) {
+    console.log("⚠️ Quiz Repository: No archiveId or userId provided");
     return null;
   }
 
   try {
-    const q = query(quizzesCollection, where("archiveId", "==", archiveId));
+    // Security Rules require userId filter for read permission
+    const q = query(
+      quizzesCollection, 
+      where("archiveId", "==", archiveId),
+      where("userId", "==", userId)
+    );
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
