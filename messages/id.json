@@ -169,6 +169,8 @@
     "applying": "Menerapkan...",
     "root_meaning": "Panduan makna dasar/tata bahasa",
     "save_archive": "Simpan ke arsip",
-    "saving": "Menyimpan..."
+    "saving": "Menyimpan...",
+    "show_examples": "Tampilkan contoh ({count})",
+    "hide_examples": "Sembunyikan contoh"
   }
 }

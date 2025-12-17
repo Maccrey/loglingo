@@ -169,6 +169,8 @@
     "applying": "Uygulanıyor...",
     "root_meaning": "Kök/gramer rehberi",
     "save_archive": "Arşive kaydet",
-    "saving": "Kaydediliyor..."
+    "saving": "Kaydediliyor...",
+    "show_examples": "Örnekleri göster ({count})",
+    "hide_examples": "Örnekleri gizle"
   }
 }

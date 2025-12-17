@@ -168,6 +168,8 @@
     "applying": "Aplicando...",
     "root_meaning": "Guia de significado/gramática",
     "save_archive": "Salvar no arquivo",
-    "saving": "Salvando..."
+    "saving": "Salvando...",
+    "show_examples": "Mostrar exemplos ({count})",
+    "hide_examples": "Ocultar exemplos"
   }
 }

@@ -168,6 +168,8 @@
     "applying": "Applying...",
     "root_meaning": "Root meaning guide",
     "save_archive": "Save to archive",
-    "saving": "Saving..."
+    "saving": "Saving...",
+    "show_examples": "Show examples ({count})",
+    "hide_examples": "Hide examples"
   }
 }

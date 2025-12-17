@@ -168,6 +168,8 @@
     "applying": "Đang áp dụng...",
     "root_meaning": "Hướng dẫn gốc/ngữ pháp",
     "save_archive": "Lưu vào kho lưu trữ",
-    "saving": "Đang lưu..."
+    "saving": "Đang lưu...",
+    "show_examples": "Hiển thị ví dụ ({count})",
+    "hide_examples": "Ẩn ví dụ"
   }
 }

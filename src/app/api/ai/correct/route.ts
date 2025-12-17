@@ -79,7 +79,7 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text in target language>",
   "issues": [
-    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>", "exampleSentences": ["<example in target language>", ...] }
+    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>", "exampleSentences": ["<example in target language>", ...], "exampleTranslations": ["<translation in UI language>", ...] }
   ],
   "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
 }
@@ -130,11 +130,19 @@ CRITICAL INSTRUCTIONS:
    - Example for past continuous grammar in English:
      ["I was studying when you called.", "She was working all day yesterday.", "They were playing soccer in the park."]
 
+5. For 'exampleTranslations' field (REQUIRED when exampleSentences exist):
+   - MUST be an array with the SAME LENGTH as exampleSentences
+   - Each element is the UI LANGUAGE (${uiLanguage}) translation of the corresponding exampleSentence
+   - The translations help learners understand the meaning of the examples
+   - Example: if exampleSentences is ["I was studying when you called."] in English,
+     and UI language is Korean, exampleTranslations should be ["당신이 전화했을 때 나는 공부하고 있었습니다."]
+   - CRITICAL: exampleTranslations[i] is the ${uiLanguage} translation of exampleSentences[i]
+
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 Do not add Markdown, code fences, or commentary.
 LANGUAGE RULES - DO NOT VIOLATE:
 - 'corrected', 'suggestion', and 'exampleSentences' → TARGET LANGUAGE (${targetLanguage}) ONLY
-- 'explanation' and 'rootMeaningGuide' → UI LANGUAGE (${uiLanguage}) ONLY
+- 'explanation', 'rootMeaningGuide', and 'exampleTranslations' → UI LANGUAGE (${uiLanguage}) ONLY
 - In 'explanation', mention the TARGET LANGUAGE word you are explaining, not the original word
 The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
 User diary text:
@@ -191,6 +199,11 @@ async function callGrok(
                       type: "array",
                       items: { type: "string" },
                       description: "Example sentences in target language (3-5 for grammar, 3-6 for word)"
+                    },
+                    exampleTranslations: {
+                      type: "array",
+                      items: { type: "string" },
+                      description: "UI language translations of exampleSentences (same length as exampleSentences)"
                     }
                   },
                   required: ["type", "original", "suggestion", "explanation"],

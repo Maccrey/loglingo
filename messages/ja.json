@@ -169,6 +169,8 @@
     "applying": "適用中...",
     "root_meaning": "語根・文法ガイド",
     "save_archive": "アーカイブに保存",
-    "saving": "保存中..."
+    "saving": "保存中...",
+    "show_examples": "例を表示 ({count}個)",
+    "hide_examples": "例を非表示"
   }
 }

@@ -168,6 +168,8 @@
     "applying": "正在应用...",
     "root_meaning": "词根/语法提示",
     "save_archive": "保存到归档",
-    "saving": "正在保存..."
+    "saving": "正在保存...",
+    "show_examples": "显示示例 ({count}个)",
+    "hide_examples": "隐藏示例"
   }
 }

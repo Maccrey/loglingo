@@ -169,6 +169,8 @@
     "applying": "적용 중...",
     "root_meaning": "어근/문법 안내",
     "save_archive": "아카이브에 저장",
-    "saving": "저장 중..."
+    "saving": "저장 중...",
+    "show_examples": "예제 보기 ({count}개)",
+    "hide_examples": "예제 숨기기"
   }
 }

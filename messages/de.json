@@ -168,6 +168,8 @@
     "applying": "Wird angewendet...",
     "root_meaning": "Hinweis zu Stamm/Grammatik",
     "save_archive": "In Archiv speichern",
-    "saving": "Speichern..."
+    "saving": "Speichern...",
+    "show_examples": "Beispiele anzeigen ({count})",
+    "hide_examples": "Beispiele ausblenden"
   }
 }

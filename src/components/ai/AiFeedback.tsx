@@ -12,6 +12,7 @@ interface Props {
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
+  const t = useTranslations("ai");
   const [showExamples, setShowExamples] = useState(false);
   const hasExamples = issue.exampleSentences && issue.exampleSentences.length > 0;
 
@@ -39,15 +40,27 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
                 showExamples && "rotate-180"
               )} 
             />
-            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${issue.exampleSentences!.length}개)`}</span>
+            <span>
+              {showExamples 
+                ? t("hide_examples") 
+                : t("show_examples", { count: issue.exampleSentences!.length })
+              }
+            </span>
           </button>
           
           {showExamples && (
-            <div className="mt-2 space-y-1 pl-4 border-l-2 border-primary/30">
+            <div className="mt-2 space-y-2 pl-4 border-l-2 border-primary/30">
               {issue.exampleSentences!.map((example, idx) => (
-                <p key={idx} className="text-xs text-foreground/80">
-                  • {example}
-                </p>
+                <div key={idx} className="space-y-0.5">
+                  <p className="text-xs text-foreground/80">
+                    • {example}
+                  </p>
+                  {issue.exampleTranslations?.[idx] && (
+                    <p className="text-xs text-muted-foreground/60 pl-2">
+                      {issue.exampleTranslations[idx]}
+                    </p>
+                  )}
+                </div>
               ))}
             </div>
           )}
