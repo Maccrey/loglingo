@@ -2,9 +2,11 @@
   "common": {
     "save": "Kaydet",
     "cancel": "İptal",
-    "loading": "Yükleniyor...",
+    "loading": "Kanal yükleniyor...",
     "error": "Bir hata oluştu",
-    "success": "Başarılı"
+    "success": "Başarılı",
+    "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
+    "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu."
   },
   "nav": {
     "home": "Ana Sayfa",

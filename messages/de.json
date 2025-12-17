@@ -2,9 +2,11 @@
   "common": {
     "save": "Speichern",
     "cancel": "Abbrechen",
-    "loading": "Laden...",
+    "loading": "Kanal wird geladen...",
     "error": "Ein Fehler ist aufgetreten",
-    "success": "Erfolg"
+    "success": "Erfolg",
+    "meta_title": "Globales Radio - Höre Radiosender Weltweit | Loglingo",
+    "meta_description": "Entdecke und höre Radiosender aus der ganzen Welt. Perfekt für das Sprachenlernen mit Sendern auf Koreanisch, Japanisch, Englisch, Spanisch, Französisch, Deutsch und mehr. Kostenloses Internetradio mit 3D-Globus-Oberfläche."
   },
   "nav": {
     "home": "Startseite",

@@ -2,9 +2,11 @@
   "common": {
     "save": "Salvar",
     "cancel": "Cancelar",
-    "loading": "Carregando...",
+    "loading": "Carregando canal...",
     "error": "Ocorreu um erro",
-    "success": "Sucesso"
+    "success": "Sucesso",
+    "meta_title": "Rádio Global - Ouça Estações de Rádio do Mundo Inteiro | Loglingo",
+    "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D."
   },
   "nav": {
     "home": "Início",

@@ -2,9 +2,11 @@
   "common": {
     "save": "Guardar",
     "cancel": "Cancelar",
-    "loading": "Cargando...",
+    "loading": "Cargando canal...",
     "error": "Ocurrió un error",
-    "success": "Éxito"
+    "success": "Éxito",
+    "meta_title": "Radio Global - Escucha Emisoras de Radio de Todo el Mundo | Loglingo",
+    "meta_description": "Descubre y escucha emisoras de radio de todo el mundo. Perfecto para aprender idiomas con estaciones en coreano, japonés, inglés, español, francés, alemán y más. Radio por internet gratis con interfaz de globo 3D."
   },
   "nav": {
     "home": "Inicio",

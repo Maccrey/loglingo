@@ -9,9 +9,10 @@ import { RadioStation } from "@/domain/radio";
 interface RadioGlobeProps {
   onStationClick?: (station: RadioStation) => void;
   currentStationId?: string | null;
+  onLoadComplete?: () => void;
 }
 
-export default function RadioGlobe({ onStationClick, currentStationId }: RadioGlobeProps) {
+export default function RadioGlobe({ onStationClick, currentStationId, onLoadComplete }: RadioGlobeProps) {
   const globeEl = useRef<GlobeMethods | undefined>(undefined);
   const { theme } = useTheme();
   const [stations, setStations] = useState<RadioStation[]>([]);
@@ -30,13 +31,27 @@ export default function RadioGlobe({ onStationClick, currentStationId }: RadioGl
     }
   }, [isRotating, mounted]);
 
+  const loadedRef = useRef(false);
+
   useEffect(() => {
     const loadStations = async () => {
+      // Only load if not already loaded
+      if (loadedRef.current) return;
+      
       const topStations = await radioApiService.getTopStations();
       setStations(topStations);
+      
+      // Mark as loaded and notify parent
+      if (topStations.length > 0) {
+        loadedRef.current = true;
+        if (onLoadComplete) {
+          onLoadComplete();
+        }
+      }
     };
     loadStations();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array - only run once
 
   const toggleRotation = () => {
     setIsRotating(prev => !prev);

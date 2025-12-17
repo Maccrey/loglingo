@@ -2,9 +2,11 @@
   "common": {
     "save": "Enregistrer",
     "cancel": "Annuler",
-    "loading": "Chargement...",
-    "error": "Une erreur est survenue",
-    "success": "Succès"
+    "loading": "Chargement de la chaîne...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès",
+    "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
+    "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D."
   },
   "nav": {
     "home": "Accueil",

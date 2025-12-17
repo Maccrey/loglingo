@@ -2,9 +2,11 @@
   "common": {
     "save": "Lưu",
     "cancel": "Hủy",
-    "loading": "Đang tải...",
+    "loading": "Đang tải kênh...",
     "error": "Đã xảy ra lỗi",
-    "success": "Thành công"
+    "success": "Thành công",
+    "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
+    "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D."
   },
   "nav": {
     "home": "Trang chủ",
