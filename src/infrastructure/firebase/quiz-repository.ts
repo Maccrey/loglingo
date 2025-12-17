@@ -84,3 +84,43 @@ export async function createQuiz(draft: QuizDraft): Promise<Quiz> {
   console.log("✅ Quiz Repository: Quiz created", { quizId: quiz.id });
   return quiz;
 }
+
+export async function deleteQuizzesByArchiveIds(archiveIds: string[]): Promise<number> {
+  console.log("🗑️ Quiz Repository: deleteQuizzesByArchiveIds called", { count: archiveIds.length });
+  
+  if (!archiveIds || archiveIds.length === 0) {
+    console.log("⚠️ Quiz Repository: No archiveIds provided");
+    return 0;
+  }
+
+  try {
+    // Firestore 'in' operator supports up to 10 elements
+    // If we have more, we need to batch the queries
+    const batchSize = 10;
+    let totalDeleted = 0;
+
+    for (let i = 0; i < archiveIds.length; i += batchSize) {
+      const batch = archiveIds.slice(i, i + batchSize);
+      const q = query(quizzesCollection, where("archiveId", "in", batch));
+      const snapshot = await getDocs(q);
+      
+      console.log(`📊 Quiz Repository: Found ${snapshot.size} quizzes to delete in batch`);
+      
+      // Delete all matching documents
+      const deletePromises = snapshot.docs.map(docSnapshot => 
+        import('firebase/firestore').then(({ deleteDoc, doc }) => 
+          deleteDoc(doc(db, "quizzes", docSnapshot.id))
+        )
+      );
+      
+      await Promise.all(deletePromises);
+      totalDeleted += snapshot.size;
+    }
+    
+    console.log(`✅ Quiz Repository: Deleted ${totalDeleted} quizzes`);
+    return totalDeleted;
+  } catch (error) {
+    console.error("❌ Quiz Repository: Delete by archiveIds failed", error);
+    throw error;
+  }
+}

@@ -120,3 +120,34 @@ export async function createArchive(input: LearningArchiveDraft): Promise<Learni
   
   return mapArchive(savedSnapshot as QueryDocumentSnapshot<DocumentData>);
 }
+
+export async function deleteArchivesBySourceId(sourceId: string): Promise<number> {
+  console.log("🗑️ Archive Repository: deleteArchivesBySourceId called", { sourceId });
+  
+  if (!sourceId) {
+    console.log("⚠️ Archive Repository: No sourceId provided");
+    return 0;
+  }
+
+  try {
+    const q = query(archiveCol, where("sourceId", "==", sourceId));
+    const snapshot = await getDocs(q);
+    
+    console.log(`📊 Archive Repository: Found ${snapshot.size} archives to delete`);
+    
+    // Delete all matching documents
+    const deletePromises = snapshot.docs.map(docSnapshot => 
+      import('firebase/firestore').then(({ deleteDoc, doc }) => 
+        deleteDoc(doc(db, "learning_archive", docSnapshot.id))
+      )
+    );
+    
+    await Promise.all(deletePromises);
+    
+    console.log(`✅ Archive Repository: Deleted ${snapshot.size} archives`);
+    return snapshot.size;
+  } catch (error) {
+    console.error("❌ Archive Repository: Delete by sourceId failed", error);
+    throw error;
+  }
+}
