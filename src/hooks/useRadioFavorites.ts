@@ -47,18 +47,21 @@ export function useRadioFavorites() {
     try {
       if (isFavorite(station.id)) {
         await radioRepository.removeFavorite(user.uid, station.id);
+        // Immediately update local state for instant UI feedback
         setFavorites(prev => prev.filter(f => f.id !== station.id));
         toast.success(t('removed_favorite') || 'Removed from favorites');
+        await loadFavorites(); // Reload to ensure consistency and proper timestamp updates
       } else {
         await radioRepository.addFavorite(user.uid, station);
-        // Optimistically add to list (re-fetch is safer but slower, lets manually construct)
-        // Actually re-fetching is fine or constructing object.
-        await loadFavorites(); // reload to get proper timestamp
+        // Reload to get the newly added favorite with proper data
+        await loadFavorites();
         toast.success(t('added_favorite') || 'Added to favorites');
       }
     } catch (error) {
       console.error("Failed to toggle favorite:", error);
       toast.error(t('error') || 'An error occurred');
+      // Reload to ensure consistency after error
+      await loadFavorites();
     }
   };
 

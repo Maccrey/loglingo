@@ -5,7 +5,8 @@ import { radioRepository } from '@/infrastructure/repositories/radio-repository'
 export function useRadioTracker(
   isPlaying: boolean,
   language: string | undefined, // station language (e.g. "en")
-  intervalSeconds: number = 60
+  intervalSeconds: number = 60,
+  onStatsUpdate?: () => void // Callback when stats are saved
 ) {
   const { user } = useAuth();
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -13,27 +14,33 @@ export function useRadioTracker(
 
   // Function to commit pending time to Firestore
   const commitTime = async () => {
-    if (!user || !user.uid || !language || pendingSecondsRef.current === 0) return;
+    if (!user || !user.uid || !language || pendingSecondsRef.current === 0) {
+      return;
+    }
 
     try {
       await radioRepository.updateListeningTime(user.uid, language, pendingSecondsRef.current);
       pendingSecondsRef.current = 0;
+      
+      // Refresh stats UI after successful save
+      console.log('✅ Stats saved - Language:', language, 'Seconds:', pendingSecondsRef.current);
+      if (onStatsUpdate) {
+        console.log('🔄 Calling onStatsUpdate to refresh UI');
+        onStatsUpdate();
+      }
     } catch (error) {
       console.error("Failed to update radio stats:", error);
     }
   };
 
   useEffect(() => {
+    
     if (isPlaying && language && user && user.uid) {
       timerRef.current = setInterval(() => {
         // Increment pending seconds
         pendingSecondsRef.current += 1;
 
         // If we reach interval, commit
-        // Actually, let's just commit every intervalSeconds directly? 
-        // Or accumulate. Since updating firestore every second is bad.
-        // Let's accumulate in memory every second, and commit every intervalSeconds.
-        
         if (pendingSecondsRef.current >= intervalSeconds) {
             commitTime();
         }

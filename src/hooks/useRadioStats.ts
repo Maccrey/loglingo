@@ -14,11 +14,16 @@ export function useRadioStats() {
         setLoading(false);
         return;
     }
+    console.log('🔄 refreshStats called for user:', user.uid);
     try {
         const data = await radioRepository.getStats(user.uid);
+        console.log('✅ Stats refreshed:', {
+          totalSeconds: data?.totalSeconds,
+          byLanguage: data?.byLanguage
+        });
         setStats(data);
     } catch (error) {
-        console.error("Failed to load radio stats:", error);
+        console.error("❌ Failed to load radio stats:", error);
     } finally {
         setLoading(false);
     }

@@ -92,13 +92,25 @@ export class FirebaseRadioRepository implements RadioRepository {
     const statsRef = doc(db, `users/${userId}/stats/radio`);
     const snapshot = await getDoc(statsRef);
     
-    if (!snapshot.exists()) return null;
+    if (!snapshot.exists()) {
+      return null;
+    }
 
     const data = snapshot.data();
+    
+    // Convert flat 'byLanguage.korean' fields to nested { korean: value }
+    const byLanguage: Record<string, number> = {};
+    Object.keys(data).forEach(key => {
+      if (key.startsWith('byLanguage.')) {
+        const language = key.replace('byLanguage.', '');
+        byLanguage[language] = data[key];
+      }
+    });
+    
     return {
       userId,
       totalSeconds: data.totalSeconds || 0,
-      byLanguage: data.byLanguage || {},
+      byLanguage,
       lastListenedAt: (data.lastListenedAt as Timestamp).toDate()
     };
   }

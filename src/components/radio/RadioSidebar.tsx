@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useRadioFavorites } from "@/hooks/useRadioFavorites";
 import { useRadioStats } from "@/hooks/useRadioStats";
-import { RadioStation } from "@/domain/radio";
+import { RadioStation, RadioStats } from "@/domain/radio";
 import { cn } from "@/lib/utils";
 import { Play, Trash2, BarChart2, Radio, X, ListMusic } from "lucide-react";
 
@@ -12,14 +12,53 @@ interface RadioSidebarProps {
   onStationSelect: (station: RadioStation) => void;
   isOpen: boolean;
   onClose: () => void;
+  stats: RadioStats | null;
+  statsLoading: boolean;
+  refreshStats: () => void;
 }
 
-export default function RadioSidebar({ onStationSelect, isOpen, onClose }: RadioSidebarProps) {
+export default function RadioSidebar({ 
+  onStationSelect, 
+  isOpen, 
+  onClose,
+  stats,
+  statsLoading,
+  refreshStats
+}: RadioSidebarProps) {
   const t = useTranslations('radio');
   const [activeTab, setActiveTab] = useState<'favorites' | 'stats'>('favorites');
   
   const { favorites, loading: favLoading, toggleFavorite } = useRadioFavorites();
-  const { stats, loading: statsLoading, refreshStats } = useRadioStats();
+
+  // Auto-refresh stats every 60 seconds when stats tab is active
+  useEffect(() => {
+    if (activeTab === 'stats') {
+      const interval = setInterval(() => {
+        console.log('🔄 Auto-refreshing stats...');
+        refreshStats();
+      }, 60000); // 60 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [activeTab, refreshStats]);
+
+  // Convert RadioFavorite to RadioStation format
+  const convertFavoriteToStation = (fav: any): RadioStation => ({
+    id: fav.id,
+    name: fav.stationName,
+    url: fav.stationUrl,
+    urlResolved: fav.stationUrl, // Use same URL as fallback
+    homepage: '',
+    favicon: fav.stationFavicon || '',
+    tags: [],
+    country: fav.country || '',
+    countryCode: '',
+    language: fav.language ? [fav.language] : [],
+    votes: 0,
+    geoLat: fav.coordinates?.latitude || null,
+    geoLong: fav.coordinates?.longitude || null,
+    codec: ''
+  });
 
   return (
     <div className={cn(
@@ -45,13 +84,10 @@ export default function RadioSidebar({ onStationSelect, isOpen, onClose }: Radio
             {t('listening_time')}
           </button>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full text-white/60 hover:text-white md:hidden">
-          <X className="w-5 h-5" />
-        </button>
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+      <div className="flex-1 overflow-y-auto p-4">
         {activeTab === 'favorites' ? (
           <div className="space-y-2">
             {favLoading ? (
@@ -66,20 +102,24 @@ export default function RadioSidebar({ onStationSelect, isOpen, onClose }: Radio
                 <div key={fav.id} className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     <img 
-                      src={fav.stationFavicon || ''} 
-                      onError={(e) => (e.currentTarget.src = 'https://placehold.co/40x40/black/white?text=R')}
-                      alt={fav.stationName.substring(0,2)} 
-                      className="w-full h-full rounded-full object-cover p-1" // rudimentary cleanup
+                      src={fav.stationFavicon || 'https://placehold.co/40x40/000000/ffffff?text=📻'} 
+                      onError={(e) => (e.currentTarget.src = 'https://placehold.co/40x40/000000/ffffff?text=📻')}
+                      alt={fav.stationName} 
+                      className="w-full h-full rounded-full object-cover" 
                     />
                   </div>
-                  <div className="flex-1 min-w-0" onClick={() => onStationSelect(fav as unknown as RadioStation)} role="button">
+                  <div 
+                    className="flex-1 min-w-0 cursor-pointer" 
+                    onClick={() => onStationSelect(convertFavoriteToStation(fav))}
+                    role="button"
+                  >
                     <h4 className="text-sm font-medium text-white truncate group-hover:text-primary transition">{fav.stationName}</h4>
                     <p className="text-xs text-white/40 truncate">{fav.country}</p>
                   </div>
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      toggleFavorite(fav as unknown as RadioStation);
+                      toggleFavorite(convertFavoriteToStation(fav));
                     }}
                     className="opacity-0 group-hover:opacity-100 p-2 hover:bg-white/10 rounded-full text-white/40 hover:text-red-400 transition"
                   >
@@ -105,19 +145,39 @@ export default function RadioSidebar({ onStationSelect, isOpen, onClose }: Radio
                 <BarChart2 className="w-4 h-4 text-primary" />
                 {t('by_language')}
               </h4>
+              
               <div className="space-y-2">
-                {stats && Object.entries(stats.byLanguage).length > 0 ? (
-                   Object.entries(stats.byLanguage)
+                {(() => {
+                  if (!stats?.byLanguage || Object.keys(stats.byLanguage).length === 0) {
+                    return <p className="text-white/40 text-xs">No listening data yet.</p>;
+                  }
+                  
+                  // Combine U and Unknown into "Other"
+                  const combined: Record<string, number> = {};
+                  let otherTotal = 0;
+                  
+                  Object.entries(stats.byLanguage).forEach(([lang, seconds]) => {
+                    if (lang === 'U' || lang === 'Unknown') {
+                      otherTotal += seconds as number;
+                    } else {
+                      combined[lang] = seconds as number;
+                    }
+                  });
+                  
+                  // Add "Other" if there's any unknown time
+                  if (otherTotal > 0) {
+                    combined['Other'] = otherTotal;
+                  }
+                  
+                  return Object.entries(combined)
                     .sort(([, a], [, b]) => b - a)
                     .map(([lang, seconds]) => (
-                      <div key={lang} className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5">
+                      <div key={lang} className="flex items-center justify-between p-2 rounded-lg bg-white/5 hover:bg-white/10 transition">
                         <span className="text-sm text-white/80 uppercase">{lang}</span>
                         <span className="text-xs font-mono text-white/60">{Math.floor(seconds / 60)} min</span>
                       </div>
-                    ))
-                ) : (
-                  <p className="text-white/40 text-xs">No listening data yet.</p>
-                )}
+                    ));
+                })()}
               </div>
             </div>
           </div>

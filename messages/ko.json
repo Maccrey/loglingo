@@ -189,6 +189,12 @@
     "by_language": "언어별",
     "login_required_title": "로그인 필요",
     "login_required_desc": "글로벌 라디오를 이용하고 즐겨찾기를 저장하려면 로그인이 필요합니다.",
-    "login_button": "로그인"
+    "login_button": "로그인",
+    "added_favorite": "즐겨찾기에 추가되었습니다",
+    "removed_favorite": "즐겨찾기에서 제거되었습니다",
+    "error": "오류가 발생했습니다",
+    "meta_title": "글로벌 라디오 - 전 세계 라디오 방송 듣기 | Loglingo",
+    "meta_description": "전 세계 라디오 방송국을 발견하고 들어보세요. 한국어, 일본어, 영어, 스페인어, 프랑스어, 독일어 등 다양한 언어의 방송국으로 언어 학습에 완벽합니다. 3D 지구본 인터페이스로 무료 인터넷 라디오를 즐기세요.",
+    "loading": "채널 로딩 중..."
   }
 }

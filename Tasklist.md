@@ -181,3 +181,6 @@
 - [x] **AuthGate 제거 및 리다이렉트 구현**
     - [x] `src/components/auth/AuthGate.tsx` 수정: 로그인 안내 페이지 제거 및 로그아웃 시 홈/로그인 화면으로 리다이렉트 처리
     - [x] 테스트 및 검증
+- [x] **라디오 페이지 권한 오류 수정**
+    - [x] `useRadioFavorites`, `useRadioStats` 훅 내 `user.uid` 검증 로직 추가
+    - [x] Firestore 보안 규칙(`radio_favorites`, `stats` 권한) 서버 배포 완료

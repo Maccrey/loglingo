@@ -185,6 +185,12 @@
     "no_stations": "No stations found in this area.",
     "listening_time": "Listening Time",
     "total": "Total",
-    "by_language": "By Language"
+    "by_language": "By Language",
+    "added_favorite": "Added to favorites",
+    "removed_favorite": "Removed from favorites",
+    "error": "An error occurred",
+    "meta_title": "Global Radio - Listen to Radio Stations Worldwide | Loglingo",
+    "meta_description": "Discover and listen to radio stations from around the world. Perfect for language learning with stations in Korean, Japanese, English, Spanish, French, German and more. Free internet radio with 3D globe interface.",
+    "loading": "Loading station..."
   }
 }

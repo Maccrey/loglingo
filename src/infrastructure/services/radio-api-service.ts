@@ -53,42 +53,106 @@ export class RadioApiService {
   
   async getTopStations(): Promise<RadioStation[]> {
       try {
-           // Fetch Global Top
+           // Fetch Global Top stations with higher limit
            const globalTop = await api.searchStations({
-              limit: 50,
+              limit: 100, // Increased from 50
               hideBroken: true,
               order: 'votes',
               reverse: true,
               hasGeoInfo: true
           });
 
-          // Fetch KR/JP specifically with higher limits and less strict sorting to find ANY with geo info
+          // Korean stations
           const krStations = await api.searchStations({
              countryCode: 'KR',
-             limit: 100, // Increase limit
+             limit: 150, // Increased from 100
              hideBroken: true,
-             hasGeoInfo: true // Must have geo info for globe
+             hasGeoInfo: true
           });
 
+          // Japanese stations
           const jpStations = await api.searchStations({
              countryCode: 'JP',
-             limit: 100, // Increase limit
+             limit: 150, // Increased from 100
              hideBroken: true,
              hasGeoInfo: true
           });
           
+          // Chinese stations
           const cnStations = await api.searchStations({
              countryCode: 'CN',
-             limit: 50,
+             limit: 100, // Increased from 50
+             hideBroken: true,
+             hasGeoInfo: true
+          });
+          
+          // United States stations
+          const usStations = await api.searchStations({
+             countryCode: 'US',
+             limit: 150,
+             hideBroken: true,
+             hasGeoInfo: true,
+             order: 'votes',
+             reverse: true
+          });
+          
+          // United Kingdom stations
+          const ukStations = await api.searchStations({
+             countryCode: 'GB',
+             limit: 100,
+             hideBroken: true,
+             hasGeoInfo: true
+          });
+          
+          // French stations
+          const frStations = await api.searchStations({
+             countryCode: 'FR',
+             limit: 100,
+             hideBroken: true,
+             hasGeoInfo: true
+          });
+          
+          // German stations
+          const deStations = await api.searchStations({
+             countryCode: 'DE',
+             limit: 100,
+             hideBroken: true,
+             hasGeoInfo: true
+          });
+          
+          // Spanish stations
+          const esStations = await api.searchStations({
+             countryCode: 'ES',
+             limit: 100,
              hideBroken: true,
              hasGeoInfo: true
           });
 
-          // Merge: Global Top + Specific Asian Countries
-          const allStations = [...globalTop, ...krStations, ...jpStations, ...cnStations];
-          const uniqueStations = Array.from(new Map(allStations.map(s => [s.id, s])).values());
+          // Merge all stations
+          const allStations = [
+            ...globalTop, 
+            ...krStations, 
+            ...jpStations, 
+            ...cnStations,
+            ...usStations,
+            ...ukStations,
+            ...frStations,
+            ...deStations,
+            ...esStations
+          ];
           
-          return uniqueStations.map(this.mapToDomain);
+          // Remove duplicates using changeId
+          const uniqueStations = Array.from(new Map(allStations.map((s: any) => [s.changeId || s.stationuuid || s.id, s])).values());
+          
+          // Only include stations with valid stream URLs
+          const workingStations = uniqueStations.filter(s => 
+            s.urlResolved && s.urlResolved.trim() !== '' && 
+            (s.urlResolved.startsWith('http://') || s.urlResolved.startsWith('https://'))
+          );
+          
+          console.log(`📻 Loaded ${workingStations.length} working stations from ${uniqueStations.length} total`);
+          
+          return workingStations.map(this.mapToDomain);
       } catch (error) {
           console.error("Failed to fetch top stations:", error);
           return [];
