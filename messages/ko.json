@@ -186,6 +186,9 @@
     "no_stations": "이 지역에 방송국이 없습니다.",
     "listening_time": "청취 시간",
     "total": "전체",
-    "by_language": "언어별"
+    "by_language": "언어별",
+    "login_required_title": "로그인 필요",
+    "login_required_desc": "글로벌 라디오를 이용하고 즐겨찾기를 저장하려면 로그인이 필요합니다.",
+    "login_button": "로그인"
   }
 }

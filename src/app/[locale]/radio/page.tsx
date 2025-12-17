@@ -2,7 +2,8 @@
 
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from '@/i18n/routing';
 import RadioPlayer from '@/components/radio/RadioPlayer';
 import RadioSidebar from '@/components/radio/RadioSidebar';
 import { RadioStation } from '@/domain/radio';
@@ -34,67 +35,17 @@ export default function RadioPage() {
     setCurrentStation(station);
   };
 
-  if (loading) {
+  /* Redirect if not authenticated */
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/");
+    }
+  }, [loading, user, router]);
+
+  if (loading || !user) {
      return <div className="min-h-screen bg-black flex items-center justify-center text-white/50">Loading...</div>;
-  }
-
-  if (!user) {
-    return (
-      <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden bg-black flex flex-col items-center justify-center">
-         {/* Background Effect */}
-         <div className="absolute inset-0 bg-[url('//unpkg.com/three-globe/example/img/night-sky.png')] opacity-50 bg-cover" />
-         
-         <div className="relative z-10 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-center max-w-md mx-4 shadow-2xl">
-            <div className="mb-6 flex justify-center">
-               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Lock className="w-8 h-8 text-primary" />
-               </div>
-            </div>
-            
-            <h2 className="text-2xl font-bold text-white mb-2">{t('login_required_title', { defaultMessage: 'Login Required' })}</h2>
-            <p className="text-gray-400 mb-6">{t('login_required_desc', { defaultMessage: 'Please log in to access Global Radio and save your favorite stations.' })}</p>
-            
-            <button 
-               onClick={() => setIsLoginOpen(true)}
-               className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl transition shadow-lg shadow-primary/20 w-full"
-            >
-               {t('login_button', { defaultMessage: 'Log In' })}
-            </button>
-         </div>
-
-         {/* Modals */}
-         <LoginModal
-            isOpen={isLoginOpen}
-            onClose={() => setIsLoginOpen(false)}
-            onSwitchToSignup={() => {
-              setIsLoginOpen(false);
-              setIsSignupOpen(true);
-            }}
-            onSwitchToPasswordReset={() => {
-              setIsLoginOpen(false);
-              setIsPasswordResetOpen(true);
-            }}
-          />
-
-          <SignupModal
-            isOpen={isSignupOpen}
-            onClose={() => setIsSignupOpen(false)}
-            onSwitchToLogin={() => {
-              setIsSignupOpen(false);
-              setIsLoginOpen(true);
-            }}
-          />
-
-          <PasswordResetModal
-            isOpen={isPasswordResetOpen}
-            onClose={() => setIsPasswordResetOpen(false)}
-            onSwitchToLogin={() => {
-              setIsPasswordResetOpen(false);
-              setIsLoginOpen(true);
-            }}
-          />
-      </div>
-    );
   }
 
   return (
