@@ -56,6 +56,15 @@ vi.mock("next/image", () => ({
   default: ({ alt, src }: { alt: string; src: string }) => <img alt={alt} src={src} />,
 }));
 
+vi.mock("@/components/ads/KakaoAdFit", () => ({
+  __esModule: true,
+  default: () => <div data-testid="kakao-ad-fit" />,
+}));
+
+vi.mock("@/components/ads/ResponsiveAd", () => ({
+  ResponsiveAd: () => <div data-testid="responsive-ad" />,
+}));
+
 describe("DiaryListPage", () => {
   const mockRemove = { mutateAsync: vi.fn(), isPending: false };
 

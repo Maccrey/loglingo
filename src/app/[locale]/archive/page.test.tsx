@@ -47,6 +47,15 @@ vi.mock("@/components/ui/Card", () => ({
   CardContent: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
 
+vi.mock("@/components/ads/KakaoAdFit", () => ({
+  __esModule: true,
+  default: () => <div data-testid="kakao-ad-fit" />,
+}));
+
+vi.mock("@/components/ads/ResponsiveAd", () => ({
+  ResponsiveAd: () => <div data-testid="responsive-ad" />,
+}));
+
 describe("ArchivePage", () => {
   const mockCreate = { mutateAsync: vi.fn(), isPending: false };
 
