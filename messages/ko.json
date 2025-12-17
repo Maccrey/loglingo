@@ -149,6 +149,8 @@
     "quiz_question": "{title}의 핵심 의미/패턴은 무엇인가요?",
     "quiz_correct": "정답!",
     "quiz_wrong": "다시 시도하세요",
+    "show_hint": "힌트 보기",
+    "hide_hint": "힌트 닫기",
     "all": "전체",
     "title_required": "제목은 필수입니다",
     "save_error": "아카이브 저장 실패"

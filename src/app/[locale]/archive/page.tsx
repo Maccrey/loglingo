@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -116,12 +116,18 @@ export default function ArchivePage() {
   const [selected, setSelected] = useState<LearningArchive | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const { quiz, isLoading: quizLoading, error: quizError } = useQuiz(
     selected || undefined,
     selected ? t("quiz_question", { title: selected.title }) : undefined,
     locale,
     locale // TODO: Get from user settings
   );
+
+  // 새로운 퀴즈가 로드될 때 힌트 초기화
+  useEffect(() => {
+    setShowHint(false);
+  }, [quiz?.archiveId]);
 
   const filteredArchives = useMemo(
     () => (type ? archiveList.filter((a) => a.type === type) : archiveList),
@@ -294,7 +300,18 @@ export default function ArchivePage() {
                   </button>
                 );
               })}
-              <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
+              
+              <button
+                type="button"
+                onClick={() => setShowHint(!showHint)}
+                className="w-full mt-3 px-4 py-2 text-sm rounded-lg border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              >
+                {showHint ? t("hide_hint") : t("show_hint")}
+              </button>
+              
+              {showHint && (
+                <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
+              )}
             </div>
           )}
           
@@ -438,8 +455,19 @@ export default function ArchivePage() {
                     </button>
                   );
                 })}
+              
+              <button
+                type="button"
+                onClick={() => setShowHint(!showHint)}
+                className="w-full mt-3 px-4 py-2 text-sm rounded-lg border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              >
+                {showHint ? t("hide_hint") : t("show_hint")}
+              </button>
+              
+              {showHint && (
                 <p className="text-xs text-muted-foreground mt-2">{quiz.explanation}</p>
-              </div>
+              )}
+            </div>
             )}
             
             {/* 퀴즈 하단 광고 (PC 전용) */}

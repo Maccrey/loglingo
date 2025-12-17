@@ -148,6 +148,8 @@
     "quiz_question": "What is the key meaning/pattern for \"{title}\"?",
     "quiz_correct": "Correct!",
     "quiz_wrong": "Try again",
+    "show_hint": "Show Hint",
+    "hide_hint": "Hide Hint",
     "all": "All",
     "title_required": "Title is required",
     "save_error": "Failed to save archive"
