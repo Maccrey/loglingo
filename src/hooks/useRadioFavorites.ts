@@ -13,7 +13,7 @@ export function useRadioFavorites() {
 
   // Load favorites
   useEffect(() => {
-    if (!user) {
+    if (!user || !user.uid) {
       setFavorites([]);
       setLoading(false);
       return;
@@ -23,7 +23,7 @@ export function useRadioFavorites() {
   }, [user]);
 
   const loadFavorites = async () => {
-    if (!user) return;
+    if (!user || !user.uid) return;
     try {
       const data = await radioRepository.getFavorites(user.uid);
       setFavorites(data);
@@ -39,7 +39,7 @@ export function useRadioFavorites() {
   };
 
   const toggleFavorite = async (station: RadioStation) => {
-    if (!user) {
+    if (!user || !user.uid) {
       toast.error(t('login_required') || 'Login required');
       return;
     }

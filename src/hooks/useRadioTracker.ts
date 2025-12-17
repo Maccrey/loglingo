@@ -13,7 +13,7 @@ export function useRadioTracker(
 
   // Function to commit pending time to Firestore
   const commitTime = async () => {
-    if (!user || !language || pendingSecondsRef.current === 0) return;
+    if (!user || !user.uid || !language || pendingSecondsRef.current === 0) return;
 
     try {
       await radioRepository.updateListeningTime(user.uid, language, pendingSecondsRef.current);
@@ -24,7 +24,7 @@ export function useRadioTracker(
   };
 
   useEffect(() => {
-    if (isPlaying && language && user) {
+    if (isPlaying && language && user && user.uid) {
       timerRef.current = setInterval(() => {
         // Increment pending seconds
         pendingSecondsRef.current += 1;

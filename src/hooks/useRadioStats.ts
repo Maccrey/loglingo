@@ -9,7 +9,7 @@ export function useRadioStats() {
   const [loading, setLoading] = useState(true);
 
   const refreshStats = async () => {
-    if (!user) {
+    if (!user || !user.uid) {
         setStats(null);
         setLoading(false);
         return;
