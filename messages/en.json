@@ -14,6 +14,7 @@
     "settings": "Settings",
     "login": "Login",
     "logout": "Logout",
+    "radio": "Radio",
     "loading": "Loading..."
   },
   "auth": {
@@ -173,5 +174,17 @@
     "saving": "Saving...",
     "show_examples": "Show examples ({count})",
     "hide_examples": "Hide examples"
+  },
+  "radio": {
+    "title": "Global Radio",
+    "subtitle": "Explore the world through live radio stations.",
+    "listen": "Listen",
+    "favorites": "Favorites",
+    "now_playing": "Now Playing",
+    "search_placeholder": "Search station or country...",
+    "no_stations": "No stations found in this area.",
+    "listening_time": "Listening Time",
+    "total": "Total",
+    "by_language": "By Language"
   }
 }

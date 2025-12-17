@@ -65,6 +65,16 @@
   - 퀴즈 재사용으로 AI API 비용 절감
 - 지표: 주간 학습 문제 풀이 ≥ 3회/주 사용자 비율 30%
 
+### 기능 4. 3D 글로벌 라디오 (Radio Garden 스타일)
+
+- **문제**: 언어 학습은 '공부'로 느껴지면 지루해짐. 자연스러운 노출(Immersion) 환경 부족.
+- **해결**:
+  - `react-globe.gl` 기반 **3D 지구본 인터페이스**로 탐험하는 재미 제공
+  - **Radio Browser API** 연동으로 전 세계 수만 개의 라디오 스테이션 청취
+  - **즐겨찾기**: 선호하는 국가/방송국 저장 및 원클릭 이동
+  - **청취 시간 기록**: 언어별(ISO Code) 청취 시간을 자동 추적하여 학습 데이터로 활용
+- **지표**: 일간 라디오 청취 시간 평균 ≥ 15분
+
 ---
 
 ## 4. 유저 스토리 (Gherkin 포함)
@@ -97,6 +107,14 @@ Scenario: 사용자가 아카이브 문제를 푼다
   Then 객관식 문제가 생성되고
   And 정답 여부와 해설이 제공된다
 
+```
+
+```
+Scenario: 사용자가 라디오로 영어 듣기 연습을 한다
+  Given 사용자가 라디오 페이지 지구본에서 '미국' 지역을 탐색하고
+  When 특정 방송국 마커를 클릭하여 10분간 청취하면
+  Then 해당 방송국의 언어(영어) 청취 시간이 600초 증가하고
+  And "영어 듣기 시간" 통계에 즉시 반영된다
 ```
 
 ---
@@ -286,6 +304,29 @@ User ───< LearningArchive ───< QuizQuestions
 - AdProvider로 전체 광고 한번에 제어
 - 구독 만료 자동 확인 및 해제 기능
 - Security Rules로 본인만 읽기 가능
+
+---
+
+### 7. radio_favorites (신규)
+
+| 필드 | TypeScript | Firestore | 제약 | 인덱스 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| id | string | string | PK | PK | Station UUID |
+| name | string | string | - | - | 방송국명 |
+| country | string | string | - | - | 국가명 |
+| language | string | string | - | - | 주 언어 |
+| coordinates | GeoPoint | geopoint | - | - | 위치 |
+| createdAt | Date | timestamp | - | idx_created | 정렬용 |
+
+### 8. radio_stats (신규)
+
+**Path**: `users/{userId}/stats/radio` (단일 문서)
+
+| 필드 | TypeScript | Firestore | 제약 | 인덱스 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| totalSeconds | number | number | - | - | 총 청취 시간 |
+| byLanguage | Map<string, number> | map | - | - | 언어별 청취 시간 (예: `{"en": 3600}`) |
+| lastListenedAt | Date | timestamp | - | - | 마지막 활동 |
 
 ---
 

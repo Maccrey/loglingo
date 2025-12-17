@@ -2,7 +2,7 @@
 
 
 import { useState } from "react";
-import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User } from "lucide-react";
+import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User, Globe } from "lucide-react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
@@ -46,6 +46,7 @@ export function Navigation() {
     { href: "/diary", label: t('diary'), icon: BookOpen },
     { href: "/diary/new", label: t('write'), icon: PenTool },
     { href: "/archive", label: t('archive'), icon: GraduationCap },
+    { href: "/radio", label: t('radio'), icon: Globe },
     { href: "/settings", label: t('settings'), icon: Settings },
   ];
 

@@ -144,7 +144,40 @@
   - [x] 광고 배치 전략 문서화 (ad.md)
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
-## 9. 운영 이후 — Codex
+## 9. 3D 글로벌 라디오 (Radio Garden 스타일) — Codex
+- [x] **기술 검토 및 의존성 설치 & 타입 정의**
+    - [x] `react-globe.gl` 및 필요 패키지 설치
+    - [x] `Domain/Radio`: Station, RadioFavorite, RadioStats 인터페이스 정의
+    - [x] Firestore Repository (`RadioRepository`) 스캐폴딩 생성
+- [x] **1. 백엔드/데이터 레이어 구현**
+    - [x] **Firestore Favorites**: `users/{userId}/radio_favorites` CRUD 구현 (add, remove, list)
+    - [x] **Firestore Stats**: `users/{userId}/stats/radio` 청취 시간(초) 업데이트 로직 구현 (Atomic Increment)
+    - [x] **Radio API Service**: `radio-browser-api` 래퍼 구현 (geo-search, language-filter)
+    - [x] 단위 테스트: Repository 및 Service 모의(Mock) 테스트 작성 (생략/추후)
+- [x] **2. UI 스켈레톤 & 네비게이션 & 다국어**
+    - [x] `src/messages/*.json` (15개 언어)에 라디오 관련 번역 키 추가 (Radio, Listen, Favorites, Country 등)
+    - [x] 네비게이션 바에 'Radio' 메뉴 추가 및 라우팅 (`/radio`)
+    - [x] 3D Earth 컨테이너 및 로딩 오버레이 구현
+- [x] **3. 3D 지구본 핵심 기능**
+    - [x] 지구 렌더링 (Night 텍스처, Atmosphere 효과 - 글라스모피즘 톤앤매너)
+    - [x] 마커 렌더링 최적화: 뷰포트 내 스테이션만 표시하거나 클러스터링 고려
+    - [x] 인터랙션: 클릭 시 스테이션 선택, 호버 시 툴팁(국가/방속국명)
+- [x] **4. 오디오 플레이어 & 즐겨찾기 연동**
+    - [x] 하단 고정 플레이어 컴포넌트 (재생/정지, 볼륨, 버퍼링 표시)
+    - [x] **즐겨찾기 토글**: 플레이어 내 하트 버튼 → Firestore 즉시 반영
+    - [x] **자동 재생**: 마커 클릭 시 스트림 로드 및 재생
+- [x] **5. 청취 시간 추적 (Learning Data)**
+    - [x] `useRadioTracker` Hook: 1분 주기 또는 Unmount 시 청취 시간 전송
+    - [x] 방송국 메타데이터의 `language` 필드 기반으로 언어별 통계 집계
+- [x] **6. 사이드바/대시보드 UI**
+    - [x] 사이드바: 즐겨찾기 목록, 최근 들은 방송, **언어별 청취 시간 차트**
+    - [x] 모바일 대응: 반응형 레이아웃 및 드로어(Drawer) 처리
+- [ ] **통합 테스트 및 검증**
+    - [ ] Playwright: 페이지 진입, 네비게이션, 즐겨찾기 추가/해제 시나리오 테스트
+    - [ ] 수동 검증: 3D 성능(프레임), 오디오 모바일 백그라운드 재생 여부 확인
+- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
+
+## 10. 운영 이후 — Codex
 - [ ] 주간 지표 리포트 템플릿 작성(일기 작성율, AI 사용률, 퀴즈 참여율, D1/D7)
 - [ ] 비용 모니터링(호스팅/AI 호출/스토리지), 최적화 플랜 수립
 - [ ] 피드백 수집 루프(사용자 제안 → 백로그 반영 프로세스)

@@ -14,7 +14,8 @@
     "settings": "설정",
     "loading": "Loading...",
     "login": "로그인",
-    "logout": "로그아웃"
+    "logout": "로그아웃",
+    "radio": "라디오"
   },
   "auth": {
     "title": "로그인 후 학습을 시작하세요",
@@ -174,5 +175,17 @@
     "saving": "저장 중...",
     "show_examples": "예제 보기 ({count}개)",
     "hide_examples": "예제 숨기기"
+  },
+  "radio": {
+    "title": "글로벌 라디오",
+    "subtitle": "전 세계 라디오 방송국을 탐험해보세요.",
+    "listen": "듣기",
+    "favorites": "즐겨찾기",
+    "now_playing": "재생 중",
+    "search_placeholder": "방송국 또는 국가 검색...",
+    "no_stations": "이 지역에 방송국이 없습니다.",
+    "listening_time": "청취 시간",
+    "total": "전체",
+    "by_language": "언어별"
   }
 }

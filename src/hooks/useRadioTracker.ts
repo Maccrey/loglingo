@@ -1,0 +1,64 @@
+import { useEffect, useRef } from 'react';
+import { useAuth } from '@/application/auth/AuthProvider';
+import { radioRepository } from '@/infrastructure/repositories/radio-repository';
+
+export function useRadioTracker(
+  isPlaying: boolean,
+  language: string | undefined, // station language (e.g. "en")
+  intervalSeconds: number = 60
+) {
+  const { user } = useAuth();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const pendingSecondsRef = useRef(0);
+
+  // Function to commit pending time to Firestore
+  const commitTime = async () => {
+    if (!user || !language || pendingSecondsRef.current === 0) return;
+
+    try {
+      await radioRepository.updateListeningTime(user.uid, language, pendingSecondsRef.current);
+      pendingSecondsRef.current = 0;
+    } catch (error) {
+      console.error("Failed to update radio stats:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isPlaying && language && user) {
+      timerRef.current = setInterval(() => {
+        // Increment pending seconds
+        pendingSecondsRef.current += 1;
+
+        // If we reach interval, commit
+        // Actually, let's just commit every intervalSeconds directly? 
+        // Or accumulate. Since updating firestore every second is bad.
+        // Let's accumulate in memory every second, and commit every intervalSeconds.
+        
+        if (pendingSecondsRef.current >= intervalSeconds) {
+            commitTime();
+        }
+
+      }, 1000);
+    } else {
+      // If paused or stopped, clear timer and commit remaining
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      commitTime();
+    }
+
+    return () => {
+      // On unmount/change
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      commitTime();
+    };
+  }, [isPlaying, language, user]); // intervalSeconds is static usually
+
+  // Handle page visibility change or unload?
+  // useEffect approach handles component unmount, but maybe not browser tab close perfectly (unreliable).
+  // But sufficient for MVP.
+}
