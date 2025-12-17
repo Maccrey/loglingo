@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAds } from "@/application/ads/AdProvider";
 
 interface KakaoAdFitProps {
@@ -13,9 +13,15 @@ interface KakaoAdFitProps {
 export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
   const { showAds } = useAds();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // 클라이언트 마운트 확인
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
-    if (disabled || !showAds) return;
+    if (!isMounted || disabled || !showAds) return;
 
     if (!containerRef.current) return;
 
@@ -44,9 +50,10 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
         containerRef.current.innerHTML = "";
       }
     };
-  }, [unit, width, height, disabled, showAds]);
+  }, [unit, width, height, disabled, showAds, isMounted]);
 
-  if (disabled || !showAds) return null;
+  // 서버 렌더링 또는 조건이 맞지 않을 때 null 반환
+  if (!isMounted || disabled || !showAds) return null;
 
   return (
     <div 
@@ -59,7 +66,7 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
         maxWidth: `${width}px`,
         margin: '2rem auto'
       }}
-      suppressHydrationWarning
     />
   );
 }
+
