@@ -16,7 +16,8 @@
     "settings": "Pengaturan",
     "loading": "Loading...",
     "login": "Masuk",
-    "logout": "Keluar"
+    "logout": "Keluar",
+    "radio": "Radio"
   },
   "auth": {
     "title": "Masuk untuk mulai belajar",

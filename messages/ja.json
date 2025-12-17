@@ -16,7 +16,8 @@
     "settings": "設定",
     "loading": "Loading...",
     "login": "ログイン",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "radio": "ラジオ"
   },
   "auth": {
     "title": "ログインして学習を始めましょう",

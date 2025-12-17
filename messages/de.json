@@ -16,7 +16,8 @@
     "settings": "Einstellungen",
     "loading": "Loading...",
     "login": "Anmelden",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "radio": "Radio"
   },
   "auth": {
     "title": "Melde dich an, um zu starten",

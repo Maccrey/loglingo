@@ -16,7 +16,8 @@
     "settings": "Paramètres",
     "loading": "Loading...",
     "login": "Connexion",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "radio": "Radio"
   },
   "auth": {
     "title": "Connectez-vous pour démarrer",

@@ -16,7 +16,8 @@
     "settings": "Configurações",
     "loading": "Loading...",
     "login": "Entrar",
-    "logout": "Sair"
+    "logout": "Sair",
+    "radio": "Rádio"
   },
   "auth": {
     "title": "Faça login para começar",

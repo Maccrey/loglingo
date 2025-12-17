@@ -16,7 +16,8 @@
     "settings": "Cài đặt",
     "loading": "Loading...",
     "login": "Đăng nhập",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "radio": "Radio"
   },
   "auth": {
     "title": "Đăng nhập để bắt đầu học",

@@ -16,7 +16,8 @@
     "settings": "सेटिंग्स",
     "loading": "Loading...",
     "login": "लॉग इन",
-    "logout": "लॉग आउट"
+    "logout": "लॉग आउट",
+    "radio": "रेडियो"
   },
   "auth": {
     "title": "लॉग इन करके सीखना शुरू करें",

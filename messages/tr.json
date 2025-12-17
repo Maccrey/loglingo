@@ -16,7 +16,8 @@
     "settings": "Ayarlar",
     "loading": "Loading...",
     "login": "Giriş yap",
-    "logout": "Çıkış yap"
+    "logout": "Çıkış yap",
+    "radio": "Radyo"
   },
   "auth": {
     "title": "Başlamak için giriş yap",

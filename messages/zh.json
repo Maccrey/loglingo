@@ -16,7 +16,8 @@
     "settings": "设置",
     "loading": "Loading...",
     "login": "登录",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "radio": "广播"
   },
   "auth": {
     "title": "登录后开始学习",

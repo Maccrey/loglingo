@@ -16,7 +16,8 @@
     "settings": "Ajustes",
     "loading": "Loading...",
     "login": "Iniciar sesión",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "radio": "Radio"
   },
   "auth": {
     "title": "Inicia sesión para empezar",
