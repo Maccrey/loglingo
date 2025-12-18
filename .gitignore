@@ -47,3 +47,7 @@ Deploy.md
 # firebase
 .firebase/
 cors.json
+
+# local build caches (to avoid disk issues)
+.npm-cache/
+.tmp/

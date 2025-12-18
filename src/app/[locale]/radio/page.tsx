@@ -6,7 +6,7 @@ import { useState, useCallback } from 'react';
 import RadioPlayer from '@/components/radio/RadioPlayer';
 import RadioSidebar from '@/components/radio/RadioSidebar';
 import { RadioStation } from '@/domain/radio';
-import { ListMusic, Radio, Loader2 } from 'lucide-react';
+import { ListMusic, Radio } from 'lucide-react';
 import { useRadioStats } from '@/hooks/useRadioStats';
 import { RadioFavoritesProvider } from '@/application/radio/RadioFavoritesProvider';
 import AutoRefreshAd from '@/components/ads/AutoRefreshAd';
@@ -87,7 +87,8 @@ export default function RadioPage() {
 
           <button 
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="absolute top-6 right-4 z-50 p-2 sm:p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
+            aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+            className="absolute top-6 right-4 z-50 min-w-[44px] min-h-[44px] flex items-center justify-center p-2 sm:p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition shadow-lg"
           >
             <ListMusic className="w-6 h-6" />
           </button>
@@ -114,12 +115,13 @@ export default function RadioPage() {
           </div>
 
           {/* 상단 광고 - 모바일 전용 (1분마다 자동 갱신) */}
-          <div className="fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-full max-w-[95%] sm:max-w-[600px] md:hidden">
+          <div className="fixed top-0 left-1/2 -translate-x-1/2 z-20 w-full max-w-[95%] sm:max-w-[600px] md:hidden">
             <div className="mx-auto">
               <AutoRefreshAd
                 unit={AD_UNITS.RADIO_PLAYER_TOP_MOBILE}
                 width={AD_SIZES.MOBILE_BANNER.width}
                 height={AD_SIZES.MOBILE_BANNER.height}
+                containerStyle={{ margin: 0 }}
                 refreshInterval={60000} // 1분 (60,000ms)
               />
             </div>

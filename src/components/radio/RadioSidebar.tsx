@@ -3,10 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useRadioFavoritesContext } from "@/application/radio/RadioFavoritesProvider";
-import { useRadioStats } from "@/hooks/useRadioStats";
 import { RadioStation, RadioStats } from "@/domain/radio";
 import { cn } from "@/lib/utils";
-import { Play, Trash2, BarChart2, Radio, X, ListMusic } from "lucide-react";
+import { Trash2, BarChart2, Radio, X } from "lucide-react";
 import AutoRefreshAd from "@/components/ads/AutoRefreshAd";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
 
@@ -83,7 +82,10 @@ export default function RadioSidebar({
         <div className="flex bg-white/10 rounded-lg p-1">
           <button
             onClick={() => setActiveTab('favorites')}
-            className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition", activeTab === 'favorites' ? "bg-primary text-white" : "hover:text-white text-white/60")}
+            className={cn(
+              "px-3 py-1.5 rounded-md text-xs font-medium transition min-h-[36px]",
+              activeTab === 'favorites' ? "bg-primary text-white" : "hover:text-white text-white/60"
+            )}
           >
             {t('favorites')}
           </button>
@@ -92,11 +94,23 @@ export default function RadioSidebar({
                 setActiveTab('stats');
                 refreshStats();
             }}
-            className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition", activeTab === 'stats' ? "bg-primary text-white" : "hover:text-white text-white/60")}
+            className={cn(
+              "px-3 py-1.5 rounded-md text-xs font-medium transition min-h-[36px]",
+              activeTab === 'stats' ? "bg-primary text-white" : "hover:text-white text-white/60"
+            )}
           >
             {t('listening_time')}
           </button>
         </div>
+
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close sidebar"
+          className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-white/70 hover:text-white hover:bg-white/10 transition"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Content */}
@@ -147,9 +161,14 @@ export default function RadioSidebar({
             {/* Total Time */}
             <div className="bg-gradient-to-br from-primary/20 to-accent/10 p-4 rounded-xl border border-primary/20">
               <h4 className="text-xs text-primary/80 uppercase tracking-wider mb-1">{t('total')}</h4>
-              <p className="text-3xl font-bold text-white">
-                {Math.floor((stats?.totalSeconds || 0) / 60)} <span className="text-sm font-normal text-white/60">min</span>
-              </p>
+              {statsLoading ? (
+                <p className="text-sm text-white/60">Loading...</p>
+              ) : (
+                <p className="text-3xl font-bold text-white">
+                  {Math.floor((stats?.totalSeconds || 0) / 60)}{" "}
+                  <span className="text-sm font-normal text-white/60">min</span>
+                </p>
+              )}
             </div>
 
             {/* By Language */}
