@@ -113,8 +113,8 @@ export default function RadioPage() {
             />
           </div>
 
-          {/* 플레이어 상단 광고 - 모바일 전용 (1분마다 자동 갱신) */}
-          <div className="fixed bottom-[180px] sm:bottom-[140px] left-1/2 -translate-x-1/2 z-[9998] w-full max-w-[95%] sm:max-w-[600px] md:hidden">
+          {/* 상단 광고 - 모바일 전용 (1분마다 자동 갱신) */}
+          <div className="fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-full max-w-[95%] sm:max-w-[600px] md:hidden">
             <div className="mx-auto">
               <AutoRefreshAd
                 unit={AD_UNITS.RADIO_PLAYER_TOP_MOBILE}
