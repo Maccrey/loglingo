@@ -89,7 +89,7 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
           width={dimensions.width}
           height={dimensions.height}
           rendererConfig={{ alpha: true, antialias: true }}
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
           backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
           pointsData={stations} 
           pointLat="geoLat"
