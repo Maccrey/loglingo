@@ -32,6 +32,8 @@ export const AD_UNITS = {
   // 라디오 페이지
   RADIO_SIDEBAR_MOBILE: 'DAN-BxozzLNCN03s18ce',  // 320x50 (모바일 사이드바 하단)
   RADIO_SIDEBAR_PC: 'DAN-fzLaMkxcVnRqvmum',      // 300x250 (PC 사이드바 하단)
+  RADIO_PLAYER_TOP_MOBILE: 'DAN-egMAgXDetcbThoSS', // 320x50 (모바일 플레이어 상단)
+  RADIO_PLAYER_TOP_PC: 'DAN-jpqUUyqK5XVqGJQC',     // 728x90 (PC 플레이어 상단)
 } as const;
 
 export const AD_SIZES = {

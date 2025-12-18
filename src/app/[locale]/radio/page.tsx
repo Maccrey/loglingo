@@ -9,6 +9,8 @@ import { RadioStation } from '@/domain/radio';
 import { ListMusic, Radio, Loader2 } from 'lucide-react';
 import { useRadioStats } from '@/hooks/useRadioStats';
 import { RadioFavoritesProvider } from '@/application/radio/RadioFavoritesProvider';
+import AutoRefreshAd from '@/components/ads/AutoRefreshAd';
+import { AD_UNITS, AD_SIZES } from '@/config/ads';
 
 const RadioGlobe = dynamic(() => import('@/components/radio/RadioGlobe'), { 
   ssr: false,
@@ -98,6 +100,29 @@ export default function RadioPage() {
             statsLoading={statsLoading}
             refreshStats={refreshStats}
           />
+
+          {/* 플레이어 상단 광고 - 1분마다 자동 갱신 */}
+          <div className="fixed bottom-[180px] sm:bottom-[140px] md:bottom-[120px] left-1/2 -translate-x-1/2 z-[9998] w-full max-w-[95%] sm:max-w-[600px] md:max-w-[728px]">
+            {/* 모바일 광고 (320x50) */}
+            <div className="block md:hidden mx-auto">
+              <AutoRefreshAd
+                unit={AD_UNITS.RADIO_PLAYER_TOP_MOBILE}
+                width={AD_SIZES.MOBILE_BANNER.width}
+                height={AD_SIZES.MOBILE_BANNER.height}
+                refreshInterval={60000} // 1분 (60,000ms)
+              />
+            </div>
+            
+            {/* PC 광고 (728x90) */}
+            <div className="hidden md:block mx-auto">
+              <AutoRefreshAd
+                unit={AD_UNITS.RADIO_PLAYER_TOP_PC}
+                width={AD_SIZES.PC_LEADERBOARD.width}
+                height={AD_SIZES.PC_LEADERBOARD.height}
+                refreshInterval={60000} // 1분 (60,000ms)
+              />
+            </div>
+          </div>
 
           <RadioPlayer 
             station={currentStation} 
