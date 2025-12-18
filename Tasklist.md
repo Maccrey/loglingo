@@ -184,3 +184,8 @@
 - [x] **라디오 페이지 권한 오류 수정**
     - [x] `useRadioFavorites`, `useRadioStats` 훅 내 `user.uid` 검증 로직 추가
     - [x] Firestore 보안 규칙(`radio_favorites`, `stats` 권한) 서버 배포 완료
+- [/] **라디오 즐겨찾기 실시간 업데이트 개선**
+    - [ ] `useRadioFavorites.ts`의 `toggleFavorite` 함수에 optimistic update 패턴 적용
+    - [ ] 즐겨찾기 추가 시 로컬 state 즉시 업데이트로 사이드바 실시간 반영
+    - [ ] 브라우저 테스트 (즐겨찾기 추가/삭제 시 즉시 반영 확인)
+    - [ ] 테스트 통과 시 한국어 커밋

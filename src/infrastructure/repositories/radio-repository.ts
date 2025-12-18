@@ -18,26 +18,33 @@ import { RadioRepository, RadioStation, RadioFavorite, RadioStats } from '@/doma
 export class FirebaseRadioRepository implements RadioRepository {
   
   async addFavorite(userId: string, station: RadioStation): Promise<void> {
-    const favoriteRef = doc(db, `users/${userId}/radio_favorites`, station.id);
-    const favoriteData: RadioFavorite = {
-      id: station.id,
-      userId,
-      stationName: station.name,
-      stationUrl: station.urlResolved || station.url,
-      stationFavicon: station.favicon,
-      country: station.country,
-      language: station.language[0] || 'Unknown',
-      coordinates: new GeoPoint(station.geoLat || 0, station.geoLong || 0),
-      createdAt: new Date(),
-    };
-    
-    // Convert Date to Timestamp for Firestore
-    const dataToSave = {
-      ...favoriteData,
-      createdAt: Timestamp.fromDate(favoriteData.createdAt)
-    };
+    try {
+      console.log('[RadioRepository] addFavorite started for station:', station.id, station.name);
+      const favoriteRef = doc(db, `users/${userId}/radio_favorites`, station.id);
+      const favoriteData: RadioFavorite = {
+        id: station.id,
+        userId,
+        stationName: station.name,
+        stationUrl: station.urlResolved || station.url,
+        stationFavicon: station.favicon,
+        country: station.country,
+        language: station.language[0] || 'Unknown',
+        coordinates: new GeoPoint(station.geoLat || 0, station.geoLong || 0),
+        createdAt: new Date(),
+      };
+      
+      // Convert Date to Timestamp for Firestore
+      const dataToSave = {
+        ...favoriteData,
+        createdAt: Timestamp.fromDate(favoriteData.createdAt)
+      };
 
-    await setDoc(favoriteRef, dataToSave);
+      await setDoc(favoriteRef, dataToSave);
+      console.log('[RadioRepository] addFavorite completed successfully');
+    } catch (error) {
+      console.error('[RadioRepository] addFavorite error:', error);
+      throw error;
+    }
   }
 
   async removeFavorite(userId: string, stationId: string): Promise<void> {
@@ -46,17 +53,32 @@ export class FirebaseRadioRepository implements RadioRepository {
   }
 
   async getFavorites(userId: string): Promise<RadioFavorite[]> {
-    const favoritesRef = collection(db, `users/${userId}/radio_favorites`);
-    const q = query(favoritesRef, orderBy('createdAt', 'desc'));
-    const snapshot = await getDocs(q);
+    try {
+      console.log('[RadioRepository] getFavorites started for userId:', userId);
+      const favoritesRef = collection(db, `users/${userId}/radio_favorites`);
+      // Remove orderBy to avoid Firestore index requirement on subcollection
+      // We'll sort on client side instead
+      const snapshot = await getDocs(favoritesRef);
 
-    return snapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        ...data,
-        createdAt: (data.createdAt as Timestamp).toDate()
-      } as RadioFavorite;
-    });
+      console.log('[RadioRepository] getFavorites snapshot size:', snapshot.size);
+
+      const favorites = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          ...data,
+          createdAt: (data.createdAt as Timestamp).toDate()
+        } as RadioFavorite;
+      });
+
+      // Sort by createdAt descending on client side
+      favorites.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+      console.log('[RadioRepository] getFavorites returning', favorites.length, 'favorites');
+      return favorites;
+    } catch (error) {
+      console.error('[RadioRepository] getFavorites error:', error);
+      throw error;
+    }
   }
 
   async isFavorite(userId: string, stationId: string): Promise<boolean> {

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { useRadioFavorites } from "@/hooks/useRadioFavorites";
+import { useRadioFavoritesContext } from "@/application/radio/RadioFavoritesProvider";
 import { useRadioStats } from "@/hooks/useRadioStats";
 import { RadioStation, RadioStats } from "@/domain/radio";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,7 @@ export default function RadioSidebar({
   const t = useTranslations('radio');
   const [activeTab, setActiveTab] = useState<'favorites' | 'stats'>('favorites');
   
-  const { favorites, loading: favLoading, toggleFavorite } = useRadioFavorites();
+  const { favorites, loading: favLoading, toggleFavorite } = useRadioFavoritesContext();
 
   // Auto-refresh stats every 60 seconds when stats tab is active
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function RadioSidebar({
       
       {/* Sidebar */}
       <div className={cn(
-        "fixed top-0 right-0 h-full w-full sm:w-80 bg-black/80 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 z-40 flex flex-col pt-16 md:pt-4",
+        "fixed top-0 right-0 h-full w-full sm:w-1/3 bg-black/80 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 z-40 flex flex-col pt-16 md:pt-20",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}>
       {/* Header */}

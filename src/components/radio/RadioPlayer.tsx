@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { RadioStation } from "@/domain/radio";
 import { Play, Pause, Volume2, VolumeX, Heart, Loader2 } from "lucide-react";
-import { useRadioFavorites } from "@/hooks/useRadioFavorites";
+import { useRadioFavoritesContext } from "@/application/radio/RadioFavoritesProvider";
 import { useRadioTracker } from "@/hooks/useRadioTracker";
 import { cn } from "@/lib/utils"; // Assuming utils exists, if not use standard className
 
@@ -20,7 +20,7 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { isFavorite, toggleFavorite } = useRadioFavorites();
+  const { isFavorite, toggleFavorite } = useRadioFavoritesContext();
   
   // Track listening time
   useRadioTracker(
