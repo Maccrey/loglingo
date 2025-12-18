@@ -7,6 +7,8 @@ import { useRadioStats } from "@/hooks/useRadioStats";
 import { RadioStation, RadioStats } from "@/domain/radio";
 import { cn } from "@/lib/utils";
 import { Play, Trash2, BarChart2, Radio, X, ListMusic } from "lucide-react";
+import AutoRefreshAd from "@/components/ads/AutoRefreshAd";
+import { AD_UNITS, AD_SIZES } from "@/config/ads";
 
 interface RadioSidebarProps {
   onStationSelect: (station: RadioStation) => void;
@@ -193,6 +195,29 @@ export default function RadioSidebar({
             </div>
           </div>
         )}
+      </div>
+      
+      {/* 광고 영역 - 2분마다 자동 갱신 */}
+      <div className="border-t border-white/10 p-4 bg-black/20">
+        {/* 모바일 광고 (320x50) */}
+        <div className="block sm:hidden">
+          <AutoRefreshAd
+            unit={AD_UNITS.RADIO_SIDEBAR_MOBILE}
+            width={AD_SIZES.MOBILE_BANNER.width}
+            height={AD_SIZES.MOBILE_BANNER.height}
+            refreshInterval={120000} // 2분 (120,000ms)
+          />
+        </div>
+        
+        {/* PC 광고 (300x250) */}
+        <div className="hidden sm:block">
+          <AutoRefreshAd
+            unit={AD_UNITS.RADIO_SIDEBAR_PC}
+            width={AD_SIZES.PC_MEDIUM_RECTANGLE.width}
+            height={AD_SIZES.PC_MEDIUM_RECTANGLE.height}
+            refreshInterval={120000} // 2분 (120,000ms)
+          />
+        </div>
       </div>
       </div>
     </>

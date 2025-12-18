@@ -28,6 +28,10 @@ export const AD_UNITS = {
   // 설정 페이지
   SETTINGS_BOTTOM_PC: 'DAN-d5Zd98v79G6EOlOB',   // 728x90
   SETTINGS_BOTTOM_MOBILE: 'DAN-mu8keeF6mwCLE5Vl', // 320x100
+  
+  // 라디오 페이지
+  RADIO_SIDEBAR_MOBILE: 'DAN-BxozzLNCN03s18ce',  // 320x50 (모바일 사이드바 하단)
+  RADIO_SIDEBAR_PC: 'DAN-fzLaMkxcVnRqvmum',      // 300x250 (PC 사이드바 하단)
 } as const;
 
 export const AD_SIZES = {
