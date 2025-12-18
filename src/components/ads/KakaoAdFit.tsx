@@ -2,15 +2,27 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAds } from "@/application/ads/AdProvider";
+import type { CSSProperties } from "react";
 
 interface KakaoAdFitProps {
   unit: string;
   width: number;
   height: number;
   disabled?: boolean;
+  insDisplayNone?: boolean;
+  containerStyle?: CSSProperties;
+  containerClassName?: string;
 }
 
-export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
+export default function KakaoAdFit({
+  unit,
+  width,
+  height,
+  disabled,
+  insDisplayNone,
+  containerStyle,
+  containerClassName,
+}: KakaoAdFitProps) {
   const { showAds } = useAds();
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -31,6 +43,7 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
 
       const ins = document.createElement("ins");
       ins.className = "kakao_ad_area";
+      if (insDisplayNone) ins.style.display = "none";
       ins.setAttribute("data-ad-unit", unit);
       ins.setAttribute("data-ad-width", width.toString());
       ins.setAttribute("data-ad-height", height.toString());
@@ -50,7 +63,7 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
         containerRef.current.innerHTML = "";
       }
     };
-  }, [unit, width, height, disabled, showAds, isMounted]);
+  }, [unit, width, height, disabled, showAds, isMounted, insDisplayNone]);
 
   // 서버 렌더링 또는 조건이 맞지 않을 때 null 반환
   if (!isMounted || disabled || !showAds) return null;
@@ -58,15 +71,15 @@ export default function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFit
   return (
     <div 
       ref={containerRef} 
-      className="flex justify-center"
+      className={containerClassName ?? "flex justify-center"}
       style={{ 
         minHeight: `${height}px`,
         minWidth: `${width}px`,
         width: '100%',
         maxWidth: `${width}px`,
-        margin: '2rem auto'
+        margin: '2rem auto',
+        ...containerStyle,
       }}
     />
   );
 }
-

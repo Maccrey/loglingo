@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import KakaoAdFit from "./KakaoAdFit";
 
 interface AutoRefreshAdProps {
@@ -9,6 +10,9 @@ interface AutoRefreshAdProps {
   height: number;
   refreshInterval?: number; // in milliseconds, default 120000 (2 minutes)
   disabled?: boolean;
+  insDisplayNone?: boolean;
+  containerStyle?: CSSProperties;
+  containerClassName?: string;
 }
 
 /**
@@ -22,7 +26,10 @@ export default function AutoRefreshAd({
   width, 
   height, 
   refreshInterval = 120000, // 2분 (120초)
-  disabled 
+  disabled,
+  insDisplayNone,
+  containerStyle,
+  containerClassName,
 }: AutoRefreshAdProps) {
   const [adKey, setAdKey] = useState(0);
 
@@ -32,7 +39,6 @@ export default function AutoRefreshAd({
     // 2분마다 광고를 갱신
     const interval = setInterval(() => {
       setAdKey(prev => prev + 1);
-      console.log(`🔄 광고 갱신 (${new Date().toLocaleTimeString()})`);
     }, refreshInterval);
 
     return () => clearInterval(interval);
@@ -48,6 +54,9 @@ export default function AutoRefreshAd({
         unit={unit}
         width={width}
         height={height}
+        insDisplayNone={insDisplayNone}
+        containerStyle={containerStyle}
+        containerClassName={containerClassName}
       />
     </div>
   );

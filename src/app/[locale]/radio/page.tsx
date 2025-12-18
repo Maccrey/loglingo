@@ -101,24 +101,25 @@ export default function RadioPage() {
             refreshStats={refreshStats}
           />
 
-          {/* 플레이어 상단 광고 - 1분마다 자동 갱신 */}
-          <div className="fixed bottom-[180px] sm:bottom-[140px] md:bottom-[120px] left-1/2 -translate-x-1/2 z-[9998] w-full max-w-[95%] sm:max-w-[600px] md:max-w-[728px]">
-            {/* 모바일 광고 (320x50) */}
-            <div className="block md:hidden mx-auto">
+          {/* 좌측 광고 (PC 전용 160x600) */}
+          <div className="hidden lg:block fixed top-24 left-4 z-[9998]">
+            <AutoRefreshAd
+              unit={AD_UNITS.RADIO_LEFT_PC}
+              width={AD_SIZES.PC_SKYSCRAPER.width}
+              height={AD_SIZES.PC_SKYSCRAPER.height}
+              insDisplayNone
+              containerStyle={{ margin: 0 }}
+              refreshInterval={60000} // 1분 (60,000ms)
+            />
+          </div>
+
+          {/* 플레이어 상단 광고 - 모바일 전용 (1분마다 자동 갱신) */}
+          <div className="fixed bottom-[180px] sm:bottom-[140px] left-1/2 -translate-x-1/2 z-[9998] w-full max-w-[95%] sm:max-w-[600px] md:hidden">
+            <div className="mx-auto">
               <AutoRefreshAd
                 unit={AD_UNITS.RADIO_PLAYER_TOP_MOBILE}
                 width={AD_SIZES.MOBILE_BANNER.width}
                 height={AD_SIZES.MOBILE_BANNER.height}
-                refreshInterval={60000} // 1분 (60,000ms)
-              />
-            </div>
-            
-            {/* PC 광고 (728x90) */}
-            <div className="hidden md:block mx-auto">
-              <AutoRefreshAd
-                unit={AD_UNITS.RADIO_PLAYER_TOP_PC}
-                width={AD_SIZES.PC_LEADERBOARD.width}
-                height={AD_SIZES.PC_LEADERBOARD.height}
                 refreshInterval={60000} // 1분 (60,000ms)
               />
             </div>
