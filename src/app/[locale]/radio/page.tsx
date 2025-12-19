@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-import { useState, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import RadioPlayer from '@/components/radio/RadioPlayer';
 import RadioSidebar from '@/components/radio/RadioSidebar';
 import { RadioStation } from '@/domain/radio';
@@ -11,6 +11,8 @@ import { useRadioStats } from '@/hooks/useRadioStats';
 import { RadioFavoritesProvider } from '@/application/radio/RadioFavoritesProvider';
 import AutoRefreshAd from '@/components/ads/AutoRefreshAd';
 import { AD_UNITS, AD_SIZES } from '@/config/ads';
+import { radioApiService } from '@/infrastructure/services/radio-api-service';
+import { RadioSearchBar } from '@/components/radio/RadioSearchBar';
 
 const RadioGlobe = dynamic(() => import('@/components/radio/RadioGlobe'), { 
   ssr: false,
@@ -24,15 +26,30 @@ export default function RadioPage() {
   const [currentStation, setCurrentStation] = useState<RadioStation | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [stations, setStations] = useState<RadioStation[]>([]);
+  const [stationsLoading, setStationsLoading] = useState(true);
   const { stats, loading: statsLoading, refreshStats } = useRadioStats();
-  
-  const handleLoadComplete = useCallback(() => {
-    setIsInitialLoading(false);
-  }, []);
   
   const handleStationClick = (station: RadioStation) => {
     setCurrentStation(station);
   };
+
+  useEffect(() => {
+    const loadStations = async () => {
+      setStationsLoading(true);
+      try {
+        const data = await radioApiService.getTopStations();
+        setStations(data);
+      } catch (error) {
+        console.error('Failed to load stations', error);
+      } finally {
+        setStationsLoading(false);
+        setIsInitialLoading(false);
+      }
+    };
+
+    loadStations();
+  }, []);
 
   return (
     <AuthGate>
@@ -73,9 +90,20 @@ export default function RadioPage() {
             <RadioGlobe 
               onStationClick={handleStationClick} 
               currentStationId={currentStation?.id}
-              onLoadComplete={handleLoadComplete}
+              onLoadComplete={() => setIsInitialLoading(false)}
+              stations={stations}
             />
           </div>
+
+          {/* Station Search */}
+          <RadioSearchBar 
+            stations={stations}
+            loading={stationsLoading}
+            onSelect={(station) => {
+              handleStationClick(station);
+              setIsSidebarOpen(false);
+            }}
+          />
 
           {/* Title removed to avoid navigation overlap */}
           {/* <div className="absolute top-6 left-4 z-50 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 pointer-events-none">

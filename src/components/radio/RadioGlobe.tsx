@@ -10,12 +10,13 @@ interface RadioGlobeProps {
   onStationClick?: (station: RadioStation) => void;
   currentStationId?: string | null;
   onLoadComplete?: () => void;
+  stations?: RadioStation[];
 }
 
-export default function RadioGlobe({ onStationClick, currentStationId, onLoadComplete }: RadioGlobeProps) {
+export default function RadioGlobe({ onStationClick, currentStationId, onLoadComplete, stations: externalStations }: RadioGlobeProps) {
   const globeEl = useRef<GlobeMethods | undefined>(undefined);
   const { theme } = useTheme();
-  const [stations, setStations] = useState<RadioStation[]>([]);
+  const [stations, setStations] = useState<RadioStation[]>(externalStations ?? []);
   const [isRotating, setIsRotating] = useState(true); // Auto-rotate by default
   const [mounted, setMounted] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -51,6 +52,16 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
   const loadedRef = useRef(false);
 
   useEffect(() => {
+    // If the parent hands us stations, use them instead of self-fetching
+    if (externalStations && externalStations.length > 0) {
+      setStations(externalStations);
+      if (!loadedRef.current) {
+        loadedRef.current = true;
+        onLoadComplete?.();
+      }
+      return;
+    }
+
     const loadStations = async () => {
       // Only load if not already loaded
       if (loadedRef.current) return;
@@ -66,15 +77,24 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
         }
       }
     };
-    loadStations();
+    // Only self-fetch when no external stations were provided
+    if (!externalStations) {
+      loadStations();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty dependency array - only run once
+  }, [externalStations, onLoadComplete]);
 
   const toggleRotation = () => {
     setIsRotating(prev => !prev);
     if (globeEl.current) {
       globeEl.current.controls().autoRotate = !isRotating;
     }
+  };
+
+  const handlePointHover = (point: any) => {
+    if (!globeEl.current) return;
+    const shouldPause = Boolean(point);
+    globeEl.current.controls().autoRotate = shouldPause ? false : isRotating;
   };
 
   if (!mounted || dimensions.width === 0) return null;
@@ -114,6 +134,7 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
               onStationClick(station);
             }
           }}
+          onPointHover={(point) => handlePointHover(point)}
           atmosphereColor="#3a228a"
           atmosphereAltitude={0.2}
           pointLabel={(point: any) => `
@@ -122,6 +143,7 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
               ${point.country}
             </div>
           `}
+          onMouseOut={() => handlePointHover(null)}
         />
       </div>
     

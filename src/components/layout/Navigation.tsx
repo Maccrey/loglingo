@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User, Globe } from "lucide-react";
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
 import { LoginModal } from "@/components/auth/LoginModal";
@@ -33,6 +33,7 @@ const languages = [
 export function Navigation() {
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const t = useTranslations('nav');
   const tSettings = useTranslations('settings');
   const { user, signOutUser, loading } = useAuth();
@@ -85,7 +86,7 @@ export function Navigation() {
               onChange={(e) => {
                 const nextLocale = e.target.value;
                 document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
-                router.replace("/", { locale: nextLocale });
+                router.replace(pathname, { locale: nextLocale });
               }}
             >
               {languages.map((lang) => (

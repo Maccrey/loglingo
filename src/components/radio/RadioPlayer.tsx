@@ -64,8 +64,22 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
                 }
              });
              hls.on(Hls.Events.ERROR, (event, data) => {
+                if (!data) return;
+
                 if (data.fatal) {
                    console.error("HLS Fatal Error", data);
+
+                   // Attempt graceful recovery for common fatal cases
+                   if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                     hls.startLoad();
+                     return;
+                   }
+
+                   if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                     hls.recoverMediaError();
+                     return;
+                   }
+
                    setLoading(false);
                    setError(true);
                    setIsPlaying(false);
