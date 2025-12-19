@@ -143,7 +143,6 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
               ${point.country}
             </div>
           `}
-          onMouseOut={() => handlePointHover(null)}
         />
       </div>
     
