@@ -132,19 +132,21 @@ export default function RadioPage() {
           />
 
           {/* 우측 광고 (PC 전용 160x600) */}
-          <div 
-            className="hidden lg:block fixed right-4 z-[9998]"
-            style={{ top: `calc(6rem + ${leftBannerOffset}px)` }}
-          >
-            <AutoRefreshAd
-              unit={AD_UNITS.RADIO_LEFT_PC}
-              width={AD_SIZES.PC_SKYSCRAPER.width}
-              height={AD_SIZES.PC_SKYSCRAPER.height}
-              insDisplayNone
-              containerStyle={{ margin: 0 }}
-              refreshInterval={60000} // 1분 (60,000ms)
-            />
-          </div>
+          {!isSidebarOpen && (
+            <div 
+              className="hidden lg:block fixed right-4 z-[9998]"
+              style={{ top: `calc(6rem + ${leftBannerOffset}px)` }}
+            >
+              <AutoRefreshAd
+                unit={AD_UNITS.RADIO_LEFT_PC}
+                width={AD_SIZES.PC_SKYSCRAPER.width}
+                height={AD_SIZES.PC_SKYSCRAPER.height}
+                insDisplayNone
+                containerStyle={{ margin: 0 }}
+                refreshInterval={60000} // 1분 (60,000ms)
+              />
+            </div>
+          )}
 
           {/* 상단 광고 - 모바일 전용 (1분마다 자동 갱신) */}
           <div className="fixed top-0 left-1/2 -translate-x-1/2 z-20 w-full max-w-[95%] sm:max-w-[600px] md:hidden">
