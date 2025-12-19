@@ -28,6 +28,7 @@ export default function RadioPage() {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [stations, setStations] = useState<RadioStation[]>([]);
   const [stationsLoading, setStationsLoading] = useState(true);
+  const leftBannerOffset = (AD_SIZES.PC_SKYSCRAPER?.height ?? 600) / 6;
   const { stats, loading: statsLoading, refreshStats } = useRadioStats();
   
   const handleStationClick = (station: RadioStation) => {
@@ -131,7 +132,10 @@ export default function RadioPage() {
           />
 
           {/* 좌측 광고 (PC 전용 160x600) */}
-          <div className="hidden lg:block fixed top-24 left-4 z-[9998]">
+          <div 
+            className="hidden lg:block fixed left-4 z-[9998]"
+            style={{ top: `calc(6rem + ${leftBannerOffset}px)` }}
+          >
             <AutoRefreshAd
               unit={AD_UNITS.RADIO_LEFT_PC}
               width={AD_SIZES.PC_SKYSCRAPER.width}
