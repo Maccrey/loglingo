@@ -34,7 +34,7 @@ export const AD_UNITS = {
   RADIO_SIDEBAR_PC: 'DAN-fzLaMkxcVnRqvmum',      // 300x250 (PC 사이드바 하단)
   RADIO_PLAYER_TOP_MOBILE: 'DAN-egMAgXDetcbThoSS', // 320x50 (모바일 플레이어 상단)
   RADIO_PLAYER_TOP_PC: 'DAN-jpqUUyqK5XVqGJQC',     // 728x90 (PC 플레이어 상단)
-  RADIO_LEFT_PC: 'DAN-hU2HAZthxf25RGj1',           // 160x600 (PC 좌측)
+  RADIO_LEFT_PC: 'DAN-hU2HAZthxf25RGj1',           // 160x600 (PC 우측)
 } as const;
 
 export const AD_SIZES = {

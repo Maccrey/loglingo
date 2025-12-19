@@ -131,9 +131,9 @@ export default function RadioPage() {
             refreshStats={refreshStats}
           />
 
-          {/* 좌측 광고 (PC 전용 160x600) */}
+          {/* 우측 광고 (PC 전용 160x600) */}
           <div 
-            className="hidden lg:block fixed left-4 z-[9998]"
+            className="hidden lg:block fixed right-4 z-[9998]"
             style={{ top: `calc(6rem + ${leftBannerOffset}px)` }}
           >
             <AutoRefreshAd
