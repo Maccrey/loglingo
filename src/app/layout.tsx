@@ -10,6 +10,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Loglingo",
   description: "AI-powered language learning diary",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://logling-34fc9.web.app'),
   icons: {
     icon: [
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
