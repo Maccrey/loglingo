@@ -193,13 +193,11 @@ export default function ArchivePage() {
   const pendingAdvice = adviceItems.filter((a) => !a.completed);
   const aggregateAvg = aggregate?.average ?? { diaries7d: 0, archivesTotal: 0, adviceOpen: 0, level: "", score: 0 };
   const aggregateTarget = aggregate?.target ?? { diaries7d: 0, archivesTotal: 0, adviceOpen: 0, level: "", score: 0 };
-  const adviceTarget = Math.max(aggregateTarget?.adviceOpen ?? 0, 0);
-  const adviceProgress =
-    adviceTarget === 0
-      ? pendingAdvice.length === 0
-        ? 100
-        : 0
-      : Math.min(100, (adviceTarget / Math.max(pendingAdvice.length, adviceTarget)) * 100);
+  const adviceTotal = adviceItems.length;
+  const adviceCompleted = Math.max(0, adviceTotal - pendingAdvice.length);
+  const adviceProgress = adviceTotal
+    ? Math.min(100, Math.max(0, (adviceCompleted / adviceTotal) * 100))
+    : 100;
 
   const handleCompleteAdvice = async (adviceId: string) => {
     if (!adviceId) return;
