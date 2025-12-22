@@ -10,6 +10,7 @@ import { useAuth } from "@/application/auth/AuthProvider";
 import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application/learning-profile/hooks";
 import { useDiaryList } from "@/application/diary/hooks";
 import { useLearningAggregate } from "@/application/learning-profile/aggregate";
+import { adjustLevelFromQuiz } from "@/application/learning-profile/adjustment";
 
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
@@ -590,6 +591,13 @@ export default function ArchivePage() {
                           archiveId: quiz.archiveId,
                           selected: idx,
                           correct,
+                        });
+                        adjustLevelFromQuiz({
+                          userId,
+                          correct,
+                          currentScore: latestScore,
+                          targetLanguage: user?.learningLanguage,
+                          sourceId: quiz.archiveId,
                         });
                         toast[correct ? "success" : "error"](
                           correct ? t("quiz_correct") : t("quiz_wrong"),
