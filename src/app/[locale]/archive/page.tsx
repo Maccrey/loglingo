@@ -60,9 +60,11 @@ function ArchiveListCard({
               {hasExamples && (
                 <span className="px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">퀵퀴즈</span>
               )}
-              <span className="px-2 py-1 rounded-full bg-amber-500/10 text-amber-200 border border-amber-400/40">
-                정답 {correctCount}회
-              </span>
+              {!isMemorized && (
+                <span className="px-2 py-1 rounded-full bg-amber-500/10 text-amber-200 border border-amber-400/40">
+                  정답 {correctCount}회
+                </span>
+              )}
               {isMemorized && (
                 <span className="px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/40">
                   암기완료
