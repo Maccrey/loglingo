@@ -31,22 +31,23 @@ import Script from "next/script"; // Import Script component
 export default function RootLayout({
   children,
 }: Readonly<{
-      children: React.ReactNode;
-    }>) {
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
-        crossOrigin="anonymous"
-        strategy="beforeInteractive"
-      />
-      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
+      <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16982541933"
-          strategy="afterInteractive"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16982541933"
+          strategy="beforeInteractive"
+        />
+        <Script id="gtag-init" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -54,6 +55,8 @@ export default function RootLayout({
             gtag('config', 'AW-16982541933');
           `}
         </Script>
+      </head>
+      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         {children}
       </body>
     </html>
