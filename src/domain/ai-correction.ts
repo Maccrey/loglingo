@@ -14,4 +14,16 @@ export interface CorrectionResult {
   issues: CorrectionIssue[];
   rootMeaningGuide?: string;
   fallback?: boolean;
+  levelAssessment?: {
+    level: string;
+    score?: number;
+    confidence?: number;
+    rationale?: string;
+  };
+  advice?: {
+    topic: string;
+    priority: string;
+    message: Record<string, string>;
+    relatedLevel?: string;
+  }[];
 }

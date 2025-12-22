@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { GrokClient } from "@/infrastructure/api/grok";
 import { CorrectionMode, CorrectionResult } from "@/domain/ai-correction";
+import { generateLevelInsights } from "@/application/ai/level-service";
 
 const TIMEOUT_MS = 30000;
 
@@ -364,8 +365,31 @@ export async function POST(req: Request) {
         console.error("Grok response parsing failed.");
         throw new Error("Failed to parse AI response");
       }
-      
-      return NextResponse.json(aiResponse, { status: 200 });
+
+      const { level, advice } = generateLevelInsights({
+        result: aiResponse,
+        uiLocale: locale,
+        targetLanguage,
+        sourceId: body?.sourceId,
+      });
+
+      const enriched: CorrectionResult = {
+        ...aiResponse,
+        levelAssessment: {
+          level: level.level,
+          score: level.score,
+          confidence: level.confidence,
+          rationale: level.rationale,
+        },
+        advice: advice.map((item) => ({
+          topic: item.topic,
+          priority: item.priority,
+          message: item.message,
+          relatedLevel: item.relatedLevel,
+        })),
+      };
+
+      return NextResponse.json(enriched, { status: 200 });
     } catch (error) {
       console.error("AI correction failed:", error);
       // Return actual error to client so they can see "AI Error" and retry

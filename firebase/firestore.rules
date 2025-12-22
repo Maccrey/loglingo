@@ -19,6 +19,14 @@ service cloud.firestore {
       match /stats/{statId} {
         allow read, write: if isOwner(userId);
       }
+
+      match /level/{levelId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /advice/{adviceId} {
+        allow read, write: if isOwner(userId);
+      }
     }
 
     match /diaries/{docId} {

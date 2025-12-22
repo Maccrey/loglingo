@@ -75,6 +75,16 @@
   - **청취 시간 기록**: 언어별(ISO Code) 청취 시간을 자동 추적하여 학습 데이터로 활용
 - **지표**: 일간 라디오 청취 시간 평균 ≥ 15분
 
+### 기능 5. 레벨 추정 + 학습 코칭 대시보드
+
+- **문제**: 학습자가 자신의 실력 수준과 부족한 영역을 직관적으로 파악하기 어렵고, 학습 난이도가 개인 수준에 맞지 않을 수 있음
+- **해결**:
+  - AI 교정 시 오류 패턴을 기반으로 학습어 레벨(예: CEFR A1~C2) 추정 후 `users/{userId}/level` 서브컬렉션에 기록(점수/신뢰도/근거 포함)
+  - 동일한 교정 결과에서 강화해야 할 영역/추천 학습 액션을 `users/{userId}/advice` 서브컬렉션에 저장(타입·우선순위·언어별 메시지)
+  - 학습 아카이브/퀴즈 생성 시 최신 레벨에 맞는 난이도 프롬프트 적용(어휘/문법 복잡도 조절, distractor 난이도 조정)
+  - 학습 대시보드(UI 다국어): 현재 레벨, 추세(최근 7/30일), 우선 학습 조언, 일기 작성/교정/퀴즈 활동량, 나와 평균 비교를 카드/차트로 한눈에 제공
+- **지표**: 교정→레벨 기록률 ≥ 90%, 조언 클릭/완료율 ≥ 40%, 레벨 상승(월간) ≥ 0.3단계
+
 ---
 
 ## 4. 유저 스토리 (Gherkin 포함)
@@ -110,6 +120,25 @@ Scenario: 사용자가 아카이브 문제를 푼다
 ```
 
 ```
+Scenario: 사용자가 사전에서 단어를 저장하고 퀴즈를 푼다
+  Given 사용자가 Dictionary 페이지에 있고 UI 언어/학습 언어를 설정해 두었을 때
+  When 단어를 입력해 AI 사전 생성을 실행하고 "아카이브에 저장"을 누르면
+  Then 결과가 UI 언어로 정리된 Core image·예문과 함께 저장되고 origin이 dictionary로 기록된다
+  And 학습 아카이브에서 dictionary 필터로 확인하며, 생성되는 퀴즈는 의미형 4지선다로만 제공된다
+
+```
+
+```
+Scenario: AI 교정 후 레벨과 학습 조언이 기록된다
+  Given 사용자가 일기에서 AI 교정을 실행했을 때
+  When 교정 결과가 반환되면
+  Then 시스템은 오류 패턴을 분석해 학습어 레벨과 신뢰도를 `users/{uid}/level`에 저장하고
+  And 부족한 영역/학습 액션을 다국어 조언으로 `users/{uid}/advice`에 저장하며
+  And 학습 아카이브와 퀴즈 생성 시 해당 레벨에 맞는 난이도로 프롬프트를 조정한다
+
+```
+
+```
 Scenario: 사용자가 라디오로 영어 듣기 연습을 한다
   Given 사용자가 라디오 페이지 지구본에서 '미국' 지역을 탐색하고
   When 특정 방송국 마커를 클릭하여 10분간 청취하면
@@ -128,6 +157,9 @@ Scenario: 사용자가 라디오로 영어 듣기 연습을 한다
 | 일기 작성 완료율      | ≥ 60%   | 런칭+30일 | diary_created      | diary_created / diary_started      |
 | AI 교정 사용률        | ≥ 70%   | 런칭+30일 | ai_correct_clicked | ai_correct_clicked / diary_created |
 | 학습 문제 풀이 참여율 | ≥ 30%   | 런칭+30일 | quiz_started       | quiz_started / weekly_active_users |
+| 사전→아카이브 전환율 | ≥ 35%   | 런칭+30일 | archive_created(origin=dictionary), dictionary_generate | archive_created(origin=dictionary) / dictionary_generate |
+| 레벨 기록률          | ≥ 90%   | 상시      | level_recorded     | level_recorded / ai_correction_done |
+| 학습 조언 액션률     | ≥ 40%   | 런칭+30일 | advice_clicked     | advice_clicked / advice_shown      |
 | D1 재방문             | ≥ 35%   | 상시      | app_open           | users active on day1 / new users   |
 | D7 재방문             | ≥ 22%   | 상시      | app_open           | users active day7 / new users      |
 | LCP p75(모바일)       | ≤ 2.5s  | 상시      | RUM                | p75(LCP)                           |
@@ -158,6 +190,7 @@ Scenario: 사용자가 라디오로 영어 듣기 연습을 한다
 - 모바일 퍼스트 반응형(375px~)으로 레이아웃 설계, 폰트/간격/터치 타깃 최적화
 - Flutter WebView 임베드 시 깨짐/스크롤 이슈 방지를 위한 안전 영역·뷰포트·제스처 호환성 유지
 - 색상 토큰화로 학습/일기 주요 정보의 시각적 우선순위 확보
+- 학습 대시보드: 레벨 카드(현재/추세), 우선 조언 리스트, 활동량 차트(일기/교정/퀴즈), 나와 평균 비교를 한눈에 표시
 
 ### 브라우저
 
@@ -256,15 +289,21 @@ User ───< LearningArchive ───< QuizQuestions
 
 ### 4. learning_archive
 
-| 필드        | TypeScript | Firestore | 제약   | 인덱스      | 설명        |
-| ----------- | ---------- | --------- | ------ | ----------- | ----------- |
-| id          | string     | string    | PK     | PK          | 아카이브 ID |
-| userId      | string     | string    | FK     | idx_user    | 사용자      |
-| type        | "grammar"  | "word"    | string | -           | idx_type    |
-| title       | string     | string    | -      | -           | 항목 이름   |
-| examples    | string[]   | array     | -      | -           | 예문        |
-| rootMeaning | string     | string    | -      | -           | 뿌리 의미   |
-| createdAt   | Date       | timestamp | -      | idx_created | 생성        |
+| 필드              | TypeScript                                 | Firestore  | 제약   | 인덱스       | 설명                             |
+| ----------------- | ------------------------------------------ | ---------- | ------ | ------------ | -------------------------------- |
+| id                | string                                     | string     | PK     | PK           | 아카이브 ID                      |
+| userId            | string                                     | string     | FK     | idx_user     | 사용자                           |
+| type              | "grammar" \| "word"                        | string     | -      | idx_type     | 항목 종류                        |
+| title             | string                                     | string     | -      | -            | 항목 이름                         |
+| examples          | string[]                                   | array      | -      | -            | 예문(사전 예문+힌트 포함)        |
+| rootMeaning       | string                                     | string     | -      | -            | 뿌리 의미                         |
+| levelTag          | string \| undefined                        | string     | -      | idx_level    | 생성 시점의 레벨(예: B1)          |
+| sourceId          | string \| undefined                        | string     | -      | idx_source   | 연계 원본 ID(일기/사전 엔트리 등) |
+| sourceText        | string \| undefined                        | string     | -      | -            | 원문/사전 전체 텍스트            |
+| origin            | "diary" \| "dictionary" \| "manual" \| "unknown" | string | - | idx_origin   | 저장 출처                        |
+| quizCorrectCount  | number                                     | number     | -      | idx_quiz_cnt | 퀴즈 정답 누적                   |
+| lastQuizAnsweredAt| Date \| undefined                          | timestamp  | -      | -            | 마지막 퀴즈 풀이 시각            |
+| createdAt         | Date                                       | timestamp  | -      | idx_created  | 생성                             |
 
 ---
 
@@ -278,6 +317,7 @@ User ───< LearningArchive ───< QuizQuestions
 | options      | string[]   | array     | -    | -            | 4개 보기           |
 | correctIndex | number     | number    | -    | -            | 정답 인덱스 (0~3)  |
 | explanation  | string     | string    | -    | -            | 해설 (모국어)      |
+| quizType     | "grammar" \| "word" | string | - | idx_quiz_type | 퀴즈 유형(문법/어휘, 의미/스펠링 구분용) |
 | createdAt    | Date       | timestamp | -    | idx_created  | AI 생성 시각       |
 
 **특징**:
@@ -330,6 +370,43 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
+### 9. level (신규)
+
+**Path**: `users/{userId}/level/{levelId}` (교정 이벤트별 기록)
+
+| 필드          | TypeScript | Firestore  | 제약   | 인덱스       | 설명                             |
+| ------------- | ---------- | ---------- | ------ | ------------ | -------------------------------- |
+| id            | string     | string     | PK     | PK           | 레벨 기록 ID                     |
+| level         | string     | string     | -      | idx_level    | 예: CEFR A1~C2 또는 내부 점수    |
+| score         | number     | number     | -      | idx_score    | 정량 점수(0~1 또는 0~100)        |
+| confidence    | number     | number     | -      | -            | 추정 신뢰도(0~1)                 |
+| sourceType    | string     | string     | -      | idx_source   | ai_correction/quiz/diary_manual  |
+| sourceId      | string     | string     | -      | -            | 근거가 된 리소스 ID              |
+| language      | string     | string     | -      | idx_lang     | 학습 언어 코드                   |
+| rationale     | string     | string     | -      | -            | 레벨 판단 근거 요약              |
+| createdAt     | Date       | timestamp  | -      | idx_created  | 기록 시각                        |
+
+---
+
+### 10. advice (신규)
+
+**Path**: `users/{userId}/advice/{adviceId}`
+
+| 필드        | TypeScript | Firestore | 제약   | 인덱스       | 설명                                        |
+| ----------- | ---------- | --------- | ------ | ------------ | ------------------------------------------- |
+| id          | string     | string    | PK     | PK           | 조언 ID                                     |
+| topic       | string     | string    | -      | idx_topic    | grammar/vocab/pronunciation/fluency 등      |
+| priority    | "high"\|"medium"\|"low" | string | - | idx_priority | 중요도                                     |
+| message     | map<string,string> | map | - | - | 다국어 메시지(UI 언어별 번역)               |
+| actions     | string[]   | array     | -      | -            | 실행 가능한 학습 액션 리스트               |
+| relatedLevel| string     | string    | -      | idx_level    | 해당 레벨(예: B1)                           |
+| sourceId    | string     | string    | -      | -            | 근거 교정/아카이브/퀴즈 ID                  |
+| completed   | boolean    | boolean   | -      | idx_completed| 완료 여부                                   |
+| createdAt   | Date       | timestamp | -      | idx_created  | 생성 시각                                   |
+| updatedAt   | Date       | timestamp | -      | -            | 업데이트 시각                               |
+
+---
+
 ### 캐싱 전략
 
 - User profile: Cloudflare Edge TTL 300s
@@ -374,4 +451,3 @@ User ───< LearningArchive ───< QuizQuestions
 - [완료] 이메일/패스워드 인증 시스템
 - [완료] 일기 삭제 시 퀴즈 cascade delete
 - [완료] UI/UX 대폭 개선 (파비콘, 일기 페이지 사이드바 등)
-

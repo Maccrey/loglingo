@@ -30,6 +30,7 @@ import { useArchiveMutations } from "@/application/archive/hooks";
 import { getCurrentUserId } from "@/lib/current-user";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 import { auth } from "@/lib/firebase";
+import { persistInsightsFromCorrection } from "@/application/learning-profile/service";
 
 import { LearningArchiveDraft } from "@/domain/archive";
 
@@ -200,6 +201,16 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       });
       setAiResult(result);
       trackEvent("ai_correct_success");
+
+      // AI 교정 결과 기반 학습 레벨/조언 저장 (실패해도 주요 플로우 영향 없음)
+      persistInsightsFromCorrection(result, {
+        userId,
+        uiLocale: locale,
+        targetLanguage: learningLanguage || locale,
+        sourceId: initial?.id,
+      }).catch((err) => {
+        console.error("Persist insights failed", err);
+      });
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
       trackEvent("ai_correct_failure", { message });
