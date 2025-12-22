@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useLocale, useTranslations } from "next-intl";
-import { useArchiveList, useQuiz, useArchiveProgressMutation } from "@/application/archive/hooks";
+import { useArchiveList, useQuiz, useArchiveProgressMutation, useArchiveDeleteMutation } from "@/application/archive/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
 import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application/learning-profile/hooks";
 import { useDiaryList } from "@/application/diary/hooks";
@@ -27,11 +27,13 @@ import { cn } from "@/lib/utils";
 function ArchiveListCard({
   item,
   onSelect,
+  onDelete,
   t,
   locale
 }: {
   item: LearningArchive;
   onSelect: () => void;
+  onDelete: (id: string) => void;
   t: (key: string, values?: Record<string, any>) => string;
   locale: string;
 }) {
@@ -61,7 +63,18 @@ function ArchiveListCard({
   );
 
   return (
-    <div className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition">
+    <div className="relative rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition">
+      <button
+        type="button"
+        aria-label={t("delete") ?? "Delete"}
+        className="absolute right-2 top-2 text-xs text-muted-foreground hover:text-destructive transition"
+        onClick={(e) => {
+          e.stopPropagation();
+          onDelete(item.id);
+        }}
+      >
+        ×
+      </button>
       <div 
         className="cursor-pointer"
         onClick={onSelect}
@@ -150,6 +163,8 @@ export default function ArchivePage() {
   const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
   const adviceMutation = useAdviceComplete(userId);
   const { data: aggregate } = useLearningAggregate(canLoad);
+  const deleteMutation = useArchiveDeleteMutation(userId);
+  const [archiveToDelete, setArchiveToDelete] = useState<LearningArchive | null>(null);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
@@ -311,6 +326,40 @@ export default function ArchivePage() {
   return (
     <AuthGate>
       <div className="space-y-6">
+        {/* 삭제 확인 모달 */}
+        {archiveToDelete && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+            <div className="w-full max-w-md rounded-lg border border-white/10 bg-black/80 p-4 space-y-4">
+              <h3 className="text-lg font-semibold text-foreground">정말 삭제할까요?</h3>
+              <p className="text-sm text-muted-foreground">
+                선택한 학습 아카이브와 연결된 퀵퀴즈도 함께 삭제됩니다.
+              </p>
+              <div className="flex justify-end gap-2">
+                <Button variant="secondary" onClick={() => setArchiveToDelete(null)}>
+                  취소
+                </Button>
+                <Button
+                  variant="primary"
+                  className="bg-amber-500 hover:bg-amber-600 text-black"
+                  disabled={deleteMutation.isPending}
+                  onClick={async () => {
+                    if (!archiveToDelete) return;
+                    try {
+                      await deleteMutation.mutateAsync({ archiveId: archiveToDelete.id });
+                      setArchiveToDelete(null);
+                    } catch (err) {
+                      console.error("Archive delete failed", err);
+                      toast.error(tCommon("error"));
+                    }
+                  }}
+                >
+                  {deleteMutation.isPending ? "삭제 중..." : "삭제"}
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
