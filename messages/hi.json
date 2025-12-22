@@ -179,7 +179,8 @@
     "advice_topic_grammar": "व्याकरण",
     "advice_topic_word": "शब्दावली",
     "advice_topic_style": "शैली",
-    "advice_topic_other": "अन्य"
+    "advice_topic_other": "अन्य",
+    "level_help": "स्तर AI सुधार/क्विज़ से CEFR (A1~C2) के आधार पर अनुमानित हैं।"
   },
   "settings": {
     "title": "सेटिंग्स",

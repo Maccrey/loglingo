@@ -180,7 +180,8 @@
     "advice_topic_grammar": "Грамматика",
     "advice_topic_word": "Лексика",
     "advice_topic_style": "Стиль",
-    "advice_topic_other": "Другое"
+    "advice_topic_other": "Другое",
+    "level_help": "Уровни оцениваются по ИИ-коррекциям/викторинам по CEFR (A1~C2)."
   },
   "settings": {
     "title": "Настройки",

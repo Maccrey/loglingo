@@ -177,7 +177,8 @@
     "advice_topic_grammar": "Grammatik",
     "advice_topic_word": "Wortschatz",
     "advice_topic_style": "Stil",
-    "advice_topic_other": "Sonstiges"
+    "advice_topic_other": "Sonstiges",
+    "level_help": "Level basieren auf KI-Korrekturen/Quizzes nach CEFR (A1~C2)."
   },
   "settings": {
     "title": "Einstellungen",

@@ -178,7 +178,8 @@
     "advice_topic_grammar": "Grammaire",
     "advice_topic_word": "Vocabulaire",
     "advice_topic_style": "Style",
-    "advice_topic_other": "Autre"
+    "advice_topic_other": "Autre",
+    "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2)."
   },
   "settings": {
     "title": "Paramètres",

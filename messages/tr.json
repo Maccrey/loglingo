@@ -180,7 +180,8 @@
     "advice_topic_grammar": "Dilbilgisi",
     "advice_topic_word": "Kelime",
     "advice_topic_style": "Üslup",
-    "advice_topic_other": "Diğer"
+    "advice_topic_other": "Diğer",
+    "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir."
   },
   "settings": {
     "title": "Ayarlar",

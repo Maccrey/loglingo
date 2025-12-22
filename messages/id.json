@@ -180,7 +180,8 @@
     "advice_topic_grammar": "Tata bahasa",
     "advice_topic_word": "Kosakata",
     "advice_topic_style": "Gaya",
-    "advice_topic_other": "Lainnya"
+    "advice_topic_other": "Lainnya",
+    "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2)."
   },
   "settings": {
     "title": "Pengaturan",

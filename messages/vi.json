@@ -179,7 +179,8 @@
     "advice_topic_grammar": "Ngữ pháp",
     "advice_topic_word": "Từ vựng",
     "advice_topic_style": "Phong cách",
-    "advice_topic_other": "Khác"
+    "advice_topic_other": "Khác",
+    "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2)."
   },
   "settings": {
     "title": "Cài đặt",

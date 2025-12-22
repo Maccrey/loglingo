@@ -179,7 +179,8 @@
     "advice_topic_grammar": "ไวยากรณ์",
     "advice_topic_word": "คำศัพท์",
     "advice_topic_style": "สไตล์",
-    "advice_topic_other": "อื่น ๆ"
+    "advice_topic_other": "อื่น ๆ",
+    "level_help": "ระดับถูกประมาณจากการแก้ไข/แบบทดสอบของ AI ตาม CEFR (A1~C2)."
   },
   "settings": {
     "title": "ตั้งค่า",

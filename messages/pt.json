@@ -179,7 +179,8 @@
     "advice_topic_grammar": "Gramática",
     "advice_topic_word": "Vocabulário",
     "advice_topic_style": "Estilo",
-    "advice_topic_other": "Outros"
+    "advice_topic_other": "Outros",
+    "level_help": "Os níveis são estimados a partir de correções/quiz de IA usando CEFR (A1~C2)."
   },
   "settings": {
     "title": "Configurações",
