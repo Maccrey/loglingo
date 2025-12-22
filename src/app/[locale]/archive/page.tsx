@@ -113,7 +113,6 @@ export default function ArchivePage() {
   const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
   const adviceMutation = useAdviceComplete(userId);
   const { data: aggregate } = useLearningAggregate(canLoad);
-  const hideLevelHelpLater = useRef<NodeJS.Timeout | null>(null);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
