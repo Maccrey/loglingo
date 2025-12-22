@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
 import { Button } from "@/components/ui/Button";
@@ -36,6 +36,16 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const [result, setResult] = useState<DictionaryResult | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Load Kakao AdFit script once for ad slots inside the modal
+  useEffect(() => {
+    const src = "//t1.daumcdn.net/kas/static/ba.min.js";
+    if (!document.querySelector(`script[src="${src}"]`)) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   const handleSearch = async () => {
     if (!word.trim()) return;
@@ -204,6 +214,28 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
             {t("close")}
           </Button>
         )}
+
+        {/* AdFit: PC (728x90) and Mobile (320x50) below actions */}
+        <div className="mt-6 space-y-3">
+          <div className="hidden md:flex justify-center">
+            <ins
+              className="kakao_ad_area"
+              style={{ display: "none" }}
+              data-ad-unit="DAN-N9E0RALXboMSWzyU"
+              data-ad-width="728"
+              data-ad-height="90"
+            />
+          </div>
+          <div className="md:hidden flex justify-center">
+            <ins
+              className="kakao_ad_area"
+              style={{ display: "none" }}
+              data-ad-unit="DAN-RHDzamdpNVf9m8sm"
+              data-ad-width="320"
+              data-ad-height="50"
+            />
+          </div>
+        </div>
       </Card>
     </div>
   );
