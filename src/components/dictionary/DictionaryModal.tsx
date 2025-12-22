@@ -47,17 +47,23 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // Load Kakao AdFit script once and request fill when modal opens
+  // When modal opens, bump ad key to remount ins
+  useEffect(() => {
+    if (isOpen) {
+      setAdRefreshKey((k) => k + 1);
+    }
+  }, [isOpen]);
+
+  // Load script and request ad fill when key or viewport changes (while open)
   useEffect(() => {
     if (!isOpen) return;
-    setAdRefreshKey((k) => k + 1);
-
     const src = "//t1.daumcdn.net/kas/static/ba.min.js";
     const ensureScript = () =>
       new Promise<void>((resolve) => {
         const existing = document.querySelector<HTMLScriptElement>(`script[src="${src}"]`);
         if (existing) {
+          if (existing.dataset.loaded === "true") return resolve();
           existing.addEventListener("load", () => resolve(), { once: true });
-          if (existing.dataset.loaded === "true") resolve();
           return;
         }
         const script = document.createElement("script");
@@ -69,11 +75,12 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
       });
 
     ensureScript().then(() => {
-      // Request ad rendering
-      (window as any).kakaoAsyncAdFit = (window as any).kakaoAsyncAdFit || [];
-      (window as any).kakaoAsyncAdFit.push({});
+      requestAnimationFrame(() => {
+        (window as any).kakaoAsyncAdFit = (window as any).kakaoAsyncAdFit || [];
+        (window as any).kakaoAsyncAdFit.push({});
+      });
     });
-  }, [isOpen, isDesktop]);
+  }, [isOpen, isDesktop, adRefreshKey]);
 
   const handleSearch = async () => {
     if (!word.trim()) return;
