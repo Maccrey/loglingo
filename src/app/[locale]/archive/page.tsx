@@ -204,6 +204,22 @@ export default function ArchivePage() {
   };
 
   const [showLevelHelp, setShowLevelHelp] = useState(false);
+  const hideLevelHelpLater = useRef<NodeJS.Timeout | null>(null);
+
+  const handleLevelHelpEnter = () => {
+    if (hideLevelHelpLater.current) {
+      clearTimeout(hideLevelHelpLater.current);
+      hideLevelHelpLater.current = null;
+    }
+    setShowLevelHelp(true);
+  };
+
+  const handleLevelHelpLeave = () => {
+    if (hideLevelHelpLater.current) {
+      clearTimeout(hideLevelHelpLater.current);
+    }
+    hideLevelHelpLater.current = setTimeout(() => setShowLevelHelp(false), 1200);
+  };
 
   return (
     <AuthGate>
@@ -251,18 +267,15 @@ export default function ArchivePage() {
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
                 <div className="flex items-center gap-1.5">
                   <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
-                  <div className="relative inline-flex items-center justify-center">
+                  <div
+                    className="relative inline-flex items-center justify-center"
+                    onMouseEnter={handleLevelHelpEnter}
+                    onMouseLeave={handleLevelHelpLeave}
+                  >
                     <button
                       type="button"
                       className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition"
                       aria-label={t("level_help")}
-                      onMouseEnter={() => {
-                        if (hideLevelHelpLater.current) clearTimeout(hideLevelHelpLater.current);
-                        setShowLevelHelp(true);
-                      }}
-                      onMouseLeave={() => {
-                        hideLevelHelpLater.current = setTimeout(() => setShowLevelHelp(false), 400);
-                      }}
                       onFocus={() => setShowLevelHelp(true)}
                       onBlur={() => setShowLevelHelp(false)}
                       onClick={() => setShowLevelHelp((prev) => !prev)}
