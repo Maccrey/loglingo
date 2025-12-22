@@ -4,7 +4,8 @@
     "cancel": "Cancel",
     "loading": "Loading...",
     "error": "An error occurred",
-    "success": "Success"
+    "success": "Success",
+    "delete": "Delete"
   },
   "nav": {
     "home": "Home",
