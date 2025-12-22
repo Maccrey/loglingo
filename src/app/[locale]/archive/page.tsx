@@ -347,7 +347,16 @@ export default function ArchivePage() {
                   onClick={async () => {
                     if (!archiveToDelete) return;
                     try {
-                      await deleteMutation.mutateAsync({ archiveId: archiveToDelete.id });
+                      if (deleteMutation.mutateAsync) {
+                        await deleteMutation.mutateAsync({ archiveId: archiveToDelete.id });
+                      } else {
+                        await new Promise<void>((resolve, reject) => {
+                          deleteMutation.mutate(
+                            { archiveId: archiveToDelete.id },
+                            { onSuccess: () => resolve(), onError: (err) => reject(err) }
+                          );
+                        });
+                      }
                       setArchiveToDelete(null);
                     } catch (err) {
                       console.error("Archive delete failed", err);
