@@ -1,5 +1,60 @@
 import { CorrectionResult } from "@/domain/ai-correction";
 import { AdviceItem, AdvicePriority, LevelBand, LevelRecord } from "@/domain/learning-profile";
+import enMessages from "../../../messages/en.json";
+import koMessages from "../../../messages/ko.json";
+import jaMessages from "../../../messages/ja.json";
+import zhMessages from "../../../messages/zh.json";
+import esMessages from "../../../messages/es.json";
+import frMessages from "../../../messages/fr.json";
+import deMessages from "../../../messages/de.json";
+import ptMessages from "../../../messages/pt.json";
+import trMessages from "../../../messages/tr.json";
+import viMessages from "../../../messages/vi.json";
+import idMessages from "../../../messages/id.json";
+import thMessages from "../../../messages/th.json";
+import hiMessages from "../../../messages/hi.json";
+import arMessages from "../../../messages/ar.json";
+
+type AdviceStrings = {
+  template: string;
+  topics: Record<string, string>;
+};
+
+function pickAdviceStrings(data: any): AdviceStrings {
+  const archive = data?.archive ?? {};
+  return {
+    template: archive.advice_issue_template ?? "{topic}: {count}",
+    topics: {
+      grammar: archive.advice_topic_grammar ?? "grammar",
+      word: archive.advice_topic_word ?? "word",
+      style: archive.advice_topic_style ?? "style",
+      other: archive.advice_topic_other ?? "other",
+    },
+  };
+}
+
+const ADVICE_I18N: Record<string, AdviceStrings> = {
+  en: pickAdviceStrings(enMessages),
+  ko: pickAdviceStrings(koMessages),
+  ja: pickAdviceStrings(jaMessages),
+  zh: pickAdviceStrings(zhMessages),
+  es: pickAdviceStrings(esMessages),
+  fr: pickAdviceStrings(frMessages),
+  de: pickAdviceStrings(deMessages),
+  pt: pickAdviceStrings(ptMessages),
+  tr: pickAdviceStrings(trMessages),
+  vi: pickAdviceStrings(viMessages),
+  id: pickAdviceStrings(idMessages),
+  th: pickAdviceStrings(thMessages),
+  hi: pickAdviceStrings(hiMessages),
+  ar: pickAdviceStrings(arMessages),
+};
+
+function formatAdvice(locale: string, topic: string, count: number): string {
+  const strings = ADVICE_I18N[locale] ?? ADVICE_I18N.en;
+  const label = strings.topics[topic] ?? topic;
+  return strings.template.replace("{topic}", label).replace("{count}", String(count));
+}
 
 function pickLevel(errorRate: number, issueTypes: Set<string>): LevelBand {
   if (errorRate <= 0.03) return "C1";
@@ -28,10 +83,10 @@ function summarizeIssues(issues: CorrectionResult["issues"]) {
   return counts;
 }
 
-function buildAdviceMessages(topic: string, uiLocale: string, detail: string) {
-  // Minimal localized payload; UI 측에서 i18n 키와 함께 보강 예정
-  const message = `${topic}: ${detail}`;
-  return { [uiLocale]: message, en: message };
+export function buildAdviceMessages(topic: string, uiLocale: string, count: number) {
+  const messageUi = formatAdvice(uiLocale, topic, count);
+  const messageEn = formatAdvice("en", topic, count);
+  return { [uiLocale]: messageUi, en: messageEn };
 }
 
 export function generateLevelInsights(params: {
@@ -65,12 +120,12 @@ export function generateLevelInsights(params: {
   const advice: Omit<AdviceItem, "id" | "createdAt" | "updatedAt">[] = Object.entries(issueSummary).map(
     ([topic, count]) => {
       const priority: AdvicePriority = count >= 3 ? "high" : count === 2 ? "medium" : "low";
-      const detail = `Focus on ${topic} issues detected ${count} time(s).`;
+      const normalizedCount = typeof count === "number" && !Number.isNaN(count) ? count : 1;
       return {
         topic,
         priority,
-        message: buildAdviceMessages(topic, uiLocale, detail),
-        count,
+        message: buildAdviceMessages(topic, uiLocale, normalizedCount),
+        count: normalizedCount,
         actions: [],
         relatedLevel: level,
         sourceId,

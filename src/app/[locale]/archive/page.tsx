@@ -459,17 +459,16 @@ export default function ArchivePage() {
                         const topicLabel =
                           (topicKey && (t as any)?.format ? t(topicKey) : t(topicKey, { defaultMessage: item.topic })) ||
                           item.topic;
+                        const count = typeof item.count === "number" ? item.count : 1;
                         const message =
-                          (item.count
-                            ? t("advice_issue_template", { topic: topicLabel, count: item.count })
-                            : null) ||
+                          t("advice_issue_template", { topic: topicLabel, count }) ||
                           item.message?.[locale] ||
                           item.message?.en ||
                           t("advice_empty");
                         return (
                           <>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold text-foreground">{item.topic}</p>
+                              <p className="text-sm font-semibold text-foreground">{topicLabel}</p>
                               <p className="text-xs text-muted-foreground">{message}</p>
                               <p className="text-[11px] text-muted-foreground/70 mt-1">
                                 {t(`priority_${priority}`)}

@@ -23,6 +23,10 @@ const remotePatterns: RemotePattern[] = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig: import("next").NextConfig = {
+  turbopack: {
+    // Force workspace root to avoid picking up sibling lockfiles (e.g. /Users/maccrey/package-lock.json)
+    root: __dirname,
+  },
   images: {
     remotePatterns,
   },

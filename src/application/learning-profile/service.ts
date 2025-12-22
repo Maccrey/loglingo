@@ -4,7 +4,7 @@ import {
   addAdviceItem,
   addLevelRecord,
 } from "@/infrastructure/firebase/learning-profile-repository";
-import { generateLevelInsights } from "../ai/level-service";
+import { generateLevelInsights, buildAdviceMessages } from "../ai/level-service";
 import { trackEvent } from "@/lib/analytics";
 
 type PersistOptions = {
@@ -30,7 +30,7 @@ function normalizeLevel(result: CorrectionResult, opts: PersistOptions) {
         result.advice?.map((item) => ({
           topic: item.topic,
           priority: (item.priority as any) ?? "medium",
-          message: item.message ?? { [opts.uiLocale]: item.topic },
+          message: normalizeAdviceMessage(item.message, item.topic, item.count, opts.uiLocale),
           actions: [],
           relatedLevel: item.relatedLevel,
           sourceId: opts.sourceId,
@@ -45,6 +45,21 @@ function normalizeLevel(result: CorrectionResult, opts: PersistOptions) {
     targetLanguage: opts.targetLanguage,
     sourceId: opts.sourceId,
   });
+}
+
+function normalizeAdviceMessage(
+  message: Record<string, string> | undefined,
+  topic: string,
+  count: number | undefined,
+  uiLocale: string
+) {
+  const fallback = buildAdviceMessages(topic, uiLocale, count ?? 1);
+  if (!message) return fallback;
+
+  const merged = { ...fallback, ...message };
+  if (!merged[uiLocale]) merged[uiLocale] = fallback[uiLocale];
+  if (!merged.en) merged.en = fallback.en;
+  return merged;
 }
 
 export async function persistInsightsFromCorrection(result: CorrectionResult, opts: PersistOptions) {
