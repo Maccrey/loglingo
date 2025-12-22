@@ -245,11 +245,17 @@ export default function ArchivePage() {
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
-                  <div className="group relative">
-                    <Info className="h-3.5 w-3.5 text-primary/80" />
-                    <div className="absolute left-0 top-5 z-10 hidden w-56 rounded-md border border-white/10 bg-black/80 p-2 text-[11px] text-white/90 shadow-lg group-hover:block">
+                  <div className="group relative inline-flex items-center justify-center">
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition"
+                      aria-label={t("level_help")}
+                    >
+                      <Info className="h-3 w-3" />
+                    </button>
+                    <div className="absolute left-0 top-5 z-10 hidden w-64 rounded-md border border-white/10 bg-black/85 p-2 text-[11px] text-white/90 shadow-lg group-hover:block">
                       {t("level_help")}
                     </div>
                   </div>
