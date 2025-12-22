@@ -94,33 +94,27 @@ export async function deleteQuizzesByArchiveIds(archiveIds: string[], userId?: s
   }
 
   try {
-    // Firestore 'in' operator supports up to 10 elements
-    // If we have more, we need to batch the queries
-    const batchSize = 10;
     let totalDeleted = 0;
-
-    for (let i = 0; i < archiveIds.length; i += batchSize) {
-      const batch = archiveIds.slice(i, i + batchSize);
-      const filters = [where("archiveId", "in", batch)];
+    // Use equality query per archiveId to avoid permission/index issues with "in"
+    for (const archiveId of archiveIds) {
+      const filters = [where("archiveId", "==", archiveId)];
       if (userId) {
         filters.push(where("userId", "==", userId));
       }
       const q = query(quizzesCollection, ...filters);
       const snapshot = await getDocs(q);
-      
-      console.log(`📊 Quiz Repository: Found ${snapshot.size} quizzes to delete in batch`);
-      
-      // Delete all matching documents
-      const deletePromises = snapshot.docs.map(docSnapshot => 
-        import('firebase/firestore').then(({ deleteDoc, doc }) => 
-          deleteDoc(doc(db, "quizzes", docSnapshot.id))
-        )
-      );
-      
-      await Promise.all(deletePromises);
-      totalDeleted += snapshot.size;
+
+      if (!snapshot.empty) {
+        const deletePromises = snapshot.docs.map((docSnapshot) =>
+          import("firebase/firestore").then(({ deleteDoc, doc }) =>
+            deleteDoc(doc(db, "quizzes", docSnapshot.id))
+          )
+        );
+        await Promise.all(deletePromises);
+        totalDeleted += snapshot.size;
+      }
     }
-    
+
     console.log(`✅ Quiz Repository: Deleted ${totalDeleted} quizzes`);
     return totalDeleted;
   } catch (error) {
