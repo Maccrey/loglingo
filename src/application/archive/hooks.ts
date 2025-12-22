@@ -42,11 +42,11 @@ export function useArchiveProgressMutation(userId: string) {
 
 export function useArchiveDeleteMutation(userId: string) {
   const client = useQueryClient();
-  const mutate = useMutation({
+  const mutation = useMutation({
     mutationFn: (args: { archiveId: string }) => deleteArchiveWithQuizzes(userId, args.archiveId),
     onSuccess: () => client.invalidateQueries({ queryKey: ["archives", userId] }),
   });
-  return { mutate };
+  return mutation;
 }
 
 export function useQuiz(
