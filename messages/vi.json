@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "Quay lại danh sách"
+    "back": "Quay lại danh sách",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "Nhật ký mới",
@@ -181,7 +182,12 @@
     "advice_topic_style": "Phong cách",
     "advice_topic_other": "Khác",
     "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2).",
-    "dictionary": "Từ điển AI"
+    "dictionary": "Từ điển AI",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint",
+    "level_status_high": "High level! Keep it up.",
+    "level_status_mid": "Steady progress. A bit more practice to level up.",
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review."
   },
   "settings": {
     "title": "Cài đặt",
@@ -235,4 +241,4 @@
     "examples": "Ví dụ",
     "error": "Tạo từ điển thất bại"
   }
-}\n
+}

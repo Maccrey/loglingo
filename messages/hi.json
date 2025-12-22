@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "सूची में वापस"
+    "back": "सूची में वापस",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "नई डायरी",
@@ -184,7 +185,9 @@
     "level_status_high": "बहुत बढ़िया! आप ऊपरी स्तर पर हैं।",
     "level_status_mid": "अच्छी प्रगति। थोड़ी और मेहनत से स्तर बढ़ेगा।",
     "level_status_low": "बुनियाद मजबूत करें। आसान क्विज़ और पुनरावृत्ति बढ़ाएँ।",
-    "dictionary": "AI शब्दकोश"
+    "dictionary": "AI शब्दकोश",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -238,4 +241,4 @@
     "examples": "उदाहरण",
     "error": "शब्दकोश उत्पन्न करने में विफल"
   }
-}\n
+}

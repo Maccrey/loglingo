@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "Voltar à lista"
+    "back": "Voltar à lista",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "Novo diário",
@@ -184,7 +185,9 @@
     "level_status_high": "Ótimo! Você está no nível superior.",
     "level_status_mid": "Bom progresso. Mais prática vai elevar seu nível.",
     "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais.",
-    "dictionary": "Dicionário IA"
+    "dictionary": "Dicionário IA",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint"
   },
   "settings": {
     "title": "Configurações",
@@ -238,4 +241,4 @@
     "examples": "Exemplos",
     "error": "Falha ao gerar dicionário"
   }
-}\n
+}

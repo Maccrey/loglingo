@@ -151,6 +151,8 @@
     "quiz_empty": "練習する項目を選んでください",
     "quiz_correct": "正解！",
     "quiz_wrong": "もう一度",
+    "show_hint": "ヒントを表示",
+    "hide_hint": "ヒントを隠す",
     "all": "すべて",
     "title_required": "タイトルは必須です",
     "save_error": "アーカイブの保存に失敗しました",
@@ -162,6 +164,10 @@
     "level_trend_up": "+{value}点 上昇",
     "level_trend_down": "-{value}点 下降",
     "level_unknown": "レベルなし",
+    "level_status_high": "上位レベル！この調子で進めましょう。",
+    "level_status_mid": "安定した進歩中。あと少し練習するとワンランクアップできます。",
+    "level_status_low": "基礎固めの段階です。簡単なクイズと復習から始めましょう。",
+    "level_help": "AIの添削/クイズ結果を基にCEFR(A1~C2)を推定しています。",
     "activities_title": "学習アクティビティ",
     "activity_diaries": "直近7日の日記",
     "activity_archives": "保存したアーカイブ",
@@ -235,4 +241,4 @@
     "examples": "例文",
     "error": "辞書生成失敗"
   }
-}\n
+}

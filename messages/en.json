@@ -93,7 +93,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "clear_date_filter": "Clear Date"
+    "clear_date_filter": "Clear Date",
+    "back": "Back"
   },
   "write": {
     "title": "New Entry",
@@ -233,6 +234,9 @@
     "error": "An error occurred",
     "meta_title": "Global Radio - Listen to Radio Stations Worldwide | Loglingo",
     "meta_description": "Discover and listen to radio stations from around the world. Perfect for language learning with stations in Korean, Japanese, English, Spanish, French, German and more. Free internet radio with 3D globe interface.",
-    "loading": "Loading station..."
+    "loading": "Loading station...",
+    "login_button": "Login",
+    "login_required_desc": "Login to save favorites and listen.",
+    "login_required_title": "Login required"
   }
 }

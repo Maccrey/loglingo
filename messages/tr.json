@@ -182,7 +182,12 @@
     "advice_topic_style": "Üslup",
     "advice_topic_other": "Diğer",
     "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir.",
-    "dictionary": "AI Sözlük"
+    "dictionary": "AI Sözlük",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint",
+    "level_status_high": "High level! Keep it up.",
+    "level_status_mid": "Steady progress. A bit more practice to level up.",
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review."
   },
   "settings": {
     "title": "Ayarlar",
@@ -236,4 +241,4 @@
     "examples": "Örnekler",
     "error": "Sözlük oluşturma başarısız"
   }
-}\n
+}

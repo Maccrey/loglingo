@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "กลับไปที่รายการ"
+    "back": "กลับไปที่รายการ",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",
@@ -184,7 +185,9 @@
     "level_status_high": "ยอดเยี่ยม! คุณอยู่ในระดับสูง",
     "level_status_mid": "ก้าวหน้าได้ดี ฝึกอีกนิดจะเลื่อนระดับ",
     "level_status_low": "เสริมพื้นฐาน ใช้แบบทดสอบง่ายและทบทวนบ่อย",
-    "dictionary": "พจนานุกรม AI"
+    "dictionary": "พจนานุกรม AI",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint"
   },
   "settings": {
     "title": "ตั้งค่า",
@@ -238,4 +241,4 @@
     "examples": "ตัวอย่าง",
     "error": "การสร้างพจนานุกรมล้มเหลว"
   }
-}\n
+}

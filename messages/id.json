@@ -185,7 +185,9 @@
     "level_status_high": "Keren! Kamu di level atas.",
     "level_status_mid": "Progres bagus. Sedikit latihan lagi akan naik level.",
     "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review.",
-    "dictionary": "Kamus AI"
+    "dictionary": "Kamus AI",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint"
   },
   "settings": {
     "title": "Pengaturan",
@@ -239,4 +241,4 @@
     "examples": "Contoh",
     "error": "Gagal membuat kamus"
   }
-}\n
+}

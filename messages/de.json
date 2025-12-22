@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "Zurück zur Liste"
+    "back": "Zurück zur Liste",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "Neuer Eintrag",
@@ -182,7 +183,11 @@
     "level_status_high": "Super! Du bist in der oberen Stufe.",
     "level_status_mid": "Gute Fortschritte. Etwas mehr Übung hebt dein Level.",
     "level_status_low": "Grundlagen stärken. Nutze leichtere Quiz und Wiederholungen.",
-    "dictionary": "AI-Wörterbuch"
+    "dictionary": "AI-Wörterbuch",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}"
   },
   "settings": {
     "title": "Einstellungen",
@@ -236,4 +241,4 @@
     "examples": "Beispiele",
     "error": "Wörterbuch-Generierung fehlgeschlagen"
   }
-}\n
+}

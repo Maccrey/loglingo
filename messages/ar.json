@@ -95,7 +95,8 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
-    "back": "العودة إلى القائمة"
+    "back": "العودة إلى القائمة",
+    "clear_date_filter": "Clear date"
   },
   "write": {
     "title": "إدخال جديد",
@@ -161,6 +162,10 @@
     "level_trend_up": "+{value} نقاط مقارنة بالسابق",
     "level_trend_down": "-{value} نقاط مقارنة بالسابق",
     "level_unknown": "لا يوجد مستوى بعد",
+    "level_status_high": "أداء ممتاز! أنت في المستوى المرتفع.",
+    "level_status_mid": "تقدم ثابت. مزيد من الممارسة للانتقال للمرحلة التالية.",
+    "level_status_low": "في مرحلة بناء الأساسيات. ابدأ باختبارات أسهل ومراجعة أكثر.",
+    "level_help": "يتم تقدير المستويات استنادًا إلى تصحيحات/اختبارات الذكاء الاصطناعي باستخدام CEFR (A1~C2).",
     "activities_title": "النشاط",
     "activity_diaries": "اليوميات (7 أيام)",
     "activity_archives": "الأرشيفات المحفوظة",
@@ -178,7 +183,11 @@
     "advice_topic_word": "المفردات",
     "advice_topic_style": "الأسلوب",
     "advice_topic_other": "أخرى",
-    "dictionary": "قاموس AI"
+    "dictionary": "قاموس AI",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}"
   },
   "settings": {
     "title": "الإعدادات",
@@ -232,4 +241,4 @@
     "examples": "أمثلة",
     "error": "فشل في إنشاء القاموس"
   }
-}\n
+}

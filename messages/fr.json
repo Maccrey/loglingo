@@ -183,7 +183,11 @@
     "level_status_high": "Bravo ! Vous êtes dans le haut du niveau.",
     "level_status_mid": "Bon progrès. Un peu plus de pratique pour monter.",
     "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez.",
-    "dictionary": "Dictionnaire IA"
+    "dictionary": "Dictionnaire IA",
+    "hide_hint": "Hide hint",
+    "show_hint": "Show hint",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}"
   },
   "settings": {
     "title": "Paramètres",
@@ -237,4 +241,4 @@
     "examples": "Exemples",
     "error": "Échec de génération du dictionnaire"
   }
-}\n
+}
