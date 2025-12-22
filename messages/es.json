@@ -178,7 +178,10 @@
     "advice_topic_word": "Vocabulario",
     "advice_topic_style": "Estilo",
     "advice_topic_other": "Otros",
-    "level_help": "Los niveles se estiman a partir de correcciones/quiz de IA usando CEFR (A1~C2)."
+    "level_help": "Los niveles se estiman a partir de correcciones/quiz de IA usando CEFR (A1~C2).",
+    "level_status_high": "¡Genial! Estás en el nivel superior.",
+    "level_status_mid": "Buen progreso. Un poco más de práctica y subirás de nivel.",
+    "level_status_low": "Refuerza lo básico. Usa quizzes fáciles y repaso."
   },
   "settings": {
     "title": "Ajustes",

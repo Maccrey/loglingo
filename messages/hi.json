@@ -180,7 +180,10 @@
     "advice_topic_word": "शब्दावली",
     "advice_topic_style": "शैली",
     "advice_topic_other": "अन्य",
-    "level_help": "स्तर AI सुधार/क्विज़ से CEFR (A1~C2) के आधार पर अनुमानित हैं।"
+    "level_help": "स्तर AI सुधार/क्विज़ से CEFR (A1~C2) के आधार पर अनुमानित हैं।",
+    "level_status_high": "बहुत बढ़िया! आप ऊपरी स्तर पर हैं।",
+    "level_status_mid": "अच्छी प्रगति। थोड़ी और मेहनत से स्तर बढ़ेगा।",
+    "level_status_low": "बुनियाद मजबूत करें। आसान क्विज़ और पुनरावृत्ति बढ़ाएँ।"
   },
   "settings": {
     "title": "सेटिंग्स",

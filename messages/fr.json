@@ -179,7 +179,10 @@
     "advice_topic_word": "Vocabulaire",
     "advice_topic_style": "Style",
     "advice_topic_other": "Autre",
-    "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2)."
+    "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2).",
+    "level_status_high": "Bravo ! Vous êtes dans le haut du niveau.",
+    "level_status_mid": "Bon progrès. Un peu plus de pratique pour monter.",
+    "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez."
   },
   "settings": {
     "title": "Paramètres",

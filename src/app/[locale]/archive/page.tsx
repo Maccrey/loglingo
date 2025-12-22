@@ -143,6 +143,12 @@ export default function ArchivePage() {
     latestLevel && previousLevel && typeof previousLevel.score === "number"
       ? latestScore - (previousLevel.score ?? 0)
       : null;
+  const levelFeedback =
+    latestScore >= 80
+      ? t("level_status_high")
+      : latestScore >= 50
+        ? t("level_status_mid")
+        : t("level_status_low");
   const diaries7d = diaries.filter((d) => {
     const diff = Date.now() - new Date(d.date).getTime();
     return diff >= 0 && diff <= 7 * 24 * 60 * 60 * 1000;
@@ -217,7 +223,7 @@ export default function ArchivePage() {
     if (hideLevelHelpLater.current) {
       clearTimeout(hideLevelHelpLater.current);
     }
-    hideLevelHelpLater.current = setTimeout(() => setShowLevelHelp(false), 1200);
+    hideLevelHelpLater.current = setTimeout(() => setShowLevelHelp(false), 3000);
   };
 
   return (
@@ -296,6 +302,7 @@ export default function ArchivePage() {
                     <span className="text-sm text-muted-foreground">({latestLevel.score} pts)</span>
                   )}
                 </div>
+                <p className="mt-1 text-xs text-muted-foreground">{levelFeedback}</p>
                 <p className="mt-1 text-xs text-muted-foreground">
                   {trendDelta !== null
                     ? trendDelta >= 0

@@ -178,7 +178,10 @@
     "advice_topic_word": "Wortschatz",
     "advice_topic_style": "Stil",
     "advice_topic_other": "Sonstiges",
-    "level_help": "Level basieren auf KI-Korrekturen/Quizzes nach CEFR (A1~C2)."
+    "level_help": "Level basieren auf KI-Korrekturen/Quizzes nach CEFR (A1~C2).",
+    "level_status_high": "Super! Du bist in der oberen Stufe.",
+    "level_status_mid": "Gute Fortschritte. Etwas mehr Übung hebt dein Level.",
+    "level_status_low": "Grundlagen stärken. Nutze leichtere Quiz und Wiederholungen."
   },
   "settings": {
     "title": "Einstellungen",

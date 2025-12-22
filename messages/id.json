@@ -181,7 +181,10 @@
     "advice_topic_word": "Kosakata",
     "advice_topic_style": "Gaya",
     "advice_topic_other": "Lainnya",
-    "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2)."
+    "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2).",
+    "level_status_high": "Keren! Kamu di level atas.",
+    "level_status_mid": "Progres bagus. Sedikit latihan lagi akan naik level.",
+    "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review."
   },
   "settings": {
     "title": "Pengaturan",
