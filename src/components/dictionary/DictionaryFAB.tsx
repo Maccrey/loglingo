@@ -15,12 +15,13 @@ export default function DictionaryFAB() {
       {/* Floating Action Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform"
+        className="fixed bottom-6 right-6 z-50 shadow-lg hover:scale-105 transition-transform gap-2 px-4 py-3"
         size="lg"
         aria-label={t("fab_label")}
         title={t("fab_label")}
       >
-        <BookOpen className="h-6 w-6" />
+        <BookOpen className="h-5 w-5" />
+        <span className="font-semibold">{t("fab_label")}</span>
       </Button>
 
       {/* Modal */}
