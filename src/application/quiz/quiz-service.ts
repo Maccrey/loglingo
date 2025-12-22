@@ -1,6 +1,10 @@
 import { Quiz, QuizDraft, randomizeQuizOptions } from "@/domain/quiz";
 import { getQuizByArchiveId, createQuiz } from "@/infrastructure/firebase/quiz-repository";
 
+function entryOriginRequiresMeaning(origin?: string) {
+  return origin === "dictionary";
+}
+
 interface GenerateQuizRequest {
   title: string;
   type: 'grammar' | 'word';
@@ -9,6 +13,8 @@ interface GenerateQuizRequest {
   exampleSentences?: string[];
   uiLocale: string;
   learningLanguage: string;
+  forceMeaning?: boolean;
+  levelTag?: string;
 }
 
 async function generateQuizWithGrok(
@@ -43,7 +49,9 @@ export async function getOrGenerateQuiz(
   exampleSentences: string[] | undefined,
   question: string,
   uiLocale: string,
-  learningLanguage: string
+  learningLanguage: string,
+  levelTag?: string,
+  entryOrigin?: string
 ): Promise<Quiz | null> {
   console.log("🎯 Quiz Service: getOrGenerateQuiz", { archiveId, title, type, userId });
 
@@ -65,6 +73,8 @@ export async function getOrGenerateQuiz(
     exampleSentences,
     uiLocale,
     learningLanguage,
+    levelTag,
+    forceMeaning: entryOriginRequiresMeaning(entryOrigin),
   });
 
   if (!generated) {

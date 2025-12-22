@@ -7,6 +7,7 @@ export interface LearningArchive {
   title: string;
   examples: string[]; // Includes exampleSentences from AI correction
   rootMeaning: string;
+  levelTag?: string;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
   createdAt: Date;
@@ -18,6 +19,7 @@ export interface LearningArchiveDraft {
   title: string;
   examples?: string[]; // Includes exampleSentences from AI correction
   rootMeaning?: string;
+  levelTag?: string;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
 }

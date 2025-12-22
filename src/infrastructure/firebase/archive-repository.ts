@@ -32,6 +32,7 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
     title: data.title,
     examples: data.examples || [],
     rootMeaning: data.rootMeaning || "",
+    levelTag: data.levelTag,
     sourceId: data.sourceId,
     createdAt,
   };
@@ -108,6 +109,7 @@ export async function checkDuplicate(userId: string, title: string, sourceId?: s
 export async function createArchive(input: LearningArchiveDraft): Promise<LearningArchive> {
   const payload = {
     ...input,
+    levelTag: input.levelTag,
     createdAt: serverTimestamp(),
   };
   const ref = await addDoc(archiveCol, payload);

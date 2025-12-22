@@ -15,6 +15,8 @@ interface QuizGenerationRequest {
   exampleSentences?: string[]; // Example sentences from AI correction
   uiLocale: string;
   learningLanguage: string;
+  levelTag?: string;
+  forceMeaning?: boolean;
 }
 
 interface QuizGenerationResponse {
@@ -28,7 +30,8 @@ function buildGrammarQuizPrompt(
   rootMeaning: string,
   exampleSentences: string[],
   uiLocale: string,
-  learningLanguage: string
+  learningLanguage: string,
+  levelTag?: string
 ): string {
   const exampleSentence = exampleSentences.length > 0 
     ? exampleSentences[Math.floor(Math.random() * exampleSentences.length)]
@@ -40,6 +43,7 @@ Create a grammar quiz for this pattern:
 - Grammar Pattern: "${title}" (in ${learningLanguage})
 - Explanation: "${rootMeaning}"
 - Example Sentence: "${exampleSentence}" (in ${learningLanguage})
+- Learner level: ${levelTag ?? "unknown"} (match difficulty to this level)
 
 QUIZ FORMAT - Grammar Understanding Test:
 Question: Present the example sentence and ask what grammar rule is demonstrated.
@@ -69,10 +73,12 @@ function buildWordQuizPrompt(
   rootMeaning: string,
   exampleSentences: string[],
   uiLocale: string,
-  learningLanguage: string
+  learningLanguage: string,
+  forceMeaning?: boolean,
+  levelTag?: string
 ): string {
   // Randomly choose between spelling test and meaning test
-  const quizType = Math.random() > 0.5 ? 'spelling' : 'meaning';
+  const quizType = forceMeaning ? 'meaning' : Math.random() > 0.5 ? 'spelling' : 'meaning';
   
   if (quizType === 'spelling') {
     return `You are a language learning quiz generator.
@@ -81,6 +87,7 @@ Create a SPELLING quiz for this word:
 - Word: "${title}" (in ${learningLanguage})
 - Meaning: "${rootMeaning}"
 - Context: ${exampleSentences.join(', ')}
+- Learner level: ${levelTag ?? "unknown"} (keep options suitable to this level)
 
 QUIZ FORMAT - Spelling Test:
 Question: Ask which is the correct spelling of the word meaning "${rootMeaning}"
@@ -107,6 +114,7 @@ Create a MEANING quiz for this word:
 - Word: "${title}" (in ${learningLanguage})
 - Meaning: "${rootMeaning}"
 - Examples: ${exampleSentences.join(', ')}
+- Learner level: ${levelTag ?? "unknown"} (adjust distractors to this level)
 
 QUIZ FORMAT - Meaning Test:
 Question: Ask what "${title}" means
@@ -136,14 +144,16 @@ function buildPrompt(
   examples: string[],
   exampleSentences: string[] | undefined,
   uiLocale: string,
-  learningLanguage: string
+  learningLanguage: string,
+  levelTag?: string,
+  forceMeaning?: boolean
 ): string {
   const sentences = exampleSentences && exampleSentences.length > 0 ? exampleSentences : examples;
   
   if (type === 'grammar') {
-    return buildGrammarQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage);
+    return buildGrammarQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage, levelTag);
   } else {
-    return buildWordQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage);
+    return buildWordQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage, forceMeaning, levelTag);
   }
 }
 
@@ -160,7 +170,9 @@ async function callGrok(
   examples: string[],
   exampleSentences: string[] | undefined,
   uiLocale: string,
-  learningLanguage: string
+  learningLanguage: string,
+  levelTag?: string,
+  forceMeaning?: boolean
 ): Promise<QuizGenerationResponse | null> {
   const client = await getClient();
   if (!client) {
@@ -180,7 +192,7 @@ async function callGrok(
         },
         {
           role: "user",
-          content: buildPrompt(type, title, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage),
+          content: buildPrompt(type, title, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage, levelTag, forceMeaning),
         },
       ],
       model: getModel(),
@@ -231,7 +243,7 @@ async function callGrok(
 export async function POST(req: Request) {
   try {
     const body: QuizGenerationRequest = await req.json();
-    const { title, type, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage } = body;
+    const { title, type, rootMeaning, examples, exampleSentences, uiLocale, learningLanguage, levelTag, forceMeaning } = body;
 
     if (!title || !rootMeaning || !type) {
       return NextResponse.json(
@@ -247,7 +259,9 @@ export async function POST(req: Request) {
       examples || [],
       exampleSentences,
       uiLocale || "en",
-      learningLanguage || "en"
+      learningLanguage || "en",
+      levelTag,
+      forceMeaning
     );
 
     if (!result) {

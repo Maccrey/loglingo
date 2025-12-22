@@ -62,7 +62,9 @@ export function useQuiz(
           entry.examples, // exampleSentences are stored in examples array
           translatedQuestion,
           uiLocale || "en",
-          learningLanguage || "en"
+          learningLanguage || "en",
+          entry.levelTag,
+          entry.origin
         );
 
         if (!cancelled) {

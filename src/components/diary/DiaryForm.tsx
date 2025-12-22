@@ -267,6 +267,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             title,
             rootMeaning: aiResult.rootMeaningGuide,
             examples: [aiResult.corrected],
+            levelTag: aiResult.levelAssessment?.level,
             sourceId: initial?.id,
           });
         }
@@ -294,6 +295,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             examples: issue.exampleSentences && issue.exampleSentences.length > 0 
               ? issue.exampleSentences 
               : [issue.original, issue.suggestion].filter(Boolean),
+            levelTag: aiResult.levelAssessment?.level,
             sourceId: initial?.id,
             sourceText: issue.original, // Store original text for context
           });
