@@ -29,12 +29,14 @@ function ArchiveListCard({
   onSelect,
   onDelete,
   t,
+  tCommon,
   locale
 }: {
   item: LearningArchive;
   onSelect: () => void;
   onDelete: (id: string) => void;
   t: (key: string, values?: Record<string, any>) => string;
+  tCommon: (key: string, values?: Record<string, any>) => string;
   locale: string;
 }) {
   const [showExamples, setShowExamples] = useState(false);
@@ -662,6 +664,7 @@ export default function ArchivePage() {
                     }
                   }}
                   t={t}
+                  tCommon={tCommon}
                   locale={locale}
                 />
               ))}
