@@ -14,6 +14,16 @@ import {
   limit as applyLimit,
 } from "firebase/firestore";
 
+function pruneUndefined<T extends Record<string, any>>(input: T): T {
+  const clean: Record<string, any> = {};
+  Object.entries(input).forEach(([key, value]) => {
+    if (value !== undefined) {
+      clean[key] = value;
+    }
+  });
+  return clean as T;
+}
+
 function mapLevel(docSnap: any): LevelRecord {
   const data = docSnap.data();
   const createdAt =
@@ -64,10 +74,10 @@ function mapAdvice(docSnap: any): AdviceItem {
 export async function addLevelRecord(userId: string, payload: Omit<LevelRecord, "id" | "createdAt">) {
   if (!userId) throw new Error("userId is required for level record");
   const col = collection(db, "users", userId, "level");
-  const docRef = await addDoc(col, {
+  const docRef = await addDoc(col, pruneUndefined({
     ...payload,
     createdAt: serverTimestamp(),
-  });
+  }));
   const snap = await getDocs(query(col, where("__name__", "==", docRef.id)));
   return mapLevel(snap.docs[0]);
 }
@@ -83,11 +93,11 @@ export async function listLevelRecords(userId: string, limitCount = 10) {
 export async function addAdviceItem(userId: string, payload: Omit<AdviceItem, "id" | "createdAt" | "updatedAt">) {
   if (!userId) throw new Error("userId is required for advice item");
   const col = collection(db, "users", userId, "advice");
-  const docRef = await addDoc(col, {
+  const docRef = await addDoc(col, pruneUndefined({
     ...payload,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
-  });
+  }));
   const snap = await getDocs(query(col, where("__name__", "==", docRef.id)));
   return mapAdvice(snap.docs[0]);
 }
