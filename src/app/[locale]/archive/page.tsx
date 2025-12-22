@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/Input";
 import { useLocale, useTranslations } from "next-intl";
 import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application/learning-profile/hooks";
+import { useDiaryList } from "@/application/diary/hooks";
 
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
@@ -101,6 +103,10 @@ export default function ArchivePage() {
   const canLoad = Boolean(userId) && !loading;
   const { data: archives, isLoading } = useArchiveList(userId, type, { enabled: canLoad });
   const archiveList: LearningArchive[] = useMemo(() => (archives ?? []) as LearningArchive[], [archives]);
+  const { data: diaries = [] } = useDiaryList(userId, undefined, { enabled: canLoad });
+  const { data: levels = [] } = useLevelRecords(userId, { enabled: canLoad });
+  const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
+  const adviceMutation = useAdviceComplete(userId);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
@@ -123,6 +129,30 @@ export default function ArchivePage() {
     locale,
     locale // TODO: Get from user settings
   );
+
+  const latestLevel = levels[0];
+  const previousLevel = levels[1];
+  const latestScore = latestLevel?.score ?? 0;
+  const trendDelta =
+    latestLevel && previousLevel && typeof previousLevel.score === "number"
+      ? latestScore - (previousLevel.score ?? 0)
+      : null;
+  const diaries7d = diaries.filter((d) => {
+    const diff = Date.now() - new Date(d.date).getTime();
+    return diff >= 0 && diff <= 7 * 24 * 60 * 60 * 1000;
+  }).length;
+  const pendingAdvice = adviceItems.filter((a) => !a.completed);
+
+  const handleCompleteAdvice = async (adviceId: string) => {
+    if (!adviceId) return;
+    try {
+      await adviceMutation.mutateAsync({ adviceId, completed: true });
+      toast.success(t("advice_complete"));
+    } catch (err) {
+      console.error("Advice complete failed", err);
+      toast.error(tCommon("error"));
+    }
+  };
 
   // 새로운 퀴즈가 로드될 때 힌트 초기화
   useEffect(() => {
@@ -168,24 +198,121 @@ export default function ArchivePage() {
             <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
             <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
           </div>
-        <div className="flex gap-2">
-          <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)}>
-            {t("all")}
-          </Button>
-          <Button variant={type === "grammar" ? "primary" : "ghost"} onClick={() => setType("grammar")}>
-            {t("grammar")}
-          </Button>
-          <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
-            {t("vocabulary")}
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)}>
+              {t("all")}
+            </Button>
+            <Button variant={type === "grammar" ? "primary" : "ghost"} onClick={() => setType("grammar")}>
+              {t("grammar")}
+            </Button>
+            <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
+              {t("vocabulary")}
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <Card className="glass-card">
-        <CardHeader>
-          <CardTitle>{t("add_title")}</CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3 grid-cols-1 md:grid-cols-4">
+        {/* 학습 대시보드 */}
+        <Card className="glass-card">
+          <CardHeader>
+            <div className="flex items-start justify-between gap-3 flex-wrap">
+              <div>
+                <CardTitle>{t("dashboard_title")}</CardTitle>
+                <p className="text-sm text-muted-foreground">{t("dashboard_subtitle")}</p>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+                <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
+                <div className="mt-2 flex items-end gap-2">
+                  <p className="text-3xl font-bold text-foreground">
+                    {latestLevel?.level ?? t("level_unknown")}
+                  </p>
+                  {typeof latestLevel?.score === "number" && (
+                    <span className="text-sm text-muted-foreground">({latestLevel.score} pts)</span>
+                  )}
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {trendDelta !== null
+                    ? trendDelta >= 0
+                      ? t("level_trend_up", { value: Math.abs(trendDelta).toFixed(0) })
+                      : t("level_trend_down", { value: Math.abs(trendDelta).toFixed(0) })
+                    : t("level_trend")}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs uppercase text-muted-foreground">{t("activities_title")}</p>
+                <div className="mt-2 grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-lg font-semibold text-foreground">{diaries7d}</p>
+                    <p className="text-xs text-muted-foreground">{t("activity_diaries")}</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-foreground">{archiveList.length}</p>
+                    <p className="text-xs text-muted-foreground">{t("activity_archives")}</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-foreground">{pendingAdvice.length}</p>
+                    <p className="text-xs text-muted-foreground">{t("activity_advice")}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-xs uppercase text-muted-foreground">{t("advice_title")}</p>
+                  <p className="text-[11px] text-muted-foreground">{pendingAdvice.length} / {adviceItems.length}</p>
+                </div>
+                <div className="mt-2 space-y-2 max-h-48 overflow-auto pr-1">
+                  {pendingAdvice.slice(0, 4).map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex items-start justify-between gap-2 rounded-lg border border-white/10 bg-black/10 p-2"
+                    >
+                      {(() => {
+                        const priority = (item.priority as "high" | "medium" | "low") || "medium";
+                        const message = item.message?.[locale] || item.message?.en || t("advice_empty");
+                        return (
+                          <>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground">{item.topic}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {message}
+                              </p>
+                              <p className="text-[11px] text-muted-foreground/70 mt-1">
+                                {t(`priority_${priority}`)}
+                              </p>
+                            </div>
+                            <Button
+                              size="sm"
+                              variant="secondary"
+                              className="text-xs"
+                              disabled={adviceMutation.isPending}
+                              onClick={() => handleCompleteAdvice(item.id)}
+                            >
+                              {t("advice_mark_done")}
+                            </Button>
+                          </>
+                        );
+                      })()}
+                    </div>
+                  ))}
+                  {!pendingAdvice.length && (
+                    <p className="text-xs text-muted-foreground">{t("advice_empty")}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card">
+          <CardHeader>
+            <CardTitle>{t("add_title")}</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-3 grid-cols-1 md:grid-cols-4">
           <select
             aria-label={typeLabel}
             className="h-[42px] rounded-md border border-white/10 bg-white/5 px-3 text-sm"
