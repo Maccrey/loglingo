@@ -39,7 +39,7 @@ export const refreshLearningStats = onSchedule(
       }
 
       // 3. 최근 7일 일기 개수
-      let diaries7d = 3;
+      let diaries7d = 0;
       try {
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
@@ -53,7 +53,7 @@ export const refreshLearningStats = onSchedule(
       }
 
       // 4. 미완료 advice 개수 (단순 카운트로 변경)
-      let adviceOpen = 2;
+      let adviceOpen = 0;
       try {
         const adviceSnap = await db.collectionGroup("advice").get();
         const incomplete = adviceSnap.docs.filter(doc => doc.data().completed === false).length;
@@ -63,8 +63,8 @@ export const refreshLearningStats = onSchedule(
       }
 
       // 5. 레벨 평균 계산
-      let avgScore = 65;
-      let mostCommonLevel = "B1";
+      let avgScore = 0;
+      let mostCommonLevel = "A1";
       try {
         const levelSnap = await db.collectionGroup("level").get();
         let totalScore = 0;
