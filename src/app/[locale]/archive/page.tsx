@@ -66,7 +66,7 @@ function ArchiveListCard({
     <div className="relative rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition">
       <button
         type="button"
-        aria-label={t("delete") ?? "Delete"}
+        aria-label={tCommon("delete") ?? "Delete"}
         className="absolute right-2 top-2 text-xs text-muted-foreground hover:text-destructive transition"
         onClick={(e) => {
           e.stopPropagation();
