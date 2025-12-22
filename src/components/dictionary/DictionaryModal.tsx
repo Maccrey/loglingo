@@ -73,7 +73,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
       (window as any).kakaoAsyncAdFit = (window as any).kakaoAsyncAdFit || [];
       (window as any).kakaoAsyncAdFit.push({});
     });
-  }, [isOpen, isDesktop, adRefreshKey]);
+  }, [isOpen, isDesktop]);
 
   const handleSearch = async () => {
     if (!word.trim()) return;
