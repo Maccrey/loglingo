@@ -1,0 +1,12 @@
+name: CI Disabled
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  skip:
+    if: ${{ false }} # Always skip
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "CI disabled for this repo"
