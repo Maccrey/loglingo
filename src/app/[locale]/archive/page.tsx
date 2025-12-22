@@ -96,12 +96,13 @@ export default function ArchivePage() {
   const userId = user?.uid ?? "";
   const typeLabel = t("type_label", { defaultMessage: "Type" });
   const [type, setType] = useState<string | undefined>(undefined);
+  const [levelFilter, setLevelFilter] = useState<string | undefined>(undefined);
   const [addType, setAddType] = useState<"grammar" | "word">("grammar");
   const [title, setTitle] = useState("");
   const [root, setRoot] = useState("");
   const [example, setExample] = useState("");
   const canLoad = Boolean(userId) && !loading;
-  const { data: archives, isLoading } = useArchiveList(userId, type, { enabled: canLoad });
+  const { data: archives, isLoading } = useArchiveList(userId, type, { enabled: canLoad, levelTag: levelFilter });
   const archiveList: LearningArchive[] = useMemo(() => (archives ?? []) as LearningArchive[], [archives]);
   const { data: diaries = [] } = useDiaryList(userId, undefined, { enabled: canLoad });
   const { data: levels = [] } = useLevelRecords(userId, { enabled: canLoad });
@@ -160,8 +161,14 @@ export default function ArchivePage() {
   }, [quiz?.archiveId]);
 
   const filteredArchives = useMemo(
-    () => (type ? archiveList.filter((a) => a.type === type) : archiveList),
-    [archiveList, type]
+    () => {
+      let list = type ? archiveList.filter((a) => a.type === type) : archiveList;
+      if (levelFilter) {
+        list = list.filter((a) => a.levelTag === levelFilter);
+      }
+      return list;
+    },
+    [archiveList, type, levelFilter]
   );
 
   const handleAdd = async () => {
@@ -208,6 +215,16 @@ export default function ArchivePage() {
             <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
               {t("vocabulary")}
             </Button>
+            <select
+              className="h-[38px] rounded-md border border-white/10 bg-white/5 px-3 text-sm text-foreground"
+              value={levelFilter ?? ""}
+              onChange={(e) => setLevelFilter(e.target.value || undefined)}
+            >
+              <option value="">{t("level_filter_all")}</option>
+              {["A1","A2","B1","B2","C1","C2"].map((lvl) => (
+                <option key={lvl} value={lvl}>{lvl}</option>
+              ))}
+            </select>
           </div>
         </div>
 

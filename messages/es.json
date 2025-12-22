@@ -171,7 +171,8 @@
     "advice_mark_done": "Mark done",
     "priority_high": "High",
     "priority_medium": "Medium",
-    "priority_low": "Low"
+    "priority_low": "Low",
+    "level_filter_all": "All levels"
   },
   "settings": {
     "title": "Ajustes",

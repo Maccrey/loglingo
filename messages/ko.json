@@ -172,7 +172,8 @@
     "advice_mark_done": "완료 처리",
     "priority_high": "높음",
     "priority_medium": "보통",
-    "priority_low": "낮음"
+    "priority_low": "낮음",
+    "level_filter_all": "모든 레벨"
   },
   "settings": {
     "title": "설정",

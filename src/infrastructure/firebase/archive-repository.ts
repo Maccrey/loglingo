@@ -38,8 +38,8 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
   };
 }
 
-export async function listArchive(userId: string, type?: string, sourceId?: string) {
-  console.log("🔍 Archive Repository: listArchive called", { userId, type, sourceId });
+export async function listArchive(userId: string, type?: string, sourceId?: string, levelTag?: string) {
+  console.log("🔍 Archive Repository: listArchive called", { userId, type, sourceId, levelTag });
   
   if (!userId) {
     console.log("⚠️ Archive Repository: No userId, returning empty array");
@@ -50,6 +50,7 @@ export async function listArchive(userId: string, type?: string, sourceId?: stri
     const filters = [where("userId", "==", userId)];
     if (type) filters.push(where("type", "==", type));
     if (sourceId) filters.push(where("sourceId", "==", sourceId));
+    if (levelTag) filters.push(where("levelTag", "==", levelTag));
 
     // orderBy를 임시로 제거하여 인덱스 문제인지 확인
     const q = query(archiveCol, ...filters);

@@ -7,10 +7,14 @@ import { Quiz } from "@/domain/quiz";
 import { getOrGenerateQuiz } from "@/application/quiz/quiz-service";
 import { useState, useEffect } from "react";
 
-export function useArchiveList(userId: string, type?: string, opts?: { enabled?: boolean; sourceId?: string }) {
+export function useArchiveList(
+  userId: string,
+  type?: string,
+  opts?: { enabled?: boolean; sourceId?: string; levelTag?: string }
+) {
   return useQuery<LearningArchive[]>({
-    queryKey: ["archives", userId, type ?? "all", opts?.sourceId ?? "all"],
-    queryFn: () => getArchives(userId, type, opts?.sourceId),
+    queryKey: ["archives", userId, type ?? "all", opts?.sourceId ?? "all", opts?.levelTag ?? "all"],
+    queryFn: () => getArchives(userId, type, opts?.sourceId, opts?.levelTag),
     enabled: (opts?.enabled ?? true) && Boolean(userId) && userId !== "demo-user",
     staleTime: 60_000,
     refetchOnMount: true,
