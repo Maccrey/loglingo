@@ -31,17 +31,17 @@ import Script from "next/script"; // Import Script component
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+      children: React.ReactNode;
+    }>) {
   return (
     <html lang="en">
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
+        crossOrigin="anonymous"
+        strategy="beforeInteractive"
+      />
       <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16982541933"
           strategy="afterInteractive"
