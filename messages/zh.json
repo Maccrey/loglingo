@@ -192,7 +192,10 @@
     "correct_count": "答对 {value} 次",
     "memorized": "已记忆",
     "show_examples": "查看例句（{count}条）",
-    "hide_examples": "隐藏例句（{count}条）"
+    "hide_examples": "隐藏例句（{count}条）",
+    "delete_confirm_title": "删除此条目？",
+    "delete_confirm_desc": "此学习档案及其关联测验也会被删除。",
+    "delete_confirm_loading": "删除中..."
   },
   "settings": {
     "title": "设置",

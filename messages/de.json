@@ -192,7 +192,10 @@
     "correct_count": "Richtige Antworten {value}×",
     "memorized": "Eingeprägt",
     "show_examples": "Beispiele anzeigen ({count})",
-    "hide_examples": "Beispiele ausblenden ({count})"
+    "hide_examples": "Beispiele ausblenden ({count})",
+    "delete_confirm_title": "Diesen Eintrag löschen?",
+    "delete_confirm_desc": "Dieser Eintrag und verbundene Quizze werden ebenfalls gelöscht.",
+    "delete_confirm_loading": "Lösche..."
   },
   "settings": {
     "title": "Einstellungen",

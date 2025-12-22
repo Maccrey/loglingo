@@ -192,7 +192,10 @@
     "correct_count": "正答 {value}回",
     "memorized": "暗記完了",
     "show_examples": "例を表示 ({count}件)",
-    "hide_examples": "例を隠す ({count}件)"
+    "hide_examples": "例を隠す ({count}件)",
+    "delete_confirm_title": "このアーカイブを削除しますか？",
+    "delete_confirm_desc": "このアーカイブと関連クイズも削除されます。",
+    "delete_confirm_loading": "削除中..."
   },
   "settings": {
     "title": "設定",

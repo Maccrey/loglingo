@@ -192,7 +192,10 @@
     "correct_count": "Bonnes réponses {value} fois",
     "memorized": "Mémorisé",
     "show_examples": "Afficher les exemples ({count})",
-    "hide_examples": "Masquer les exemples ({count})"
+    "hide_examples": "Masquer les exemples ({count})",
+    "delete_confirm_title": "Supprimer cet élément ?",
+    "delete_confirm_desc": "Cet élément et ses quiz liés seront également supprimés.",
+    "delete_confirm_loading": "Suppression..."
   },
   "settings": {
     "title": "Paramètres",

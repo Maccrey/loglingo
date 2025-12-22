@@ -192,7 +192,10 @@
     "correct_count": "Acertos {value} vezes",
     "memorized": "Memorizado",
     "show_examples": "Mostrar exemplos ({count})",
-    "hide_examples": "Ocultar exemplos ({count})"
+    "hide_examples": "Ocultar exemplos ({count})",
+    "delete_confirm_title": "Excluir este item?",
+    "delete_confirm_desc": "Este item e os quizzes relacionados também serão excluídos.",
+    "delete_confirm_loading": "Excluindo..."
   },
   "settings": {
     "title": "Configurações",

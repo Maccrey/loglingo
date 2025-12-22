@@ -192,7 +192,10 @@
     "correct_count": "सही उत्तर {value} बार",
     "memorized": "स्मरण पूर्ण",
     "show_examples": "उदाहरण दिखाएं ({count})",
-    "hide_examples": "उदाहरण छुपाएं ({count})"
+    "hide_examples": "उदाहरण छुपाएं ({count})",
+    "delete_confirm_title": "क्या इस प्रविष्टि को हटाएं?",
+    "delete_confirm_desc": "यह प्रविष्टि और संबंधित क्विज भी हट जाएंगे।",
+    "delete_confirm_loading": "हटा रहा है..."
   },
   "settings": {
     "title": "सेटिंग्स",

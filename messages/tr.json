@@ -192,7 +192,10 @@
     "correct_count": "Doğru {value} kez",
     "memorized": "Ezberlendi",
     "show_examples": "Örnekleri göster ({count})",
-    "hide_examples": "Örnekleri gizle ({count})"
+    "hide_examples": "Örnekleri gizle ({count})",
+    "delete_confirm_title": "Bu kaydı silinsin mi?",
+    "delete_confirm_desc": "Bu kayıt ve ilişkili quizler de silinecek.",
+    "delete_confirm_loading": "Siliniyor..."
   },
   "settings": {
     "title": "Ayarlar",

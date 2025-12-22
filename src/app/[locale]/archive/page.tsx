@@ -330,13 +330,13 @@ export default function ArchivePage() {
         {archiveToDelete && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
             <div className="w-full max-w-md rounded-lg border border-white/10 bg-black/80 p-4 space-y-4">
-              <h3 className="text-lg font-semibold text-foreground">정말 삭제할까요?</h3>
+              <h3 className="text-lg font-semibold text-foreground">{t("delete_confirm_title")}</h3>
               <p className="text-sm text-muted-foreground">
-                선택한 학습 아카이브와 연결된 퀵퀴즈도 함께 삭제됩니다.
+                {t("delete_confirm_desc")}
               </p>
               <div className="flex justify-end gap-2">
                 <Button variant="secondary" onClick={() => setArchiveToDelete(null)}>
-                  취소
+                  {tCommon("cancel")}
                 </Button>
                 <Button
                   variant="primary"
@@ -353,7 +353,7 @@ export default function ArchivePage() {
                     }
                   }}
                 >
-                  {deleteMutation.isPending ? "삭제 중..." : "삭제"}
+                  {deleteMutation.isPending ? t("delete_confirm_loading") : tCommon("delete")}
                 </Button>
               </div>
             </div>

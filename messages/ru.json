@@ -192,7 +192,10 @@
     "correct_count": "Правильных ответов: {value}",
     "memorized": "Запомнено",
     "show_examples": "Показать примеры ({count})",
-    "hide_examples": "Скрыть примеры ({count})"
+    "hide_examples": "Скрыть примеры ({count})",
+    "delete_confirm_title": "Удалить эту запись?",
+    "delete_confirm_desc": "Эта запись и связанные викторины также будут удалены.",
+    "delete_confirm_loading": "Удаление..."
   },
   "settings": {
     "title": "Настройки",

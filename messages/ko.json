@@ -190,7 +190,10 @@
     "correct_count": "정답 {value}회",
     "memorized": "암기완료",
     "show_examples": "예제 보기 ({count}개)",
-    "hide_examples": "예제 숨기기 ({count}개)"
+    "hide_examples": "예제 숨기기 ({count}개)",
+    "delete_confirm_title": "정말 삭제할까요?",
+    "delete_confirm_desc": "선택한 학습 아카이브와 연결된 퀵퀴즈도 함께 삭제됩니다.",
+    "delete_confirm_loading": "삭제 중..."
   },
   "dictionary": {
     "fab_label": "AI 사전",

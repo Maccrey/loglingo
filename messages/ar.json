@@ -192,7 +192,10 @@
     "correct_count": "إجابات صحيحة {value} مرة",
     "memorized": "تم الحفظ",
     "show_examples": "عرض الأمثلة ({count})",
-    "hide_examples": "إخفاء الأمثلة ({count})"
+    "hide_examples": "إخفاء الأمثلة ({count})",
+    "delete_confirm_title": "حذف هذا العنصر؟",
+    "delete_confirm_desc": "سيتم حذف هذا السجل والاختبارات المرتبطة به أيضًا.",
+    "delete_confirm_loading": "جارٍ الحذف..."
   },
   "settings": {
     "title": "الإعدادات",

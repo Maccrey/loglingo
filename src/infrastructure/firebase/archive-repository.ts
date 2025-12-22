@@ -8,6 +8,7 @@ import {
   collection,
   getDocs,
   getDoc,
+  deleteDoc,
   updateDoc,
   doc,
   query,
@@ -162,6 +163,12 @@ export async function updateArchiveProgress(
 
   const archiveRef = doc(db, "learning_archive", archiveId);
   await updateDoc(archiveRef, updatePayload);
+}
+
+export async function deleteArchiveById(archiveId: string) {
+  if (!archiveId) return;
+  const archiveRef = doc(db, "learning_archive", archiveId);
+  await deleteDoc(archiveRef);
 }
 
 export async function deleteArchivesBySourceId(sourceId: string): Promise<number> {

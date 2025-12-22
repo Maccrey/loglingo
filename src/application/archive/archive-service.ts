@@ -4,7 +4,8 @@ import {
   LearningArchiveDraft,
   QuizQuestion,
 } from "@/domain/archive";
-import { createArchive, listArchive, updateArchiveProgress as updateArchiveProgressRepo } from "@/infrastructure/firebase/archive-repository";
+import { createArchive, listArchive, updateArchiveProgress as updateArchiveProgressRepo, deleteArchiveById } from "@/infrastructure/firebase/archive-repository";
+import { deleteQuizzesByArchiveIds } from "@/infrastructure/firebase/quiz-repository";
 
 export async function saveArchiveEntry(input: LearningArchiveDraft) {
   if (!input.title.trim()) {
@@ -23,6 +24,14 @@ export async function getArchives(userId: string, type?: string, sourceId?: stri
 
 export async function updateArchiveProgress(archiveId: string, updates: { correctCount?: number; memorized?: boolean }) {
   return updateArchiveProgressRepo(archiveId, updates);
+}
+
+export async function deleteArchiveWithQuizzes(userId: string, archiveId: string) {
+  if (!userId || !archiveId) throw new Error("missing-params");
+  await Promise.all([
+    deleteArchiveById(archiveId),
+    deleteQuizzesByArchiveIds([archiveId]),
+  ]);
 }
 
 export function generateQuiz(entry: LearningArchive): QuizQuestion {

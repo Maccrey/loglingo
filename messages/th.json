@@ -192,7 +192,10 @@
     "correct_count": "ตอบถูก {value} ครั้ง",
     "memorized": "ท่องจำแล้ว",
     "show_examples": "แสดงตัวอย่าง ({count})",
-    "hide_examples": "ซ่อนตัวอย่าง ({count})"
+    "hide_examples": "ซ่อนตัวอย่าง ({count})",
+    "delete_confirm_title": "ลบรายการนี้หรือไม่?",
+    "delete_confirm_desc": "รายการนี้และควิซที่เชื่อมโยงจะถูกลบด้วย",
+    "delete_confirm_loading": "กำลังลบ..."
   },
   "settings": {
     "title": "ตั้งค่า",

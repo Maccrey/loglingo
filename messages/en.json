@@ -190,7 +190,10 @@
     "correct_count": "Correct {value} times",
     "memorized": "Memorized",
     "show_examples": "Show examples ({count})",
-    "hide_examples": "Hide examples ({count})"
+    "hide_examples": "Hide examples ({count})",
+    "delete_confirm_title": "Delete this archive?",
+    "delete_confirm_desc": "This archive and its linked quizzes will also be deleted.",
+    "delete_confirm_loading": "Deleting..."
   },
   "dictionary": {
     "fab_label": "AI Dictionary",
