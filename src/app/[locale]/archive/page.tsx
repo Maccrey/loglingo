@@ -507,16 +507,11 @@ export default function ArchivePage() {
                       borderColor: 'rgb(34, 197, 94)',
                       color: 'rgb(220, 252, 231)'
                     };
-                  } else if (isSelected) {
-                    btnClasses += "bg-red-500/20 border-red-500 text-red-100";
-                    btnStyle = {
-                      backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                      borderColor: 'rgb(239, 68, 68)',
-                      color: 'rgb(254, 226, 226)'
-                    };
                   } else {
                     btnClasses += "border-white/10 text-muted-foreground";
                   }
+                  // 정답 공개 시 호버/포커스 제거, 오답은 회색만
+                  btnClasses += " pointer-events-none cursor-default hover:bg-transparent hover:border-current hover:text-inherit";
                 } else {
                   btnClasses += isSelected 
                     ? "bg-primary/20 border-primary text-primary-foreground" 
@@ -529,7 +524,7 @@ export default function ArchivePage() {
                     disabled={showResult}
                     onClick={() => handleQuizOptionClick(idx)}
                     className={btnClasses}
-                    style={btnStyle}
+                    style={showResult ? { ...btnStyle, pointerEvents: "none" } : btnStyle}
                   >
                     {opt}
                   </button>
@@ -617,33 +612,27 @@ export default function ArchivePage() {
                   
                   console.log(`Option ${idx}:`, { isCorrect, isSelected, showResult, selectedAnswer });
                   
-                  // 버튼 스타일 결정 - render 시점에 계산
-                  let btnStyle = {};
-                  let btnClasses = "w-full text-left px-4 py-2 rounded-lg border transition-all text-sm ";
-                  
-                  if (showResult) {
-                    if (isCorrect) {
-                      btnClasses += "bg-green-500/20 border-green-500 text-green-100";
-                      btnStyle = {
-                        backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                        borderColor: 'rgb(34, 197, 94)',
-                        color: 'rgb(220, 252, 231)'
-                      };
-                    } else if (isSelected) {
-                      btnClasses += "bg-red-500/20 border-red-500 text-red-100";
-                      btnStyle = {
-                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                        borderColor: 'rgb(239, 68, 68)',
-                        color: 'rgb(254, 226, 226)'
-                      };
-                    } else {
-                      btnClasses += "border-white/10 text-muted-foreground";
-                    }
+                // 버튼 스타일 결정 - render 시점에 계산
+                let btnStyle = {};
+                let btnClasses = "w-full text-left px-4 py-2 rounded-lg border transition-all text-sm ";
+                
+                if (showResult) {
+                  if (isCorrect) {
+                    btnClasses += "bg-green-500/20 border-green-500 text-green-100";
+                    btnStyle = {
+                      backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                      borderColor: 'rgb(34, 197, 94)',
+                      color: 'rgb(220, 252, 231)'
+                    };
                   } else {
-                    btnClasses += isSelected 
-                      ? "bg-primary/20 border-primary text-primary-foreground" 
-                      : "border-white/10 hover:border-primary/40 text-foreground";
+                    btnClasses += "border-white/10 text-muted-foreground";
                   }
+                  btnClasses += " pointer-events-none cursor-default hover:bg-transparent hover:border-current hover:text-inherit";
+                } else {
+                  btnClasses += isSelected 
+                    ? "bg-primary/20 border-primary text-primary-foreground" 
+                    : "border-white/10 hover:border-primary/40 text-foreground";
+                }
 
                 return (
                   <button
@@ -651,7 +640,7 @@ export default function ArchivePage() {
                     disabled={showResult}
                     onClick={() => handleQuizOptionClick(idx)}
                     className={btnClasses}
-                    style={btnStyle}
+                    style={showResult ? { ...btnStyle, pointerEvents: "none" } : btnStyle}
                   >
                     {opt}
                   </button>
