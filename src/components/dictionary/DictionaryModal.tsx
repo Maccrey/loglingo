@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/Card";
 import { Loader2, Save, Search, X } from "lucide-react";
 import { createArchive } from "@/infrastructure/firebase/archive-repository";
 import { useQueryClient } from "@tanstack/react-query";
+import { useRef } from "react";
 
 interface DictionaryResult {
   word: string;
@@ -32,6 +33,8 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const queryClient = useQueryClient();
   const [adRefreshKey, setAdRefreshKey] = useState(0);
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
+  const pcAdRef = useRef<HTMLInsElement | null>(null);
+  const mobileAdRef = useRef<HTMLInsElement | null>(null);
 
   useEffect(() => {
     const mq = typeof window !== "undefined" ? window.matchMedia("(min-width: 768px)") : null;
@@ -57,6 +60,14 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   // Load script and request ad fill when key or viewport changes (while open)
   useEffect(() => {
     if (!isOpen) return;
+    // clear previous ad content to allow re-render
+    if (isDesktop && pcAdRef.current) {
+      pcAdRef.current.innerHTML = "";
+    }
+    if (!isDesktop && mobileAdRef.current) {
+      mobileAdRef.current.innerHTML = "";
+    }
+
     const src = "//t1.daumcdn.net/kas/static/ba.min.js";
     const ensureScript = () =>
       new Promise<void>((resolve) => {
@@ -184,6 +195,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
               data-ad-width="728"
               data-ad-height="90"
               key={`pc-${adRefreshKey}`}
+              ref={pcAdRef}
             />
           ) : (
             <ins
@@ -193,6 +205,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
               data-ad-width="320"
               data-ad-height="50"
               key={`m-${adRefreshKey}`}
+              ref={mobileAdRef}
             />
           )}
         </div>
