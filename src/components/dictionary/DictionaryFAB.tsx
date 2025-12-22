@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import DictionaryModal from "./DictionaryModal";
+import DictionaryModal from "@/components/dictionary/DictionaryModal";
 import { useTranslations } from "next-intl";
 
 export default function DictionaryFAB() {

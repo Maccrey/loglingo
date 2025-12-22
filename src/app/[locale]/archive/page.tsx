@@ -688,7 +688,7 @@ export default function ArchivePage() {
                           userId,
                           correct,
                           currentScore: latestScore,
-                          targetLanguage: user?.learningLanguage,
+                          targetLanguage: locale,
                           sourceId: quiz.archiveId,
                           quizLevel: selected?.levelTag as any,
                         });
