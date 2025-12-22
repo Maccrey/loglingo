@@ -161,6 +161,7 @@
     "level_trend_up": "+{value}pts vs last",
     "level_trend_down": "-{value}pts vs last",
     "level_unknown": "No level yet",
+    "level_help": "Levels are estimated from AI corrections/quizzes using CEFR (A1~C2).",
     "activities_title": "Activity",
     "activity_diaries": "Diaries (7d)",
     "activity_archives": "Archives saved",

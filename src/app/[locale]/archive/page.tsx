@@ -11,6 +11,7 @@ import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application
 import { useDiaryList } from "@/application/diary/hooks";
 import { useLearningAggregate } from "@/application/learning-profile/aggregate";
 import { adjustLevelFromQuiz } from "@/application/learning-profile/adjustment";
+import { Info } from "lucide-react";
 
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
@@ -244,7 +245,15 @@ export default function ArchivePage() {
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-                <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
+                  <div className="group relative">
+                    <Info className="h-3.5 w-3.5 text-primary/80" />
+                    <div className="absolute left-0 top-5 z-10 hidden w-56 rounded-md border border-white/10 bg-black/80 p-2 text-[11px] text-white/90 shadow-lg group-hover:block">
+                      {t("level_help")}
+                    </div>
+                  </div>
+                </div>
                 <div className="mt-2 flex items-end gap-2">
                   <p className="text-3xl font-bold text-foreground">
                     {latestLevel?.level ?? t("level_unknown")}
