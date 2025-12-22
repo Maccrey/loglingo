@@ -54,7 +54,10 @@ export async function persistInsightsFromCorrection(result: CorrectionResult, op
   let savedLevel: LevelRecord | null = null;
 
   try {
-    savedLevel = await addLevelRecord(opts.userId, level);
+    savedLevel = await addLevelRecord(opts.userId, {
+      ...level,
+      ...(level.sourceId ? { sourceId: level.sourceId } : {}),
+    });
     trackEvent("level_recorded", { level: level.level, source: "ai_correction" });
   } catch (error) {
     console.error("Failed to save level record", error);
@@ -63,7 +66,10 @@ export async function persistInsightsFromCorrection(result: CorrectionResult, op
   if (advice?.length) {
     await Promise.all(
       advice.map((item) =>
-        addAdviceItem(opts.userId, item).catch((error) => {
+        addAdviceItem(opts.userId, {
+          ...item,
+          ...(item.sourceId ? { sourceId: item.sourceId } : {}),
+        }).catch((error) => {
           console.error("Failed to save advice item", error);
         })
       )

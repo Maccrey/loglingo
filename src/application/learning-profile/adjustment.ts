@@ -44,7 +44,7 @@ export async function adjustLevelFromQuiz(params: {
       confidence: 0.5,
       language: targetLanguage,
       sourceType: "quiz",
-      sourceId,
+      ...(sourceId ? { sourceId } : {}),
       rationale: `quiz result ${correct ? "correct" : "wrong"}, delta ${delta}`,
     });
     trackEvent("level_recorded", { source: "quiz", level, delta });
