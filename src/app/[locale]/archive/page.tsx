@@ -24,6 +24,7 @@ import KakaoAdFit from "@/components/ads/KakaoAdFit";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import DictionaryFAB from "@/components/dictionary/DictionaryFAB";
 
 // 아카이브 리스트 카드 컴포넌트
 function ArchiveListCard({
@@ -243,6 +244,9 @@ export default function ArchivePage() {
             </Button>
             <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
               {t("vocabulary")}
+            </Button>
+            <Button variant={type === "dictionary" ? "primary" : "ghost"} onClick={() => setType("dictionary")}>
+              {t("dictionary")}
             </Button>
             <select
               className="h-[38px] rounded-md border border-white/10 bg-white/5 px-3 text-sm text-foreground"
@@ -737,6 +741,9 @@ export default function ArchivePage() {
         </Card>
       </div>
       </div>
+      
+      {/* AI Dictionary Floating Action Button */}
+      <DictionaryFAB />
     </AuthGate>
   );
 }
