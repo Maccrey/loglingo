@@ -12,6 +12,7 @@ import { useDiaryList } from "@/application/diary/hooks";
 import { useLearningAggregate } from "@/application/learning-profile/aggregate";
 import { adjustLevelFromQuiz } from "@/application/learning-profile/adjustment";
 import { Info } from "lucide-react";
+import { useRef } from "react";
 
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
@@ -112,6 +113,7 @@ export default function ArchivePage() {
   const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
   const adviceMutation = useAdviceComplete(userId);
   const { data: aggregate } = useLearningAggregate(canLoad);
+  const hideLevelHelpLater = useRef<NodeJS.Timeout | null>(null);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
@@ -254,8 +256,13 @@ export default function ArchivePage() {
                       type="button"
                       className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition"
                       aria-label={t("level_help")}
-                      onMouseEnter={() => setShowLevelHelp(true)}
-                      onMouseLeave={() => setShowLevelHelp(false)}
+                      onMouseEnter={() => {
+                        if (hideLevelHelpLater.current) clearTimeout(hideLevelHelpLater.current);
+                        setShowLevelHelp(true);
+                      }}
+                      onMouseLeave={() => {
+                        hideLevelHelpLater.current = setTimeout(() => setShowLevelHelp(false), 400);
+                      }}
                       onFocus={() => setShowLevelHelp(true)}
                       onBlur={() => setShowLevelHelp(false)}
                       onClick={() => setShowLevelHelp((prev) => !prev)}
