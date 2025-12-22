@@ -74,10 +74,15 @@ function mapAdvice(docSnap: any): AdviceItem {
 export async function addLevelRecord(userId: string, payload: Omit<LevelRecord, "id" | "createdAt">) {
   if (!userId) throw new Error("userId is required for level record");
   const col = collection(db, "users", userId, "level");
-  const docRef = await addDoc(col, pruneUndefined({
-    ...payload,
-    createdAt: serverTimestamp(),
-  }));
+  const { sourceId, ...rest } = payload;
+  const docRef = await addDoc(
+    col,
+    pruneUndefined({
+      ...rest,
+      ...(sourceId ? { sourceId } : {}),
+      createdAt: serverTimestamp(),
+    })
+  );
   const snap = await getDocs(query(col, where("__name__", "==", docRef.id)));
   return mapLevel(snap.docs[0]);
 }
@@ -93,11 +98,16 @@ export async function listLevelRecords(userId: string, limitCount = 10) {
 export async function addAdviceItem(userId: string, payload: Omit<AdviceItem, "id" | "createdAt" | "updatedAt">) {
   if (!userId) throw new Error("userId is required for advice item");
   const col = collection(db, "users", userId, "advice");
-  const docRef = await addDoc(col, pruneUndefined({
-    ...payload,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  }));
+  const { sourceId, ...rest } = payload;
+  const docRef = await addDoc(
+    col,
+    pruneUndefined({
+      ...rest,
+      ...(sourceId ? { sourceId } : {}),
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    })
+  );
   const snap = await getDocs(query(col, where("__name__", "==", docRef.id)));
   return mapAdvice(snap.docs[0]);
 }
