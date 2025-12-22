@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { useTranslations } from "next-intl";
 import { Loader2, CheckCircle } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface SignupModalProps {
   isOpen: boolean;
@@ -48,7 +49,9 @@ export function SignupModal({ isOpen, onClose, onSwitchToLogin }: SignupModalPro
     
     setIsSubmitting(true);
     try {
+      trackEvent("signup_start", { method: "email" });
       await signUpWithEmail(email, password);
+      trackEvent("signup_success", { method: "email" });
       setSuccess(true);
       setEmail("");
       setPassword("");
@@ -60,6 +63,7 @@ export function SignupModal({ isOpen, onClose, onSwitchToLogin }: SignupModalPro
       }, 5000);
     } catch (err: any) {
       console.error("Signup error:", err);
+      trackEvent("signup_failure", { method: "email", error_code: err?.code || "unknown" });
       if (err.code === "auth/email-already-in-use") {
         setError(t("error_email_already_in_use"));
       } else if (err.code === "auth/invalid-email") {

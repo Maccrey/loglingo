@@ -6,7 +6,14 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
     globals: true,
-    exclude: ["tests/**", "node_modules/**", ".firebase/**", ".next/**"],
+    exclude: [
+      "tests/**",
+      "node_modules/**",
+      ".firebase/**",
+      ".next/**",
+      "firebase/functions/**",
+      "firebase/functions/node_modules/**",
+    ],
   },
   resolve: {
     alias: {

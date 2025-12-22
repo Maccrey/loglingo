@@ -7,6 +7,7 @@ import { AuthProvider } from "@/application/auth/AuthProvider";
 import { AdProvider } from "@/application/ads/AdProvider";
 import { LearningLanguageProvider } from "@/application/i18n/LearningLanguageProvider";
 import { ObservabilityProvider } from "@/application/observability/ObservabilityProvider";
+import { AnalyticsListener } from "@/application/analytics/AnalyticsListener";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +15,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <AuthProvider>
         <AdProvider>
           <LearningLanguageProvider>
-            <ObservabilityProvider>{children}</ObservabilityProvider>
+            <ObservabilityProvider>
+              <AnalyticsListener />
+              {children}
+            </ObservabilityProvider>
           </LearningLanguageProvider>
         </AdProvider>
       </AuthProvider>

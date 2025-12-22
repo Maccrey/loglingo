@@ -10,6 +10,7 @@ import { Loader2, Save, Search, X } from "lucide-react";
 import { createArchive } from "@/infrastructure/firebase/archive-repository";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface DictionaryResult {
   word: string;
@@ -97,14 +98,16 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const handleSearch = async () => {
     if (!word.trim()) return;
     
+    const query = word.trim();
     setLoading(true);
     setError(null);
+    trackEvent("dictionary_search", { query, status: "start" });
     try {
       const res = await fetch("/api/ai/dictionary", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          word: word.trim(),
+          word: query,
           learningLang: "en", // TODO: Get from user settings
           uiLang: locale,
         }),
@@ -116,8 +119,11 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
 
       const data = await res.json();
       setResult(data);
+      trackEvent("dictionary_search", { query });
+      trackEvent("dictionary_result", { query, status: "success" });
     } catch (err) {
       console.error("Dictionary search failed:", err);
+      trackEvent("dictionary_result", { query, status: "error" });
       setError(t("error") || "Failed to generate dictionary entry");
     } finally {
       setLoading(false);
@@ -127,6 +133,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const handleSave = async () => {
     if (!result) return;
     if (!user) {
+      trackEvent("dictionary_save_failure", { word: result?.word, reason: "unauthenticated" });
       setError(t("login_required") || "로그인 후 저장할 수 있습니다.");
       return;
     }
@@ -144,11 +151,13 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
       });
 
       queryClient.invalidateQueries({ queryKey: ["archives", user.uid] });
+      trackEvent("dictionary_save", { word: result.word, status: "success" });
       setWord("");
       setResult(null);
       onClose();
     } catch (err) {
       console.error("Save failed:", err);
+      trackEvent("dictionary_save_failure", { word: result.word, reason: "api_error" });
       alert("Failed to save to archive");
     } finally {
       setSaving(false);

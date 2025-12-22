@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -41,12 +42,15 @@ export function LoginModal({
     
     setIsSubmitting(true);
     try {
+      trackEvent("login_start", { method: "email" });
       await signInWithEmail(email, password);
+      trackEvent("login_success", { method: "email" });
       onClose();
       setEmail("");
       setPassword("");
     } catch (err: any) {
       console.error("Login error:", err);
+      trackEvent("login_failure", { method: "email", error_code: err?.code || "unknown" });
       if (err.code === "auth/user-not-found") {
         setError(t("error_user_not_found"));
       } else if (err.code === "auth/wrong-password") {
@@ -63,10 +67,13 @@ export function LoginModal({
 
   const handleGoogleLogin = async () => {
     try {
+      trackEvent("login_start", { method: "google" });
       await signInWithGoogle();
+      trackEvent("login_success", { method: "google" });
       onClose();
     } catch (err) {
       console.error("Google login error:", err);
+      trackEvent("login_failure", { method: "google", error: (err as Error)?.message });
       setError(t("error_auth_failed"));
     }
   };

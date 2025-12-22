@@ -1,8 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import ArchivePage from "./page";
 import { vi, describe, it, expect, beforeEach } from "vitest";
-import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/archive/hooks";
+import {
+  useArchiveList,
+  useArchiveMutations,
+  useArchiveDeleteMutation,
+  useArchiveProgressMutation,
+  useQuiz,
+} from "@/application/archive/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Mock dependencies
 vi.mock("next-intl", () => ({
@@ -13,6 +20,8 @@ vi.mock("next-intl", () => ({
 vi.mock("@/application/archive/hooks", () => ({
   useArchiveList: vi.fn(),
   useArchiveMutations: vi.fn(),
+  useArchiveDeleteMutation: vi.fn(),
+  useArchiveProgressMutation: vi.fn(),
   useQuiz: vi.fn(),
 }));
 
@@ -22,6 +31,35 @@ vi.mock("@/application/auth/AuthProvider", () => ({
 
 vi.mock("@/lib/firebase", () => ({
   auth: { currentUser: { uid: "user123" } },
+  db: {},
+}));
+
+vi.mock("firebase/firestore", () => ({
+  collection: vi.fn(() => ({})),
+  doc: vi.fn(() => ({})),
+  getDoc: vi.fn(async () => ({ exists: () => false, data: () => ({}) })),
+  addDoc: vi.fn(),
+  updateDoc: vi.fn(),
+  getDocs: vi.fn(async () => ({ docs: [] })),
+  query: vi.fn(() => ({})),
+  where: vi.fn(() => ({})),
+  serverTimestamp: vi.fn(() => new Date()),
+  Timestamp: class {
+    toDate() {
+      return new Date();
+    }
+  },
+  deleteDoc: vi.fn(),
+}));
+
+vi.mock("firebase/storage", () => ({
+  ref: vi.fn(() => ({})),
+  uploadBytesResumable: vi.fn(() => ({
+    on: vi.fn(),
+    snapshot: { ref: { fullPath: "" } },
+  })),
+  getDownloadURL: vi.fn(async () => ""),
+  deleteObject: vi.fn(),
 }));
 
 vi.mock("sonner", () => ({
@@ -58,23 +96,34 @@ vi.mock("@/components/ads/ResponsiveAd", () => ({
 
 describe("ArchivePage", () => {
   const mockCreate = { mutateAsync: vi.fn(), isPending: false };
+  const queryClient = new QueryClient();
 
   beforeEach(() => {
     vi.clearAllMocks();
     (useAuth as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ user: { uid: "user123" }, loading: false });
     (useArchiveMutations as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ create: mockCreate });
+    (useArchiveDeleteMutation as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ mutateAsync: vi.fn() });
+    (useArchiveProgressMutation as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ update: vi.fn() });
     (useQuiz as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ quiz: null, isLoading: false, error: null });
   });
 
   it("renders loading state", () => {
     (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: true });
-    render(<ArchivePage />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <ArchivePage />
+      </QueryClientProvider>
+    );
     expect(screen.getByText("loading")).toBeInTheDocument();
   });
 
   it("renders empty state", () => {
     (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: [], isLoading: false });
-    render(<ArchivePage />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <ArchivePage />
+      </QueryClientProvider>
+    );
     expect(screen.getByText("empty")).toBeInTheDocument();
   });
 
@@ -91,7 +140,11 @@ describe("ArchivePage", () => {
       },
     ];
     (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: archives, isLoading: false });
-    render(<ArchivePage />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <ArchivePage />
+      </QueryClientProvider>
+    );
     expect(screen.getByText("Test Grammar")).toBeInTheDocument();
   });
 
@@ -117,7 +170,11 @@ describe("ArchivePage", () => {
       },
     ];
     (useArchiveList as unknown as ReturnType<typeof vi.fn>).mockReturnValue({ data: archives, isLoading: false });
-    render(<ArchivePage />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <ArchivePage />
+      </QueryClientProvider>
+    );
 
     // Initially shows all
     expect(screen.getByText("Grammar Item")).toBeInTheDocument();

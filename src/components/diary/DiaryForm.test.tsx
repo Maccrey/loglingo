@@ -67,6 +67,7 @@ describe("DiaryForm", () => {
       target: { value: "Hello world" },
     });
     fireEvent.click(screen.getByRole("button", { name: /save entry/i }));
+    fireEvent.click(screen.getByRole("button", { name: /just save/i }));
 
     await waitFor(() =>
       expect(handleSubmit).toHaveBeenCalledWith(
@@ -88,6 +89,7 @@ describe("DiaryForm", () => {
       target: { value: "hello" },
     });
     fireEvent.click(screen.getByRole("button", { name: /save entry/i }));
+    fireEvent.click(screen.getByRole("button", { name: /just save/i }));
 
     await waitFor(() =>
       expect(

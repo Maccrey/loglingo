@@ -5,12 +5,12 @@ admin.initializeApp();
 
 /**
  * 학습 데이터 집계 함수
- * 매 4시간마다 실행되어 전체 사용자의 학습 통계를 계산하고
+ * 매 6시간마다 실행되어 전체 사용자의 학습 통계를 계산하고
  * stats_global/learning 문서에 저장합니다.
  */
 export const refreshLearningStats = onSchedule(
   {
-    schedule: "every 4 hours",
+    schedule: "every 6 hours",
     timeZone: "Asia/Seoul",
     memory: "256MiB",
   },

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import DictionaryModal from "@/components/dictionary/DictionaryModal";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { trackEvent } from "@/lib/analytics";
 
 export default function DictionaryFAB() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,10 @@ export default function DictionaryFAB() {
     <>
       {/* Floating Action Button */}
       <Button
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          trackEvent("dictionary_open");
+          setIsOpen(true);
+        }}
         className="fixed bottom-24 md:bottom-6 right-4 z-50 shadow-lg hover:scale-105 transition-transform gap-2 px-4 py-3"
         size="lg"
         aria-label={t("fab_label")}
