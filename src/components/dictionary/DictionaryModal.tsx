@@ -31,7 +31,16 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const isLoggedIn = Boolean(user);
   const queryClient = useQueryClient();
   const [adRefreshKey, setAdRefreshKey] = useState(0);
-  
+  const [isDesktop, setIsDesktop] = useState<boolean>(true);
+
+  useEffect(() => {
+    const mq = typeof window !== "undefined" ? window.matchMedia("(min-width: 768px)") : null;
+    const handler = () => setIsDesktop(!!mq?.matches);
+    handler();
+    mq?.addEventListener("change", handler);
+    return () => mq?.removeEventListener("change", handler);
+  }, []);
+
   const [word, setWord] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<DictionaryResult | null>(null);
@@ -64,7 +73,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
       (window as any).kakaoAsyncAdFit = (window as any).kakaoAsyncAdFit || [];
       (window as any).kakaoAsyncAdFit.push({});
     });
-  }, [isOpen]);
+  }, [isOpen, isDesktop, adRefreshKey]);
 
   const handleSearch = async () => {
     if (!word.trim()) return;
@@ -159,8 +168,8 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
         </div>
 
         {/* AdFit: place near top so slot is visible on open */}
-        <div className="mb-4 space-y-3">
-          <div className="hidden md:flex justify-center">
+        <div className="mb-4 flex justify-center">
+          {isDesktop ? (
             <ins
               className="kakao_ad_area"
               style={{ display: "block", width: "728px", height: "90px", margin: "0 auto" }}
@@ -169,8 +178,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
               data-ad-height="90"
               key={`pc-${adRefreshKey}`}
             />
-          </div>
-          <div className="md:hidden flex justify-center">
+          ) : (
             <ins
               className="kakao_ad_area"
               style={{ display: "block", width: "320px", height: "50px", margin: "0 auto" }}
@@ -179,7 +187,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
               data-ad-height="50"
               key={`m-${adRefreshKey}`}
             />
-          </div>
+          )}
         </div>
         
         {/* Input */}
