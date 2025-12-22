@@ -74,67 +74,34 @@ function buildWordQuizPrompt(
   exampleSentences: string[],
   uiLocale: string,
   learningLanguage: string,
-  forceMeaning?: boolean,
   levelTag?: string
 ): string {
-  // Randomly choose between spelling test and meaning test
-  const quizType = forceMeaning ? 'meaning' : Math.random() > 0.5 ? 'spelling' : 'meaning';
-  
-  if (quizType === 'spelling') {
-    return `You are a language learning quiz generator.
-
-Create a SPELLING quiz for this word:
-- Word: "${title}" (in ${learningLanguage})
-- Meaning: "${rootMeaning}"
-- Context: ${exampleSentences.join(', ')}
-- Learner level: ${levelTag ?? "unknown"} (keep options suitable to this level)
-
-QUIZ FORMAT - Spelling Test:
-Question: Ask which is the correct spelling of the word meaning "${rootMeaning}"
-
-IMPORTANT: ALL quiz content must be in ${uiLocale}:
-- Question: in ${uiLocale}
-- Options: similar-looking words in ${learningLanguage} (the target language)
-- Explanation: in ${uiLocale}
-
-Generate 4 answer options with similar spellings:
-1. Correct spelling: "${title}"
-2-4. Similar but incorrect spellings in ${learningLanguage}
-
-Respond with ONLY valid JSON:
-{
-  "options": ["${title}", "misspelling1", "misspelling2", "misspelling3"],
-  "correctIndex": 0,
-  "explanation": "explanation in ${uiLocale} why this spelling is correct"
-}`;
-  } else {
-    return `You are a language learning quiz generator.
+  // Always generate a MEANING quiz (no spelling quizzes) for better learning value
+  return `You are a language learning quiz generator.
 
 Create a MEANING quiz for this word:
 - Word: "${title}" (in ${learningLanguage})
-- Meaning: "${rootMeaning}"
+- Core/root image: "${rootMeaning}"
 - Examples: ${exampleSentences.join(', ')}
 - Learner level: ${levelTag ?? "unknown"} (adjust distractors to this level)
 
 QUIZ FORMAT - Meaning Test:
-Question: Ask what "${title}" means
+Question (in ${uiLocale}): Ask what "${title}" means based on its core/root image and usage.
 
-IMPORTANT: ALL quiz content must be in ${uiLocale}:
-- Question: in ${uiLocale}
-- Options: meanings in ${uiLocale} (translate/explain)
-- Explanation: in ${uiLocale}
+Options (in ${uiLocale}):
+- Provide 4 meanings/translations/explanations.
+- One correct meaning that matches "${rootMeaning}".
+- Three plausible but incorrect meanings that reflect common confusions at this level.
 
-Generate 4 answer options:
-1. Correct meaning in ${uiLocale}
-2-4. Similar but incorrect meanings in ${uiLocale}
+Explanation (in ${uiLocale}):
+- Briefly explain why the correct option matches the root image/usage.
 
-Respond with ONLY valid JSON:
+Respond with ONLY valid JSON (no code fences, no commentary):
 {
   "options": ["correct meaning in ${uiLocale}", "wrong meaning 1", "wrong meaning 2", "wrong meaning 3"],
   "correctIndex": 0,
-  "explanation": "detailed explanation in ${uiLocale}"
+  "explanation": "short explanation in ${uiLocale} referencing the root image/usage"
 }`;
-  }
 }
 
 function buildPrompt(

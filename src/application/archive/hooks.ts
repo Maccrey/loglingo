@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getArchives, saveArchiveEntry } from "./archive-service";
+import { getArchives, saveArchiveEntry, updateArchiveProgress } from "./archive-service";
 import { LearningArchive } from "@/domain/archive";
 import { Quiz } from "@/domain/quiz";
 import { getOrGenerateQuiz } from "@/application/quiz/quiz-service";
@@ -28,6 +28,16 @@ export function useArchiveMutations(userId: string) {
     onSuccess: () => client.invalidateQueries({ queryKey: ["archives", userId] }),
   });
   return { create };
+}
+
+export function useArchiveProgressMutation(userId: string) {
+  const client = useQueryClient();
+  const update = useMutation({
+    mutationFn: (args: { archiveId: string; correctCount?: number; memorized?: boolean }) =>
+      updateArchiveProgress(args.archiveId, { correctCount: args.correctCount, memorized: args.memorized }),
+    onSuccess: () => client.invalidateQueries({ queryKey: ["archives", userId] }),
+  });
+  return { update };
 }
 
 export function useQuiz(

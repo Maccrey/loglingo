@@ -10,6 +10,8 @@ export interface LearningArchive {
   levelTag?: string;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
+  correctCount?: number;
+  memorized?: boolean;
   createdAt: Date;
 }
 
@@ -22,6 +24,8 @@ export interface LearningArchiveDraft {
   levelTag?: string;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
+  correctCount?: number;
+  memorized?: boolean;
 }
 
 export interface QuizQuestion {

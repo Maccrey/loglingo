@@ -4,7 +4,7 @@ import {
   LearningArchiveDraft,
   QuizQuestion,
 } from "@/domain/archive";
-import { createArchive, listArchive } from "@/infrastructure/firebase/archive-repository";
+import { createArchive, listArchive, updateArchiveProgress as updateArchiveProgressRepo } from "@/infrastructure/firebase/archive-repository";
 
 export async function saveArchiveEntry(input: LearningArchiveDraft) {
   if (!input.title.trim()) {
@@ -19,6 +19,10 @@ export async function saveArchiveEntry(input: LearningArchiveDraft) {
 
 export async function getArchives(userId: string, type?: string, sourceId?: string, levelTag?: string): Promise<LearningArchive[]> {
   return listArchive(userId, type, sourceId, levelTag);
+}
+
+export async function updateArchiveProgress(archiveId: string, updates: { correctCount?: number; memorized?: boolean }) {
+  return updateArchiveProgressRepo(archiveId, updates);
 }
 
 export function generateQuiz(entry: LearningArchive): QuizQuestion {

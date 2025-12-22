@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Navigation } from "@/components/layout/Navigation";
 import { Providers } from "../providers";
+import DictionaryFAB from "@/components/dictionary/DictionaryFAB";
 import { ReactNode } from 'react';
 
 export default async function LocaleLayout({
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
         <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto">
           {children}
         </main>
+        <DictionaryFAB />
       </Providers>
     </NextIntlClientProvider>
   );

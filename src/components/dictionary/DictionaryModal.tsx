@@ -8,11 +8,15 @@ import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { Loader2, Save, Search, X } from "lucide-react";
 import { createArchive } from "@/infrastructure/firebase/archive-repository";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface DictionaryResult {
   word: string;
   rootMeaning: string;
-  examples: string[];
+  examples: {
+    sentence: string;
+    meaning: string;
+  }[];
 }
 
 interface DictionaryModalProps {
@@ -24,6 +28,8 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const t = useTranslations("dictionary");
   const locale = useLocale();
   const { user } = useAuth();
+  const isLoggedIn = Boolean(user);
+  const queryClient = useQueryClient();
   
   const [word, setWord] = useState("");
   const [loading, setLoading] = useState(false);
@@ -62,7 +68,11 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   };
 
   const handleSave = async () => {
-    if (!result || !user) return;
+    if (!result) return;
+    if (!user) {
+      setError(t("login_required") || "로그인 후 저장할 수 있습니다.");
+      return;
+    }
     
     setSaving(true);
     try {
@@ -71,11 +81,12 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
         type: "word",
         title: result.word,
         rootMeaning: result.rootMeaning,
-        examples: result.examples,
+        examples: result.examples.map((ex) => `${ex.sentence} — ${ex.meaning}`),
         sourceText: `[Dictionary] ${result.word}: ${result.rootMeaning}`,
+        sourceId: "dictionary",
       });
-      
-      alert(t("saved"));
+
+      queryClient.invalidateQueries({ queryKey: ["archives", user.uid] });
       setWord("");
       setResult(null);
       onClose();
@@ -143,6 +154,12 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
             {error}
           </div>
         )}
+        
+        {!isLoggedIn && (
+          <div className="mb-4 p-3 rounded-md border border-amber-400/40 bg-amber-500/10 text-amber-200 text-sm">
+            {t("login_required") || "로그인 후 학습 아카이브에 저장할 수 있습니다."}
+          </div>
+        )}
 
         {/* Result */}
         {result && (
@@ -157,7 +174,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
               <ul className="space-y-2">
                 {result.examples.map((ex, i) => (
                   <li key={i} className="text-sm bg-muted p-2 rounded">
-                    • {ex}
+                    • {ex.sentence} — {ex.meaning}
                   </li>
                 ))}
               </ul>
@@ -165,7 +182,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
 
             <Button 
               onClick={handleSave} 
-              disabled={saving} 
+              disabled={saving || !isLoggedIn} 
               className="w-full"
             >
               {saving ? (

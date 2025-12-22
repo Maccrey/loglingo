@@ -8,6 +8,7 @@ import {
   collection,
   getDocs,
   getDoc,
+  updateDoc,
   doc,
   query,
   serverTimestamp,
@@ -34,6 +35,9 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
     rootMeaning: data.rootMeaning || "",
     levelTag: data.levelTag,
     sourceId: data.sourceId,
+    sourceText: data.sourceText,
+    correctCount: typeof data.correctCount === "number" ? data.correctCount : 0,
+    memorized: Boolean(data.memorized),
     createdAt,
   };
 }
@@ -108,11 +112,29 @@ export async function checkDuplicate(userId: string, title: string, sourceId?: s
 }
 
 export async function createArchive(input: LearningArchiveDraft): Promise<LearningArchive> {
-  const payload = {
-    ...input,
-    levelTag: input.levelTag,
+  const payload: Record<string, unknown> = {
+    userId: input.userId,
+    type: input.type,
+    title: input.title,
+    examples: input.examples ?? [],
+    rootMeaning: input.rootMeaning ?? "",
+    correctCount: input.correctCount ?? 0,
+    memorized: input.memorized ?? false,
     createdAt: serverTimestamp(),
   };
+
+  if (input.levelTag !== undefined) {
+    payload.levelTag = input.levelTag ?? null;
+  }
+  if (input.sourceId !== undefined) {
+    payload.sourceId = input.sourceId ?? null;
+  }
+  if (input.sourceText !== undefined) {
+    payload.sourceText = input.sourceText ?? null;
+  }
+
+  console.log("📝 Archive Repository: create payload", payload);
+
   const ref = await addDoc(archiveCol, payload);
   // Using getDoc is more efficient and safer with security rules than querying by __name__
   const savedSnapshot = await getDoc(doc(db, "learning_archive", ref.id));
@@ -122,6 +144,24 @@ export async function createArchive(input: LearningArchiveDraft): Promise<Learni
   }
   
   return mapArchive(savedSnapshot as QueryDocumentSnapshot<DocumentData>);
+}
+
+export async function updateArchiveProgress(
+  archiveId: string,
+  updates: { correctCount?: number; memorized?: boolean }
+) {
+  const updatePayload: Record<string, unknown> = {};
+  if (updates.correctCount !== undefined) {
+    updatePayload.correctCount = updates.correctCount;
+  }
+  if (updates.memorized !== undefined) {
+    updatePayload.memorized = updates.memorized;
+  }
+
+  if (!Object.keys(updatePayload).length) return;
+
+  const archiveRef = doc(db, "learning_archive", archiveId);
+  await updateDoc(archiveRef, updatePayload);
 }
 
 export async function deleteArchivesBySourceId(sourceId: string): Promise<number> {

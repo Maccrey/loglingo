@@ -9,7 +9,10 @@ interface DictionaryRequest {
 interface DictionaryResponse {
   word: string;
   rootMeaning: string;
-  examples: string[];
+  examples: {
+    sentence: string;
+    meaning: string;
+  }[];
 }
 
 export async function POST(request: NextRequest) {
@@ -28,31 +31,47 @@ export async function POST(request: NextRequest) {
 Provide the response in JSON format:
 {
   "word": "${word}",
-  "rootMeaning": "Core/root meaning in ${uiLang} (brief, 1-2 sentences)",
-  "examples": ["Example 1 in ${learningLang}", "Example 2 in ${learningLang}", "Example 3 in ${learningLang}"]
+  "rootMeaning": "Explain the core/root image of the word in ${uiLang} so a learner can visualize it (1-2 sentences, avoid long definitions)",
+  "examples": [
+    { "sentence": "Example in ${learningLang}", "meaning": "Short meaning/translation in ${uiLang}" },
+    { "sentence": "Example in ${learningLang}", "meaning": "Short meaning/translation in ${uiLang}" },
+    { "sentence": "Example in ${learningLang}", "meaning": "Short meaning/translation in ${uiLang}" }
+  ]
 }
 
 Rules:
-- rootMeaning MUST be in ${uiLang}
-- examples MUST be in ${learningLang}
-- Provide 3-5 practical example sentences
-- Keep rootMeaning concise and focused on the core meaning
-- Examples should demonstrate different usages`;
+- rootMeaning MUST be in ${uiLang} and include a clear 'root image' to help non-native speakers grasp the meaning.
+- examples MUST be in ${learningLang}; meanings/translations in ${uiLang}.
+- Provide 3-5 practical example sentences that show different usages.
+- Keep rootMeaning concise and focused on the core visual/semantic image.`;
+
+    const apiKey = process.env.GROK_API_KEY;
+    const model = process.env.GROK_MODEL || "grok-beta";
+
+    if (!apiKey) {
+      console.error("❌ GROK_API_KEY is not set");
+      return NextResponse.json(
+        { error: "Dictionary service is not configured" },
+        { status: 500 }
+      );
+    }
 
     const response = await fetch("https://api.x.ai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.GROK_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "grok-beta",
+        model,
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
       }),
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error("❌ Grok API error:", response.status, response.statusText, errorText);
       throw new Error(`Grok API error: ${response.statusText}`);
     }
 
