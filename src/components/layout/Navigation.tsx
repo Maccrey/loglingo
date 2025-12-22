@@ -81,7 +81,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-3 text-sm text-muted-foreground">
             <select
               aria-label={tSettings('ui_language')}
-              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/60"
+              className="rounded-lg border border-white/15 bg-black/80 text-white text-xs px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/60 appearance-none"
               value={locale}
               onChange={(e) => {
                 const nextLocale = e.target.value;
