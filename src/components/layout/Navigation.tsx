@@ -79,22 +79,38 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3 text-sm text-muted-foreground">
-            <select
-              aria-label={tSettings('ui_language')}
-              className="rounded-lg border border-white/15 bg-black/80 text-white text-xs px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/60 appearance-none"
-              value={locale}
-              onChange={(e) => {
-                const nextLocale = e.target.value;
-                document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
-                router.replace(pathname, { locale: nextLocale });
-              }}
-            >
-              {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                aria-label={tSettings('ui_language')}
+                className="rounded-lg border border-white/15 bg-black/80 text-white text-xs px-3 py-1.5 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/60 appearance-none"
+                value={locale}
+                onChange={(e) => {
+                  const nextLocale = e.target.value;
+                  document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
+                  router.replace(pathname, { locale: nextLocale });
+                }}
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-white/70">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </div>
+            </div>
 
             {user ? (
               <>
