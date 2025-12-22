@@ -70,8 +70,8 @@ function ArchiveCard({
             />
             <span>
               {showExamples
-                ? tArchive("hide_examples", { count: archive.examples.length })
-                : tArchive("show_examples", { count: archive.examples.length })}
+                ? tArchive("hide_examples").replace("{count}", String(archive.examples.length))
+                : tArchive("show_examples").replace("{count}", String(archive.examples.length))}
             </span>
           </button>
           

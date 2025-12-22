@@ -64,7 +64,7 @@ function ArchiveListCard({
             )}
               {!isMemorized && (
                 <span className="px-2 py-1 rounded-full bg-amber-500/10 text-amber-200 border border-amber-400/40">
-                  {t("correct_count", { value: correctCount })}
+                  {t("correct_count").replace("{value}", String(correctCount))}
                 </span>
               )}
               {isMemorized && (
@@ -99,8 +99,8 @@ function ArchiveListCard({
             />
             <span>
               {showExamples
-                ? t("hide_examples", { count: item.examples.length })
-                : t("show_examples", { count: item.examples.length })}
+                ? t("hide_examples").replace("{count}", String(item.examples.length))
+                : t("show_examples").replace("{count}", String(item.examples.length))}
             </span>
           </button>
           
