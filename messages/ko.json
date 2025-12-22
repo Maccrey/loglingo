@@ -173,7 +173,9 @@
     "priority_high": "높음",
     "priority_medium": "보통",
     "priority_low": "낮음",
-    "level_filter_all": "모든 레벨"
+    "level_filter_all": "모든 레벨",
+    "vs_avg": "평균 대비 {value}",
+    "vs_target": "목표 대비 {value}"
   },
   "settings": {
     "title": "설정",

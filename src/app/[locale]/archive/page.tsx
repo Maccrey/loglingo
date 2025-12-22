@@ -9,6 +9,7 @@ import { useArchiveList, useArchiveMutations, useQuiz } from "@/application/arch
 import { useAuth } from "@/application/auth/AuthProvider";
 import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application/learning-profile/hooks";
 import { useDiaryList } from "@/application/diary/hooks";
+import { useLearningAggregate } from "@/application/learning-profile/aggregate";
 
 import { LearningArchive } from "@/domain/archive";
 import { toast } from "sonner";
@@ -108,6 +109,7 @@ export default function ArchivePage() {
   const { data: levels = [] } = useLevelRecords(userId, { enabled: canLoad });
   const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
   const adviceMutation = useAdviceComplete(userId);
+  const { data: aggregate } = useLearningAggregate(canLoad);
   
   // 디버깅 로그
   console.log("📚 Archive Page State:", {
@@ -265,14 +267,23 @@ export default function ArchivePage() {
                   <div>
                     <p className="text-lg font-semibold text-foreground">{diaries7d}</p>
                     <p className="text-xs text-muted-foreground">{t("activity_diaries")}</p>
+                    {aggregate && (
+                      <p className="text-[11px] text-muted-foreground/70">{t("vs_avg", { value: (diaries7d - aggregate.average.diaries7d) })}</p>
+                    )}
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-foreground">{archiveList.length}</p>
                     <p className="text-xs text-muted-foreground">{t("activity_archives")}</p>
+                    {aggregate && (
+                      <p className="text-[11px] text-muted-foreground/70">{t("vs_avg", { value: (archiveList.length - aggregate.average.archivesTotal) })}</p>
+                    )}
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-foreground">{pendingAdvice.length}</p>
                     <p className="text-xs text-muted-foreground">{t("activity_advice")}</p>
+                    {aggregate && (
+                      <p className="text-[11px] text-muted-foreground/70">{t("vs_target", { value: (pendingAdvice.length - aggregate.target.adviceOpen) })}</p>
+                    )}
                   </div>
                 </div>
               </div>
