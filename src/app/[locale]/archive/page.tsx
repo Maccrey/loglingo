@@ -655,6 +655,12 @@ export default function ArchivePage() {
                     setSelected(item);
                     trackEvent("quiz_started", { archiveId: item.id, type: item.type });
                   }}
+                  onDelete={(id) => {
+                    const target = archiveList.find((a) => a.id === id);
+                    if (target) {
+                      setArchiveToDelete(target);
+                    }
+                  }}
                   t={t}
                   locale={locale}
                 />
