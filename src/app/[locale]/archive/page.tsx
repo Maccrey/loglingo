@@ -271,6 +271,16 @@ export default function ArchivePage() {
                     {aggregate && (
                       <p className="text-[11px] text-muted-foreground/70">{t("vs_avg", { value: (diaries7d - aggregate.average.diaries7d) })}</p>
                     )}
+                    {aggregate && (
+                      <div className="mt-1 h-2 w-full rounded-full bg-white/10 overflow-hidden">
+                        <div
+                          className="h-2 bg-gradient-to-r from-primary to-accent"
+                          style={{
+                            width: `${Math.min(100, (diaries7d / Math.max(1, aggregate.target.diaries7d)) * 100)}%`,
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-foreground">{archiveList.length}</p>
@@ -278,12 +288,32 @@ export default function ArchivePage() {
                     {aggregate && (
                       <p className="text-[11px] text-muted-foreground/70">{t("vs_avg", { value: (archiveList.length - aggregate.average.archivesTotal) })}</p>
                     )}
+                    {aggregate && (
+                      <div className="mt-1 h-2 w-full rounded-full bg-white/10 overflow-hidden">
+                        <div
+                          className="h-2 bg-gradient-to-r from-primary to-accent"
+                          style={{
+                            width: `${Math.min(100, (archiveList.length / Math.max(1, aggregate.target.archivesTotal)) * 100)}%`,
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-foreground">{pendingAdvice.length}</p>
                     <p className="text-xs text-muted-foreground">{t("activity_advice")}</p>
                     {aggregate && (
                       <p className="text-[11px] text-muted-foreground/70">{t("vs_target", { value: (pendingAdvice.length - aggregate.target.adviceOpen) })}</p>
+                    )}
+                    {aggregate && (
+                      <div className="mt-1 h-2 w-full rounded-full bg-white/10 overflow-hidden">
+                        <div
+                          className="h-2 bg-gradient-to-r from-primary to-accent"
+                          style={{
+                            width: `${Math.min(100, (Math.max(aggregate.target.adviceOpen, 0) / Math.max(1, pendingAdvice.length || 1)) * 100)}%`,
+                          }}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
@@ -598,6 +628,7 @@ export default function ArchivePage() {
                           currentScore: latestScore,
                           targetLanguage: user?.learningLanguage,
                           sourceId: quiz.archiveId,
+                          quizLevel: selected?.levelTag as any,
                         });
                         toast[correct ? "success" : "error"](
                           correct ? t("quiz_correct") : t("quiz_wrong"),
