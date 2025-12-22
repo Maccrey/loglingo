@@ -5,10 +5,15 @@ import { BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import DictionaryModal from "@/components/dictionary/DictionaryModal";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/application/auth/AuthProvider";
 
 export default function DictionaryFAB() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("dictionary");
+   // Hide FAB when not authenticated
+  const { user, loading } = useAuth();
+
+  if (loading || !user) return null;
 
   return (
     <>
