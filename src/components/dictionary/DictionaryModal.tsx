@@ -69,23 +69,24 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
     }
 
     const src = "//t1.daumcdn.net/kas/static/ba.min.js";
-    const ensureScript = () =>
+
+    const reloadScript = () =>
       new Promise<void>((resolve) => {
-        const existing = document.querySelector<HTMLScriptElement>(`script[src="${src}"]`);
-        if (existing) {
-          if (existing.dataset.loaded === "true") return resolve();
-          existing.addEventListener("load", () => resolve(), { once: true });
-          return;
-        }
+        // remove old script to force reload
+        document
+          .querySelectorAll<HTMLScriptElement>(`script[src="${src}"]`)
+          .forEach((s) => s.parentElement?.removeChild(s));
+        // reset global queue
+        (window as any).kakaoAsyncAdFit = [];
+
         const script = document.createElement("script");
         script.src = src;
         script.async = true;
-        script.dataset.loaded = "true";
         script.onload = () => resolve();
         document.body.appendChild(script);
       });
 
-    ensureScript().then(() => {
+    reloadScript().then(() => {
       requestAnimationFrame(() => {
         (window as any).kakaoAsyncAdFit = (window as any).kakaoAsyncAdFit || [];
         (window as any).kakaoAsyncAdFit.push({});
