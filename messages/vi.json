@@ -171,7 +171,15 @@
     "advice_mark_done": "Mark done",
     "priority_high": "High",
     "priority_medium": "Medium",
-    "priority_low": "Low"
+    "priority_low": "Low",
+    "level_filter_all": "All levels",
+    "vs_avg": "{value} vs avg",
+    "vs_target": "{value} vs target",
+    "advice_issue_template": "{topic}: Focus on issues detected {count} time(s).",
+    "advice_topic_grammar": "Grammar",
+    "advice_topic_word": "Vocabulary",
+    "advice_topic_style": "Style",
+    "advice_topic_other": "Other"
   },
   "settings": {
     "title": "Cài đặt",
