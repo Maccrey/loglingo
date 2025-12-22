@@ -175,7 +175,12 @@
     "priority_low": "낮음",
     "level_filter_all": "모든 레벨",
     "vs_avg": "평균 대비 {value}",
-    "vs_target": "목표 대비 {value}"
+    "vs_target": "목표 대비 {value}",
+    "advice_issue_template": "{topic}: {count}회 발견, 집중 개선하세요",
+    "advice_topic_grammar": "문법",
+    "advice_topic_word": "어휘",
+    "advice_topic_style": "스타일",
+    "advice_topic_other": "기타"
   },
   "settings": {
     "title": "설정",

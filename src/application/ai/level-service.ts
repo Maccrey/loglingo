@@ -70,6 +70,7 @@ export function generateLevelInsights(params: {
         topic,
         priority,
         message: buildAdviceMessages(topic, uiLocale, detail),
+        count,
         actions: [],
         relatedLevel: level,
         sourceId,

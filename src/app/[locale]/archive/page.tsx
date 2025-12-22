@@ -332,14 +332,22 @@ export default function ArchivePage() {
                     >
                       {(() => {
                         const priority = (item.priority as "high" | "medium" | "low") || "medium";
-                        const message = item.message?.[locale] || item.message?.en || t("advice_empty");
+                        const topicKey = `advice_topic_${item.topic}` as const;
+                        const topicLabel =
+                          (topicKey && (t as any)?.format ? t(topicKey) : t(topicKey, { defaultMessage: item.topic })) ||
+                          item.topic;
+                        const message =
+                          (item.count
+                            ? t("advice_issue_template", { topic: topicLabel, count: item.count })
+                            : null) ||
+                          item.message?.[locale] ||
+                          item.message?.en ||
+                          t("advice_empty");
                         return (
                           <>
                             <div>
                               <p className="text-sm font-semibold text-foreground">{item.topic}</p>
-                              <p className="text-xs text-muted-foreground">
-                                {message}
-                              </p>
+                              <p className="text-xs text-muted-foreground">{message}</p>
                               <p className="text-[11px] text-muted-foreground/70 mt-1">
                                 {t(`priority_${priority}`)}
                               </p>

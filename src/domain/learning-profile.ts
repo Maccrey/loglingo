@@ -19,6 +19,7 @@ export interface AdviceItem {
   topic: string; // grammar/vocab/pronunciation/fluency/etc.
   priority: AdvicePriority;
   message: Record<string, string>; // localized messages keyed by locale
+  count?: number;
   actions?: string[];
   relatedLevel?: LevelBand | string;
   sourceId?: string;

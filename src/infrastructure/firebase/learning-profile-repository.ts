@@ -62,6 +62,7 @@ function mapAdvice(docSnap: any): AdviceItem {
     topic: data.topic,
     priority: data.priority ?? "medium",
     message: data.message ?? {},
+    count: typeof data.count === "number" ? data.count : undefined,
     actions: data.actions ?? [],
     relatedLevel: data.relatedLevel,
     sourceId: data.sourceId,
