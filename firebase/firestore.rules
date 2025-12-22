@@ -9,6 +9,12 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == userId;
     }
 
+    // 집계 통계 (모든 인증 사용자 읽기 가능, Functions만 쓰기)
+    match /stats_global/{docId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Cloud Functions에서만 작성
+    }
+
     match /users/{userId} {
       allow read, write: if isOwner(userId);
 
