@@ -32,7 +32,7 @@ function ArchiveListCard({
 }: {
   item: LearningArchive;
   onSelect: () => void;
-  t: (key: string) => string;
+  t: (key: string, values?: Record<string, any>) => string;
   locale: string;
 }) {
   const [showExamples, setShowExamples] = useState(false);
@@ -45,6 +45,20 @@ function ArchiveListCard({
       : t("grammar");
   const correctCount = item.correctCount ?? 0;
   const isMemorized = item.memorized || correctCount >= 3;
+  const formatMessage = useCallback(
+    (key: string, params: Record<string, string | number>) => {
+      try {
+        return t(key, params);
+      } catch {
+        const raw = (t as any)?.raw?.(key) ?? "";
+        if (typeof raw === "string") {
+          return raw.replace(/\{(\w+)\}/g, (_, token) => String(params[token] ?? ""));
+        }
+        return "";
+      }
+    },
+    [t]
+  );
 
   return (
     <div className="rounded-lg border border-white/10 bg-white/5 p-3 hover:border-primary/40 transition">
@@ -61,10 +75,10 @@ function ArchiveListCard({
               <span className="px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">
                 {t("quick_quiz_badge")}
               </span>
-            )}
+              )}
               {!isMemorized && (
                 <span className="px-2 py-1 rounded-full bg-amber-500/10 text-amber-200 border border-amber-400/40">
-                  {t("correct_count").replace("{value}", String(correctCount))}
+                  {formatMessage("correct_count", { value: correctCount })}
                 </span>
               )}
               {isMemorized && (
@@ -99,8 +113,8 @@ function ArchiveListCard({
             />
             <span>
               {showExamples
-                ? t("hide_examples").replace("{count}", String(item.examples.length))
-                : t("show_examples").replace("{count}", String(item.examples.length))}
+                ? formatMessage("hide_examples", { count: item.examples.length })
+                : formatMessage("show_examples", { count: item.examples.length })}
             </span>
           </button>
           
@@ -179,6 +193,13 @@ export default function ArchivePage() {
   const pendingAdvice = adviceItems.filter((a) => !a.completed);
   const aggregateAvg = aggregate?.average ?? { diaries7d: 0, archivesTotal: 0, adviceOpen: 0, level: "", score: 0 };
   const aggregateTarget = aggregate?.target ?? { diaries7d: 0, archivesTotal: 0, adviceOpen: 0, level: "", score: 0 };
+  const adviceTarget = Math.max(aggregateTarget?.adviceOpen ?? 0, 0);
+  const adviceProgress =
+    adviceTarget === 0
+      ? pendingAdvice.length === 0
+        ? 100
+        : 0
+      : Math.min(100, (adviceTarget / Math.max(pendingAdvice.length, adviceTarget)) * 100);
 
   const handleCompleteAdvice = async (adviceId: string) => {
     if (!adviceId) return;
@@ -415,7 +436,7 @@ export default function ArchivePage() {
                       <div
                         className="h-2 bg-gradient-to-r from-primary to-accent"
                         style={{
-                          width: `${Math.min(100, (Math.max(aggregateTarget?.adviceOpen ?? 0, 0) / Math.max(1, pendingAdvice.length || 1)) * 100)}%`,
+                          width: `${adviceProgress}%`,
                         }}
                       />
                     </div>

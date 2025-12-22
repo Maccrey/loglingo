@@ -30,6 +30,26 @@ export function useAdviceComplete(userId: string) {
   return useMutation({
     mutationFn: ({ adviceId, completed }: { adviceId: string; completed: boolean }) =>
       markAdviceCompleted(userId, adviceId, completed),
+    // Optimistically mark advice as completed so UI/progress update immediately.
+    onMutate: async ({ adviceId, completed }) => {
+      const queryKey = ["advice", userId, "all"];
+      await client.cancelQueries({ queryKey });
+      const previous = client.getQueryData<AdviceItem[]>(queryKey);
+      if (previous) {
+        client.setQueryData<AdviceItem[]>(
+          queryKey,
+          previous.map((item) =>
+            item.id === adviceId ? { ...item, completed } : item
+          )
+        );
+      }
+      return { previous, queryKey };
+    },
+    onError: (_err, _vars, context) => {
+      if (context?.previous && context.queryKey) {
+        client.setQueryData(context.queryKey, context.previous);
+      }
+    },
     onSuccess: () => {
       client.invalidateQueries({ queryKey: ["advice", userId] });
     },
