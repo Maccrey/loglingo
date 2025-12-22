@@ -120,7 +120,7 @@ function buildPrompt(
   if (type === 'grammar') {
     return buildGrammarQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage, levelTag);
   } else {
-    return buildWordQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage, forceMeaning, levelTag);
+    return buildWordQuizPrompt(title, rootMeaning, sentences, uiLocale, learningLanguage, levelTag);
   }
 }
 

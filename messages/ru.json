@@ -187,7 +187,12 @@
     "level_status_low": "Укрепляйте базу. Используйте лёгкие викторины и больше повторений.",
     "dictionary": "AI словарь",
     "hide_hint": "Hide hint",
-    "show_hint": "Show hint"
+    "show_hint": "Show hint",
+    "quick_quiz_badge": "Быстрый квиз",
+    "correct_count": "Правильных ответов: {value}",
+    "memorized": "Запомнено",
+    "show_examples": "Показать примеры ({count})",
+    "hide_examples": "Скрыть примеры ({count})"
   },
   "settings": {
     "title": "Настройки",

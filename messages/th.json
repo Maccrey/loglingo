@@ -187,7 +187,12 @@
     "level_status_low": "เสริมพื้นฐาน ใช้แบบทดสอบง่ายและทบทวนบ่อย",
     "dictionary": "พจนานุกรม AI",
     "hide_hint": "Hide hint",
-    "show_hint": "Show hint"
+    "show_hint": "Show hint",
+    "quick_quiz_badge": "ควิซด่วน",
+    "correct_count": "ตอบถูก {value} ครั้ง",
+    "memorized": "ท่องจำแล้ว",
+    "show_examples": "แสดงตัวอย่าง ({count})",
+    "hide_examples": "ซ่อนตัวอย่าง ({count})"
   },
   "settings": {
     "title": "ตั้งค่า",

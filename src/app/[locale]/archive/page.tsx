@@ -58,16 +58,18 @@ function ArchiveListCard({
             <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-muted-foreground">
               <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">{typeLabel}</span>
               {hasExamples && (
-                <span className="px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">퀵퀴즈</span>
-              )}
+              <span className="px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">
+                {t("quick_quiz_badge")}
+              </span>
+            )}
               {!isMemorized && (
                 <span className="px-2 py-1 rounded-full bg-amber-500/10 text-amber-200 border border-amber-400/40">
-                  정답 {correctCount}회
+                  {t("correct_count", { value: correctCount })}
                 </span>
               )}
               {isMemorized && (
                 <span className="px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/40">
-                  암기완료
+                  {t("memorized")}
                 </span>
               )}
             </div>
@@ -95,7 +97,11 @@ function ArchiveListCard({
                 showExamples && "rotate-180"
               )} 
             />
-            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${item.examples.length}개)`}</span>
+            <span>
+              {showExamples
+                ? t("hide_examples", { count: item.examples.length })
+                : t("show_examples", { count: item.examples.length })}
+            </span>
           </button>
           
           {showExamples && (
@@ -238,7 +244,7 @@ export default function ArchivePage() {
         userId,
         correct,
         currentScore: latestScore,
-        levelTag: selected.levelTag,
+        quizLevel: selected.levelTag,
       });
     }
 

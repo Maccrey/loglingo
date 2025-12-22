@@ -187,7 +187,12 @@
     "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review.",
     "dictionary": "Kamus AI",
     "hide_hint": "Hide hint",
-    "show_hint": "Show hint"
+    "show_hint": "Show hint",
+    "quick_quiz_badge": "Kuis cepat",
+    "correct_count": "Benar {value} kali",
+    "memorized": "Sudah dihafal",
+    "show_examples": "Tampilkan contoh ({count})",
+    "hide_examples": "Sembunyikan contoh ({count})"
   },
   "settings": {
     "title": "Pengaturan",

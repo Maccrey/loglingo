@@ -187,7 +187,12 @@
     "hide_hint": "Hide hint",
     "show_hint": "Show hint",
     "vs_avg": "Avg diff {value}",
-    "vs_target": "Target diff {value}"
+    "vs_target": "Target diff {value}",
+    "quick_quiz_badge": "اختبار سريع",
+    "correct_count": "إجابات صحيحة {value} مرة",
+    "memorized": "تم الحفظ",
+    "show_examples": "عرض الأمثلة ({count})",
+    "hide_examples": "إخفاء الأمثلة ({count})"
   },
   "settings": {
     "title": "الإعدادات",

@@ -187,7 +187,12 @@
     "advice_topic_word": "語彙",
     "advice_topic_style": "スタイル",
     "advice_topic_other": "その他",
-    "dictionary": "AI辞書"
+    "dictionary": "AI辞書",
+    "quick_quiz_badge": "クイッククイズ",
+    "correct_count": "正答 {value}回",
+    "memorized": "暗記完了",
+    "show_examples": "例を表示 ({count}件)",
+    "hide_examples": "例を隠す ({count}件)"
   },
   "settings": {
     "title": "設定",

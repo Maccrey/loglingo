@@ -187,7 +187,12 @@
     "show_hint": "Show hint",
     "level_status_high": "High level! Keep it up.",
     "level_status_mid": "Steady progress. A bit more practice to level up.",
-    "level_status_low": "Building fundamentals. Start with easier quizzes and review."
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
+    "quick_quiz_badge": "Quiz nhanh",
+    "correct_count": "Đúng {value} lần",
+    "memorized": "Đã ghi nhớ",
+    "show_examples": "Hiện ví dụ ({count})",
+    "hide_examples": "Ẩn ví dụ ({count})"
   },
   "settings": {
     "title": "Cài đặt",

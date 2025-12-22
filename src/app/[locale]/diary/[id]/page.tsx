@@ -68,7 +68,11 @@ function ArchiveCard({
                 showExamples && "rotate-180"
               )} 
             />
-            <span>{showExamples ? "예제 숨기기" : `예제 보기 (${archive.examples.length}개)`}</span>
+            <span>
+              {showExamples
+                ? tArchive("hide_examples", { count: archive.examples.length })
+                : tArchive("show_examples", { count: archive.examples.length })}
+            </span>
           </button>
           
           {showExamples && (

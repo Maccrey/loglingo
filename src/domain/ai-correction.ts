@@ -15,7 +15,7 @@ export interface CorrectionResult {
   rootMeaningGuide?: string;
   fallback?: boolean;
   levelAssessment?: {
-    level: string;
+    level: import("./learning-profile").LevelBand;
     score?: number;
     confidence?: number;
     rationale?: string;
@@ -24,6 +24,6 @@ export interface CorrectionResult {
     topic: string;
     priority: string;
     message: Record<string, string>;
-    relatedLevel?: string;
+    relatedLevel?: import("./learning-profile").LevelBand;
   }[];
 }

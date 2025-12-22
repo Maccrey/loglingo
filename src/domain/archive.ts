@@ -7,7 +7,7 @@ export interface LearningArchive {
   title: string;
   examples: string[]; // Includes exampleSentences from AI correction
   rootMeaning: string;
-  levelTag?: string;
+  levelTag?: import("./learning-profile").LevelBand;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
   correctCount?: number;
@@ -21,7 +21,7 @@ export interface LearningArchiveDraft {
   title: string;
   examples?: string[]; // Includes exampleSentences from AI correction
   rootMeaning?: string;
-  levelTag?: string;
+  levelTag?: import("./learning-profile").LevelBand;
   sourceId?: string;
   sourceText?: string; // Original text from diary where this came from
   correctCount?: number;

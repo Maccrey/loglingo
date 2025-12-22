@@ -187,7 +187,12 @@
     "level_status_low": "बुनियाद मजबूत करें। आसान क्विज़ और पुनरावृत्ति बढ़ाएँ।",
     "dictionary": "AI शब्दकोश",
     "hide_hint": "Hide hint",
-    "show_hint": "Show hint"
+    "show_hint": "Show hint",
+    "quick_quiz_badge": "क्विक क्विज़",
+    "correct_count": "सही उत्तर {value} बार",
+    "memorized": "स्मरण पूर्ण",
+    "show_examples": "उदाहरण दिखाएं ({count})",
+    "hide_examples": "उदाहरण छुपाएं ({count})"
   },
   "settings": {
     "title": "सेटिंग्स",

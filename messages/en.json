@@ -185,7 +185,12 @@
     "advice_topic_word": "Vocabulary",
     "advice_topic_style": "Style",
     "advice_topic_other": "Other",
-    "dictionary": "AI Dictionary"
+    "dictionary": "AI Dictionary",
+    "quick_quiz_badge": "Quick Quiz",
+    "correct_count": "Correct {value} times",
+    "memorized": "Memorized",
+    "show_examples": "Show examples ({count})",
+    "hide_examples": "Hide examples ({count})"
   },
   "dictionary": {
     "fab_label": "AI Dictionary",

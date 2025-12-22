@@ -187,7 +187,12 @@
     "level_status_high": "High level! Keep it up.",
     "level_status_mid": "Steady progress. A bit more practice to level up.",
     "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
-    "level_help": "Levels are estimated from AI corrections/quizzes using CEFR (A1~C2)."
+    "level_help": "Levels are estimated from AI corrections/quizzes using CEFR (A1~C2).",
+    "quick_quiz_badge": "快速测验",
+    "correct_count": "答对 {value} 次",
+    "memorized": "已记忆",
+    "show_examples": "查看例句（{count}条）",
+    "hide_examples": "隐藏例句（{count}条）"
   },
   "settings": {
     "title": "设置",

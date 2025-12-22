@@ -185,7 +185,12 @@
     "advice_topic_word": "어휘",
     "advice_topic_style": "스타일",
     "advice_topic_other": "기타",
-    "dictionary": "AI사전"
+    "dictionary": "AI사전",
+    "quick_quiz_badge": "퀵퀴즈",
+    "correct_count": "정답 {value}회",
+    "memorized": "암기완료",
+    "show_examples": "예제 보기 ({count}개)",
+    "hide_examples": "예제 숨기기 ({count}개)"
   },
   "dictionary": {
     "fab_label": "AI 사전",

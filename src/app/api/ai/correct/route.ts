@@ -383,9 +383,9 @@ export async function POST(req: Request) {
         },
         advice: advice.map((item) => ({
           topic: item.topic,
-          priority: item.priority,
+          priority: item.priority as string,
           message: item.message,
-          relatedLevel: item.relatedLevel,
+          relatedLevel: item.relatedLevel as import("@/domain/learning-profile").LevelBand | undefined,
         })),
       };
 

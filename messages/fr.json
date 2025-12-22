@@ -187,7 +187,12 @@
     "hide_hint": "Hide hint",
     "show_hint": "Show hint",
     "vs_avg": "Avg diff {value}",
-    "vs_target": "Target diff {value}"
+    "vs_target": "Target diff {value}",
+    "quick_quiz_badge": "Quiz rapide",
+    "correct_count": "Bonnes réponses {value} fois",
+    "memorized": "Mémorisé",
+    "show_examples": "Afficher les exemples ({count})",
+    "hide_examples": "Masquer les exemples ({count})"
   },
   "settings": {
     "title": "Paramètres",

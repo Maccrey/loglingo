@@ -187,7 +187,12 @@
     "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais.",
     "dictionary": "Dicionário IA",
     "hide_hint": "Hide hint",
-    "show_hint": "Show hint"
+    "show_hint": "Show hint",
+    "quick_quiz_badge": "Quiz rápido",
+    "correct_count": "Acertos {value} vezes",
+    "memorized": "Memorizado",
+    "show_examples": "Mostrar exemplos ({count})",
+    "hide_examples": "Ocultar exemplos ({count})"
   },
   "settings": {
     "title": "Configurações",
