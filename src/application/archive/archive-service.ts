@@ -30,7 +30,7 @@ export async function deleteArchiveWithQuizzes(userId: string, archiveId: string
   if (!userId || !archiveId) throw new Error("missing-params");
   await Promise.all([
     deleteArchiveById(archiveId),
-    deleteQuizzesByArchiveIds([archiveId]),
+    deleteQuizzesByArchiveIds([archiveId], userId),
   ]);
 }
 

@@ -85,8 +85,8 @@ export async function createQuiz(draft: QuizDraft): Promise<Quiz> {
   return quiz;
 }
 
-export async function deleteQuizzesByArchiveIds(archiveIds: string[]): Promise<number> {
-  console.log("🗑️ Quiz Repository: deleteQuizzesByArchiveIds called", { count: archiveIds.length });
+export async function deleteQuizzesByArchiveIds(archiveIds: string[], userId?: string): Promise<number> {
+  console.log("🗑️ Quiz Repository: deleteQuizzesByArchiveIds called", { count: archiveIds.length, userId });
   
   if (!archiveIds || archiveIds.length === 0) {
     console.log("⚠️ Quiz Repository: No archiveIds provided");
@@ -101,7 +101,11 @@ export async function deleteQuizzesByArchiveIds(archiveIds: string[]): Promise<n
 
     for (let i = 0; i < archiveIds.length; i += batchSize) {
       const batch = archiveIds.slice(i, i + batchSize);
-      const q = query(quizzesCollection, where("archiveId", "in", batch));
+      const filters = [where("archiveId", "in", batch)];
+      if (userId) {
+        filters.push(where("userId", "==", userId));
+      }
+      const q = query(quizzesCollection, ...filters);
       const snapshot = await getDocs(q);
       
       console.log(`📊 Quiz Repository: Found ${snapshot.size} quizzes to delete in batch`);
