@@ -30,6 +30,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const { user } = useAuth();
   const isLoggedIn = Boolean(user);
   const queryClient = useQueryClient();
+  const [adRefreshKey, setAdRefreshKey] = useState(0);
   
   const [word, setWord] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   // Load Kakao AdFit script once and request fill when modal opens
   useEffect(() => {
     if (!isOpen) return;
+    setAdRefreshKey((k) => k + 1);
 
     const src = "//t1.daumcdn.net/kas/static/ba.min.js";
     const ensureScript = () =>
@@ -155,6 +157,30 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
             <X className="h-4 w-4" />
           </Button>
         </div>
+
+        {/* AdFit: place near top so slot is visible on open */}
+        <div className="mb-4 space-y-3">
+          <div className="hidden md:flex justify-center">
+            <ins
+              className="kakao_ad_area"
+              style={{ display: "block", width: "728px", height: "90px", margin: "0 auto" }}
+              data-ad-unit="DAN-N9E0RALXboMSWzyU"
+              data-ad-width="728"
+              data-ad-height="90"
+              key={`pc-${adRefreshKey}`}
+            />
+          </div>
+          <div className="md:hidden flex justify-center">
+            <ins
+              className="kakao_ad_area"
+              style={{ display: "block", width: "320px", height: "50px", margin: "0 auto" }}
+              data-ad-unit="DAN-RHDzamdpNVf9m8sm"
+              data-ad-width="320"
+              data-ad-height="50"
+              key={`m-${adRefreshKey}`}
+            />
+          </div>
+        </div>
         
         {/* Input */}
         <div className="flex gap-2 mb-6">
@@ -232,27 +258,6 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
           </Button>
         )}
 
-        {/* AdFit: PC (728x90) and Mobile (320x50) below actions */}
-        <div className="mt-6 space-y-3">
-          <div className="hidden md:flex justify-center">
-            <ins
-              className="kakao_ad_area"
-              style={{ display: "none" }}
-              data-ad-unit="DAN-N9E0RALXboMSWzyU"
-              data-ad-width="728"
-              data-ad-height="90"
-            />
-          </div>
-          <div className="md:hidden flex justify-center">
-            <ins
-              className="kakao_ad_area"
-              style={{ display: "none" }}
-              data-ad-unit="DAN-RHDzamdpNVf9m8sm"
-              data-ad-width="320"
-              data-ad-height="50"
-            />
-          </div>
-        </div>
       </Card>
     </div>
   );
