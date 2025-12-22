@@ -27,15 +27,18 @@ function normalizeLevel(result: CorrectionResult, opts: PersistOptions) {
         sourceId: opts.sourceId,
       },
       advice:
-        result.advice?.map((item) => ({
-          topic: item.topic,
-          priority: (item.priority as any) ?? "medium",
-          message: normalizeAdviceMessage(item.message, item.topic, item.count, opts.uiLocale),
-          actions: [],
-          relatedLevel: item.relatedLevel,
-          sourceId: opts.sourceId,
-          completed: false,
-        })) ?? [],
+        result.advice?.map((item) => {
+          const itemCount = (item as any)?.count ?? 1;
+          return {
+            topic: item.topic,
+            priority: (item.priority as any) ?? "medium",
+            message: normalizeAdviceMessage(item.message, item.topic, itemCount, opts.uiLocale),
+            actions: [],
+            relatedLevel: item.relatedLevel,
+            sourceId: opts.sourceId,
+            completed: false,
+          };
+        }) ?? [],
     };
   }
 
