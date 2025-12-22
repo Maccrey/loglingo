@@ -33,8 +33,8 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const queryClient = useQueryClient();
   const [adRefreshKey, setAdRefreshKey] = useState(0);
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
-  const pcAdRef = useRef<HTMLInsElement | null>(null);
-  const mobileAdRef = useRef<HTMLInsElement | null>(null);
+  const pcAdRef = useRef<HTMLModElement | null>(null);
+  const mobileAdRef = useRef<HTMLModElement | null>(null);
 
   useEffect(() => {
     const mq = typeof window !== "undefined" ? window.matchMedia("(min-width: 768px)") : null;
