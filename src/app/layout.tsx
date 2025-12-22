@@ -37,18 +37,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-9128371394963939" />
+      </head>
+      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9128371394963939"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16982541933"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="gtag-init" strategy="beforeInteractive">
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -56,8 +58,6 @@ export default function RootLayout({
             gtag('config', 'AW-16982541933');
           `}
         </Script>
-      </head>
-      <body className={`${inter.variable} antialiased pb-16 md:pb-0 md:pt-16`}>
         {children}
       </body>
     </html>
