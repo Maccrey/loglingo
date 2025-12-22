@@ -182,7 +182,8 @@
     "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2).",
     "level_status_high": "Bravo ! Vous êtes dans le haut du niveau.",
     "level_status_mid": "Bon progrès. Un peu plus de pratique pour monter.",
-    "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez."
+    "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez.",
+    "dictionary": "Dictionnaire IA"
   },
   "settings": {
     "title": "Paramètres",
@@ -224,5 +225,16 @@
     "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
     "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D.",
     "loading": "Chargement de la chaîne..."
+  },
+  "dictionary": {
+    "fab_label": "Dictionnaire IA",
+    "modal_title": "Dictionnaire IA",
+    "input_placeholder": "Entrez un mot...",
+    "search_button": "Rechercher",
+    "save_button": "Enregistrer dans l'archive",
+    "saved": "Enregistré!",
+    "close": "Fermer",
+    "examples": "Exemples",
+    "error": "Échec de génération du dictionnaire"
   }
-}
+}\n

@@ -180,7 +180,8 @@
     "advice_topic_word": "Từ vựng",
     "advice_topic_style": "Phong cách",
     "advice_topic_other": "Khác",
-    "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2)."
+    "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2).",
+    "dictionary": "Từ điển AI"
   },
   "settings": {
     "title": "Cài đặt",
@@ -222,5 +223,16 @@
     "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
     "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D.",
     "loading": "Đang tải kênh..."
+  },
+  "dictionary": {
+    "fab_label": "Từ điển AI",
+    "modal_title": "Từ điển AI",
+    "input_placeholder": "Nhập từ...",
+    "search_button": "Tìm kiếm",
+    "save_button": "Lưu vào kho lưu trữ",
+    "saved": "Đã lưu!",
+    "close": "Đóng",
+    "examples": "Ví dụ",
+    "error": "Tạo từ điển thất bại"
   }
-}
+}\n

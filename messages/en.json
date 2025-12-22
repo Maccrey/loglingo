@@ -183,7 +183,19 @@
     "advice_topic_grammar": "Grammar",
     "advice_topic_word": "Vocabulary",
     "advice_topic_style": "Style",
-    "advice_topic_other": "Other"
+    "advice_topic_other": "Other",
+    "dictionary": "AI Dictionary"
+  },
+  "dictionary": {
+    "fab_label": "AI Dictionary",
+    "modal_title": "AI Dictionary",
+    "input_placeholder": "Enter a word...",
+    "search_button": "Search",
+    "save_button": "Save to Archive",
+    "saved": "Saved!",
+    "close": "Close",
+    "examples": "Examples",
+    "error": "Failed to generate dictionary entry"
   },
   "settings": {
     "title": "Settings",

@@ -180,7 +180,8 @@
     "advice_topic_grammar": "文法",
     "advice_topic_word": "語彙",
     "advice_topic_style": "スタイル",
-    "advice_topic_other": "その他"
+    "advice_topic_other": "その他",
+    "dictionary": "AI辞書"
   },
   "settings": {
     "title": "設定",
@@ -222,5 +223,16 @@
     "meta_title": "グローバルラジオ - 世界中のラジオ放送を聴く | Loglingo",
     "meta_description": "世界中のラジオ放送局を発見して聴くことができます。韓国語、日本語、英語、スペイン語、フランス語、ドイツ語などの放送局で言語学習に最適です。3D地球儀インターフェースで無料インターネットラジオをお楽しみください。",
     "loading": "チャンネル読み込み中..."
+  },
+  "dictionary": {
+    "fab_label": "AI辞書",
+    "modal_title": "AI辞書",
+    "input_placeholder": "単語を入力...",
+    "search_button": "検索",
+    "save_button": "アーカイブに保存",
+    "saved": "保存しました!",
+    "close": "閉じる",
+    "examples": "例文",
+    "error": "辞書生成失敗"
   }
-}
+}\n

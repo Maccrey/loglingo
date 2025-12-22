@@ -184,7 +184,8 @@
     "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2).",
     "level_status_high": "Keren! Kamu di level atas.",
     "level_status_mid": "Progres bagus. Sedikit latihan lagi akan naik level.",
-    "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review."
+    "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review.",
+    "dictionary": "Kamus AI"
   },
   "settings": {
     "title": "Pengaturan",
@@ -226,5 +227,16 @@
     "meta_title": "Radio Global - Dengarkan Stasiun Radio dari Seluruh Dunia | Loglingo",
     "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D.",
     "loading": "Memuat saluran..."
+  },
+  "dictionary": {
+    "fab_label": "Kamus AI",
+    "modal_title": "Kamus AI",
+    "input_placeholder": "Masukkan kata...",
+    "search_button": "Cari",
+    "save_button": "Simpan ke arsip",
+    "saved": "Tersimpan!",
+    "close": "Tutup",
+    "examples": "Contoh",
+    "error": "Gagal membuat kamus"
   }
-}
+}\n

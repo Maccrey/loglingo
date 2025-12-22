@@ -184,7 +184,19 @@
     "advice_topic_grammar": "문법",
     "advice_topic_word": "어휘",
     "advice_topic_style": "스타일",
-    "advice_topic_other": "기타"
+    "advice_topic_other": "기타",
+    "dictionary": "AI사전"
+  },
+  "dictionary": {
+    "fab_label": "AI 사전",
+    "modal_title": "AI 사전",
+    "input_placeholder": "검색할 단어 입력...",
+    "search_button": "검색",
+    "save_button": "아카이브에 저장",
+    "saved": "저장되었습니다!",
+    "close": "닫기",
+    "examples": "예문",
+    "error": "사전 생성 실패"
   },
   "settings": {
     "title": "설정",

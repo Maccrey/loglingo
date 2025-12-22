@@ -183,7 +183,8 @@
     "level_help": "Os níveis são estimados a partir de correções/quiz de IA usando CEFR (A1~C2).",
     "level_status_high": "Ótimo! Você está no nível superior.",
     "level_status_mid": "Bom progresso. Mais prática vai elevar seu nível.",
-    "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais."
+    "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais.",
+    "dictionary": "Dicionário IA"
   },
   "settings": {
     "title": "Configurações",
@@ -225,5 +226,16 @@
     "meta_title": "Rádio Global - Ouça Estações de Rádio do Mundo Inteiro | Loglingo",
     "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D.",
     "loading": "Carregando canal..."
+  },
+  "dictionary": {
+    "fab_label": "Dicionário IA",
+    "modal_title": "Dicionário IA",
+    "input_placeholder": "Digite uma palavra...",
+    "search_button": "Pesquisar",
+    "save_button": "Salvar no arquivo",
+    "saved": "Salvo!",
+    "close": "Fechar",
+    "examples": "Exemplos",
+    "error": "Falha ao gerar dicionário"
   }
-}
+}\n

@@ -181,7 +181,8 @@
     "advice_topic_word": "Kelime",
     "advice_topic_style": "Üslup",
     "advice_topic_other": "Diğer",
-    "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir."
+    "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir.",
+    "dictionary": "AI Sözlük"
   },
   "settings": {
     "title": "Ayarlar",
@@ -223,5 +224,16 @@
     "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
     "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu.",
     "loading": "Kanal yükleniyor..."
+  },
+  "dictionary": {
+    "fab_label": "AI Sözlük",
+    "modal_title": "AI Sözlük",
+    "input_placeholder": "Bir kelime girin...",
+    "search_button": "Ara",
+    "save_button": "Arşive kaydet",
+    "saved": "Kaydedildi!",
+    "close": "Kapat",
+    "examples": "Örnekler",
+    "error": "Sözlük oluşturma başarısız"
   }
-}
+}\n
