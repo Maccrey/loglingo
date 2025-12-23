@@ -215,6 +215,13 @@
     "dark": "Dark",
     "light": "Light"
   },
+  "language_onboarding": {
+    "title": "Choose your learning language",
+    "description": "We’ll personalize corrections, radio, and your archive for this language.",
+    "label": "Learning language",
+    "confirm": "Save and start",
+    "hint": "You can change this anytime in Settings."
+  },
   "ai": {
     "result_title": "AI Suggestions",
     "issues": "Issues detected",

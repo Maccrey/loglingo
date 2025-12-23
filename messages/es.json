@@ -206,6 +206,13 @@
     "dark": "Oscuro",
     "light": "Claro"
   },
+  "language_onboarding": {
+    "title": "Elige tu idioma de aprendizaje",
+    "description": "Personalizaremos las correcciones, la radio y el archivo para este idioma.",
+    "label": "Idioma de aprendizaje",
+    "confirm": "Guardar y empezar",
+    "hint": "Puedes cambiarlo en Ajustes cuando quieras."
+  },
   "ai": {
     "result_title": "Sugerencias de IA",
     "issues": "Problemas detectados",

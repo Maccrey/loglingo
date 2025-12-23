@@ -206,6 +206,13 @@
     "dark": "ダーク",
     "light": "ライト"
   },
+  "language_onboarding": {
+    "title": "学習言語を選択してください",
+    "description": "添削やラジオ、アーカイブをこの言語に合わせてパーソナライズします。",
+    "label": "学習言語",
+    "confirm": "保存して始める",
+    "hint": "設定からいつでも変更できます。"
+  },
   "ai": {
     "result_title": "AIの提案",
     "issues": "検出された問題",

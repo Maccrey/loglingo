@@ -8,6 +8,7 @@ import { AdProvider } from "@/application/ads/AdProvider";
 import { LearningLanguageProvider } from "@/application/i18n/LearningLanguageProvider";
 import { ObservabilityProvider } from "@/application/observability/ObservabilityProvider";
 import { AnalyticsListener } from "@/application/analytics/AnalyticsListener";
+import { LearningLanguageOnboarding } from "@/components/i18n/LearningLanguageOnboarding";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -17,6 +18,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <LearningLanguageProvider>
             <ObservabilityProvider>
               <AnalyticsListener />
+              <LearningLanguageOnboarding />
               {children}
             </ObservabilityProvider>
           </LearningLanguageProvider>

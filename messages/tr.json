@@ -206,6 +206,13 @@
     "dark": "Koyu",
     "light": "Açık"
   },
+  "language_onboarding": {
+    "title": "Öğrenme dilini seç",
+    "description": "Düzeltmeleri, radyoyu ve arşivi bu dile göre kişiselleştiriyoruz.",
+    "label": "Öğrenme dili",
+    "confirm": "Kaydet ve başla",
+    "hint": "Ayarlar'dan dilediğin zaman değiştirebilirsin."
+  },
   "ai": {
     "result_title": "Yapay Zeka Önerileri",
     "issues": "Tespit edilen sorunlar",

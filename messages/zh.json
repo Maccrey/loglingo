@@ -206,6 +206,13 @@
     "dark": "深色",
     "light": "浅色"
   },
+  "language_onboarding": {
+    "title": "请选择学习语言",
+    "description": "我们会按照此语言个性化纠错、广播和归档。",
+    "label": "学习语言",
+    "confirm": "保存并开始",
+    "hint": "随时可在设置中更改。"
+  },
   "ai": {
     "result_title": "AI 建议",
     "issues": "发现的问题",

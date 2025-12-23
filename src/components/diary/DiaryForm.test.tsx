@@ -42,6 +42,7 @@ vi.mock("@/application/i18n/LearningLanguageProvider", () => ({
   useLearningLanguage: () => ({
     learningLanguage: "en",
     setLearningLanguage: vi.fn(),
+    hasStoredLanguage: true,
   }),
 }));
 

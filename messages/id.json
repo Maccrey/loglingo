@@ -206,6 +206,13 @@
     "dark": "Gelap",
     "light": "Terang"
   },
+  "language_onboarding": {
+    "title": "Pilih bahasa yang dipelajari",
+    "description": "Kami akan menyesuaikan koreksi, radio, dan arsip belajar untuk bahasa ini.",
+    "label": "Bahasa belajar",
+    "confirm": "Simpan dan mulai",
+    "hint": "Bisa diubah kapan saja di Pengaturan."
+  },
   "ai": {
     "result_title": "Saran AI",
     "issues": "Masalah terdeteksi",

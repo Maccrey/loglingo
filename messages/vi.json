@@ -206,6 +206,13 @@
     "dark": "Tối",
     "light": "Sáng"
   },
+  "language_onboarding": {
+    "title": "Chọn ngôn ngữ bạn đang học",
+    "description": "Chúng tôi cá nhân hóa chỉnh sửa, radio và kho học tập theo ngôn ngữ này.",
+    "label": "Ngôn ngữ học",
+    "confirm": "Lưu và bắt đầu",
+    "hint": "Bạn có thể đổi bất cứ lúc nào trong Cài đặt."
+  },
   "ai": {
     "result_title": "Gợi ý AI",
     "issues": "Vấn đề phát hiện",

@@ -206,6 +206,13 @@
     "dark": "Dunkel",
     "light": "Hell"
   },
+  "language_onboarding": {
+    "title": "Wähle deine Lernsprache",
+    "description": "Wir personalisieren Korrekturen, Radio und Archiv für diese Sprache.",
+    "label": "Lernsprache",
+    "confirm": "Speichern und starten",
+    "hint": "Du kannst das jederzeit in den Einstellungen ändern."
+  },
   "ai": {
     "result_title": "KI-Vorschläge",
     "issues": "Gefundene Probleme",
