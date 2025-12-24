@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { useAds } from "@/application/ads/AdProvider";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
@@ -30,6 +31,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   const t = useTranslations("dictionary");
   const locale = useLocale();
   const { user } = useAuth();
+  const { showAds } = useAds();
   const isLoggedIn = Boolean(user);
   const queryClient = useQueryClient();
   const [adRefreshKey, setAdRefreshKey] = useState(0);
@@ -53,14 +55,14 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
   // Load Kakao AdFit script once and request fill when modal opens
   // When modal opens, bump ad key to remount ins
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && showAds) {
       setAdRefreshKey((k) => k + 1);
     }
-  }, [isOpen]);
+  }, [isOpen, showAds]);
 
   // Load script and request ad fill when key or viewport changes (while open)
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || !showAds) return;
     // clear previous ad content to allow re-render
     if (isDesktop && pcAdRef.current) {
       pcAdRef.current.innerHTML = "";
@@ -93,7 +95,7 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
         (window as any).kakaoAsyncAdFit.push({});
       });
     });
-  }, [isOpen, isDesktop, adRefreshKey]);
+  }, [isOpen, isDesktop, adRefreshKey, showAds]);
 
   const handleSearch = async () => {
     if (!word.trim()) return;
@@ -196,29 +198,31 @@ export default function DictionaryModal({ isOpen, onClose }: DictionaryModalProp
         </div>
 
         {/* AdFit: place near top so slot is visible on open */}
-        <div className="mb-4 flex justify-center">
-          {isDesktop ? (
-            <ins
-              className="kakao_ad_area"
-              style={{ display: "block", width: "728px", height: "90px", margin: "0 auto" }}
-              data-ad-unit="DAN-N9E0RALXboMSWzyU"
-              data-ad-width="728"
-              data-ad-height="90"
-              key={`pc-${adRefreshKey}`}
-              ref={pcAdRef}
-            />
-          ) : (
-            <ins
-              className="kakao_ad_area"
-              style={{ display: "block", width: "320px", height: "50px", margin: "0 auto" }}
-              data-ad-unit="DAN-RHDzamdpNVf9m8sm"
-              data-ad-width="320"
-              data-ad-height="50"
-              key={`m-${adRefreshKey}`}
-              ref={mobileAdRef}
-            />
-          )}
-        </div>
+        {showAds && (
+          <div className="mb-4 flex justify-center">
+            {isDesktop ? (
+              <ins
+                className="kakao_ad_area"
+                style={{ display: "block", width: "728px", height: "90px", margin: "0 auto" }}
+                data-ad-unit="DAN-N9E0RALXboMSWzyU"
+                data-ad-width="728"
+                data-ad-height="90"
+                key={`pc-${adRefreshKey}`}
+                ref={pcAdRef}
+              />
+            ) : (
+              <ins
+                className="kakao_ad_area"
+                style={{ display: "block", width: "320px", height: "50px", margin: "0 auto" }}
+                data-ad-unit="DAN-RHDzamdpNVf9m8sm"
+                data-ad-width="320"
+                data-ad-height="50"
+                key={`m-${adRefreshKey}`}
+                ref={mobileAdRef}
+              />
+            )}
+          </div>
+        )}
         
         {/* Input */}
         <div className="flex gap-2 mb-6">

@@ -54,6 +54,19 @@ npm run test:e2e
 npm run lhci:collect
 ```
 
+## 광고 제어 (Kakao AdFit)
+
+- `NEXT_PUBLIC_ENABLE_KAKAO_ADS`: `false`로 설정하면 모든 카카오 배너가 비활성화됩니다(기본값 `true`).
+- `NEXT_PUBLIC_AD_ALLOWED_COUNTRY`: 기본 `KR`. 브라우저 언어/타임존/UTC+9 오프셋을 사용해 한국 접속자로 판단된 경우에만 배너가 노출됩니다.
+- 개발 환경(`localhost`)이나 프리미엄 사용자에게는 항상 광고가 숨겨집니다.
+
+예시:
+
+```bash
+NEXT_PUBLIC_ENABLE_KAKAO_ADS=true
+NEXT_PUBLIC_AD_ALLOWED_COUNTRY=KR
+```
+
 ## 품질/모니터링
 
 - **RUM 계측**: LCP/INP/CLS/TTFB를 클라이언트에서 수집하여 `/api/observability/rum`으로 전송합니다.
