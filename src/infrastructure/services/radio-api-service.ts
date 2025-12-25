@@ -208,9 +208,9 @@ export class RadioApiService {
     const pseudoRandom2 = (Math.abs(hash >> 10) % 1000) / 1000; // 0..1
 
     if ((lat === null || lat === undefined) && fallbackGeo) {
-       // Moderate jitter for fallback: spread across "region" (±5.0 degrees)
-       lat = fallbackGeo.lat + (pseudoRandom1 * 10 - 5);
-       long = fallbackGeo.lng + (pseudoRandom2 * 10 - 5);
+       // Tight jitter for fallback: spread across immediate region (±2.0 degrees)
+       lat = fallbackGeo.lat + (pseudoRandom1 * 4 - 2);
+       long = fallbackGeo.lng + (pseudoRandom2 * 4 - 2);
     } else if (lat !== null && long !== null) {
        // Micro jitter for existing coords: prevent exact stacking in same city (±0.05 degrees)
        lat = lat + (pseudoRandom1 * 0.1 - 0.05);
