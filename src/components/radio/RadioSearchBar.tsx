@@ -10,9 +10,10 @@ interface RadioSearchBarProps {
   stations: RadioStation[];
   loading?: boolean;
   onSelect: (station: RadioStation) => void;
+  className?: string; // Add className prop
 }
 
-export function RadioSearchBar({ stations, loading, onSelect }: RadioSearchBarProps) {
+export function RadioSearchBar({ stations, loading, onSelect, className }: RadioSearchBarProps) {
   const t = useTranslations("radio");
   const [query, setQuery] = useState("");
 
@@ -45,7 +46,7 @@ export function RadioSearchBar({ stations, loading, onSelect }: RadioSearchBarPr
   };
 
   return (
-    <div className="absolute top-6 left-4 z-50 w-[calc(100%-2rem)] max-w-xl">
+    <div className={cn("absolute top-6 left-4 z-50 w-[calc(100%-2rem)] max-w-xl", className)}>
       <div className="flex items-center gap-2 bg-black/70 backdrop-blur-lg border border-white/10 rounded-2xl px-3 py-2 shadow-lg">
         <Search className="w-4 h-4 text-white/50" />
         <input

@@ -97,16 +97,15 @@ export default function RadioPage() {
           </div>
 
           {/* Station Search */}
-          <div className={isSidebarOpen ? "hidden lg:block" : ""}>
-            <RadioSearchBar 
-              stations={stations}
-              loading={stationsLoading}
-              onSelect={(station) => {
-                handleStationClick(station);
-                setIsSidebarOpen(false);
-              }}
-            />
-          </div>
+          <RadioSearchBar 
+            className={isSidebarOpen ? "hidden lg:block" : ""}
+            stations={stations}
+            loading={stationsLoading}
+            onSelect={(station) => {
+              handleStationClick(station);
+              setIsSidebarOpen(false);
+            }}
+          />
 
           {/* Title removed to avoid navigation overlap */}
           {/* <div className="absolute top-6 left-4 z-50 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 pointer-events-none">
