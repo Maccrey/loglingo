@@ -138,6 +138,7 @@ export class RadioApiService {
              this.safeSearchStations({ countryCode: 'MA', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
              this.safeSearchStations({ countryCode: 'NG', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
              
+             this.safeSearchStations({ countryCode: 'AU', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
              this.safeSearchStations({ countryCode: 'NZ', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
            ]);
 
