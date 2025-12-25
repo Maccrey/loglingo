@@ -211,10 +211,6 @@ export class RadioApiService {
        // Tight jitter for fallback: spread across immediate region (±2.0 degrees)
        lat = fallbackGeo.lat + (pseudoRandom1 * 4 - 2);
        long = fallbackGeo.lng + (pseudoRandom2 * 4 - 2);
-    } else if (lat !== null && long !== null) {
-       // Micro jitter for existing coords: prevent exact stacking in same city (±0.05 degrees)
-       lat = lat + (pseudoRandom1 * 0.1 - 0.05);
-       long = long + (pseudoRandom2 * 0.1 - 0.05);
     }
 
     return {
