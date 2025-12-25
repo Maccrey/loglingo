@@ -125,46 +125,46 @@ export class RadioApiService {
            const results = await Promise.all([
              // 1. Global Top
              this.safeSearchStations({
-               limit: 100,
+               limit: 200,
                hideBroken: true,
                order: 'votes',
                reverse: true,
                // hasGeoInfo: true // Allow non-geo stations (use fallback)
              }),
              // 2. East Asia (High Priority)
-             this.safeSearchStations({ countryCode: 'KR', limit: 200, hideBroken: true }),
-             this.safeSearchStations({ countryCode: 'JP', limit: 500, hideBroken: true }), // Increased signifanctly
-             this.safeSearchStations({ countryCode: 'CN', limit: 500, hideBroken: true }), // Increased signifanctly
+             this.safeSearchStations({ countryCode: 'KR', limit: 400, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'JP', limit: 1000, hideBroken: true }), // Increased signifanctly
+             this.safeSearchStations({ countryCode: 'CN', limit: 1000, hideBroken: true }), // Increased signifanctly
 
              // 3. Major Western Countries
-             this.safeSearchStations({ countryCode: 'US', limit: 150, hideBroken: true, order: 'votes', reverse: true }),
-             this.safeSearchStations({ countryCode: 'GB', limit: 100, hideBroken: true }),
-             this.safeSearchStations({ countryCode: 'FR', limit: 100, hideBroken: true }),
-             this.safeSearchStations({ countryCode: 'DE', limit: 100, hideBroken: true }),
-             this.safeSearchStations({ countryCode: 'ES', limit: 100, hideBroken: true }),
-             this.safeSearchStations({ countryCode: 'IT', limit: 100, hideBroken: true }), 
+             this.safeSearchStations({ countryCode: 'US', limit: 300, hideBroken: true, order: 'votes', reverse: true }),
+             this.safeSearchStations({ countryCode: 'GB', limit: 200, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'FR', limit: 200, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'DE', limit: 200, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'ES', limit: 200, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'IT', limit: 200, hideBroken: true }), 
 
-             // 4. Underrepresented Regions (South America, Africa, SE Asia, Oceania) - targeting ~30 top stations each
-             this.safeSearchStations({ countryCode: 'BR', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'AR', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'MX', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'CL', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'CO', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
+             // 4. Underrepresented Regions (South America, Africa, SE Asia, Oceania) - targeting ~60-80 top stations each
+             this.safeSearchStations({ countryCode: 'BR', limit: 80, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'AR', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'MX', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'CL', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'CO', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
              
-             this.safeSearchStations({ countryCode: 'IN', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'ID', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'TH', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'VN', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'PH', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'TR', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'IN', limit: 80, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'ID', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'TH', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'VN', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'PH', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'TR', limit: 80, hideBroken: true, order: 'votes', reverse: true }), 
 
-             this.safeSearchStations({ countryCode: 'ZA', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'EG', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'MA', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'NG', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'ZA', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'EG', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'MA', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'NG', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
              
-             this.safeSearchStations({ countryCode: 'AU', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
-             this.safeSearchStations({ countryCode: 'NZ', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'AU', limit: 80, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'NZ', limit: 60, hideBroken: true, order: 'votes', reverse: true }), 
            ]);
 
           // Flatten and merge
