@@ -166,6 +166,24 @@ const CURATED_STATIONS: Record<string, RadioStation[]> = {
       codec: 'MP3',
     },
   ],
+  IT: [
+    {
+      id: 'bridge-it-bangbang',
+      name: 'Bang Bang Radio',
+      url: 'https://bangbangradio.it/', // Placeholder: Stream URL not publicly found via search
+      urlResolved: 'https://bangbangradio.it/',
+      homepage: 'https://bangbangradio.it/',
+      favicon: 'https://bangbangradio.it/wp-content/uploads/2021/01/cropped-logo-bbr-1-32x32.png', // Found in search snippet favicon
+      tags: ['rock', 'alternative', 'indie', 'punk', 'garage'],
+      country: 'Italy',
+      countryCode: 'IT',
+      language: ['it'],
+      votes: 100,
+      geoLat: 45.177,
+      geoLong: 9.645,
+      codec: 'MP3',
+    },
+  ],
 };
 
 const normalizeCountryKey = (station: RadioStation) =>
