@@ -192,25 +192,28 @@ export class RadioApiService {
     const countryCode = (station.countryCode || station.country || '').toUpperCase();
     const fallbackGeo = countryCode && COUNTRY_CENTERS[countryCode];
 
-    // Add jitter if using fallback to prevent stacking
     // Use hash of ID to make jitter deterministic for same station
     let lat = station.geoLat;
     let long = station.geoLong;
 
+    // Simple deterministic hash
+    let hash = 0;
+    const str = station.id || station.name;
+    for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    const pseudoRandom1 = (Math.abs(hash) % 1000) / 1000; // 0..1
+    const pseudoRandom2 = (Math.abs(hash >> 10) % 1000) / 1000; // 0..1
+
     if ((lat === null || lat === undefined) && fallbackGeo) {
-       // Simple deterministic hash
-       let hash = 0;
-       const str = station.id || station.name;
-       for (let i = 0; i < str.length; i++) {
-         hash = ((hash << 5) - hash) + str.charCodeAt(i);
-         hash |= 0;
-       }
-       const pseudoRandom1 = (Math.abs(hash) % 1000) / 1000;
-       const pseudoRandom2 = (Math.abs(hash >> 10) % 1000) / 1000;
-       
-       // Jitter between -3.0 and +3.0 degrees
-       lat = fallbackGeo.lat + (pseudoRandom1 * 6 - 3);
-       long = fallbackGeo.lng + (pseudoRandom2 * 6 - 3);
+       // Large jitter for fallback: spread across "continent" (±10.0 degrees)
+       lat = fallbackGeo.lat + (pseudoRandom1 * 20 - 10);
+       long = fallbackGeo.lng + (pseudoRandom2 * 20 - 10);
+    } else if (lat !== null && long !== null) {
+       // Micro jitter for existing coords: prevent exact stacking in same city (±0.05 degrees)
+       lat = lat + (pseudoRandom1 * 0.1 - 0.05);
+       long = long + (pseudoRandom2 * 0.1 - 0.05);
     }
 
     return {
