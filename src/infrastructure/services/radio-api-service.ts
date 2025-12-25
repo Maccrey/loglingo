@@ -193,24 +193,13 @@ export class RadioApiService {
     const countryCode = (station.countryCode || station.country || '').toUpperCase();
     const fallbackGeo = countryCode && COUNTRY_CENTERS[countryCode];
 
-    // Use hash of ID to make jitter deterministic for same station
     let lat = station.geoLat;
     let long = station.geoLong;
 
-    // Simple deterministic hash
-    let hash = 0;
-    const str = station.id || station.name;
-    for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-    }
-    const pseudoRandom1 = (Math.abs(hash) % 1000) / 1000; // 0..1
-    const pseudoRandom2 = (Math.abs(hash >> 10) % 1000) / 1000; // 0..1
-
+    // Strict accuracy: if no API coords, use country center exactly (no jitter)
     if ((lat === null || lat === undefined) && fallbackGeo) {
-       // Tight jitter for fallback: spread across immediate region (±2.0 degrees)
-       lat = fallbackGeo.lat + (pseudoRandom1 * 4 - 2);
-       long = fallbackGeo.lng + (pseudoRandom2 * 4 - 2);
+       lat = fallbackGeo.lat;
+       long = fallbackGeo.lng;
     }
 
     return {
