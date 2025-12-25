@@ -104,41 +104,41 @@ export class RadioApiService {
                hideBroken: true,
                order: 'votes',
                reverse: true,
-               hasGeoInfo: true
+               // hasGeoInfo: true // Allow non-geo stations (use fallback)
              }),
              // 2. East Asia (High Priority)
-             this.safeSearchStations({ countryCode: 'KR', limit: 200, hideBroken: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'JP', limit: 500, hideBroken: true, hasGeoInfo: true }), // Increased significantly
-             this.safeSearchStations({ countryCode: 'CN', limit: 500, hideBroken: true, hasGeoInfo: true }), // Increased significantly
+             this.safeSearchStations({ countryCode: 'KR', limit: 200, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'JP', limit: 500, hideBroken: true }), // Increased signifanctly
+             this.safeSearchStations({ countryCode: 'CN', limit: 500, hideBroken: true }), // Increased signifanctly
 
              // 3. Major Western Countries
-             this.safeSearchStations({ countryCode: 'US', limit: 150, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'GB', limit: 100, hideBroken: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'FR', limit: 100, hideBroken: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'DE', limit: 100, hideBroken: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'ES', limit: 100, hideBroken: true, hasGeoInfo: true }),
-             this.safeSearchStations({ countryCode: 'IT', limit: 100, hideBroken: true, hasGeoInfo: true }), // Added Italy explicitly
+             this.safeSearchStations({ countryCode: 'US', limit: 150, hideBroken: true, order: 'votes', reverse: true }),
+             this.safeSearchStations({ countryCode: 'GB', limit: 100, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'FR', limit: 100, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'DE', limit: 100, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'ES', limit: 100, hideBroken: true }),
+             this.safeSearchStations({ countryCode: 'IT', limit: 100, hideBroken: true }), 
 
              // 4. Underrepresented Regions (South America, Africa, SE Asia, Oceania) - targeting ~30 top stations each
-             this.safeSearchStations({ countryCode: 'BR', limit: 40, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Brazil
-             this.safeSearchStations({ countryCode: 'AR', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Argentina
-             this.safeSearchStations({ countryCode: 'MX', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Mexico
-             this.safeSearchStations({ countryCode: 'CL', limit: 20, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Chile
-             this.safeSearchStations({ countryCode: 'CO', limit: 20, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Colombia
+             this.safeSearchStations({ countryCode: 'BR', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'AR', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'MX', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'CL', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'CO', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
              
-             this.safeSearchStations({ countryCode: 'IN', limit: 40, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // India
-             this.safeSearchStations({ countryCode: 'ID', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Indonesia
-             this.safeSearchStations({ countryCode: 'TH', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Thailand
-             this.safeSearchStations({ countryCode: 'VN', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Vietnam
-             this.safeSearchStations({ countryCode: 'PH', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Philippines
-             this.safeSearchStations({ countryCode: 'TR', limit: 40, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Turkey
+             this.safeSearchStations({ countryCode: 'IN', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'ID', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'TH', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'VN', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'PH', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'TR', limit: 40, hideBroken: true, order: 'votes', reverse: true }), 
 
-             this.safeSearchStations({ countryCode: 'ZA', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // South Africa
-             this.safeSearchStations({ countryCode: 'EG', limit: 20, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Egypt
-             this.safeSearchStations({ countryCode: 'MA', limit: 20, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Morocco
-             this.safeSearchStations({ countryCode: 'NG', limit: 20, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // Nigeria
+             this.safeSearchStations({ countryCode: 'ZA', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'EG', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'MA', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
+             this.safeSearchStations({ countryCode: 'NG', limit: 20, hideBroken: true, order: 'votes', reverse: true }), 
              
-             this.safeSearchStations({ countryCode: 'NZ', limit: 30, hideBroken: true, order: 'votes', reverse: true, hasGeoInfo: true }), // New Zealand
+             this.safeSearchStations({ countryCode: 'NZ', limit: 30, hideBroken: true, order: 'votes', reverse: true }), 
            ]);
 
           // Flatten and merge
@@ -192,6 +192,27 @@ export class RadioApiService {
     const countryCode = (station.countryCode || station.country || '').toUpperCase();
     const fallbackGeo = countryCode && COUNTRY_CENTERS[countryCode];
 
+    // Add jitter if using fallback to prevent stacking
+    // Use hash of ID to make jitter deterministic for same station
+    let lat = station.geoLat;
+    let long = station.geoLong;
+
+    if ((lat === null || lat === undefined) && fallbackGeo) {
+       // Simple deterministic hash
+       let hash = 0;
+       const str = station.id || station.name;
+       for (let i = 0; i < str.length; i++) {
+         hash = ((hash << 5) - hash) + str.charCodeAt(i);
+         hash |= 0;
+       }
+       const pseudoRandom1 = (Math.abs(hash) % 1000) / 1000;
+       const pseudoRandom2 = (Math.abs(hash >> 10) % 1000) / 1000;
+       
+       // Jitter between -3.0 and +3.0 degrees
+       lat = fallbackGeo.lat + (pseudoRandom1 * 6 - 3);
+       long = fallbackGeo.lng + (pseudoRandom2 * 6 - 3);
+    }
+
     return {
       // Prefer stable UUID fields; fall back to changeId when needed
       id: station.id || station.stationuuid || station.changeId,
@@ -205,8 +226,8 @@ export class RadioApiService {
       countryCode: station.countryCode,
       language: station.language,
       votes: station.votes,
-      geoLat: station.geoLat ?? fallbackGeo?.lat ?? null,
-      geoLong: station.geoLong ?? fallbackGeo?.lng ?? null,
+      geoLat: lat ?? null,
+      geoLong: long ?? null,
       codec: station.codec,
     };
   }

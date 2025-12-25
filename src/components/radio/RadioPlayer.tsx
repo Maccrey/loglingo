@@ -95,16 +95,27 @@ export default function RadioPlayer({ station, autoPlay = true }: RadioPlayerPro
         audioRef.current!.load();
         
         if (autoPlay) {
-          audioRef.current!.play()
-            .then(() => setIsPlaying(true))
-            .catch(e => {
-              // NotSupportedError often happens here if format is native HLS but browser doesn't support, 
-              // or if it's really unsupported.
-              console.error("Playback failed (Standard)", e);
-              setIsPlaying(false);
-              // Check if it's a NotSupportedError and we haven't tried HLS yet?
-              // The isHls check above should cover most.
-            });
+          const playPromise = audioRef.current!.play();
+          if (playPromise !== undefined) {
+             playPromise
+                .then(() => setIsPlaying(true))
+                .catch(e => {
+                  if (e.name === 'NotSupportedError') {
+                    console.warn(`Playback format supported check failed for ${station.name}:`, e.message);
+                    setError(true);
+                    setLoading(false);
+                  } else if (e.name === 'NotAllowedError') {
+                     // Autoplay blocked - expected in some browsers
+                     setIsPlaying(false);
+                     setLoading(false);
+                  } else {
+                    console.error("Playback failed (Standard)", e);
+                    setError(true);
+                    setLoading(false);
+                    setIsPlaying(false);
+                  }
+                });
+          }
         }
       };
 
