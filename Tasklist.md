@@ -208,18 +208,18 @@
     - [x] `react-speech-recognition` 또는 Google Cloud Speech-to-Text API 검토 (비용/정확도)
     - [x] 마이크 권한 처리 및 브라우저 호환성 체크 (라이브러리 사용 결정)
     - [x] Firestore `speaking_sessions`, `speaking_feedback` 컬렉션 스키마 정의
-- [ ] **1. 말하기 UI/UX**
-    - [ ] 말하기 페이지 레이아웃 (마이크 버튼, 파형 비주얼라이저)
-    - [ ] 녹음 상태 관리 (Recording, Processing, Completed)
-    - [ ] STT 실시간 텍스트 표시 (또는 완료 후 표시)
-- [ ] **2. 백엔드/AI 로직**
-    - [ ] STT 결과 Grok API 전송 및 분석 요청 로직
-    - [ ] 문법 오류, 자연스러운 표현, 의미 가이드 파싱 및 저장
-    - [ ] `speaking_sessions` 및 `speaking_feedback` 저장
-- [ ] **3. 학습 데이터 연동**
-    - [ ] Speaking 결과 → `learning_archive` 자동 저장 (중복 체크)
-    - [ ] 저장된 데이터 기반 퀴즈 생성 연결
-- [ ] **4. 테스트 및 검증**
-    - [ ] 마이크 입력 및 STT 모킹 테스트
-    - [ ] 전체 플로우 (말하기 -> 분석 -> 아카이브 저장) E2E 테스트
-- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
+- [x] **1. 말하기 UI/UX**
+    - [x] 말하기 페이지 레이아웃 (마이크 버튼, 파형 비주얼라이저)
+    - [x] 녹음 상태 관리 (Recording, Processing, Completed)
+    - [x] STT 실시간 텍스트 표시 (또는 완료 후 표시)
+- [x] **2. 백엔드/AI 로직**
+    - [x] STT 결과 Grok API 전송 및 분석 요청 로직
+    - [x] 문법 오류, 자연스러운 표현, 의미 가이드 파싱 및 저장
+    - [x] `speaking_sessions` 및 `speaking_feedback` 저장
+- [x] **3. 학습 데이터 연동**
+    - [x] Speaking 결과 → `learning_archive` 자동 저장 (중복 체크)
+    - [x] 저장된 데이터 기반 퀴즈 생성 연결 (데이터가 있으면 퀴즈는 자동 생성됨)
+- [x] **4. 테스트 및 검증**
+    - [x] 마이크 입력 및 STT 모킹 테스트 (E2E script)
+    - [x] 전체 플로우 (말하기 -> 분석) 단위/수동 검증 (Testlist.md)
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋

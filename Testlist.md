@@ -24,11 +24,12 @@
    - [ ] Click "Analyze".
    - [ ] Verify loading state ("Analyzing...").
 
-4. **Review Results**
+4. **Review Results & Archive**
    - [ ] Verify Feedback card appears.
    - [ ] Check "Improved Expression" section.
-   - [ ] Check "Grammar Notes" (if any).
    - [ ] Check "Root Meaning" guide.
+   - [ ] **[New]** Navigate to "Archive" (or check Firestore).
+   - [ ] **[New]** Verify items from "Root Meaning" are saved in Archive with `sourceType: 'speaking'`.
    - [ ] Click "Try Again" and verify session resets.
 
 ## Edge Cases

@@ -9,6 +9,7 @@ export interface LearningArchive {
   rootMeaning: string;
   levelTag?: import("./learning-profile").LevelBand;
   sourceId?: string;
+  sourceType?: 'diary' | 'speaking'; 
   sourceText?: string; // Original text from diary where this came from
   correctCount?: number;
   memorized?: boolean;
@@ -23,6 +24,7 @@ export interface LearningArchiveDraft {
   rootMeaning?: string;
   levelTag?: import("./learning-profile").LevelBand;
   sourceId?: string;
+  sourceType?: 'diary' | 'speaking'; 
   sourceText?: string; // Original text from diary where this came from
   correctCount?: number;
   memorized?: boolean;

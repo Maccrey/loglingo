@@ -36,6 +36,7 @@ function mapArchive(doc: QueryDocumentSnapshot<DocumentData>): LearningArchive {
     rootMeaning: data.rootMeaning || "",
     levelTag: data.levelTag,
     sourceId: data.sourceId,
+    sourceType: data.sourceType,
     sourceText: data.sourceText,
     correctCount: typeof data.correctCount === "number" ? data.correctCount : 0,
     memorized: Boolean(data.memorized),
@@ -132,6 +133,9 @@ export async function createArchive(input: LearningArchiveDraft): Promise<Learni
   }
   if (input.sourceText !== undefined) {
     payload.sourceText = input.sourceText ?? null;
+  }
+  if (input.sourceType !== undefined) {
+    payload.sourceType = input.sourceType ?? null;
   }
 
   console.log("📝 Archive Repository: create payload", payload);

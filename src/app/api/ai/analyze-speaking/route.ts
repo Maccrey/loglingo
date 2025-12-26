@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { GrokClient } from '@/infrastructure/api/grok';
 import { SpeakingRepository } from '@/infrastructure/repositories/SpeakingRepository';
+import { createArchive, checkDuplicate } from "@/infrastructure/firebase/archive-repository";
 
 const TIMEOUT_MS = 30000;
 
@@ -90,12 +91,6 @@ export async function POST(req: Request) {
             signal: controller.signal,
             response_format: { type: "json_object" } 
         });
-
-        // The shim might return string/object differently depending on impl, check typical usage
-        // usage in correct/route.ts implies it returns string or object? 
-        // correct/route.ts checks tryParseJsonResponse(response). 
-        // It seems client.chatCompletion returns the content string directly or response object?
-        // Let's assume it returns the content string based on `tryParseJsonResponse(response)`.
         
         const parsed = safeParse(completion as any); 
         
@@ -115,10 +110,34 @@ export async function POST(req: Request) {
             rootMeaningGuide: feedbackData.rootMeaningGuide || {}
         });
 
-        // 4. Update Session
-        // We defined saveSession but not update. We can use firestore generic update or ignore for MVP.
-        // Logic: session.aiAnalyzed = true.
-        // We'll skip update for now as repo.saveSession does setDoc (overwrite/create).
+        // 4. Save to Learning Archive (Auto)
+        if (feedbackData.rootMeaningGuide) {
+            const archivePromises = Object.entries(feedbackData.rootMeaningGuide).map(async ([word, meaning]) => {
+                const title = word;
+                const rootMeaning = meaning as string;
+                
+                // Check duplicate by title (word)
+                const isDup = await checkDuplicate(userId, title);
+                
+                if (!isDup) {
+                    await createArchive({
+                        userId,
+                        type: 'word', 
+                        title,
+                        rootMeaning,
+                        examples: [], 
+                        sourceId: session.id,
+                        sourceType: 'speaking',
+                        sourceText: text,
+                        memorized: false,
+                        correctCount: 0
+                    });
+                }
+            });
+            
+            // Wait for archives to be saved (or fire and forget if performance is critical, but safer to await)
+            await Promise.all(archivePromises);
+        }
 
         return NextResponse.json({ feedback, session });
 
