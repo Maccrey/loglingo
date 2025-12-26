@@ -42,7 +42,7 @@ yarn-error.log*
 next-env.d.ts
 
 # documentation
-Deploy.md
+
 
 # firebase
 .firebase/

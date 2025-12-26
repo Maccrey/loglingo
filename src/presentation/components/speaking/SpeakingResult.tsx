@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { SpeakingFeedback } from '@/domain/speaking';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/Badge'; // Fixed import
 import { Check, Sparkles, AlertCircle, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
