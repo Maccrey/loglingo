@@ -62,5 +62,24 @@ service cloud.firestore {
       allow update: if isSignedIn() && isOwner(request.resource.data.userId) && isOwner(resource.data.userId);
       allow delete: if isSignedIn() && isOwner(resource.data.userId);
     }
+
+    match /speaking_sessions/{docId} {
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+      allow create: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow update: if isSignedIn() && isOwner(request.resource.data.userId) && isOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
+    }
+
+    match /speaking_feedback/{docId} {
+      allow read: if isSignedIn() && isOwner(resource.data.userId); // feedback often has userId field if not we join via sessionId, but assuming feedback has userId akin to others or we check logic
+      // Note: In PRD feedback has sessionId. If we want strict owner check via sessionId, we need a get().
+      // For MVP/performance, we can add userId to feedback documents as well or just rely on parent session knowledge if implemented as subcollection.
+      // PRD says "speaking_feedback" is a top collection. Let's assume we add "userId" to it for easier security rules, or we just trust the creation.
+      // Let's stick to the convention of adding userId to the doc for easier rules.
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid);
+      allow create: if isSignedIn() && (request.resource.data.userId == request.auth.uid);
+      allow update: if isSignedIn() && (request.resource.data.userId == request.auth.uid);
+      allow delete: if isSignedIn() && (resource.data.userId == request.auth.uid);
+    }
   }
 }

@@ -1,34 +1,40 @@
-# Loglingo 수동 테스트 체크리스트 (현재 테스트 러너 미구현)
+# Speaking Feature Test Checklist
 
-## 일기 CRUD + 이미지
-- [ ] 신규 일기 작성: 날짜/본문 입력 후 저장 → 목록에 최신순 반영, optimistic 플래시 확인
-- [ ] 내용 유효성: 빈 본문/잘못된 날짜 저장 시 오류 토스트·검증 메시지 노출
-- [ ] 이미지 업로드: 1장 업로드 후 미리보기 표시, 300KB 이하 WebP 변환 여부(개발자 도구 네트워크 사이즈 확인)
-- [ ] 이미지 교체/삭제: 기존 이미지 제거 후 저장, 새 이미지 교체 후 저장 시 정상 반영
-- [ ] 목록 필터: 연도/월 필터 변경 시 해당 범위만 표시
-- [ ] 편집/삭제: 기존 항목 수정 후 저장, 삭제 확인창 후 목록에서 제거
-- [ ] i18n: 다국어 환경에서 텍스트/날짜 표시 정상 여부
+## Prerequisites
+- [ ] User is logged in.
+- [ ] Language is set to 'en', 'ko', etc. (supported logic).
+- [ ] Microphone permission is granted in browser.
+- [ ] Grok API Key is configured in `.env` (GROK_API_KEY).
 
-## 인증/보안(대기)
-- [ ] Firebase Auth 로그인 후 일기 CRUD 동작(UID별 데이터 분리) 확인
+## Manual Verification Steps
+1. **Navigate to Speaking Page**
+   - [ ] Go to `/speaking` (or via menu).
+   - [ ] Verify "Ready to Speak?" card is visible.
 
-## 성능/접근성(대기)
-- [ ] 모바일 375px 환경에서 입력/스크롤/이미지 표시 이상 없음
-- [ ] 다크모드 글라스모피즘 대비/포커스 아웃라인 확인
+2. **Start Recording**
+   - [ ] Click "Start Recording".
+   - [ ] Verify browser asks for microphone permission (if first time).
+   - [ ] Verify UI changes to "Recording..." state (Stop button red, waveform visualizer active).
+   - [ ] Speak into the microphone ("Hello testing").
+   - [ ] Verify transcript appears in real-time.
 
-## AI 교정 & 아카이브
-- [ ] AI 교정 요청: 내용 입력 후 "AI 교정" 클릭 시 교정 결과(문법/제안) 표시
-- [ ] 교정 적용 및 저장: "교정 적용 및 저장" 클릭 시 본문 반영 + 아카이브 저장 토스트 확인
-- [ ] 중복 체크(소스별): 서로 다른 일기에서 같은 내용 교정 시 각각 아카이브에 저장됨 확인 (Source ID 분리)
-- [ ] 중복 체크(동일 일기): 같은 일기에서 이미 저장된 교정 내용 다시 저장 시도 시 중복 안내(또는 저장 안됨) 확인
-- [ ] AI 연결 실패/지연: 네트워크 단절 또는 타임아웃(30초) 시 "Sample"이 아닌 실제 요류 메시지(Toast) 표시 확인
+3. **Stop & Submit**
+   - [ ] Click Stop (Square button).
+   - [ ] Verify "Analyze" button appears.
+   - [ ] Click "Analyze".
+   - [ ] Verify loading state ("Analyzing...").
 
-## 일기 삭제 시 Cascade Delete
-- [ ] 전체 Cascade 테스트: 이미지 포함 일기 작성 → AI 교정 → 학습 아카이브 생성 → 퀴즈 생성 → 일기 삭제 후 Firebase Console에서 관련 데이터(이미지, 아카이브, 퀴즈) 모두 삭제 확인
-- [ ] 이미지 없는 일기 삭제: 이미지 없이 작성한 일기 삭제 시 에러 없이 정상 삭제 확인
-- [ ] 아카이브 없는 일기 삭제: AI 교정 하지 않은 일기 삭제 시 에러 없이 정상 삭제 확인
-- [ ] 삭제 후 UI 반영: 일기 삭제 후 목록에서 제거되고, 상세 페이지 접근 시 404 표시 확인
+4. **Review Results**
+   - [ ] Verify Feedback card appears.
+   - [ ] Check "Improved Expression" section.
+   - [ ] Check "Grammar Notes" (if any).
+   - [ ] Check "Root Meaning" guide.
+   - [ ] Click "Try Again" and verify session resets.
 
-## 라디오 기능
-- [ ] 모바일 검색창 표시: 모바일 화면에서 사이드바 열기 아이콘 클릭 시 검색창 숨김, 사이드바 닫을 시 검색창 다시 표시 확인
+## Edge Cases
+- [ ] **No Speech**: Click Start then Stop immediately. Verify warning/toast "No speech detected".
+- [ ] **Network Error**: Disconnect network/Env var missing. Click Analyze. Verify error message "Something went wrong".
+- [ ] **Unsupported Browser**: Open in non-Chrome/Safari (if unsupported). Verify "Browser not supported" message.
 
+## Automated Tests (Future)
+- [ ] Run `npx playwright test tests/speaking.spec.ts` (Requires environment setup).

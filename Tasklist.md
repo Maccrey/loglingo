@@ -202,3 +202,24 @@
   - 아카이브 필터/통계에 `levelTag` 반영(난이도별 학습 현황)
   - 퀴즈 성적 기반 레벨 조정(퀴즈 결과→레벨 업데이트) 및 추세 보정
   - 평균/목표 대비 지표 집계용 API 또는 Cloud Function(익명 집계 데이터)
+
+## 13. Speaking (말하기 연습) — Codex
+- [ ] **기술 검토 및 환경 설정**
+    - [x] `react-speech-recognition` 또는 Google Cloud Speech-to-Text API 검토 (비용/정확도)
+    - [x] 마이크 권한 처리 및 브라우저 호환성 체크 (라이브러리 사용 결정)
+    - [x] Firestore `speaking_sessions`, `speaking_feedback` 컬렉션 스키마 정의
+- [ ] **1. 말하기 UI/UX**
+    - [ ] 말하기 페이지 레이아웃 (마이크 버튼, 파형 비주얼라이저)
+    - [ ] 녹음 상태 관리 (Recording, Processing, Completed)
+    - [ ] STT 실시간 텍스트 표시 (또는 완료 후 표시)
+- [ ] **2. 백엔드/AI 로직**
+    - [ ] STT 결과 Grok API 전송 및 분석 요청 로직
+    - [ ] 문법 오류, 자연스러운 표현, 의미 가이드 파싱 및 저장
+    - [ ] `speaking_sessions` 및 `speaking_feedback` 저장
+- [ ] **3. 학습 데이터 연동**
+    - [ ] Speaking 결과 → `learning_archive` 자동 저장 (중복 체크)
+    - [ ] 저장된 데이터 기반 퀴즈 생성 연결
+- [ ] **4. 테스트 및 검증**
+    - [ ] 마이크 입력 및 STT 모킹 테스트
+    - [ ] 전체 플로우 (말하기 -> 분석 -> 아카이브 저장) E2E 테스트
+- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
