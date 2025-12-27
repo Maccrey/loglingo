@@ -70,7 +70,7 @@ export function useSpeechRecognition({
               // console.log("Silence detected, stopping...");
               recognition.stop();
           }
-      }, 2000);
+      }, 5000);
 
       let finalTranscript = '';
       let interimTranscript = '';
