@@ -13,7 +13,7 @@ import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 
 import { useLearningLanguage } from '@/application/i18n/LearningLanguageProvider';
-import KakaoAdFit from '@/components/ads/KakaoAdFit';
+import { ResponsiveAd } from '@/components/ads/ResponsiveAd';
 
 const LANGUAGE_MAP: Record<string, string> = {
   ko: 'ko-KR',
@@ -355,24 +355,18 @@ export default function SpeakingPage() {
 
       </div>
 
-      {/* PC Ad (728x90) - Only visible on md+ screens */}
-      <section className="hidden md:flex justify-center w-full mt-10">
-        <KakaoAdFit
-          unit="DAN-OcjGqneif35bCzFF"
-          width={728}
-          height={90}
-        />
-      </section>
 
-      {/* Mobile Ad (320x50) - Only visible on small screens */}
-      <section className="flex md:hidden justify-center w-full mt-10">
-        <KakaoAdFit
-          unit="DAN-O3H0DVRSds4Dserg"
-          width={320}
-          height={50}
-        />
-      </section>
 
+      {/* Responsive Ad (PC 728x90, Mobile 320x50) */}
+      <ResponsiveAd
+        pcUnit="DAN-Nd90MIXUY74X0JtU"
+        mobileUnit="DAN-C3dye34yEineLGgp"
+        pcWidth={728}
+        pcHeight={90}
+        mobileWidth={320}
+        mobileHeight={50}
+        className="mt-10"
+      />
     </div>
   );
 }

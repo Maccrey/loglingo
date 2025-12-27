@@ -10,6 +10,7 @@ import { TrialLanguageOnboarding } from "@/components/i18n/TrialLanguageOnboardi
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 import { routing } from "@/i18n/routing";
 import { Globe } from "lucide-react";
+import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 
 export default function DiaryTrialPage() {
   const t = useTranslations("trial");
@@ -73,6 +74,17 @@ export default function DiaryTrialPage() {
         onSuccess={() => {}}
       />
       <TrialLanguageOnboarding />
+      
+      {/* Responsive Ad */}
+      <ResponsiveAd
+        pcUnit="DAN-ipIinK0NYGLLxb6H"
+        mobileUnit="DAN-KVpPOPtv5Bhkf8q0"
+        pcWidth={728}
+        pcHeight={90}
+        mobileWidth={320}
+        mobileHeight={50}
+        className="mt-8"
+      />
     </div>
   );
 }
