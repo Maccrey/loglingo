@@ -55,6 +55,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const router = useRouter();
   const userId = getCurrentUserId() || auth.currentUser?.uid || "";
   const { learningLanguage } = useLearningLanguage();
+  // Safe to call hook as long as we don't invoke the mutation in trial mode
   const { create: createArchive } = useArchiveMutations(userId);
   const validationKeyMap: Record<string, string> = {
     "invalid-date": "validation_invalid_date",
@@ -205,14 +206,16 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       trackEvent("ai_correct_success");
 
       // AI 교정 결과 기반 학습 레벨/조언 저장 (실패해도 주요 플로우 영향 없음)
-      persistInsightsFromCorrection(result, {
-        userId,
-        uiLocale: locale,
-        targetLanguage: learningLanguage || locale,
-        sourceId: initial?.id,
-      }).catch((err) => {
-        console.error("Persist insights failed", err);
-      });
+      if (!isTrialMode) {
+        persistInsightsFromCorrection(result, {
+          userId,
+          uiLocale: locale,
+          targetLanguage: learningLanguage || locale,
+          sourceId: initial?.id,
+        }).catch((err) => {
+          console.error("Persist insights failed", err);
+        });
+      }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
       trackEvent("ai_correct_failure", { message });
