@@ -256,3 +256,4 @@
     - [x] Fix SpeakingRecorder control loss (useEffect cleanup & stable callbacks)
     - [x] Fix Language Prop defaulting to English (Used `useLearningLanguage` hook)
     - [x] Fix Hydration Mismatch in `LearningLanguageProvider` (Sync storage in useEffect)
+    - [x] Refine AI Prompt: Ignore punctuation/capitalization errors in speaking analysis

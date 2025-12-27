@@ -73,6 +73,9 @@ function buildPrompt({ text, targetSentence, language, uiLanguage = 'en' }: Anal
     - If "Target Sentence" is provided, calculate "accuracyScore" based on similarity.
     - "diff" should show word-by-word comparison if Target Sentence exists. If not, just analyze the spoken sentence structure.
     - "advice" should be actionable and in UI language.
+    - STRICTLY IGNORE punctuation (periods, commas) and capitalization in the spoken sentence. Do not mention them in "grammarNotes" or "diff" unless they critically alter meaning.
+    - Focus analysis on vocabulary, sentence structure, and natural spoken phrasing.
+    - Do not use terms like "run-on sentence" or "period missing" for spoken text.
     `;
     return prompt;
 }
