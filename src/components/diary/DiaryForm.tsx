@@ -215,6 +215,11 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         }).catch((err) => {
           console.error("Persist insights failed", err);
         });
+      } else {
+        // 체험 모드 완료 처리
+        if (typeof window !== "undefined") {
+          localStorage.setItem("loglingo_trial_completed", "true");
+        }
       }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
