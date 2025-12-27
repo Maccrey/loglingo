@@ -36,7 +36,7 @@ export function StartButton() {
   if (isTrialAvailable) {
     return (
       <Link href="/diary/trial">
-        <Button size="lg" className="group bg-gradient-to-r from-orange-500 to-amber-500 hover:opacity-90 border-0">
+        <Button size="lg" className="group">
           {t('try_it_out')}
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
