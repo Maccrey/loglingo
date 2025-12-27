@@ -260,6 +260,8 @@ export default function SpeakingPage() {
                             <SpeakingRecorder 
                                 language={speechLang}
                                 onTranscriptComplete={(text) => verifySpeech(text)}
+                                continuous={false} // Disable continuous for clearer, less auto-corrected single sentence input
+                                interimResults={true}
                             />
                         )}
                         {cStep === 'verifying' && (

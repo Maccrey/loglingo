@@ -262,3 +262,4 @@
     - [x] UI Polish: Maximize "Start Challenge" button visibility (Gradient, Large Size, Animation)
     - [x] UI Polish: Fix Title Visibility (Replace gradient with solid orange for better readability)
     - [x] UI Polish: Remove redundant meaning text and reduce target sentence font size by ~30%
+    - [x] Refine STT: Disable `continuous` mode in Challenge Mode to reduce auto-correction bias

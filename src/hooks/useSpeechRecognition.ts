@@ -22,7 +22,9 @@ export function useSpeechRecognition({
   onEnd,
   onError,
   language = 'en-US',
-}: UseSpeechRecognitionProps = {}): UseSpeechRecognitionReturn {
+  continuous = true,
+  interimResults = true,
+}: UseSpeechRecognitionProps & { continuous?: boolean; interimResults?: boolean } = {}): UseSpeechRecognitionReturn {
   const [transcript, setTranscript] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -50,8 +52,9 @@ export function useSpeechRecognition({
     }
 
     const recognition = new SpeechRecognition();
-    recognition.continuous = true; // Keep recording even after silence
-    recognition.interimResults = true; // Show results while speaking
+    recognition.continuous = continuous; 
+    recognition.interimResults = interimResults;
+    recognition.maxAlternatives = 1; // Try to keep it simple
     recognition.lang = language;
     
     recognition.onstart = () => {
@@ -82,11 +85,10 @@ export function useSpeechRecognition({
 
       const current = finalTranscript + interimTranscript;
       setTranscript((prev) => {
-         let fullTranscript = '';
-         for (let i = 0; i < event.results.length; ++i) {
-            fullTranscript += event.results[i][0].transcript;
-         }
-         return fullTranscript;
+         // Should we accumulate differently if not continuous? 
+         // For now, standard behavior is fine.
+         // If continuous is false, the session ends after one sentence anyway.
+         return current; 
       });
       
       if (onResult) {
@@ -95,7 +97,10 @@ export function useSpeechRecognition({
     };
 
     recognition.onerror = (event: any) => {
-      console.error('Speech recognition error', event.error);
+      // console.error('Speech recognition error', event.error);
+      if (event.error === 'no-speech') {
+          // ignore no-speech for cleaner UX or handle it
+      }
       if (silenceTimer.current) clearTimeout(silenceTimer.current);
       setError(event.error);
       if (onError) onError(event.error);
@@ -113,7 +118,7 @@ export function useSpeechRecognition({
     return () => {
       recognition.abort();
     };
-  }, [language, onResult, onEnd, onError]);
+  }, [language, continuous, interimResults, onResult, onEnd, onError]);
 
   const startRecording = useCallback(() => {
     if (recognitionRef.current && !isRecording) {

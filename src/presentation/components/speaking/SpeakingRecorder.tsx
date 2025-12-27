@@ -12,9 +12,11 @@ import { useTranslations } from 'next-intl';
 interface SpeakingRecorderProps {
   language: string;
   onTranscriptComplete: (transcript: string) => void;
+  continuous?: boolean;
+  interimResults?: boolean;
 }
 
-export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRecorderProps) {
+export function SpeakingRecorder({ language, onTranscriptComplete, continuous = true, interimResults = true }: SpeakingRecorderProps) {
   const t = useTranslations('Speaking');
 
   const handleError = React.useCallback((err: any) => {
@@ -34,7 +36,9 @@ export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRec
     notSupported,
   } = useSpeechRecognition({
     language,
-    onError: handleError
+    onError: handleError,
+    continuous,
+    interimResults
   });
 
   const handleToggle = () => {
