@@ -105,16 +105,16 @@ export default function SpeakingPage() {
             </h1>
             
             {/* Mode Toggle Tabs */}
-            <div className="flex bg-secondary/30 rounded-full p-1 mt-6 border border-white/5 space-x-2">
+            <div className="flex bg-secondary/30 rounded-full p-2 mt-6 border border-white/5 gap-4">
                 <button 
                     onClick={() => setMode('free')}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-white'}`}
+                    className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
                 >
                     {t('mode_free')}
                 </button>
                 <button 
                     onClick={() => setMode('challenge')}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${mode === 'challenge' ? 'bg-indigo-500 text-white shadow-lg' : 'text-muted-foreground hover:text-white'}`}
+                    className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
                 >
                     {t('mode_challenge')}
                 </button>
