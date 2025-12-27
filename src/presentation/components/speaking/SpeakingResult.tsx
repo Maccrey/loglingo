@@ -44,7 +44,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
   };
 
   return (
-    <div className={cn("space-y-6 w-full max-w-2xl mx-auto animate-in slide-in-from-bottom-5 fade-in duration-500", className)}>
+    <div className={cn("space-y-6 w-full max-w-2xl mx-auto animate-in slide-in-from-bottom-5 fade-in duration-500 pb-10", className)}>
       
       {/* 1. Score & Overview */}
       <div className="flex items-center gap-4 bg-background/50 backdrop-blur p-4 rounded-xl border border-white/10">

@@ -69,7 +69,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
 
   return (
     <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto">
-      <div className="relative w-full h-64 bg-secondary/30 rounded-3xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
+      <div className="relative w-full h-40 md:h-64 bg-secondary/30 rounded-3xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
         {isRecording ? (
             <WaveformVisualizer isRecording={true} className="h-32 gap-3" />
         ) : (
@@ -77,7 +77,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
         )}
       </div>
 
-      <div className="w-full min-h-[200px] p-8 bg-background/50 backdrop-blur-md rounded-2xl border border-white/10 text-2xl font-medium text-center flex items-center justify-center leading-relaxed">
+      <div className="w-full min-h-[120px] md:min-h-[200px] p-6 md:p-8 bg-background/50 backdrop-blur-md rounded-2xl border border-white/10 text-xl md:text-2xl font-medium text-center flex items-center justify-center leading-relaxed">
         {transcript || <span className="text-muted-foreground/50">{t('recorder_placeholder')}</span>}
       </div>
 

@@ -93,7 +93,7 @@ export default function SpeakingPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-20 min-h-screen flex flex-col items-center gap-10">
+    <div className="container mx-auto px-4 py-8 md:py-20 min-h-screen flex flex-col items-center gap-6 md:gap-10">
       
       {/* Header */}
       <div className="w-full flex flex-col md:flex-row items-center justify-between mb-8 max-w-4xl gap-4">
@@ -131,7 +131,7 @@ export default function SpeakingPage() {
         {mode === 'free' && (
             <>
                 {step === 'idle' && (
-                <Card className="p-12 md:p-20 flex flex-col items-center justify-center gap-8 text-center bg-black/20 backdrop-blur border-white/10 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                <Card className="p-8 md:p-20 flex flex-col items-center justify-center gap-6 md:gap-8 text-center bg-black/20 backdrop-blur border-white/10 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
                     <div className="p-8 rounded-full bg-primary/20 border border-primary/30 transition-transform hover:scale-110 duration-300">
                         <Mic className="w-16 h-16 text-primary" />
                     </div>
@@ -184,7 +184,7 @@ export default function SpeakingPage() {
         {mode === 'challenge' && (
             <>
                 {cStep === 'idle' && (
-                <Card className="p-12 md:p-20 flex flex-col items-center justify-center gap-8 text-center bg-indigo-950/20 backdrop-blur border-indigo-500/20 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                <Card className="p-8 md:p-20 flex flex-col items-center justify-center gap-6 md:gap-8 text-center bg-indigo-950/20 backdrop-blur border-indigo-500/20 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
                     <div className="p-8 rounded-full bg-indigo-500/20 border border-indigo-500/30 transition-transform hover:scale-110 duration-300">
                         <Sparkles className="w-16 h-16 text-indigo-400" />
                     </div>
@@ -222,7 +222,7 @@ export default function SpeakingPage() {
                 {(cStep === 'ready' || cStep === 'recording' || cStep === 'verifying') && challengeData && (
                     <div className="w-full max-w-3xl space-y-8 animate-in slide-in-from-bottom-5 fade-in">
                         {/* Question Card */}
-                        <Card className="p-8 border-indigo-500/30 bg-indigo-950/30">
+                        <Card className="p-6 md:p-8 border-indigo-500/30 bg-indigo-950/30">
                             <div className="flex flex-col gap-4 text-center">
                                 <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest">{t('target_sentence')}</div>
                                 <div className="text-xl font-medium text-white leading-relaxed flex items-center justify-center gap-3">
@@ -275,7 +275,7 @@ export default function SpeakingPage() {
                 )}
 
                 {cStep === 'result' && challengeData && (
-                     <Card className={`p-10 w-full max-w-2xl text-center space-y-8 border-2 ${isSuccess ? 'border-emerald-500/50 bg-emerald-950/30' : 'border-orange-500/50 bg-orange-950/30'}`}>
+                     <Card className={`p-6 md:p-10 w-full max-w-2xl text-center space-y-6 md:space-y-8 border-2 ${isSuccess ? 'border-emerald-500/50 bg-emerald-950/30' : 'border-orange-500/50 bg-orange-950/30'}`}>
                          <div className="flex justify-center">
                              {isSuccess ? (
                                 <div className="w-24 h-24 rounded-full bg-emerald-500/20 flex items-center justify-center border-2 border-emerald-500 mb-4">
