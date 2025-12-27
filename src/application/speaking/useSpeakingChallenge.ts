@@ -16,6 +16,8 @@ interface ChallengeData {
 }
 
 import { SpeakingFeedback } from '@/domain/speaking';
+import { useAddLevelRecord } from '@/application/learning-profile/hooks';
+import { LevelBand } from '@/domain/learning-profile';
 
 // ...
 
@@ -27,6 +29,8 @@ export function useSpeakingChallenge() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<SpeakingFeedback | null>(null);
+  const addLevelRecord = useAddLevelRecord(user?.uid || '');
+
   
   // Store context for verification
   const [context, setContext] = useState<{ learningLanguage: string; uiLocale: string } | null>(null);
@@ -110,10 +114,22 @@ export function useSpeakingChallenge() {
        setFeedback(fb);
        
        // Success criteria: Score > 70 or explicitly marked?
-       const success = (fb.accuracyScore || 0) >= 70;
-       setIsSuccess(success);
-       
-       setStep('result');
+        const success = (fb.accuracyScore || 0) >= 70;
+        setIsSuccess(success);
+
+        // Save estimated level if successful and available
+        if (success && fb.estimatedLevel) {
+            addLevelRecord.mutate({
+                level: fb.estimatedLevel as LevelBand,
+                score: fb.accuracyScore || 0,
+                confidence: (fb.accuracyScore || 0) / 100,
+                sourceType: 'speaking',
+                sourceId: fb.sessionId,
+                language: context.learningLanguage
+            });
+        }
+        
+        setStep('result');
 
      } catch (err: any) {
        console.error(err);

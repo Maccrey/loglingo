@@ -63,10 +63,12 @@ function buildPrompt({ text, targetSentence, language, uiLanguage = 'en' }: Anal
         { "type": "correct" | "incorrect" | "missing" | "extra", "word": "word" }
       ],
       "accuracyScore": number (0-100),
+      "estimatedLevel": "A1" | "A2" | "B1" | "B2" | "C1" | "C2",
       "advice": "Specific advice in UI language about what to practice next"
     }
     
     Rules:
+    - "estimatedLevel": Estimate the CEFR level of the *spoken sentence* based on vocabulary, grammar complexity, and fluency/accuracy relative to the target sentence.
     - "improved" must be in target language.
     - "grammarNotes" must be in UI language.
     - "rootMeaningGuide" keys are key words from the sentence, values are explanations in UI language focusing on core 'root' image/meaning.
@@ -139,6 +141,7 @@ export async function POST(req: Request) {
             rootMeaningGuide: feedbackData.rootMeaningGuide || {},
             diff: feedbackData.diff,
             accuracyScore: feedbackData.accuracyScore,
+            estimatedLevel: feedbackData.estimatedLevel,
             advice: feedbackData.advice
         });
 
@@ -199,6 +202,7 @@ function mockFeedback(original: string, sessionId: string, userId: string) {
         rootMeaningGuide: { "mock": "This is a mock root meaning." },
         diff: [{ type: 'correct', word: original }] as SpeakingFeedbackDiff[],
         accuracyScore: 85,
+        estimatedLevel: "B1",
         advice: "This is a mock advice. Please check API Key."
     };
 }

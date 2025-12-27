@@ -24,6 +24,7 @@ export interface SpeakingFeedback {
   rootMeaningGuide: Record<string, string>; // key: word/phrase, value: root meaning explanation
   diff?: SpeakingFeedbackDiff[];
   accuracyScore?: number; // 0-100
+  estimatedLevel?: string; // A1, A2, B1, B2, C1, C2
   advice?: string; // Specific advice in UI language
   createdAt: Date;
 }
