@@ -264,3 +264,4 @@
     - [x] UI Polish: Remove redundant meaning text and reduce target sentence font size by ~30%
     - [x] Refine STT: Disable `continuous` mode in Challenge Mode to reduce auto-correction bias
     - [x] Refine STT: Increase silence timeout from 2s to 5s for better UX
+    - [x] UI Polish: Add margin (`mb-8`) between challenge description and Start button

@@ -187,7 +187,7 @@ export default function SpeakingPage() {
                     <div className="p-8 rounded-full bg-indigo-500/20 border border-indigo-500/30 transition-transform hover:scale-110 duration-300">
                         <Sparkles className="w-16 h-16 text-indigo-400" />
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-3 mb-8">
                         <h2 className="text-3xl font-bold tracking-tight text-indigo-100">{t('challenge_title')}</h2>
                         <p className="text-lg text-indigo-200/60 max-w-lg mx-auto">
                             {t('challenge_desc')}
