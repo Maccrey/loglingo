@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
 import { GrokClient } from '@/infrastructure/api/grok';
-import { createSpeakingSession, createSpeakingFeedback } from '@/infrastructure/firebase/speaking-repository';
-import { createArchive, checkDuplicate } from "@/infrastructure/firebase/archive-repository";
+import { 
+  createSpeakingSession, 
+  createSpeakingFeedback, 
+  checkDuplicateArchive as checkDuplicate, 
+  createArchive 
+} from "@/infrastructure/firebase/admin-repository";
+import { SpeakingFeedbackDiff } from '@/domain/speaking';
 
 const TIMEOUT_MS = 30000;
 
@@ -27,33 +32,54 @@ async function getClient() {
   return new GrokClient(key, process.env.GROK_BASE_URL);
 }
 
-function buildPrompt(text: string, language: string, uiLanguage: string = 'en') {
-    return `You are a helpful language tutor. 
+interface AnalyzeRequest {
+    text: string;
+    targetSentence?: string; // Optional target sentence for comparison
+    language: string;
+    uiLanguage?: string;
+}
+
+function buildPrompt({ text, targetSentence, language, uiLanguage = 'en' }: AnalyzeRequest) {
+    let prompt = `You are a helpful language tutor. 
     Analyze the spoken sentence: "${text}"
     Target Language: ${language}
     UI Language (for explanations): ${uiLanguage}
+    `;
 
+    if (targetSentence) {
+        prompt += `Target Sentence (Goal): "${targetSentence}"\n`;
+        prompt += `Compare the spoken sentence with the Target Sentence.\n`;
+    }
+
+    prompt += `
     Return JSON format only:
     {
       "improved": "Better/Natural version in target language (or same if good)",
       "grammarNotes": ["Grammar point 1 in UI language", "Grammar point 2 in UI language"],
       "rootMeaningGuide": {
         "word_in_target": "Root meaning/Image explanation in UI language"
-      }
+      },
+      "diff": [
+        { "type": "correct" | "incorrect" | "missing" | "extra", "word": "word" }
+      ],
+      "accuracyScore": number (0-100),
+      "advice": "Specific advice in UI language about what to practice next"
     }
     
     Rules:
     - "improved" must be in target language.
     - "grammarNotes" must be in UI language.
     - "rootMeaningGuide" keys are key words from the sentence, values are explanations in UI language focusing on core 'root' image/meaning.
-    - If the sentence is perfect, "improved" = original.
-    - Provide 1-3 grammar notes if any issues, or just good points.
+    - If "Target Sentence" is provided, calculate "accuracyScore" based on similarity.
+    - "diff" should show word-by-word comparison if Target Sentence exists. If not, just analyze the spoken sentence structure.
+    - "advice" should be actionable and in UI language.
     `;
+    return prompt;
 }
 
 export async function POST(req: Request) {
   try {
-    const { text, language, userId } = await req.json();
+    const { text, targetSentence, language, userId, uiLocale } = await req.json();
 
     if (!text || !userId) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -84,7 +110,7 @@ export async function POST(req: Request) {
         const completion = await client.chatCompletion({
             messages: [
                 { role: "system", content: "You are a helpful language tutor. Respond in JSON." },
-                { role: "user", content: buildPrompt(text, language) } 
+                { role: "user", content: buildPrompt({ text, targetSentence, language, uiLanguage: uiLocale }) } 
             ],
             model: getModel(),
             temperature: 0.3,
@@ -107,7 +133,10 @@ export async function POST(req: Request) {
             original: text,
             improved: feedbackData.improved || text,
             grammarNotes: feedbackData.grammarNotes || [],
-            rootMeaningGuide: feedbackData.rootMeaningGuide || {}
+            rootMeaningGuide: feedbackData.rootMeaningGuide || {},
+            diff: feedbackData.diff,
+            accuracyScore: feedbackData.accuracyScore,
+            advice: feedbackData.advice
         });
 
         // 4. Save to Learning Archive (Auto)
@@ -125,12 +154,9 @@ export async function POST(req: Request) {
                         type: 'word', 
                         title,
                         rootMeaning,
-                        examples: [], 
                         sourceId: session.id,
                         sourceType: 'speaking',
-                        sourceText: text,
-                        memorized: false,
-                        correctCount: 0
+                        sourceText: text
                     });
                 }
             });
@@ -168,5 +194,8 @@ function mockFeedback(original: string, sessionId: string, userId: string) {
         improved: original + " (improved)",
         grammarNotes: ["This is a mock grammar note.", "Please configure Grok API Key."],
         rootMeaningGuide: { "mock": "This is a mock root meaning." },
+        diff: [{ type: 'correct', word: original }] as SpeakingFeedbackDiff[],
+        accuracyScore: 85,
+        advice: "This is a mock advice. Please check API Key."
     };
 }

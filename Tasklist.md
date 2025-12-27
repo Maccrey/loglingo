@@ -234,3 +234,15 @@
     - [x] 챌린지 화면: 문제(단어) 표시 -> 예문 생성 로딩 -> 예문 제시
     - [x] 말하기 검증 로직: STT 결과 vs 목표 문장 비교 (Normailized comparison)
     - [x] 결과 피드백: 성공/실패 UI 및 다시 시도
+
+## 15. Speaking Feedback Enhancement (Detailed Analysis)
+- [x] **1. Domain & API Update**
+    - [x] `SpeakingFeedback` Interface Update: diff, accuracyScore, advice fields
+    - [x] `/api/ai/analyze-speaking` Update: Prompt engineering for detailed JSON response
+    - [x] Server-side Repository (`admin-repository.ts`) using firebase-admin to bypass client rules
+- [x] **2. Frontend Integration**
+    - [x] `useSpeakingChallenge` Hook: Call API for verification instead of regex
+    - [x] `SpeakingResult` Component: Score Ring, Diff Highlights, Advice UI
+- [x] **3. Verification**
+    - [x] curl test for API endpoint
+    - [x] UI rendering check

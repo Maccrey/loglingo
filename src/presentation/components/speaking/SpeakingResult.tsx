@@ -18,10 +18,63 @@ interface SpeakingResultProps {
 export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultProps) {
   const t = useTranslations('Speaking');
 
+  // Helper to render diff
+  const renderDiff = () => {
+    if (!feedback.diff) return feedback.original;
+    
+    return (
+        <div className="flex flex-wrap gap-1.5 leading-relaxed">
+            {feedback.diff.map((item, idx) => {
+                if (item.type === 'correct') {
+                    return <span key={idx} className="text-foreground">{item.word}</span>;
+                }
+                if (item.type === 'incorrect') {
+                    return <span key={idx} className="text-destructive font-medium line-through decoration-2 decoration-destructive/50">{item.word}</span>;
+                }
+                if (item.type === 'missing') {
+                    return <span key={idx} className="text-yellow-500 font-bold border-b-2 border-yellow-500/50 px-1">{item.word}</span>;
+                }
+                if (item.type === 'extra') {
+                     return <span key={idx} className="text-muted-foreground opacity-60 line-through decoration-dotted">{item.word}</span>;
+                }
+                return <span key={idx}>{item.word}</span>;
+            })}
+        </div>
+    );
+  };
+
   return (
     <div className={cn("space-y-6 w-full max-w-2xl mx-auto animate-in slide-in-from-bottom-5 fade-in duration-500", className)}>
       
-      {/* 1. Comparison Card */}
+      {/* 1. Score & Overview */}
+      <div className="flex items-center gap-4 bg-background/50 backdrop-blur p-4 rounded-xl border border-white/10">
+          <div className="relative flex items-center justify-center w-20 h-20">
+             {/* Simple Ring Chart */}
+             <svg className="w-full h-full transform -rotate-90">
+                 <circle cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-muted/20" />
+                 <circle cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="8" fill="transparent" 
+                         strokeDasharray={2 * Math.PI * 32} 
+                         strokeDashoffset={2 * Math.PI * 32 * (1 - (feedback.accuracyScore || 0) / 100)}
+                         className={cn("text-primary transition-all duration-1000 ease-out", 
+                             (feedback.accuracyScore || 0) > 80 ? "text-emerald-500" : "text-amber-500"
+                         )} 
+                 />
+             </svg>
+             <span className="absolute text-xl font-bold">
+                 {feedback.accuracyScore !== undefined ? Math.round(feedback.accuracyScore) : '-'}
+             </span>
+          </div>
+          <div className="flex-1">
+              <h3 className="text-lg font-semibold mb-1">
+                  {(feedback.accuracyScore || 0) > 80 ? 'Excellent!' : 'Good Try!'}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                  {feedback.advice || t('result_desc_retry')}
+              </p>
+          </div>
+      </div>
+
+      {/* 2. Comparison Card */}
       <Card className="border-white/10 bg-black/20 backdrop-blur-md overflow-hidden">
         <CardHeader className="bg-white/5 pb-4">
           <CardTitle className="text-lg flex items-center gap-2">
@@ -33,9 +86,9 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
           
           <div className="space-y-2">
             <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">{t('result_you_said')}</div>
-            <div className="p-4 rounded-xl bg-secondary/30 text-lg leading-relaxed relative group">
-                {feedback.original}
-                { feedback.original !== feedback.improved && (
+            <div className="p-4 rounded-xl bg-secondary/30 text-lg leading-relaxed relative group min-h-[3rem] flex items-center">
+                {renderDiff()}
+                { feedback.original !== feedback.improved && !feedback.accuracyScore && (
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                          <Badge variant="destructive" className="text-[10px]">{t('result_correction_needed')}</Badge>
                     </div>
@@ -55,7 +108,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
         </CardContent>
       </Card>
 
-      {/* 2. Insights Grid */}
+      {/* 3. Insights Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         {/* Grammar Notes */}

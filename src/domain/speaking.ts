@@ -9,6 +9,11 @@ export interface SpeakingSession {
   createdAt: Date;
 }
 
+export interface SpeakingFeedbackDiff {
+  type: 'correct' | 'incorrect' | 'missing' | 'extra';
+  word: string;
+}
+
 export interface SpeakingFeedback {
   id: string;
   sessionId: string;
@@ -17,6 +22,9 @@ export interface SpeakingFeedback {
   improved: string;
   grammarNotes: string[];
   rootMeaningGuide: Record<string, string>; // key: word/phrase, value: root meaning explanation
+  diff?: SpeakingFeedbackDiff[];
+  accuracyScore?: number; // 0-100
+  advice?: string; // Specific advice in UI language
   createdAt: Date;
 }
 

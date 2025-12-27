@@ -15,6 +15,10 @@ interface ChallengeData {
   archiveItem: LearningArchive;
 }
 
+import { SpeakingFeedback } from '@/domain/speaking';
+
+// ...
+
 export function useSpeakingChallenge() {
   const { user } = useAuth();
   const [step, setStep] = useState<ChallengeStep>('idle');
@@ -22,26 +26,19 @@ export function useSpeakingChallenge() {
   const [userTranscript, setUserTranscript] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  // Helper to fetch weak item (simulated client-side call to repo for now, or via API)
-  // Ideally this should be an API call: GET /api/speaking/challenge/next
-  // But for speed, let's just use the API we made: POST /api/ai/speaking/challenge with item.
-  // Wait, the client can't call Firestore directly easily without setup.
-  // Let's create a server action for fetching the item? 
-  // Or just fetching the item inside the API route itself?
-  // User asked for "Archive -> Grok -> Sentence".
-  // Let's make a wrapper function here that calls an API to "get challenge".
+  const [feedback, setFeedback] = useState<SpeakingFeedback | null>(null);
   
-  // Actually, I didn't verify if I can call firebase-admin from client. `archive-repository` imports `db` from `@/lib/firebase`, which is client SDK. So I CAN call it here.
+  // Store context for verification
+  const [context, setContext] = useState<{ learningLanguage: string; uiLocale: string } | null>(null);
 
   const fetchNewChallenge = async (learningLanguage: string, uiLocale: string) => {
     if (!user) return;
     setStep('loading');
     setError(null);
+    setContext({ learningLanguage, uiLocale });
 
     try {
       // 1. Get Random Weak Item (Client-side Firestore call)
-      const { getRandomWeakItem } = await import('@/infrastructure/firebase/archive-repository');
       const item = await getRandomWeakItem(user.uid);
 
       if (!item) {
@@ -84,38 +81,52 @@ export function useSpeakingChallenge() {
     }
   };
 
-  const verifySpeech = (transcript: string) => {
+  const verifySpeech = async (transcript: string) => {
      setUserTranscript(transcript);
      setStep('verifying');
 
-     if (!challengeData) return;
+     if (!challengeData || !user || !context) return;
 
-     // Simple Normalization & Comparison
-     const normalize = (s: string) => s.toLowerCase().replace(/[.,!?]/g, '').trim();
-     const target = normalize(challengeData.sentence);
-     const input = normalize(transcript);
+     try {
+       const response = await fetch('/api/ai/analyze-speaking', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({
+            text: transcript,
+            targetSentence: challengeData.sentence,
+            language: context.learningLanguage,
+            userId: user.uid,
+            uiLocale: context.uiLocale
+         }),
+       });
+       
+       if (!response.ok) {
+           throw new Error("Analysis failed");
+       }
 
-     // Calculate simple accuracy (could use Livenshtein for better score)
-     // Use simple "includes" or "equality" for MVP
-     // Or a simple word match percentage
-     const targetWords = target.split(/\s+/);
-     const inputWords = input.split(/\s+/);
-     
-     let matchCount = 0;
-     targetWords.forEach(w => {
-        if (inputWords.includes(w)) matchCount++;
-     });
+       const data = await response.json();
+       const fb = data.feedback as SpeakingFeedback;
+       
+       setFeedback(fb);
+       
+       // Success criteria: Score > 70 or explicitly marked?
+       const success = (fb.accuracyScore || 0) >= 70;
+       setIsSuccess(success);
+       
+       setStep('result');
 
-     const accuracy = matchCount / targetWords.length;
-     const success = accuracy > 0.7; // 70% match threshold
-
-     setIsSuccess(success);
-     setStep('result');
+     } catch (err: any) {
+       console.error(err);
+       setError("Failed to analyze speech.");
+       setStep('error');
+     }
   };
 
   const retryChallenge = () => {
     setStep('ready'); // Go back to 'ready' state to try speaking again
     setUserTranscript('');
+    setFeedback(null);
+    setIsSuccess(false);
   };
 
   return {
@@ -123,6 +134,7 @@ export function useSpeakingChallenge() {
     challengeData,
     userTranscript,
     isSuccess,
+    feedback,
     error,
     fetchNewChallenge,
     verifySpeech,
@@ -130,3 +142,4 @@ export function useSpeakingChallenge() {
     setStep
   };
 }
+// Force HMR Rebuild
