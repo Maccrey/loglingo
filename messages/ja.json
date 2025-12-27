@@ -264,7 +264,7 @@
   "Speaking": {
     "localeName": "日本語",
     "title": "スピーキング練習",
-    "mode_free": "フリートーク",
+    "mode_free": "フリースピーキング",
     "mode_challenge": "チャレンジモード",
     "free_title": "話す準備はできましたか？",
     "free_desc": "{language}で自由に文章を練習しましょう。",
@@ -278,7 +278,7 @@
     "preparing": "チャレンジ準備中...",
     "preparing_desc": "弱点を分析し、AIが文章を生成しています...",
     "oops": "おっと！",
-    "back_free": "フリートークに戻る",
+    "back_free": "フリースピーキングに戻る",
     "target_sentence": "目標文章",
     "focus_item": "重点項目",
     "tip": "ヒント",

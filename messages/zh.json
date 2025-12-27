@@ -264,7 +264,7 @@
   "Speaking": {
     "localeName": "中文",
     "title": "口语练习",
-    "mode_free": "自由对话",
+    "mode_free": "自由口语",
     "mode_challenge": "挑战模式",
     "free_title": "准备好开始了吗？",
     "free_desc": "用{language}自由练习句子。",
@@ -278,7 +278,7 @@
     "preparing": "挑战准备中...",
     "preparing_desc": "正在分析弱点并生成 AI 句子...",
     "oops": "哎呀！",
-    "back_free": "返回自由对话",
+    "back_free": "返回自由口语",
     "target_sentence": "目标句子",
     "focus_item": "重点项目",
     "tip": "提示",

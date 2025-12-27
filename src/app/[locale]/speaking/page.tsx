@@ -168,6 +168,8 @@ export default function SpeakingPage() {
                 <SpeakingRecorder 
                     language={speechLang} 
                     onTranscriptComplete={(text) => submitForAnalysis(text, learningLanguage, uiLanguageName)}
+                    continuous={false} // Use raw mode for less auto-correction
+                    interimResults={true}
                 />
                 )}
 
@@ -280,7 +282,7 @@ export default function SpeakingPage() {
                             <SpeakingRecorder 
                                 language={speechLang}
                                 onTranscriptComplete={(text) => verifySpeech(text)}
-                                continuous={true} // Enable continuous to prevent auto-stop, waiting for manual stop
+                                continuous={false} // Use raw mode (manual continuous)
                                 interimResults={true}
                             />
                         )}

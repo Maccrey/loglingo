@@ -262,7 +262,7 @@
   "Speaking": {
     "localeName": "한국어",
     "title": "말하기 연습",
-    "mode_free": "자유 대화",
+    "mode_free": "자유 말하기",
     "mode_challenge": "도전 모드",
     "free_title": "말하기 준비 완료?",
     "free_desc": "{language}로 자유롭게 문장을 연습해보세요.",
@@ -276,7 +276,7 @@
     "preparing": "챌린지 준비 중...",
     "preparing_desc": "약점 분석 및 AI 문장 생성 중입니다...",
     "oops": "앗!",
-    "back_free": "자유 대화로 돌아가기",
+    "back_free": "자유 말하기로 돌아가기",
     "target_sentence": "목표 문장",
     "focus_item": "집중 항목",
     "tip": "팁",

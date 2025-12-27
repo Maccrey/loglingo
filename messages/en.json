@@ -262,7 +262,7 @@
   "Speaking": {
     "localeName": "English",
     "title": "Speaking Practice",
-    "mode_free": "Free Talk",
+    "mode_free": "Free Speaking",
     "mode_challenge": "Challenge Mode",
     "free_title": "Ready to Speak?",
     "free_desc": "Practice your sentences in {language}.",
@@ -276,7 +276,7 @@
     "preparing": "Preparing your challenge...",
     "preparing_desc": "Retrieving weak points & AI generating sentence...",
     "oops": "Oops!",
-    "back_free": "Back to Free Talk",
+    "back_free": "Back to Free Speaking",
     "target_sentence": "Target Sentence",
     "focus_item": "Focus Item",
     "tip": "Tip",
