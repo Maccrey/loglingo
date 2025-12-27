@@ -7,8 +7,9 @@ import { useState } from "react";
 
 interface Props {
   result: CorrectionResult;
-  onApply?: (text: string) => void;
+  onApply: (text: string) => void;
   applying?: boolean;
+  isTrialMode?: boolean;
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
@@ -70,7 +71,7 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
   );
 }
 
-export function AiFeedback({ result, onApply, applying }: Props) {
+export function AiFeedback({ result, onApply, applying, isTrialMode }: Props) {
   const t = useTranslations("ai");
 
   return (
@@ -85,10 +86,11 @@ export function AiFeedback({ result, onApply, applying }: Props) {
             <button
               className={cn(
                 "inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-1.5 text-xs font-medium text-primary-foreground shadow transition hover:opacity-90",
-                applying && "opacity-70"
+                applying && "opacity-70",
+                isTrialMode && "opacity-50 cursor-not-allowed"
               )}
               onClick={() => onApply(result.corrected)}
-              disabled={applying}
+              disabled={applying || isTrialMode}
             >
               <Wand2 className="mr-2 h-4 w-4" />
               {applying ? t("applying") : t("apply")}

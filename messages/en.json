@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Login to save your diary and build your personal archive.",
+    "signup_button": "Log in and Save",
+    "banner_title": "Trial Mode",
+    "banner_desc": "Data is not saved in trial mode."
+  },
   "common": {
     "save": "Save",
     "cancel": "Cancel",
@@ -64,6 +70,7 @@
     "title": "Master Languages with AI Diary",
     "subtitle": "Record your daily life with Grok 4.1 and build your personal learning archive with precise AI corrections.",
     "start": "Start Writing",
+    "try_it_out": "Try it out",
     "features": {
       "write": "Write Daily",
       "write_desc": "Keep a diary in your target language with photos.",

@@ -4,6 +4,7 @@ import { ArrowRight, BookOpen, Sparkles, GraduationCap } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
+import { StartButton } from "@/components/home/StartButton";
 
 export default function Home() {
   const t = useTranslations('home');
@@ -19,12 +20,7 @@ export default function Home() {
           {t('subtitle')}
         </p>
         <div className="flex space-x-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-          <Link href="/diary/new">
-            <Button size="lg" className="group">
-              {t('start')}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
+          <StartButton />
         </div>
       </section>
 

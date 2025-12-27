@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "로그인하여 일기를 저장하고 나만의 아카이브를 만드세요.",
+    "signup_button": "로그인하고 저장하기",
+    "banner_title": "체험 모드",
+    "banner_desc": "체험 모드에서는 데이터가 저장되지 않습니다."
+  },
   "common": {
     "save": "저장",
     "cancel": "취소",
@@ -64,6 +70,7 @@
     "title": "AI 일기로 언어 마스터하기",
     "subtitle": "Grok 4.1과 함께 일상을 기록하고, 정교한 AI 교정으로 나만의 학습 아카이브를 완성하세요.",
     "start": "일기 쓰기 시작",
+    "try_it_out": "체험해보기",
     "features": {
       "write": "매일 쓰기",
       "write_desc": "목표 언어로 사진과 함께 일기를 작성하세요.",

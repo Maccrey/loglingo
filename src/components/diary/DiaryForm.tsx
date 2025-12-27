@@ -40,14 +40,16 @@ type DiaryFormProps = {
   onDelete?: () => Promise<void>;
   isSubmitting?: boolean;
   onSuccess?: () => void;
+  isTrialMode?: boolean;
 };
 
 function today() {
   return new Date().toISOString().split("T")[0];
 }
 
-export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess }: DiaryFormProps) {
+export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess, isTrialMode = false }: DiaryFormProps) {
   const t = useTranslations("write");
+  const tTrial = useTranslations("trial");
   const tDiary = useTranslations("diary");
   const locale = useLocale();
   const router = useRouter();
@@ -236,6 +238,9 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   };
 
   const handleSaveArchive = async () => {
+    // In trial mode, we do NOT save to archive automatically
+    if (isTrialMode) return;
+
     console.log("Archive Save: Starting save process...", { hasAiResult: !!aiResult, userId });
     
     if (!aiResult || !userId) {
@@ -478,7 +483,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             </div>
 
             <div className="flex items-center gap-2">
-              {onDelete && (
+              {onDelete && !isTrialMode && (
                 <Button
                   type="button"
                   variant="ghost"
@@ -489,14 +494,16 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
                   {tDiary("delete")}
                 </Button>
               )}
-              <Button
-                type="submit"
-                disabled={isSubmitting || deleting}
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 border-0"
-              >
-                {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {initial ? t("update") : t("save")}
-              </Button>
+              {!isTrialMode && (
+                <Button
+                  type="submit"
+                  disabled={isSubmitting || deleting}
+                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 border-0"
+                >
+                  {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {initial ? t("update") : t("save")}
+                </Button>
+              )}
             </div>
           </CardFooter>
         </Card>
@@ -505,7 +512,27 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             result={aiResult}
             onApply={applyAiResult}
             applying={isSubmitting}
+            isTrialMode={isTrialMode}
           />
+        )}
+        
+        {isTrialMode && aiResult && (
+          <Card className="border-primary/20 bg-primary/5">
+            <CardContent className="flex flex-col items-center gap-4 py-8">
+              <div className="text-center space-y-2">
+                <h3 className="text-lg font-semibold">{tTrial("signup_prompt")}</h3>
+              </div>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-accent"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-login-modal"));
+                }}
+              >
+                 {tTrial("signup_button")}
+              </Button>
+            </CardContent>
+          </Card>
         )}
       </form>
 
