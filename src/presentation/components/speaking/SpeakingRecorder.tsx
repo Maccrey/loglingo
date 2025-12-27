@@ -94,7 +94,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
 
       { transcript.length > 0 && !isRecording && (
         <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-4 mt-2">
-             <Button variant="secondary" size="lg" onClick={resetTranscript} className="gap-2 px-6">
+             <Button variant="secondary" size="lg" onClick={resetTranscript} className="gap-2 px-6 min-w-[140px]">
                 <RotateCcw className="w-5 h-5" /> {t('recorder_try_again')}
              </Button>
              <Button size="lg" onClick={handleFinish} className="gap-2 px-8 bg-gradient-to-r from-primary to-orange-500 text-white border-0 shadow-lg hover:shadow-primary/25">
