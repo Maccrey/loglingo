@@ -17,7 +17,14 @@ export type AnalyticsEvent =
   | "ai_correct_failure"
   | "quiz_started"
   | "quiz_answered"
-  | "level_recorded";
+  | "level_recorded"
+  | "trial_started"
+  | "trial_completed"
+  | "speaking_started"
+  | "speaking_completed"
+  | "speaking_mode_switched"
+  | "challenge_started"
+  | "challenge_completed";
 
 const EVENT_LABELS: Record<AnalyticsEvent, string> = {
   page_view: "페이지 조회",
@@ -39,6 +46,13 @@ const EVENT_LABELS: Record<AnalyticsEvent, string> = {
   quiz_started: "퀴즈 시작",
   quiz_answered: "퀴즈 응답",
   level_recorded: "학습 레벨 기록",
+  trial_started: "체험 모드 시작",
+  trial_completed: "체험 모드 완료",
+  speaking_started: "말하기 연습 시작",
+  speaking_completed: "말하기 연습 완료",
+  speaking_mode_switched: "말하기 모드 전환",
+  challenge_started: "도전 모드 시작",
+  challenge_completed: "도전 모드 완료",
 };
 
 function pushToGtag(event: AnalyticsEvent, payload?: Record<string, unknown>) {

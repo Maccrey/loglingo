@@ -11,6 +11,7 @@ import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider
 import { routing } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
+import { trackEvent } from "@/lib/analytics";
 
 export default function DiaryTrialPage() {
   const t = useTranslations("trial");
@@ -20,6 +21,7 @@ export default function DiaryTrialPage() {
   const { learningLanguage, setLearningLanguage } = useLearningLanguage();
 
   useEffect(() => {
+    trackEvent("trial_started");
     if (typeof window !== "undefined") {
       const isCompleted = localStorage.getItem("loglingo_trial_completed") === "true";
       if (isCompleted) {

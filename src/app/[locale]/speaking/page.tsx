@@ -14,6 +14,7 @@ import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChalleng
 
 import { useLearningLanguage } from '@/application/i18n/LearningLanguageProvider';
 import { ResponsiveAd } from '@/components/ads/ResponsiveAd';
+import { trackEvent } from '@/lib/analytics';
 
 const LANGUAGE_MAP: Record<string, string> = {
   ko: 'ko-KR',
@@ -89,6 +90,7 @@ export default function SpeakingPage() {
   }, [locale]);
 
   const handleStartChallenge = () => {
+      trackEvent('challenge_started', { language: learningLanguage });
       fetchNewChallenge(learningLanguage, uiLanguageName); 
   };
 
@@ -127,13 +129,19 @@ export default function SpeakingPage() {
             {/* Mode Toggle Tabs */}
             <div className="flex bg-secondary/30 rounded-full p-2 mt-6 border border-white/5 gap-4">
                 <button 
-                    onClick={() => setMode('free')}
+                    onClick={() => {
+                        trackEvent('speaking_mode_switched', { mode: 'free' });
+                        setMode('free');
+                    }}
                     className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
                 >
                     {t('mode_free')}
                 </button>
                 <button 
-                    onClick={() => setMode('challenge')}
+                    onClick={() => {
+                        trackEvent('speaking_mode_switched', { mode: 'challenge' });
+                        setMode('challenge');
+                    }}
                     className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
                 >
                     {t('mode_challenge')}
@@ -158,7 +166,10 @@ export default function SpeakingPage() {
                         <h2 className="text-3xl font-bold tracking-tight">{t('free_title')}</h2>
                         <p className="text-lg text-muted-foreground">{t('free_desc', { language: targetLanguageName })}</p>
                     </div>
-                    <Button onClick={startSession} size="lg" className="rounded-full w-full md:w-auto px-4 md:px-64 py-6 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
+                    <Button onClick={() => {
+                        trackEvent('speaking_started', { language: speechLang });
+                        startSession();
+                    }} size="lg" className="rounded-full w-full md:w-auto px-4 md:px-64 py-6 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
                         {t('start_recording')}
                     </Button>
                 </Card>
@@ -167,7 +178,10 @@ export default function SpeakingPage() {
                 {step === 'recording' && (
                 <SpeakingRecorder 
                     language={speechLang} 
-                    onTranscriptComplete={(text) => submitForAnalysis(text, learningLanguage, uiLanguageName)}
+                    onTranscriptComplete={(text) => {
+                        trackEvent('speaking_completed', { language: speechLang });
+                        submitForAnalysis(text, learningLanguage, uiLanguageName);
+                    }}
                     continuous={false} // Use raw mode for less auto-correction
                     interimResults={true}
                 />
@@ -281,7 +295,10 @@ export default function SpeakingPage() {
                         {cStep !== 'verifying' && (
                             <SpeakingRecorder 
                                 language={speechLang}
-                                onTranscriptComplete={(text) => verifySpeech(text)}
+                                onTranscriptComplete={(text) => {
+                                    trackEvent('challenge_completed', { language: speechLang });
+                                    verifySpeech(text);
+                                }}
                                 continuous={false} // Use raw mode (manual continuous)
                                 interimResults={true}
                             />

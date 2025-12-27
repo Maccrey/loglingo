@@ -220,6 +220,9 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         if (typeof window !== "undefined") {
           localStorage.setItem("loglingo_trial_completed", "true");
         }
+        import("@/lib/analytics").then(({ trackEvent }) => {
+          trackEvent("trial_completed");
+        });
       }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
