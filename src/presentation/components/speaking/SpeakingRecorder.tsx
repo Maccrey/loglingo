@@ -16,6 +16,15 @@ interface SpeakingRecorderProps {
 
 export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRecorderProps) {
   const t = useTranslations('Speaking');
+
+  const handleError = React.useCallback((err: any) => {
+    if (err === 'not-allowed') {
+        toast.error('Microphone permission denied.');
+    } else {
+        toast.error('Speech recognition error: ' + err);
+    }
+  }, []);
+
   const {
     transcript,
     isRecording,
@@ -25,13 +34,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRec
     notSupported,
   } = useSpeechRecognition({
     language,
-    onError: (err) => {
-        if (err === 'not-allowed') {
-            toast.error('Microphone permission denied.');
-        } else {
-            toast.error('Speech recognition error: ' + err);
-        }
-    }
+    onError: handleError
   });
 
   const handleToggle = () => {

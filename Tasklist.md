@@ -252,3 +252,5 @@
 - [x] **5. Multilingual Support**
     - [x] TTS "Listen" button for target sentence
     - [x] Correct STT language mapping (BCP-47) for all 15 languages
+- [x] **6. Debugging**
+    - [x] Fix SpeakingRecorder control loss (useEffect cleanup & stable callbacks)

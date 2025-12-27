@@ -109,6 +109,10 @@ export function useSpeechRecognition({
     };
 
     recognitionRef.current = recognition;
+
+    return () => {
+      recognition.abort();
+    };
   }, [language, onResult, onEnd, onError]);
 
   const startRecording = useCallback(() => {
