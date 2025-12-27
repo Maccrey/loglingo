@@ -246,3 +246,6 @@
 - [x] **3. Verification**
     - [x] curl test for API endpoint
     - [x] UI rendering check
+- [x] **4. Refinements & Polish**
+    - [x] speaking recorder silence detection (2s timeout)
+    - [x] button localization (Try Again, Analyze) verification

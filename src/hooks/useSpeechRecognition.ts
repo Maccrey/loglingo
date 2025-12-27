@@ -29,6 +29,13 @@ export function useSpeechRecognition({
   const [notSupported, setNotSupported] = useState(false);
 
   const recognitionRef = useRef<any>(null);
+  const silenceTimer = useRef<NodeJS.Timeout | null>(null);
+  const isRecordingRef = useRef(false);
+
+  // Sync ref with state for access in callbacks
+  useEffect(() => {
+    isRecordingRef.current = isRecording;
+  }, [isRecording]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -53,6 +60,15 @@ export function useSpeechRecognition({
     };
 
     recognition.onresult = (event: any) => {
+      // Reset silence timer on every result
+      if (silenceTimer.current) clearTimeout(silenceTimer.current);
+      silenceTimer.current = setTimeout(() => {
+          if (isRecordingRef.current) {
+              // console.log("Silence detected, stopping...");
+              recognition.stop();
+          }
+      }, 2000);
+
       let finalTranscript = '';
       let interimTranscript = '';
 
@@ -66,12 +82,6 @@ export function useSpeechRecognition({
 
       const current = finalTranscript + interimTranscript;
       setTranscript((prev) => {
-        // Simple append strategy or replacement? 
-        // Usually we want the full session transcript.
-        // If continuous is true, the event.resultIndex handles the offset.
-        // We might just want to setTranscript to the accumulated results from the event.
-        // Actually, for simple usage, let's just accumulate.
-         // NOTE: SpeechRecognition event.results contains ALL results for the session if continuous=true
          let fullTranscript = '';
          for (let i = 0; i < event.results.length; ++i) {
             fullTranscript += event.results[i][0].transcript;
@@ -86,12 +96,15 @@ export function useSpeechRecognition({
 
     recognition.onerror = (event: any) => {
       console.error('Speech recognition error', event.error);
+      if (silenceTimer.current) clearTimeout(silenceTimer.current);
       setError(event.error);
       if (onError) onError(event.error);
     };
 
     recognition.onend = () => {
+      if (silenceTimer.current) clearTimeout(silenceTimer.current);
       setIsRecording(false);
+      isRecordingRef.current = false;
       if (onEnd) onEnd();
     };
 
