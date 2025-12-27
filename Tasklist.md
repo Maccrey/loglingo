@@ -277,3 +277,16 @@
 - [x] **3. Ad Integration**
     - [x] Added KakaoAdFit slots (PC/Mobile) to Speaking Page (`/speaking`)
 
+## 17. Trial Mode & UI Polish — Codex
+- [x] **1. Trial Mode Logic Improvement**
+    - [x] Fixed `MISSING_MESSAGE` errors by adding 'trial' keys to all 15 languages
+    - [x] Updated Trial Mode button text: "Log in and Save" -> "Sign up and Login" (Removed save promise)
+    - [x] Fixed `FirebaseError` permission issue by disabling `persistInsights` in Trial Mode
+    - [x] Implemented One-time Trial restriction using `localStorage` (`loglingo_trial_completed`)
+    - [x] Redirect completed trial users to Home (`/`) if they try to re-enter
+    - [x] Home Page Hero Button: Switches from "Try it out" to "Start Writing" if trial is completed
+- [x] **2. UI Consistency**
+    - [x] Replaced Speaking Practice emoji (🎙️) with Lucide `Mic` icon on Home Page
+- [x] **3. Deployment**
+    - [x] Deployed updates to Firebase Hosting
+
