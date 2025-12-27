@@ -31,7 +31,7 @@ export function useSpeechRecognition({
   const [notSupported, setNotSupported] = useState(false);
 
   const recognitionRef = useRef<any>(null);
-  const silenceTimer = useRef<NodeJS.Timeout | null>(null);
+
   const isRecordingRef = useRef(false);
 
   // Sync ref with state for access in callbacks
@@ -63,15 +63,6 @@ export function useSpeechRecognition({
     };
 
     recognition.onresult = (event: any) => {
-      // Reset silence timer on every result
-      if (silenceTimer.current) clearTimeout(silenceTimer.current);
-      silenceTimer.current = setTimeout(() => {
-          if (isRecordingRef.current) {
-              // console.log("Silence detected, stopping...");
-              recognition.stop();
-          }
-      }, 5000);
-
       let finalTranscript = '';
       let interimTranscript = '';
 
@@ -101,13 +92,11 @@ export function useSpeechRecognition({
       if (event.error === 'no-speech') {
           // ignore no-speech for cleaner UX or handle it
       }
-      if (silenceTimer.current) clearTimeout(silenceTimer.current);
       setError(event.error);
       if (onError) onError(event.error);
     };
 
     recognition.onend = () => {
-      if (silenceTimer.current) clearTimeout(silenceTimer.current);
       setIsRecording(false);
       isRecordingRef.current = false;
       if (onEnd) onEnd();
