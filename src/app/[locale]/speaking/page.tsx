@@ -149,7 +149,7 @@ export default function SpeakingPage() {
                         <h2 className="text-3xl font-bold tracking-tight">{t('free_title')}</h2>
                         <p className="text-lg text-muted-foreground">{t('free_desc', { language: targetLanguageName })}</p>
                     </div>
-                    <Button onClick={startSession} size="lg" className="rounded-full px-24 py-4 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
+                    <Button onClick={startSession} size="lg" className="rounded-full px-48 py-6 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
                         {t('start_recording')}
                     </Button>
                 </Card>
@@ -204,7 +204,7 @@ export default function SpeakingPage() {
                             {t('challenge_desc')}
                         </p>
                     </div>
-                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-28 py-5 text-2xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
+                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-56 py-7 text-2xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
                         {t('start_challenge')}
                     </Button>
                 </Card>
