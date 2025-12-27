@@ -224,7 +224,7 @@ export default function SpeakingPage() {
                         <Card className="p-8 border-indigo-500/30 bg-indigo-950/30">
                             <div className="flex flex-col gap-4 text-center">
                                 <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest">{t('target_sentence')}</div>
-                                <div className="text-3xl font-medium text-white leading-relaxed flex items-center justify-center gap-3">
+                                <div className="text-xl font-medium text-white leading-relaxed flex items-center justify-center gap-3">
                                     {challengeData.sentence}
                                     <button 
                                         onClick={() => handleCreateSpeech(challengeData.sentence)}
@@ -241,9 +241,6 @@ export default function SpeakingPage() {
                                             <span className="text-xl">🔊</span>
                                         )}
                                     </button>
-                                </div>
-                                <div className="text-lg text-indigo-200/70">
-                                    {challengeData.meaning}
                                 </div>
                                 <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 gap-4 text-left">
                                     <div className="bg-black/20 p-3 rounded-lg">
