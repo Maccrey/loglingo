@@ -222,4 +222,15 @@
 - [x] **4. 통합 및 테스트**
     - [x] 전체 플로우 검증: 녹음 -> 분석 -> 결과 -> 아카이브 저장
     - [x] Playwright 테스트 케이스 작성 (가능한 범위 내)
-- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+
+## 14. Speaking Challenge Mode (v2)
+- [x] **1. Learning Archive 연동**
+    - [x] `ArchiveRepository.getRandomWeakItem`: 정답률 낮은 항목 랜덤 조회 기능
+- [x] **2. 챌린지 생성 API**
+    - [x] `/api/ai/speaking/challenge`: 선택된 단어/문법으로 Grok AI 예문 생성
+- [x] **3. UI/UX 구현 (`/speaking`)**
+    - [x] 모드 전환 (Free Talk vs Challenge) 탭 구현
+    - [x] 챌린지 화면: 문제(단어) 표시 -> 예문 생성 로딩 -> 예문 제시
+    - [x] 말하기 검증 로직: STT 결과 vs 목표 문장 비교 (Normailized comparison)
+    - [x] 결과 피드백: 성공/실패 UI 및 다시 시도

@@ -205,3 +205,41 @@ export async function deleteArchivesBySourceId(sourceId: string): Promise<number
     throw error;
   }
 }
+
+export async function getRandomWeakItem(userId: string, limitCount = 5): Promise<LearningArchive | null> {
+  console.log("🎲 Archive Repository: getRandomWeakItem called", { userId });
+  if (!userId) return null;
+
+  try {
+    // 1. Fetch items with low correct count (e.g., < 3) - simplicity first
+    // Firestore limitation: random access is hard. We'll fetch a batch of "weak" items and pick one randomly app-side.
+    const q = query(
+      archiveCol, 
+      where("userId", "==", userId),
+      where("correctCount", "<", 3),
+      // orderBy("createdAt", "desc"), // Optional: prefer recent weak items? Or omit for general randomness
+      // limit(limitCount * 2) // Fetch a pool to pick from
+    );
+
+    const snapshot = await getDocs(q);
+    
+    if (snapshot.empty) {
+      console.log("⚠️ Archive Repository: No weak items found");
+      // Fallback: try fetching ANY item if no weak ones exist?
+      // For now, return null and let the UI handle "No items to review"
+      return null;
+    }
+
+    const docs = snapshot.docs;
+    // Pick random index
+    const randomIndex = Math.floor(Math.random() * docs.length);
+    const selectedDoc = docs[randomIndex];
+    
+    console.log(`✅ Archive Repository: Selected random weak item`, { title: selectedDoc.data().title });
+    return mapArchive(selectedDoc as QueryDocumentSnapshot<DocumentData>);
+
+  } catch (error) {
+    console.error("❌ Archive Repository: getRandomWeakItem failed", error);
+    return null;
+  }
+}

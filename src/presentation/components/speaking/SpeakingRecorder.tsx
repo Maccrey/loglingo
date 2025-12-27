@@ -59,16 +59,16 @@ export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRec
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
-      <div className="relative w-full h-32 bg-secondary/30 rounded-2xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
+    <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto">
+      <div className="relative w-full h-64 bg-secondary/30 rounded-3xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
         {isRecording ? (
-            <WaveformVisualizer isRecording={true} className="h-16" />
+            <WaveformVisualizer isRecording={true} className="h-32 gap-3" />
         ) : (
-            <div className="text-muted-foreground text-sm">Tap mic to start</div>
+            <div className="text-muted-foreground text-xl">Tap mic to start</div>
         )}
       </div>
 
-      <div className="w-full min-h-[100px] p-4 bg-background/50 backdrop-blur-md rounded-xl border border-white/10 text-lg font-medium text-center">
+      <div className="w-full min-h-[200px] p-8 bg-background/50 backdrop-blur-md rounded-2xl border border-white/10 text-2xl font-medium text-center flex items-center justify-center leading-relaxed">
         {transcript || <span className="text-muted-foreground/50">Your speech will appear here...</span>}
       </div>
 
