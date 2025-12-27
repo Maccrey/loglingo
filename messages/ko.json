@@ -161,6 +161,8 @@
     "dashboard_title": "학습 대시보드",
     "dashboard_subtitle": "나의 레벨·조언·활동을 한눈에 확인",
     "current_level": "현재 레벨",
+    "level_general": "종합 레벨",
+    "level_speaking": "말하기 레벨",
     "level_trend": "최근 변화",
     "level_trend_up": "+{value}점 상승",
     "level_trend_down": "-{value}점 하락",

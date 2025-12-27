@@ -5,7 +5,7 @@ export interface LevelRecord {
   level: LevelBand;
   score?: number; // 0~100 scaled confidence score
   confidence?: number; // 0~1 probability-style confidence
-  sourceType?: "ai_correction" | "quiz" | "manual";
+  sourceType?: "ai_correction" | "quiz" | "manual" | "speaking";
   sourceId?: string;
   language?: string; // target learning language code
   rationale?: string;

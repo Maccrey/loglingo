@@ -190,11 +190,13 @@ export default function ArchivePage() {
   );
   const { update: updateProgress } = useArchiveProgressMutation(userId);
 
-  const latestLevel = levels[0];
-  const previousLevel = levels[1];
-  const latestScore = latestLevel?.score ?? 0;
+  // Separate levels
+  const latestGeneralLevel = useMemo(() => levels.find(l => l.sourceType !== 'speaking') ?? levels[0], [levels]);
+  const latestSpeakingLevel = useMemo(() => levels.find(l => l.sourceType === 'speaking'), [levels]);
+  const previousLevel = levels.find(l => l.sourceType !== 'speaking' && l.id !== latestGeneralLevel?.id);
+  const latestScore = latestGeneralLevel?.score ?? 0;
   const trendDelta =
-    latestLevel && previousLevel && typeof previousLevel.score === "number"
+    latestGeneralLevel && previousLevel && typeof previousLevel.score === "number"
       ? latestScore - (previousLevel.score ?? 0)
       : null;
   const levelFeedback =
@@ -415,46 +417,79 @@ export default function ArchivePage() {
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-                <div className="flex items-center gap-1.5">
-                  <p className="text-xs uppercase text-primary/80">{t("current_level")}</p>
-                  <div
-                    className="relative inline-flex items-center justify-center"
-                    onMouseEnter={handleLevelHelpEnter}
-                    onMouseLeave={handleLevelHelpLeave}
-                  >
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition"
-                      aria-label={t("level_help")}
-                      onFocus={() => setShowLevelHelp(true)}
-                      onBlur={() => setShowLevelHelp(false)}
-                      onClick={() => setShowLevelHelp((prev) => !prev)}
-                    >
-                      <Info className="h-3 w-3" />
-                    </button>
-                    {showLevelHelp && (
-                      <div className="absolute left-0 top-5 z-10 w-64 rounded-md border border-white/10 bg-black/85 p-2 text-[11px] text-white/90 shadow-lg">
-                        {t("level_help")}
+                <div className="flex flex-col gap-4">
+                  {/* General Level */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <p className="text-xs uppercase text-primary/80">{t("level_general")}</p>
+                        <div
+                          className="relative inline-flex items-center justify-center"
+                          onMouseEnter={handleLevelHelpEnter}
+                          onMouseLeave={handleLevelHelpLeave}
+                        >
+                          <button
+                            type="button"
+                            className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition"
+                            aria-label={t("level_help")}
+                            onFocus={() => setShowLevelHelp(true)}
+                            onBlur={() => setShowLevelHelp(false)}
+                            onClick={() => setShowLevelHelp((prev) => !prev)}
+                          >
+                            <Info className="h-3 w-3" />
+                          </button>
+                          {showLevelHelp && (
+                            <div className="absolute left-0 top-5 z-10 w-64 rounded-md border border-white/10 bg-black/85 p-2 text-[11px] text-white/90 shadow-lg z-[100]">
+                              {t("level_help")}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
+                      <div className="mt-1 flex items-end gap-2">
+                        <p className="text-2xl font-bold text-foreground">
+                          {latestGeneralLevel?.level ?? t("level_unknown")}
+                        </p>
+                        {typeof latestGeneralLevel?.score === "number" && (
+                          <span className="text-xs text-muted-foreground">({latestGeneralLevel.score})</span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-right">
+                       <p className="text-[10px] text-muted-foreground">{levelFeedback}</p>
+                       <p className="text-[10px] text-muted-foreground">
+                        {trendDelta !== null
+                          ? trendDelta >= 0
+                            ? t("level_trend_up", { value: Math.abs(trendDelta).toFixed(0) })
+                            : t("level_trend_down", { value: Math.abs(trendDelta).toFixed(0) })
+                          : t("level_trend")}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Speaking Level Divider */}
+                  <div className="h-px bg-primary/20 w-full" />
+
+                  {/* Speaking Level */}
+                  <div className="flex items-center justify-between">
+                     <div>
+                      <p className="text-xs uppercase text-accent/80">{t("level_speaking")}</p>
+                      <div className="mt-1 flex items-end gap-2">
+                        <p className="text-2xl font-bold text-foreground">
+                          {latestSpeakingLevel?.level ?? "-"}
+                        </p>
+                        {typeof latestSpeakingLevel?.score === "number" && (
+                          <span className="text-xs text-muted-foreground">({latestSpeakingLevel.score})</span>
+                        )}
+                      </div>
+                    </div>
+                     <div className="text-right">
+                        {/* Future: Speaking specific trends */}
+                        <p className="text-[10px] text-muted-foreground">
+                          {latestSpeakingLevel ? formatDate(latestSpeakingLevel.createdAt, locale) : ""}
+                        </p>
+                     </div>
                   </div>
                 </div>
-                <div className="mt-2 flex items-end gap-2">
-                  <p className="text-3xl font-bold text-foreground">
-                    {latestLevel?.level ?? t("level_unknown")}
-                  </p>
-                  {typeof latestLevel?.score === "number" && (
-                    <span className="text-sm text-muted-foreground">({latestLevel.score} pts)</span>
-                  )}
-                </div>
-                <p className="mt-1 text-xs text-muted-foreground">{levelFeedback}</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {trendDelta !== null
-                    ? trendDelta >= 0
-                      ? t("level_trend_up", { value: Math.abs(trendDelta).toFixed(0) })
-                      : t("level_trend_down", { value: Math.abs(trendDelta).toFixed(0) })
-                    : t("level_trend")}
-                </p>
               </div>
 
               <div className="rounded-xl border border-white/10 bg-white/5 p-4">
