@@ -70,7 +70,9 @@
       "correct": "AI 교정",
       "correct_desc": "문법과 자연스러운 표현에 대한 즉각적인 피드백을 받으세요.",
       "learn": "개인 아카이브",
-      "learn_desc": "실수를 복습하고 맞춤형 퀴즈로 학습하세요."
+      "learn_desc": "Review mistakes and learn with personalized quizzes.",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

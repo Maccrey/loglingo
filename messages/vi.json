@@ -72,7 +72,9 @@
       "correct": "Sửa lỗi AI",
       "correct_desc": "Nhận phản hồi tức thì về ngữ pháp và cách diễn đạt tự nhiên.",
       "learn": "Lưu trữ cá nhân",
-      "learn_desc": "Xem lại những lỗi sai và học từ các bài kiểm tra được cá nhân hóa."
+      "learn_desc": "Xem lại những lỗi sai và học từ các bài kiểm tra được cá nhân hóa.",
+      "speaking": "Luyện nói",
+      "speaking_desc": "Luyện phát âm và hội thoại với AI."
     }
   },
   "diary": {

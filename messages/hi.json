@@ -72,7 +72,9 @@
       "correct": "AI सुधार",
       "correct_desc": "व्याकरण और प्राकृतिक अभिव्यक्तियों पर तुरंत प्रतिक्रिया प्राप्त करें।",
       "learn": "व्यक्तिगत संग्रह",
-      "learn_desc": "अपनी गलतियों की समीक्षा करें और व्यक्तिगत क्विज़ से सीखें।"
+      "learn_desc": "अपनी गलतियों की समीक्षा करें और व्यक्तिगत क्विज़ से सीखें।",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

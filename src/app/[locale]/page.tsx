@@ -29,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         <Card className="border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors">
           <CardHeader>
             <BookOpen className="h-10 w-10 text-primary mb-2" />
@@ -65,6 +65,22 @@ export default function Home() {
             </p>
           </CardContent>
         </Card>
+
+        <Link href="/speaking" className="block h-full">
+          <Card className="h-full border-orange-500/20 bg-orange-500/5 hover:bg-orange-500/10 transition-colors cursor-pointer group">
+            <CardHeader>
+              <div className="p-2 bg-orange-100 dark:bg-orange-900/30 w-fit rounded-lg mb-2 group-hover:scale-110 transition-transform">
+                <span className="text-2xl">🎙️</span>
+              </div>
+              <CardTitle>{t('features.speaking')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                {t('features.speaking_desc')}
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
       </section>
 
       {/* PC Ad (728x90) - Only visible on md+ screens */}

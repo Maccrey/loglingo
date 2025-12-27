@@ -72,7 +72,9 @@
       "correct": "Koreksi AI",
       "correct_desc": "Dapatkan umpan balik instan tentang tata bahasa dan ekspresi alami.",
       "learn": "Arsip Pribadi",
-      "learn_desc": "Tinjau kesalahan Anda dan pelajari dari kuis yang dipersonalisasi."
+      "learn_desc": "Tinjau kesalahan Anda dan pelajari dari kuis yang dipersonalisasi.",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

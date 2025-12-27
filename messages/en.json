@@ -70,7 +70,9 @@
       "correct": "AI Correction",
       "correct_desc": "Get instant feedback on grammar and natural expressions.",
       "learn": "Personal Archive",
-      "learn_desc": "Review your mistakes and learn from personalized quizzes."
+      "learn_desc": "Review your mistakes and learn from personalized quizzes.",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

@@ -72,7 +72,9 @@
       "correct": "تصحيح الذكاء الاصطناعي",
       "correct_desc": "احصل على تعليقات فورية حول القواعد والتعبيرات الطبيعية.",
       "learn": "الأرشيف الشخصي",
-      "learn_desc": "راجع أخطاءك وتعلم من الاختبارات المخصصة."
+      "learn_desc": "راجع أخطاءك وتعلم من الاختبارات المخصصة.",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

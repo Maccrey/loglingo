@@ -72,7 +72,9 @@
       "correct": "AI 纠正",
       "correct_desc": "即时获得语法和自然表达的反馈。",
       "learn": "个人档案",
-      "learn_desc": "复习错误并通过个性化测验进行学习。"
+      "learn_desc": "复习错误并通过个性化测验进行学习。",
+      "speaking": "口语练习",
+      "speaking_desc": "与AI一起练习发音和对话。"
     }
   },
   "diary": {

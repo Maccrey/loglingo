@@ -72,7 +72,9 @@
       "correct": "การแก้ไขโดย AI",
       "correct_desc": "รับคำติชมทันทีเกี่ยวกับไวยากรณ์และการแสดงออกที่เป็นธรรมชาติ",
       "learn": "คลังส่วนตัว",
-      "learn_desc": "ทบทวนข้อผิดพลาดและเรียนรู้จากแบบทดสอบส่วนตัว"
+      "learn_desc": "ทบทวนข้อผิดพลาดและเรียนรู้จากแบบทดสอบส่วนตัว",
+      "speaking": "Speaking Practice",
+      "speaking_desc": "Practice pronunciation and conversation with AI."
     }
   },
   "diary": {

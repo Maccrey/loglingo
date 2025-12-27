@@ -72,7 +72,9 @@
       "correct": "KI-Korrektur",
       "correct_desc": "Erhalten Sie sofortiges Feedback zu Grammatik und natürlichen Ausdrücken.",
       "learn": "Persönliches Archiv",
-      "learn_desc": "Überprüfen Sie Ihre Fehler und lernen Sie mit personalisierten Quizzen."
+      "learn_desc": "Wiederholen Sie Fehler und lernen Sie mit persönlichen Quizzen.",
+      "speaking": "Sprechtraining",
+      "speaking_desc": "Üben Sie Aussprache und Konversation mit KI."
     }
   },
   "diary": {

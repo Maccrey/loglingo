@@ -72,7 +72,9 @@
       "correct": "AI Düzeltme",
       "correct_desc": "Dilbilgisi ve doğal ifadeler hakkında anında geri bildirim alın.",
       "learn": "Kişisel Arşiv",
-      "learn_desc": "Hatalarınızı gözden geçirin ve kişiselleştirilmiş testlerle öğrenin."
+      "learn_desc": "Hataları gözden geçirin ve kişiselleştirilmiş testlerle öğrenin.",
+      "speaking": "Konuşma Pratiği",
+      "speaking_desc": "Yapay zeka ile telaffuz ve konuşma pratiği yapın."
     }
   },
   "diary": {

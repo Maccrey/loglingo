@@ -72,7 +72,9 @@
       "correct": "Correction IA",
       "correct_desc": "Obtenez un retour instantané sur la grammaire et les expressions naturelles.",
       "learn": "Archive personnelle",
-      "learn_desc": "Révisez vos erreurs et apprenez grâce à des quiz personnalisés."
+      "learn_desc": "Révisez vos erreurs et apprenez grâce à des quiz personnalisés.",
+      "speaking": "Pratique Orale",
+      "speaking_desc": "Entraînez votre prononciation et conversation avec l'IA."
     }
   },
   "diary": {
