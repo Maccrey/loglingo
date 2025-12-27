@@ -285,6 +285,17 @@
     "result_desc_retry": "Essayons de nous rapprocher de la phrase cible.",
     "target_label": "Cible",
     "you_said_label": "Vous avez dit",
-    "next_challenge": "Défi Suivant"
+    "next_challenge": "Défi Suivant",
+    "recorder_tap_mic": "Appuyez pour commencer",
+    "recorder_placeholder": "Votre discours apparaîtra ici...",
+    "recorder_try_again": "Réessayer",
+    "recorder_analyze": "Analyser",
+    "result_ai_analysis": "Analyse IA",
+    "result_you_said": "Vous avez dit",
+    "result_correction_needed": "Correction nécessaire",
+    "result_better_expression": "Meilleure expression",
+    "result_grammar_points": "Points de grammaire",
+    "result_root_meaning": "Sens et nuance",
+    "result_try_another": "Essayer une autre phrase"
   }
 }

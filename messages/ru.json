@@ -285,6 +285,17 @@
     "result_desc_retry": "Давайте попробуем приблизиться к целевому предложению.",
     "target_label": "Цель",
     "you_said_label": "Вы сказали",
-    "next_challenge": "Следующее испытание"
+    "next_challenge": "Следующее испытание",
+    "recorder_tap_mic": "Нажмите на микрофон",
+    "recorder_placeholder": "Ваша речь появится здесь...",
+    "recorder_try_again": "Попробовать снова",
+    "recorder_analyze": "Анализировать",
+    "result_ai_analysis": "Анализ ИИ",
+    "result_you_said": "Вы сказали",
+    "result_correction_needed": "Требуется исправление",
+    "result_better_expression": "Лучшее выражение",
+    "result_grammar_points": "Грамматика",
+    "result_root_meaning": "Значение и нюансы",
+    "result_try_another": "Попробовать другое предложение"
   }
 }

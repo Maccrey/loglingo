@@ -285,6 +285,17 @@
     "result_desc_retry": "Hedef cümleye daha yaklaşmaya çalışalım.",
     "target_label": "Hedef",
     "you_said_label": "Söylediğiniz",
-    "next_challenge": "Sonraki Meydan Okuma"
+    "next_challenge": "Sonraki Meydan Okuma",
+    "recorder_tap_mic": "Başlamak için mikrofona dokun",
+    "recorder_placeholder": "Konuşmanız burada görünecek...",
+    "recorder_try_again": "Tekrar Dene",
+    "recorder_analyze": "Analiz Et",
+    "result_ai_analysis": "Yapay Zeka Analizi",
+    "result_you_said": "Söylediğiniz",
+    "result_correction_needed": "Düzeltme gerekli",
+    "result_better_expression": "Daha İyi İfade",
+    "result_grammar_points": "Gramer Noktaları",
+    "result_root_meaning": "Kök Anlam ve Nüans",
+    "result_try_another": "Başka Cümle Dene"
   }
 }

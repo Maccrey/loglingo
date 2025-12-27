@@ -285,6 +285,17 @@
     "result_desc_retry": "आइए लक्ष्य वाक्य के और करीब पहुंचने की कोशिश करें।",
     "target_label": "लक्ष्य",
     "you_said_label": "आपने कहा",
-    "next_challenge": "अगली चुनौती"
+    "next_challenge": "अगली चुनौती",
+    "recorder_tap_mic": "शुरू करने के लिए माइक टैप करें",
+    "recorder_placeholder": "आपकी बात यहाँ दिखाई देगी...",
+    "recorder_try_again": "पुनः प्रयास करें",
+    "recorder_analyze": "विश्लेषण करें",
+    "result_ai_analysis": "AI विश्लेषण",
+    "result_you_said": "आपने कहा",
+    "result_correction_needed": "सुधार की आवश्यकता है",
+    "result_better_expression": "बेहतर अभिव्यक्ति",
+    "result_grammar_points": "व्याकरण बिंदु",
+    "result_root_meaning": "मूल अर्थ और बारीकियां",
+    "result_try_another": "दूसरा वाक्य आज़माएं"
   }
 }

@@ -285,6 +285,17 @@
     "result_desc_retry": "Hãy cố gắng nói gần giống với câu mục tiêu hơn.",
     "target_label": "Mục tiêu",
     "you_said_label": "Bạn đã nói",
-    "next_challenge": "Thử thách tiếp theo"
+    "next_challenge": "Thử thách tiếp theo",
+    "recorder_tap_mic": "Chạm mic để bắt đầu",
+    "recorder_placeholder": "Lời nói của bạn sẽ hiện ở đây...",
+    "recorder_try_again": "Thử lại",
+    "recorder_analyze": "Phân tích",
+    "result_ai_analysis": "Phân tích AI",
+    "result_you_said": "Bạn đã nói",
+    "result_correction_needed": "Cần sửa",
+    "result_better_expression": "Cách diễn đạt tốt hơn",
+    "result_grammar_points": "Điểm ngữ pháp",
+    "result_root_meaning": "Ý nghĩa & Sắc thái",
+    "result_try_another": "Thử câu khác"
   }
 }

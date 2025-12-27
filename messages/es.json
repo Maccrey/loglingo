@@ -285,6 +285,17 @@
     "result_desc_retry": "Intentemos acercarnos más a la oración objetivo.",
     "target_label": "Objetivo",
     "you_said_label": "Dijiste",
-    "next_challenge": "Siguiente Desafío"
+    "next_challenge": "Siguiente Desafío",
+    "recorder_tap_mic": "Toca el micro para empezar",
+    "recorder_placeholder": "Tu voz aparecerá aquí...",
+    "recorder_try_again": "Reintentar",
+    "recorder_analyze": "Analizar",
+    "result_ai_analysis": "Análisis IA",
+    "result_you_said": "Dijiste",
+    "result_correction_needed": "Necesita corrección",
+    "result_better_expression": "Mejor expresión",
+    "result_grammar_points": "Puntos de gramática",
+    "result_root_meaning": "Significado y matiz",
+    "result_try_another": "Prueba otra frase"
   }
 }

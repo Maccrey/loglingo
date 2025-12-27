@@ -285,6 +285,17 @@
     "result_desc_retry": "Vamos tentar chegar mais perto da frase alvo.",
     "target_label": "Alvo",
     "you_said_label": "Você disse",
-    "next_challenge": "Próximo Desafio"
+    "next_challenge": "Próximo Desafio",
+    "recorder_tap_mic": "Toque no mic para iniciar",
+    "recorder_placeholder": "Sua fala aparecerá aqui...",
+    "recorder_try_again": "Tentar Novamente",
+    "recorder_analyze": "Analisar",
+    "result_ai_analysis": "Análise de IA",
+    "result_you_said": "Você disse",
+    "result_correction_needed": "Correção necessária",
+    "result_better_expression": "Melhor Expressão",
+    "result_grammar_points": "Pontos Gramaticais",
+    "result_root_meaning": "Significado e Nuance",
+    "result_try_another": "Tentar Outra Frase"
   }
 }

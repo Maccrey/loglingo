@@ -285,6 +285,17 @@
     "result_desc_retry": "Versuchen wir, dem Zielsatz näher zu kommen.",
     "target_label": "Ziel",
     "you_said_label": "Sie sagten",
-    "next_challenge": "Nächste Challenge"
+    "next_challenge": "Nächste Challenge",
+    "recorder_tap_mic": "Zum Starten tippen",
+    "recorder_placeholder": "Ihre Sprache wird hier angezeigt...",
+    "recorder_try_again": "Erneut versuchen",
+    "recorder_analyze": "Analysieren",
+    "result_ai_analysis": "KI-Analyse",
+    "result_you_said": "Sie sagten",
+    "result_correction_needed": "Korrektur erforderlich",
+    "result_better_expression": "Besserer Ausdruck",
+    "result_grammar_points": "Grammatik-Punkte",
+    "result_root_meaning": "Bedeutung & Nuance",
+    "result_try_another": "Anderen Satz versuchen"
   }
 }

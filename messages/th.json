@@ -285,6 +285,17 @@
     "result_desc_retry": "ลองพยายามให้ใกล้เคียงกับประโยคเป้าหมายมากขึ้น",
     "target_label": "เป้าหมาย",
     "you_said_label": "คุณพูดว่า",
-    "next_challenge": "ความท้าทายถัดไป"
+    "next_challenge": "ความท้าทายถัดไป",
+    "recorder_tap_mic": "แตะไมค์เพื่อเริ่ม",
+    "recorder_placeholder": "คำพูดของคุณจะปรากฏที่นี่...",
+    "recorder_try_again": "ลองอีกครั้ง",
+    "recorder_analyze": "วิเคราะห์",
+    "result_ai_analysis": "การวิเคราะห์ AI",
+    "result_you_said": "คุณพูดว่า",
+    "result_correction_needed": "ต้องแก้ไข",
+    "result_better_expression": "การแสดงออกที่ดีกว่า",
+    "result_grammar_points": "จุดไวยากรณ์",
+    "result_root_meaning": "ความหมายและรายละเอียด",
+    "result_try_another": "ลองประโยคอื่น"
   }
 }

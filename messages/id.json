@@ -285,6 +285,17 @@
     "result_desc_retry": "Mari kita coba lebih mendekati kalimat target.",
     "target_label": "Target",
     "you_said_label": "Anda Berkata",
-    "next_challenge": "Tantangan Berikutnya"
+    "next_challenge": "Tantangan Berikutnya",
+    "recorder_tap_mic": "Ketuk mik untuk mulai",
+    "recorder_placeholder": "Ucapan Anda akan muncul di sini...",
+    "recorder_try_again": "Coba Lagi",
+    "recorder_analyze": "Analisis",
+    "result_ai_analysis": "Analisis AI",
+    "result_you_said": "Anda berkata",
+    "result_correction_needed": "Perlu koreksi",
+    "result_better_expression": "Ekspresi Lebih Baik",
+    "result_grammar_points": "Poin Tata Bahasa",
+    "result_root_meaning": "Makna & Nuansa",
+    "result_try_another": "Coba Kalimat Lain"
   }
 }
