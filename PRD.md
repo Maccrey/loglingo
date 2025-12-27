@@ -443,7 +443,7 @@ User ───< LearningArchive ───< QuizQuestions
 - 비용 절감형 캐싱
 - Flutter WebView 앱
 - 광고/구독 추가
-  - [완료] Kakao AdFit 광고 통합 (PC/모바일 반응형)
+  - [완료] Kakao AdFit 광고 통합 (PC/모바일 반응형) - Home, Speaking 페이지 적용
   - [완료] 프리미엄 구독 시스템 (AdProvider 기반 광고 제어)
   - [완료] Firestore 구독 관리 및 Security Rules
 - [완료] GitHub Actions 기반 배포 자동화
@@ -482,7 +482,7 @@ User ───< LearningArchive ───< QuizQuestions
 
 ## 3. 핵심 기능 정의 (Speaking v1)
 
-### 기능 1. 문장 단위 말하기 연습
+### 기능 1. 문장 단위 말하기 연습 [완료]
 
 **설명**
 
@@ -501,7 +501,7 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
-### 기능 2. AI 말하기 분석 (Grok)
+### 기능 2. AI 말하기 분석 (Grok) [완료]
 
 **입력**
 
@@ -527,7 +527,7 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
-### 기능 3. Speaking → 학습 아카이브 자동 저장
+### 기능 3. Speaking → 학습 아카이브 자동 저장 [완료]
 
 * 말하기에서 발견된:
 
@@ -543,7 +543,7 @@ User ───< LearningArchive ───< QuizQuestions
 
 ---
 
-### 기능 4. Speaking 기반 퀴즈 생성
+### 기능 4. Speaking 기반 퀴즈 생성 [완료]
 
 * 말하기에서 나온 오류를 기반으로:
 

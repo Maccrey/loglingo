@@ -265,3 +265,15 @@
     - [x] Refine STT: Disable `continuous` mode in Challenge Mode to reduce auto-correction bias
     - [x] Refine STT: Increase silence timeout from 2s to 5s for better UX
     - [x] UI Polish: Add margin (`mb-8`) between challenge description and Start button
+    - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+
+## 16. Home Page Improvement & i18n Finalization
+- [x] **1. Home Page Layout**
+    - [x] Feature Grid: 3-column -> 2-column layout (`md:grid-cols-2`) for better responsiveness
+    - [x] "Speaking Practice" Card: Added new entry point card linking to `/speaking`
+- [x] **2. Speaking Feature Multilingual Support**
+    - [x] Added `speaking` and `speaking_desc` keys to all 15 supported languages (`messages/*.json`)
+    - [x] Verified and fixed Korean translations (`ko.json`)
+- [x] **3. Ad Integration**
+    - [x] Added KakaoAdFit slots (PC/Mobile) to Speaking Page (`/speaking`)
+
