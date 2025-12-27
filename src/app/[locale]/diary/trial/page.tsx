@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { TrialLanguageOnboarding } from "@/components/i18n/TrialLanguageOnboarding";
 
 export default function DiaryTrialPage() {
   const t = useTranslations("trial");
@@ -34,6 +35,7 @@ export default function DiaryTrialPage() {
           // No-op for trial submit
         }}
       />
+      <TrialLanguageOnboarding />
     </div>
   );
 }
