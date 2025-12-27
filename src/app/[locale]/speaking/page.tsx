@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 
+import { useLearningLanguage } from '@/application/i18n/LearningLanguageProvider';
+
 const LANGUAGE_MAP: Record<string, string> = {
   ko: 'ko-KR',
   en: 'en-US',
@@ -33,10 +35,9 @@ const LANGUAGE_MAP: Record<string, string> = {
 export default function SpeakingPage() {
   const t = useTranslations('Speaking'); // Ensure keys exist or use fallback
   const { user } = useAuth(); // for language preference if needed
+  const { learningLanguage } = useLearningLanguage();
   
   // Default target language from user profile or settings
-  // Ideally this comes from user.learningLanguage
-  const learningLanguage = (user as any)?.learningLanguage || 'en';
   const speechLang = LANGUAGE_MAP[learningLanguage] || 'en-US';
 
   const {

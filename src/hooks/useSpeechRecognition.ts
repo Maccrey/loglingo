@@ -53,7 +53,7 @@ export function useSpeechRecognition({
     recognition.continuous = true; // Keep recording even after silence
     recognition.interimResults = true; // Show results while speaking
     recognition.lang = language;
-
+    
     recognition.onstart = () => {
       setIsRecording(true);
       setError(null);
