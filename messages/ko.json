@@ -283,6 +283,17 @@
     "result_desc_retry": "목표 문장에 더 가깝게 말해보세요.",
     "target_label": "목표",
     "you_said_label": "내가 말한 것",
-    "next_challenge": "다음 도전"
+    "next_challenge": "다음 도전",
+    "recorder_tap_mic": "마이크를 눌러 시작하세요",
+    "recorder_placeholder": "여기에 말한 내용이 표시됩니다...",
+    "recorder_try_again": "다시 시도",
+    "recorder_analyze": "분석하기",
+    "result_ai_analysis": "AI 분석",
+    "result_you_said": "내가 말한 문장",
+    "result_correction_needed": "교정 필요",
+    "result_better_expression": "더 좋은 표현",
+    "result_grammar_points": "문법 포인트",
+    "result_root_meaning": "어원 및 뉘앙스",
+    "result_try_another": "다른 문장 연습하기"
   }
 }

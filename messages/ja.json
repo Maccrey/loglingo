@@ -285,6 +285,17 @@
     "result_desc_retry": "目標の文章にもう少し近づけてみましょう。",
     "target_label": "目標",
     "you_said_label": "あなたの発言",
-    "next_challenge": "次のチャレンジ"
+    "next_challenge": "次のチャレンジ",
+    "recorder_tap_mic": "マイクをタップして開始",
+    "recorder_placeholder": "ここに発言が表示されます...",
+    "recorder_try_again": "再試行",
+    "recorder_analyze": "分析する",
+    "result_ai_analysis": "AI分析",
+    "result_you_said": "あなたの発言",
+    "result_correction_needed": "修正が必要",
+    "result_better_expression": "より良い表現",
+    "result_grammar_points": "文法ポイント",
+    "result_root_meaning": "語源とニュアンス",
+    "result_try_another": "別の文章を練習"
   }
 }

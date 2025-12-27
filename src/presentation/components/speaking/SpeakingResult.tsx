@@ -4,9 +4,10 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { SpeakingFeedback } from '@/domain/speaking';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge'; // Fixed import
+import { Badge } from '@/components/ui/Badge';
 import { Check, Sparkles, AlertCircle, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 interface SpeakingResultProps {
   feedback: SpeakingFeedback;
@@ -15,7 +16,7 @@ interface SpeakingResultProps {
 }
 
 export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultProps) {
-  // const t = useTranslations('Speaking'); // Assuming keys exist, fallback to English logic if not
+  const t = useTranslations('Speaking');
 
   return (
     <div className={cn("space-y-6 w-full max-w-2xl mx-auto animate-in slide-in-from-bottom-5 fade-in duration-500", className)}>
@@ -25,18 +26,18 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
         <CardHeader className="bg-white/5 pb-4">
           <CardTitle className="text-lg flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-yellow-400" />
-            AI Analysis
+            {t('result_ai_analysis')}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 pt-6">
           
           <div className="space-y-2">
-            <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">You said</div>
+            <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">{t('result_you_said')}</div>
             <div className="p-4 rounded-xl bg-secondary/30 text-lg leading-relaxed relative group">
                 {feedback.original}
                 { feedback.original !== feedback.improved && (
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                         <Badge variant="destructive" className="text-[10px]">Correction needed</Badge>
+                         <Badge variant="destructive" className="text-[10px]">{t('result_correction_needed')}</Badge>
                     </div>
                 )}
             </div>
@@ -44,7 +45,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
 
           <div className="space-y-2">
             <div className="text-sm text-emerald-400/80 uppercase tracking-wider font-bold flex items-center gap-2">
-                 <Check className="w-4 h-4" /> Better Expression
+                 <Check className="w-4 h-4" /> {t('result_better_expression')}
             </div>
             <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-lg leading-relaxed text-emerald-100">
                 {feedback.improved}
@@ -62,7 +63,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
             <Card className="border-red-500/20 bg-red-950/10">
                 <CardHeader>
                     <CardTitle className="text-base text-red-200 flex items-center gap-2">
-                        <AlertCircle className="w-4 h-4" /> Grammar Points
+                        <AlertCircle className="w-4 h-4" /> {t('result_grammar_points')}
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -83,7 +84,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
             <Card className="border-blue-500/20 bg-blue-950/10 md:col-span-2">
                 <CardHeader>
                     <CardTitle className="text-base text-blue-200 flex items-center gap-2">
-                        <span className="text-xl">🌱</span> Root Meaning & Nuance
+                        <span className="text-xl">🌱</span> {t('result_root_meaning')}
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="grid gap-3 sm:grid-cols-2">
@@ -101,10 +102,11 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
 
       <div className="flex justify-center pt-8">
         <Button onClick={onRetry} variant="secondary" size="lg" className="rounded-full px-8">
-            <RefreshCw className="w-4 h-4 mr-2" /> Try Another Sentence
+            <RefreshCw className="w-4 h-4 mr-2" /> {t('result_try_another')}
         </Button>
       </div>
 
     </div>
   );
 }
+

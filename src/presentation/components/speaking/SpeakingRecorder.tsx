@@ -7,6 +7,7 @@ import { WaveformVisualizer } from './WaveformVisualizer';
 import { Mic, Square, RotateCcw, MessageSquarePlus } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 interface SpeakingRecorderProps {
   language: string;
@@ -14,6 +15,7 @@ interface SpeakingRecorderProps {
 }
 
 export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRecorderProps) {
+  const t = useTranslations('Speaking');
   const {
     transcript,
     isRecording,
@@ -64,12 +66,12 @@ export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRec
         {isRecording ? (
             <WaveformVisualizer isRecording={true} className="h-32 gap-3" />
         ) : (
-            <div className="text-muted-foreground text-xl">Tap mic to start</div>
+            <div className="text-muted-foreground text-xl">{t('recorder_tap_mic')}</div>
         )}
       </div>
 
       <div className="w-full min-h-[200px] p-8 bg-background/50 backdrop-blur-md rounded-2xl border border-white/10 text-2xl font-medium text-center flex items-center justify-center leading-relaxed">
-        {transcript || <span className="text-muted-foreground/50">Your speech will appear here...</span>}
+        {transcript || <span className="text-muted-foreground/50">{t('recorder_placeholder')}</span>}
       </div>
 
       <div className="flex gap-4">
@@ -86,13 +88,14 @@ export function SpeakingRecorder({ language, onTranscriptComplete }: SpeakingRec
       { transcript.length > 0 && !isRecording && (
         <div className="flex gap-2 animate-in fade-in slide-in-from-bottom-4">
              <Button variant="secondary" onClick={resetTranscript} className="gap-2">
-                <RotateCcw className="w-4 h-4" /> Try Again
+                <RotateCcw className="w-4 h-4" /> {t('recorder_try_again')}
              </Button>
              <Button onClick={handleFinish} className="gap-2 bg-gradient-to-r from-primary to-orange-500 text-white border-0">
-                <MessageSquarePlus className="w-4 h-4" /> Analyze
+                <MessageSquarePlus className="w-4 h-4" /> {t('recorder_analyze')}
              </Button>
         </div>
       )}
     </div>
   );
 }
+

@@ -283,6 +283,17 @@
     "result_desc_retry": "Let's try to match the target sentence more closely.",
     "target_label": "Target",
     "you_said_label": "You Said",
-    "next_challenge": "Next Challenge"
+    "next_challenge": "Next Challenge",
+    "recorder_tap_mic": "Tap mic to start",
+    "recorder_placeholder": "Your speech will appear here...",
+    "recorder_try_again": "Try Again",
+    "recorder_analyze": "Analyze",
+    "result_ai_analysis": "AI Analysis",
+    "result_you_said": "You said",
+    "result_correction_needed": "Correction needed",
+    "result_better_expression": "Better Expression",
+    "result_grammar_points": "Grammar Points",
+    "result_root_meaning": "Root Meaning & Nuance",
+    "result_try_another": "Try Another Sentence"
   }
 }
