@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Melden Sie sich an, um Ihr Tagebuch zu speichern und Ihr persönliches Archiv aufzubauen.",
-    "signup_button": "Anmelden und Speichern",
+    "signup_prompt": "Registrieren Sie sich, um Ihr eigenes Archiv zu erstellen.",
+    "signup_button": "Registrieren und anmelden",
     "banner_title": "Testmodus",
     "banner_desc": "Daten werden im Testmodus nicht gespeichert."
   },

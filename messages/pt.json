@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Faça login para salvar seu diário e construir seu arquivo pessoal.",
-    "signup_button": "Entrar e Salvar",
+    "signup_prompt": "Cadastre-se para criar seu próprio arquivo.",
+    "signup_button": "Cadastrar e Entrar",
     "banner_title": "Modo de Teste",
     "banner_desc": "Os dados não são salvos no modo de teste."
   },

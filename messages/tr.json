@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Günlüğünüzü kaydetmek ve kişisel arşivinizi oluşturmak için giriş yapın.",
-    "signup_button": "Giriş Yap ve Kaydet",
+    "signup_prompt": "Kişisel arşivinizi oluşturmak için kaydolun.",
+    "signup_button": "Kaydol ve Giriş Yap",
     "banner_title": "Deneme Modu",
     "banner_desc": "Deneme modunda veriler kaydedilmez."
   },

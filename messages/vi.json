@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Đăng nhập để lưu nhật ký và xây dựng kho lưu trữ cá nhân của bạn.",
-    "signup_button": "Đăng nhập và Lưu",
+    "signup_prompt": "Đăng ký để tạo kho lưu trữ cá nhân của bạn.",
+    "signup_button": "Đăng ký và Đăng nhập",
     "banner_title": "Chế độ trải nghiệm",
     "banner_desc": "Dữ liệu không được lưu trong chế độ trải nghiệm."
   },

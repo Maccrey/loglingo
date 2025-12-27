@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Connectez-vous pour sauvegarder votre journal et créer votre archive personnelle.",
-    "signup_button": "Se connecter et sauvegarder",
+    "signup_prompt": "Inscrivez-vous pour créer votre propre archive.",
+    "signup_button": "S'inscrire et se connecter",
     "banner_title": "Mode d'essai",
     "banner_desc": "Les données ne sont pas enregistrées en mode d'essai."
   },

@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Inicia sesión para guardar tu diario y construir tu archivo personal.",
-    "signup_button": "Iniciar sesión y guardar",
+    "signup_prompt": "Regístrate para crear tu propio archivo.",
+    "signup_button": "Registrarse e iniciar sesión",
     "banner_title": "Modo de prueba",
     "banner_desc": "Los datos no se guardan en el modo de prueba."
   },

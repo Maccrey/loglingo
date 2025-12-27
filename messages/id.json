@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Masuk untuk menyimpan buku harian dan membangun arsip pribadi Anda.",
-    "signup_button": "Masuk dan Simpan",
+    "signup_prompt": "Daftar untuk membuat arsip pribadi Anda.",
+    "signup_button": "Daftar dan Masuk",
     "banner_title": "Mode Percobaan",
     "banner_desc": "Data tidak disimpan dalam mode percobaan."
   },

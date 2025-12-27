@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "Login to save your diary and build your personal archive.",
-    "signup_button": "Log in and Save",
+    "signup_prompt": "Sign up to create your own archive.",
+    "signup_button": "Sign up and Login",
     "banner_title": "Trial Mode",
     "banner_desc": "Data is not saved in trial mode."
   },

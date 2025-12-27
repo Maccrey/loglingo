@@ -1,7 +1,7 @@
 {
   "trial": {
-    "signup_prompt": "ログインして日記を保存し、自分だけのアーカイブを作りましょう。",
-    "signup_button": "ログインして保存",
+    "signup_prompt": "会員登録して、あなただけのアーカイブを作りましょう。",
+    "signup_button": "会員登録してログイン",
     "banner_title": "体験モード",
     "banner_desc": "体験モードではデータは保存されません。"
   },
