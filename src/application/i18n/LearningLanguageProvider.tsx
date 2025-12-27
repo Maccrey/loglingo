@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { routing } from "@/i18n/routing";
 
 type LearningLanguageContextValue = {
@@ -31,9 +31,15 @@ function persistLanguage(lang: string) {
 
 export function LearningLanguageProvider({ children }: { children: React.ReactNode }) {
   const [hasStoredLanguage, setHasStoredLanguage] = useState<boolean>(() => readConfirmFlag());
-  const [learningLanguage, setLearningLanguageState] = useState<string>(
-    () => readStoredLanguage() || routing.defaultLocale
-  );
+  const [learningLanguage, setLearningLanguageState] = useState<string>(routing.defaultLocale);
+
+  useEffect(() => {
+    const stored = readStoredLanguage();
+    if (stored) {
+      setLearningLanguageState(stored);
+      setHasStoredLanguage(true);
+    }
+  }, []);
 
   const setLearningLanguage = (lang: string) => {
     setLearningLanguageState(lang);
