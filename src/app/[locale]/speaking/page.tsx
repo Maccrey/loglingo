@@ -12,6 +12,24 @@ import Link from 'next/link';
 import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 
+const LANGUAGE_MAP: Record<string, string> = {
+  ko: 'ko-KR',
+  en: 'en-US',
+  ja: 'ja-JP',
+  zh: 'zh-CN',
+  th: 'th-TH',
+  vi: 'vi-VN',
+  id: 'id-ID',
+  es: 'es-ES',
+  pt: 'pt-BR',
+  fr: 'fr-FR',
+  de: 'de-DE',
+  tr: 'tr-TR',
+  ar: 'ar-SA',
+  hi: 'hi-IN',
+  ru: 'ru-RU',
+};
+
 export default function SpeakingPage() {
   const t = useTranslations('Speaking'); // Ensure keys exist or use fallback
   const { user } = useAuth(); // for language preference if needed
@@ -19,6 +37,7 @@ export default function SpeakingPage() {
   // Default target language from user profile or settings
   // Ideally this comes from user.learningLanguage
   const learningLanguage = (user as any)?.learningLanguage || 'en';
+  const speechLang = LANGUAGE_MAP[learningLanguage] || 'en-US';
 
   const {
     step,
@@ -32,6 +51,7 @@ export default function SpeakingPage() {
 
   // Challenge Mode State
   const [mode, setMode] = React.useState<'free' | 'challenge'>('free');
+  const [isPlaying, setIsPlaying] = React.useState(false);
   
   // Dynamic Import or Logic for Challenge
   // For simplicity, we can just inline the Challenge View or separate it.
@@ -49,6 +69,25 @@ export default function SpeakingPage() {
 
   const handleStartChallenge = () => {
       fetchNewChallenge(learningLanguage, t('localeName') || 'Korean'); // Adjust locale as needed
+  };
+
+  const handleCreateSpeech = (text: string) => {
+    if (!window.speechSynthesis) return;
+    if (isPlaying) {
+        window.speechSynthesis.cancel();
+        setIsPlaying(false);
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = speechLang;
+    utterance.rate = 0.9;
+    
+    utterance.onstart = () => setIsPlaying(true);
+    utterance.onend = () => setIsPlaying(false);
+    utterance.onerror = () => setIsPlaying(false);
+
+    window.speechSynthesis.speak(utterance);
   };
 
   return (
@@ -106,7 +145,7 @@ export default function SpeakingPage() {
 
                 {step === 'recording' && (
                 <SpeakingRecorder 
-                    language={learningLanguage === 'en' ? 'en-US' : (learningLanguage === 'ko' ? 'ko-KR' : 'en-US')} 
+                    language={speechLang} 
                     onTranscriptComplete={(text) => submitForAnalysis(text, learningLanguage)}
                 />
                 )}
@@ -184,8 +223,23 @@ export default function SpeakingPage() {
                         <Card className="p-8 border-indigo-500/30 bg-indigo-950/30">
                             <div className="flex flex-col gap-4 text-center">
                                 <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest">{t('target_sentence')}</div>
-                                <div className="text-3xl font-medium text-white leading-relaxed">
+                                <div className="text-3xl font-medium text-white leading-relaxed flex items-center justify-center gap-3">
                                     {challengeData.sentence}
+                                    <button 
+                                        onClick={() => handleCreateSpeech(challengeData.sentence)}
+                                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
+                                        aria-label="Listen"
+                                    >
+                                        {isPlaying ? (
+                                            <div className="w-5 h-5 flex items-center justify-center space-x-1">
+                                                <div className="w-1 h-3 bg-indigo-400 animate-bounce" />
+                                                <div className="w-1 h-3 bg-indigo-400 animate-bounce delay-75" />
+                                                <div className="w-1 h-3 bg-indigo-400 animate-bounce delay-150" />
+                                            </div>
+                                        ) : (
+                                            <span className="text-xl">🔊</span>
+                                        )}
+                                    </button>
                                 </div>
                                 <div className="text-lg text-indigo-200/70">
                                     {challengeData.meaning}
@@ -206,7 +260,7 @@ export default function SpeakingPage() {
                         {/* Recorder */}
                         {cStep !== 'verifying' && (
                             <SpeakingRecorder 
-                                language={learningLanguage === 'en' ? 'en-US' : (learningLanguage === 'ko' ? 'ko-KR' : 'en-US')}
+                                language={speechLang}
                                 onTranscriptComplete={(text) => verifySpeech(text)}
                             />
                         )}
@@ -245,7 +299,15 @@ export default function SpeakingPage() {
                          <div className="bg-black/30 p-6 rounded-xl text-left space-y-4">
                              <div>
                                  <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{t('target_label')}</div>
-                                 <div className="text-xl text-white">{challengeData.sentence}</div>
+                                 <div className="text-xl text-white flex items-center gap-2">
+                                     {challengeData.sentence}
+                                     <button 
+                                        onClick={() => handleCreateSpeech(challengeData.sentence)}
+                                        className="text-muted-foreground hover:text-white transition-colors"
+                                     >
+                                        🔊
+                                     </button>
+                                 </div>
                              </div>
                              <div>
                                  <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{t('you_said_label')}</div>

@@ -249,3 +249,6 @@
 - [x] **4. Refinements & Polish**
     - [x] speaking recorder silence detection (2s timeout)
     - [x] button localization (Try Again, Analyze) verification
+- [x] **5. Multilingual Support**
+    - [x] TTS "Listen" button for target sentence
+    - [x] Correct STT language mapping (BCP-47) for all 15 languages
