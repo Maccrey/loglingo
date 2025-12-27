@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { SpeakingRecorder } from '@/presentation/components/speaking/SpeakingRecorder';
 import { SpeakingResult } from '@/presentation/components/speaking/SpeakingResult';
 import { useSpeaking } from '@/application/speaking/useSpeaking';
@@ -37,9 +37,19 @@ export default function SpeakingPage() {
   const t = useTranslations('Speaking'); // Ensure keys exist or use fallback
   const { user } = useAuth(); // for language preference if needed
   const { learningLanguage } = useLearningLanguage();
+  const locale = useLocale();
   
   // Default target language from user profile or settings
   const speechLang = LANGUAGE_MAP[learningLanguage] || 'en-US';
+
+  // Get localized language name (e.g., "Korean" instead of "KO")
+  const targetLanguageName = React.useMemo(() => {
+    try {
+        return new Intl.DisplayNames([locale], { type: 'language' }).of(learningLanguage) || learningLanguage.toUpperCase();
+    } catch (e) {
+        return learningLanguage.toUpperCase();
+    }
+  }, [learningLanguage, locale]);
 
   const {
     step,
@@ -137,7 +147,7 @@ export default function SpeakingPage() {
                     </div>
                     <div className="space-y-3">
                         <h2 className="text-3xl font-bold tracking-tight">{t('free_title')}</h2>
-                        <p className="text-lg text-muted-foreground">{t('free_desc', { language: learningLanguage.toUpperCase() })}</p>
+                        <p className="text-lg text-muted-foreground">{t('free_desc', { language: targetLanguageName })}</p>
                     </div>
                     <Button onClick={startSession} size="lg" className="rounded-full px-16 py-8 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
                         {t('start_recording')}
