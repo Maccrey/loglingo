@@ -161,6 +161,8 @@
     "dashboard_title": "Dasbor Pembelajaran",
     "dashboard_subtitle": "Lihat level, saran, dan aktivitas sekilas",
     "current_level": "Level saat ini",
+    "level_general": "Level Umum",
+    "level_speaking": "Level Berbicara",
     "level_trend": "Perubahan terbaru",
     "level_trend_up": "+{value} poin vs sebelumnya",
     "level_trend_down": "-{value} poin vs sebelumnya",

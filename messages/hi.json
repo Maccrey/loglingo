@@ -161,6 +161,8 @@
     "dashboard_title": "लर्निंग डैशबोर्ड",
     "dashboard_subtitle": "अपने स्तर, सलाह और गतिविधि को एक नज़र में देखें",
     "current_level": "वर्तमान स्तर",
+    "level_general": "सामान्य स्तर",
+    "level_speaking": "बोलने का स्तर",
     "level_trend": "हाल का बदलाव",
     "level_trend_up": "+{value} अंक बढ़ा",
     "level_trend_down": "-{value} अंक घटा",

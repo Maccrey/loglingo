@@ -161,6 +161,8 @@
     "dashboard_title": "Панель обучения",
     "dashboard_subtitle": "Уровень, советы и активность одним взглядом",
     "current_level": "Текущий уровень",
+    "level_general": "Общий уровень",
+    "level_speaking": "Уровень речи",
     "level_trend": "Недавние изменения",
     "level_trend_up": "+{value} баллов от прошлого",
     "level_trend_down": "-{value} баллов",

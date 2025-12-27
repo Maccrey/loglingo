@@ -161,6 +161,8 @@
     "dashboard_title": "Panel de aprendizaje",
     "dashboard_subtitle": "Consulta tu nivel, consejos y actividad de un vistazo",
     "current_level": "Nivel actual",
+    "level_general": "Nivel General",
+    "level_speaking": "Nivel de Habla",
     "level_trend": "Cambio reciente",
     "level_trend_up": "+{value} pts vs anterior",
     "level_trend_down": "-{value} pts vs anterior",

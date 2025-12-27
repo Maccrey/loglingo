@@ -161,6 +161,8 @@
     "dashboard_title": "لوحة التعلم",
     "dashboard_subtitle": "اطلع على مستواك والنصائح والنشاط بسرعة",
     "current_level": "المستوى الحالي",
+    "level_general": "المستوى العام",
+    "level_speaking": "مستوى التحدث",
     "level_trend": "التغير الأخير",
     "level_trend_up": "+{value} نقاط مقارنة بالسابق",
     "level_trend_down": "-{value} نقاط مقارنة بالسابق",

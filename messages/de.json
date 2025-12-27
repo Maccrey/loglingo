@@ -161,6 +161,8 @@
     "dashboard_title": "Lern-Dashboard",
     "dashboard_subtitle": "Level, Tipps und Aktivität auf einen Blick",
     "current_level": "Aktuelles Niveau",
+    "level_general": "Allgemeines Niveau",
+    "level_speaking": "Sprechniveau",
     "level_trend": "Letzte Änderung",
     "level_trend_up": "+{value} Punkte vs. zuvor",
     "level_trend_down": "-{value} Punkte vs. zuvor",

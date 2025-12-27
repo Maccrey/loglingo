@@ -161,6 +161,8 @@
     "dashboard_title": "Tableau d'apprentissage",
     "dashboard_subtitle": "Niveau, conseils et activité en un coup d’œil",
     "current_level": "Niveau actuel",
+    "level_general": "Niveau Général",
+    "level_speaking": "Expression Orale",
     "level_trend": "Évolution récente",
     "level_trend_up": "+{value} pts vs précédent",
     "level_trend_down": "-{value} pts vs précédent",

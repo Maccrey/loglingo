@@ -161,6 +161,8 @@
     "dashboard_title": "แดชบอร์ดการเรียนรู้",
     "dashboard_subtitle": "ดูระดับ คำแนะนำ และกิจกรรมได้ในพริบตา",
     "current_level": "ระดับปัจจุบัน",
+    "level_general": "ระดับทั่วไป",
+    "level_speaking": "ระดับการพูด",
     "level_trend": "การเปลี่ยนแปลงล่าสุด",
     "level_trend_up": "+{value} แต้ม มากขึ้น",
     "level_trend_down": "-{value} แต้ม น้อยลง",

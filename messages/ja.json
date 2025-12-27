@@ -163,6 +163,8 @@
     "dashboard_title": "学習ダッシュボード",
     "dashboard_subtitle": "レベル・アドバイス・活動状況をひと目で確認",
     "current_level": "現在のレベル",
+    "level_general": "総合レベル",
+    "level_speaking": "スピーキングレベル",
     "level_trend": "最近の変化",
     "level_trend_up": "+{value}点 上昇",
     "level_trend_down": "-{value}点 下降",

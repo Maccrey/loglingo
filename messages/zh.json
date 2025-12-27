@@ -161,6 +161,8 @@
     "dashboard_title": "学习面板",
     "dashboard_subtitle": "一目了然查看等级、建议和活动",
     "current_level": "当前等级",
+    "level_general": "综合等级",
+    "level_speaking": "口语等级",
     "level_trend": "近期变化",
     "level_trend_up": "+{value} 分",
     "level_trend_down": "-{value} 分",
