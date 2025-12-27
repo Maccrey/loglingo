@@ -203,23 +203,23 @@
   - 퀴즈 성적 기반 레벨 조정(퀴즈 결과→레벨 업데이트) 및 추세 보정
   - 평균/목표 대비 지표 집계용 API 또는 Cloud Function(익명 집계 데이터)
 
-## 13. Speaking (말하기 연습) — Codex
-- [ ] **기술 검토 및 환경 설정**
-    - [x] `react-speech-recognition` 또는 Google Cloud Speech-to-Text API 검토 (비용/정확도)
-    - [x] 마이크 권한 처리 및 브라우저 호환성 체크 (라이브러리 사용 결정)
-    - [x] Firestore `speaking_sessions`, `speaking_feedback` 컬렉션 스키마 정의
-- [x] **1. 말하기 UI/UX**
-    - [x] 말하기 페이지 레이아웃 (마이크 버튼, 파형 비주얼라이저)
-    - [x] 녹음 상태 관리 (Recording, Processing, Completed)
-    - [x] STT 실시간 텍스트 표시 (또는 완료 후 표시)
-- [x] **2. 백엔드/AI 로직**
-    - [x] STT 결과 Grok API 전송 및 분석 요청 로직
-    - [x] 문법 오류, 자연스러운 표현, 의미 가이드 파싱 및 저장
-    - [x] `speaking_sessions` 및 `speaking_feedback` 저장
-- [x] **3. 학습 데이터 연동**
-    - [x] Speaking 결과 → `learning_archive` 자동 저장 (중복 체크)
-    - [x] 저장된 데이터 기반 퀴즈 생성 연결 (데이터가 있으면 퀴즈는 자동 생성됨)
-- [x] **4. 테스트 및 검증**
-    - [x] 마이크 입력 및 STT 모킹 테스트 (E2E script)
-    - [x] 전체 플로우 (말하기 -> 분석) 단위/수동 검증 (Testlist.md)
-- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+## 13. Speaking 기능 확장 v1 (Additional PRD) — Codex
+- [x] **기술 검토 및 환경 설정**
+    - [x] `react-speech-recognition` (Browser STT) 기반 구현 (MVP)
+    - [x] Firestore `speaking_sessions`, `speaking_feedback` 컬렉션 생성 및 타입 정의
+    - [x] `LearningArchive`에 `origin: 'speaking'` 타입 추가
+- [x] **1. 말하기 UI/UX (Expanded)**
+    - [x] `SpeakingRecorder`: 녹음 중 파형 비주얼라이저 구현 (CSS Animation)
+    - [x] `SpeakingRecorder`: 녹음 완료 후 텍스트 수정/재녹음/분석 요청 UI
+    - [x] `SpeakingResult`: 분석 결과(교정, 문법 포인트, Root Meaning) 표시 UI
+- [x] **2. 백엔드 및 AI 서비스 (SpeakingService)**
+    - [x] `SpeakingRepository`: 세션 및 피드백 저장 로직 구현 (Firestore)
+    - [x] `GrokSpeakingAnalysis`: STT 텍스트 기반 문법/표현/RootMeaning 분석 프롬프트 작성
+    - [x] `AnalysisService`: STT -> Grok Analyis -> Archive 저장 파이프라인 연결
+- [x] **3. 학습 데이터 자동 연동**
+    - [x] 분석 결과(문법/단어)를 `learning_archive`에 자동 저장 (`origin: 'speaking'`)
+    - [x] 중복 데이터 방지 로직 (동일 RootMeaning + Type 체크)
+- [x] **4. 통합 및 테스트**
+    - [x] 전체 플로우 검증: 녹음 -> 분석 -> 결과 -> 아카이브 저장
+    - [x] Playwright 테스트 케이스 작성 (가능한 범위 내)
+- [ ] 완료 시 테스트 통과 확인 후 한국어 커밋
