@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
-import { ArrowRight, BookOpen, Sparkles, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen, Sparkles, GraduationCap, Mic } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
@@ -65,9 +65,7 @@ export default function Home() {
         <Link href="/speaking" className="block h-full">
           <Card className="h-full border-orange-500/20 bg-orange-500/5 hover:bg-orange-500/10 transition-colors cursor-pointer group">
             <CardHeader>
-              <div className="p-2 bg-orange-100 dark:bg-orange-900/30 w-fit rounded-lg mb-2 group-hover:scale-110 transition-transform">
-                <span className="text-2xl">🎙️</span>
-              </div>
+            <Mic className="h-10 w-10 text-orange-500 mb-2" />
               <CardTitle>{t('features.speaking')}</CardTitle>
             </CardHeader>
             <CardContent>
