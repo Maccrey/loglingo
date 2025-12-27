@@ -35,7 +35,7 @@ function buildPrompt(req: ChallengeRequest): string {
   
   return `You are a language tutor.
 Target Language: ${learningLanguage}
-UI Language (for explanations): ${uiLocale}
+UI Language (Native Language for Explanations): ${uiLocale}
 Task: Create a B1-level practice sentence for the user to speak, focusing on: "${archiveItem.title}" (${archiveItem.type}).
 
 Context/Meaning of item: "${archiveItem.rootMeaning}"
@@ -43,8 +43,8 @@ Context/Meaning of item: "${archiveItem.rootMeaning}"
 Respond with ONLY valid JSON:
 {
   "sentence": "<The practice sentence in Target Language. Must contain the target item.>",
-  "meaning": "<Translation/Meaning of the sentence in UI Language>",
-  "pronunciationTips": "<Brief tip in UI Language, e.g. 'Standard American accent' or specific warning for this word>"
+  "meaning": "<Translation/Meaning of the sentence in ${uiLocale} ONLY>",
+  "pronunciationTips": "<Brief tip in ${uiLocale}, e.g. 'Standard American accent' or specific warning for this word>"
 }
 
 Requirements:
@@ -52,6 +52,7 @@ Requirements:
 - Tone: Natural, daily conversation.
 - If type is 'grammar', ensuring the sentence clearly demonstrates the grammar rule.
 - If type is 'word', use it in a common context.
+- "meaning" and "pronunciationTips" MUST be in ${uiLocale}.
 `;
 }
 

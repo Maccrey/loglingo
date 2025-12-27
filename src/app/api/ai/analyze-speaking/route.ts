@@ -43,7 +43,10 @@ function buildPrompt({ text, targetSentence, language, uiLanguage = 'en' }: Anal
     let prompt = `You are a helpful language tutor. 
     Analyze the spoken sentence: "${text}"
     Target Language: ${language}
-    UI Language (for explanations): ${uiLanguage}
+    UI Language (Native Language for Explanations): ${uiLanguage}
+    
+    IMPORTANT: All evaluations, grammar notes, root meanings, and advice MUST be provided in the UI Language (${uiLanguage}). 
+    Do NOT output explanations in English unless the UI Language is English.
     `;
 
     if (targetSentence) {
@@ -55,26 +58,26 @@ function buildPrompt({ text, targetSentence, language, uiLanguage = 'en' }: Anal
     Return JSON format only:
     {
       "improved": "Better/Natural version in target language (or same if good)",
-      "grammarNotes": ["Grammar point 1 in UI language", "Grammar point 2 in UI language"],
+      "grammarNotes": ["Grammar point 1 in ${uiLanguage}", "Grammar point 2 in ${uiLanguage}"],
       "rootMeaningGuide": {
-        "word_in_target": "Root meaning/Image explanation in UI language"
+        "word_in_target": "Root meaning/Image explanation in ${uiLanguage} ONLY"
       },
       "diff": [
         { "type": "correct" | "incorrect" | "missing" | "extra", "word": "word" }
       ],
       "accuracyScore": number (0-100),
       "estimatedLevel": "A1" | "A2" | "B1" | "B2" | "C1" | "C2",
-      "advice": "Specific advice in UI language about what to practice next"
+      "advice": "Specific advice in ${uiLanguage} about what to practice next"
     }
     
     Rules:
     - "estimatedLevel": Estimate the CEFR level of the *spoken sentence* based on vocabulary, grammar complexity, and fluency/accuracy relative to the target sentence.
     - "improved" must be in target language.
-    - "grammarNotes" must be in UI language.
-    - "rootMeaningGuide" keys are key words from the sentence, values are explanations in UI language focusing on core 'root' image/meaning.
+    - "grammarNotes" must be in ${uiLanguage}.
+    - "rootMeaningGuide" keys are key words from the sentence, values are explanations in ${uiLanguage} focusing on core 'root' image/meaning.
     - If "Target Sentence" is provided, calculate "accuracyScore" based on similarity.
     - "diff" should show word-by-word comparison if Target Sentence exists. If not, just analyze the spoken sentence structure.
-    - "advice" should be actionable and in UI language.
+    - "advice" should be actionable and in ${uiLanguage}.
     - STRICTLY IGNORE punctuation (periods, commas) and capitalization in the spoken sentence. Do not mention them in "grammarNotes" or "diff" unless they critically alter meaning.
     - Focus analysis on vocabulary, sentence structure, and natural spoken phrasing.
     - Do not use terms like "run-on sentence" or "period missing" for spoken text.

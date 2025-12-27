@@ -19,7 +19,7 @@ export function useSpeaking() {
     setError(null);
   };
 
-  const submitForAnalysis = async (text: string, language: string) => {
+  const submitForAnalysis = async (text: string, language: string, uiLanguage: string) => {
     if (!text.trim()) return;
     
     setTranscript(text);
@@ -33,7 +33,8 @@ export function useSpeaking() {
         body: JSON.stringify({
             text,
             language,
-            userId: user?.uid
+            userId: user?.uid,
+            uiLocale: uiLanguage // API expects uiLocale or uiLanguage mapped
         }),
       });
 

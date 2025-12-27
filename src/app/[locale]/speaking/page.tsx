@@ -79,8 +79,17 @@ export default function SpeakingPage() {
       retryChallenge,
   } = useSpeakingChallenge();
 
+  // Get UI Language Name for AI Explanations (e.g. ko -> "Korean" or "한국어")
+  const uiLanguageName = React.useMemo(() => {
+    try {
+        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || 'English';
+    } catch {
+        return 'English';
+    }
+  }, [locale]);
+
   const handleStartChallenge = () => {
-      fetchNewChallenge(learningLanguage, t('localeName') || 'Korean'); // Adjust locale as needed
+      fetchNewChallenge(learningLanguage, uiLanguageName); 
   };
 
   const handleCreateSpeech = (text: string) => {
@@ -158,7 +167,7 @@ export default function SpeakingPage() {
                 {step === 'recording' && (
                 <SpeakingRecorder 
                     language={speechLang} 
-                    onTranscriptComplete={(text) => submitForAnalysis(text, learningLanguage)}
+                    onTranscriptComplete={(text) => submitForAnalysis(text, learningLanguage, uiLanguageName)}
                 />
                 )}
 
