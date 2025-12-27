@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Masuk untuk menyimpan buku harian dan membangun arsip pribadi Anda.",
+    "signup_button": "Masuk dan Simpan",
+    "banner_title": "Mode Percobaan",
+    "banner_desc": "Data tidak disimpan dalam mode percobaan."
+  },
   "common": {
     "save": "Simpan",
     "cancel": "Batal",
@@ -66,6 +72,7 @@
     "title": "Kuasai Bahasa dengan Buku Harian AI",
     "subtitle": "Rekam kehidupan sehari-hari Anda dengan Grok 4.1 dan lengkapi arsip pembelajaran pribadi Anda dengan koreksi AI yang presisi.",
     "start": "Mulai Menulis",
+    "try_it_out": "Coba sekarang",
     "features": {
       "write": "Tulis Setiap Hari",
       "write_desc": "Buat buku harian dalam bahasa target Anda dengan foto.",

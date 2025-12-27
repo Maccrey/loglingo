@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Melden Sie sich an, um Ihr Tagebuch zu speichern und Ihr persönliches Archiv aufzubauen.",
+    "signup_button": "Anmelden und Speichern",
+    "banner_title": "Testmodus",
+    "banner_desc": "Daten werden im Testmodus nicht gespeichert."
+  },
   "common": {
     "save": "Speichern",
     "cancel": "Abbrechen",
@@ -66,6 +72,7 @@
     "title": "Sprachen meistern mit KI-Tagebuch",
     "subtitle": "Dokumentieren Sie Ihren Alltag mit Grok 4.1 und vervollständigen Sie Ihr persönliches Lernarchiv mit präzisen KI-Korrekturen.",
     "start": "Schreiben beginnen",
+    "try_it_out": "Ausprobieren",
     "features": {
       "write": "Täglich schreiben",
       "write_desc": "Führen Sie ein Tagebuch in Ihrer Zielsprache mit Fotos.",

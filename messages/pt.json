@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Faça login para salvar seu diário e construir seu arquivo pessoal.",
+    "signup_button": "Entrar e Salvar",
+    "banner_title": "Modo de Teste",
+    "banner_desc": "Os dados não são salvos no modo de teste."
+  },
   "common": {
     "save": "Salvar",
     "cancel": "Cancelar",
@@ -66,6 +72,7 @@
     "title": "Domine idiomas com Diário IA",
     "subtitle": "Registre sua vida diária com Grok 4.1 e complete seu arquivo de aprendizado pessoal com correções precisas de IA.",
     "start": "Começar a escrever",
+    "try_it_out": "Experimente",
     "features": {
       "write": "Escreva diariamente",
       "write_desc": "Mantenha um diário no seu idioma alvo com fotos.",

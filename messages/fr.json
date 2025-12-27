@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Connectez-vous pour sauvegarder votre journal et créer votre archive personnelle.",
+    "signup_button": "Se connecter et sauvegarder",
+    "banner_title": "Mode d'essai",
+    "banner_desc": "Les données ne sont pas enregistrées en mode d'essai."
+  },
   "common": {
     "save": "Enregistrer",
     "cancel": "Annuler",
@@ -66,6 +72,7 @@
     "title": "Maîtrisez les langues avec le Journal IA",
     "subtitle": "Enregistrez votre vie quotidienne avec Grok 4.1 et complétez votre archive d'apprentissage personnelle grâce à des corrections d'IA précises.",
     "start": "Commencer à écrire",
+    "try_it_out": "Essayez-le",
     "features": {
       "write": "Écrire quotidiennement",
       "write_desc": "Tenez un journal dans votre langue cible avec des photos.",

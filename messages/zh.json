@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "登录以保存您的日记并建立您的个人档案。",
+    "signup_button": "登录并保存",
+    "banner_title": "试用模式",
+    "banner_desc": "试用模式下数据不会保存。"
+  },
   "common": {
     "save": "保存",
     "cancel": "取消",
@@ -66,6 +72,7 @@
     "title": "用 AI 日记掌握语言",
     "subtitle": "与Grok 4.1一起记录日常生活，通过精准的AI校正完善您的专属学习档案。",
     "start": "开始写日记",
+    "try_it_out": "试一试",
     "features": {
       "write": "每日写作",
       "write_desc": "用目标语言和照片记录日记。",

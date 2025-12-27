@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Günlüğünüzü kaydetmek ve kişisel arşivinizi oluşturmak için giriş yapın.",
+    "signup_button": "Giriş Yap ve Kaydet",
+    "banner_title": "Deneme Modu",
+    "banner_desc": "Deneme modunda veriler kaydedilmez."
+  },
   "common": {
     "save": "Kaydet",
     "cancel": "İptal",
@@ -66,6 +72,7 @@
     "title": "AI Günlük ile Dilleri Öğrenin",
     "subtitle": "Grok 4.1 ile günlük hayatınızı kaydedin ve hassas yapay zeka düzeltmeleriyle kişisel öğrenme arşivinizi tamamlayın.",
     "start": "Yazmaya Başla",
+    "try_it_out": "Deneyin",
     "features": {
       "write": "Her Gün Yaz",
       "write_desc": "Hedef dilinizde fotoğraflarla bir günlük tutun.",

@@ -1,4 +1,10 @@
 {
+  "trial": {
+    "signup_prompt": "Đăng nhập để lưu nhật ký và xây dựng kho lưu trữ cá nhân của bạn.",
+    "signup_button": "Đăng nhập và Lưu",
+    "banner_title": "Chế độ trải nghiệm",
+    "banner_desc": "Dữ liệu không được lưu trong chế độ trải nghiệm."
+  },
   "common": {
     "save": "Lưu",
     "cancel": "Hủy",
@@ -66,6 +72,7 @@
     "title": "Thành thạo ngôn ngữ với Nhật ký AI",
     "subtitle": "Ghi lại cuộc sống hàng ngày cùng Grok 4.1 và hoàn thiện kho lưu trữ học tập của riêng bạn với sự sửa lỗi chính xác từ AI.",
     "start": "Bắt đầu viết",
+    "try_it_out": "Thử ngay",
     "features": {
       "write": "Viết hàng ngày",
       "write_desc": "Viết nhật ký bằng ngôn ngữ mục tiêu cùng với ảnh.",
