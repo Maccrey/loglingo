@@ -193,7 +193,7 @@ export default function SpeakingPage() {
                             {t('challenge_desc')}
                         </p>
                     </div>
-                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-10 py-6 text-xl h-auto bg-orange-600 hover:bg-orange-500 shadow-[0_0_30px_-5px_rgba(234,88,12,0.5)] transition-all text-white border-0">
+                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-12 py-8 text-2xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
                         {t('start_challenge')}
                     </Button>
                 </Card>

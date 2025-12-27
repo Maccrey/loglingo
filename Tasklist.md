@@ -259,3 +259,4 @@
     - [x] Refine AI Prompt: Ignore punctuation/capitalization errors in speaking analysis
     - [x] UI Polish: Change "Start Challenge" button to orange for better visibility and verify localization
     - [x] UI Polish: Improve mode toggle (unify active color to orange/primary, increase spacing)
+    - [x] UI Polish: Maximize "Start Challenge" button visibility (Gradient, Large Size, Animation)
