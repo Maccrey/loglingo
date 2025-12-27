@@ -237,9 +237,9 @@ export async function getRandomWeakItem(userId: string, limitCount = 5): Promise
     
     console.log(`✅ Archive Repository: Selected random weak item`, { title: selectedDoc.data().title });
     return mapArchive(selectedDoc as QueryDocumentSnapshot<DocumentData>);
-
   } catch (error) {
     console.error("❌ Archive Repository: getRandomWeakItem failed", error);
     return null;
   }
 }
+// Force Rebuild

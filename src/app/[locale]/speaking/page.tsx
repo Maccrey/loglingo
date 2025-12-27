@@ -13,6 +13,7 @@ import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 
 import { useLearningLanguage } from '@/application/i18n/LearningLanguageProvider';
+import KakaoAdFit from '@/components/ads/KakaoAdFit';
 
 const LANGUAGE_MAP: Record<string, string> = {
   ko: 'ko-KR',
@@ -138,7 +139,7 @@ export default function SpeakingPage() {
                         <h2 className="text-3xl font-bold tracking-tight">{t('free_title')}</h2>
                         <p className="text-lg text-muted-foreground">{t('free_desc', { language: learningLanguage.toUpperCase() })}</p>
                     </div>
-                    <Button onClick={startSession} size="lg" className="rounded-full px-10 py-6 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
+                    <Button onClick={startSession} size="lg" className="rounded-full px-16 py-8 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
                         {t('start_recording')}
                     </Button>
                 </Card>
@@ -193,7 +194,7 @@ export default function SpeakingPage() {
                             {t('challenge_desc')}
                         </p>
                     </div>
-                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-12 py-8 text-2xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
+                    <Button onClick={handleStartChallenge} size="lg" className="rounded-full px-20 py-10 text-2xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
                         {t('start_challenge')}
                     </Button>
                 </Card>
@@ -332,6 +333,25 @@ export default function SpeakingPage() {
         )}
 
       </div>
+
+      {/* PC Ad (728x90) - Only visible on md+ screens */}
+      <section className="hidden md:flex justify-center w-full mt-10">
+        <KakaoAdFit
+          unit="DAN-OcjGqneif35bCzFF"
+          width={728}
+          height={90}
+        />
+      </section>
+
+      {/* Mobile Ad (320x50) - Only visible on small screens */}
+      <section className="flex md:hidden justify-center w-full mt-10">
+        <KakaoAdFit
+          unit="DAN-O3H0DVRSds4Dserg"
+          width={320}
+          height={50}
+        />
+      </section>
+
     </div>
   );
 }
