@@ -100,7 +100,7 @@ export default function SpeakingPage() {
            <ArrowLeft className="w-6 h-6" />
         </Link>
         <div className="flex flex-col items-center">
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
+            <h1 className="text-2xl font-bold text-orange-500 drop-shadow-sm">
             {t('title')}
             </h1>
             
