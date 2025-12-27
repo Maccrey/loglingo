@@ -68,7 +68,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
   }
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto">
+    <div className="flex flex-col items-center gap-12 w-full max-w-3xl mx-auto">
       <div className="relative w-full h-40 md:h-64 bg-secondary/30 rounded-3xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
         {isRecording ? (
             <WaveformVisualizer isRecording={true} className="h-32 gap-3" />
@@ -81,24 +81,24 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
         {transcript || <span className="text-muted-foreground/50">{t('recorder_placeholder')}</span>}
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 z-10">
          <Button
             variant={isRecording ? "destructive" : "primary"}
             size="lg"
-            className="rounded-full w-16 h-16 p-0 shadow-xl ring-4 ring-background"
+            className="rounded-full w-20 h-20 p-0 shadow-2xl ring-4 ring-background transition-transform hover:scale-105 active:scale-95"
             onClick={handleToggle}
          >
-            {isRecording ? <Square className="w-6 h-6 fill-current" /> : <Mic className="w-8 h-8" />}
+            {isRecording ? <Square className="w-8 h-8 fill-current" /> : <Mic className="w-10 h-10" />}
          </Button>
       </div>
 
       { transcript.length > 0 && !isRecording && (
-        <div className="flex gap-2 animate-in fade-in slide-in-from-bottom-4">
-             <Button variant="secondary" onClick={resetTranscript} className="gap-2">
-                <RotateCcw className="w-4 h-4" /> {t('recorder_try_again')}
+        <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-4 mt-2">
+             <Button variant="secondary" size="lg" onClick={resetTranscript} className="gap-2 px-6">
+                <RotateCcw className="w-5 h-5" /> {t('recorder_try_again')}
              </Button>
-             <Button onClick={handleFinish} className="gap-2 bg-gradient-to-r from-primary to-orange-500 text-white border-0">
-                <MessageSquarePlus className="w-4 h-4" /> {t('recorder_analyze')}
+             <Button size="lg" onClick={handleFinish} className="gap-2 px-8 bg-gradient-to-r from-primary to-orange-500 text-white border-0 shadow-lg hover:shadow-primary/25">
+                <MessageSquarePlus className="w-5 h-5" /> {t('recorder_analyze')}
              </Button>
         </div>
       )}
