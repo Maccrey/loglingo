@@ -15,7 +15,7 @@ export function StartButton() {
 
   useEffect(() => {
     setMounted(true);
-    const trialDone = localStorage.getItem("loglingo_trial_done");
+    const trialDone = localStorage.getItem("loglingo_trial_completed");
     // Trial is available if user is NOT logged in AND trial is NOT done
     setIsTrialAvailable(!user && !trialDone);
   }, [user]);
