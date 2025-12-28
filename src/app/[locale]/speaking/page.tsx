@@ -149,22 +149,22 @@ export default function SpeakingPage() {
       
         {/* Header */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between mb-8 max-w-4xl gap-4">
-          <Link href="/" className="p-2 hover:bg-white/10 rounded-full transition self-start md:self-auto">
+          <Link href="/" className="p-2 hover:bg-accent/10 rounded-full transition self-start md:self-auto text-muted-foreground hover:text-foreground">
             <ArrowLeft className="w-6 h-6" />
           </Link>
-          <div className="flex flex-col items-center">
-              <h1 className="text-2xl font-bold text-orange-500 drop-shadow-sm">
-              {t('title')}
+          <div className="flex flex-col items-center gap-6">
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-center">
+                {t('title')}
               </h1>
               
               {/* Mode Toggle Tabs */}
-              <div className="flex bg-secondary/30 rounded-full p-2 mt-6 border border-white/5 gap-4">
+              <div className="flex bg-secondary/50 p-1 rounded-full border border-border/50">
                   <button 
                       onClick={() => {
                           trackEvent('speaking_mode_switched', { mode: 'free' });
                           setMode('free');
                       }}
-                      className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
+                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_free')}
                   </button>
@@ -173,7 +173,7 @@ export default function SpeakingPage() {
                           trackEvent('speaking_mode_switched', { mode: 'challenge' });
                           setMode('challenge');
                       }}
-                      className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-lg scale-105' : 'text-muted-foreground hover:text-white hover:bg-white/5'}`}
+                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_challenge')}
                   </button>
@@ -191,22 +191,22 @@ export default function SpeakingPage() {
                   {(step === 'idle' || step === 'recording') && (
                       <div className="w-full max-w-3xl space-y-8 animate-in slide-in-from-bottom-5 fade-in">
                           {/* AI Prompt Card */}
-                          <Card className="p-6 md:p-8 border-indigo-500/30 bg-indigo-950/30">
-                              <div className="flex flex-col gap-4 text-center">
-                                  <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest flex items-center justify-center gap-2">
+                          <Card className="border-primary/10 bg-primary/5 backdrop-blur-sm shadow-xl">
+                              <div className="p-6 md:p-8 flex flex-col gap-4 text-center">
+                                  <div className="text-xs font-bold text-primary uppercase tracking-widest flex items-center justify-center gap-2 mb-2">
                                       <Sparkles className="w-4 h-4" />
                                       {t('ai_prompt_label', { defaultMessage: "Topic Suggestion" })}
                                   </div>
-                                  <div className="text-xl font-medium text-white leading-relaxed">
-                                      {prompt ? prompt.text : <span className="animate-pulse">Loading prompt...</span>}
+                                  <div className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
+                                      {prompt ? prompt.text : <span className="animate-pulse text-muted-foreground">Generating topic...</span>}
                                   </div>
                                   {prompt && (
-                                     <div className="text-indigo-200/80 text-sm">
+                                     <div className="text-muted-foreground text-sm mt-2">
                                          {prompt.translation}
                                      </div>
                                   )}
                                   {!prompt && (
-                                      <div className="text-indigo-200/50 text-xs">
+                                      <div className="text-muted-foreground/50 text-xs mt-4">
                                           {t('analyzing_diary', { defaultMessage: "Analyzing your diary..." })}
                                       </div>
                                   )}
@@ -268,17 +268,21 @@ export default function SpeakingPage() {
           {/* === CHALLENGE MODE === */}
           {mode === 'challenge' && (
               <>
-                  <Card className="p-8 md:p-12 flex flex-col items-center justify-center gap-6 text-center bg-indigo-950/20 backdrop-blur border-indigo-500/20 w-full max-w-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-500">
-                      <div className="p-6 rounded-full bg-indigo-500/20 border border-indigo-500/30 transition-transform hover:scale-110 duration-300">
-                          <Sparkles className="w-12 h-12 text-indigo-400" />
+                  <Card className="p-8 md:p-12 flex flex-col items-center justify-center gap-6 text-center bg-card/50 backdrop-blur border-border/50 w-full max-w-2xl shadow-xl animate-in fade-in zoom-in-95 duration-500">
+                      <div className="p-6 rounded-full bg-primary/10 border border-primary/20 transition-transform hover:scale-110 duration-300">
+                          <Sparkles className="w-12 h-12 text-primary" />
                       </div>
                       <div className="space-y-3 mb-6">
-                          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-indigo-100">{t('challenge_title')}</h2>
-                          <p className="text-base md:text-lg text-indigo-200/60 max-w-lg mx-auto leading-relaxed">
+                          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">{t('challenge_title')}</h2>
+                          <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
                               {t('challenge_desc')}
                           </p>
                       </div>
-                      <Button onClick={handleStartChallenge} size="lg" className="rounded-full w-full md:w-auto px-10 md:px-24 py-6 text-lg md:text-xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse whitespace-nowrap">
+                      <Button 
+                          onClick={handleStartChallenge} 
+                          size="lg" 
+                          className="rounded-full w-full md:w-auto px-10 py-6 text-lg h-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:scale-105"
+                      >
                           {t('start_challenge')}
                       </Button>
                   </Card>

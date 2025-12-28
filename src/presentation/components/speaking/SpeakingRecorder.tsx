@@ -69,7 +69,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
 
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-3xl mx-auto">
-      <div className="relative w-full h-48 bg-secondary/30 rounded-3xl flex flex-col items-center justify-center overflow-hidden border border-white/10 shadow-inner gap-4">
+      <div className="relative w-full h-48 bg-card/40 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center overflow-hidden border border-border/50 shadow-inner gap-4">
         {isRecording && (
            <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
               <WaveformVisualizer isRecording={true} className="h-full w-full gap-2" />
@@ -84,7 +84,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
             <Button
                 variant={isRecording ? "destructive" : "primary"}
                 size="lg"
-                className={`rounded-full w-16 h-16 p-0 shadow-2xl ring-4 ring-background transition-all hover:scale-105 active:scale-95 ${isRecording ? 'animate-pulse' : ''}`}
+                className={`rounded-full w-16 h-16 p-0 shadow-xl transition-all hover:scale-105 active:scale-95 ${isRecording ? 'animate-pulse ring-4 ring-destructive/20' : 'hover:shadow-primary/25'}`}
                 onClick={handleToggle}
             >
                 {isRecording ? <Square className="w-6 h-6 fill-current" /> : <Mic className="w-8 h-8" />}
