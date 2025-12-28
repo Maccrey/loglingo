@@ -209,7 +209,9 @@
     "delete_confirm_title": "Bu kaydı silinsin mi?",
     "delete_confirm_desc": "Bu kayıt ve ilişkili quizler de silinecek.",
     "delete_confirm_loading": "Siliniyor...",
-    "level_up": "Seviye Atla"
+    "level_up": "Seviye Atla",
+    "advice_filter_applied": "{topic} ile filtrelendi.",
+    "advice_filter_applied_all": "Tüm öğelerle filtrelendi."
   },
   "settings": {
     "title": "Ayarlar",
@@ -310,6 +312,19 @@
     "result_better_expression": "Daha İyi İfade",
     "result_grammar_points": "Gramer Noktaları",
     "result_root_meaning": "Kök Anlam ve Nüans",
-    "result_try_another": "Başka Cümle Dene"
+    "result_try_another": "Başka Cümle Dene",
+    "ai_prompt_label": "Konu Önerisi",
+    "analyzing_diary": "Günlüğünüz analiz ediliyor...",
+    "daily_limit_reached": "Günlük Sınıra Ulaşıldı",
+    "daily_limit_desc": "Bugünlük 3 konuşma oturumunuzu tamamladınız. Harika bir özveri!",
+    "continue_ai_tutor": "Yapay Zeka Eğitmeni ile Devam Et",
+    "copy_prompt_desc": "Bu kişiselleştirilmiş istemi kopyalayın ve kendi öğrenme verilerinizle pratik yapmaya devam etmek için ChatGPT, Gemini veya Grok AI'ye yapıştırın.",
+    "copied": "Kopyalandı!",
+    "copy_prompt": "İstemi Kopyala",
+    "close_come_back": "Kapat ve Yarın Tekrar Gel",
+    "view_ai_prompt": "Yapay Zeka Alıştırma İstemi'ni Görüntüle",
+    "prompt_placeholder": "Kişiselleştirilmiş isteminizi oluşturmak için kopyalay'a tıklayın...",
+    "generating": "Oluşturuluyor..."
   }
 }
+

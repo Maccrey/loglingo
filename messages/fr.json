@@ -209,7 +209,9 @@
     "delete_confirm_title": "Supprimer cet élément ?",
     "delete_confirm_desc": "Cet élément et ses quiz liés seront également supprimés.",
     "delete_confirm_loading": "Suppression...",
-    "level_up": "Niveau supérieur"
+    "level_up": "Niveau supérieur",
+    "advice_filter_applied": "Filtré par {topic}.",
+    "advice_filter_applied_all": "Filtré par tous les éléments."
   },
   "settings": {
     "title": "Paramètres",
@@ -310,6 +312,18 @@
     "result_better_expression": "Meilleure expression",
     "result_grammar_points": "Points de grammaire",
     "result_root_meaning": "Sens et nuance",
-    "result_try_another": "Essayer une autre phrase"
+    "result_try_another": "Essayer une autre phrase",
+    "ai_prompt_label": "Suggestion de sujet",
+    "analyzing_diary": "Analyse de votre journal...",
+    "daily_limit_reached": "Limite quotidienne atteinte",
+    "daily_limit_desc": "Vous avez terminé vos 3 sessions d'expression orale pour aujourd'hui. Quel dévouement !",
+    "continue_ai_tutor": "Continuer avec le tuteur IA",
+    "copy_prompt_desc": "Copiez cette invite personnalisée et collez-la dans ChatGPT, Gemini ou Grok AI pour continuer à pratiquer avec vos propres données d'apprentissage.",
+    "copied": "Copié !",
+    "copy_prompt": "Copier l'invite",
+    "close_come_back": "Fermer & Revenir demain",
+    "view_ai_prompt": "Voir l'invite de pratique IA",
+    "prompt_placeholder": "Cliquez sur copier pour générer votre invite personnalisée...",
+    "generating": "Génération..."
   }
 }

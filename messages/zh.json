@@ -209,7 +209,9 @@
     "delete_confirm_title": "删除此条目？",
     "delete_confirm_desc": "此学习档案及其关联测验也会被删除。",
     "delete_confirm_loading": "删除中...",
-    "level_up": "升级"
+    "level_up": "升级",
+    "advice_filter_applied": "已按 {topic} 筛选。",
+    "advice_filter_applied_all": "已筛选所有项目。"
   },
   "settings": {
     "title": "设置",
@@ -309,7 +311,19 @@
     "result_correction_needed": "需修正",
     "result_better_expression": "更好的表达",
     "result_grammar_points": "语法要点",
-    "result_root_meaning": "词根与细微差别",
-    "result_try_another": "练习另一个句子"
+    "result_root_meaning": "词根含义与细微差别",
+    "result_try_another": "尝试另一个句子",
+    "ai_prompt_label": "话题建议",
+    "analyzing_diary": "正在分析您的日记...",
+    "daily_limit_reached": "已达到每日限制",
+    "daily_limit_desc": "您已完成今天的 3 次口语练习。非常棒！",
+    "continue_ai_tutor": "继续使用 AI 导师",
+    "copy_prompt_desc": "复制此个性化提示并将其粘贴到 ChatGPT、Gemini 或 Grok AI 中，利用您自己的学习数据继续练习。",
+    "copied": "已复制！",
+    "copy_prompt": "复制提示",
+    "close_come_back": "关闭，明天再来",
+    "view_ai_prompt": "查看 AI 练习提示",
+    "prompt_placeholder": "点击复制以生成您的个性化提示...",
+    "generating": "正在生成..."
   }
 }

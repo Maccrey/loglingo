@@ -209,7 +209,9 @@
     "delete_confirm_title": "Удалить эту запись?",
     "delete_confirm_desc": "Эта запись и связанные викторины также будут удалены.",
     "delete_confirm_loading": "Удаление...",
-    "level_up": "Повысить уровень"
+    "level_up": "Повысить уровень",
+    "advice_filter_applied": "Отфильтровано по: {topic}.",
+    "advice_filter_applied_all": "Отфильтровано по всем элементам."
   },
   "settings": {
     "title": "Настройки",
@@ -309,7 +311,19 @@
     "result_correction_needed": "Требуется исправление",
     "result_better_expression": "Лучшее выражение",
     "result_grammar_points": "Грамматика",
-    "result_root_meaning": "Значение и нюансы",
-    "result_try_another": "Попробовать другое предложение"
+    "result_root_meaning": "Коренное значение и Нюанс",
+    "result_try_another": "Попробовать другое предложение",
+    "ai_prompt_label": "Предложение темы",
+    "analyzing_diary": "Анализ вашего дневника...",
+    "daily_limit_reached": "Дневной лимит достигнут",
+    "daily_limit_desc": "Вы завершили 3 сеанса разговорной практики на сегодня. Отличная работа!",
+    "continue_ai_tutor": "Продолжить с ИИ-репетитором",
+    "copy_prompt_desc": "Скопируйте этот персональный промпт и вставьте его в ChatGPT, Gemini или Grok AI, чтобы продолжить практику со своими данными обучения.",
+    "copied": "Скопировано!",
+    "copy_prompt": "Копировать промпт",
+    "close_come_back": "Закрыть и вернуться завтра",
+    "view_ai_prompt": "Посмотреть подсказку ИИ",
+    "prompt_placeholder": "Нажмите «Копировать», чтобы создать персональную подсказку...",
+    "generating": "Генерация..."
   }
 }

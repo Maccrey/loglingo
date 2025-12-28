@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 import { AuthGate } from '@/components/auth/AuthGate';
+import { getDailySessionCount } from '@/infrastructure/firebase/speaking-repository';
+import { DailyLimitModal } from '@/presentation/components/speaking/DailyLimitModal';
 
 import { useLearningLanguage } from '@/application/i18n/LearningLanguageProvider';
 import { ResponsiveAd } from '@/components/ads/ResponsiveAd';
@@ -79,6 +81,19 @@ export default function SpeakingPage() {
     }
   }, [locale]);
 
+  // Daily Limit Logic
+  const [sessionCount, setSessionCount] = React.useState<number>(0);
+  const [showLimitModal, setShowLimitModal] = React.useState(false);
+
+  React.useEffect(() => {
+    if (user) {
+        getDailySessionCount(user.uid).then(setSessionCount);
+    }
+  }, [user]);
+
+  // User level will be deduced properties by the prompt generator
+  const userLevel = undefined; 
+
   // Fetch prompt when entering free mode
   React.useEffect(() => {
       if (mode === 'free' && !prompt && !isPromptLoading) {
@@ -101,6 +116,10 @@ export default function SpeakingPage() {
   } = useSpeakingChallenge();
 
   const handleStartChallenge = () => {
+      if (sessionCount >= 3) {
+          setShowLimitModal(true);
+          return;
+      }
       trackEvent('challenge_started', { language: learningLanguage });
       fetchNewChallenge(learningLanguage, uiLanguageName); 
   };
@@ -202,10 +221,19 @@ export default function SpeakingPage() {
                               }}
                               continuous={true} // Enable continuous multi-sentence recording
                               interimResults={true}
-                              // We let SpeakingRecorder manage the internal recording state,
-                              // but we sync with parent if needed. 
+                          // but we sync with parent if needed. 
                               // For now, parent 'step' tracks analysis phase.
                           />
+                          
+                          {sessionCount >= 3 && (
+                             <div className="absolute inset-0 z-10 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
+                                <div className="text-center p-6 space-y-4">
+                                     <Sparkles className="w-12 h-12 text-orange-400 mx-auto" />
+                                     <h3 className="text-xl font-bold text-white">{t('daily_limit_reached', { defaultMessage: "Daily Limit Reached" })}</h3>
+                                     <Button onClick={() => setShowLimitModal(true)}>{t('view_ai_prompt', { defaultMessage: "View AI Practice Prompt" })}</Button>
+                                </div>
+                             </div>
+                          )}
                       </div>
                   )}
 
@@ -404,6 +432,17 @@ export default function SpeakingPage() {
           mobileHeight={50}
           className="mt-10"
         />
+
+        {user && (
+            <DailyLimitModal 
+                isOpen={showLimitModal}
+                onClose={() => setShowLimitModal(false)}
+                userId={user.uid}
+                learningLanguage={learningLanguage}
+                uiLanguageName={uiLanguageName}
+                userLevel={userLevel}
+            />
+        )}
       </div>
     </AuthGate>
   );

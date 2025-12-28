@@ -209,7 +209,9 @@
     "delete_confirm_title": "क्या इस प्रविष्टि को हटाएं?",
     "delete_confirm_desc": "यह प्रविष्टि और संबंधित क्विज भी हट जाएंगे।",
     "delete_confirm_loading": "हटा रहा है...",
-    "level_up": "स्तर बढ़ाएं"
+    "level_up": "मानक बढ़ाएं",
+    "advice_filter_applied": "{topic} द्वारा फ़िल्टर किया गया।",
+    "advice_filter_applied_all": "सभी आइटम द्वारा फ़िल्टर किया गया।"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -309,7 +311,19 @@
     "result_correction_needed": "सुधार की आवश्यकता है",
     "result_better_expression": "बेहतर अभिव्यक्ति",
     "result_grammar_points": "व्याकरण बिंदु",
-    "result_root_meaning": "मूल अर्थ और बारीकियां",
-    "result_try_another": "दूसरा वाक्य आज़माएं"
+    "result_root_meaning": "मूल अर्थ और सूक्ष्मता",
+    "result_try_another": "दूसरा वाक्य आज़माएं",
+    "ai_prompt_label": "विषय सुझाव",
+    "analyzing_diary": "आपकी डायरी का विश्लेषण किया जा रहा है...",
+    "daily_limit_reached": "दैनिक सीमा पूरी हुई",
+    "daily_limit_desc": "आपने आज के लिए अपने 3 स्पीकिंग सत्र पूरे कर लिए हैं। बहुत बढ़िया समर्पण!",
+    "continue_ai_tutor": "AI ट्यूटर के साथ जारी रखें",
+    "copy_prompt_desc": "इस व्यक्तिगत प्रॉम्प्ट को कॉपी करें और अपने स्वयं के शिक्षण डेटा के साथ अभ्यास जारी रखने के लिए इसे ChatGPT, Gemini या Grok AI में पेस्ट करें।",
+    "copied": "कॉपी किया गया!",
+    "copy_prompt": "प्रॉम्प्ट कॉपी करें",
+    "close_come_back": "बंद करें और कल वापस आएं",
+    "view_ai_prompt": "AI प्रॉम्प्ट देखें",
+    "prompt_placeholder": "अपना व्यक्तिगत प्रॉम्प्ट बनाने के लिए कॉपी पर क्लिक करें...",
+    "generating": "उत्पन्न हो रहा है..."
   }
 }

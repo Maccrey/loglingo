@@ -312,6 +312,16 @@
     "result_root_meaning": "Root Meaning & Nuance",
     "result_try_another": "Try Another Sentence",
     "ai_prompt_label": "Topic Suggestion",
-    "analyzing_diary": "Analyzing your diary..."
+    "analyzing_diary": "Analyzing your diary...",
+    "daily_limit_reached": "Daily Limit Reached",
+    "daily_limit_desc": "You've completed your 3 speaking sessions for today. Great dedication!",
+    "continue_ai_tutor": "Continue with AI Tutor",
+    "copy_prompt_desc": "Copy this personalized prompt and paste it into ChatGPT, Gemini, or Grok AI to continue practicing with your own learning data.",
+    "copied": "Copied!",
+    "copy_prompt": "Copy Prompt",
+    "close_come_back": "Close & Come Back Tomorrow",
+    "view_ai_prompt": "View AI Practice Prompt",
+    "prompt_placeholder": "Click copy to generate your personalized prompt...",
+    "generating": "Generating..."
   }
 }

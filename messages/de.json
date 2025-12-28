@@ -208,8 +208,10 @@
     "hide_examples": "Beispiele ausblenden ({count})",
     "delete_confirm_title": "Diesen Eintrag löschen?",
     "delete_confirm_desc": "Dieser Eintrag und verbundene Quizze werden ebenfalls gelöscht.",
-    "delete_confirm_loading": "Lösche...",
-    "level_up": "Aufleveln"
+    "delete_confirm_loading": "Löschen...",
+    "level_up": "Aufleveln",
+    "advice_filter_applied": "Gefiltert nach {topic}.",
+    "advice_filter_applied_all": "Nach allen Elementen gefiltert."
   },
   "settings": {
     "title": "Einstellungen",
@@ -309,7 +311,19 @@
     "result_correction_needed": "Korrektur erforderlich",
     "result_better_expression": "Besserer Ausdruck",
     "result_grammar_points": "Grammatik-Punkte",
-    "result_root_meaning": "Bedeutung & Nuance",
-    "result_try_another": "Anderen Satz versuchen"
+    "result_root_meaning": "Wurzelbedeutung & Nuance",
+    "result_try_another": "Einen anderen Satz versuchen",
+    "ai_prompt_label": "Themenvorschlag",
+    "analyzing_diary": "Analysiere dein Tagebuch...",
+    "daily_limit_reached": "Tageslimit erreicht",
+    "daily_limit_desc": "Du hast deine 3 Sprechübungen für heute abgeschlossen. Toller Einsatz!",
+    "continue_ai_tutor": "Mit KI-Tutor fortfahren",
+    "copy_prompt_desc": "Kopiere diesen personalisierten Prompt und füge ihn in ChatGPT, Gemini oder Grok AI ein, um mit deinen eigenen Lerndaten weiterzuüben.",
+    "copied": "Kopiert!",
+    "copy_prompt": "Prompt kopieren",
+    "close_come_back": "Schließen & Morgen wiederkommen",
+    "view_ai_prompt": "KI-Übungsaufforderung anzeigen",
+    "prompt_placeholder": "Klicken Sie auf Kopieren, um Ihre personalisierte Aufforderung zu erstellen...",
+    "generating": "Generieren..."
   }
 }

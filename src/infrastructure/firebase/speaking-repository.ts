@@ -9,6 +9,12 @@ import {
   QueryDocumentSnapshot,
   DocumentData,
   Timestamp,
+  query,
+  where,
+  getCountFromServer,
+  getDocs,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 
 const sessionCol = collection(db, "speaking_sessions");
@@ -61,4 +67,29 @@ export async function createSpeakingFeedback(
   });
   const snap = await getDoc(doc(db, "speaking_feedback", ref.id));
   return mapFeedback(snap as QueryDocumentSnapshot<DocumentData>);
+}
+export async function getDailySessionCount(userId: string): Promise<number> {
+  const now = new Date();
+  const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  
+  const q = query(
+    sessionCol,
+    where("userId", "==", userId),
+    where("createdAt", ">=", Timestamp.fromDate(startOfDay))
+  );
+
+  const snapshot = await getCountFromServer(q);
+  return snapshot.data().count;
+}
+
+export async function getRecentFeedbacks(userId: string, count: number = 5): Promise<SpeakingFeedback[]> {
+  const q = query(
+    feedbackCol,
+    where("userId", "==", userId),
+    orderBy("createdAt", "desc"),
+    limit(count)
+  );
+  
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(mapFeedback);
 }

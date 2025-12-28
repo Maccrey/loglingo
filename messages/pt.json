@@ -209,7 +209,9 @@
     "delete_confirm_title": "Excluir este item?",
     "delete_confirm_desc": "Este item e os quizzes relacionados também serão excluídos.",
     "delete_confirm_loading": "Excluindo...",
-    "level_up": "Subir de Nível"
+    "level_up": "Subir de Nível",
+    "advice_filter_applied": "Filtrado por {topic}.",
+    "advice_filter_applied_all": "Filtrado por todos os itens."
   },
   "settings": {
     "title": "Configurações",
@@ -310,6 +312,18 @@
     "result_better_expression": "Melhor Expressão",
     "result_grammar_points": "Pontos Gramaticais",
     "result_root_meaning": "Significado e Nuance",
-    "result_try_another": "Tentar Outra Frase"
+    "result_try_another": "Tentar Outra Frase",
+    "ai_prompt_label": "Sugestão de Tópico",
+    "analyzing_diary": "Analisando seu diário...",
+    "daily_limit_reached": "Limite Diário Atingido",
+    "daily_limit_desc": "Você completou suas 3 sessões de fala por hoje. Ótima dedicação!",
+    "continue_ai_tutor": "Continuar com Tutor IA",
+    "copy_prompt_desc": "Copie este prompt personalizado e cole no ChatGPT, Gemini ou Grok AI para continuar praticando com seus próprios dados de aprendizado.",
+    "copied": "Copiado!",
+    "copy_prompt": "Copiar Prompt",
+    "close_come_back": "Fechar e Voltar Amanhã",
+    "view_ai_prompt": "Ver Prompt de Prática de IA",
+    "prompt_placeholder": "Clique em copiar para gerar seu prompt personalizado...",
+    "generating": "Gerando..."
   }
 }

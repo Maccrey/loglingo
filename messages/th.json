@@ -209,7 +209,9 @@
     "delete_confirm_title": "ลบรายการนี้หรือไม่?",
     "delete_confirm_desc": "รายการนี้และควิซที่เชื่อมโยงจะถูกลบด้วย",
     "delete_confirm_loading": "กำลังลบ...",
-    "level_up": "เลื่อนระดับ"
+    "level_up": "เลื่อนระดับ",
+    "advice_filter_applied": "กรองด้วย {topic}",
+    "advice_filter_applied_all": "กรองด้วยรายการทั้งหมด"
   },
   "settings": {
     "title": "ตั้งค่า",
@@ -309,7 +311,20 @@
     "result_correction_needed": "ต้องแก้ไข",
     "result_better_expression": "การแสดงออกที่ดีกว่า",
     "result_grammar_points": "จุดไวยากรณ์",
-    "result_root_meaning": "ความหมายและรายละเอียด",
-    "result_try_another": "ลองประโยคอื่น"
+    "result_root_meaning": "ความหมายรากศัพท์และบริบท",
+    "result_try_another": "ลองประโยคอื่น",
+    "ai_prompt_label": "หัวข้อแนะนำ",
+    "analyzing_diary": "กำลังวิเคราะห์ไดอารี่ของคุณ...",
+    "daily_limit_reached": "ครบกำหนดโควต้าประจำวันแล้ว",
+    "daily_limit_desc": "คุณฝึกพูดครบ 3 ครั้งสำหรับวันนี้แล้ว ความตั้งใจยอดเยี่ยมมาก!",
+    "continue_ai_tutor": "ฝึกต่อกับ AI Tutor",
+    "copy_prompt_desc": "คัดลอกคำสั่ง (Prompt) ที่ปรับแต่งนี้ แล้วนำไปวางใน ChatGPT, Gemini หรือ Grok AI เพื่อฝึกฝนต่อด้วยข้อมูลการเรียนรู้ของคุณเอง",
+    "copied": "คัดลอกแล้ว!",
+    "copy_prompt": "คัดลอกคำสั่ง",
+    "close_come_back": "ปิดและกลับมาใหม่พรุ่งนี้",
+    "view_ai_prompt": "ดูคำสั่งฝึก AI",
+    "prompt_placeholder": "คลิกคัดลอกเพื่อสร้างคำสั่งส่วนตัวของคุณ...",
+    "generating": "กำลังสร้าง..."
   }
 }
+

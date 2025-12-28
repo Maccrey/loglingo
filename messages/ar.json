@@ -209,7 +209,9 @@
     "delete_confirm_title": "حذف هذا العنصر؟",
     "delete_confirm_desc": "سيتم حذف هذا السجل والاختبارات المرتبطة به أيضًا.",
     "delete_confirm_loading": "جارٍ الحذف...",
-    "level_up": "المستوى التالي"
+    "level_up": "المستوى التالي",
+    "advice_filter_applied": "تم التصفية بواسطة {topic}.",
+    "advice_filter_applied_all": "تمت التصفية حسب جميع العناصر."
   },
   "settings": {
     "title": "الإعدادات",
@@ -309,7 +311,19 @@
     "result_correction_needed": "يحتاج تصحيح",
     "result_better_expression": "تعبير أفضل",
     "result_grammar_points": "نقاط القواعد",
-    "result_root_meaning": "المعنى الجذري والدقة",
-    "result_try_another": "جرب جملة أخرى"
+    "result_root_meaning": "المعنى الجذري والفروق الدقيقة",
+    "result_try_another": "جرب جملة أخرى",
+    "ai_prompt_label": "اقتراح الموضوع",
+    "analyzing_diary": "جاري تحليل يومياتك...",
+    "daily_limit_reached": "تم الوصول للحد اليومي",
+    "daily_limit_desc": "لقد أكملت 3 جلسات محادثة لهذا اليوم. تفاني رائع!",
+    "continue_ai_tutor": "المتابعة مع معلم الذكاء الاصطناعي",
+    "copy_prompt_desc": "انسخ هذه المطالبة المخصصة والصقها في ChatGPT أو Gemini أو Grok AI لمواصلة التدرب باستخدام بيانات التعلم الخاصة بك.",
+    "copied": "تم النسخ!",
+    "copy_prompt": "نسخ المطالبة",
+    "close_come_back": "إغلاق والعودة غداً",
+    "view_ai_prompt": "عرض موجه الذكاء الاصطناعي",
+    "prompt_placeholder": "انقر فوق نسخ لإنشاء الموجه المخصص الخاص بك...",
+    "generating": "جاري الإنشاء..."
   }
 }

@@ -209,7 +209,9 @@
     "delete_confirm_title": "Xóa mục này?",
     "delete_confirm_desc": "Mục này và các quiz liên quan cũng sẽ bị xóa.",
     "delete_confirm_loading": "Đang xóa...",
-    "level_up": "Lên cấp"
+    "level_up": "Lên cấp",
+    "advice_filter_applied": "Đã lọc theo {topic}.",
+    "advice_filter_applied_all": "Đã lọc theo tất cả các mục."
   },
   "settings": {
     "title": "Cài đặt",
@@ -309,7 +311,20 @@
     "result_correction_needed": "Cần sửa",
     "result_better_expression": "Cách diễn đạt tốt hơn",
     "result_grammar_points": "Điểm ngữ pháp",
-    "result_root_meaning": "Ý nghĩa & Sắc thái",
-    "result_try_another": "Thử câu khác"
+    "result_root_meaning": "Nghĩa gốc & Sắc thái",
+    "result_try_another": "Thử câu khác",
+    "ai_prompt_label": "Gợi ý chủ đề",
+    "analyzing_diary": "Đang phân tích nhật ký của bạn...",
+    "daily_limit_reached": "Đã đạt giới hạn hàng ngày",
+    "daily_limit_desc": "Bạn đã hoàn thành 3 phiên luyện nói hôm nay. Thật tuyệt vời!",
+    "continue_ai_tutor": "Tiếp tục với Gia sư AI",
+    "copy_prompt_desc": "Sao chép lời nhắc cá nhân hóa này và dán vào ChatGPT, Gemini hoặc Grok AI để tiếp tục luyện tập với dữ liệu học tập của riêng bạn.",
+    "copied": "Đã sao chép!",
+    "copy_prompt": "Sao chép lời nhắc",
+    "close_come_back": "Đóng & Quay lại ngày mai",
+    "view_ai_prompt": "Xem lời nhắc thực hành AI",
+    "prompt_placeholder": "Nhấp vào sao chép để tạo lời nhắc cá nhân hóa của bạn...",
+    "generating": "Đang tạo..."
   }
 }
+

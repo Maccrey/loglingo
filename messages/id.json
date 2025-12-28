@@ -209,7 +209,9 @@
     "delete_confirm_title": "Hapus entri ini?",
     "delete_confirm_desc": "Entri ini dan kuis terkait juga akan dihapus.",
     "delete_confirm_loading": "Menghapus...",
-    "level_up": "Naik Level"
+    "level_up": "Naik Level",
+    "advice_filter_applied": "Difilter berdasarkan {topic}.",
+    "advice_filter_applied_all": "Difilter berdasarkan semua item."
   },
   "settings": {
     "title": "Pengaturan",
@@ -310,6 +312,18 @@
     "result_better_expression": "Ekspresi Lebih Baik",
     "result_grammar_points": "Poin Tata Bahasa",
     "result_root_meaning": "Makna & Nuansa",
-    "result_try_another": "Coba Kalimat Lain"
+    "result_try_another": "Coba Kalimat Lain",
+    "ai_prompt_label": "Saran Topik",
+    "analyzing_diary": "Menganalisis buku harian Anda...",
+    "daily_limit_reached": "Batas Harian Tercapai",
+    "daily_limit_desc": "Anda telah menyelesaikan 3 sesi berbicara hari ini. Dedikasi yang luar biasa!",
+    "continue_ai_tutor": "Lanjutkan dengan Tutor AI",
+    "copy_prompt_desc": "Salin perintah yang dipersonalisasi ini dan tempel ke ChatGPT, Gemini, atau Grok AI untuk terus berlatih dengan data pembelajaran Anda sendiri.",
+    "copied": "Disalin!",
+    "copy_prompt": "Salin Perintah",
+    "close_come_back": "Tutup & Kembali Besok",
+    "view_ai_prompt": "Lihat Perintah Latihan AI",
+    "prompt_placeholder": "Klik salin untuk membuat perintah yang dipersonalisasi...",
+    "generating": "Membuat..."
   }
 }
