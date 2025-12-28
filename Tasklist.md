@@ -277,6 +277,29 @@
 - [x] **3. Ad Integration**
     - [x] Added KakaoAdFit slots (PC/Mobile) to Speaking Page (`/speaking`)
 
+## 18. Speaking Daily Limit & Ads Integration — Codex
+- [x] **1. Daily Limit Logic (Cost Control)**
+    - [x] Use `ListeningRepository` (or similar) to track daily usage (`users/{uid}/stats/speaking`)
+    - [x] Set limit to **3 times/day**
+    - [x] `DailyLimitModal`: Show when limit reached, block further recording
+    - [x] **Redirect**: "Close" button redirects to Home (`/`) to prevent stuck state
+- [x] **2. AI Prompt Generation (User Retention)**
+    - [x] `PromptService`: Generate personalized topic based on User Level, Archive(Weakness), and Last Diary
+    - [x] Display in Modal: "Try this topic with Grok AI" + Copy Button
+- [x] **3. Ad Integration in Modal**
+    - [x] Insert `KakaoAdFit` (300x250) inside the `DailyLimitModal`
+    - [x] Ensure ad loads correctly in modal context
+- [x] **4. UI/UX Refinement (Speaking Page)**
+    - [x] Standardize Typography (`text-3xl`, `Inter` font)
+    - [x] Update Card Styles (Glassmorphism + Standard `CardHeader`)
+    - [x] Refine "Start Challenge" Button (Size, Gradient, Shadow)
+    - [x] Restore "Active" Tab Indicator Color (Orange)
+    - [x] **Home Page**: Temporarily disable "Speaking" card navigation (Link removed)
+- [x] **5. Deployment**
+    - [x] Build & Deploy to Firebase Hosting (`logling-34fc9`)
+    - [x] All tests verify
+
+
 ## 17. Trial Mode & UI Polish — Codex
 - [x] **1. Trial Mode Logic Improvement**
     - [x] Fixed `MISSING_MESSAGE` errors by adding 'trial' keys to all 15 languages
