@@ -88,3 +88,20 @@ export async function createArchive(
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 }
+
+export async function getRecentDiaries(userId: string, limit: number = 3): Promise<string[]> {
+  if (!userId) return [];
+  try {
+    const snapshot = await db.collection("diaries")
+      .where("userId", "==", userId)
+      .orderBy("date", "desc")
+      .limit(limit)
+      .get();
+      
+    // If getting content fails or is empty, filter it out
+    return snapshot.docs.map(doc => doc.data().content as string).filter(Boolean);
+  } catch (e) {
+      console.warn("Failed to fetch recent diaries for prompt", e);
+      return [];
+  }
+}

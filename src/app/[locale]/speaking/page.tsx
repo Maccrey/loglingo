@@ -61,11 +61,29 @@ export default function SpeakingPage() {
     startSession,
     submitForAnalysis,
     retry,
+    prompt,
+    fetchPrompt
   } = useSpeaking();
 
   // Challenge Mode State
   const [mode, setMode] = React.useState<'free' | 'challenge'>('free');
   const [isPlaying, setIsPlaying] = React.useState(false);
+  
+  // Get UI Language Name for AI Explanations
+  const uiLanguageName = React.useMemo(() => {
+    try {
+        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || 'English';
+    } catch {
+        return 'English';
+    }
+  }, [locale]);
+
+  // Fetch prompt when entering free mode
+  React.useEffect(() => {
+      if (mode === 'free') {
+          fetchPrompt(learningLanguage, uiLanguageName);
+      }
+  }, [mode, learningLanguage, uiLanguageName, fetchPrompt]);
   
   // Dynamic Import or Logic for Challenge
   // For simplicity, we can just inline the Challenge View or separate it.
@@ -80,15 +98,6 @@ export default function SpeakingPage() {
       verifySpeech,
       retryChallenge,
   } = useSpeakingChallenge();
-
-  // Get UI Language Name for AI Explanations (e.g. ko -> "Korean" or "한국어")
-  const uiLanguageName = React.useMemo(() => {
-    try {
-        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || 'English';
-    } catch {
-        return 'English';
-    }
-  }, [locale]);
 
   const handleStartChallenge = () => {
       trackEvent('challenge_started', { language: learningLanguage });
@@ -159,34 +168,44 @@ export default function SpeakingPage() {
           {/* === FREE TALK MODE === */}
           {mode === 'free' && (
               <>
-                  {step === 'idle' && (
-                  <Card className="p-8 md:p-20 flex flex-col items-center justify-center gap-6 md:gap-8 text-center bg-black/20 backdrop-blur border-white/10 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
-                      <div className="p-8 rounded-full bg-primary/20 border border-primary/30 transition-transform hover:scale-110 duration-300">
-                          <Mic className="w-16 h-16 text-primary" />
-                      </div>
-                      <div className="space-y-3">
-                          <h2 className="text-3xl font-bold tracking-tight">{t('free_title')}</h2>
-                          <p className="text-lg text-muted-foreground">{t('free_desc', { language: targetLanguageName })}</p>
-                      </div>
-                      <Button onClick={() => {
-                          trackEvent('speaking_started', { language: speechLang });
-                          startSession();
-                      }} size="lg" className="rounded-full w-full md:w-auto px-4 md:px-64 py-6 text-xl h-auto shadow-[0_0_30px_-5px_var(--primary)] hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all">
-                          {t('start_recording')}
-                      </Button>
-                  </Card>
-                  )}
+                  {(step === 'idle' || step === 'recording') && (
+                      <div className="w-full max-w-3xl space-y-8 animate-in slide-in-from-bottom-5 fade-in">
+                          {/* AI Prompt Card */}
+                          <Card className="p-6 md:p-8 border-indigo-500/30 bg-indigo-950/30">
+                              <div className="flex flex-col gap-4 text-center">
+                                  <div className="text-sm font-bold text-indigo-400 uppercase tracking-widest flex items-center justify-center gap-2">
+                                      <Sparkles className="w-4 h-4" />
+                                      {t('ai_prompt_label', { defaultMessage: "Topic Suggestion" })}
+                                  </div>
+                                  <div className="text-xl font-medium text-white leading-relaxed">
+                                      {prompt ? prompt.text : <span className="animate-pulse">Loading prompt...</span>}
+                                  </div>
+                                  {prompt && (
+                                     <div className="text-indigo-200/80 text-sm">
+                                         {prompt.translation}
+                                     </div>
+                                  )}
+                                  {!prompt && (
+                                      <div className="text-indigo-200/50 text-xs">
+                                          {t('analyzing_diary', { defaultMessage: "Analyzing your diary..." })}
+                                      </div>
+                                  )}
+                              </div>
+                          </Card>
 
-                  {step === 'recording' && (
-                  <SpeakingRecorder 
-                      language={speechLang} 
-                      onTranscriptComplete={(text) => {
-                          trackEvent('speaking_completed', { language: speechLang });
-                          submitForAnalysis(text, learningLanguage, uiLanguageName);
-                      }}
-                      continuous={false} // Use raw mode for less auto-correction
-                      interimResults={true}
-                  />
+                          <SpeakingRecorder 
+                              language={speechLang} 
+                              onTranscriptComplete={(text) => {
+                                  trackEvent('speaking_completed', { language: speechLang });
+                                  submitForAnalysis(text, learningLanguage, uiLanguageName);
+                              }}
+                              continuous={true} // Enable continuous multi-sentence recording
+                              interimResults={true}
+                              // We let SpeakingRecorder manage the internal recording state,
+                              // but we sync with parent if needed. 
+                              // For now, parent 'step' tracks analysis phase.
+                          />
+                      </div>
                   )}
 
                   {step === 'analyzing' && (
@@ -207,8 +226,8 @@ export default function SpeakingPage() {
                       <Card className="p-8 border-red-500/30 bg-red-950/20 text-center space-y-6 max-w-md">
                           <AlertCircle className="w-12 h-12 text-red-400 mx-auto" />
                           <div className="space-y-2">
-                               <h3 className="text-xl font-bold text-red-200">{t('analysis_failed')}</h3>
-                               <p className="text-red-200/70">{error}</p>
+                              <h3 className="text-xl font-bold text-red-200">{t('analysis_failed')}</h3>
+                              <p className="text-red-200/70">{error}</p>
                           </div>
                           <Button onClick={retry} variant="secondary" className="w-full">{t('try_again')}</Button>
                       </Card>

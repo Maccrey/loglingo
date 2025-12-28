@@ -24,6 +24,24 @@ export function useSpeaking() {
   const [error, setError] = useState<string | null>(null);
   const addLevelRecord = useAddLevelRecord(user?.uid || '');
 
+  const [prompt, setPrompt] = useState<{ text: string; translation: string } | null>(null);
+
+  const fetchPrompt = async (language: string, uiLocale: string) => {
+      try {
+          const response = await fetch('/api/ai/speaking/prompt', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ userId: user?.uid, language, uiLocale })
+          });
+          if (response.ok) {
+              const data = await response.json();
+              setPrompt({ text: data.prompt, translation: data.translation });
+          }
+      } catch (e) {
+          console.error("Failed to fetch speaking prompt", e);
+      }
+  };
+
   const startSession = () => {
     setStep('recording');
     setTranscript('');
@@ -95,6 +113,7 @@ export function useSpeaking() {
     setTranscript('');
     setFeedback(null);
     setError(null);
+    // Don't clear prompt to allow reuse, or clear if we want fresh? Keep it for now.
   };
 
   return {
@@ -102,6 +121,8 @@ export function useSpeaking() {
     transcript,
     feedback,
     error,
+    prompt,
+    fetchPrompt,
     startSession,
     submitForAnalysis,
     retry,
