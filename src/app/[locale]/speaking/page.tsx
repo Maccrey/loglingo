@@ -240,22 +240,20 @@ export default function SpeakingPage() {
           {/* === CHALLENGE MODE === */}
           {mode === 'challenge' && (
               <>
-                  {cStep === 'idle' && (
-                  <Card className="p-8 md:p-20 flex flex-col items-center justify-center gap-6 md:gap-8 text-center bg-indigo-950/20 backdrop-blur border-indigo-500/20 w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
-                      <div className="p-8 rounded-full bg-indigo-500/20 border border-indigo-500/30 transition-transform hover:scale-110 duration-300">
-                          <Sparkles className="w-16 h-16 text-indigo-400" />
+                  <Card className="p-8 md:p-12 flex flex-col items-center justify-center gap-6 text-center bg-indigo-950/20 backdrop-blur border-indigo-500/20 w-full max-w-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                      <div className="p-6 rounded-full bg-indigo-500/20 border border-indigo-500/30 transition-transform hover:scale-110 duration-300">
+                          <Sparkles className="w-12 h-12 text-indigo-400" />
                       </div>
-                      <div className="space-y-3 mb-8">
-                          <h2 className="text-3xl font-bold tracking-tight text-indigo-100">{t('challenge_title')}</h2>
-                          <p className="text-lg text-indigo-200/60 max-w-lg mx-auto">
+                      <div className="space-y-3 mb-6">
+                          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-indigo-100">{t('challenge_title')}</h2>
+                          <p className="text-base md:text-lg text-indigo-200/60 max-w-lg mx-auto leading-relaxed">
                               {t('challenge_desc')}
                           </p>
                       </div>
-                      <Button onClick={handleStartChallenge} size="lg" className="rounded-full w-full md:w-auto px-4 md:px-64 py-6 text-xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse">
+                      <Button onClick={handleStartChallenge} size="lg" className="rounded-full w-full md:w-auto px-10 md:px-24 py-6 text-lg md:text-xl h-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-[0_0_40px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_rgba(234,88,12,0.8)] transition-all transform hover:scale-105 text-white border-0 animate-pulse whitespace-nowrap">
                           {t('start_challenge')}
                       </Button>
                   </Card>
-                  )}
 
                   {cStep === 'loading' && (
                       <div className="flex flex-col items-center gap-6 animate-pulse p-10">
