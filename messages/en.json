@@ -207,7 +207,9 @@
     "delete_confirm_title": "Delete this archive?",
     "delete_confirm_desc": "This archive and its linked quizzes will also be deleted.",
     "delete_confirm_loading": "Deleting...",
-    "level_up": "Level Up"
+    "level_up": "Level Up",
+    "advice_filter_applied": "Filtered by {topic}.",
+    "advice_filter_applied_all": "Filtered by all items."
   },
   "dictionary": {
     "fab_label": "AI Dictionary",

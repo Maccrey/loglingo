@@ -207,7 +207,9 @@
     "delete_confirm_title": "정말 삭제할까요?",
     "delete_confirm_desc": "선택한 학습 아카이브와 연결된 퀵퀴즈도 함께 삭제됩니다.",
     "delete_confirm_loading": "삭제 중...",
-    "level_up": "레벨 올리기"
+    "level_up": "레벨 올리기",
+    "advice_filter_applied": "{topic} 관련 항목으로 필터링되었습니다.",
+    "advice_filter_applied_all": "전체 항목으로 필터링되었습니다."
   },
   "dictionary": {
     "fab_label": "AI 사전",

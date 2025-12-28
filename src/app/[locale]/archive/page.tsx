@@ -580,7 +580,25 @@ export default function ArchivePage() {
                   {pendingAdvice.slice(0, 4).map((item) => (
                     <div
                       key={item.id}
-                      className="flex items-start justify-between gap-2 rounded-lg border border-white/10 bg-black/10 p-2"
+                      onClick={() => {
+                        if (item.topic === "word") {
+                          setType("word");
+                          toast.info(t("advice_filter_applied", { topic: t("advice_topic_word") }));
+                        } else if (item.topic === "grammar") {
+                          setType("grammar");
+                          toast.info(t("advice_filter_applied", { topic: t("advice_topic_grammar") }));
+                        } else {
+                          // Default or other
+                          setType(undefined);
+                          toast.info(t("advice_filter_applied_all"));
+                        }
+                        // Scroll to list
+                        const listElement = document.getElementById("archive-list-section");
+                        if (listElement) {
+                           listElement.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                      className="flex items-start justify-between gap-2 rounded-lg border border-white/10 bg-black/10 p-2 cursor-pointer hover:bg-white/5 transition-colors group"
                     >
                       {(() => {
                         const priority = (item.priority as "high" | "medium" | "low") || "medium";
@@ -597,7 +615,7 @@ export default function ArchivePage() {
                         return (
                           <>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold text-foreground">{topicLabel}</p>
+                              <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{topicLabel}</p>
                               <p className="text-xs text-muted-foreground">{message}</p>
                               <p className="text-[11px] text-muted-foreground/70 mt-1">
                                 {t(`priority_${priority}`)}
@@ -608,7 +626,10 @@ export default function ArchivePage() {
                               variant="secondary"
                               className="text-xs shrink-0"
                               disabled={adviceMutation.isPending}
-                              onClick={() => handleCompleteAdvice(item.id)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleCompleteAdvice(item.id);
+                              }}
                             >
                               {t("advice_mark_done")}
                             </Button>
@@ -715,7 +736,7 @@ export default function ArchivePage() {
       </Card>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <Card className="md:col-span-2">
+        <Card className="md:col-span-2" id="archive-list-section">
           <CardHeader>
             <CardTitle>{t("list_title")}</CardTitle>
           </CardHeader>
