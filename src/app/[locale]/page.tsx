@@ -62,8 +62,9 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <Link href="/speaking" className="block h-full">
-          <Card className="h-full border-orange-500/20 bg-orange-500/5 hover:bg-orange-500/10 transition-colors cursor-pointer group">
+        {/* <Link href="/speaking" className="block h-full"> */}
+        <div className="block h-full">
+          <Card className="h-full border-orange-500/20 bg-orange-500/5 transition-colors group">
             <CardHeader>
             <Mic className="h-10 w-10 text-orange-500 mb-2" />
               <CardTitle>{t('features.speaking')}</CardTitle>
@@ -74,7 +75,8 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-        </Link>
+        </div>
+        {/* </Link> */}
       </section>
 
       {/* PC Ad (728x90) - Only visible on md+ screens */}
