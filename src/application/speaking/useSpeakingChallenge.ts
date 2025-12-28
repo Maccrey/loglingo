@@ -127,6 +127,8 @@ export function useSpeakingChallenge() {
             return "A1";
         }
 
+        console.log("DEBUG: Speaking result:", { success, accuracyScore: fb.accuracyScore, estimatedLevel: fb.estimatedLevel });
+
         // Save estimated level if successful
         if (success) {
             const score = fb.accuracyScore || 0;
@@ -140,15 +142,24 @@ export function useSpeakingChallenge() {
             } else {
                 levelToSave = estimateLevelFromScore(score);
             }
+            
+            console.log("DEBUG: Saving level record:", { levelToSave, score });
 
-            addLevelRecord.mutate({
-                level: levelToSave,
-                score: score,
-                confidence: score / 100,
-                sourceType: 'speaking',
-                sourceId: fb.sessionId,
-                language: context.learningLanguage
-            });
+            try {
+                await addLevelRecord.mutateAsync({
+                    level: levelToSave,
+                    score: score,
+                    confidence: score / 100,
+                    sourceType: 'speaking',
+                    sourceId: fb.sessionId,
+                    language: context.learningLanguage
+                });
+                console.log("DEBUG: Level record saved successfully");
+            } catch (saveError) {
+                console.error("DEBUG: Failed to save level record", saveError);
+            }
+        } else {
+             console.log("DEBUG: Not saving level (success=false, score < 70)");
         }
         
         setStep('result');
