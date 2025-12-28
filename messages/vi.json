@@ -208,7 +208,8 @@
     "hide_examples": "Ẩn ví dụ ({count})",
     "delete_confirm_title": "Xóa mục này?",
     "delete_confirm_desc": "Mục này và các quiz liên quan cũng sẽ bị xóa.",
-    "delete_confirm_loading": "Đang xóa..."
+    "delete_confirm_loading": "Đang xóa...",
+    "level_up": "Lên cấp"
   },
   "settings": {
     "title": "Cài đặt",

@@ -208,7 +208,8 @@
     "hide_examples": "Ocultar ejemplos ({count})",
     "delete_confirm_title": "¿Eliminar este archivo?",
     "delete_confirm_desc": "Este archivo y sus quizzes relacionados también se eliminarán.",
-    "delete_confirm_loading": "Eliminando..."
+    "delete_confirm_loading": "Eliminando...",
+    "level_up": "Subir de nivel"
   },
   "settings": {
     "title": "Ajustes",

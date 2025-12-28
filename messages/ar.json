@@ -208,7 +208,8 @@
     "hide_examples": "إخفاء الأمثلة ({count})",
     "delete_confirm_title": "حذف هذا العنصر؟",
     "delete_confirm_desc": "سيتم حذف هذا السجل والاختبارات المرتبطة به أيضًا.",
-    "delete_confirm_loading": "جارٍ الحذف..."
+    "delete_confirm_loading": "جارٍ الحذف...",
+    "level_up": "المستوى التالي"
   },
   "settings": {
     "title": "الإعدادات",

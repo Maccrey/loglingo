@@ -208,7 +208,8 @@
     "hide_examples": "Örnekleri gizle ({count})",
     "delete_confirm_title": "Bu kaydı silinsin mi?",
     "delete_confirm_desc": "Bu kayıt ve ilişkili quizler de silinecek.",
-    "delete_confirm_loading": "Siliniyor..."
+    "delete_confirm_loading": "Siliniyor...",
+    "level_up": "Seviye Atla"
   },
   "settings": {
     "title": "Ayarlar",

@@ -208,7 +208,8 @@
     "hide_examples": "Sembunyikan contoh ({count})",
     "delete_confirm_title": "Hapus entri ini?",
     "delete_confirm_desc": "Entri ini dan kuis terkait juga akan dihapus.",
-    "delete_confirm_loading": "Menghapus..."
+    "delete_confirm_loading": "Menghapus...",
+    "level_up": "Naik Level"
   },
   "settings": {
     "title": "Pengaturan",

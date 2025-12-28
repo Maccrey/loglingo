@@ -208,7 +208,8 @@
     "hide_examples": "ซ่อนตัวอย่าง ({count})",
     "delete_confirm_title": "ลบรายการนี้หรือไม่?",
     "delete_confirm_desc": "รายการนี้และควิซที่เชื่อมโยงจะถูกลบด้วย",
-    "delete_confirm_loading": "กำลังลบ..."
+    "delete_confirm_loading": "กำลังลบ...",
+    "level_up": "เลื่อนระดับ"
   },
   "settings": {
     "title": "ตั้งค่า",

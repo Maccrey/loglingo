@@ -208,7 +208,8 @@
     "hide_examples": "例を隠す ({count}件)",
     "delete_confirm_title": "このアーカイブを削除しますか？",
     "delete_confirm_desc": "このアーカイブと関連クイズも削除されます。",
-    "delete_confirm_loading": "削除中..."
+    "delete_confirm_loading": "削除中...",
+    "level_up": "レベルアップ"
   },
   "settings": {
     "title": "設定",

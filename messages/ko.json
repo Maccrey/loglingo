@@ -206,7 +206,8 @@
     "hide_examples": "예제 숨기기 ({count}개)",
     "delete_confirm_title": "정말 삭제할까요?",
     "delete_confirm_desc": "선택한 학습 아카이브와 연결된 퀵퀴즈도 함께 삭제됩니다.",
-    "delete_confirm_loading": "삭제 중..."
+    "delete_confirm_loading": "삭제 중...",
+    "level_up": "레벨 올리기"
   },
   "dictionary": {
     "fab_label": "AI 사전",

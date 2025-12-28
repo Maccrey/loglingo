@@ -208,7 +208,8 @@
     "hide_examples": "Скрыть примеры ({count})",
     "delete_confirm_title": "Удалить эту запись?",
     "delete_confirm_desc": "Эта запись и связанные викторины также будут удалены.",
-    "delete_confirm_loading": "Удаление..."
+    "delete_confirm_loading": "Удаление...",
+    "level_up": "Повысить уровень"
   },
   "settings": {
     "title": "Настройки",

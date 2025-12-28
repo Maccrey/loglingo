@@ -208,7 +208,8 @@
     "hide_examples": "उदाहरण छुपाएं ({count})",
     "delete_confirm_title": "क्या इस प्रविष्टि को हटाएं?",
     "delete_confirm_desc": "यह प्रविष्टि और संबंधित क्विज भी हट जाएंगे।",
-    "delete_confirm_loading": "हटा रहा है..."
+    "delete_confirm_loading": "हटा रहा है...",
+    "level_up": "स्तर बढ़ाएं"
   },
   "settings": {
     "title": "सेटिंग्स",

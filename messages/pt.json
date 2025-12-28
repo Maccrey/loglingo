@@ -208,7 +208,8 @@
     "hide_examples": "Ocultar exemplos ({count})",
     "delete_confirm_title": "Excluir este item?",
     "delete_confirm_desc": "Este item e os quizzes relacionados também serão excluídos.",
-    "delete_confirm_loading": "Excluindo..."
+    "delete_confirm_loading": "Excluindo...",
+    "level_up": "Subir de Nível"
   },
   "settings": {
     "title": "Configurações",

@@ -486,9 +486,19 @@ export default function ArchivePage() {
                     </div>
                      <div className="text-right">
                         {latestSpeakingLevel ? (
-                          <p className="text-[10px] text-muted-foreground">
-                            {formatDate(latestSpeakingLevel.createdAt, locale)}
-                          </p>
+                          <div className="flex flex-col items-end gap-1">
+                            <p className="text-[10px] text-muted-foreground">
+                              {formatDate(latestSpeakingLevel.createdAt, locale)}
+                            </p>
+                            <Button
+                              size="sm"
+                              variant="glass"
+                              className="h-6 text-[10px] bg-accent/10 border-accent/20 text-accent hover:bg-accent/20 px-2"
+                              onClick={() => router.push("/speaking")}
+                            >
+                              {t("level_up")}
+                            </Button>
+                          </div>
                         ) : (
                           <Button
                             size="sm"

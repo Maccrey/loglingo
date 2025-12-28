@@ -208,7 +208,8 @@
     "hide_examples": "Beispiele ausblenden ({count})",
     "delete_confirm_title": "Diesen Eintrag löschen?",
     "delete_confirm_desc": "Dieser Eintrag und verbundene Quizze werden ebenfalls gelöscht.",
-    "delete_confirm_loading": "Lösche..."
+    "delete_confirm_loading": "Lösche...",
+    "level_up": "Aufleveln"
   },
   "settings": {
     "title": "Einstellungen",

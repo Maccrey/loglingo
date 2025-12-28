@@ -208,7 +208,8 @@
     "hide_examples": "Masquer les exemples ({count})",
     "delete_confirm_title": "Supprimer cet élément ?",
     "delete_confirm_desc": "Cet élément et ses quiz liés seront également supprimés.",
-    "delete_confirm_loading": "Suppression..."
+    "delete_confirm_loading": "Suppression...",
+    "level_up": "Niveau supérieur"
   },
   "settings": {
     "title": "Paramètres",

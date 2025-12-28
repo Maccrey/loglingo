@@ -208,7 +208,8 @@
     "hide_examples": "隐藏例句（{count}条）",
     "delete_confirm_title": "删除此条目？",
     "delete_confirm_desc": "此学习档案及其关联测验也会被删除。",
-    "delete_confirm_loading": "删除中..."
+    "delete_confirm_loading": "删除中...",
+    "level_up": "升级"
   },
   "settings": {
     "title": "设置",
