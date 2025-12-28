@@ -67,7 +67,7 @@ export default function SpeakingPage() {
   } = useSpeaking();
 
   // Challenge Mode State
-  const [mode, setMode] = React.useState<'free' | 'challenge'>('free');
+  const [mode, setMode] = React.useState<'free' | 'challenge'>('challenge');
   const [isPlaying, setIsPlaying] = React.useState(false);
   
   // Get UI Language Name for AI Explanations
