@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react';
 import { SpeakingFeedback, SpeakingSession } from '@/domain/speaking';
 import { useAuth } from '@/application/auth/AuthProvider'; // Assuming AuthProvider exists
-// import { saveSpeakingResult } from '@/infrastructure/repositories/SpeakingRepository'; // To be implemented
+import { useAddLevelRecord } from '@/application/learning-profile/hooks';
+import { LevelBand } from '@/domain/learning-profile';
 
 type SpeakingStep = 'idle' | 'recording' | 'analyzing' | 'feedback' | 'error';
 
@@ -11,6 +12,7 @@ export function useSpeaking() {
   const [transcript, setTranscript] = useState('');
   const [feedback, setFeedback] = useState<SpeakingFeedback | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const addLevelRecord = useAddLevelRecord(user?.uid || '');
 
   const startSession = () => {
     setStep('recording');
@@ -45,6 +47,18 @@ export function useSpeaking() {
       
       setFeedback(data.feedback);
       setStep('feedback');
+      
+      // Save result if valid score
+      if (data.feedback && typeof data.feedback.accuracyScore === 'number' && data.feedback.accuracyScore > 0) {
+        addLevelRecord.mutate({
+             level: (data.feedback.estimatedLevel as LevelBand) || 'unknown',
+             score: data.feedback.accuracyScore,
+             confidence: (data.feedback.accuracyScore) / 100,
+             sourceType: 'speaking',
+             sourceId: data.feedback.sessionId, // AI API should return session ID
+             language: language
+        });
+      }
       
     } catch (err: any) {
       console.error(err);

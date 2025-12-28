@@ -163,7 +163,7 @@ export default function ArchivePage() {
   const { data: archives, isLoading } = useArchiveList(userId, effectiveType, { enabled: canLoad, levelTag: levelFilter });
   const archiveList: LearningArchive[] = useMemo(() => (archives ?? []) as LearningArchive[], [archives]);
   const { data: diaries = [] } = useDiaryList(userId, undefined, { enabled: canLoad });
-  const { data: levels = [] } = useLevelRecords(userId, { enabled: canLoad });
+  const { data: levels = [] } = useLevelRecords(userId, { enabled: canLoad, limit: 50 });
   const { data: adviceItems = [] } = useAdviceList(userId, { enabled: canLoad, limit: 10 });
   const adviceMutation = useAdviceComplete(userId);
   const { data: aggregate } = useLearningAggregate(canLoad);
