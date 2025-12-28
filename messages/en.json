@@ -310,6 +310,8 @@
     "result_better_expression": "Better Expression",
     "result_grammar_points": "Grammar Points",
     "result_root_meaning": "Root Meaning & Nuance",
-    "result_try_another": "Try Another Sentence"
+    "result_try_another": "Try Another Sentence",
+    "ai_prompt_label": "Topic Suggestion",
+    "analyzing_diary": "Analyzing your diary..."
   }
 }

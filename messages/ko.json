@@ -310,6 +310,8 @@
     "result_better_expression": "더 좋은 표현",
     "result_grammar_points": "문법 포인트",
     "result_root_meaning": "어원 및 뉘앙스",
-    "result_try_another": "다른 문장 연습하기"
+    "result_try_another": "다른 문장 연습하기",
+    "ai_prompt_label": "대화 주제 추천",
+    "analyzing_diary": "회원님의 일기를 분석하여 대화 주제를 찾고 있습니다..."
   }
 }
