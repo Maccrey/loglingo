@@ -68,28 +68,32 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
   }
 
   return (
-    <div className="flex flex-col items-center gap-12 w-full max-w-3xl mx-auto">
-      <div className="relative w-full h-40 md:h-64 bg-secondary/30 rounded-3xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner">
-        {isRecording ? (
-            <WaveformVisualizer isRecording={true} className="h-32 gap-3" />
-        ) : (
-            <div className="text-muted-foreground text-xl">{t('recorder_tap_mic')}</div>
+    <div className="flex flex-col items-center gap-4 w-full max-w-3xl mx-auto">
+      <div className="relative w-full h-48 bg-secondary/30 rounded-3xl flex flex-col items-center justify-center overflow-hidden border border-white/10 shadow-inner gap-4">
+        {isRecording && (
+           <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+              <WaveformVisualizer isRecording={true} className="h-full w-full gap-2" />
+           </div>
         )}
+        
+        {!isRecording && (
+            <div className="text-muted-foreground text-sm font-medium animate-pulse">{t('recorder_tap_mic')}</div>
+        )}
+
+        <div className="z-10">
+            <Button
+                variant={isRecording ? "destructive" : "primary"}
+                size="lg"
+                className={`rounded-full w-16 h-16 p-0 shadow-2xl ring-4 ring-background transition-all hover:scale-105 active:scale-95 ${isRecording ? 'animate-pulse' : ''}`}
+                onClick={handleToggle}
+            >
+                {isRecording ? <Square className="w-6 h-6 fill-current" /> : <Mic className="w-8 h-8" />}
+            </Button>
+        </div>
       </div>
 
-      <div className="w-full min-h-[120px] md:min-h-[200px] p-6 md:p-8 bg-background/50 backdrop-blur-md rounded-2xl border border-white/10 text-xl md:text-2xl font-medium text-center flex items-center justify-center leading-relaxed">
-        {transcript || <span className="text-muted-foreground/50">{t('recorder_placeholder')}</span>}
-      </div>
-
-      <div className="flex gap-4 z-10">
-         <Button
-            variant={isRecording ? "destructive" : "primary"}
-            size="lg"
-            className="rounded-full w-20 h-20 p-0 shadow-2xl ring-4 ring-background transition-transform hover:scale-105 active:scale-95"
-            onClick={handleToggle}
-         >
-            {isRecording ? <Square className="w-8 h-8 fill-current" /> : <Mic className="w-10 h-10" />}
-         </Button>
+      <div className="w-full min-h-[80px] p-4 bg-background/50 backdrop-blur-md rounded-xl border border-white/10 text-lg font-medium text-center flex items-center justify-center leading-relaxed">
+        {transcript || <span className="text-muted-foreground/50 text-base">{t('recorder_placeholder')}</span>}
       </div>
 
       { transcript.length > 0 && !isRecording && (
