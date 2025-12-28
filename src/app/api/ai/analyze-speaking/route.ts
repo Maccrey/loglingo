@@ -14,6 +14,15 @@ function getModel() {
   return process.env.GROK_MODEL?.trim() || "grok-4-fast-non-reasoning";
 }
 
+function estimateLevelFromScore(score: number): string {
+  if (score >= 95) return "C2";
+  if (score >= 85) return "C1";
+  if (score >= 75) return "B2";
+  if (score >= 60) return "B1";
+  if (score >= 40) return "A2";
+  return "A1";
+}
+
 // Helper to parse JSON safely
 function safeParse(text: string) {
     try {
@@ -134,6 +143,12 @@ export async function POST(req: Request) {
             feedbackData = mockFeedback(text, session.id, userId);
         }
 
+        // Ensure we have a valid level
+        const finalScore = feedbackData.accuracyScore ?? 0;
+        const validLevel = feedbackData.estimatedLevel && ["A1","A2","B1","B2","C1","C2"].includes(feedbackData.estimatedLevel)
+            ? feedbackData.estimatedLevel
+            : estimateLevelFromScore(finalScore);
+
         // 3. Save Feedback
         const feedback = await createSpeakingFeedback({
             sessionId: session.id,
@@ -143,8 +158,8 @@ export async function POST(req: Request) {
             grammarNotes: feedbackData.grammarNotes || [],
             rootMeaningGuide: feedbackData.rootMeaningGuide || {},
             diff: feedbackData.diff,
-            accuracyScore: feedbackData.accuracyScore,
-            estimatedLevel: feedbackData.estimatedLevel,
+            accuracyScore: finalScore,
+            estimatedLevel: validLevel,
             advice: feedbackData.advice
         });
 
