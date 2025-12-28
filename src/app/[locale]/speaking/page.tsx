@@ -164,7 +164,7 @@ export default function SpeakingPage() {
                           trackEvent('speaking_mode_switched', { mode: 'free' });
                           setMode('free');
                       }}
-                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
+                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_free')}
                   </button>
@@ -173,7 +173,7 @@ export default function SpeakingPage() {
                           trackEvent('speaking_mode_switched', { mode: 'challenge' });
                           setMode('challenge');
                       }}
-                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
+                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_challenge')}
                   </button>
@@ -226,10 +226,10 @@ export default function SpeakingPage() {
                           />
                           
                           {sessionCount >= 3 && (
-                             <div className="absolute inset-0 z-10 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
+                             <div className="absolute inset-0 z-10 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
                                 <div className="text-center p-6 space-y-4">
-                                     <Sparkles className="w-12 h-12 text-orange-400 mx-auto" />
-                                     <h3 className="text-xl font-bold text-white">{t('daily_limit_reached', { defaultMessage: "Daily Limit Reached" })}</h3>
+                                     <Sparkles className="w-12 h-12 text-primary mx-auto" />
+                                     <h3 className="text-xl font-bold text-foreground">{t('daily_limit_reached', { defaultMessage: "Daily Limit Reached" })}</h3>
                                      <Button onClick={() => setShowLimitModal(true)}>{t('view_ai_prompt', { defaultMessage: "View AI Practice Prompt" })}</Button>
                                 </div>
                              </div>
@@ -252,11 +252,11 @@ export default function SpeakingPage() {
                   )}
 
                   {step === 'error' && (
-                      <Card className="p-8 border-red-500/30 bg-red-950/20 text-center space-y-6 max-w-md">
-                          <AlertCircle className="w-12 h-12 text-red-400 mx-auto" />
+                      <Card className="p-8 border-destructive/30 bg-destructive/10 text-center space-y-6 max-w-md">
+                          <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
                           <div className="space-y-2">
-                              <h3 className="text-xl font-bold text-red-200">{t('analysis_failed')}</h3>
-                              <p className="text-red-200/70">{error}</p>
+                              <h3 className="text-xl font-bold text-destructive">{t('analysis_failed')}</h3>
+                              <p className="text-destructive/80">{error}</p>
                           </div>
                           <Button onClick={retry} variant="secondary" className="w-full">{t('try_again')}</Button>
                       </Card>
@@ -268,20 +268,22 @@ export default function SpeakingPage() {
           {/* === CHALLENGE MODE === */}
           {mode === 'challenge' && (
               <>
-                  <Card className="p-8 md:p-12 flex flex-col items-center justify-center gap-6 text-center bg-card/50 backdrop-blur border-border/50 w-full max-w-2xl shadow-xl animate-in fade-in zoom-in-95 duration-500">
-                      <div className="p-6 rounded-full bg-primary/10 border border-primary/20 transition-transform hover:scale-110 duration-300">
-                          <Sparkles className="w-12 h-12 text-primary" />
+                  <Card className="p-8 md:p-10 flex flex-col items-center justify-center gap-8 text-center bg-card/50 backdrop-blur border-border/50 w-full max-w-xl shadow-xl animate-in fade-in zoom-in-95 duration-500">
+                      <div className="flex flex-col items-center gap-4">
+                          <div className="p-5 rounded-full bg-primary/10 border border-primary/20">
+                              <Sparkles className="w-10 h-10 text-primary" />
+                          </div>
+                          <h2 className="text-2xl font-bold tracking-tight text-foreground">{t('challenge_title')}</h2>
                       </div>
-                      <div className="space-y-3 mb-6">
-                          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">{t('challenge_title')}</h2>
-                          <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
-                              {t('challenge_desc')}
-                          </p>
-                      </div>
+                      
+                      <p className="text-base text-muted-foreground leading-relaxed px-4">
+                          {t('challenge_desc')}
+                      </p>
+                      
                       <Button 
                           onClick={handleStartChallenge} 
                           size="lg" 
-                          className="rounded-full w-full md:w-auto px-10 py-6 text-lg h-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:scale-105"
+                          className="rounded-full px-12 h-12 text-base font-semibold shadow-md shadow-primary/20 hover:shadow-primary/30 hover:scale-105 transition-all"
                       >
                           {t('start_challenge')}
                       </Button>
