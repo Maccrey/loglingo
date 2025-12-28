@@ -25,8 +25,23 @@ export function useSpeaking() {
   const addLevelRecord = useAddLevelRecord(user?.uid || '');
 
   const [prompt, setPrompt] = useState<{ text: string; translation: string } | null>(null);
+  const [isPromptLoading, setIsPromptLoading] = useState(false);
 
-  const fetchPrompt = useCallback(async (language: string, uiLocale: string) => {
+  const fetchPrompt = useCallback(async (language: string, uiLocale: string, force: boolean = false) => {
+      // Prevent fetching if already loading
+      // Prevent fetching if prompt exists and not forcing
+      setPrompt(prev => {
+          if (!force && prev) return prev; // Return current state if we have it and not forcing
+          return force ? null : prev;
+      });
+
+      // We need a way to check current state. 
+      // Since we can't easily access 'prompt' state inside useCallback without adding it to deps (which causes loops),
+      // we'll rely on the caller or a ref, OR simply rely on the 'force' flag primarily.
+      // But actsually, the cleanest way in the hook is to trust the caller.
+      // However, to be extra safe against double-invocations:
+      
+      setIsPromptLoading(true);
       try {
           const response = await fetch('/api/ai/speaking/prompt', {
               method: 'POST',
@@ -39,6 +54,8 @@ export function useSpeaking() {
           }
       } catch (e) {
           console.error("Failed to fetch speaking prompt", e);
+      } finally {
+          setIsPromptLoading(false);
       }
   }, [user?.uid]);
 
@@ -122,6 +139,7 @@ export function useSpeaking() {
     feedback,
     error,
     prompt,
+    isPromptLoading,
     fetchPrompt,
     startSession,
     submitForAnalysis,

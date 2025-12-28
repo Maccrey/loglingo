@@ -62,6 +62,7 @@ export default function SpeakingPage() {
     submitForAnalysis,
     retry,
     prompt,
+    isPromptLoading,
     fetchPrompt
   } = useSpeaking();
 
@@ -80,10 +81,10 @@ export default function SpeakingPage() {
 
   // Fetch prompt when entering free mode
   React.useEffect(() => {
-      if (mode === 'free') {
+      if (mode === 'free' && !prompt && !isPromptLoading) {
           fetchPrompt(learningLanguage, uiLanguageName);
       }
-  }, [mode, learningLanguage, uiLanguageName, fetchPrompt]);
+  }, [mode, learningLanguage, uiLanguageName, fetchPrompt, prompt, isPromptLoading]);
   
   // Dynamic Import or Logic for Challenge
   // For simplicity, we can just inline the Challenge View or separate it.
