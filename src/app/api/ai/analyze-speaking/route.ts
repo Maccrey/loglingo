@@ -148,30 +148,30 @@ export async function POST(req: Request) {
             advice: feedbackData.advice
         });
 
-        // 4. Save to Learning Archive (Auto)
-        if (feedbackData.rootMeaningGuide) {
-            const archivePromises = Object.entries(feedbackData.rootMeaningGuide).map(async ([word, meaning]) => {
-                const title = word;
-                const rootMeaning = meaning as string;
-                
-                // Check duplicate by title (word)
-                const isDup = await checkDuplicate(userId, title);
-                
-                if (!isDup) {
-                    await createArchive({
-                        userId,
-                        type: 'word', 
-                        title,
-                        rootMeaning,
-                        sourceId: session.id,
-                        sourceType: 'speaking',
-                        sourceText: text
-                    });
-                }
-            });
-            
-            await Promise.all(archivePromises);
-        }
+        // 4. Save to Learning Archive (Auto) - DISABLED as per user request
+        // if (feedbackData.rootMeaningGuide) {
+        //     const archivePromises = Object.entries(feedbackData.rootMeaningGuide).map(async ([word, meaning]) => {
+        //         const title = word;
+        //         const rootMeaning = meaning as string;
+        //         
+        //         // Check duplicate by title (word)
+        //         const isDup = await checkDuplicate(userId, title);
+        //         
+        //         if (!isDup) {
+        //             await createArchive({
+        //                 userId,
+        //                 type: 'word', 
+        //                 title,
+        //                 rootMeaning,
+        //                 sourceId: session.id,
+        //                 sourceType: 'speaking',
+        //                 sourceText: text
+        //             });
+        //         }
+        //     });
+        //     
+        //     await Promise.all(archivePromises);
+        // }
 
         return NextResponse.json({ feedback, session });
 
