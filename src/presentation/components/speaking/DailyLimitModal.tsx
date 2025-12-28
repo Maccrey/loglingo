@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import { Copy, Loader2, X, MessageSquare } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { generateSpeakingPracticePrompt } from "@/application/ai/prompt-generator";
+import KakaoAdFit from "@/components/ads/KakaoAdFit";
 
 interface DailyLimitModalProps {
   isOpen: boolean;
@@ -121,6 +122,15 @@ export function DailyLimitModal({
           <Button onClick={onClose} className="w-full bg-slate-800 hover:bg-slate-700 text-white">
             {t('close_come_back', { defaultMessage: "Close & Come Back Tomorrow" })}
           </Button>
+
+          <div className="flex justify-center pt-2">
+            <KakaoAdFit 
+              unit="DAN-mOOUtFaaLBlenC5p" 
+              width={300} 
+              height={250} 
+              disabled={false}
+            />
+          </div>
         </div>
       </Card>
     </div>
