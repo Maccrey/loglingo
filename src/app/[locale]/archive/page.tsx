@@ -477,7 +477,19 @@ export default function ArchivePage() {
                       <p className="text-xs uppercase text-accent/80">{t("level_speaking")}</p>
                       <div className="mt-1 flex items-end gap-2">
                         <p className="text-2xl font-bold text-foreground">
-                          {latestSpeakingLevel?.level ?? "-"}
+                          {(() => {
+                            const lvl = latestSpeakingLevel?.level;
+                            const score = latestSpeakingLevel?.score;
+                            if (lvl === 'unknown' && typeof score === 'number') {
+                              if (score >= 95) return "C2";
+                              if (score >= 85) return "C1";
+                              if (score >= 75) return "B2";
+                              if (score >= 60) return "B1";
+                              if (score >= 40) return "A2";
+                              return "A1";
+                            }
+                            return lvl ?? "-";
+                          })()}
                         </p>
                         {typeof latestSpeakingLevel?.score === "number" && (
                           <span className="text-xs text-muted-foreground">({latestSpeakingLevel.score})</span>
