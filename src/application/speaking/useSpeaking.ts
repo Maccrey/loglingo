@@ -26,7 +26,7 @@ export function useSpeaking() {
 
   const [prompt, setPrompt] = useState<{ text: string; translation: string } | null>(null);
 
-  const fetchPrompt = async (language: string, uiLocale: string) => {
+  const fetchPrompt = useCallback(async (language: string, uiLocale: string) => {
       try {
           const response = await fetch('/api/ai/speaking/prompt', {
               method: 'POST',
@@ -40,16 +40,16 @@ export function useSpeaking() {
       } catch (e) {
           console.error("Failed to fetch speaking prompt", e);
       }
-  };
+  }, [user?.uid]);
 
-  const startSession = () => {
+  const startSession = useCallback(() => {
     setStep('recording');
     setTranscript('');
     setFeedback(null);
     setError(null);
-  };
+  }, []);
 
-  const submitForAnalysis = async (text: string, language: string, uiLanguage: string) => {
+  const submitForAnalysis = useCallback(async (text: string, language: string, uiLanguage: string) => {
     if (!text.trim()) return;
     
     setTranscript(text);
@@ -106,15 +106,15 @@ export function useSpeaking() {
       setError(err.message || 'Something went wrong');
       setStep('error');
     }
-  };
+  }, [user?.uid, addLevelRecord]);
 
-  const retry = () => {
+  const retry = useCallback(() => {
     setStep('idle');
     setTranscript('');
     setFeedback(null);
     setError(null);
     // Don't clear prompt to allow reuse, or clear if we want fresh? Keep it for now.
-  };
+  }, []);
 
   return {
     step,
