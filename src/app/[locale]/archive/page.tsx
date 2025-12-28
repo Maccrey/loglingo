@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
 import { useArchiveList, useQuiz, useArchiveProgressMutation, useArchiveDeleteMutation } from "@/application/archive/hooks";
 import { useAuth } from "@/application/auth/AuthProvider";
 import { useLevelRecords, useAdviceList, useAdviceComplete } from "@/application/learning-profile/hooks";
@@ -152,6 +153,7 @@ export default function ArchivePage() {
   const t = useTranslations("archive");
   const tCommon = useTranslations("common");
   const locale = useLocale();
+  const router = useRouter();
   const { user, loading } = useAuth();
   const userId = user?.uid ?? "";
   const [type, setType] = useState<string | undefined>(undefined);
@@ -483,10 +485,20 @@ export default function ArchivePage() {
                       </div>
                     </div>
                      <div className="text-right">
-                        {/* Future: Speaking specific trends */}
-                        <p className="text-[10px] text-muted-foreground">
-                          {latestSpeakingLevel ? formatDate(latestSpeakingLevel.createdAt, locale) : ""}
-                        </p>
+                        {latestSpeakingLevel ? (
+                          <p className="text-[10px] text-muted-foreground">
+                            {formatDate(latestSpeakingLevel.createdAt, locale)}
+                          </p>
+                        ) : (
+                          <Button
+                            size="sm"
+                            variant="glass"
+                            className="h-8 text-[11px] bg-accent/10 border-accent/20 text-accent hover:bg-accent/20"
+                            onClick={() => router.push("/speaking")}
+                          >
+                            {t("start_speaking_practice")}
+                          </Button>
+                        )}
                      </div>
                   </div>
                 </div>

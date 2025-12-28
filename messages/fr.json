@@ -165,6 +165,7 @@
     "title_required": "Le titre est requis",
     "save_error": "Échec de l'enregistrement dans l'archive",
     "quiz_question": "Quelle est la signification/le modèle clé de \"{title}\"?",
+    "start_speaking_practice": "Commencer la pratique orale",
     "dashboard_title": "Tableau d'apprentissage",
     "dashboard_subtitle": "Niveau, conseils et activité en un coup d’œil",
     "current_level": "Niveau actuel",

@@ -165,6 +165,7 @@
     "title_required": "El título es obligatorio",
     "save_error": "Error al guardar en el archivo",
     "quiz_question": "¿Cuál es el significado/patrón clave de \"{title}\"?",
+    "start_speaking_practice": "Comenzar práctica de habla",
     "dashboard_title": "Panel de aprendizaje",
     "dashboard_subtitle": "Consulta tu nivel, consejos y actividad de un vistazo",
     "current_level": "Nivel actual",
