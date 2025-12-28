@@ -6,6 +6,16 @@ import { LevelBand } from '@/domain/learning-profile';
 
 type SpeakingStep = 'idle' | 'recording' | 'analyzing' | 'feedback' | 'error';
 
+// Helper for client-side fallback
+function estimateLevelFromScore(score: number): LevelBand {
+  if (score >= 95) return "C2";
+  if (score >= 85) return "C1";
+  if (score >= 75) return "B2";
+  if (score >= 60) return "B1";
+  if (score >= 40) return "A2";
+  return "A1";
+}
+
 export function useSpeaking() {
   const { user } = useAuth();
   const [step, setStep] = useState<SpeakingStep>('idle');
@@ -50,10 +60,23 @@ export function useSpeaking() {
       
       // Save result if valid score
       if (data.feedback && typeof data.feedback.accuracyScore === 'number' && data.feedback.accuracyScore > 0) {
+        const score = data.feedback.accuracyScore;
+        const rawLevel = data.feedback.estimatedLevel;
+        const validLevels: LevelBand[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
+        
+        let levelToSave: LevelBand = "A1"; // Default safe fallback
+        
+        if (rawLevel && validLevels.includes(rawLevel as LevelBand)) {
+             levelToSave = rawLevel as LevelBand;
+        } else {
+             // Fallback estimate
+             levelToSave = estimateLevelFromScore(score);
+        }
+
         addLevelRecord.mutate({
-             level: (data.feedback.estimatedLevel as LevelBand) || 'unknown',
-             score: data.feedback.accuracyScore,
-             confidence: (data.feedback.accuracyScore) / 100,
+             level: levelToSave,
+             score: score,
+             confidence: score / 100,
              sourceType: 'speaking',
              sourceId: data.feedback.sessionId, // AI API should return session ID
              language: language

@@ -117,12 +117,34 @@ export function useSpeakingChallenge() {
         const success = (fb.accuracyScore || 0) >= 70;
         setIsSuccess(success);
 
-        // Save estimated level if successful and available
-        if (success && fb.estimatedLevel) {
+        // Helper for client-side fallback
+        function estimateLevelFromScore(score: number): LevelBand {
+            if (score >= 95) return "C2";
+            if (score >= 85) return "C1";
+            if (score >= 75) return "B2";
+            if (score >= 60) return "B1";
+            if (score >= 40) return "A2";
+            return "A1";
+        }
+
+        // Save estimated level if successful
+        if (success) {
+            const score = fb.accuracyScore || 0;
+            const rawLevel = fb.estimatedLevel;
+            const validLevels: LevelBand[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
+            
+            let levelToSave: LevelBand = "A1";
+            
+            if (rawLevel && validLevels.includes(rawLevel as LevelBand)) {
+                levelToSave = rawLevel as LevelBand;
+            } else {
+                levelToSave = estimateLevelFromScore(score);
+            }
+
             addLevelRecord.mutate({
-                level: fb.estimatedLevel as LevelBand,
-                score: fb.accuracyScore || 0,
-                confidence: (fb.accuracyScore || 0) / 100,
+                level: levelToSave,
+                score: score,
+                confidence: score / 100,
                 sourceType: 'speaking',
                 sourceId: fb.sessionId,
                 language: context.learningLanguage
