@@ -215,7 +215,8 @@
     "learning_language": "Bahasa Belajar",
     "theme": "Tema",
     "dark": "Gelap",
-    "light": "Terang"
+    "light": "Terang",
+    "logout": "Keluar"
   },
   "language_onboarding": {
     "title": "Pilih bahasa yang dipelajari",

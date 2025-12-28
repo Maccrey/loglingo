@@ -215,7 +215,8 @@
     "learning_language": "Lernsprache",
     "theme": "Thema",
     "dark": "Dunkel",
-    "light": "Hell"
+    "light": "Hell",
+    "logout": "Abmelden"
   },
   "language_onboarding": {
     "title": "Wähle deine Lernsprache",

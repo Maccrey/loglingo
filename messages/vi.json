@@ -215,7 +215,8 @@
     "learning_language": "Ngôn ngữ học",
     "theme": "Giao diện",
     "dark": "Tối",
-    "light": "Sáng"
+    "light": "Sáng",
+    "logout": "Đăng xuất"
   },
   "language_onboarding": {
     "title": "Chọn ngôn ngữ bạn đang học",

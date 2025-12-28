@@ -215,7 +215,8 @@
     "learning_language": "सीखने की भाषा",
     "theme": "थीम",
     "dark": "डार्क",
-    "light": "लाइट"
+    "light": "लाइट",
+    "logout": "लॉग आउट"
   },
   "language_onboarding": {
     "title": "अपनी सीखने की भाषा चुनें",

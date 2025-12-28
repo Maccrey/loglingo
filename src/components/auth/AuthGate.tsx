@@ -89,7 +89,7 @@ export function AuthGate({ children }: AuthGateProps) {
             <CardFooter className="flex flex-col items-center gap-3">
               <Button
                 size="lg"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 border border-primary/60 shadow-lg shadow-primary/30 md:w-auto"
+                className="w-full !bg-orange-500 !text-white hover:!bg-orange-600 !border !border-orange-400 !shadow-lg !shadow-orange-500/20 md:w-auto font-bold"
                 onClick={() => setIsLoginOpen(true)}
               >
                 {t("cta")}

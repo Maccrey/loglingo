@@ -8,6 +8,8 @@ import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider
 import { AuthGate } from "@/components/auth/AuthGate";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
+import { useAuth } from "@/application/auth/AuthProvider";
+import { Button } from "@/components/ui/Button";
 
 export default function SettingsPage() {
   const t = useTranslations('settings');
@@ -16,6 +18,7 @@ export default function SettingsPage() {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
   const { learningLanguage, setLearningLanguage } = useLearningLanguage();
+  const { signOutUser } = useAuth();
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -93,6 +96,20 @@ export default function SettingsPage() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Logout Button */}
+        <div className="flex justify-center pt-4">
+            <Button
+                className="w-full !bg-orange-500 hover:!bg-orange-600 text-white font-bold py-6 rounded-lg text-lg shadow-md transition-all active:scale-95 border-0"
+                onClick={() => {
+                   signOutUser().then(() => {
+                        router.push('/');
+                   });
+                }}
+            >
+                {t.has('logout') ? t('logout') : "Logout"}
+            </Button>
+        </div>
 
         {/* 설정 하단 광고 */}
         <ResponsiveAd

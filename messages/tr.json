@@ -215,7 +215,8 @@
     "learning_language": "Öğrenilen Dil",
     "theme": "Tema",
     "dark": "Koyu",
-    "light": "Açık"
+    "light": "Açık",
+    "logout": "Çıkış Yap"
   },
   "language_onboarding": {
     "title": "Öğrenme dilini seç",

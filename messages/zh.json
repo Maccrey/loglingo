@@ -215,7 +215,8 @@
     "learning_language": "学习语言",
     "theme": "主题",
     "dark": "深色",
-    "light": "浅色"
+    "light": "浅色",
+    "logout": "登出"
   },
   "language_onboarding": {
     "title": "请选择学习语言",

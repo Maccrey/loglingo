@@ -215,7 +215,8 @@
     "learning_language": "لغة التعلم",
     "theme": "المظهر",
     "dark": "داكن",
-    "light": "فاتح"
+    "light": "فاتح",
+    "logout": "تسجيل الخروج"
   },
   "language_onboarding": {
     "title": "اختر لغة التعلم",

@@ -215,7 +215,8 @@
     "learning_language": "Язык обучения",
     "theme": "Тема",
     "dark": "Темная",
-    "light": "Светлая"
+    "light": "Светлая",
+    "logout": "Выйти"
   },
   "language_onboarding": {
     "title": "Выберите язык обучения",

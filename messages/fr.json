@@ -215,7 +215,8 @@
     "learning_language": "Langue d'apprentissage",
     "theme": "Thème",
     "dark": "Sombre",
-    "light": "Clair"
+    "light": "Clair",
+    "logout": "Se déconnecter"
   },
   "language_onboarding": {
     "title": "Choisissez votre langue d'apprentissage",

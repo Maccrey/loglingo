@@ -224,7 +224,8 @@
     "learning_language": "Learning Language",
     "theme": "Theme",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "logout": "Logout"
   },
   "language_onboarding": {
     "title": "Choose your learning language",

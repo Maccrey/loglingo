@@ -215,7 +215,8 @@
     "learning_language": "ภาษาที่เรียน",
     "theme": "ธีม",
     "dark": "มืด",
-    "light": "สว่าง"
+    "light": "สว่าง",
+    "logout": "ออกจากระบบ"
   },
   "language_onboarding": {
     "title": "เลือกภาษาที่ต้องการเรียน",
