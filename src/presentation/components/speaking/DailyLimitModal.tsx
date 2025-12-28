@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Copy, Loader2, X, MessageSquare } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
 import { generateSpeakingPracticePrompt } from "@/application/ai/prompt-generator";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
 
@@ -24,6 +25,7 @@ export function DailyLimitModal({
   userLevel,
 }: DailyLimitModalProps) {
   const t = useTranslations('Speaking');
+  const router = useRouter();
   const [prompt, setPrompt] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -119,7 +121,13 @@ export function DailyLimitModal({
              </div>
           </div>
           
-          <Button onClick={onClose} className="w-full bg-slate-800 hover:bg-slate-700 text-white">
+          <Button 
+            onClick={() => {
+              onClose();
+              router.push('/');
+            }} 
+            className="w-full bg-secondary hover:bg-secondary/80 text-secondary-foreground"
+          >
             {t('close_come_back', { defaultMessage: "Close & Come Back Tomorrow" })}
           </Button>
 
