@@ -54,11 +54,11 @@ body {
 }
 .custom-scrollbar::-webkit-scrollbar { width: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
 
-@keyframes orange-blink {
+@keyframes orange-pulse-glow {
   0%, 100% { filter: brightness(1); transform: scale(1); box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3); }
-  50% { filter: brightness(1.2); transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.5); }
+  50% { filter: brightness(1.15); transform: scale(1.03); box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.5); }
 }
 
-.animate-orange-blink {
-  animation: orange-blink 1.2s infinite;
+.animate-orange-pulse-glow {
+  animation: orange-pulse-glow 1.5s infinite;
 }

@@ -41,7 +41,7 @@ export function StartButton() {
         <Link href="/diary/trial">
           <Button 
             size="lg" 
-            className="group hover:bg-orange-400 text-white border-0 animate-orange-blink transition-all duration-300"
+            className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow"
             style={{ backgroundColor: '#f97316', color: 'white' }}
           >
             {t('try_it_out')}
