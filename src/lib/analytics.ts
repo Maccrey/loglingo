@@ -1,4 +1,27 @@
-export type AnalyticsEvent =
+// Google Analytics 4 Event Types
+// Schema: English Event Name -> Korean Parameter Values
+
+export type AnalyticsEventAction =
+  | "click_button"
+  | "view_page"
+  | "start_process"
+  | "complete_process"
+  | "fail_process"
+  | "switch_mode"
+  | "submit_form";
+
+export interface AnalyticsEventParams {
+  component_name: string; // e.g., "Navigation", "SpeakingRecorder" -> "네비게이션", "말하기 녹음기"
+  action_detail: string; // e.g., "Start Recording" -> "녹음 시작"
+  item_name?: string; // e.g., "Home Link" -> "홈 링크"
+  item_id?: string;
+  value_korean?: string; // Additional readable context
+  error_message?: string;
+  [key: string]: string | number | boolean | undefined;
+}
+
+// Legacy event support (mapped to new schema internally if needed, or kept for backward compat)
+export type LegacyAnalyticsEvent =
   | "page_view"
   | "page_engagement"
   | "login_start"
@@ -26,7 +49,7 @@ export type AnalyticsEvent =
   | "challenge_started"
   | "challenge_completed";
 
-const EVENT_LABELS: Record<AnalyticsEvent, string> = {
+const EVENT_LABELS: Record<LegacyAnalyticsEvent, string> = {
   page_view: "페이지 조회",
   page_engagement: "페이지 체류",
   login_start: "로그인 시도",
@@ -55,40 +78,46 @@ const EVENT_LABELS: Record<AnalyticsEvent, string> = {
   challenge_completed: "도전 모드 완료",
 };
 
-function pushToGtag(event: AnalyticsEvent, payload?: Record<string, unknown>) {
+function pushToGtag(event: string, params: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag;
   if (!gtag) return;
 
-  const eventLabel = EVENT_LABELS[event];
   gtag("event", event, {
-    event_label: eventLabel,
     language: "ko",
-    ...payload,
+    ...params,
   });
 }
 
+/**
+ * Enhanced Track Event Function
+ * Supports both legacy simple events and new detailed events
+ */
 export function trackEvent(
-  event: AnalyticsEvent,
-  payload?: Record<string, unknown>
+  event: LegacyAnalyticsEvent | AnalyticsEventAction,
+  payload?: Record<string, unknown> | AnalyticsEventParams
 ) {
-  const data = {
-    event_label: EVENT_LABELS[event],
-    language: "ko",
-    ...payload,
-  };
+  let finalEventName = event;
+  const finalPayload: Record<string, unknown> = { ...payload };
+
+  // Handle Legacy Events
+  if (event in EVENT_LABELS) {
+    // For legacy events, we preserve the old behavior but ensure we have English keys if possible
+    // We basically just pass it through but add the readable label
+    finalPayload.event_label = EVENT_LABELS[event as LegacyAnalyticsEvent];
+  }
 
   // Fire-and-forget to Firebase Analytics if available
   if (typeof window !== "undefined") {
     import("./firebase-analytics")
-      .then((mod) => mod.logAnalyticsEvent(event, data))
-      .catch(() => {});
+      .then((mod) => mod.logAnalyticsEvent(finalEventName, finalPayload))
+      .catch((e) => console.warn("Firebase Analytics Error", e));
 
-    pushToGtag(event, data);
+    pushToGtag(finalEventName, finalPayload);
   }
 
   if (process.env.NODE_ENV !== "production") {
-    console.debug("[analytics]", event, data);
+    console.debug(`[Analytics] ${finalEventName}`, finalPayload);
   }
 }
 
@@ -98,9 +127,12 @@ export function trackPageView(path: string, title?: string) {
   const pageTitle = title || document.title;
   const pageLocation = window.location.href;
 
-  trackEvent("page_view", {
+  trackEvent("view_page", {
+    component_name: "페이지",
+    action_detail: "페이지 조회",
     page_path: path,
     page_title: pageTitle,
     page_location: pageLocation,
+    value_korean: `페이지 조회: ${pageTitle}`,
   });
 }

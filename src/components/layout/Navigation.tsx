@@ -75,6 +75,17 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => {
+                    import("@/lib/analytics").then(({ trackEvent }) => {
+                      trackEvent("click_button", {
+                        component_name: "네비게이션",
+                        action_detail: "메뉴 이동",
+                        item_name: item.label,
+                        value_korean: `메뉴 클릭: ${item.label}`,
+                        link_href: item.href
+                      });
+                    });
+                  }}
                   className="flex flex-col items-center justify-center space-y-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-sm"
                 >
                   <Icon className="h-5 w-5" />
@@ -92,6 +103,16 @@ export function Navigation() {
                 value={locale}
                 onChange={(e) => {
                   const nextLocale = e.target.value;
+                  const langName = languages.find(l => l.code === nextLocale)?.name || nextLocale;
+                  import("@/lib/analytics").then(({ trackEvent }) => {
+                    trackEvent("click_button", {
+                      component_name: "네비게이션",
+                      action_detail: "언어 변경",
+                      item_name: langName,
+                      value_korean: `언어 변경: ${langName}`,
+                      target_locale: nextLocale
+                    });
+                  });
                   document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
                   router.replace(pathname, { locale: nextLocale });
                 }}
@@ -125,7 +146,16 @@ export function Navigation() {
                   <span className="max-w-[180px] truncate">{user.email || user.displayName || "User"}</span>
                 </div>
                 <button
-                  onClick={() => signOutUser()}
+                  onClick={() => {
+                    import("@/lib/analytics").then(({ trackEvent }) => {
+                      trackEvent("click_button", {
+                        component_name: "네비게이션",
+                        action_detail: "로그아웃",
+                        value_korean: "로그아웃 버튼 클릭"
+                      });
+                    });
+                    signOutUser();
+                  }}
                   className="inline-flex items-center rounded-lg border border-white/10 px-3 py-1.5 hover:border-primary/50 transition"
                 >
                   <LogOut className="mr-2 h-4 w-4" />
@@ -134,7 +164,16 @@ export function Navigation() {
               </>
             ) : (
               <button
-                onClick={() => setIsLoginOpen(true)}
+                onClick={() => {
+                  import("@/lib/analytics").then(({ trackEvent }) => {
+                    trackEvent("click_button", {
+                      component_name: "네비게이션",
+                      action_detail: "로그인 모달 열기",
+                      value_korean: "로그인 버튼 클릭"
+                    });
+                  });
+                  setIsLoginOpen(true);
+                }}
                 className="inline-flex items-center rounded-lg border border-primary/50 px-3 py-1.5 text-primary-foreground bg-primary/80 hover:bg-primary transition disabled:opacity-60"
                 disabled={loading}
               >

@@ -20,8 +20,12 @@ export default function DiaryTrialPage() {
   const router = useRouter();
   const { learningLanguage, setLearningLanguage } = useLearningLanguage();
 
-  useEffect(() => {
-    trackEvent("trial_started");
+   useEffect(() => {
+    trackEvent("start_process", {
+      component_name: "체험 모드",
+      action_detail: "체험 시작",
+      value_korean: "체험 모드 페이지 진입"
+    });
     if (typeof window !== "undefined") {
       const isCompleted = localStorage.getItem("loglingo_trial_completed") === "true";
       if (isCompleted) {
@@ -57,7 +61,18 @@ export default function DiaryTrialPage() {
           <select
             className="bg-transparent text-sm font-medium text-orange-100 focus:outline-none cursor-pointer"
             value={learningLanguage}
-            onChange={(e) => setLearningLanguage(e.target.value)}
+            onChange={(e) => {
+              const newLang = e.target.value;
+              const langLabel = getLanguageLabel(newLang);
+              trackEvent("click_button", {
+                component_name: "체험 모드",
+                action_detail: "언어 선택",
+                item_name: langLabel,
+                value_korean: `체험 학습 언어 변경: ${langLabel}`,
+                target_language: newLang
+              });
+              setLearningLanguage(newLang);
+            }}
           >
             {routing.locales.map((code) => (
               <option key={code} value={code} className="bg-slate-800 text-white" suppressHydrationWarning>

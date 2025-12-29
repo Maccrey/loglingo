@@ -143,6 +143,12 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       toast.success(t("saved"));
       setUploadProgress(0);
       
+      trackEvent("complete_process", {
+        component_name: "일기 쓰기",
+        action_detail: "일기 저장",
+        value_korean: "일기 저장 성공"
+      });
+
       if (onSuccess) {
         onSuccess();
       }
@@ -157,6 +163,13 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         setErrors(error.reasons);
         return;
       }
+      const message = error instanceof Error ? error.message : "unknown";
+      trackEvent("fail_process", {
+        component_name: "일기 쓰기",
+        action_detail: "일기 저장 실패",
+        error_message: message,
+        value_korean: `일기 저장 실패: ${message}`
+      });
       toast.error(t("upload_failed"));
     }
   };
@@ -192,7 +205,11 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
     }
     setAiLoading(true);
     setAiResult(null);
-    trackEvent("ai_correct_clicked", { mode: "full" });
+    trackEvent("start_process", {
+      component_name: "일기 쓰기",
+      action_detail: "AI 첨삭 요청",
+      value_korean: "AI 첨삭 실행"
+    });
     try {
       const result = await requestAiCorrection({
         content,
@@ -203,7 +220,11 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         learningLanguage,
       });
       setAiResult(result);
-      trackEvent("ai_correct_success");
+      trackEvent("complete_process", {
+        component_name: "일기 쓰기",
+        action_detail: "AI 첨삭 성공",
+        value_korean: "AI 첨삭 완료"
+      });
 
       // AI 교정 결과 기반 학습 레벨/조언 저장 (실패해도 주요 플로우 영향 없음)
       if (!isTrialMode) {
@@ -221,12 +242,21 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
           localStorage.setItem("loglingo_trial_completed", "true");
         }
         import("@/lib/analytics").then(({ trackEvent }) => {
-          trackEvent("trial_completed");
+          trackEvent("complete_process", {
+            component_name: "체험 모드",
+            action_detail: "체험 완료",
+            value_korean: "체험 모드 AI 첨삭 완료"
+          });
         });
       }
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "unknown";
-      trackEvent("ai_correct_failure", { message });
+      trackEvent("fail_process", {
+        component_name: "일기 쓰기",
+        action_detail: "AI 첨삭 실패",
+        error_message: message,
+        value_korean: `AI 첨삭 실패: ${message}`
+      });
       
       if (message.includes("timed out") || message.includes("504")) {
         toast.error(t("ai_timeout"));

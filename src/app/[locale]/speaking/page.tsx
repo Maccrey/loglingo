@@ -161,7 +161,12 @@ export default function SpeakingPage() {
               <div className="flex bg-secondary/50 p-1 rounded-full border border-border/50">
                   <button 
                       onClick={() => {
-                          trackEvent('speaking_mode_switched', { mode: 'free' });
+                          trackEvent('switch_mode', {
+                            component_name: "말하기 연습",
+                            action_detail: "모드 전환",
+                            item_name: "자유 말하기",
+                            value_korean: "말하기 모드 전환: 자유 말하기"
+                          });
                           setMode('free');
                       }}
                       className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
@@ -170,7 +175,12 @@ export default function SpeakingPage() {
                   </button>
                   <button 
                       onClick={() => {
-                          trackEvent('speaking_mode_switched', { mode: 'challenge' });
+                          trackEvent('switch_mode', {
+                            component_name: "말하기 연습",
+                            action_detail: "모드 전환",
+                            item_name: "도전 모드",
+                            value_korean: "말하기 모드 전환: 도전 모드"
+                          });
                           setMode('challenge');
                       }}
                       className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
@@ -216,7 +226,12 @@ export default function SpeakingPage() {
                           <SpeakingRecorder 
                               language={speechLang} 
                               onTranscriptComplete={(text) => {
-                                  trackEvent('speaking_completed', { language: speechLang });
+                                  trackEvent('complete_process', {
+                                    component_name: "말하기 연습",
+                                    action_detail: "자유 말하기 완료",
+                                    value_korean: "자유 말하기 녹음 완료 및 제출",
+                                    item_id: text.substring(0, 20)
+                                  });
                                   submitForAnalysis(text, learningLanguage, uiLanguageName);
                               }}
                               continuous={true} // Enable continuous multi-sentence recording
@@ -281,7 +296,19 @@ export default function SpeakingPage() {
                       </p>
                       
                       <Button 
-                          onClick={handleStartChallenge} 
+                          onClick={() => {
+                              if (sessionCount >= 3) {
+                                  setShowLimitModal(true);
+                                  return;
+                              }
+                              trackEvent('start_process', {
+                                component_name: "말하기 연습",
+                                action_detail: "도전 모드 시작",
+                                value_korean: "도전 모드 시작",
+                                target_language: learningLanguage
+                              });
+                              fetchNewChallenge(learningLanguage, uiLanguageName);
+                          }} 
                           size="lg" 
                           className="rounded-full px-12 h-12 text-base font-semibold shadow-md shadow-primary/20 hover:shadow-primary/30 hover:scale-105 transition-all"
                       >
@@ -350,7 +377,12 @@ export default function SpeakingPage() {
                               <SpeakingRecorder 
                                   language={speechLang}
                                   onTranscriptComplete={(text) => {
-                                      trackEvent('challenge_completed', { language: speechLang });
+                                      trackEvent('complete_process', {
+                                        component_name: "말하기 연습",
+                                        action_detail: "도전 모드 완료",
+                                        value_korean: "도전 모드 녹음 완료 및 검증",
+                                        item_id: text.substring(0, 20)
+                                      });
                                       verifySpeech(text);
                                   }}
                                   continuous={false} // Use raw mode (manual continuous)
