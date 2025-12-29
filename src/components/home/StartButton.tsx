@@ -39,7 +39,7 @@ export function StartButton() {
     return (
       <div className="flex flex-col items-center gap-3">
         <Link href="/diary/trial">
-          <Button size="lg" className="group bg-orange-500 hover:bg-orange-400 text-white border-0 shadow-lg shadow-orange-500/20 animate-pulse transition-all duration-300">
+          <Button size="lg" className="group bg-orange-500 hover:bg-orange-400 text-white border-0 animate-orange-blink transition-colors">
             {t('try_it_out')}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>

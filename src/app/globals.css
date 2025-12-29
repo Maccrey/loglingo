@@ -53,3 +53,12 @@ body {
   @apply rounded-xl shadow-lg;
 }
 .custom-scrollbar::-webkit-scrollbar { width: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+@keyframes orange-blink {
+  0%, 100% { background-color: #f97316; box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); transform: scale(1); }
+  50% { background-color: #fb923c; box-shadow: 0 0 15px rgba(249, 115, 22, 0.5); transform: scale(1.03); }
+}
+
+.animate-orange-blink {
+  animation: orange-blink 1.2s infinite;
+}
