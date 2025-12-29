@@ -12,6 +12,7 @@ import { routing } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import { trackEvent } from "@/lib/analytics";
+import { TRIAL_SAMPLES, DEFAULT_SAMPLE } from "@/constants/trial-samples";
 
 export default function DiaryTrialPage() {
   const t = useTranslations("trial");
@@ -44,6 +45,16 @@ export default function DiaryTrialPage() {
   }, [locale]);
 
   const getLanguageLabel = (code: string) => languageNames?.of(code) ?? code;
+
+  // Smart default logic: Run once on mount
+  useEffect(() => {
+    // If native (UI) is English -> Default to Korean
+    // If native (UI) is NOT English -> Default to English
+    const smartDefault = locale === "en" ? "ko" : "en";
+    setLearningLanguage(smartDefault);
+  }, [locale, setLearningLanguage]);
+
+  const sampleText = TRIAL_SAMPLES[learningLanguage] || DEFAULT_SAMPLE;
 
   return (
     <div className="mx-auto max-w-3xl space-y-6 py-8">
@@ -85,6 +96,7 @@ export default function DiaryTrialPage() {
 
       <DiaryForm
         isTrialMode={true}
+        sampleText={sampleText}
         onSubmit={async (payload) => {
           return Promise.resolve();
         }}

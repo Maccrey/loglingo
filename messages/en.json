@@ -3,7 +3,9 @@
     "signup_prompt": "Sign up to create your own archive.",
     "signup_button": "Sign up and Login",
     "banner_title": "Trial Mode",
-    "banner_desc": "Data is not saved in trial mode."
+    "banner_desc": "Data is not saved in trial mode.",
+    "sample_guide": "See how AI corrects this sentence below",
+    "sample_hint": "Click text to write your own."
   },
   "common": {
     "save": "Save",

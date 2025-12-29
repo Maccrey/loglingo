@@ -41,13 +41,14 @@ type DiaryFormProps = {
   isSubmitting?: boolean;
   onSuccess?: () => void;
   isTrialMode?: boolean;
+  sampleText?: string;
 };
 
 function today() {
   return new Date().toISOString().split("T")[0];
 }
 
-export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess, isTrialMode = false }: DiaryFormProps) {
+export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess, isTrialMode = false, sampleText }: DiaryFormProps) {
   const t = useTranslations("write");
   const tTrial = useTranslations("trial");
   const tDiary = useTranslations("diary");
@@ -64,7 +65,11 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   };
 
   const [date, setDate] = useState(initial?.date ?? today());
-  const [content, setContent] = useState(initial?.content ?? "");
+  // In Trial Mode, start with sampleText if provided
+  const [content, setContent] = useState(initial?.content ?? (isTrialMode && sampleText ? sampleText : ""));
+  // Track if we are currently showing the sample text
+  const [isSampleMode, setIsSampleMode] = useState(isTrialMode && !initial?.content && !!sampleText);
+  
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | undefined>(initial?.imageUrl);
   const [removeImage, setRemoveImage] = useState(false);
@@ -77,6 +82,13 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const [pendingArchives, setPendingArchives] = useState<LearningArchiveDraft[]>([]);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
 
+  // Update content when sampleText changes IF we are still in sample mode
+  useEffect(() => {
+    if (isTrialMode && isSampleMode && sampleText) {
+      setContent(sampleText);
+    }
+  }, [sampleText, isTrialMode, isSampleMode]);
+
   useEffect(() => {
     if (initial) {
       setDate(initial.date);
@@ -84,6 +96,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       setImagePreview(initial.imageUrl);
       setRemoveImage(false);
       setImageFile(null);
+      setIsSampleMode(false);
     }
   }, [initial]);
 
@@ -412,16 +425,33 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
               <label htmlFor="content" className="text-sm font-medium text-muted-foreground">
                 {t("content_label")}
               </label>
-              <textarea
-                id="content"
-                className="min-h-[300px] w-full rounded-lg border border-white/10 bg-white/5 p-4 text-base text-foreground placeholder:text-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary backdrop-blur-sm resize-none"
-                placeholder={t("placeholder")}
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                required
-              />
+              <div className="relative">
+                <textarea
+                  id="content"
+                  className={`min-h-[300px] w-full rounded-lg border bg-white/5 p-4 text-base text-foreground placeholder:text-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary backdrop-blur-sm resize-none transition-colors
+                    ${isSampleMode ? 'border-primary/50 text-white/90 italic' : 'border-white/10'}`}
+                  placeholder={t("placeholder")}
+                  value={content}
+                  onChange={(e) => {
+                    setContent(e.target.value);
+                    if (isSampleMode) setIsSampleMode(false);
+                  }}
+                  onFocus={() => {
+                    if (isSampleMode) {
+                      setContent("");
+                      setIsSampleMode(false);
+                    }
+                  }}
+                  required
+                />
+                {isSampleMode && (
+                  <div className="absolute top-2 right-2 rounded-full bg-primary/20 px-3 py-1 text-xs text-primary animate-pulse pointer-events-none">
+                    {tTrial("sample_guide" as any)}
+                  </div>
+                )}
+              </div>
               <p className="text-xs text-muted-foreground">
-                {t("upload_hint")}
+                {isSampleMode ? tTrial("sample_hint" as any) : t("upload_hint")}
               </p>
             </div>
 
