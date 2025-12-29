@@ -42,7 +42,25 @@ export default function DiaryTrialPage() {
 
     // Redirect if already logged in
     if (!loading && user) {
-       toast.info(t("already_logged_in"));
+       // If the user just logged in (wasn't redirected immediately), imply success.
+       // We can just redirect silently or with a success message if needed, 
+       // but definitely avoid "Already logged in" if they just signed up.
+       // However, identifying "just signed up" vs "arrived logged in" needs state tracking.
+       // Simple heuristic: If we are here, we are redirecting. 
+       // If trial is completed recently, maybe show nothing or different toast?
+       
+       // Actually, the simplest fix for the user request "Make it go to main page" 
+       // is to KEEP the redirect, but Change/Remove the toast if it matches the "just logged in" scenario.
+       
+       // Let's assume if they are on this page and logged in, we always kick them to home.
+       // The "Already logged in" toast is helpful if they wandered here by mistake.
+       // If they just clicked "Sign up" -> Login -> Redirect, the toast is annoying.
+       
+       // Let's check if they just finished trial
+       const justFinished = typeof window !== "undefined" && localStorage.getItem("loglingo_trial_completed") === "true";
+       if (!justFinished) {
+          toast.info(t("already_logged_in"));
+       }
        router.replace("/"); 
     }
   }, [router, t, user, loading]);
