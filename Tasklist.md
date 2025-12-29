@@ -312,4 +312,5 @@
     - [x] Replaced Speaking Practice emoji (🎙️) with Lucide `Mic` icon on Home Page
 - [x] **3. Deployment**
     - [x] Deployed updates to Firebase Hosting
+    - [x] Added customized trial sample texts for Bengali (bn), Urdu (ur), and Nepali (ne)
 
