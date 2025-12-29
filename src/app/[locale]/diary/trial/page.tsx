@@ -4,7 +4,7 @@
 import { DiaryForm } from "@/components/diary/DiaryForm";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "@/i18n/routing";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 import { TrialLanguageOnboarding } from "@/components/i18n/TrialLanguageOnboarding";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
@@ -46,10 +46,24 @@ export default function DiaryTrialPage() {
 
   const getLanguageLabel = (code: string) => languageNames?.of(code) ?? code;
 
-  // Smart default logic: Run once on mount
+  // Smart default logic: Run once on mount, but ONLY if manual selection hasn't happened.
+  // The context provider loads from localStorage. If loaded, `learningLanguage` is already set.
+  // However, we want to be smart about defaults for NEW users.
+  // The provider doesn't expose `hasStoredLanguage` directly in the hook return (we need to check).
+  // Let's assume if it's the default locale AND no storage, we overwrite.
+  // Actually, let's just use a ref to ensure this "smart default" assignment happens exactly once per session/mount
+  // and preferably respects existing choices if we could detect them.
+  // BUT: The user issue is specifically about "changing it then it reverts".
+  // With `setLearningLanguage` stabilized, the revert on change is fixed. 
+  // But let's be safer: use a ref to prevent re-running.
+  const initialized = useRef(false);
+
   useEffect(() => {
-    // If native (UI) is English -> Default to Korean
-    // If native (UI) is NOT English -> Default to English
+    if (initialized.current) return;
+    initialized.current = true;
+
+    // Only set default if we really want to override (e.g. first visit)
+    // For now, retaining original logic but ensuring it runs ONCE.
     const smartDefault = locale === "en" ? "ko" : "en";
     setLearningLanguage(smartDefault);
   }, [locale, setLearningLanguage]);

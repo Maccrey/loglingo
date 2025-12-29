@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
 import { routing } from "@/i18n/routing";
 
 type LearningLanguageContextValue = {
@@ -41,11 +41,11 @@ export function LearningLanguageProvider({ children }: { children: React.ReactNo
     }
   }, []);
 
-  const setLearningLanguage = (lang: string) => {
+  const setLearningLanguage = useCallback((lang: string) => {
     setLearningLanguageState(lang);
     setHasStoredLanguage(true);
     persistLanguage(lang);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({
