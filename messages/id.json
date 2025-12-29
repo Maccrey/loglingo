@@ -5,7 +5,8 @@
     "banner_title": "Mode Percobaan",
     "banner_desc": "Data tidak disimpan dalam mode percobaan.",
     "sample_guide": "Lihat bagaimana AI mengoreksi kalimat ini",
-    "sample_hint": "Klik teks untuk menulis sendiri"
+    "sample_hint": "Klik teks untuk menulis sendiri",
+    "already_logged_in": "Anda sudah masuk. Melanjutkan ke buku harian."
   },
   "common": {
     "save": "Simpan",

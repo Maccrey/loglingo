@@ -5,7 +5,8 @@
     "banner_title": "Modo de prueba",
     "banner_desc": "Los datos no se guardan en el modo de prueba.",
     "sample_guide": "Mira cómo la IA corrige esta frase",
-    "sample_hint": "Haz clic en el texto para escribir la tuya"
+    "sample_hint": "Haz clic en el texto para escribir la tuya",
+    "already_logged_in": "Ya has iniciado sesión. Ir al diario."
   },
   "common": {
     "save": "Guardar",

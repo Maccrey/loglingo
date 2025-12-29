@@ -5,7 +5,8 @@
     "banner_title": "体験モード",
     "banner_desc": "体験モードではデータは保存されません。",
     "sample_guide": "AIがこの文章をどう修正するか見てみましょう",
-    "sample_hint": "テキストをクリックして自分で入力できます"
+    "sample_hint": "テキストをクリックして自分で入力できます",
+    "already_logged_in": "すでにログインしています。日記に移動します。"
   },
   "common": {
     "save": "保存",
@@ -302,8 +303,8 @@
     "copy_prompt": "プロンプトをコピー",
     "close_come_back": "閉じる（また明日！）",
     "view_ai_prompt": "AIプロンプトを確認",
-      "prompt_placeholder": "コピーをクリックして、パーソナライズされたプロンプトを生成します...",
-      "generating": "生成中...",
+    "prompt_placeholder": "コピーをクリックして、パーソナライズされたプロンプトを生成します...",
+    "generating": "生成中...",
     "oops": "おっと！",
     "back_free": "フリースピーキングに戻る",
     "target_sentence": "目標文章",

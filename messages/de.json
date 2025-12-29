@@ -5,7 +5,8 @@
     "banner_title": "Testmodus",
     "banner_desc": "Daten werden im Testmodus nicht gespeichert.",
     "sample_guide": "Sehen Sie, wie die KI diesen Satz korrigiert",
-    "sample_hint": "Klicken Sie auf den Text, um selbst zu schreiben"
+    "sample_hint": "Klicken Sie auf den Text, um selbst zu schreiben",
+    "already_logged_in": "Sie sind bereits eingeloggt. Weiter zum Tagebuch."
   },
   "common": {
     "save": "Speichern",

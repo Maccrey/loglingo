@@ -5,7 +5,8 @@
     "banner_title": "Chế độ Thử nghiệm",
     "banner_desc": "Dữ liệu không được lưu trong chế độ thử nghiệm.",
     "sample_guide": "Xem AI sửa câu này như thế nào",
-    "sample_hint": "Nhấp vào văn bản để viết riêng"
+    "sample_hint": "Nhấp vào văn bản để viết riêng",
+    "already_logged_in": "Bạn đã đăng nhập. Đang chuyển đến nhật ký."
   },
   "common": {
     "save": "Lưu",
@@ -330,4 +331,3 @@
     "generating": "Đang tạo..."
   }
 }
-
