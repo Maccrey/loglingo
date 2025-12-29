@@ -99,6 +99,25 @@ export default function DiaryTrialPage() {
 
   const sampleText = TRIAL_SAMPLES[learningLanguage] || DEFAULT_SAMPLE;
 
+  // Guard against rendering if loading, logged in, or redirecting
+  if (loading || user) {
+     return (
+       <div className="flex min-h-[50vh] items-center justify-center">
+         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+       </div>
+     );
+  }
+
+  // Also verify localStorage on client side before showing anything
+  // (though useEffect handles redirect, avoid flash)
+  if (typeof window !== "undefined" && localStorage.getItem("loglingo_trial_completed") === "true") {
+      return (
+         <div className="flex min-h-[50vh] items-center justify-center">
+           <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+         </div>
+       );
+  }
+
   return (
     <div className="mx-auto max-w-3xl space-y-6 py-8">
       {/* Trial Banner */}
