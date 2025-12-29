@@ -74,7 +74,8 @@
     "title": "AI Günlük ile Dilleri Öğrenin",
     "subtitle": "Grok 4.1 ile günlük hayatınızı kaydedin ve hassas yapay zeka düzeltmeleriyle kişisel öğrenme arşivinizi tamamlayın.",
     "start": "Yazmaya Başla",
-    "try_it_out": "Deneyin",
+    "try_it_out": "Dene",
+    "trial_hint": "✨ Giriş yapmaya gerek yok",
     "features": {
       "write": "Her Gün Yaz",
       "write_desc": "Hedef dilinizde fotoğraflarla bir günlük tutun.",

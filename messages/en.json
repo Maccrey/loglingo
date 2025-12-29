@@ -73,6 +73,7 @@
     "subtitle": "Record your daily life with Grok 4.1 and build your personal learning archive with precise AI corrections.",
     "start": "Start Writing",
     "try_it_out": "Try it out",
+    "trial_hint": "✨ No login required",
     "features": {
       "write": "Write Daily",
       "write_desc": "Keep a diary in your target language with photos.",

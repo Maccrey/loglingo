@@ -74,7 +74,8 @@
     "title": "用 AI 日记掌握语言",
     "subtitle": "与Grok 4.1一起记录日常生活，通过精准的AI校正完善您的专属学习档案。",
     "start": "开始写日记",
-    "try_it_out": "试一试",
+    "try_it_out": "试用一下",
+    "trial_hint": "✨ 试用无需登录",
     "features": {
       "write": "每日写作",
       "write_desc": "用目标语言和照片记录日记。",
