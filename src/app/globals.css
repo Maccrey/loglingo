@@ -55,8 +55,8 @@ body {
 .custom-scrollbar::-webkit-scrollbar { width: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
 
 @keyframes orange-blink {
-  0%, 100% { background-color: #f97316; box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); transform: scale(1); }
-  50% { background-color: #fb923c; box-shadow: 0 0 15px rgba(249, 115, 22, 0.5); transform: scale(1.03); }
+  0%, 100% { filter: brightness(1); transform: scale(1); box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3); }
+  50% { filter: brightness(1.2); transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.5); }
 }
 
 .animate-orange-blink {
