@@ -84,19 +84,23 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const [showSaveDialog, setShowSaveDialog] = useState(false);
 
   // When sampleText changes (e.g. language switch), update content if:
-  // 1. We are already in sample mode
+  // 1. We are already in sample mode (user hasn't typed anything custom)
   // 2. OR the current content is empty/whitespace
-  // 3. OR the current content matches ANY known sample (e.g. user selected EN, clicked text [mode=false], then switched to KO)
+  // 3. OR the current content is a known sample (user hasn't customized it)
   useEffect(() => {
     if (isTrialMode && sampleText) {
       const isKnownSample = Object.values(TRIAL_SAMPLES).includes(content);
       
+      // If we are in sample mode, unconditionally update to the new language sample
+      // This ensures that even if isKnownSample fails (due to whitespace/encoding),
+      // the user still sees the correct language as long as they haven't "broken out" of sample mode.
       if (isSampleMode || !content.trim() || isKnownSample) {
          setContent(sampleText);
          setIsSampleMode(true);
       }
     }
-  }, [sampleText, isTrialMode]); // Intentionally omitting content/isSampleMode to avoid loops, relying on ref/current value or acceptable staleness
+  }, [sampleText, isTrialMode, isSampleMode]); // Added isSampleMode to deps to be safe, though usually stable
+
 
 
   useEffect(() => {
