@@ -25,11 +25,14 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
+  // Arabic (ar) and Urdu (ur) are RTL languages
+  const isRtl = ['ar', 'ur'].includes(locale);
+
   return (
     <NextIntlClientProvider messages={messages}>
       <Providers>
         <Navigation />
-        <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto">
+        <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto" dir={isRtl ? 'rtl' : 'ltr'}>
           {children}
         </main>
         <DictionaryFAB />
