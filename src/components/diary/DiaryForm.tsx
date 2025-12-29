@@ -33,6 +33,7 @@ import { auth } from "@/lib/firebase";
 import { persistInsightsFromCorrection } from "@/application/learning-profile/service";
 
 import { LearningArchiveDraft } from "@/domain/archive";
+import { TRIAL_SAMPLES } from "@/constants/trial-samples";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -85,15 +86,17 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   // When sampleText changes (e.g. language switch), update content if:
   // 1. We are already in sample mode
   // 2. OR the current content is empty/whitespace
-  // 3. OR the current content matches the OLD sample (handled by checking if it matches *any* known sample, or just simplify to empty check)
+  // 3. OR the current content matches ANY known sample (e.g. user selected EN, clicked text [mode=false], then switched to KO)
   useEffect(() => {
     if (isTrialMode && sampleText) {
-      if (isSampleMode || !content.trim()) {
+      const isKnownSample = Object.values(TRIAL_SAMPLES).includes(content);
+      
+      if (isSampleMode || !content.trim() || isKnownSample) {
          setContent(sampleText);
          setIsSampleMode(true);
       }
     }
-  }, [sampleText, isTrialMode]); // Removed isSampleMode dependencies to allow re-entry
+  }, [sampleText, isTrialMode]); // Intentionally omitting content/isSampleMode to avoid loops, relying on ref/current value or acceptable staleness
 
 
   useEffect(() => {
