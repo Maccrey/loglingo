@@ -84,8 +84,8 @@
       "correct_desc": "احصل على تعليقات فورية حول القواعد والتعبيرات الطبيعية.",
       "learn": "الأرشيف الشخصي",
       "learn_desc": "راجع أخطاءك وتعلم من الاختبارات المخصصة.",
-      "speaking": "Speaking Practice",
-      "speaking_desc": "Practice pronunciation and conversation with AI."
+      "speaking": "ممارسة التحدث",
+      "speaking_desc": "مارس النطق والمحادثة مع الذكاء الاصطناعي."
     }
   },
   "diary": {
@@ -328,6 +328,11 @@
     "close_come_back": "إغلاق والعودة غداً",
     "view_ai_prompt": "عرض موجه الذكاء الاصطناعي",
     "prompt_placeholder": "انقر فوق نسخ لإنشاء الموجه المخصص الخاص بك...",
-    "generating": "جاري الإنشاء..."
+    "generating": "جاري الإنشاء...",
+    "chart_excellent": "ممتاز!",
+    "chart_good_try": "محاولة جيدة!",
+    "browser_not_supported": "المتصفح لا يدعم التعرف على الصوت. يرجى استخدام Chrome أو Safari.",
+    "generating_topic": "جاري إنشاء الموضوع...",
+    "default_tip": "تحدث بوضوح وثقة."
   }
 }

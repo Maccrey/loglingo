@@ -328,6 +328,11 @@
     "close_come_back": "Đóng & Quay lại ngày mai",
     "view_ai_prompt": "Xem lời nhắc thực hành AI",
     "prompt_placeholder": "Nhấp vào sao chép để tạo lời nhắc cá nhân hóa của bạn...",
-    "generating": "Đang tạo..."
+    "generating": "Đang tạo...",
+    "chart_excellent": "Xuất sắc!",
+    "chart_good_try": "Cố gắng tốt!",
+    "browser_not_supported": "Trình duyệt không hỗ trợ Nhận dạng giọng nói. Vui lòng sử dụng Chrome hoặc Safari.",
+    "generating_topic": "Đang tạo chủ đề...",
+    "default_tip": "Hãy nói rõ ràng và tự tin."
   }
 }

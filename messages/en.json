@@ -326,6 +326,11 @@
     "close_come_back": "Close & Come Back Tomorrow",
     "view_ai_prompt": "View AI Practice Prompt",
     "prompt_placeholder": "Click copy to generate your personalized prompt...",
-    "generating": "Generating..."
+    "generating": "Generating...",
+    "chart_excellent": "Excellent!",
+    "chart_good_try": "Good Try!",
+    "browser_not_supported": "Browser does not support Speech Recognition. Please use Chrome or Safari.",
+    "generating_topic": "Generating topic...",
+    "default_tip": "Speak clearly and confidently."
   }
 }

@@ -84,8 +84,8 @@
       "correct_desc": "व्याकरण और प्राकृतिक अभिव्यक्तियों पर तुरंत प्रतिक्रिया प्राप्त करें।",
       "learn": "व्यक्तिगत संग्रह",
       "learn_desc": "अपनी गलतियों की समीक्षा करें और व्यक्तिगत क्विज़ से सीखें।",
-      "speaking": "Speaking Practice",
-      "speaking_desc": "Practice pronunciation and conversation with AI."
+      "speaking": "बोलने का अभ्यास",
+      "speaking_desc": "AI के साथ उच्चारण और बातचीत का अभ्यास करें।"
     }
   },
   "diary": {
@@ -328,6 +328,11 @@
     "close_come_back": "बंद करें और कल वापस आएं",
     "view_ai_prompt": "AI प्रॉम्प्ट देखें",
     "prompt_placeholder": "अपना व्यक्तिगत प्रॉम्प्ट बनाने के लिए कॉपी पर क्लिक करें...",
-    "generating": "उत्पन्न हो रहा है..."
+    "generating": "उत्पन्न हो रहा है...",
+    "chart_excellent": "उत्कृष्ट!",
+    "chart_good_try": "अच्छा प्रयास!",
+    "browser_not_supported": "브раउज़र वाक् पहचान का समर्थन नहीं करता है। कृपया क्रोम या सफारी का उपयोग करें।",
+    "generating_topic": "विषय उत्पन्न हो रहा है...",
+    "default_tip": "स्पष्ट और आत्मविश्वास से बोलें।"
   }
 }

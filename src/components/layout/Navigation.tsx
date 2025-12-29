@@ -10,7 +10,7 @@ import { LoginModal } from "@/components/auth/LoginModal";
 import { SignupModal } from "@/components/auth/SignupModal";
 import { PasswordResetModal } from "@/components/auth/PasswordResetModal";
 
-// Language options for UI (15 languages including Russian)
+// Language options for UI (18 languages including Bengali, Urdu, Nepali)
 
 const languages = [
   { code: "en", name: "English" },

@@ -328,6 +328,11 @@
     "close_come_back": "Fermer & Revenir demain",
     "view_ai_prompt": "Voir l'invite de pratique IA",
     "prompt_placeholder": "Cliquez sur copier pour générer votre invite personnalisée...",
-    "generating": "Génération..."
+    "generating": "Génération...",
+    "chart_excellent": "Excellent !",
+    "chart_good_try": "Bien essayé !",
+    "browser_not_supported": "Le navigateur ne prend pas en charge la reconnaissance vocale. Veuillez utiliser Chrome ou Safari.",
+    "generating_topic": "Génération du sujet...",
+    "default_tip": "Parlez clairement et avec assurance."
   }
 }

@@ -328,6 +328,11 @@
     "result_better_expression": "Mejor expresión",
     "result_grammar_points": "Puntos de gramática",
     "result_root_meaning": "Significado y matiz",
-    "result_try_another": "Prueba otra frase"
+    "result_try_another": "Prueba otra frase",
+    "chart_excellent": "¡Excelente!",
+    "chart_good_try": "¡Buen intento!",
+    "browser_not_supported": "El navegador no soporta reconocimiento de voz. Por favor usa Chrome o Safari.",
+    "generating_topic": "Generando tema...",
+    "default_tip": "Habla clara y confiadamente."
   }
 }

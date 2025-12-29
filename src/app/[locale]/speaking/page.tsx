@@ -75,9 +75,9 @@ export default function SpeakingPage() {
   // Get UI Language Name for AI Explanations
   const uiLanguageName = React.useMemo(() => {
     try {
-        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || 'English';
+        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || t('localeName');
     } catch {
-        return 'English';
+        return t('localeName');
     }
   }, [locale]);
 
@@ -208,7 +208,7 @@ export default function SpeakingPage() {
                                       {t('ai_prompt_label', { defaultMessage: "Topic Suggestion" })}
                                   </div>
                                   <div className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
-                                      {prompt ? prompt.text : <span className="animate-pulse text-muted-foreground">Generating topic...</span>}
+                                      {prompt ? prompt.text : <span className="animate-pulse text-muted-foreground">{t('generating_topic')}</span>}
                                   </div>
                                   {prompt && (
                                      <div className="text-muted-foreground text-sm mt-2">
@@ -366,7 +366,7 @@ export default function SpeakingPage() {
                                       </div>
                                       <div className="bg-black/20 p-3 rounded-lg">
                                           <span className="text-xs text-indigo-400 block mb-1">{t('tip')}</span>
-                                          <span className="text-sm text-indigo-200/80">{challengeData.pronunciationTips || "Speak clearly and confidently."}</span>
+                                          <span className="text-sm text-indigo-200/80">{challengeData.pronunciationTips || t('default_tip')}</span>
                                       </div>
                                   </div>
                               </div>

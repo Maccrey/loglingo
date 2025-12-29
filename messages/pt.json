@@ -328,6 +328,11 @@
     "close_come_back": "Fechar e Voltar Amanhã",
     "view_ai_prompt": "Ver Prompt de Prática de IA",
     "prompt_placeholder": "Clique em copiar para gerar seu prompt personalizado...",
-    "generating": "Gerando..."
+    "generating": "Gerando...",
+    "chart_excellent": "Excelente!",
+    "chart_good_try": "Bom esforço!",
+    "browser_not_supported": "O navegador não suporta reconhecimento de voz. Por favor, use Chrome ou Safari.",
+    "generating_topic": "Gerando tópico...",
+    "default_tip": "Fale de forma clara e confiante."
   }
 }

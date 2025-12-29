@@ -328,6 +328,11 @@
     "close_come_back": "Kapat ve Yarın Tekrar Gel",
     "view_ai_prompt": "Yapay Zeka Alıştırma İstemi'ni Görüntüle",
     "prompt_placeholder": "Kişiselleştirilmiş isteminizi oluşturmak için kopyalay'a tıklayın...",
-    "generating": "Oluşturuluyor..."
+    "generating": "Oluşturuluyor...",
+    "chart_excellent": "Mükemmel!",
+    "chart_good_try": "İyi Deneme!",
+    "browser_not_supported": "Tarayıcı Ses Tanıma özelliğini desteklemiyor. Lütfen Chrome veya Safari kullanın.",
+    "generating_topic": "Konu oluşturuluyor...",
+    "default_tip": "Açık ve kendinden emin konuşun."
   }
 }

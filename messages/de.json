@@ -328,6 +328,11 @@
     "close_come_back": "Schließen & Morgen wiederkommen",
     "view_ai_prompt": "KI-Übungsaufforderung anzeigen",
     "prompt_placeholder": "Klicken Sie auf Kopieren, um Ihre personalisierte Aufforderung zu erstellen...",
-    "generating": "Generieren..."
+    "generating": "Generieren...",
+    "chart_excellent": "Ausgezeichnet!",
+    "chart_good_try": "Guter Versuch!",
+    "browser_not_supported": "Der Browser unterstützt keine Spracherkennung. Bitte verwenden Sie Chrome oder Safari.",
+    "generating_topic": "Thema wird generiert...",
+    "default_tip": "Sprechen Sie klar und selbstbewusst."
   }
 }

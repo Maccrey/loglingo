@@ -62,7 +62,7 @@ export function SpeakingRecorder({ language, onTranscriptComplete, continuous = 
   if (notSupported) {
     return (
         <Card className="p-6 text-center text-muted-foreground">
-            Browser does not support Speech Recognition. Please use Chrome or Safari.
+            {t('browser_not_supported')}
         </Card>
     );
   }

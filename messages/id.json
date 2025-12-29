@@ -84,8 +84,8 @@
       "correct_desc": "Dapatkan umpan balik instan tentang tata bahasa dan ekspresi alami.",
       "learn": "Arsip Pribadi",
       "learn_desc": "Tinjau kesalahan Anda dan pelajari dari kuis yang dipersonalisasi.",
-      "speaking": "Speaking Practice",
-      "speaking_desc": "Practice pronunciation and conversation with AI."
+      "speaking": "Latihan Berbicara",
+      "speaking_desc": "Latih pengucapan dan percakapan dengan AI."
     }
   },
   "diary": {
@@ -328,6 +328,11 @@
     "close_come_back": "Tutup & Kembali Besok",
     "view_ai_prompt": "Lihat Perintah Latihan AI",
     "prompt_placeholder": "Klik salin untuk membuat perintah yang dipersonalisasi...",
-    "generating": "Membuat..."
+    "generating": "Membuat...",
+    "chart_excellent": "Luar Biasa!",
+    "chart_good_try": "Usaha yang Bagus!",
+    "browser_not_supported": "Browser tidak mendukung Pengenalan Suara. Silakan gunakan Chrome atau Safari.",
+    "generating_topic": "Membuat topik...",
+    "default_tip": "Bicaralah dengan jelas dan percaya diri."
   }
 }

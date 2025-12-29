@@ -328,6 +328,11 @@
     "close_come_back": "关闭，明天再来",
     "view_ai_prompt": "查看 AI 练习提示",
     "prompt_placeholder": "点击复制以生成您的个性化提示...",
-    "generating": "正在生成..."
+    "generating": "正在生成...",
+    "chart_excellent": "太棒了！",
+    "chart_good_try": "再接再厉！",
+    "browser_not_supported": "您的浏览器不支持语音识别。请使用Chrome或Safari。",
+    "generating_topic": "正在生成主题...",
+    "default_tip": "请清晰、自信地说话。"
   }
 }

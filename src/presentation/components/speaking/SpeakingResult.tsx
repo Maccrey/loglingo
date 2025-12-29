@@ -66,7 +66,7 @@ export function SpeakingResult({ feedback, onRetry, className }: SpeakingResultP
           </div>
           <div className="flex-1">
               <h3 className="text-lg font-semibold mb-1">
-                  {(feedback.accuracyScore || 0) > 80 ? 'Excellent!' : 'Good Try!'}
+                  {(feedback.accuracyScore || 0) > 80 ? t('chart_excellent') : t('chart_good_try')}
               </h3>
               <p className="text-sm text-muted-foreground">
                   {feedback.advice || t('result_desc_retry')}

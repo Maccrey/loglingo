@@ -326,6 +326,11 @@
     "close_come_back": "닫기 (내일 또 만나요!)",
     "view_ai_prompt": "AI 프롬프트 확인",
     "prompt_placeholder": "복사 버튼을 누르면 맞춤형 프롬프트가 생성됩니다...",
-    "generating": "생성 중..."
+    "generating": "생성 중...",
+    "chart_excellent": "훌륭해요!",
+    "chart_good_try": "좋은 시도예요!",
+    "browser_not_supported": "브라우저가 음성 인식을 지원하지 않습니다. Chrome이나 Safari를 사용해주세요.",
+    "generating_topic": "주제 생성 중...",
+    "default_tip": "크고 자신감 있게 말해보세요."
   }
 }

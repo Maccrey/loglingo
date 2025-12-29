@@ -84,8 +84,8 @@
       "correct_desc": "รับคำติชมทันทีเกี่ยวกับไวยากรณ์และการแสดงออกที่เป็นธรรมชาติ",
       "learn": "คลังส่วนตัว",
       "learn_desc": "ทบทวนข้อผิดพลาดและเรียนรู้จากแบบทดสอบส่วนตัว",
-      "speaking": "Speaking Practice",
-      "speaking_desc": "Practice pronunciation and conversation with AI."
+      "speaking": "ฝึกพูด",
+      "speaking_desc": "ฝึกการออกเสียงและบทสนทนากับ AI"
     }
   },
   "diary": {
@@ -328,6 +328,11 @@
     "close_come_back": "ปิดและกลับมาใหม่พรุ่งนี้",
     "view_ai_prompt": "ดูคำสั่งฝึก AI",
     "prompt_placeholder": "คลิกคัดลอกเพื่อสร้างคำสั่งส่วนตัวของคุณ...",
-    "generating": "กำลังสร้าง..."
+    "generating": "กำลังสร้าง...",
+    "chart_excellent": "ยอดเยี่ยม!",
+    "chart_good_try": "พยายามได้ดี!",
+    "browser_not_supported": "เบราว์เซอร์ไม่รองรับการจดจำเสียง โปรดใช้ Chrome หรือ Safari",
+    "generating_topic": "กำลังสร้างหัวข้อ...",
+    "default_tip": "พูดอย่างชัดเจนและมั่นใจ"
   }
 }

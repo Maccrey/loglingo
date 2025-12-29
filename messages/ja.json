@@ -328,6 +328,11 @@
     "result_better_expression": "より良い表現",
     "result_grammar_points": "文法ポイント",
     "result_root_meaning": "語源とニュアンス",
-    "result_try_another": "別の文章を練習"
+    "result_try_another": "別の文章を練習",
+    "chart_excellent": "素晴らしい！",
+    "chart_good_try": "惜しい！",
+    "browser_not_supported": "お使いのブラウザは音声認識をサポートしていません。ChromeまたはSafariを使用してください。",
+    "generating_topic": "トピック生成中...",
+    "default_tip": "はっきりと自信を持って話してください。"
   }
 }
