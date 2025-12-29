@@ -28,6 +28,9 @@ const languages = [
   { code: "ar", name: "العربية" },
   { code: "hi", name: "हिन्दी" },
   { code: "ru", name: "Русский" },
+  { code: "bn", name: "বাংলা" },
+  { code: "ur", name: "اردو" },
+  { code: "ne", name: "नेपाली" },
 ];
 
 export function Navigation() {
