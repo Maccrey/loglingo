@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 import { TrialLanguageOnboarding } from "@/components/i18n/TrialLanguageOnboarding";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
+import { useAuth } from "@/application/auth/AuthProvider";
 import { routing } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
@@ -20,6 +21,7 @@ export default function DiaryTrialPage() {
   const locale = useLocale();
   const router = useRouter();
   const { learningLanguage, setLearningLanguage } = useLearningLanguage();
+  const { user, loading } = useAuth(); // Add auth check
 
    useEffect(() => {
     trackEvent("start_process", {
@@ -27,14 +29,22 @@ export default function DiaryTrialPage() {
       action_detail: "체험 시작",
       value_korean: "체험 모드 페이지 진입"
     });
+    
+    // Redirect if trial is completed
     if (typeof window !== "undefined") {
       const isCompleted = localStorage.getItem("loglingo_trial_completed") === "true";
       if (isCompleted) {
-        toast.info(t("signup_prompt")); // "회원가입하여..." 메시지 표시
-        router.replace("/"); // 홈으로 이동
+        toast.info(t("signup_prompt"));
+        router.replace("/");
+        return;
       }
     }
-  }, [router, t]);
+
+    // Redirect if already logged in
+    if (!loading && user) {
+       router.replace("/"); 
+    }
+  }, [router, t, user, loading]);
 
   const languageNames = useMemo(() => {
     try {
