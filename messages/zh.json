@@ -2,8 +2,10 @@
   "trial": {
     "signup_prompt": "注册以建立您的个人档案。",
     "signup_button": "注册并登录",
-    "banner_title": "试用模式",
-    "banner_desc": "试用模式下数据不会保存。"
+    "banner_title": "体验模式",
+    "banner_desc": "体验模式下不会保存数据。",
+    "sample_guide": "看看AI如何修正下面的句子",
+    "sample_hint": "点击文本自行输入"
   },
   "common": {
     "save": "保存",

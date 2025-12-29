@@ -3,7 +3,9 @@
     "signup_prompt": "Regístrate para crear tu propio archivo.",
     "signup_button": "Registrarse e iniciar sesión",
     "banner_title": "Modo de prueba",
-    "banner_desc": "Los datos no se guardan en el modo de prueba."
+    "banner_desc": "Los datos no se guardan en el modo de prueba.",
+    "sample_guide": "Mira cómo la IA corrige esta frase",
+    "sample_hint": "Haz clic en el texto para escribir la tuya"
   },
   "common": {
     "save": "Guardar",

@@ -3,7 +3,9 @@
     "signup_prompt": "会員登録して、あなただけのアーカイブを作りましょう。",
     "signup_button": "会員登録してログイン",
     "banner_title": "体験モード",
-    "banner_desc": "体験モードではデータは保存されません。"
+    "banner_desc": "体験モードではデータは保存されません。",
+    "sample_guide": "AIがこの文章をどう修正するか見てみましょう",
+    "sample_hint": "テキストをクリックして自分で入力できます"
   },
   "common": {
     "save": "保存",

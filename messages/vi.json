@@ -2,8 +2,10 @@
   "trial": {
     "signup_prompt": "Đăng ký để tạo kho lưu trữ cá nhân của bạn.",
     "signup_button": "Đăng ký và Đăng nhập",
-    "banner_title": "Chế độ trải nghiệm",
-    "banner_desc": "Dữ liệu không được lưu trong chế độ trải nghiệm."
+    "banner_title": "Chế độ Thử nghiệm",
+    "banner_desc": "Dữ liệu không được lưu trong chế độ thử nghiệm.",
+    "sample_guide": "Xem AI sửa câu này như thế nào",
+    "sample_hint": "Nhấp vào văn bản để viết riêng"
   },
   "common": {
     "save": "Lưu",

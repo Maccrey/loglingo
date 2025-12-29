@@ -3,7 +3,9 @@
     "signup_prompt": "Inscrivez-vous pour créer votre propre archive.",
     "signup_button": "S'inscrire et se connecter",
     "banner_title": "Mode d'essai",
-    "banner_desc": "Les données ne sont pas enregistrées en mode d'essai."
+    "banner_desc": "Les données ne sont pas enregistrées en mode d'essai.",
+    "sample_guide": "Voyez comment l'IA corrige cette phrase",
+    "sample_hint": "Cliquez sur le texte pour écrire le vôtre"
   },
   "common": {
     "save": "Enregistrer",

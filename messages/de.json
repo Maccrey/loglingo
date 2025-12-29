@@ -3,7 +3,9 @@
     "signup_prompt": "Registrieren Sie sich, um Ihr eigenes Archiv zu erstellen.",
     "signup_button": "Registrieren und anmelden",
     "banner_title": "Testmodus",
-    "banner_desc": "Daten werden im Testmodus nicht gespeichert."
+    "banner_desc": "Daten werden im Testmodus nicht gespeichert.",
+    "sample_guide": "Sehen Sie, wie die KI diesen Satz korrigiert",
+    "sample_hint": "Klicken Sie auf den Text, um selbst zu schreiben"
   },
   "common": {
     "save": "Speichern",

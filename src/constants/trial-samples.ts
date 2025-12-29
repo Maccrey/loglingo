@@ -15,6 +15,8 @@ export const TRIAL_SAMPLES: Record<string, string> = {
   vi: "Tôi đi đến trường hôm qua và gặp bạn tôi.", // Already okay but simple enough for AI to polish or errors could be introduced if needed. Let's make it slightly awkward: "Tôi đã đi học hôm qua nhưng tôi không làm bài tập."
   id: "Saya pergi ke sekolah kemarin dan melihat teman saya.", // Simple sentence
   th: "ฉันไปโรงเรียนเมื่อวานและเห็นเพื่อนของฉัน", // Simple sentence
+  ar: "أنا يذهب إلى المدرسة أمس ورأيت صديقي.", // Error: 'goes' (present) instead of 'went' (past)
+  hi: "मैं कल स्कूल जाता हूँ और अपने दोस्त को देखा।", // Error: 'goes' (present) instead of 'went' (past)
 };
 
 export const DEFAULT_SAMPLE = "I goes to school yesterday.";

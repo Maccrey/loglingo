@@ -3,7 +3,9 @@
     "signup_prompt": "Daftar untuk membuat arsip pribadi Anda.",
     "signup_button": "Daftar dan Masuk",
     "banner_title": "Mode Percobaan",
-    "banner_desc": "Data tidak disimpan dalam mode percobaan."
+    "banner_desc": "Data tidak disimpan dalam mode percobaan.",
+    "sample_guide": "Lihat bagaimana AI mengoreksi kalimat ini",
+    "sample_hint": "Klik teks untuk menulis sendiri"
   },
   "common": {
     "save": "Simpan",

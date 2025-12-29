@@ -3,7 +3,9 @@
     "signup_prompt": "Kişisel arşivinizi oluşturmak için kaydolun.",
     "signup_button": "Kaydol ve Giriş Yap",
     "banner_title": "Deneme Modu",
-    "banner_desc": "Deneme modunda veriler kaydedilmez."
+    "banner_desc": "Deneme modunda veriler kaydedilmez.",
+    "sample_guide": "Yapay zekanın bu cümleyi nasıl düzelttiğini görün",
+    "sample_hint": "Kendi metnini yazmak için tıkla"
   },
   "common": {
     "save": "Kaydet",

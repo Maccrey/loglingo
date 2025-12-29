@@ -3,7 +3,9 @@
     "signup_prompt": "Cadastre-se para criar seu próprio arquivo.",
     "signup_button": "Cadastrar e Entrar",
     "banner_title": "Modo de Teste",
-    "banner_desc": "Os dados não são salvos no modo de teste."
+    "banner_desc": "Os dados não são salvos no modo de teste.",
+    "sample_guide": "Veja como a IA corrige esta frase",
+    "sample_hint": "Clique no texto para escrever"
   },
   "common": {
     "save": "Salvar",
