@@ -42,6 +42,7 @@ export default function DiaryTrialPage() {
 
     // Redirect if already logged in
     if (!loading && user) {
+       toast.info(t("already_logged_in"));
        router.replace("/"); 
     }
   }, [router, t, user, loading]);

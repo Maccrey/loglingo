@@ -9,7 +9,7 @@ import { useAuth } from "@/application/auth/AuthProvider";
 
 export function StartButton() {
   const t = useTranslations('home');
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [isTrialAvailable, setIsTrialAvailable] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -17,12 +17,14 @@ export function StartButton() {
     setMounted(true);
     const trialDone = localStorage.getItem("loglingo_trial_completed");
     // Trial is available if user is NOT logged in AND trial is NOT done
-    setIsTrialAvailable(!user && !trialDone);
-  }, [user]);
+    // Only set this when NOT loading to ensure accuracy
+    if (!loading) {
+      setIsTrialAvailable(!user && !trialDone);
+    }
+  }, [user, loading]);
 
-  // Avoid hydration mismatch by rendering default state until mounted
-  // Default state: "Start Writing" (Link to /diary/new) to match server-side common case or safe default
-  if (!mounted) {
+  // Avoid hydration mismatch and wait for auth loading
+  if (!mounted || loading) {
     return (
       <Link href="/diary/new">
         <Button size="lg" className="group">

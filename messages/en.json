@@ -2,6 +2,7 @@
   "trial": {
     "signup_prompt": "Sign up to create your own archive.",
     "signup_button": "Sign up and Login",
+    "already_logged_in": "You are already logged in. Proceeding to diary.",
     "banner_title": "Trial Mode",
     "banner_desc": "Data is not saved in trial mode.",
     "sample_guide": "See how AI corrects this sentence below",

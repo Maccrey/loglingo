@@ -2,6 +2,7 @@
   "trial": {
     "signup_prompt": "회원가입하여 나만의 아카이브를 만드세요.",
     "signup_button": "회원가입하고 로그인하기",
+    "already_logged_in": "이미 로그인되어 있습니다. 일기 쓰기로 이동합니다.",
     "banner_title": "체험 모드",
     "banner_desc": "체험 모드에서는 데이터가 저장되지 않습니다.",
     "sample_guide": "아래 문장을 AI가 어떻게 고쳐주는지 보세요",
