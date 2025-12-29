@@ -1,22 +1,22 @@
 export const TRIAL_SAMPLES: Record<string, string> = {
-  en: "I goes to school yesterday and met my friend.", // Error: goes -> went
-  ko: "나는 어제 학교에 갑니다 그리고 친구를 만났어요.", // Error: Tense mismatch (갑니다 -> 갔습니다/갔고)
-  ja: "私は昨日学校に行きます、そして友達に会いました。", // Error: Tense mismatch (行きます -> 行きました/行って)
-  zh: "我昨天去学校，看我的朋友。", // Error: "看" -> "见" or grammar structure improvement
-  es: "Yo ir a la escuela ayer y ver a mi amigo.", // Error: Infinitive verbs
-  fr: "Je aller à l'école hier et voir mon ami.", // Error: Infinitive verbs
-  de: "Ich gehen zur Schule gestern und sehen mein Freund.", // Error: Infinitive verbs/Word order
-  ru: "Я идти в школу вчера и видеть мой друг.", // Error: Infinitive verbs
-  it: "Io andare a scuola ieri e vedere mio amico.", // Error: Infinitive verbs
-  pt: "Eu ir para a escola ontem e ver meu amigo.", // Error: Infinitive verbs
-  nl: "Ik gaan naar school gisteren en zien mijn vriend.", // Error: Infinitive verbs
-  pl: "Ja iść do szkoły wczoraj i widzieć mój przyjaciel.", // Error: Infinitive verbs
-  tr: "Ben dün okula gitmek ve arkadaşımı görmek.", // Error: Infinitive verbs
-  vi: "Tôi đi đến trường hôm qua và gặp bạn tôi.", // Already okay but simple enough for AI to polish or errors could be introduced if needed. Let's make it slightly awkward: "Tôi đã đi học hôm qua nhưng tôi không làm bài tập."
-  id: "Saya pergi ke sekolah kemarin dan melihat teman saya.", // Simple sentence
-  th: "ฉันไปโรงเรียนเมื่อวานและเห็นเพื่อนของฉัน", // Simple sentence
-  ar: "أنا يذهب إلى المدرسة أمس ورأيت صديقي.", // Error: 'goes' (present) instead of 'went' (past)
-  hi: "मैं कल स्कूल जाता हूँ और अपने दोस्त को देखा।", // Error: 'goes' (present) instead of 'went' (past)
+  en: "If you signs up, you can saved your daily memories safely.\nThe AI tutor help you improves your language skills fast.", 
+  ko: "회원가입을 한다면 당신의 소중한 일기를 저장되요.\nAI 튜터가 당신의 실력을 빠르게 향상하게 도와줍니다.",
+  ja: "サインアップすれば、大切な日記を保存しますことができます。\nAIチューターがあなたの語学力を早く上達に助けます。",
+  zh: "如果你注册，你能保存你的日记永远。\nAI老师帮助你提高你的语言水平很快。",
+  es: "Si te registras, puedes guardado tus diarios para siempre.\nEl tutor de IA te ayuda a mejorando tus habilidades rápidamente.",
+  fr: "Si vous inscrivez, vous pouvez enregistré vos journaux pour toujours.\nLe tuteur IA vous aide à améliorer tes compétences rapidement.",
+  de: "Wenn du dich anmeldest, du kannst deine Tagebücher speichern sicher.\nDer KI-Tutor helfen dir, deine Sprache schnell zu verbessern.",
+  ru: "Если вы зарегистрируетесь, вы можете сохранил свои дневники навсегда.\nИИ-репетитор помогать вам быстро улучшить ваш язык.",
+  it: "Se ti iscrivi, puoi salvato i tuoi diari per sempre.\nIl tutor AI ti aiuta a migliorando le tue abilità velocemente.",
+  pt: "Se você se inscrever, pode salvado seus diários para sempre.\nO tutor de IA ajuda você a melhorando suas habilidades rapidamente.",
+  nl: "Als je aanmeldt, je kunt je dagboeken voor altijd bewaard.\nDe AI-tutor helpen je om je taalvaardigheid te verbeteren.",
+  pl: "Jeśli się zarejestrujesz, możesz zapisał swoje dzienniki na zawsze.\nNauczyciel AI pomagać ci szybko poprawić twoje umiejętności.",
+  tr: "Kayıt olursanız, günlüklerinizi sonsuza kadar kaydetti edebilirsiniz.\nYapay zeka öğretmeni dil becerilerinizi geliştirmenize yardım ederler.",
+  vi: "Nếu bạn đăng ký, bạn có thể đã lưu nhật ký của mình mãi mãi.\nGia sư AI giúp bạn cải thiện kỹ năng ngôn ngữ của bạn nhanh chóng.",
+  id: "Jika Anda mendaftar, Anda dapat disinpan buku harian Anda selamanya.\nTutor AI membantu Anda meningkatkan bahasa kamu dengan cepat.",
+  th: "ถ้าคุณลงทะเบียน คุณสามารถหมุดบันทึกไดอารี่ของคุณได้ตลอดไป\nAI ติวเตอร์ช่วยคุณปรับปรุงภาษาของคุณอย่างเร็ว",
+  ar: "إذا قمت بالتسجيل، يمكنك حفظت يومياتك بأمان إلى الأبد.\nيساعدك معلم الذكاء الاصطناعي على تحسين لغتك بسرعة.",
+  hi: "यदि आप साइन अप करते हैं, तो आप अपनी डायरी को सुरक्षित रूप से सहेजा सकते हैं।\nएआई ट्यूटर आपको अपनी भाषा कौशल को सुधारने में मदद करते हैं।"
 };
 
-export const DEFAULT_SAMPLE = "I goes to school yesterday.";
+export const DEFAULT_SAMPLE = "If you signs up, you can saved your daily memories safely.\nThe AI tutor help you improves your language skills fast.";

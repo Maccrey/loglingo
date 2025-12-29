@@ -82,12 +82,19 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const [pendingArchives, setPendingArchives] = useState<LearningArchiveDraft[]>([]);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
 
-  // Update content when sampleText changes IF we are still in sample mode
+  // When sampleText changes (e.g. language switch), update content if:
+  // 1. We are already in sample mode
+  // 2. OR the current content is empty/whitespace
+  // 3. OR the current content matches the OLD sample (handled by checking if it matches *any* known sample, or just simplify to empty check)
   useEffect(() => {
-    if (isTrialMode && isSampleMode && sampleText) {
-      setContent(sampleText);
+    if (isTrialMode && sampleText) {
+      if (isSampleMode || !content.trim()) {
+         setContent(sampleText);
+         setIsSampleMode(true);
+      }
     }
-  }, [sampleText, isTrialMode, isSampleMode]);
+  }, [sampleText, isTrialMode]); // Removed isSampleMode dependencies to allow re-entry
+
 
   useEffect(() => {
     if (initial) {
