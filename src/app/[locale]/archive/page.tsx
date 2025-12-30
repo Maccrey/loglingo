@@ -381,20 +381,20 @@ export default function ArchivePage() {
             <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)}>
+            <Button variant={type === undefined ? "primary" : "ghost"} onClick={() => setType(undefined)} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("all")}
             </Button>
-            <Button variant={type === "grammar" ? "primary" : "ghost"} onClick={() => setType("grammar")}>
+            <Button variant={type === "grammar" ? "primary" : "ghost"} onClick={() => setType("grammar")} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("grammar")}
             </Button>
-            <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")}>
+            <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("vocabulary")}
             </Button>
-            <Button variant={type === "dictionary" ? "primary" : "ghost"} onClick={() => setType("dictionary")}>
+            <Button variant={type === "dictionary" ? "primary" : "ghost"} onClick={() => setType("dictionary")} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("dictionary")}
             </Button>
             <select
-              className="h-[38px] rounded-md border border-white/10 bg-white/5 px-3 text-sm text-foreground"
+              className="h-8 md:h-[38px] rounded-md border border-white/10 bg-white/5 px-3 text-xs md:text-sm text-foreground"
               value={levelFilter ?? ""}
               onChange={(e) => setLevelFilter(e.target.value || undefined)}
             >

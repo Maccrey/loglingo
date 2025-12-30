@@ -169,7 +169,7 @@ export default function SpeakingPage() {
                           });
                           setMode('free');
                       }}
-                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
+                      className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 ${mode === 'free' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_free')}
                   </button>
@@ -183,7 +183,7 @@ export default function SpeakingPage() {
                           });
                           setMode('challenge');
                       }}
-                      className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
+                      className={`px-3 md:px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 ${mode === 'challenge' ? 'bg-primary text-primary-foreground shadow-md' : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}`}
                   >
                       {t('mode_challenge')}
                   </button>
@@ -310,7 +310,7 @@ export default function SpeakingPage() {
                               fetchNewChallenge(learningLanguage, uiLanguageName);
                           }} 
                           size="lg" 
-                          className="rounded-full px-12 h-12 text-base font-semibold shadow-md shadow-primary/20 hover:shadow-primary/30 hover:scale-105 transition-all"
+                          className="rounded-full px-6 h-10 md:px-12 md:h-12 text-sm md:text-base font-semibold shadow-md shadow-primary/20 hover:shadow-primary/30 hover:scale-105 transition-all"
                       >
                           {t('start_challenge')}
                       </Button>

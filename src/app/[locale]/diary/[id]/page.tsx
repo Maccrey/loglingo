@@ -141,16 +141,18 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                 variant="ghost"
                 size="sm"
                 onClick={() => router.push("/diary")}
+                className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                 {t("back")}
               </Button>
               <Button 
                 variant="secondary" 
                 size="sm"
                 onClick={() => router.push(`/diary/${id}/edit`)}
+                className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4"
               >
-                <Edit3 className="mr-2 h-4 w-4" />
+                <Edit3 className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                 {t("edit")}
               </Button>
             </div>
