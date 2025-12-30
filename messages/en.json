@@ -107,6 +107,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "Original Content",
     "clear_date_filter": "Clear Date",
     "back": "Back"
   },
@@ -130,6 +131,7 @@
     "validation_too_long": "Content is too long (max 5000 chars).",
     "validation_image": "Please select an image file.",
     "save": "Save entry",
+    "apply_and_save": "Apply & Save",
     "update": "Save changes",
     "ai_checking": "AI is thinking...",
     "ai_error": "AI request failed",

@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "Nội dung gốc",
     "back": "Quay lại danh sách",
     "clear_date_filter": "Clear date"
   },
@@ -126,6 +127,7 @@
     "uploading": "Đang tải lên...",
     "upload_failed": "Tải hình thất bại",
     "saved": "Đã lưu mục",
+    "apply_and_save": "Áp dụng và Lưu",
     "back": "Quay lại danh sách",
     "validation_invalid_date": "Chọn ngày hợp lệ (YYYY-MM-DD).",
     "validation_empty_content": "Viết gì đó để lưu.",

@@ -175,6 +175,23 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
             <p className="whitespace-pre-wrap text-foreground leading-relaxed">
               {data.content}
             </p>
+            
+            {/* 원본 일기 보기 섹션 */}
+            {data.originalContent && (
+              <div className="mt-8 pt-6 border-t border-border/50">
+                 <div className="flex items-center gap-2 mb-3">
+                   <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
+                   <h3 className="text-sm font-medium text-muted-foreground">
+                     {t("original_content")}
+                   </h3>
+                 </div>
+                 <div className="rounded-lg bg-black/20 p-4 border border-white/5">
+                   <p className="whitespace-pre-wrap text-sm text-foreground/80 leading-relaxed">
+                     {data.originalContent}
+                   </p>
+                 </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 

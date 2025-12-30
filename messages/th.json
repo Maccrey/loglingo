@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "เนื้อหาต้นฉบับ",
     "back": "กลับไปที่รายการ",
     "clear_date_filter": "Clear date"
   },
@@ -126,6 +127,7 @@
     "uploading": "กำลังอัปโหลด...",
     "upload_failed": "อัปโหลดรูปไม่สำเร็จ",
     "saved": "บันทึกไดอารี่แล้ว",
+    "apply_and_save": "นำไปใช้และบันทึก",
     "back": "กลับไปยังรายการ",
     "validation_invalid_date": "เลือกวันที่ที่ถูกต้อง (YYYY-MM-DD)",
     "validation_empty_content": "พิมพ์อะไรสักอย่างเพื่อบันทึก",

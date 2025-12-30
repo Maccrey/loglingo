@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "मूल सामग्री",
     "back": "सूची में वापस",
     "clear_date_filter": "Clear date"
   },
@@ -126,6 +127,7 @@
     "uploading": "अपलोड हो रहा है...",
     "upload_failed": "चित्र अपलोड असफल",
     "saved": "एंट्री सहेजी गई",
+    "apply_and_save": "लागू करें और सहेजें",
     "back": "सूची पर वापस",
     "validation_invalid_date": "कृपया मान्य तारीख चुनें (YYYY-MM-DD)।",
     "validation_empty_content": "सहेजने के लिए कुछ लिखें।",

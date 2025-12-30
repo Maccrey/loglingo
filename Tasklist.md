@@ -315,3 +315,18 @@
     - [x] Deployed updates to Firebase Hosting
     - [x] Added customized trial sample texts for Bengali (bn), Urdu (ur), and Nepali (ne)
 
+## 19. Diary Save Flow Refactor & Multi-language Support
+- [x] **Refactor Diary Save Logic**:
+    - [x] Remove direct "Save" button, enforce "AI Check" -> "Apply & Save" flow
+    - [x] Add logic to capture and save `originalContent` (pre-correction text)
+    - [x] Update `DiaryForm` and `DiaryRepository` to handle `originalContent` field
+- [x] **UI Updates**:
+    - [x] Add "Apply & Save" button with customizable label in `AiFeedback`
+    - [x] Display "Original Diary" card in `DiaryDetail` page if available
+- [x] **Multi-language Support (18 Languages)**:
+    - [x] Add translation keys `apply_and_save` and `original_content` to all 18 language JSON files
+    - [x] Verify keys in: `ko`, `en`, `ja`, `zh`, `th`, `vi`, `id`, `es`, `pt`, `fr`, `de`, `tr`, `ar`, `ru`, `hi`, `bn`, `ur`, `ne`
+- [x] **Verification**:
+    - [x] Test creation/edit flow with AI correction
+    - [x] Verify backward compatibility for existing entries
+

@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "Konten Asli",
     "clear_date_filter": "Hapus Tanggal",
     "back": "Kembali ke daftar"
   },
@@ -126,6 +127,7 @@
     "uploading": "Mengunggah...",
     "upload_failed": "Gagal mengunggah gambar",
     "saved": "Entri disimpan",
+    "apply_and_save": "Terapkan & Simpan",
     "back": "Kembali ke daftar",
     "validation_invalid_date": "Pilih tanggal yang valid (YYYY-MM-DD).",
     "validation_empty_content": "Tulis sesuatu untuk menyimpan.",

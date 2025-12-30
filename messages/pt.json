@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "Conteúdo Original",
     "back": "Voltar à lista",
     "clear_date_filter": "Clear date"
   },
@@ -126,6 +127,7 @@
     "uploading": "Enviando...",
     "upload_failed": "Falha no envio da imagem",
     "saved": "Entrada salva",
+    "apply_and_save": "Aplicar e Salvar",
     "back": "Voltar à lista",
     "validation_invalid_date": "Escolha uma data válida (AAAA-MM-DD).",
     "validation_empty_content": "Escreva algo para salvar.",

@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "原文",
     "back": "返回列表",
     "clear_date_filter": "Clear date"
   },
@@ -126,6 +127,7 @@
     "uploading": "正在上传...",
     "upload_failed": "图片上传失败",
     "saved": "日记已保存",
+    "apply_and_save": "应用并保存",
     "back": "返回列表",
     "validation_invalid_date": "请选择有效日期 (YYYY-MM-DD)。",
     "validation_empty_content": "请输入内容。",

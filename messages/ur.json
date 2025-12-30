@@ -107,6 +107,7 @@
     "month_label": "مہینہ",
     "not_found": "ڈائری نہیں ملی",
     "not_found_desc": "یہ ڈائری اندراج موجود نہیں ہے یا اسے ہٹا دیا گیا تھا۔",
+    "original_content": "اصل مواد",
     "clear_date_filter": "تاریخ صاف کریں",
     "back": "واپس"
   },
@@ -124,6 +125,7 @@
     "uploading": "اپ لوڈ ہو رہا ہے...",
     "upload_failed": "تصویر اپ لوڈ ناکام ہو گئی",
     "saved": "اندراج محفوظ ہو گیا",
+    "apply_and_save": "لاگو کریں اور محفوظ کریں",
     "back": "فہرست پر واپس جائیں",
     "validation_invalid_date": "براہ کرم ایک درست تاریخ منتخب کریں (YYYY-MM-DD)۔",
     "validation_empty_content": "محفوظ کرنے کے لیے کچھ لکھیں۔",

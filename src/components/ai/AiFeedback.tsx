@@ -10,6 +10,7 @@ interface Props {
   onApply: (text: string) => void;
   applying?: boolean;
   isTrialMode?: boolean;
+  applyLabel?: string;
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
@@ -71,7 +72,7 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
   );
 }
 
-export function AiFeedback({ result, onApply, applying, isTrialMode }: Props) {
+export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel }: Props) {
   const t = useTranslations("ai");
 
   return (
@@ -93,7 +94,7 @@ export function AiFeedback({ result, onApply, applying, isTrialMode }: Props) {
               disabled={applying || isTrialMode}
             >
               <Wand2 className="mr-2 h-4 w-4" />
-              {applying ? t("applying") : t("apply")}
+              {applying ? t("applying") : (applyLabel || t("apply"))}
             </button>
           )}
         </div>

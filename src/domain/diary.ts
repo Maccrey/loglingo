@@ -3,6 +3,7 @@ export interface Diary {
   userId: string;
   date: string; // yyyy-mm-dd
   content: string;
+  originalContent?: string;
   imageUrl?: string;
   aiReviewed: boolean;
   createdAt: Date;
@@ -13,6 +14,7 @@ export interface DiaryDraft {
   userId: string;
   date: string;
   content: string;
+  originalContent?: string;
   imageUrl?: string;
   aiReviewed?: boolean;
 }

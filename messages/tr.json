@@ -109,6 +109,7 @@
     "month_label": "Month",
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
+    "original_content": "Orijinal İçerik",
     "clear_date_filter": "Tarihi Temizle",
     "back": "Listeye dön"
   },
@@ -126,6 +127,7 @@
     "uploading": "Yükleniyor...",
     "upload_failed": "Resim yükleme başarısız",
     "saved": "Girdi kaydedildi",
+    "apply_and_save": "Uygula ve Kaydet",
     "back": "Listeye dön",
     "validation_invalid_date": "Geçerli bir tarih seçin (YYYY-AA-GG).",
     "validation_empty_content": "Kaydetmek için bir şeyler yazın.",

@@ -55,6 +55,7 @@ function mapDiary(
     userId: data.userId,
     date: data.date,
     content: data.content,
+    originalContent: data.originalContent,
     imageUrl: data.imageUrl,
     aiReviewed: Boolean(data.aiReviewed),
     createdAt,
