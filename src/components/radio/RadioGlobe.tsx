@@ -179,9 +179,11 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
                  altitude: targetAlt
                }, 1000);
                
-               // Pause rotation carefully without stopping everything
-               globeEl.current.controls().autoRotate = false;
-               setIsRotating(false);
+               // Pause rotation carefully without stopping everything (Desktop only)
+               if (!isMobile) {
+                 globeEl.current.controls().autoRotate = false;
+                 setIsRotating(false);
+               }
             }
 
             if (onStationClick) {
