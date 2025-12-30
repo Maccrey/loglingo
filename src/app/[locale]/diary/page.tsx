@@ -345,8 +345,8 @@ export default function DiaryListPage() {
                       mobileUnit={AD_UNITS.DIARY_INFEED_MOBILE}
                       pcWidth={AD_SIZES.PC_LEADERBOARD.width}
                       pcHeight={AD_SIZES.PC_LEADERBOARD.height}
-                      mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
-                      mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+                      mobileWidth={AD_SIZES.MOBILE_BANNER.width}
+                      mobileHeight={AD_SIZES.MOBILE_BANNER.height}
                     />
                   </div>
                 )}

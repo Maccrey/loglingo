@@ -182,8 +182,8 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
           mobileUnit={AD_UNITS.DETAIL_MIDDLE_MOBILE}
           pcWidth={AD_SIZES.PC_LEADERBOARD.width}
           pcHeight={AD_SIZES.PC_LEADERBOARD.height}
-          mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
-          mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+          mobileWidth={AD_SIZES.MOBILE_BANNER.width}
+          mobileHeight={AD_SIZES.MOBILE_BANNER.height}
         />
 
         {/* 관련 아카이브 항목 표시 */}

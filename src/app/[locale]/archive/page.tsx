@@ -728,8 +728,8 @@ export default function ArchivePage() {
               mobileUnit={AD_UNITS.ARCHIVE_QUIZ_MOBILE}
               pcWidth={AD_SIZES.PC_SQUARE.width}
               pcHeight={AD_SIZES.PC_SQUARE.height}
-              mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
-              mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+              mobileWidth={AD_SIZES.MOBILE_BANNER.width}
+              mobileHeight={AD_SIZES.MOBILE_BANNER.height}
             />
           </div>
         </CardContent>
@@ -851,8 +851,8 @@ export default function ArchivePage() {
                 mobileUnit={AD_UNITS.ARCHIVE_QUIZ_MOBILE}
                 pcWidth={AD_SIZES.PC_SQUARE.width}
                 pcHeight={AD_SIZES.PC_SQUARE.height}
-                mobileWidth={AD_SIZES.MOBILE_LARGE_BANNER.width}
-                mobileHeight={AD_SIZES.MOBILE_LARGE_BANNER.height}
+                mobileWidth={AD_SIZES.MOBILE_BANNER.width}
+                mobileHeight={AD_SIZES.MOBILE_BANNER.height}
               />
             </div>
           </CardContent>
