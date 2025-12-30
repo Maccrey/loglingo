@@ -165,12 +165,18 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
             console.log('🎯 Station clicked:', point);
             const station = point as unknown as RadioStation;
             
-            // Zoom in closer for station selection
+            // Zoom/Pan logic for station selection
             if (globeEl.current) {
+               const currentAlt = (globeEl.current.pointOfView() as any)?.altitude || 2.5;
+               
+               // On Mobile: Keep current zoom (don't zoom in), just pan.
+               // On Desktop: Zoom in but less aggressively (0.5 instead of 0.25).
+               const targetAlt = isMobile ? currentAlt : 0.5;
+
                globeEl.current.pointOfView({
                  lat: (point as any).geoLat,
                  lng: (point as any).geoLong,
-                 altitude: 0.25 // Close zoom
+                 altitude: targetAlt
                }, 1000);
                
                // Pause rotation carefully without stopping everything

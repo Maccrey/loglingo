@@ -355,3 +355,12 @@
 - [x] **빌드 오류 수정**: `tArchive` 타입 정의 및 `ArchiveType`('pattern') 호환성 문제 해결
 - [x] **배포**: 최종 빌드 및 Firebase Hosting 배포 완료
 
+## 22. 라디오 지구본 UX 개선 (Maintenance)
+- [x] **지구본 클릭/제스처 개선**:
+    - [x] 더블 클릭 인터랙션: 확대(Zoom In) ↔ 리셋(Reset) 토글 로직 구현
+    - [x] 마커 클릭 시: 오디오 재생 유지하며 확대 및 회전 일시 중지
+- [x] **모바일 접근성 강화**:
+    - [x] 모바일 기기 감지(`isMobile`) 시 방송국 마커(점) 크기 대폭 확대(Radius 0.9)
+- [x] **배포**: Firebase Hosting 업데이트
+
+
