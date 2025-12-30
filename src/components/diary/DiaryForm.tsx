@@ -49,13 +49,18 @@ function today() {
   return new Date().toISOString().split("T")[0];
 }
 
+import { useAuth } from "@/application/auth/AuthProvider";
+
+//...
+
 export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess, isTrialMode = false, sampleText }: DiaryFormProps) {
   const t = useTranslations("write");
   const tTrial = useTranslations("trial");
   const tDiary = useTranslations("diary");
   const locale = useLocale();
   const router = useRouter();
-  const userId = getCurrentUserId() || auth.currentUser?.uid || "";
+  const { user } = useAuth();
+  const userId = user?.uid || "";
   const { learningLanguage } = useLearningLanguage();
   // Safe to call hook as long as we don't invoke the mutation in trial mode
   const { create: createArchive } = useArchiveMutations(userId);
@@ -120,14 +125,99 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
     }
   }, [initial]);
 
-  // ... (maintain handleFileChange, openFilePicker)
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const performSave = async (overrideContent?: string, savedOriginalContent?: string) => {
+  // Renamed to triggerFilePicker to avoid potential naming conflicts or cache issues
+  const triggerFilePicker = () => {
+    console.log("Triggering file picker");
+    fileInputRef.current?.click();
+  };
+
+  // Alias for backward compatibility during HMR/Caching issues
+  const openFilePicker = triggerFilePicker;
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error("Image must be smaller than 10MB");
+        return;
+      }
+      setImageFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      setRemoveImage(false);
+    }
+  };
+
+
+  const generateArchiveEntries = async (result: CorrectionResult, sourceId?: string): Promise<LearningArchiveDraft[]> => {
+    if (!result || !userId) return [];
+    
+    // In trial mode, we do NOT save to archive automatically
+    if (isTrialMode) return [];
+
+    const entries: LearningArchiveDraft[] = [];
+
+    // 교정된 전체 문장을 아카이브에 저장
+    if (result.corrected.trim() && result.rootMeaningGuide) {
+      const title = result.corrected.slice(0, 80);
+      
+      let isDuplicate = false;
+      if (sourceId) {
+        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+        isDuplicate = await checkDuplicate(userId, title, sourceId);
+      }
+      
+      if (!isDuplicate) {
+        entries.push({
+          userId,
+          type: "grammar" as const,
+          title,
+          rootMeaning: result.rootMeaningGuide,
+          examples: [result.corrected],
+          levelTag: result.levelAssessment?.level,
+          sourceId: sourceId,
+        });
+      }
+    }
+
+    // 각 이슈별로 저장 (중복 체크 포함)
+    for (const issue of result.issues || []) {
+      const title = issue.suggestion.slice(0, 80);
+      
+      let isDuplicate = false;
+      if (sourceId) {
+        const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
+        isDuplicate = await checkDuplicate(userId, title, sourceId);
+      }
+      
+      if (!isDuplicate) {
+        entries.push({
+          userId,
+          type: issue.type === "word" ? "word" : "grammar",
+          title,
+          rootMeaning: issue.explanation || result.rootMeaningGuide || "AI suggestion",
+          examples: issue.exampleSentences && issue.exampleSentences.length > 0 
+            ? issue.exampleSentences 
+            : [issue.original, issue.suggestion].filter(Boolean),
+          levelTag: result.levelAssessment?.level,
+          sourceId: sourceId,
+          sourceText: issue.original,
+        });
+      }
+    }
+    
+    return entries;
+  };
+
+  const performSave = async (overrideContent?: string, savedOriginalContent?: string, immediateArchives?: LearningArchiveDraft[]) => {
     setErrors([]);
     
-    // Use provided content or current state
     const contentToSave = overrideContent !== undefined ? overrideContent : content;
-    // Use provided original content or what's in ref
     const originalToSave = savedOriginalContent !== undefined ? savedOriginalContent : originalContentRef.current;
 
     try {
@@ -140,24 +230,26 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         onUploadProgress: (progress) => setUploadProgress(progress),
       });
 
-      // ... (rest of performSave logic: archive saving, toast, tracking)
+      // 일기 저장이 성공하고, 저장할 아카이브 항목이 있으면 저장
+      // passed `immediateArchives` takes precedence over state `pendingArchives`
+      const archivesToSave = immediateArchives || pendingArchives;
       
-      // 일기 저장이 성공하고, 대기 중인 아카이브 항목이 있으면 저장
-      if (newDiary && pendingArchives.length > 0) {
-        // ... (archive saving logic same as before)
+      if (newDiary && archivesToSave.length > 0) {
         try {
           await Promise.all(
-            pendingArchives.map(entry => 
+            archivesToSave.map(entry => 
               createArchive.mutateAsync({
                 ...entry,
-                sourceId: newDiary.id
+                sourceId: newDiary.id // Ensure we link to the newly created diary
               })
             )
           );
-          toast.success(t("ai_saved_archive"));
+          if (!isTrialMode) {
+             toast.success(t("ai_saved_archive"));
+          }
         } catch (err) {
           console.error("Failed to save pending archives", err);
-          toast.error(t("archive_save_failed"));
+          toast.error(t("archive.save_error"));
         }
       }
 
@@ -178,9 +270,9 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         setContent("");
         setImageFile(null);
         setImagePreview(undefined);
+        setPendingArchives([]); // Clear pending state
       }
     } catch (error: unknown) {
-       // ... (error handling same as before)
        if (error instanceof DiaryValidationError) {
         setErrors(error.reasons);
         return;
@@ -284,17 +376,6 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
 
   const isEditMode = !!initial;
 
-  const applyAiResultAndSave = async (text: string) => {
-    // 1. Set content to corrected
-    setContent(text);
-    
-    // 2. Perform Save immediately
-    await performSave(text, originalContentRef.current);
-    
-    // 3. Save Archives
-    await handleSaveArchive();
-  };
-
   const handleDelete = async () => {
     if (!onDelete) return;
     if (!confirm(tDiary("confirm_delete"))) return;
@@ -310,91 +391,20 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
     }
   };
 
-  const handleSaveArchive = async () => {
-    // In trial mode, we do NOT save to archive automatically
-    if (isTrialMode) return;
-
-    console.log("Archive Save: Starting save process...", { hasAiResult: !!aiResult, userId });
+  const applyAiResultAndSave = async (text: string) => {
+    // 1. Set content to corrected
+    setContent(text);
     
-    if (!aiResult || !userId) {
-      console.warn("Archive Save: Missing requirements", { aiResult: !!aiResult, userId });
-      return;
+    // 2. Prepare archives (memory only first)
+    // If editing existing diary, we have ID. If new, ID is undefined (will be linked in performSave).
+    // Note: checkDuplicate logic relies on ID for stricter checks, but for new diary it just skips ID check (which is fine).
+    let entries: LearningArchiveDraft[] = [];
+    if (aiResult) {
+        entries = await generateArchiveEntries(aiResult, initial?.id);
     }
-
-    try {
-      setSavingArchive(true);
-
-      const entries: LearningArchiveDraft[] = [];
-
-      // 교정된 전체 문장을 아카이브에 저장
-      if (aiResult.corrected.trim() && aiResult.rootMeaningGuide) {
-        const title = aiResult.corrected.slice(0, 80);
-        
-        let isDuplicate = false;
-        if (initial?.id) {
-          const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
-          isDuplicate = await checkDuplicate(userId, title, initial.id);
-        }
-        
-        if (!isDuplicate) {
-          entries.push({
-            userId,
-            type: "grammar" as const,
-            title,
-            rootMeaning: aiResult.rootMeaningGuide,
-            examples: [aiResult.corrected],
-            levelTag: aiResult.levelAssessment?.level,
-            sourceId: initial?.id,
-          });
-        }
-      }
-
-      // 각 이슈별로 저장 (중복 체크 포함)
-      for (const issue of aiResult.issues || []) {
-        const title = issue.suggestion.slice(0, 80);
-        
-        let isDuplicate = false;
-        if (initial?.id) {
-          const { checkDuplicate } = await import("@/infrastructure/firebase/archive-repository");
-          isDuplicate = await checkDuplicate(userId, title, initial.id);
-        }
-        
-        if (!isDuplicate) {
-          entries.push({
-            userId,
-            type: issue.type === "word" ? "word" : "grammar", // Map AI issue type to ArchiveType
-            title,
-            rootMeaning: issue.explanation || aiResult.rootMeaningGuide || "AI suggestion",
-            // Use exampleSentences if available, otherwise fallback to original and suggestion
-            examples: issue.exampleSentences && issue.exampleSentences.length > 0 
-              ? issue.exampleSentences 
-              : [issue.original, issue.suggestion].filter(Boolean),
-            levelTag: aiResult.levelAssessment?.level,
-            sourceId: initial?.id,
-            sourceText: issue.original, // Store original text for context
-          });
-        }
-      }
-
-      if (entries.length > 0) {
-        // 이미 저장된 일기(수정 모드)인 경우 바로 저장
-        if (initial?.id) {
-          await Promise.all(entries.map((entry) => createArchive.mutateAsync(entry)));
-          toast.success(t("ai_saved_archive"));
-        } else {
-          // 새 일기인 경우 pending 상태로 보관 -> 일기 저장 시 함께 저장
-          setPendingArchives(prev => [...prev, ...entries]);
-          toast.success(t("ai_saved_archive_pending"));
-        }
-      } else {
-        toast.info("모두 이미 아카이브에 저장되어 있습니다");
-      }
-    } catch (error: unknown) {
-      console.error("Archive Save: Error occurred", error);
-      toast.error(t("archive.save_error"));
-    } finally {
-      setSavingArchive(false);
-    }
+    
+    // 3. Perform Save immediately with generated entries
+    await performSave(text, originalContentRef.current, entries);
   };
 
   return (
@@ -501,7 +511,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
                       size="sm"
                       onClick={() => {
                         setRemoveImage(false);
-                        openFilePicker();
+                        triggerFilePicker();
                       }}
                     >
                       {t("replace_image")}
@@ -514,7 +524,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
                     type="button"
                     variant="secondary"
                     size="sm"
-                    onClick={openFilePicker}
+                    onClick={triggerFilePicker}
                   >
                     <ImageIcon className="mr-2 h-4 w-4" />
                     {t("upload_image")}
@@ -544,7 +554,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
           <CardFooter className="flex justify-between gap-2 pt-6 border-t border-border/50">
             <Button
               type="button"
-              variant="outline"
+              variant="secondary"
               onClick={() => router.back()}
               className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4"
             >
@@ -608,7 +618,14 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             </CardContent>
            </Card>
         )}
-      </form>
+        <input
+        type="file"
+        ref={fileInputRef}
+        className="hidden"
+        accept="image/*"
+        onChange={handleFileChange}
+      />
+    </form>
 
       {/* Save Confim Modal - No longer needed as manual save is removed? Or keep for edge case? */}
       {/* If manual save is removed, this modal is unreachable via submit. Keeping code minimal. */}

@@ -1,7 +1,7 @@
 export type CorrectionMode = "sentence" | "full";
 
 export interface CorrectionIssue {
-  type: "grammar" | "word" | "style" | "other";
+  type: "grammar" | "word" | "style" | "pattern" | "other";
   original: string;
   suggestion: string;
   explanation: string;

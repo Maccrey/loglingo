@@ -1,4 +1,4 @@
-export type ArchiveType = "grammar" | "word";
+export type ArchiveType = "grammar" | "word" | "pattern";
 
 export interface LearningArchive {
   id: string;

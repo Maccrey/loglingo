@@ -47,7 +47,9 @@ function ArchiveListCard({
     ? t("dictionary")
     : item.type === "word"
       ? t("vocabulary")
-      : t("grammar");
+      : item.type === "pattern"
+        ? t("pattern")
+        : t("grammar");
   const correctCount = item.correctCount ?? 0;
   const isMemorized = item.memorized || correctCount >= 3;
   const formatMessage = useCallback(
@@ -389,6 +391,9 @@ export default function ArchivePage() {
             </Button>
             <Button variant={type === "word" ? "primary" : "ghost"} onClick={() => setType("word")} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("vocabulary")}
+            </Button>
+            <Button variant={type === "pattern" ? "primary" : "ghost"} onClick={() => setType("pattern")} className="text-xs md:text-sm h-8 md:h-9 px-3">
+              {t("pattern")}
             </Button>
             <Button variant={type === "dictionary" ? "primary" : "ghost"} onClick={() => setType("dictionary")} className="text-xs md:text-sm h-8 md:h-9 px-3">
               {t("dictionary")}

@@ -26,7 +26,7 @@ function ArchiveCard({
 }: { 
   archive: LearningArchive;
   onViewArchive: () => void;
-  tArchive: (key: string) => string;
+  tArchive: (key: string, values?: any) => string;
 }) {
   const [showExamples, setShowExamples] = useState(false);
   const hasExamples = archive.examples && archive.examples.length > 0;
@@ -70,8 +70,8 @@ function ArchiveCard({
             />
             <span>
               {showExamples
-                ? tArchive("hide_examples").replace("{count}", String(archive.examples.length))
-                : tArchive("show_examples").replace("{count}", String(archive.examples.length))}
+                ? tArchive("hide_examples", { count: archive.examples.length })
+                : tArchive("show_examples", { count: archive.examples.length })}
             </span>
           </button>
           

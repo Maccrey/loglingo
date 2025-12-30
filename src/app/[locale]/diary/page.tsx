@@ -182,22 +182,29 @@ export default function DiaryListPage() {
 
             {/* Month Section */}
             <div className={`space-y-3 transition-opacity duration-200 ${specificDate ? 'opacity-50 pointer-events-none' : ''}`}>
-               <div className="text-white font-semibold text-lg">{t("filter_month", {default: "Month"})}</div>
-               <div className="grid grid-cols-3 gap-2">
+                 <div className="text-white font-semibold text-lg">{t("filter_month", {default: "Month"})}</div>
+               <div className="grid grid-cols-6 md:grid-cols-3 gap-2">
                   <button
                     onClick={() => {
                       setYear(null); // 월 클릭 시 모든 년도 표시
                       setMonth(null);
                     }}
                     className={`
-                      col-span-1 rounded-lg border transition-all duration-200 p-1.5 flex items-center justify-center aspect-square
-                      ${month === null
+                      col-span-6 md:col-span-1 rounded-lg border transition-all duration-200 p-2 md:p-1.5 flex items-center justify-center 
+                      ${month === null // Active state
                         ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30"
                         : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                       }
+                      md:aspect-square
                     `}
                   >
-                     <span className="text-xs font-medium text-center leading-tight">
+                     {/* Mobile Text (Horizontal) */}
+                     <span className="md:hidden text-sm font-medium">
+                       {t("all_months", {default: "All months"})}
+                     </span>
+                     
+                     {/* PC Text (Stacked/Short) */}
+                     <span className="hidden md:block text-xs font-medium text-center leading-tight">
                        {t("all_months_short", {default: "All\nmonths"}).split('\n').map((line, i) => (
                          <span key={i} className="block">{line}</span>
                        ))}
@@ -212,15 +219,15 @@ export default function DiaryListPage() {
                       setMonth(index);
                     }}
                     className={`
-                      relative rounded-lg border transition-all duration-200 aspect-square group
-                      flex flex-col items-center justify-center gap-0.5 p-1.5
+                      col-span-1 relative rounded-lg border transition-all duration-200 aspect-square group
+                      flex flex-col items-center justify-center gap-0.5 p-1
                       ${month === index
                         ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30"
                         : "bg-[#0f172a] border-transparent text-gray-400 hover:bg-[#1e293b]"
                       }
                     `}
                   >
-                     <span className="text-xs font-medium">{label}</span>
+                     <span className="text-[10px] sm:text-xs font-medium truncate w-full text-center">{label}</span>
                      <span className={`text-[10px] font-mono transition-opacity ${month === index ? 'opacity-100 text-white/80' : 'opacity-40 group-hover:opacity-70'}`}>
                        {monthCounts[index] || 0}
                      </span>

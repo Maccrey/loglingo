@@ -70,7 +70,7 @@ function buildPrompt(
   mode: CorrectionMode,
   targetLanguageCode: string,
   uiLanguageCode: string
-) {
+): string {
   const targetLanguage = languageLabel(targetLanguageCode);
   const uiLanguage = languageLabel(uiLanguageCode);
   return `You are a language tutor.
@@ -80,7 +80,7 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 {
   "corrected": "<fully corrected text in target language>",
   "issues": [
-    { "type": "grammar"|"word"|"style"|"other", "original": "<problem snippet>", "suggestion": "<complete corrected sentence in target language>", "explanation": "<root meaning or grammar rule in UI language>", "exampleSentences": ["<example in target language>", ...], "exampleTranslations": ["<translation in UI language>", ...] }
+    { "type": "grammar"|"word"|"style"|"pattern"|"other", "original": "<problem snippet>", "suggestion": "<correction>", "explanation": "<reason in UI language>", "exampleSentences": ["<example in target language>", ...], "exampleTranslations": ["<translation in UI language>", ...] }
   ],
   "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
 }
@@ -88,64 +88,39 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
 CRITICAL INSTRUCTIONS:
 1. For 'corrected' field:
    - MUST be written ENTIRELY in TARGET LANGUAGE (${targetLanguage})
-   - If user mixes multiple languages, translate ALL text to target language
-   - Example: If target is Korean and user writes "今日は朝から静かな 비가 내렸다"
-     → corrected must be "오늘은 아침부터 조용한 비가 내렸다" (100% Korean)
-   - NEVER keep mixed languages in the corrected text
-   
+   - If user mixes multiple languages, translate ALL text to target language.
+   - Example: Target Korean, User "I went to school" -> Corrected "저는 학교에 갔습니다" (Korean)
+
 2. For 'suggestion' field: 
-   - MUST be written in TARGET LANGUAGE (${targetLanguage})
-   - Provide the COMPLETE CORRECTED SENTENCE, not just the corrected word/phrase
-   - Example: If target language is English and original is "I has a apple"
-     → suggestion: "I have an apple" (complete sentence in English)
-   - Example: If target language is Korean and original is "나는 사과를 먹었어요 yesterday"
-     → suggestion: "나는 어제 사과를 먹었어요" (complete sentence in Korean)
-   
-3. For 'explanation' field:
-   - MUST be written ENTIRELY in UI LANGUAGE (${uiLanguage})
-   - NEVER write explanation in target language
-   - When mentioning the word being explained, use the TARGET LANGUAGE word (from suggestion), not the original
-   - Example: If UI is Japanese, target is Korean, original is "帰りに", suggestion is "귀가길에"
-     → CORRECT: "「귀가길에」は帰宅する道のイメージ：家に向かって馴染みの道を辿る足取り" (Japanese text, but mentions Korean word)
-     → WRONG: "「帰り」は帰宅する道のイメージ" (mentions original word instead of target word)
-   - Example: If UI language is Japanese and target is Korean, and you're explaining "조용한"
-     → CORRECT: "「조용한」は音がなく落ち着いた雨のイメージ：風の音もなく静かに落ちる水滴の平和な情景" (Japanese)
-     → WRONG: "'조용한'은 비가 부드럽고 소리 없이 내리는 이미지" (Korean - this is the target language!)
-   - If type is "word": Provide a visual/conceptual root image of the word's core meaning in UI language
-     Example for English UI: "get" → "Reaching out to pull something from outside into your container (possession/control)"
-     Example for Korean UI: "get" → "손을 뻗어 바깥의 것을 내 쪽 컨테이너로 끌어오는 이미지"
-   - If type is "grammar": Explain the grammar rule in UI language
-   - Always provide clear, visual metaphors for word meanings to help learners understand through imagery
+   - MUST be written in TARGET LANGUAGE (${targetLanguage}).
+   - If type is "grammar" or "style" or "other": Provide the COMPLETE CORRECTED SENTENCE. 
+   - If type is "word": Provide ONLY the corrected WORD or PHRASE (do NOT provide a full sentence).
+   - If type is "pattern": Provide the corrected IDIOM/PATTERN PHRASE.
 
-4. For 'exampleSentences' field (NEW - REQUIRED for ALL types):
-   - MUST be an array of example sentences in TARGET LANGUAGE (${targetLanguage})
-   - If type is "grammar":
-     * Provide 3-5 example sentences demonstrating this grammar pattern
-     * Examples should be practical, everyday sentences in ${targetLanguage}
-   - If type is "word":
-     * Provide 3-6 example sentences showing different meanings of the word
-     * For each meaning mentioned in explanation, include 1-2 example sentences
-     * Examples MUST be in ${targetLanguage}, showing the word in different contexts
-   - Example for "get" in English (when target is English):
-     ["I need to get a book from the library.", "Do you get what I mean?", "When will you get home?"]
-   - Example for past continuous grammar in English:
-     ["I was studying when you called.", "She was working all day yesterday.", "They were playing soccer in the park."]
+3. For 'type' field:
+   - "word": Use for simple vocabulary errors or better word choices.
+   - "pattern": Use for IDIOMS, PHRASAL VERBS, or GRAMMAR PATTERNS that are commonly used (e.g., "used to", "look forward to", "piece of cake").
+   - "grammar": Use for structural errors.
 
-5. For 'exampleTranslations' field (REQUIRED when exampleSentences exist):
-   - MUST be an array with the SAME LENGTH as exampleSentences
-   - Each element is the UI LANGUAGE (${uiLanguage}) translation of the corresponding exampleSentence
-   - The translations help learners understand the meaning of the examples
-   - Example: if exampleSentences is ["I was studying when you called."] in English,
-     and UI language is Korean, exampleTranslations should be ["당신이 전화했을 때 나는 공부하고 있었습니다."]
-   - CRITICAL: exampleTranslations[i] is the ${uiLanguage} translation of exampleSentences[i]
+4. For 'explanation' field:
+   - MUST be written ENTIRELY in UI LANGUAGE (${uiLanguage}) NO MATTER WHAT.
+   - NEVER write explanation in target language.
+   - If UI language is Korean, explanation MUST be Korean.
+   - When mentioning the word being explained, use the TARGET LANGUAGE word (from suggestion).
+   - If type is "pattern", explain the usage/nuance of the pattern in UI language.
+   - Provide clear, visual metaphors for word/pattern meanings.
+
+5. For 'exampleSentences' field (REQUIRED):
+   - Array of example sentences in TARGET LANGUAGE (${targetLanguage}).
+   - 3-5 practical examples.
+
+6. For 'exampleTranslations' field (REQUIRED):
+   - Array of UI LANGUAGE (${uiLanguage}) translations corresponding to exampleSentences.
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
-Do not add Markdown, code fences, or commentary.
 LANGUAGE RULES - DO NOT VIOLATE:
-- 'corrected', 'suggestion', and 'exampleSentences' → TARGET LANGUAGE (${targetLanguage}) ONLY
-- 'explanation', 'rootMeaningGuide', and 'exampleTranslations' → UI LANGUAGE (${uiLanguage}) ONLY
-- In 'explanation', mention the TARGET LANGUAGE word you are explaining, not the original word
-The user is learning ${targetLanguage}. If their text contains ANY words in other languages, translate them to ${targetLanguage}.
+- 'corrected', 'suggestion', 'exampleSentences' → TARGET LANGUAGE (${targetLanguage}) ONLY
+- 'explanation', 'rootMeaningGuide', 'exampleTranslations' → UI LANGUAGE (${uiLanguage}) ONLY
 User diary text:
 ${content}`;
 }
@@ -192,7 +167,7 @@ async function callGrok(
                 items: {
                   type: "object",
                   properties: {
-                    type: { type: "string", enum: ["grammar", "word", "style", "other"] },
+                    type: { type: "string", enum: ["grammar", "word", "style", "pattern", "other"] },
                     original: { type: "string" },
                     suggestion: { type: "string" },
                     explanation: { type: "string" },

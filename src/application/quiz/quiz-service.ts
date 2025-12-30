@@ -7,7 +7,7 @@ function entryOriginRequiresMeaning(origin?: string) {
 
 interface GenerateQuizRequest {
   title: string;
-  type: 'grammar' | 'word';
+  type: 'grammar' | 'word' | 'pattern';
   rootMeaning: string;
   examples: string[];
   exampleSentences?: string[];
@@ -42,7 +42,7 @@ async function generateQuizWithGrok(
 export async function getOrGenerateQuiz(
   userId: string,
   archiveId: string,
-  type: 'grammar' | 'word',
+  type: 'grammar' | 'word' | 'pattern',
   title: string,
   rootMeaning: string,
   examples: string[],

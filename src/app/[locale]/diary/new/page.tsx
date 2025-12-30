@@ -6,8 +6,11 @@ import { getCurrentUserId } from "@/lib/current-user";
 import { useRouter } from "@/i18n/routing";
 import { AuthGate } from "@/components/auth/AuthGate";
 
+import { useAuth } from "@/application/auth/AuthProvider";
+
 export default function NewDiaryPage() {
-  const userId = getCurrentUserId();
+  const { user } = useAuth();
+  const userId = user?.uid || "";
   const router = useRouter();
   const { create } = useDiaryMutations(userId);
 

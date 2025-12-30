@@ -330,3 +330,28 @@
     - [x] Test creation/edit flow with AI correction
     - [x] Verify backward compatibility for existing entries
 
+## 20. AI Correction Prompt & Pattern Recognition Improvement
+- [x] **Domain & Backend Update**:
+    - [x] Update `CorrectionIssue` & `ArchiveType` to include `'pattern'`
+    - [x] Refine `src/app/api/ai/correct/route.ts` prompt:
+        - [x] Enforce UI language for explanations
+        - [x] Enforce "Word" type returns only words/phrases
+        - [x] Add instruction to identify "Pattern" (idioms/structures)
+- [x] **UI Updates**:
+    - [x] Update `AiFeedback.tsx` to display localized labeling for types
+    - [x] Update `ArchivePage` to support filtering by "Pattern"
+- [x] **Translations**:
+    - [x] Add `type_pattern` to `ko.json` and `en.json`
+- [x] **Verification**:
+    - [x] Test with idiom inputs (Verified via user feedback)
+    - [x] Verify explanation language matches UI setting
+
+## 21. 버그 수정 및 안정화 (Maintenance)
+- [x] **Firebase 권한 오류 수정**: `getCurrentUserId` → `useAuth` 훅으로 전환하여 인증 상태 동기화
+- [x] **i18n 포맷팅 에러 수정**: `tArchive` 호출 시 문자열 치환 대신 객체 파라미터 전달 방식 적용
+- [x] **일기 월 필터 반응형 개선**: 모바일 6열 / PC 3열 그리드 적용 및 '전체 월' 버튼 레이아웃 최적화
+- [x] **AI 피드백 렌더링 수정**: HTML 태그(`<strong>` 등)가 텍스트로 노출되는 문제 해결 (`dangerouslySetInnerHTML` 적용)
+- [x] **아카이브 저장 로직 개선**: 일기 저장 시 아카이브 누락 방지를 위한 저장 순서 동기화 및 `originalContent` 저장 보장
+- [x] **빌드 오류 수정**: `tArchive` 타입 정의 및 `ArchiveType`('pattern') 호환성 문제 해결
+- [x] **배포**: 최종 빌드 및 Firebase Hosting 배포 완료
+

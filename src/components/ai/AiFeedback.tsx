@@ -20,14 +20,18 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
 
   return (
     <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-      <p className="text-xs uppercase text-primary mb-1">{issue.type}</p>
+      <p className="text-xs uppercase text-primary mb-1">{t(`type_${issue.type}`)}</p>
       <p className="text-sm text-foreground">
         <span className="text-muted-foreground">Original:</span> {issue.original}
       </p>
       <p className="text-sm text-foreground">
-        <span className="text-muted-foreground">Suggestion:</span> {issue.suggestion}
+        <span className="text-muted-foreground">Suggestion:</span>{" "}
+        <span dangerouslySetInnerHTML={{ __html: issue.suggestion }} />
       </p>
-      <p className="text-xs text-muted-foreground mt-1">{issue.explanation}</p>
+      <p 
+        className="text-xs text-muted-foreground mt-1"
+        dangerouslySetInnerHTML={{ __html: issue.explanation }} 
+      />
       
       {hasExamples && (
         <div className="mt-2">
@@ -100,16 +104,17 @@ export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel 
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="rounded-lg border border-primary/30 bg-black/20 p-3 text-sm leading-relaxed">
-          {result.corrected}
-        </div>
+        <div 
+          className="rounded-lg border border-primary/30 bg-black/20 p-3 text-sm leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: result.corrected }}
+        />
 
         {result.rootMeaningGuide && (
           <div className="flex items-start gap-2 rounded-lg border border-white/10 bg-white/5 p-3 text-sm text-muted-foreground">
             <Info className="h-4 w-4 text-primary mt-0.5" />
             <div>
               <p className="font-medium text-foreground">{t("root_meaning")}</p>
-              <p>{result.rootMeaningGuide}</p>
+              <p dangerouslySetInnerHTML={{ __html: result.rootMeaningGuide }} />
             </div>
           </div>
         )}

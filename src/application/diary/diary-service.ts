@@ -12,6 +12,7 @@ import { firebaseDiaryRepository } from "@/infrastructure/firebase/diary-reposit
 export interface DiaryPayload {
   date: string;
   content: string;
+  originalContent?: string;
   imageFile?: File | null;
   removeImage?: boolean;
 }

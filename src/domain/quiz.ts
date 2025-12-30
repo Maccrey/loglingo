@@ -6,7 +6,7 @@ export interface Quiz {
   options: string[];
   correctIndex: number;
   explanation: string;
-  quizType?: 'grammar' | 'word'; // Type of quiz for differentiated UI/logic
+  quizType?: 'grammar' | 'word' | 'pattern'; // Type of quiz for differentiated UI/logic
   createdAt: Date;
 }
 
@@ -17,7 +17,7 @@ export interface QuizDraft {
   options: string[];
   correctIndex: number;
   explanation: string;
-  quizType?: 'grammar' | 'word'; // Type of quiz for differentiated UI/logic
+  quizType?: 'grammar' | 'word' | 'pattern'; // Type of quiz for differentiated UI/logic
 }
 
 /**
