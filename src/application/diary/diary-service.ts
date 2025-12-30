@@ -55,6 +55,7 @@ export async function createDiary(
     userId,
     date: payload.date,
     content: payload.content.trim(),
+    originalContent: payload.originalContent,
     aiReviewed: false,
   };
 
@@ -90,6 +91,10 @@ export async function updateDiary(
     date: payload.date,
     content: payload.content.trim(),
   };
+
+  if (payload.originalContent !== undefined) {
+    draft.originalContent = payload.originalContent;
+  }
 
   if (payload.removeImage) {
     draft.imageUrl = "";
