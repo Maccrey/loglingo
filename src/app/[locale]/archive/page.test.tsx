@@ -17,6 +17,16 @@ vi.mock("next-intl", () => ({
   useLocale: () => "en",
 }));
 
+vi.mock("@/i18n/routing", () => ({
+  useRouter: vi.fn(() => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+  })),
+  usePathname: vi.fn(() => "/en/archive"),
+  Link: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+}));
+
 vi.mock("@/application/archive/hooks", () => ({
   useArchiveList: vi.fn(),
   useArchiveMutations: vi.fn(),
