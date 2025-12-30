@@ -157,7 +157,12 @@ async function remove(id: string): Promise<void> {
 
       for (const archiveDoc of snapshot.docs) {
         // Find quizzes for this archive
-        const qQuiz = query(quizzesCollection, where("archiveId", "==", archiveDoc.id));
+        // Security Rule requires userId check
+        const qQuiz = query(
+          quizzesCollection, 
+          where("archiveId", "==", archiveDoc.id),
+          where("userId", "==", data.userId)
+        );
         const quizSnapshot = await getDocs(qQuiz);
         quizSnapshot.docs.forEach((quizDoc) => {
           deletePromises.push(deleteDoc(quizDoc.ref));
