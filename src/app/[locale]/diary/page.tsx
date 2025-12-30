@@ -355,6 +355,15 @@ export default function DiaryListPage() {
               </div>
             )}
           </div>
+          
+          {/* 모바일 하단 배너 광고 (Mobile Only) */}
+          <div className="md:hidden mt-4 flex justify-center w-full">
+            <KakaoAdFit
+              unit={AD_UNITS.DIARY_BOTTOM_MOBILE}
+              width={AD_SIZES.MOBILE_BANNER.width}
+              height={AD_SIZES.MOBILE_BANNER.height}
+            />
+          </div>
         </div>
       </div>
       </div>
