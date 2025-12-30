@@ -115,10 +115,15 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
           pointLat="geoLat"
           pointLng="geoLong"
           pointColor={(point: any) => point.id === currentStationId ? "#f97316" : "#ffcc00"}
-          pointAltitude={(point: any) => point.id === currentStationId ? 0.15 : 0.03} 
+          pointAltitude={(point: any) => {
+             const activeAlt = isMobile ? 0.3 : 0.15;
+             const baseAlt = isMobile ? 0.08 : 0.03;
+             return point.id === currentStationId ? activeAlt : baseAlt;
+          }} 
           pointRadius={(point: any) => {
-            const baseRadius = isMobile ? 0.2 : 0.15;
-            const activeRadius = isMobile ? 0.75 : 0.5;
+            // Significantly larger radius on mobile for easier touch
+            const baseRadius = isMobile ? 0.9 : 0.15;
+            const activeRadius = isMobile ? 1.5 : 0.5;
             return point.id === currentStationId ? activeRadius : baseRadius;
           }}
           onGlobeClick={({ lat, lng }: { lat: number, lng: number }) => {
