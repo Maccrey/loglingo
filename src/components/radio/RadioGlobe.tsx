@@ -121,15 +121,58 @@ export default function RadioGlobe({ onStationClick, currentStationId, onLoadCom
             const activeRadius = isMobile ? 0.75 : 0.5;
             return point.id === currentStationId ? activeRadius : baseRadius;
           }}
+          onGlobeClick={({ lat, lng }: { lat: number, lng: number }) => {
+            const now = Date.now();
+            const timeSinceLastClick = now - (globeEl.current as any).lastClickTime || 0;
+            
+            if (timeSinceLastClick < 300) {
+              // Double Click Detected
+              console.log('🌎 Globe double-clicked');
+              
+              // Smart Toggle: Check altitude to decide between Zoom In or Reset
+              const currentAlt = (globeEl.current?.pointOfView() as any)?.altitude || 2.5;
+              
+              if (currentAlt < 1.0) {
+                 // If already close -> Reset View
+                 console.log('  -> Resetting view');
+                 globeEl.current?.pointOfView({ 
+                    lat: 20, 
+                    lng: 100, 
+                    altitude: isMobile ? 2.8 : 1.8 
+                 }, 1000);
+              } else {
+                 // If far away -> Zoom In to clicked location
+                 console.log('  -> Zooming in to', { lat, lng });
+                 globeEl.current?.pointOfView({ 
+                    lat, 
+                    lng, 
+                    altitude: 0.6 
+                 }, 1000);
+              }
+              
+              (globeEl.current as any).lastClickTime = 0;
+            } else {
+              // Single Click -> Just record time, do NOT zoom
+              (globeEl.current as any).lastClickTime = now;
+            }
+          }}
           onPointClick={(point) => {
             console.log('🎯 Station clicked:', point);
             const station = point as unknown as RadioStation;
-            console.log('🎯 Station data:', {
-              name: station.name,
-              url: station.url,
-              urlResolved: station.urlResolved,
-              hasAllData: !!(station.name && (station.url || station.urlResolved))
-            });
+            
+            // Zoom in closer for station selection
+            if (globeEl.current) {
+               globeEl.current.pointOfView({
+                 lat: (point as any).geoLat,
+                 lng: (point as any).geoLong,
+                 altitude: 0.25 // Close zoom
+               }, 1000);
+               
+               // Pause rotation carefully without stopping everything
+               globeEl.current.controls().autoRotate = false;
+               setIsRotating(false);
+            }
+
             if (onStationClick) {
               onStationClick(station);
             }
