@@ -61,12 +61,13 @@ export default function GlobalMascot() {
   // Logic: Guest on Main Page -> Specific Message + Auto Hatch
   // Logic: Others -> Random Mesasge + No Egg/Auto Hatch (Just Duck)
   
-  const isMainPage = context === 'home' || context === 'default';
+  // Logic: Guest -> Specific Message (Signup encouragement)
+  // Logic: User -> Context Message (Home, Diary, etc.)
+  
   const isGuest = !user;
-  const isGuestOnMain = isGuest && isMainPage;
 
   let speech = '';
-  if (isGuestOnMain) {
+  if (isGuest) {
     const guestMsgIndex = ((msgIndex - 1) % 25) + 1; // Map 1-26 to 1-25
     speech = t(`guest.message_${guestMsgIndex}`);
   } else {

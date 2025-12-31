@@ -16,7 +16,12 @@
     "success": "Succès",
     "delete": "Supprimer",
     "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
-    "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D."
+    "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D.",
+    "ai_check": "Correction IA",
+    "ai_checking": "Correction en cours...",
+    "ai_analyzing": "Grok AI réfléchit...",
+    "ai_analyzing_desc": "Analyse de votre journal et recherche d'expressions améliorées.",
+    "apply": "Appliquer"
   },
   "nav": {
     "home": "Accueil",
@@ -86,7 +91,9 @@
       "learn_desc": "Révisez vos erreurs et apprenez grâce à des quiz personnalisés.",
       "speaking": "Pratique Orale",
       "speaking_desc": "Entraînez votre prononciation et conversation avec l'IA."
-    }
+    },
+    "mascot_guest": "Bonjour ! 👋",
+    "mascot_user": "Que s'est-il passé aujourd'hui ? 📝"
   },
   "diary": {
     "title": "Mon Journal",

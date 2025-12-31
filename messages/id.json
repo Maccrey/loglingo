@@ -16,7 +16,12 @@
     "success": "Berhasil",
     "delete": "Hapus",
     "meta_title": "Radio Global - Dengarkan Stasiun Radio dari Seluruh Dunia | Loglingo",
-    "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D."
+    "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D.",
+    "ai_check": "Koreksi AI",
+    "ai_checking": "Sedang mengoreksi...",
+    "ai_analyzing": "Grok AI sedang berpikir...",
+    "ai_analyzing_desc": "Menganalisis buku harian Anda dan menemukan ekspresi yang lebih baik.",
+    "apply": "Terapkan"
   },
   "nav": {
     "home": "Beranda",
@@ -86,7 +91,9 @@
       "learn_desc": "Tinjau kesalahan Anda dan pelajari dari kuis yang dipersonalisasi.",
       "speaking": "Latihan Berbicara",
       "speaking_desc": "Latih pengucapan dan percakapan dengan AI."
-    }
+    },
+    "mascot_guest": "Halo! 👋",
+    "mascot_user": "Apa yang terjadi hari ini? 📝"
   },
   "diary": {
     "title": "Buku Harian Saya",

@@ -111,7 +111,6 @@ const messages = {
     "Yeni bir dilde ustalaşmaya hazır mısın?", "Kaydol ve her gün daha zeki ol.", "Yalnızım... bana katıl!", "Kişisel arşivin seni bekliyor.", "Gelişimini profilinle takip et.",
     "Katılmak ücretsiz!", "Bugün sıkı çalışalım.", "Sana öğretecek çok şeyim var.", "Favori cümlelerini kaydet.", "Hoş geldin dostum! Devam etmek için giriş yap."
   ],
-  na: [], // ne
   vi: [
     "Tôi là Study Duck! Cùng học nhé!", "Đăng ký để lưu tiến độ hàng ngày.", "Đừng để mất chuỗi—đăng nhập ngay!", "Tôi có thể giúp sửa nhật ký cho bạn.", "Tạo tài khoản miễn phí để bắt đầu.",
     "Rất vui được gặp! Tôi là gia sư AI.", "Muốn nhớ từ này không? Đăng ký nhé!", "Tham gia cộng đồng người học.", "Hành trình ngôn ngữ bắt đầu ở đây.", "Đăng nhập để mở khóa tính năng.",

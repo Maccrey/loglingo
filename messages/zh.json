@@ -16,7 +16,12 @@
     "success": "成功",
     "delete": "删除",
     "meta_title": "全球广播 - 收听世界各地的广播电台 | Loglingo",
-    "meta_description": "发现并收听来自世界各地的广播电台。提供韩语、日语、英语、西班牙语、法语、德语等语言的电台，非常适合语言学习。通过3D地球仪界面享受免费的互联网广播。"
+    "meta_description": "发现并收听来自世界各地的广播电台。提供韩语、日语、英语、西班牙语、法语、德语等语言的电台，非常适合语言学习。通过3D地球仪界面享受免费的互联网广播。",
+    "ai_check": "AI 修正",
+    "ai_checking": "正在修正...",
+    "ai_analyzing": "Grok AI 正在思考...",
+    "ai_analyzing_desc": "分析您的日记并寻找改进的表达方式。",
+    "apply": "应用"
   },
   "nav": {
     "home": "首页",
@@ -86,7 +91,9 @@
       "learn_desc": "复习错误并通过个性化测验进行学习。",
       "speaking": "口语练习",
       "speaking_desc": "与AI一起练习发音和对话。"
-    }
+    },
+    "mascot_guest": "你好！ 👋",
+    "mascot_user": "今天发生了什么？ 📝"
   },
   "diary": {
     "title": "我的日记",

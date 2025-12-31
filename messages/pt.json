@@ -16,7 +16,12 @@
     "success": "Sucesso",
     "delete": "Excluir",
     "meta_title": "Rádio Global - Ouça Estações de Rádio do Mundo Inteiro | Loglingo",
-    "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D."
+    "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D.",
+    "ai_check": "Correção de IA",
+    "ai_checking": "Corrigindo...",
+    "ai_analyzing": "Grok AI está pensando...",
+    "ai_analyzing_desc": "Analisando seu diário e encontrando expressões melhoradas.",
+    "apply": "Aplicar"
   },
   "nav": {
     "home": "Início",
@@ -86,7 +91,9 @@
       "learn_desc": "Revise seus erros e aprenda com questionários personalizados.",
       "speaking": "Prática de Fala",
       "speaking_desc": "Pratique pronúncia e conversação com IA."
-    }
+    },
+    "mascot_guest": "Olá! 👋",
+    "mascot_user": "O que aconteceu hoje? 📝"
   },
   "diary": {
     "title": "Meu Diário",

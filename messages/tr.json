@@ -16,7 +16,12 @@
     "success": "Başarılı",
     "delete": "Sil",
     "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
-    "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu."
+    "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu.",
+    "ai_check": "Yapay Zeka Düzeltimi",
+    "ai_checking": "Düzeltiliyor...",
+    "ai_analyzing": "Grok AI düşünüyor...",
+    "ai_analyzing_desc": "Günlüğünüzü analiz ediyor ve geliştirilmiş ifadeler buluyor.",
+    "apply": "Uygula"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -86,7 +91,9 @@
       "learn_desc": "Hataları gözden geçirin ve kişiselleştirilmiş testlerle öğrenin.",
       "speaking": "Konuşma Pratiği",
       "speaking_desc": "Yapay zeka ile telaffuz ve konuşma pratiği yapın."
-    }
+    },
+    "mascot_guest": "Merhaba! 👋",
+    "mascot_user": "Bugün ne oldu? 📝"
   },
   "diary": {
     "title": "Günlüğüm",

@@ -16,7 +16,12 @@
     "success": "Thành công",
     "delete": "Xóa",
     "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
-    "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D."
+    "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D.",
+    "ai_check": "Sửa lỗi AI",
+    "ai_checking": "Đang sửa...",
+    "ai_analyzing": "Grok AI đang suy nghĩ...",
+    "ai_analyzing_desc": "Phân tích nhật ký của bạn và tìm các biểu thức cải tiến.",
+    "apply": "Áp dụng"
   },
   "nav": {
     "home": "Trang chủ",
@@ -86,7 +91,9 @@
       "learn_desc": "Xem lại những lỗi sai và học từ các bài kiểm tra được cá nhân hóa.",
       "speaking": "Luyện nói",
       "speaking_desc": "Luyện phát âm và hội thoại với AI."
-    }
+    },
+    "mascot_guest": "Xin chào! 👋",
+    "mascot_user": "Hôm nay có chuyện gì thế? 📝"
   },
   "diary": {
     "title": "Nhật ký của tôi",
