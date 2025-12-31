@@ -27,4 +27,9 @@ describe("DuckMascot", () => {
     const img = getByAltText("Loglingo Duck Mascot");
     expect(img).toBeInTheDocument();
   });
+
+  it("renders speech bubble when provided", () => {
+    const { getByText } = render(<DuckMascot mode="teacher" speech="Hello World" />);
+    expect(getByText("Hello World")).toBeInTheDocument();
+  });
 });

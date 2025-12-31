@@ -42,19 +42,15 @@ export function StartButton() {
   return (
     <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mt-4 md:mt-0">
       {/* Mascot Section */}
-      <div className="relative flex flex-col items-center">
-        {/* Speech Bubble */}
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-lg border border-border animate-in fade-in slide-in-from-bottom-2 duration-700 z-20">
-          <div className="text-sm font-medium text-center text-foreground break-keep">
-            {greeting}
-          </div>
-          {/* Bubble Tail */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-zinc-800 border-b border-r border-border transform rotate-45"></div>
-        </div>
-
-        {/* Duck */}
-        <div className="relative z-10 hover:scale-105 transition-transform duration-300">
-           <DuckMascot mode="teacher" width={130} height={130} />
+      <div className="relative flex flex-col items-center z-10">
+        {/* Duck with Greeting */}
+        <div className="relative hover:scale-105 transition-transform duration-300">
+           <DuckMascot 
+             mode="teacher" 
+             width={130} 
+             height={130} 
+             speech={greeting}
+           />
         </div>
       </div>
 

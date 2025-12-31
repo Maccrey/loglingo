@@ -5,11 +5,12 @@ import Image from 'next/image';
 
 export type DuckMode = 'thinking' | 'party' | 'lonely' | 'teacher';
 
-interface DuckMascotProps {
+export interface DuckMascotProps {
   mode: DuckMode;
   className?: string;
   width?: number;
   height?: number;
+  speech?: string;
 }
 
 
@@ -17,20 +18,39 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   mode, 
   className = '', 
   width = 120, 
-  height = 120 
+  height = 120,
+  speech
 }) => {
   return (
     <motion.div 
       className={`relative flex items-center justify-center ${className} touch-none`} 
       style={{ width, height }}
       drag
-      dragConstraints={{ left: -300, right: 300, top: -300, bottom: 300 }}
+      dragMomentum={false} // Stop movement immediately after release
       whileHover={{ scale: 1.1, cursor: "grab" }}
       whileDrag={{ scale: 1.2, cursor: "grabbing" }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
     >
       
+      {/* 0. Speech Bubble (Optional) - Moves with Duck */}
+      {speech && (
+        <motion.div 
+          className="absolute -top-[90px] left-1/2 -translate-x-1/2 w-48 z-40"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-xl border border-border/50 relative">
+            <div className="text-sm font-medium text-center text-foreground break-keep leading-tight">
+              {speech}
+            </div>
+            {/* Bubble Tail */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-zinc-800 border-b border-r border-border/50 transform rotate-45"></div>
+          </div>
+        </motion.div>
+      )}
+
       {/* 1. Base Duck Image with Animation */}
       <motion.div
         className="relative z-10 w-full h-full"
