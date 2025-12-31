@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { DuckMascot } from './DuckMascot';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '@/application/auth/AuthProvider';
 
 type PageContext = 'home' | 'diary' | 'speaking' | 'radio' | 'challenge' | 'default';
@@ -86,11 +86,11 @@ export default function GlobalMascot() {
     default: mode = 'teacher';
   }
 
-  const handleCrack = () => {
+  const handleCrack = useCallback(() => {
     // Pick a new random message index between 1 and 26 when egg is clicked
     const randomIdx = Math.floor(Math.random() * 26) + 1;
     setMsgIndex(randomIdx);
-  };
+  }, []);
 
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 pointer-events-none">

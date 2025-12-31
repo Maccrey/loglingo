@@ -43,75 +43,66 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   // Handle interaction (Click on Egg)
   const handleInteraction = useCallback(() => {
     // Check local state 'lifecycle' directly. 
-    // This requires 'lifecycle' in dependency array, effectively re-creating function on state change.
-    // However, since we block re-execution via 'lifecycle !== egg', it should be fine.
     if (lifecycle !== 'egg') return;
 
     if (onCrack) onCrack(); // Trigger external callback
     clearTimers();
     setLifecycle('cracking');
 
-    // 1. Cracking Animation (0.6s) -> Duck appears immediately
+    // 1. Cracking Animation (0.4s) -> Duck appears immediately
+    // Reduced from 200ms to align with animation duration more tightly
     const t1 = setTimeout(() => {
       setLifecycle('duck');
-      
-      // 2. 1s later -> Bubble appears
-      const t2 = setTimeout(() => {
-        if (speech) setShowBubble(true);
-        
-        // 3. 5s later -> Bubble disappears
-        const t3 = setTimeout(() => {
-          setShowBubble(false);
-          
-          // 4. 3s later -> Back to Egg
-          const t4 = setTimeout(() => {
-            setLifecycle('egg');
-            // Allow auto-hatch to reset if needed, but usually we just want user interaction now.
-            // hasAutoHatched.current is for "Action on Mount". No need to reset it.
-          }, 3000);
-          timeouts.current.push(t4);
-        }, 5000);
-        timeouts.current.push(t3);
-      }, 1000);
-    }, 200);
+    }, 400); // Wait for cracking animation to finish
     timeouts.current.push(t1);
-  }, [lifecycle, onCrack, clearTimers, speech]);
 
-  // If egg mode is disabled, always show bubble if speech exists
+  }, [lifecycle, onCrack, clearTimers]); 
+  // removed speech from dependencies to prevent reset on speech change
+
+  // Separate effect for Bubble Logic
+  useEffect(() => {
+     if (lifecycle === 'duck' && speech) {
+         // Show bubble with a small delay after duck appears or speech changes
+         const t = setTimeout(() => setShowBubble(true), 500);
+         const tHide = setTimeout(() => setShowBubble(false), 5500);
+         
+         timeouts.current.push(t);
+         timeouts.current.push(tHide);
+         
+         return () => {
+             clearTimeout(t);
+             clearTimeout(tHide);
+         };
+     } else {
+         setShowBubble(false);
+     }
+  }, [speech, lifecycle]);
+
+  // If egg mode is disabled, always set to duck
   useEffect(() => {
     if (!enableEgg) {
-      setShowBubble(!!speech);
       setLifecycle('duck');
     }
-  }, [enableEgg, speech]);
+  }, [enableEgg]);
 
   // Auto-hatch on mount
   useEffect(() => {
     if (enableEgg) {
-      // Delay slightly to show egg before cracking (500ms)
+      // Delay slightly to show egg before cracking
       const t = setTimeout(() => {
-        // Trigger sequence directly
         setLifecycle('cracking');
         if (onCrack) onCrack(); 
 
         const t1 = setTimeout(() => {
           setLifecycle('duck');
           
-          const t2 = setTimeout(() => {
-            if (speech) setShowBubble(true);
-            
-            const t3 = setTimeout(() => {
-              setShowBubble(false);
-              
-              const t4 = setTimeout(() => {
-                setLifecycle('egg');
-              }, 3000);
-              timeouts.current.push(t4);
-            }, 5000); // Bubble duration
-            timeouts.current.push(t3);
-          }, 1000); // Delay before bubble
-          timeouts.current.push(t2);
-        }, 200); // Cracking duration - reduced for immediate duck appearance
+          // Auto-reset logic (optional, keep if desired for loop)
+          const tReset = setTimeout(() => {
+             setLifecycle('egg');
+          }, 8000); // Extended reset time
+          timeouts.current.push(tReset);
+
+        }, 400); // Match handleInteraction timing
         timeouts.current.push(t1);
 
       }, 500); 
@@ -119,7 +110,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
     }
     // Cleanup on unmount or if enableEgg changes
     return () => clearTimers();
-  }, [enableEgg, onCrack, speech, clearTimers]);
+  }, [enableEgg, clearTimers]); // Removing onCrack/speech from here is crucial
 
   return (
     <motion.div 
