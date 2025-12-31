@@ -53,6 +53,12 @@ export default function GlobalMascot() {
 
   }, [pathname]);
 
+  const handleCrack = useCallback(() => {
+    // Pick a new random message index between 1 and 26 when egg is clicked
+    const randomIdx = Math.floor(Math.random() * 26) + 1;
+    setMsgIndex(randomIdx);
+  }, []);
+
   if (!mounted || loading) return null; // Wait for auth loading
 
   // Determine speech text
@@ -86,11 +92,7 @@ export default function GlobalMascot() {
     default: mode = 'teacher';
   }
 
-  const handleCrack = useCallback(() => {
-    // Pick a new random message index between 1 and 26 when egg is clicked
-    const randomIdx = Math.floor(Math.random() * 26) + 1;
-    setMsgIndex(randomIdx);
-  }, []);
+
 
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 pointer-events-none">
