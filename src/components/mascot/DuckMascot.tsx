@@ -53,6 +53,13 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
     // Reduced from 200ms to align with animation duration more tightly
     const t1 = setTimeout(() => {
       setLifecycle('duck');
+
+      // Auto-reset logic (optional, keep if desired for loop)
+      const tReset = setTimeout(() => {
+          setLifecycle('egg');
+      }, 8000); // Extended reset time
+      timeouts.current.push(tReset);
+      
     }, 400); // Wait for cracking animation to finish
     timeouts.current.push(t1);
 
