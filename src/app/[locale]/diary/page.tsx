@@ -24,6 +24,7 @@ import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
 import { Fragment } from "react";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 export default function DiaryListPage() {
   const t = useTranslations("diary");
@@ -263,9 +264,12 @@ export default function DiaryListPage() {
                 <p className="text-muted-foreground">{t("loading")}</p>
               </Card>
             ) : filtered.length === 0 ? (
-              <Card className="flex min-h-[200px] flex-col items-center justify-center border-dashed bg-transparent text-center">
-                <p className="text-muted-foreground">{t("empty")}</p>
-                <Link href="/diary/new" className="mt-3 inline-flex">
+              <Card className="flex min-h-[300px] flex-col items-center justify-center border-dashed bg-transparent text-center space-y-4">
+                <DuckMascot mode="lonely" width={120} height={120} />
+                <div className="space-y-1">
+                  <p className="text-muted-foreground">{t("empty")}</p>
+                </div>
+                <Link href="/diary/new" className="inline-flex mt-2">
                   <Button size="sm">
                     <Plus className="mr-2 h-4 w-4" />
                     {t("new_entry")}

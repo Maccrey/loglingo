@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 export function StartButton() {
   const t = useTranslations('home');
@@ -37,7 +38,12 @@ export function StartButton() {
 
   if (isTrialAvailable) {
     return (
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-3 relative">
+        {/* Helper Duck */}
+        <div className="absolute -left-[140px] top-1/2 -translate-y-1/2 hidden md:block">
+           <DuckMascot mode="teacher" width={120} height={120} />
+        </div>
+        
         <Link href="/diary/trial">
           <Button 
             size="lg" 

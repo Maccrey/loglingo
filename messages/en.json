@@ -10,6 +10,11 @@
   },
   "common": {
     "save": "Save",
+    "ai_check": "AI Correction",
+    "ai_checking": "Correcting...",
+    "ai_analyzing": "Grok AI is thinking...",
+    "ai_analyzing_desc": "Analyzing your diary and finding improved expressions.",
+    "apply": "Apply",
     "cancel": "Cancel",
     "loading": "Loading...",
     "error": "An error occurred",

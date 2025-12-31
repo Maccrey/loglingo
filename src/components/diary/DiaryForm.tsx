@@ -34,6 +34,7 @@ import { persistInsightsFromCorrection } from "@/application/learning-profile/se
 
 import { LearningArchiveDraft } from "@/domain/archive";
 import { TRIAL_SAMPLES } from "@/constants/trial-samples";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 type DiaryFormProps = {
   initial?: Diary | null;
@@ -87,6 +88,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const [savingArchive, setSavingArchive] = useState(false);
   const [pendingArchives, setPendingArchives] = useState<LearningArchiveDraft[]>([]);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   // When sampleText changes (e.g. language switch), update content if:
   // 1. We are already in sample mode (user hasn't typed anything custom)
@@ -262,16 +264,24 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
         value_korean: "일기 저장 성공"
       });
 
-      if (onSuccess) {
-        onSuccess();
-      }
+      // Show Party Duck Modal
+      setShowSuccess(true);
+      
+      // Delay navigation/callback to show animation
+      setTimeout(() => {
+        setShowSuccess(false);
+        if (onSuccess) {
+          onSuccess();
+        }
+        
+        if (!initial) {
+          setContent("");
+          setImageFile(null);
+          setImagePreview(undefined);
+          setPendingArchives([]); 
+        }
+      }, 2500); // 2.5 seconds delay
 
-      if (!initial) {
-        setContent("");
-        setImageFile(null);
-        setImagePreview(undefined);
-        setPendingArchives([]); // Clear pending state
-      }
     } catch (error: unknown) {
        if (error instanceof DiaryValidationError) {
         setErrors(error.reasons);
@@ -589,6 +599,18 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
           </CardFooter>
         </Card>
         
+        {aiLoading && (
+          <Card className="border-primary/20 bg-primary/5 animate-in fade-in zoom-in-95 duration-300">
+            <CardContent className="flex flex-col items-center justify-center py-12 space-y-4">
+              <DuckMascot mode="thinking" width={140} height={140} />
+              <div className="text-center space-y-1">
+                <p className="text-lg font-medium text-foreground">{t("ai_analyzing")}</p>
+                <p className="text-sm text-muted-foreground animate-pulse">{t("ai_analyzing_desc")}</p>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+        
         {aiResult && (
           <AiFeedback
             result={aiResult}
@@ -627,8 +649,20 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
       />
     </form>
 
-      {/* Save Confim Modal - No longer needed as manual save is removed? Or keep for edge case? */}
-      {/* If manual save is removed, this modal is unreachable via submit. Keeping code minimal. */}
+      {/* Success Modal with Party Duck */}
+      <Modal 
+        isOpen={showSuccess} 
+        onClose={() => {}} // Block closing by user, wait for timer
+        className="max-w-sm text-center bg-green-500/10 border-green-500/30"
+      >
+        <div className="flex flex-col items-center justify-center space-y-4 py-6">
+          <DuckMascot mode="party" width={160} height={160} />
+          <div className="space-y-2">
+            <h3 className="text-2xl font-bold text-white">{t("saved")}!</h3>
+            <p className="text-green-200/80">{t("ai_saved_archive")}</p>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 }
