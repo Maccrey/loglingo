@@ -40,21 +40,7 @@ export function StartButton() {
   const showTrial = isTrialAvailable;
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mt-4 md:mt-0">
-      {/* Mascot Section */}
-      <div className="relative flex flex-col items-center z-10">
-        {/* Duck with Greeting */}
-        <div className="relative hover:scale-105 transition-transform duration-300">
-           <DuckMascot 
-             mode="teacher" 
-             width={130} 
-             height={130} 
-             speech={greeting}
-           />
-        </div>
-      </div>
-
-      {/* Button Section */}
+    <>
       <div className="flex flex-col items-center gap-3">
         {showTrial ? (
           <>
@@ -81,6 +67,17 @@ export function StartButton() {
           </Link>
         )}
       </div>
-    </div>
+
+      {/* Mascot Fixed on Left Side */}
+      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50">
+        <DuckMascot 
+          mode="teacher" 
+          width={130} 
+          height={130} 
+          speech={greeting} 
+          bubbleSide="right"
+        />
+      </div>
+    </>
   );
 }

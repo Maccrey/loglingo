@@ -11,15 +11,16 @@ export interface DuckMascotProps {
   width?: number;
   height?: number;
   speech?: string;
+  bubbleSide?: 'left' | 'right';
 }
-
 
 export const DuckMascot: React.FC<DuckMascotProps> = ({ 
   mode, 
   className = '', 
   width = 120, 
   height = 120,
-  speech
+  speech,
+  bubbleSide = 'left'
 }) => {
   return (
     <motion.div 
@@ -36,8 +37,10 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       {/* 0. Speech Bubble (Optional) - Moves with Duck */}
       {speech && (
         <motion.div 
-          className="absolute top-1/2 -translate-y-1/2 right-full mr-12 w-48 z-40"
-          initial={{ opacity: 0, x: 10 }}
+          className={`absolute top-1/2 -translate-y-1/2 w-48 z-40 ${
+            bubbleSide === 'left' ? 'right-full mr-12' : 'left-full ml-12'
+          }`}
+          initial={{ opacity: 0, x: bubbleSide === 'left' ? 10 : -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
@@ -45,8 +48,12 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
             <div className="text-sm font-medium text-center text-foreground break-keep leading-tight">
               {speech}
             </div>
-            {/* Bubble Tail pointing Right (towards Duck) */}
-            <div className="absolute top-1/2 -translate-y-1/2 -right-[6px] w-3 h-3 bg-white dark:bg-zinc-800 border-t border-r border-border/50 transform rotate-45"></div>
+            {/* Bubble Tail */}
+            <div className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white dark:bg-zinc-800 border-border/50 transform rotate-45 ${
+              bubbleSide === 'left' 
+                ? '-right-[6px] border-t border-r' // Points Right
+                : '-left-[6px] border-b border-l'  // Points Left
+            }`}></div>
           </div>
         </motion.div>
       )}
