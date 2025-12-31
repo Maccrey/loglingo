@@ -104,7 +104,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
         {lifecycle === 'egg' || lifecycle === 'cracking' ? (
           <motion.div
             key="egg"
-            className="w-[80%] h-[90%] pointer-events-auto cursor-pointer"
+            className="w-[40%] h-[45%] pointer-events-auto cursor-pointer"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={lifecycle === 'cracking' 
               ? { rotate: [-5, 5, -5, 5, 0], scale: 1.1 } 
