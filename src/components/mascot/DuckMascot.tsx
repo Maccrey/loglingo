@@ -36,17 +36,17 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       {/* 0. Speech Bubble (Optional) - Moves with Duck */}
       {speech && (
         <motion.div 
-          className="absolute -top-[90px] left-1/2 -translate-x-1/2 w-48 z-40"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-1/2 -translate-y-1/2 right-full mr-4 w-48 z-40"
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
           <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-xl border border-border/50 relative">
             <div className="text-sm font-medium text-center text-foreground break-keep leading-tight">
               {speech}
             </div>
-            {/* Bubble Tail */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-zinc-800 border-b border-r border-border/50 transform rotate-45"></div>
+            {/* Bubble Tail pointing Right (towards Duck) */}
+            <div className="absolute top-1/2 -translate-y-1/2 -right-[6px] w-3 h-3 bg-white dark:bg-zinc-800 border-t border-r border-border/50 transform rotate-45"></div>
           </div>
         </motion.div>
       )}
