@@ -36,38 +36,55 @@ export function StartButton() {
     );
   }
 
-  if (isTrialAvailable) {
-    return (
-      <div className="flex flex-col items-center gap-3 relative">
-        {/* Helper Duck - Visible on all devices, drag enabled */}
-        {/* Mobile: Top center, PC: Left side */}
-        <div className="absolute -top-[130px] left-1/2 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2 md:left-auto md:-left-[140px] md:translate-x-0 z-10">
-           <DuckMascot mode="teacher" width={120} height={120} />
-        </div>
-        
-        <Link href="/diary/trial">
-          <Button 
-            size="lg" 
-            className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow"
-            style={{ backgroundColor: '#f97316', color: 'white' }}
-          >
-            {t('try_it_out')}
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </Link>
-        <span className="text-xs text-orange-200/70 font-medium tracking-wide">
-          {t('trial_hint')}
-        </span>
-      </div>
-    );
-  }
+  const greeting = user ? t('mascot_user') : t('mascot_guest');
+  const showTrial = isTrialAvailable;
 
   return (
-    <Link href="/diary/new">
-      <Button size="lg" className="group">
-        {t('start')}
-        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </Button>
-    </Link>
+    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mt-4 md:mt-0">
+      {/* Mascot Section */}
+      <div className="relative flex flex-col items-center">
+        {/* Speech Bubble */}
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-lg border border-border animate-in fade-in slide-in-from-bottom-2 duration-700 z-20">
+          <div className="text-sm font-medium text-center text-foreground break-keep">
+            {greeting}
+          </div>
+          {/* Bubble Tail */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-zinc-800 border-b border-r border-border transform rotate-45"></div>
+        </div>
+
+        {/* Duck */}
+        <div className="relative z-10 hover:scale-105 transition-transform duration-300">
+           <DuckMascot mode="teacher" width={130} height={130} />
+        </div>
+      </div>
+
+      {/* Button Section */}
+      <div className="flex flex-col items-center gap-3">
+        {showTrial ? (
+          <>
+            <Link href="/diary/trial">
+              <Button 
+                size="lg" 
+                className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow px-8 py-6 text-lg"
+                style={{ backgroundColor: '#f97316', color: 'white' }}
+              >
+                {t('try_it_out')}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <span className="text-xs text-muted-foreground font-medium tracking-wide">
+              {t('trial_hint')}
+            </span>
+          </>
+        ) : (
+          <Link href="/diary/new">
+            <Button size="lg" className="group px-8 py-6 text-lg">
+              {t('start')}
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 }

@@ -84,7 +84,9 @@
       "learn_desc": "실수를 복습하고 맞춤형 퀴즈로 학습하세요.",
       "speaking": "말하기 연습",
       "speaking_desc": "AI와 함께 발음과 회화를 연습하세요."
-    }
+    },
+    "mascot_guest": "안녕하세요! 👋",
+    "mascot_user": "오늘은 어떤 일이 있었나요? 📝"
   },
   "diary": {
     "title": "나의 일기",

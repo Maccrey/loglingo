@@ -89,7 +89,9 @@
       "learn_desc": "Review your mistakes and learn from personalized quizzes.",
       "speaking": "Speaking Practice",
       "speaking_desc": "Practice pronunciation and conversation with AI."
-    }
+    },
+    "mascot_guest": "Hello! 👋",
+    "mascot_user": "What happened today? 📝"
   },
   "diary": {
     "title": "My Diary",
