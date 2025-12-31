@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "注册以建立您的个人档案。",
     "signup_button": "注册并登录",
+    "already_logged_in": "您已登录。正在跳转至日记。",
     "banner_title": "体验模式",
     "banner_desc": "体验模式下不会保存数据。",
     "sample_guide": "看看AI如何修正下面的句子",
-    "sample_hint": "点击文本自行输入",
-    "already_logged_in": "您已登录。正在跳转至日记。"
+    "sample_hint": "点击文本自行输入"
   },
   "common": {
     "save": "保存",
-    "cancel": "取消",
-    "loading": "频道加载中...",
-    "error": "发生错误",
-    "success": "成功",
-    "delete": "删除",
-    "meta_title": "全球广播 - 收听世界各地的广播电台 | Loglingo",
-    "meta_description": "发现并收听来自世界各地的广播电台。提供韩语、日语、英语、西班牙语、法语、德语等语言的电台，非常适合语言学习。通过3D地球仪界面享受免费的互联网广播。",
     "ai_check": "AI 修正",
     "ai_checking": "正在修正...",
     "ai_analyzing": "Grok AI 正在思考...",
     "ai_analyzing_desc": "分析您的日记并寻找改进的表达方式。",
-    "apply": "应用"
+    "apply": "应用",
+    "cancel": "取消",
+    "loading": "频道加载中...",
+    "error": "发生错误",
+    "success": "成功",
+    "delete": "删除"
   },
   "nav": {
     "home": "首页",
@@ -29,10 +27,10 @@
     "write": "写作",
     "archive": "学习",
     "settings": "设置",
-    "loading": "Loading...",
     "login": "登录",
     "logout": "退出登录",
-    "radio": "广播"
+    "radio": "广播",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "登录后开始学习",
@@ -42,11 +40,6 @@
     "cta": "登录",
     "loading": "正在检查登录状态...",
     "languages_label": "支持语言",
-    "steps": {
-      "write": "用目标语言写一段简短日记。",
-      "review": "AI 会立即给出纠正和说明。",
-      "save": "把有用的句子保存到档案并复习。"
-    },
     "login_modal_title": "登录",
     "signup_modal_title": "注册",
     "password_reset_modal_title": "重置密码",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "该邮箱已被使用。",
     "error_user_not_found": "未找到用户。",
     "error_wrong_password": "密码不正确。",
-    "error_auth_failed": "认证失败，请重试。"
+    "error_auth_failed": "认证失败，请重试。",
+    "steps": {
+      "write": "用目标语言写一段简短日记。",
+      "review": "AI 会立即给出纠正和说明。",
+      "save": "把有用的句子保存到档案并复习。"
+    }
   },
   "home": {
     "title": "用 AI 日记掌握语言",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "原文",
-    "back": "返回列表",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "返回列表"
   },
   "write": {
     "title": "写新日记",
@@ -134,13 +132,13 @@
     "uploading": "正在上传...",
     "upload_failed": "图片上传失败",
     "saved": "日记已保存",
-    "apply_and_save": "应用并保存",
     "back": "返回列表",
     "validation_invalid_date": "请选择有效日期 (YYYY-MM-DD)。",
     "validation_empty_content": "请输入内容。",
     "validation_too_long": "内容过长（最多 5000 字）。",
     "validation_image": "请选择图片文件。",
     "save": "保存日记",
+    "apply_and_save": "应用并保存",
     "update": "保存更改",
     "ai_checking": "AI 正在校对...",
     "ai_error": "AI 请求失败",
@@ -174,12 +172,14 @@
     "list_title": "已保存项目",
     "quiz_title": "快速测验",
     "quiz_empty": "选择一个项目来练习",
+    "quiz_question": "\"{title}\"的关键意思/模式是什么？",
     "quiz_correct": "正确！",
     "quiz_wrong": "再试一次",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "全部",
     "title_required": "标题为必填",
     "save_error": "保存档案失败",
-    "quiz_question": "\"{title}\"的关键意思/模式是什么？",
     "start_speaking_practice": "开始口语练习",
     "dashboard_title": "学习面板",
     "dashboard_subtitle": "一目了然查看等级、建议和活动",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} 分",
     "level_trend_down": "-{value} 分",
     "level_unknown": "暂无等级",
+    "level_help": "Levels are estimated from AI corrections/quizzes using CEFR (A1~C2).",
+    "level_status_high": "High level! Keep it up.",
+    "level_status_mid": "Steady progress. A bit more practice to level up.",
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
     "activities_title": "学习活动",
     "activity_diaries": "近7天日记",
     "activity_archives": "已保存的档案",
@@ -210,12 +214,6 @@
     "advice_topic_style": "风格",
     "advice_topic_other": "其他",
     "dictionary": "AI词典",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "level_status_high": "High level! Keep it up.",
-    "level_status_mid": "Steady progress. A bit more practice to level up.",
-    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
-    "level_help": "Levels are estimated from AI corrections/quizzes using CEFR (A1~C2).",
     "quick_quiz_badge": "快速测验",
     "correct_count": "答对 {value} 次",
     "memorized": "已记忆",
@@ -227,6 +225,17 @@
     "level_up": "升级",
     "advice_filter_applied": "已按 {topic} 筛选。",
     "advice_filter_applied_all": "已筛选所有项目。"
+  },
+  "dictionary": {
+    "fab_label": "AI词典",
+    "modal_title": "AI词典",
+    "input_placeholder": "输入单词...",
+    "search_button": "搜索",
+    "save_button": "保存到存档",
+    "saved": "已保存!",
+    "close": "关闭",
+    "examples": "示例",
+    "error": "词典生成失败"
   },
   "settings": {
     "title": "设置",
@@ -272,26 +281,15 @@
     "listening_time": "收听时间",
     "total": "总计",
     "by_language": "按语言",
-    "login_required_title": "需要登录",
-    "login_required_desc": "使用全球广播并保存收藏需要登录。",
-    "login_button": "登录",
     "added_favorite": "已添加到收藏",
     "removed_favorite": "已从收藏中移除",
     "error": "发生错误",
     "meta_title": "全球广播 - 收听世界各地的广播电台 | Loglingo",
     "meta_description": "发现并收听来自世界各地的广播电台。提供韩语、日语、英语、西班牙语、法语、德语等语言的电台，非常适合语言学习。通过3D地球仪界面享受免费的互联网广播。",
-    "loading": "频道加载中..."
-  },
-  "dictionary": {
-    "fab_label": "AI词典",
-    "modal_title": "AI词典",
-    "input_placeholder": "输入单词...",
-    "search_button": "搜索",
-    "save_button": "保存到存档",
-    "saved": "已保存!",
-    "close": "关闭",
-    "examples": "示例",
-    "error": "词典生成失败"
+    "loading": "频道加载中...",
+    "login_button": "登录",
+    "login_required_desc": "使用全球广播并保存收藏需要登录。",
+    "login_required_title": "需要登录"
   },
   "Speaking": {
     "localeName": "中文",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "我是 Study Duck！我会帮你努力学习的！",
       "message_1": "欢迎来到 Loglingo！",
       "message_2": "准备好学习了吗？",
       "message_3": "你做得很好！",

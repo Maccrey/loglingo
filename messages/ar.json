@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "سجل الآن لإنشاء أرشيفك الشخصي.",
     "signup_button": "التسجيل وتسجيل الدخول",
+    "already_logged_in": "لقد قمت بتسجيل الدخول بالفعل. جارٍ الانتقال إلى اليوميات.",
     "banner_title": "الوضع التجريبي",
     "banner_desc": "لا يتم حفظ البيانات في الوضع التجريبي.",
     "sample_guide": "انظر كيف يصحح الذكاء الاصطناعي هذه الجملة",
-    "sample_hint": "انقر النص لكتابة جملتك الخاصة",
-    "already_logged_in": "لقد قمت بتسجيل الدخول بالفعل. جارٍ الانتقال إلى اليوميات."
+    "sample_hint": "انقر النص لكتابة جملتك الخاصة"
   },
   "common": {
     "save": "حفظ",
-    "cancel": "إلغاء",
-    "loading": "جاري تحميل القناة...",
-    "error": "حدث خطأ",
-    "success": "نجح",
-    "delete": "حذف",
-    "meta_title": "راديو عالمي - استمع إلى محطات الراديو من جميع أنحاء العالم | Loglingo",
-    "meta_description": "اكتشف واستمع إلى محطات الراديو من جميع أنحاء العالم. مثالي لتعلم اللغات مع محطات بالكورية واليابانية والإنجليزية والإسبانية والفرنسية والألمانية والمزيد. راديو إنترنت مجاني مع واجهة كرة أرضية ثلاثية الأبعاد.",
     "ai_check": "تصحيح AI",
     "ai_checking": "جاري التصحيح...",
     "ai_analyzing": "Grok AI يفكر...",
     "ai_analyzing_desc": "تحليل يومياتك وإيجاد تعبيرات محسنة.",
-    "apply": "تطبيق"
+    "apply": "تطبيق",
+    "cancel": "إلغاء",
+    "loading": "جاري تحميل القناة...",
+    "error": "حدث خطأ",
+    "success": "نجح",
+    "delete": "حذف"
   },
   "nav": {
     "home": "الرئيسية",
@@ -29,10 +27,10 @@
     "write": "اكتب",
     "archive": "تعلم",
     "settings": "الإعدادات",
-    "loading": "Loading...",
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",
-    "radio": "راديو"
+    "radio": "راديو",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "سجّل الدخول لبدء التعلم",
@@ -42,11 +40,6 @@
     "cta": "تسجيل الدخول",
     "loading": "جار التحقق من حالة تسجيل الدخول...",
     "languages_label": "اللغات المدعومة",
-    "steps": {
-      "write": "اكتب مذكرة قصيرة باللغة التي تتعلمها.",
-      "review": "احصل فوراً على تصحيحات وشرح من الذكاء الاصطناعي.",
-      "save": "احفظ العبارات المفيدة في الأرشيف وقم بمراجعتها."
-    },
     "login_modal_title": "تسجيل الدخول",
     "signup_modal_title": "إنشاء حساب",
     "password_reset_modal_title": "إعادة تعيين كلمة المرور",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "هذا البريد الإلكتروني مستخدم بالفعل.",
     "error_user_not_found": "المستخدم غير موجود.",
     "error_wrong_password": "كلمة المرور غير صحيحة.",
-    "error_auth_failed": "فشلت المصادقة. يرجى المحاولة مرة أخرى."
+    "error_auth_failed": "فشلت المصادقة. يرجى المحاولة مرة أخرى.",
+    "steps": {
+      "write": "اكتب مذكرة قصيرة باللغة التي تتعلمها.",
+      "review": "احصل فوراً على تصحيحات وشرح من الذكاء الاصطناعي.",
+      "save": "احفظ العبارات المفيدة في الأرشيف وقم بمراجعتها."
+    }
   },
   "home": {
     "title": "أتقن اللغات مع مذكرات الذكاء الاصطناعي",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "المحتوى الأصلي",
-    "back": "العودة إلى القائمة",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "العودة إلى القائمة"
   },
   "write": {
     "title": "إدخال جديد",
@@ -134,13 +132,13 @@
     "uploading": "جاري الرفع...",
     "upload_failed": "فشل رفع الصورة",
     "saved": "تم حفظ الإدخال",
-    "apply_and_save": "تطبيق وحفظ",
     "back": "العودة للقائمة",
     "validation_invalid_date": "اختر تاريخًا صالحًا (YYYY-MM-DD).",
     "validation_empty_content": "اكتب شيئًا للحفظ.",
     "validation_too_long": "المحتوى طويل جدًا (حد أقصى 5000 حرف).",
     "validation_image": "يرجى اختيار ملف صورة.",
     "save": "حفظ الإدخال",
+    "apply_and_save": "تطبيق وحفظ",
     "update": "حفظ التغييرات",
     "ai_checking": "الذكاء الاصطناعي يفحص...",
     "ai_error": "فشل طلب الذكاء الاصطناعي",
@@ -174,12 +172,14 @@
     "list_title": "العناصر المحفوظة",
     "quiz_title": "اختبار سريع",
     "quiz_empty": "اختر عنصرًا للمراجعة",
+    "quiz_question": "ما هو المعنى/النمط الرئيسي لـ \"{title}\"؟",
     "quiz_correct": "صحيح!",
     "quiz_wrong": "حاول مرة أخرى",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "الكل",
     "title_required": "العنوان مطلوب",
     "save_error": "فشل حفظ الأرشيف",
-    "quiz_question": "ما هو المعنى/النمط الرئيسي لـ \"{title}\"؟",
     "start_speaking_practice": "ابدأ ممارسة التحدث",
     "dashboard_title": "لوحة التعلم",
     "dashboard_subtitle": "اطلع على مستواك والنصائح والنشاط بسرعة",
@@ -190,10 +190,10 @@
     "level_trend_up": "+{value} نقاط مقارنة بالسابق",
     "level_trend_down": "-{value} نقاط مقارنة بالسابق",
     "level_unknown": "لا يوجد مستوى بعد",
+    "level_help": "يتم تقدير المستويات استنادًا إلى تصحيحات/اختبارات الذكاء الاصطناعي باستخدام CEFR (A1~C2).",
     "level_status_high": "أداء ممتاز! أنت في المستوى المرتفع.",
     "level_status_mid": "تقدم ثابت. مزيد من الممارسة للانتقال للمرحلة التالية.",
     "level_status_low": "في مرحلة بناء الأساسيات. ابدأ باختبارات أسهل ومراجعة أكثر.",
-    "level_help": "يتم تقدير المستويات استنادًا إلى تصحيحات/اختبارات الذكاء الاصطناعي باستخدام CEFR (A1~C2).",
     "activities_title": "النشاط",
     "activity_diaries": "اليوميات (7 أيام)",
     "activity_archives": "الأرشيفات المحفوظة",
@@ -206,16 +206,14 @@
     "priority_medium": "متوسط",
     "priority_low": "منخفض",
     "level_filter_all": "كل المستويات",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}",
     "advice_issue_template": "{topic}: تم اكتشافه {count} مرة، ركّز على التحسين",
     "advice_topic_grammar": "القواعد",
     "advice_topic_word": "المفردات",
     "advice_topic_style": "الأسلوب",
     "advice_topic_other": "أخرى",
     "dictionary": "قاموس AI",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "vs_avg": "Avg diff {value}",
-    "vs_target": "Target diff {value}",
     "quick_quiz_badge": "اختبار سريع",
     "correct_count": "إجابات صحيحة {value} مرة",
     "memorized": "تم الحفظ",
@@ -227,6 +225,17 @@
     "level_up": "المستوى التالي",
     "advice_filter_applied": "تم التصفية بواسطة {topic}.",
     "advice_filter_applied_all": "تمت التصفية حسب جميع العناصر."
+  },
+  "dictionary": {
+    "fab_label": "قاموس الذكاء الاصطناعي",
+    "modal_title": "قاموس الذكاء الاصطناعي",
+    "input_placeholder": "أدخل كلمة...",
+    "search_button": "بحث",
+    "save_button": "حفظ في الأرشيف",
+    "saved": "تم الحفظ!",
+    "close": "إغلاق",
+    "examples": "أمثلة",
+    "error": "فشل في إنشاء القاموس"
   },
   "settings": {
     "title": "الإعدادات",
@@ -272,26 +281,15 @@
     "listening_time": "وقت الاستماع",
     "total": "الإجمالي",
     "by_language": "حسب اللغة",
-    "login_required_title": "تسجيل الدخول مطلوب",
-    "login_required_desc": "يجب تسجيل الدخول لاستخدام الراديو العالمي وحفظ المفضلة.",
-    "login_button": "تسجيل الدخول",
     "added_favorite": "تمت الإضافة إلى المفضلة",
     "removed_favorite": "تمت الإزالة من المفضلة",
     "error": "حدث خطأ",
     "meta_title": "راديو عالمي - استمع إلى محطات الراديو من جميع أنحاء العالم | Loglingo",
     "meta_description": "اكتشف واستمع إلى محطات الراديو من جميع أنحاء العالم. مثالي لتعلم اللغات مع محطات بالكورية واليابانية والإنجليزية والإسبانية والفرنسية والألمانية والمزيد. راديو إنترنت مجاني مع واجهة كرة أرضية ثلاثية الأبعاد.",
-    "loading": "جاري تحميل القناة..."
-  },
-  "dictionary": {
-    "fab_label": "قاموس الذكاء الاصطناعي",
-    "modal_title": "قاموس الذكاء الاصطناعي",
-    "input_placeholder": "أدخل كلمة...",
-    "search_button": "بحث",
-    "save_button": "حفظ في الأرشيف",
-    "saved": "تم الحفظ!",
-    "close": "إغلاق",
-    "examples": "أمثلة",
-    "error": "فشل في إنشاء القاموس"
+    "loading": "جاري تحميل القناة...",
+    "login_button": "تسجيل الدخول",
+    "login_required_desc": "يجب تسجيل الدخول لاستخدام الراديو العالمي وحفظ المفضلة.",
+    "login_required_title": "تسجيل الدخول مطلوب"
   },
   "Speaking": {
     "localeName": "العربية",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "أنا بطة الدراسة! سأساعدك على الدراسة بجد!",
       "message_1": "مرحباً بك في Loglingo!",
       "message_2": "جاهز للتعلم اليوم؟",
       "message_3": "أنت تبلي بلاءً حسناً!",

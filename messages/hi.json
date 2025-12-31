@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "अपना व्यक्तिगत संग्रह बनाने के लिए साइन अप करें।",
     "signup_button": "साइन अप और लॉगिन करें",
+    "already_logged_in": "आप पहले से लॉग इन हैं। डायरी पर जा रहे हैं।",
     "banner_title": "ट्रायल मोड",
     "banner_desc": "ट्रायल मोड में डेटा सहेजा नहीं जाता है।",
     "sample_guide": "देखें कि AI इस वाक्य को कैसे सुधारता है",
-    "sample_hint": "अपना खुद का लिखने के लिए टेक्स्ट पर क्लिक करें",
-    "already_logged_in": "आप पहले से लॉग इन हैं। डायरी पर जा रहे हैं।"
+    "sample_hint": "अपना खुद का लिखने के लिए टेक्स्ट पर क्लिक करें"
   },
   "common": {
     "save": "सहेजें",
-    "cancel": "रद्द करें",
-    "loading": "चैनल लोड हो रहा है...",
-    "error": "एक त्रुटि हुई",
-    "success": "सफल",
-    "delete": "हटाएं",
-    "meta_title": "वैश्विक रेडियो - दुनिया भर के रेडियो स्टेशन सुनें | Loglingo",
-    "meta_description": "दुनिया भर के रेडियो स्टेशनों को खोजें और सुनें। कोरियाई, जापानी, अंग्रेजी, स्पेनिश, फ्रेंच, जर्मन और अन्य भाषाओं में स्टेशनों के साथ भाषा सीखने के लिए बिल्कुल सही। 3D ग्लोब इंटरफ़ेस के साथ मुफ्त इंटरनेट रेडियो।",
     "ai_check": "एआई सुधार",
     "ai_checking": "सुधार रहा है...",
     "ai_analyzing": "Grok AI सोच रहा है...",
     "ai_analyzing_desc": "अपनी डायरी का विश्लेषण और बेहतर अभिव्यक्ति ढूँढना।",
-    "apply": "लागू करें"
+    "apply": "लागू करें",
+    "cancel": "रद्द करें",
+    "loading": "चैनल लोड हो रहा है...",
+    "error": "एक त्रुटि हुई",
+    "success": "सफल",
+    "delete": "हटाएं"
   },
   "nav": {
     "home": "होम",
@@ -29,10 +27,10 @@
     "write": "लिखें",
     "archive": "सीखें",
     "settings": "सेटिंग्स",
-    "loading": "Loading...",
     "login": "लॉग इन",
     "logout": "लॉग आउट",
-    "radio": "रेडियो"
+    "radio": "रेडियो",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "लॉग इन करके सीखना शुरू करें",
@@ -42,11 +40,6 @@
     "cta": "लॉगिन करें",
     "loading": "लॉगिन स्थिति जाँची जा रही है...",
     "languages_label": "समर्थित भाषाएँ",
-    "steps": {
-      "write": "लक्षित भाषा में छोटा सा डायरी नोट लिखें।",
-      "review": "AI तुरंत सुधार करता है और समझाता है।",
-      "save": "उपयोगी वाक्यांश को आर्काइव में सेव करके दोहराएँ।"
-    },
     "login_modal_title": "लॉगिन करें",
     "signup_modal_title": "साइन अप करें",
     "password_reset_modal_title": "पासवर्ड रीसेट करें",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "यह ईमेल पहले से उपयोग में है।",
     "error_user_not_found": "उपयोगकर्ता नहीं मिला।",
     "error_wrong_password": "गलत पासवर्ड।",
-    "error_auth_failed": "प्रमाणीकरण विफल रहा। कृपया पुनः प्रयास करें।"
+    "error_auth_failed": "प्रमाणीकरण विफल रहा। कृपया पुनः प्रयास करें।",
+    "steps": {
+      "write": "लक्षित भाषा में छोटा सा डायरी नोट लिखें।",
+      "review": "AI तुरंत सुधार करता है और समझाता है।",
+      "save": "उपयोगी वाक्यांश को आर्काइव में सेव करके दोहराएँ।"
+    }
   },
   "home": {
     "title": "AI डायरी के साथ भाषाओं में महारत हासिल करें",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "मूल सामग्री",
-    "back": "सूची में वापस",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "सूची में वापस"
   },
   "write": {
     "title": "नई डायरी",
@@ -134,13 +132,13 @@
     "uploading": "अपलोड हो रहा है...",
     "upload_failed": "चित्र अपलोड असफल",
     "saved": "एंट्री सहेजी गई",
-    "apply_and_save": "लागू करें और सहेजें",
     "back": "सूची पर वापस",
     "validation_invalid_date": "कृपया मान्य तारीख चुनें (YYYY-MM-DD)।",
     "validation_empty_content": "सहेजने के लिए कुछ लिखें।",
     "validation_too_long": "सामग्री बहुत लंबी है (अधिकतम 5000 अक्षर)।",
     "validation_image": "कृपया चित्र फ़ाइल चुनें।",
     "save": "एंट्री सहेजें",
+    "apply_and_save": "लागू करें और सहेजें",
     "update": "परिवर्तन सहेजें",
     "ai_checking": "AI जाँच कर रहा है...",
     "ai_error": "AI अनुरोध विफल",
@@ -174,12 +172,14 @@
     "list_title": "सहेजे गए आइटम",
     "quiz_title": "त्वरित क्विज",
     "quiz_empty": "अभ्यास के लिए एक आइटम चुनें",
+    "quiz_question": "\"{title}\" का मुख्य अर्थ/पैटर्न क्या है?",
     "quiz_correct": "सही!",
     "quiz_wrong": "फिर प्रयास करें",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "सभी",
     "title_required": "शीर्षक आवश्यक है",
     "save_error": "आर्काइव सहेजने में विफल",
-    "quiz_question": "\"{title}\" का मुख्य अर्थ/पैटर्न क्या है?",
     "start_speaking_practice": "बोलने का अभ्यास शुरू करें",
     "dashboard_title": "लर्निंग डैशबोर्ड",
     "dashboard_subtitle": "अपने स्तर, सलाह और गतिविधि को एक नज़र में देखें",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} अंक बढ़ा",
     "level_trend_down": "-{value} अंक घटा",
     "level_unknown": "कोई स्तर नहीं",
+    "level_help": "स्तर AI सुधार/क्विज़ से CEFR (A1~C2) के आधार पर अनुमानित हैं।",
+    "level_status_high": "बहुत बढ़िया! आप ऊपरी स्तर पर हैं।",
+    "level_status_mid": "अच्छी प्रगति। थोड़ी और मेहनत से स्तर बढ़ेगा।",
+    "level_status_low": "बुनियाद मजबूत करें। आसान क्विज़ और पुनरावृत्ति बढ़ाएँ।",
     "activities_title": "गतिविधि",
     "activity_diaries": "पिछले 7 दिन की डायरी",
     "activity_archives": "सहेजे गए आर्काइव",
@@ -209,13 +213,7 @@
     "advice_topic_word": "शब्दावली",
     "advice_topic_style": "शैली",
     "advice_topic_other": "अन्य",
-    "level_help": "स्तर AI सुधार/क्विज़ से CEFR (A1~C2) के आधार पर अनुमानित हैं।",
-    "level_status_high": "बहुत बढ़िया! आप ऊपरी स्तर पर हैं।",
-    "level_status_mid": "अच्छी प्रगति। थोड़ी और मेहनत से स्तर बढ़ेगा।",
-    "level_status_low": "बुनियाद मजबूत करें। आसान क्विज़ और पुनरावृत्ति बढ़ाएँ।",
     "dictionary": "AI शब्दकोश",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
     "quick_quiz_badge": "क्विक क्विज़",
     "correct_count": "सही उत्तर {value} बार",
     "memorized": "स्मरण पूर्ण",
@@ -227,6 +225,17 @@
     "level_up": "मानक बढ़ाएं",
     "advice_filter_applied": "{topic} द्वारा फ़िल्टर किया गया।",
     "advice_filter_applied_all": "सभी आइटम द्वारा फ़िल्टर किया गया।"
+  },
+  "dictionary": {
+    "fab_label": "AI शब्दकोश",
+    "modal_title": "AI शब्दकोश",
+    "input_placeholder": "एक शब्द दर्ज करें...",
+    "search_button": "खोजें",
+    "save_button": "आर्काइव में सहेजें",
+    "saved": "सहेजा गया!",
+    "close": "बंद करें",
+    "examples": "उदाहरण",
+    "error": "शब्दकोश उत्पन्न करने में विफल"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -272,26 +281,15 @@
     "listening_time": "सुनने का समय",
     "total": "कुल",
     "by_language": "भाषा के अनुसार",
-    "login_required_title": "लॉगइन आवश्यक",
-    "login_required_desc": "वैश्विक रेडियो का उपयोग करने और पसंदीदा सहेजने के लिए लॉगइन करना आवश्यक है।",
-    "login_button": "लॉगिन करें",
     "added_favorite": "पसंदीदा में जोड़ा गया",
     "removed_favorite": "पसंदीदा से हटाया गया",
     "error": "एक त्रुटि हुई",
     "meta_title": "वैश्विक रेडियो - दुनिया भर के रेडियो स्टेशन सुनें | Loglingo",
     "meta_description": "दुनिया भर के रेडियो स्टेशनों को खोजें और सुनें। कोरियाई, जापानी, अंग्रेजी, स्पेनिश, फ्रेंच, जर्मन और अन्य भाषाओं में स्टेशनों के साथ भाषा सीखने के लिए बिल्कुल सही। 3D ग्लोब इंटरफ़ेस के साथ मुफ्त इंटरनेट रेडियो।",
-    "loading": "चैनल लोड हो रहा है..."
-  },
-  "dictionary": {
-    "fab_label": "AI शब्दकोश",
-    "modal_title": "AI शब्दकोश",
-    "input_placeholder": "एक शब्द दर्ज करें...",
-    "search_button": "खोजें",
-    "save_button": "आर्काइव में सहेजें",
-    "saved": "सहेजा गया!",
-    "close": "बंद करें",
-    "examples": "उदाहरण",
-    "error": "शब्दकोश उत्पन्न करने में विफल"
+    "loading": "चैनल लोड हो रहा है...",
+    "login_button": "लॉगिन करें",
+    "login_required_desc": "वैश्विक रेडियो का उपयोग करने और पसंदीदा सहेजने के लिए लॉगइन करना आवश्यक है।",
+    "login_required_title": "लॉगइन आवश्यक"
   },
   "Speaking": {
     "localeName": "हिन्दी",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "मैं स्टडी डक हूँ! मैं पढ़ाई में आपकी पूरी मदद करूँगा!",
       "message_1": "Loglingo में आपका स्वागत है!",
       "message_2": "आज सीखने के लिए तैयार?",
       "message_3": "आप बहुत अच्छा कर रहे हैं!",

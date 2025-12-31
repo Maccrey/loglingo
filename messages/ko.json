@@ -10,16 +10,16 @@
   },
   "common": {
     "save": "저장",
-    "cancel": "취소",
-    "loading": "로딩 중...",
-    "error": "오류가 발생했습니다",
-    "success": "성공",
-    "delete": "삭제",
     "ai_check": "AI 교정",
     "ai_checking": "교정 중...",
     "ai_analyzing": "Grok AI가 생각 중...",
     "ai_analyzing_desc": "일기를 분석하고 더 나은 표현을 찾고 있습니다.",
-    "apply": "적용"
+    "apply": "적용",
+    "cancel": "취소",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "성공",
+    "delete": "삭제"
   },
   "nav": {
     "home": "홈",
@@ -27,10 +27,10 @@
     "write": "쓰기",
     "archive": "학습",
     "settings": "설정",
-    "loading": "Loading...",
     "login": "로그인",
     "logout": "로그아웃",
-    "radio": "라디오"
+    "radio": "라디오",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "로그인 후 학습을 시작하세요",
@@ -106,7 +106,6 @@
     "loading": "Loading diary...",
     "untitled": "Untitled",
     "edit": "Edit",
-    "back": "뒤로",
     "delete": "Delete",
     "confirm_delete": "Delete this entry?",
     "delete_success": "Entry deleted",
@@ -116,7 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "원본 일기",
-    "clear_date_filter": "날짜 초기화"
+    "clear_date_filter": "날짜 초기화",
+    "back": "뒤로"
   },
   "write": {
     "title": "새 일기 쓰기",
@@ -148,8 +148,6 @@
     "ai_saved_archive": "학습 아카이브에 저장됨",
     "ai_saved_archive_pending": "일기 저장 시 아카이브에 함께 저장됩니다",
     "save_prompt_title": "일기 저장",
-    "ai_analyzing": "Grok AI가 생각 중입니다...",
-    "ai_analyzing_desc": "일기를 분석하여 더 좋은 표현을 찾고 있어요.",
     "save_prompt_desc": "저장하기 전에 AI 교정을 받으시겠습니까?",
     "save_prompt_ai": "AI 교정 받기",
     "save_prompt_just_save": "그냥 저장하기"
@@ -283,15 +281,15 @@
     "listening_time": "청취 시간",
     "total": "전체",
     "by_language": "언어별",
-    "login_required_title": "로그인 필요",
-    "login_required_desc": "글로벌 라디오를 이용하고 즐겨찾기를 저장하려면 로그인이 필요합니다.",
-    "login_button": "로그인",
     "added_favorite": "즐겨찾기에 추가되었습니다",
     "removed_favorite": "즐겨찾기에서 제거되었습니다",
     "error": "오류가 발생했습니다",
     "meta_title": "글로벌 라디오 - 전 세계 라디오 방송 듣기 | Loglingo",
     "meta_description": "전 세계 라디오 방송국을 발견하고 들어보세요. 한국어, 일본어, 영어, 스페인어, 프랑스어, 독일어 등 다양한 언어의 방송국으로 언어 학습에 완벽합니다. 3D 지구본 인터페이스로 무료 인터넷 라디오를 즐기세요.",
-    "loading": "채널 로딩 중..."
+    "loading": "채널 로딩 중...",
+    "login_button": "로그인",
+    "login_required_desc": "글로벌 라디오를 이용하고 즐겨찾기를 저장하려면 로그인이 필요합니다.",
+    "login_required_title": "로그인 필요"
   },
   "Speaking": {
     "localeName": "한국어",
@@ -353,7 +351,7 @@
   },
   "mascot": {
     "home": {
-      "guest_welcome": "스터디덕이라고 해! 열심히 도와줄게",
+      "guest_welcome": "난 스터디덕이야! 열심히 공부하게 도와줄게!",
       "message_1": "로그링고에 오신걸 환영해요!",
       "message_2": "오늘도 배울 준비 됐나요?",
       "message_3": "정말 잘하고 있어요!",

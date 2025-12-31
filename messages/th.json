@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "ลงทะเบียนเพื่อสร้างคลังข้อมูลส่วนตัวของคุณ",
     "signup_button": "ลงทะเบียนและเข้าสู่ระบบ",
+    "already_logged_in": "คุณเข้าสู่ระบบแล้ว กำลังไปที่ไดอารี่",
     "banner_title": "โหมดทดลองใช้",
     "banner_desc": "ข้อมูลจะไม่ถูกบันทึกในโหมดทดลองใช้",
     "sample_guide": "ดูว่า AI แก้ไขประโยคนี้อย่างไร",
-    "sample_hint": "คลิกที่ข้อความเพื่อเขียนของคุณเอง",
-    "already_logged_in": "คุณเข้าสู่ระบบแล้ว กำลังไปที่ไดอารี่"
+    "sample_hint": "คลิกที่ข้อความเพื่อเขียนของคุณเอง"
   },
   "common": {
     "save": "บันทึก",
-    "cancel": "ยกเลิก",
-    "loading": "กำลังโหลดช่อง...",
-    "error": "เกิดข้อผิดพลาด",
-    "success": "สำเร็จ",
-    "delete": "ลบ",
-    "meta_title": "วิทยุโลก - ฟังสถานีวิทยุจากทั่วโลก | Loglingo",
-    "meta_description": "ค้นพบและฟังสถานีวิทยุจากทั่วโลก เหมาะสำหรับการเรียนภาษาด้วยสถานีภาษาเกาหลี ญี่ปุ่น อังกฤษ สเปน ฝรั่งเศส เยอรมัน และอื่นๆ วิทยุอินเทอร์เน็ตฟรีพร้อมอินเทอร์เฟซลูกโลก 3 มิติ",
     "ai_check": "แก้ไขโดย AI",
     "ai_checking": "กำลังแก้ไข...",
     "ai_analyzing": "Grok AI กำลังคิด...",
     "ai_analyzing_desc": "วิเคราะห์ไดอารี่ของคุณและค้นหาสำนวนที่ดีขึ้น",
-    "apply": "ใช้"
+    "apply": "ใช้",
+    "cancel": "ยกเลิก",
+    "loading": "กำลังโหลดช่อง...",
+    "error": "เกิดข้อผิดพลาด",
+    "success": "สำเร็จ",
+    "delete": "ลบ"
   },
   "nav": {
     "home": "หน้าแรก",
@@ -29,10 +27,10 @@
     "write": "เขียน",
     "archive": "เรียนรู้",
     "settings": "ตั้งค่า",
-    "loading": "Loading...",
     "login": "เข้าสู่ระบบ",
     "logout": "ออกจากระบบ",
-    "radio": "วิทยุ"
+    "radio": "วิทยุ",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "ลงชื่อเข้าใช้เพื่อเริ่มเรียนรู้",
@@ -42,11 +40,6 @@
     "cta": "เข้าสู่ระบบ",
     "loading": "กำลังตรวจสอบสถานะการเข้าสู่ระบบ...",
     "languages_label": "ภาษาที่รองรับ",
-    "steps": {
-      "write": "เขียนไดอารีสั้น ๆ เป็นภาษาที่ต้องการเรียน",
-      "review": "รับการตรวจและคำอธิบายจาก AI ทันที",
-      "save": "บันทึกวลีที่มีประโยชน์ไว้ในคลังและทบทวน"
-    },
     "login_modal_title": "เข้าสู่ระบบ",
     "signup_modal_title": "สมัครสมาชิก",
     "password_reset_modal_title": "รีเซ็ตรหัสผ่าน",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "อีเมลนี้ถูกใช้งานแล้ว",
     "error_user_not_found": "ไม่พบผู้ใช้",
     "error_wrong_password": "รหัสผ่านไม่ถูกต้อง",
-    "error_auth_failed": "การตรวจสอบล้มเหลว กรุณาลองอีกครั้ง"
+    "error_auth_failed": "การตรวจสอบล้มเหลว กรุณาลองอีกครั้ง",
+    "steps": {
+      "write": "เขียนไดอารีสั้น ๆ เป็นภาษาที่ต้องการเรียน",
+      "review": "รับการตรวจและคำอธิบายจาก AI ทันที",
+      "save": "บันทึกวลีที่มีประโยชน์ไว้ในคลังและทบทวน"
+    }
   },
   "home": {
     "title": "เก่งภาษาด้วย AI ไดอารี่",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "เนื้อหาต้นฉบับ",
-    "back": "กลับไปที่รายการ",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "กลับไปที่รายการ"
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",
@@ -134,13 +132,13 @@
     "uploading": "กำลังอัปโหลด...",
     "upload_failed": "อัปโหลดรูปไม่สำเร็จ",
     "saved": "บันทึกไดอารี่แล้ว",
-    "apply_and_save": "นำไปใช้และบันทึก",
     "back": "กลับไปยังรายการ",
     "validation_invalid_date": "เลือกวันที่ที่ถูกต้อง (YYYY-MM-DD)",
     "validation_empty_content": "พิมพ์อะไรสักอย่างเพื่อบันทึก",
     "validation_too_long": "เนื้อหายาวเกินไป (สูงสุด 5000 ตัวอักษร)",
     "validation_image": "โปรดเลือกไฟล์รูปภาพ",
     "save": "บันทึกรายการ",
+    "apply_and_save": "นำไปใช้และบันทึก",
     "update": "บันทึกการเปลี่ยนแปลง",
     "ai_checking": "AI กำลังตรวจ...",
     "ai_error": "คำขอ AI ล้มเหลว",
@@ -174,12 +172,14 @@
     "list_title": "รายการที่บันทึก",
     "quiz_title": "ควิซด่วน",
     "quiz_empty": "เลือกรายการเพื่อฝึก",
+    "quiz_question": "ความหมาย/รูปแบบหลักของ \"{title}\" คืออะไร?",
     "quiz_correct": "ถูกต้อง!",
     "quiz_wrong": "ลองใหม่",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "ทั้งหมด",
     "title_required": "ต้องระบุหัวข้อ",
     "save_error": "บันทึกคลังไม่สำเร็จ",
-    "quiz_question": "ความหมาย/รูปแบบหลักของ \"{title}\" คืออะไร?",
     "start_speaking_practice": "เริ่มฝึกพูด",
     "dashboard_title": "แดชบอร์ดการเรียนรู้",
     "dashboard_subtitle": "ดูระดับ คำแนะนำ และกิจกรรมได้ในพริบตา",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} แต้ม มากขึ้น",
     "level_trend_down": "-{value} แต้ม น้อยลง",
     "level_unknown": "ยังไม่มีระดับ",
+    "level_help": "ระดับถูกประมาณจากการแก้ไข/แบบทดสอบของ AI ตาม CEFR (A1~C2)",
+    "level_status_high": "ยอดเยี่ยม! คุณอยู่ในระดับสูง",
+    "level_status_mid": "ก้าวหน้าได้ดี ฝึกอีกนิดจะเลื่อนระดับ",
+    "level_status_low": "เสริมพื้นฐาน ใช้แบบทดสอบง่ายและทบทวนบ่อย",
     "activities_title": "กิจกรรม",
     "activity_diaries": "ไดอารี 7 วันล่าสุด",
     "activity_archives": "ที่บันทึกไว้",
@@ -209,13 +213,7 @@
     "advice_topic_word": "คำศัพท์",
     "advice_topic_style": "สไตล์",
     "advice_topic_other": "อื่น ๆ",
-    "level_help": "ระดับถูกประมาณจากการแก้ไข/แบบทดสอบของ AI ตาม CEFR (A1~C2)",
-    "level_status_high": "ยอดเยี่ยม! คุณอยู่ในระดับสูง",
-    "level_status_mid": "ก้าวหน้าได้ดี ฝึกอีกนิดจะเลื่อนระดับ",
-    "level_status_low": "เสริมพื้นฐาน ใช้แบบทดสอบง่ายและทบทวนบ่อย",
     "dictionary": "พจนานุกรม AI",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
     "quick_quiz_badge": "ควิซด่วน",
     "correct_count": "ตอบถูก {value} ครั้ง",
     "memorized": "ท่องจำแล้ว",
@@ -227,6 +225,17 @@
     "level_up": "เลื่อนระดับ",
     "advice_filter_applied": "กรองด้วย {topic}",
     "advice_filter_applied_all": "กรองด้วยรายการทั้งหมด"
+  },
+  "dictionary": {
+    "fab_label": "พจนานุกรม AI",
+    "modal_title": "พจนานุกรม AI",
+    "input_placeholder": "ป้อนคำ...",
+    "search_button": "ค้นหา",
+    "save_button": "บันทึกในคลัง",
+    "saved": "บันทึกแล้ว!",
+    "close": "ปิด",
+    "examples": "ตัวอย่าง",
+    "error": "การสร้างพจนานุกรมล้มเหลว"
   },
   "settings": {
     "title": "ตั้งค่า",
@@ -272,26 +281,15 @@
     "listening_time": "เวลาฟัง",
     "total": "ทั้งหมด",
     "by_language": "จำแนกตามภาษา",
-    "login_required_title": "ต้องเข้าสู่ระบบ",
-    "login_required_desc": "คุณต้องเข้าสู่ระบบเพื่อใช้วิทยุโลกและบันทึกรายการโปรด",
-    "login_button": "เข้าสู่ระบบ",
     "added_favorite": "เพิ่มลงรายการโปรดแล้ว",
     "removed_favorite": "ลบออกจากรายการโปรดแล้ว",
     "error": "เกิดข้อผิดพลาด",
     "meta_title": "วิทยุโลก - ฟังสถานีวิทยุจากทั่วโลก | Loglingo",
     "meta_description": "ค้นพบและฟังสถานีวิทยุจากทั่วโลก เหมาะสำหรับการเรียนภาษาด้วยสถานีภาษาเกาหลี ญี่ปุ่น อังกฤษ สเปน ฝรั่งเศส เยอรมัน และอื่นๆ วิทยุอินเทอร์เน็ตฟรีพร้อมอินเทอร์เฟซลูกโลก 3 มิติ",
-    "loading": "กำลังโหลดช่อง..."
-  },
-  "dictionary": {
-    "fab_label": "พจนานุกรม AI",
-    "modal_title": "พจนานุกรม AI",
-    "input_placeholder": "ป้อนคำ...",
-    "search_button": "ค้นหา",
-    "save_button": "บันทึกในคลัง",
-    "saved": "บันทึกแล้ว!",
-    "close": "ปิด",
-    "examples": "ตัวอย่าง",
-    "error": "การสร้างพจนานุกรมล้มเหลว"
+    "loading": "กำลังโหลดช่อง...",
+    "login_button": "เข้าสู่ระบบ",
+    "login_required_desc": "คุณต้องเข้าสู่ระบบเพื่อใช้วิทยุโลกและบันทึกรายการโปรด",
+    "login_required_title": "ต้องเข้าสู่ระบบ"
   },
   "Speaking": {
     "localeName": "ไทย",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "ฉันคือ Study Duck! ฉันจะช่วยให้เธอตั้งใจเรียนเอง!",
       "message_1": "ยินดีต้อนรับสู่ Loglingo!",
       "message_2": "พร้อมเรียนหรือยัง?",
       "message_3": "คุณทำได้ดีมาก!",

@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Inscrivez-vous pour créer votre propre archive.",
     "signup_button": "S'inscrire et se connecter",
+    "already_logged_in": "Vous êtes déjà connecté. Redirection vers le journal.",
     "banner_title": "Mode d'essai",
     "banner_desc": "Les données ne sont pas enregistrées en mode d'essai.",
     "sample_guide": "Voyez comment l'IA corrige cette phrase",
-    "sample_hint": "Cliquez sur le texte pour écrire le vôtre",
-    "already_logged_in": "Vous êtes déjà connecté. Redirection vers le journal."
+    "sample_hint": "Cliquez sur le texte pour écrire le vôtre"
   },
   "common": {
     "save": "Enregistrer",
-    "cancel": "Annuler",
-    "loading": "Chargement de la chaîne...",
-    "error": "Une erreur s'est produite",
-    "success": "Succès",
-    "delete": "Supprimer",
-    "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
-    "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D.",
     "ai_check": "Correction IA",
     "ai_checking": "Correction en cours...",
     "ai_analyzing": "Grok AI réfléchit...",
     "ai_analyzing_desc": "Analyse de votre journal et recherche d'expressions améliorées.",
-    "apply": "Appliquer"
+    "apply": "Appliquer",
+    "cancel": "Annuler",
+    "loading": "Chargement de la chaîne...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès",
+    "delete": "Supprimer"
   },
   "nav": {
     "home": "Accueil",
@@ -29,10 +27,10 @@
     "write": "Écrire",
     "archive": "Apprendre",
     "settings": "Paramètres",
-    "loading": "Loading...",
     "login": "Connexion",
     "logout": "Déconnexion",
-    "radio": "Radio"
+    "radio": "Radio",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Connectez-vous pour démarrer",
@@ -42,11 +40,6 @@
     "cta": "Connexion",
     "loading": "Vérification de votre session...",
     "languages_label": "Langues prises en charge",
-    "steps": {
-      "write": "Écrivez un court journal dans la langue cible.",
-      "review": "L’IA fournit instantanément corrections et explications.",
-      "save": "Enregistrez les expressions utiles dans votre archive et révisez-les."
-    },
     "login_modal_title": "Connexion",
     "signup_modal_title": "S'inscrire",
     "password_reset_modal_title": "Réinitialiser le mot de passe",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Cet e-mail est déjà utilisé.",
     "error_user_not_found": "Utilisateur non trouvé.",
     "error_wrong_password": "Mot de passe incorrect.",
-    "error_auth_failed": "Échec de l'authentification. Veuillez réessayer."
+    "error_auth_failed": "Échec de l'authentification. Veuillez réessayer.",
+    "steps": {
+      "write": "Écrivez un court journal dans la langue cible.",
+      "review": "L’IA fournit instantanément corrections et explications.",
+      "save": "Enregistrez les expressions utiles dans votre archive et révisez-les."
+    }
   },
   "home": {
     "title": "Maîtrisez les langues avec le Journal IA",
@@ -134,13 +132,13 @@
     "uploading": "Téléversement...",
     "upload_failed": "Échec du téléversement",
     "saved": "Entrée enregistrée",
-    "apply_and_save": "Appliquer et enregistrer",
     "back": "Retour à la liste",
     "validation_invalid_date": "Choisissez une date valide (AAAA-MM-JJ).",
     "validation_empty_content": "Écrivez quelque chose pour enregistrer.",
     "validation_too_long": "Contenu trop long (max 5000 caractères).",
     "validation_image": "Sélectionnez un fichier image.",
     "save": "Enregistrer l'entrée",
+    "apply_and_save": "Appliquer et enregistrer",
     "update": "Enregistrer les modifications",
     "ai_checking": "L'IA vérifie...",
     "ai_error": "Échec de la requête IA",
@@ -174,12 +172,14 @@
     "list_title": "Éléments enregistrés",
     "quiz_title": "Quiz rapide",
     "quiz_empty": "Sélectionnez un élément à pratiquer",
+    "quiz_question": "Quelle est la signification/le modèle clé de \"{title}\"?",
     "quiz_correct": "Correct !",
     "quiz_wrong": "Réessayez",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Tout",
     "title_required": "Le titre est requis",
     "save_error": "Échec de l'enregistrement dans l'archive",
-    "quiz_question": "Quelle est la signification/le modèle clé de \"{title}\"?",
     "start_speaking_practice": "Commencer la pratique orale",
     "dashboard_title": "Tableau d'apprentissage",
     "dashboard_subtitle": "Niveau, conseils et activité en un coup d’œil",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} pts vs précédent",
     "level_trend_down": "-{value} pts vs précédent",
     "level_unknown": "Niveau indisponible",
+    "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2).",
+    "level_status_high": "Bravo ! Vous êtes dans le haut du niveau.",
+    "level_status_mid": "Bon progrès. Un peu plus de pratique pour monter.",
+    "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez.",
     "activities_title": "Activité",
     "activity_diaries": "Journaux (7j)",
     "activity_archives": "Archives enregistrées",
@@ -202,20 +206,14 @@
     "priority_medium": "Moyen",
     "priority_low": "Bas",
     "level_filter_all": "Tous les niveaux",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}",
     "advice_issue_template": "{topic} : détecté {count} fois, à corriger en priorité",
     "advice_topic_grammar": "Grammaire",
     "advice_topic_word": "Vocabulaire",
     "advice_topic_style": "Style",
     "advice_topic_other": "Autre",
-    "level_help": "Les niveaux sont estimés à partir des corrections/quiz IA selon le CECR (A1~C2).",
-    "level_status_high": "Bravo ! Vous êtes dans le haut du niveau.",
-    "level_status_mid": "Bon progrès. Un peu plus de pratique pour monter.",
-    "level_status_low": "Renforcez les bases. Faites des quiz faciles et révisez.",
     "dictionary": "Dictionnaire IA",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "vs_avg": "Avg diff {value}",
-    "vs_target": "Target diff {value}",
     "quick_quiz_badge": "Quiz rapide",
     "correct_count": "Bonnes réponses {value} fois",
     "memorized": "Mémorisé",
@@ -227,6 +225,17 @@
     "level_up": "Niveau supérieur",
     "advice_filter_applied": "Filtré par {topic}.",
     "advice_filter_applied_all": "Filtré par tous les éléments."
+  },
+  "dictionary": {
+    "fab_label": "Dictionnaire IA",
+    "modal_title": "Dictionnaire IA",
+    "input_placeholder": "Entrez un mot...",
+    "search_button": "Rechercher",
+    "save_button": "Enregistrer dans l'archive",
+    "saved": "Enregistré!",
+    "close": "Fermer",
+    "examples": "Exemples",
+    "error": "Échec de génération du dictionnaire"
   },
   "settings": {
     "title": "Paramètres",
@@ -272,26 +281,15 @@
     "listening_time": "Temps d'écoute",
     "total": "Total",
     "by_language": "Par langue",
-    "login_required_title": "Connexion requise",
-    "login_required_desc": "Vous devez vous connecter pour utiliser la Radio Mondiale et sauvegarder des favoris.",
-    "login_button": "Connexion",
     "added_favorite": "Ajouté aux favoris",
     "removed_favorite": "Retiré des favoris",
     "error": "Une erreur s'est produite",
     "meta_title": "Radio Mondiale - Écoutez des Stations de Radio du Monde Entier | Loglingo",
     "meta_description": "Découvrez et écoutez des stations de radio du monde entier. Parfait pour l'apprentissage des langues avec des stations en coréen, japonais, anglais, espagnol, français, allemand et plus encore. Radio Internet gratuite avec interface globe 3D.",
-    "loading": "Chargement de la chaîne..."
-  },
-  "dictionary": {
-    "fab_label": "Dictionnaire IA",
-    "modal_title": "Dictionnaire IA",
-    "input_placeholder": "Entrez un mot...",
-    "search_button": "Rechercher",
-    "save_button": "Enregistrer dans l'archive",
-    "saved": "Enregistré!",
-    "close": "Fermer",
-    "examples": "Exemples",
-    "error": "Échec de génération du dictionnaire"
+    "loading": "Chargement de la chaîne...",
+    "login_button": "Connexion",
+    "login_required_desc": "Vous devez vous connecter pour utiliser la Radio Mondiale et sauvegarder des favoris.",
+    "login_required_title": "Connexion requise"
   },
   "Speaking": {
     "localeName": "Français",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Je suis Study Duck ! Je vais t'aider à bien étudier !",
       "message_1": "Bienvenue sur Loglingo !",
       "message_2": "Prêt à apprendre ?",
       "message_3": "Tu te débrouilles super bien !",

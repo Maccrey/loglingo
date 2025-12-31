@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Registrieren Sie sich, um Ihr eigenes Archiv zu erstellen.",
     "signup_button": "Registrieren und anmelden",
+    "already_logged_in": "Sie sind bereits eingeloggt. Weiter zum Tagebuch.",
     "banner_title": "Testmodus",
     "banner_desc": "Daten werden im Testmodus nicht gespeichert.",
     "sample_guide": "Sehen Sie, wie die KI diesen Satz korrigiert",
-    "sample_hint": "Klicken Sie auf den Text, um selbst zu schreiben",
-    "already_logged_in": "Sie sind bereits eingeloggt. Weiter zum Tagebuch."
+    "sample_hint": "Klicken Sie auf den Text, um selbst zu schreiben"
   },
   "common": {
     "save": "Speichern",
-    "cancel": "Abbrechen",
-    "loading": "Kanal wird geladen...",
-    "error": "Ein Fehler ist aufgetreten",
-    "success": "Erfolg",
-    "delete": "Löschen",
-    "meta_title": "Globales Radio - Höre Radiosender Weltweit | Loglingo",
-    "meta_description": "Entdecke und höre Radiosender aus der ganzen Welt. Perfekt für das Sprachenlernen mit Sendern auf Koreanisch, Japanisch, Englisch, Spanisch, Französisch, Deutsch und mehr. Kostenloses Internetradio mit 3D-Globus-Oberfläche.",
     "ai_check": "KI-Korrektur",
     "ai_checking": "Korrigiere...",
     "ai_analyzing": "Grok AI denkt nach...",
     "ai_analyzing_desc": "Analysiere dein Tagebuch und finde verbesserte Ausdrücke.",
-    "apply": "Anwenden"
+    "apply": "Anwenden",
+    "cancel": "Abbrechen",
+    "loading": "Kanal wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolg",
+    "delete": "Löschen"
   },
   "nav": {
     "home": "Startseite",
@@ -29,10 +27,10 @@
     "write": "Schreiben",
     "archive": "Lernen",
     "settings": "Einstellungen",
-    "loading": "Loading...",
     "login": "Anmelden",
     "logout": "Abmelden",
-    "radio": "Radio"
+    "radio": "Radio",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Melde dich an, um zu starten",
@@ -42,11 +40,6 @@
     "cta": "Anmelden",
     "loading": "Anmeldung wird geprüft...",
     "languages_label": "Unterstützte Sprachen",
-    "steps": {
-      "write": "Schreibe einen kurzen Tagebucheintrag in der Zielsprache.",
-      "review": "Die KI liefert sofort Korrekturen und Erklärungen.",
-      "save": "Speichere nützliche Sätze im Archiv und wiederhole sie."
-    },
     "login_modal_title": "Anmelden",
     "signup_modal_title": "Registrieren",
     "password_reset_modal_title": "Passwort zurücksetzen",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Diese E-Mail wird bereits verwendet.",
     "error_user_not_found": "Benutzer nicht gefunden.",
     "error_wrong_password": "Falsches Passwort.",
-    "error_auth_failed": "Authentifizierung fehlgeschlagen. Bitte versuchen Sie es erneut."
+    "error_auth_failed": "Authentifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "steps": {
+      "write": "Schreibe einen kurzen Tagebucheintrag in der Zielsprache.",
+      "review": "Die KI liefert sofort Korrekturen und Erklärungen.",
+      "save": "Speichere nützliche Sätze im Archiv und wiederhole sie."
+    }
   },
   "home": {
     "title": "Sprachen meistern mit KI-Tagebuch",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Originalinhalt",
-    "back": "Zurück zur Liste",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "Zurück zur Liste"
   },
   "write": {
     "title": "Neuer Eintrag",
@@ -134,13 +132,13 @@
     "uploading": "Hochladen...",
     "upload_failed": "Bild-Upload fehlgeschlagen",
     "saved": "Eintrag gespeichert",
-    "apply_and_save": "Anwenden & Speichern",
     "back": "Zurück zur Liste",
     "validation_invalid_date": "Bitte ein gültiges Datum wählen (JJJJ-MM-TT).",
     "validation_empty_content": "Schreibe etwas zum Speichern.",
     "validation_too_long": "Inhalt zu lang (max 5000 Zeichen).",
     "validation_image": "Bitte eine Bilddatei wählen.",
     "save": "Eintrag speichern",
+    "apply_and_save": "Anwenden & Speichern",
     "update": "Änderungen speichern",
     "ai_checking": "KI prüft...",
     "ai_error": "KI-Anfrage fehlgeschlagen",
@@ -174,12 +172,14 @@
     "list_title": "Gespeicherte Einträge",
     "quiz_title": "Schnellquiz",
     "quiz_empty": "Wähle einen Eintrag zum Üben",
+    "quiz_question": "Was ist die Hauptbedeutung/das Hauptmuster von \"{title}\"?",
     "quiz_correct": "Richtig!",
     "quiz_wrong": "Nochmal versuchen",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Alle",
     "title_required": "Titel ist erforderlich",
     "save_error": "Archiv speichern fehlgeschlagen",
-    "quiz_question": "Was ist die Hauptbedeutung/das Hauptmuster von \"{title}\"?",
     "start_speaking_practice": "Sprechübung starten",
     "dashboard_title": "Lern-Dashboard",
     "dashboard_subtitle": "Level, Tipps und Aktivität auf einen Blick",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} Punkte vs. zuvor",
     "level_trend_down": "-{value} Punkte vs. zuvor",
     "level_unknown": "Kein Niveau vorhanden",
+    "level_help": "Level basieren auf KI-Korrekturen/Quizzes nach CEFR (A1~C2).",
+    "level_status_high": "Super! Du bist in der oberen Stufe.",
+    "level_status_mid": "Gute Fortschritte. Etwas mehr Übung hebt dein Level.",
+    "level_status_low": "Grundlagen stärken. Nutze leichtere Quiz und Wiederholungen.",
     "activities_title": "Aktivität",
     "activity_diaries": "Tagebücher (7T)",
     "activity_archives": "Gespeicherte Archive",
@@ -202,20 +206,14 @@
     "priority_medium": "Mittel",
     "priority_low": "Niedrig",
     "level_filter_all": "Alle Niveaus",
+    "vs_avg": "Avg diff {value}",
+    "vs_target": "Target diff {value}",
     "advice_issue_template": "{topic}: {count}x erkannt, bitte verbessern",
     "advice_topic_grammar": "Grammatik",
     "advice_topic_word": "Wortschatz",
     "advice_topic_style": "Stil",
     "advice_topic_other": "Sonstiges",
-    "level_help": "Level basieren auf KI-Korrekturen/Quizzes nach CEFR (A1~C2).",
-    "level_status_high": "Super! Du bist in der oberen Stufe.",
-    "level_status_mid": "Gute Fortschritte. Etwas mehr Übung hebt dein Level.",
-    "level_status_low": "Grundlagen stärken. Nutze leichtere Quiz und Wiederholungen.",
     "dictionary": "AI-Wörterbuch",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "vs_avg": "Avg diff {value}",
-    "vs_target": "Target diff {value}",
     "quick_quiz_badge": "Schnellquiz",
     "correct_count": "Richtige Antworten {value}×",
     "memorized": "Eingeprägt",
@@ -227,6 +225,17 @@
     "level_up": "Aufleveln",
     "advice_filter_applied": "Gefiltert nach {topic}.",
     "advice_filter_applied_all": "Nach allen Elementen gefiltert."
+  },
+  "dictionary": {
+    "fab_label": "KI-Wörterbuch",
+    "modal_title": "KI-Wörterbuch",
+    "input_placeholder": "Wort eingeben...",
+    "search_button": "Suchen",
+    "save_button": "Im Archiv speichern",
+    "saved": "Gespeichert!",
+    "close": "Schließen",
+    "examples": "Beispiele",
+    "error": "Wörterbuch-Generierung fehlgeschlagen"
   },
   "settings": {
     "title": "Einstellungen",
@@ -272,26 +281,15 @@
     "listening_time": "Hörzeit",
     "total": "Gesamt",
     "by_language": "Nach Sprache",
-    "login_required_title": "Anmeldung erforderlich",
-    "login_required_desc": "Sie müssen sich anmelden, um Weltradio zu nutzen und Favoriten zu speichern.",
-    "login_button": "Anmelden",
     "added_favorite": "Zu Favoriten hinzugefügt",
     "removed_favorite": "Aus Favoriten entfernt",
     "error": "Ein Fehler ist aufgetreten",
     "meta_title": "Globales Radio - Höre Radiosender Weltweit | Loglingo",
     "meta_description": "Entdecke und höre Radiosender aus der ganzen Welt. Perfekt für das Sprachenlernen mit Sendern auf Koreanisch, Japanisch, Englisch, Spanisch, Französisch, Deutsch und mehr. Kostenloses Internetradio mit 3D-Globus-Oberfläche.",
-    "loading": "Kanal wird geladen..."
-  },
-  "dictionary": {
-    "fab_label": "KI-Wörterbuch",
-    "modal_title": "KI-Wörterbuch",
-    "input_placeholder": "Wort eingeben...",
-    "search_button": "Suchen",
-    "save_button": "Im Archiv speichern",
-    "saved": "Gespeichert!",
-    "close": "Schließen",
-    "examples": "Beispiele",
-    "error": "Wörterbuch-Generierung fehlgeschlagen"
+    "loading": "Kanal wird geladen...",
+    "login_button": "Anmelden",
+    "login_required_desc": "Sie müssen sich anmelden, um Weltradio zu nutzen und Favoriten zu speichern.",
+    "login_required_title": "Anmeldung erforderlich"
   },
   "Speaking": {
     "localeName": "Deutsch",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Ich bin Study Duck! Ich helfe dir, fleißig zu lernen!",
       "message_1": "Willkommen bei Loglingo!",
       "message_2": "Bereit für heute?",
       "message_3": "Du machst das toll!",

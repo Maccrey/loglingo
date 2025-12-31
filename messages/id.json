@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Daftar untuk membuat arsip pribadi Anda.",
     "signup_button": "Daftar dan Masuk",
+    "already_logged_in": "Anda sudah masuk. Melanjutkan ke buku harian.",
     "banner_title": "Mode Percobaan",
     "banner_desc": "Data tidak disimpan dalam mode percobaan.",
     "sample_guide": "Lihat bagaimana AI mengoreksi kalimat ini",
-    "sample_hint": "Klik teks untuk menulis sendiri",
-    "already_logged_in": "Anda sudah masuk. Melanjutkan ke buku harian."
+    "sample_hint": "Klik teks untuk menulis sendiri"
   },
   "common": {
     "save": "Simpan",
-    "cancel": "Batal",
-    "loading": "Memuat saluran...",
-    "error": "Terjadi kesalahan",
-    "success": "Berhasil",
-    "delete": "Hapus",
-    "meta_title": "Radio Global - Dengarkan Stasiun Radio dari Seluruh Dunia | Loglingo",
-    "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D.",
     "ai_check": "Koreksi AI",
     "ai_checking": "Sedang mengoreksi...",
     "ai_analyzing": "Grok AI sedang berpikir...",
     "ai_analyzing_desc": "Menganalisis buku harian Anda dan menemukan ekspresi yang lebih baik.",
-    "apply": "Terapkan"
+    "apply": "Terapkan",
+    "cancel": "Batal",
+    "loading": "Memuat saluran...",
+    "error": "Terjadi kesalahan",
+    "success": "Berhasil",
+    "delete": "Hapus"
   },
   "nav": {
     "home": "Beranda",
@@ -29,10 +27,10 @@
     "write": "Tulis",
     "archive": "Belajar",
     "settings": "Pengaturan",
-    "loading": "Loading...",
     "login": "Masuk",
     "logout": "Keluar",
-    "radio": "Radio"
+    "radio": "Radio",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Masuk untuk mulai belajar",
@@ -42,11 +40,6 @@
     "cta": "Masuk",
     "loading": "Memeriksa status login...",
     "languages_label": "Bahasa yang didukung",
-    "steps": {
-      "write": "Tulis catatan harian singkat dalam bahasa target.",
-      "review": "AI memberi koreksi dan penjelasan seketika.",
-      "save": "Simpan frasa berguna ke arsip dan pelajari ulang."
-    },
     "login_modal_title": "Masuk",
     "signup_modal_title": "Daftar",
     "password_reset_modal_title": "Reset Kata Sandi",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Email ini sudah digunakan.",
     "error_user_not_found": "Pengguna tidak ditemukan.",
     "error_wrong_password": "Kata sandi salah.",
-    "error_auth_failed": "Autentikasi gagal. Silakan coba lagi."
+    "error_auth_failed": "Autentikasi gagal. Silakan coba lagi.",
+    "steps": {
+      "write": "Tulis catatan harian singkat dalam bahasa target.",
+      "review": "AI memberi koreksi dan penjelasan seketika.",
+      "save": "Simpan frasa berguna ke arsip dan pelajari ulang."
+    }
   },
   "home": {
     "title": "Kuasai Bahasa dengan Buku Harian AI",
@@ -134,13 +132,13 @@
     "uploading": "Mengunggah...",
     "upload_failed": "Gagal mengunggah gambar",
     "saved": "Entri disimpan",
-    "apply_and_save": "Terapkan & Simpan",
     "back": "Kembali ke daftar",
     "validation_invalid_date": "Pilih tanggal yang valid (YYYY-MM-DD).",
     "validation_empty_content": "Tulis sesuatu untuk menyimpan.",
     "validation_too_long": "Isi terlalu panjang (maks 5000 karakter).",
     "validation_image": "Pilih file gambar.",
     "save": "Simpan entri",
+    "apply_and_save": "Terapkan & Simpan",
     "update": "Simpan perubahan",
     "ai_checking": "AI sedang memeriksa...",
     "ai_error": "Permintaan AI gagal",
@@ -174,12 +172,14 @@
     "list_title": "Item tersimpan",
     "quiz_title": "Kuis cepat",
     "quiz_empty": "Pilih item untuk latihan",
+    "quiz_question": "Apa arti/pola utama dari \"{title}\"?",
     "quiz_correct": "Benar!",
     "quiz_wrong": "Coba lagi",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Semua",
     "title_required": "Judul wajib diisi",
     "save_error": "Gagal menyimpan arsip",
-    "quiz_question": "Apa arti/pola utama dari \"{title}\"?",
     "start_speaking_practice": "Mulai Latihan Berbicara",
     "dashboard_title": "Dasbor Pembelajaran",
     "dashboard_subtitle": "Lihat level, saran, dan aktivitas sekilas",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} poin vs sebelumnya",
     "level_trend_down": "-{value} poin vs sebelumnya",
     "level_unknown": "Belum ada level",
+    "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2).",
+    "level_status_high": "Keren! Kamu di level atas.",
+    "level_status_mid": "Progres bagus. Sedikit latihan lagi akan naik level.",
+    "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review.",
     "activities_title": "Aktivitas",
     "activity_diaries": "Jurnal (7h)",
     "activity_archives": "Arsip tersimpan",
@@ -209,13 +213,7 @@
     "advice_topic_word": "Kosakata",
     "advice_topic_style": "Gaya",
     "advice_topic_other": "Lainnya",
-    "level_help": "Level diperkirakan dari koreksi/kuis AI menggunakan CEFR (A1~C2).",
-    "level_status_high": "Keren! Kamu di level atas.",
-    "level_status_mid": "Progres bagus. Sedikit latihan lagi akan naik level.",
-    "level_status_low": "Perkuat dasar. Pakai kuis mudah dan banyak review.",
     "dictionary": "Kamus AI",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
     "quick_quiz_badge": "Kuis cepat",
     "correct_count": "Benar {value} kali",
     "memorized": "Sudah dihafal",
@@ -227,6 +225,17 @@
     "level_up": "Naik Level",
     "advice_filter_applied": "Difilter berdasarkan {topic}.",
     "advice_filter_applied_all": "Difilter berdasarkan semua item."
+  },
+  "dictionary": {
+    "fab_label": "Kamus AI",
+    "modal_title": "Kamus AI",
+    "input_placeholder": "Masukkan kata...",
+    "search_button": "Cari",
+    "save_button": "Simpan ke arsip",
+    "saved": "Tersimpan!",
+    "close": "Tutup",
+    "examples": "Contoh",
+    "error": "Gagal membuat kamus"
   },
   "settings": {
     "title": "Pengaturan",
@@ -272,26 +281,15 @@
     "listening_time": "Waktu Mendengarkan",
     "total": "Total",
     "by_language": "Berdasarkan Bahasa",
-    "login_required_title": "Login Diperlukan",
-    "login_required_desc": "Anda harus login untuk menggunakan Radio Global dan menyimpan favorit.",
-    "login_button": "Masuk",
     "added_favorite": "Ditambahkan ke favorit",
     "removed_favorite": "Dihapus dari favorit",
     "error": "Terjadi kesalahan",
     "meta_title": "Radio Global - Dengarkan Stasiun Radio dari Seluruh Dunia | Loglingo",
     "meta_description": "Temukan dan dengarkan stasiun radio dari seluruh dunia. Sempurna untuk pembelajaran bahasa dengan stasiun dalam bahasa Korea, Jepang, Inggris, Spanyol, Prancis, Jerman dan banyak lagi. Radio internet gratis dengan antarmuka bola dunia 3D.",
-    "loading": "Memuat saluran..."
-  },
-  "dictionary": {
-    "fab_label": "Kamus AI",
-    "modal_title": "Kamus AI",
-    "input_placeholder": "Masukkan kata...",
-    "search_button": "Cari",
-    "save_button": "Simpan ke arsip",
-    "saved": "Tersimpan!",
-    "close": "Tutup",
-    "examples": "Contoh",
-    "error": "Gagal membuat kamus"
+    "loading": "Memuat saluran...",
+    "login_button": "Masuk",
+    "login_required_desc": "Anda harus login untuk menggunakan Radio Global dan menyimpan favorit.",
+    "login_required_title": "Login Diperlukan"
   },
   "Speaking": {
     "localeName": "Bahasa Indonesia",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Aku Study Duck! Aku akan bantuin kamu belajar giat!",
       "message_1": "Selamat datang di Loglingo!",
       "message_2": "Siap belajar hari ini?",
       "message_3": "Kamu melakukannya dengan baik!",

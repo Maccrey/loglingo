@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Kişisel arşivinizi oluşturmak için kaydolun.",
     "signup_button": "Kaydol ve Giriş Yap",
+    "already_logged_in": "Zaten giriş yaptınız. Günlüğe gidiliyor.",
     "banner_title": "Deneme Modu",
     "banner_desc": "Deneme modunda veriler kaydedilmez.",
     "sample_guide": "Yapay zekanın bu cümleyi nasıl düzelttiğini görün",
-    "sample_hint": "Kendi metnini yazmak için tıkla",
-    "already_logged_in": "Zaten giriş yaptınız. Günlüğe gidiliyor."
+    "sample_hint": "Kendi metnini yazmak için tıkla"
   },
   "common": {
     "save": "Kaydet",
-    "cancel": "İptal",
-    "loading": "Kanal yükleniyor...",
-    "error": "Bir hata oluştu",
-    "success": "Başarılı",
-    "delete": "Sil",
-    "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
-    "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu.",
     "ai_check": "Yapay Zeka Düzeltimi",
     "ai_checking": "Düzeltiliyor...",
     "ai_analyzing": "Grok AI düşünüyor...",
     "ai_analyzing_desc": "Günlüğünüzü analiz ediyor ve geliştirilmiş ifadeler buluyor.",
-    "apply": "Uygula"
+    "apply": "Uygula",
+    "cancel": "İptal",
+    "loading": "Kanal yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "Başarılı",
+    "delete": "Sil"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -29,10 +27,10 @@
     "write": "Yaz",
     "archive": "Öğren",
     "settings": "Ayarlar",
-    "loading": "Loading...",
     "login": "Giriş yap",
     "logout": "Çıkış yap",
-    "radio": "Radyo"
+    "radio": "Radyo",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Başlamak için giriş yap",
@@ -42,11 +40,6 @@
     "cta": "Giriş Yap",
     "loading": "Oturumun kontrol ediliyor...",
     "languages_label": "Desteklenen diller",
-    "steps": {
-      "write": "Hedef dilde kısa bir günlük yazın.",
-      "review": "Yapay zeka anında düzeltme ve açıklama verir.",
-      "save": "İşe yarar ifadeleri arşive kaydedip tekrar edin."
-    },
     "login_modal_title": "Giriş Yap",
     "signup_modal_title": "Kaydol",
     "password_reset_modal_title": "Şifre Sıfırla",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Bu e-posta zaten kullanılıyor.",
     "error_user_not_found": "Kullanıcı bulunamadı.",
     "error_wrong_password": "Yanlış şifre.",
-    "error_auth_failed": "Kimlik doğrulama başarısız oldu. Lütfen tekrar deneyin."
+    "error_auth_failed": "Kimlik doğrulama başarısız oldu. Lütfen tekrar deneyin.",
+    "steps": {
+      "write": "Hedef dilde kısa bir günlük yazın.",
+      "review": "Yapay zeka anında düzeltme ve açıklama verir.",
+      "save": "İşe yarar ifadeleri arşive kaydedip tekrar edin."
+    }
   },
   "home": {
     "title": "AI Günlük ile Dilleri Öğrenin",
@@ -134,13 +132,13 @@
     "uploading": "Yükleniyor...",
     "upload_failed": "Resim yükleme başarısız",
     "saved": "Girdi kaydedildi",
-    "apply_and_save": "Uygula ve Kaydet",
     "back": "Listeye dön",
     "validation_invalid_date": "Geçerli bir tarih seçin (YYYY-AA-GG).",
     "validation_empty_content": "Kaydetmek için bir şeyler yazın.",
     "validation_too_long": "İçerik çok uzun (maks 5000 karakter).",
     "validation_image": "Lütfen bir resim dosyası seçin.",
     "save": "Girdiyi kaydet",
+    "apply_and_save": "Uygula ve Kaydet",
     "update": "Değişiklikleri kaydet",
     "ai_checking": "AI kontrol ediyor...",
     "ai_error": "AI isteği başarısız",
@@ -174,12 +172,14 @@
     "list_title": "Kaydedilen öğeler",
     "quiz_title": "Hızlı quiz",
     "quiz_empty": "Çalışmak için bir öğe seçin",
+    "quiz_question": "\"{title}\" için ana anlam/desen nedir?",
     "quiz_correct": "Doğru!",
     "quiz_wrong": "Tekrar dene",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Hepsi",
     "title_required": "Başlık gerekli",
     "save_error": "Arşive kaydetme başarısız",
-    "quiz_question": "\"{title}\" için ana anlam/desen nedir?",
     "start_speaking_practice": "Konuşma Pratiğine Başla",
     "dashboard_title": "Öğrenme paneli",
     "dashboard_subtitle": "Seviyeni, tavsiyeleri ve aktivitelerini tek bakışta gör",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} puan",
     "level_trend_down": "-{value} puan",
     "level_unknown": "Seviye yok",
+    "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir.",
+    "level_status_high": "High level! Keep it up.",
+    "level_status_mid": "Steady progress. A bit more practice to level up.",
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
     "activities_title": "Aktivite",
     "activity_diaries": "Günlükler (7g)",
     "activity_archives": "Kaydedilen arşivler",
@@ -209,13 +213,7 @@
     "advice_topic_word": "Kelime",
     "advice_topic_style": "Üslup",
     "advice_topic_other": "Diğer",
-    "level_help": "Seviyeler, AI düzeltmeleri/quiz sonuçlarından CEFR (A1~C2) baz alınarak tahmin edilir.",
     "dictionary": "AI Sözlük",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "level_status_high": "High level! Keep it up.",
-    "level_status_mid": "Steady progress. A bit more practice to level up.",
-    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
     "quick_quiz_badge": "Hızlı Quiz",
     "correct_count": "Doğru {value} kez",
     "memorized": "Ezberlendi",
@@ -227,6 +225,17 @@
     "level_up": "Seviye Atla",
     "advice_filter_applied": "{topic} ile filtrelendi.",
     "advice_filter_applied_all": "Tüm öğelerle filtrelendi."
+  },
+  "dictionary": {
+    "fab_label": "AI Sözlük",
+    "modal_title": "AI Sözlük",
+    "input_placeholder": "Bir kelime girin...",
+    "search_button": "Ara",
+    "save_button": "Arşive kaydet",
+    "saved": "Kaydedildi!",
+    "close": "Kapat",
+    "examples": "Örnekler",
+    "error": "Sözlük oluşturma başarısız"
   },
   "settings": {
     "title": "Ayarlar",
@@ -272,26 +281,15 @@
     "listening_time": "Dinleme Süresi",
     "total": "Toplam",
     "by_language": "Dile Göre",
-    "login_required_title": "Giriş Gerekli",
-    "login_required_desc": "Küresel Radyo'yu kullanmak ve favorileri kaydetmek için giriş yapmanız gerekir.",
-    "login_button": "Giriş Yap",
     "added_favorite": "Favorilere eklendi",
     "removed_favorite": "Favorilerden kaldırıldı",
     "error": "Bir hata oluştu",
     "meta_title": "Küresel Radyo - Dünyanın Her Yerinden Radyo İstasyonlarını Dinleyin | Loglingo",
     "meta_description": "Dünyanın dört bir yanından radyo istasyonlarını keşfedin ve dinleyin. Korece, Japonca, İngilizce, İspanyolca, Fransızca, Almanca ve daha fazlasında istasyonlarla dil öğrenimi için mükemmel. 3D küre arayüzü ile ücretsiz internet radyosu.",
-    "loading": "Kanal yükleniyor..."
-  },
-  "dictionary": {
-    "fab_label": "AI Sözlük",
-    "modal_title": "AI Sözlük",
-    "input_placeholder": "Bir kelime girin...",
-    "search_button": "Ara",
-    "save_button": "Arşive kaydet",
-    "saved": "Kaydedildi!",
-    "close": "Kapat",
-    "examples": "Örnekler",
-    "error": "Sözlük oluşturma başarısız"
+    "loading": "Kanal yükleniyor...",
+    "login_button": "Giriş Yap",
+    "login_required_desc": "Küresel Radyo'yu kullanmak ve favorileri kaydetmek için giriş yapmanız gerekir.",
+    "login_required_title": "Giriş Gerekli"
   },
   "Speaking": {
     "localeName": "Türkçe",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Ben Study Duck! Çok çalışmana yardım edeceğim!",
       "message_1": "Loglingo'ya hoş geldin!",
       "message_2": "Öğrenmeye hazır mısın?",
       "message_3": "Harika gidiyorsun!",

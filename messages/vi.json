@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Đăng ký để tạo kho lưu trữ cá nhân của bạn.",
     "signup_button": "Đăng ký và Đăng nhập",
+    "already_logged_in": "Bạn đã đăng nhập. Đang chuyển đến nhật ký.",
     "banner_title": "Chế độ Thử nghiệm",
     "banner_desc": "Dữ liệu không được lưu trong chế độ thử nghiệm.",
     "sample_guide": "Xem AI sửa câu này như thế nào",
-    "sample_hint": "Nhấp vào văn bản để viết riêng",
-    "already_logged_in": "Bạn đã đăng nhập. Đang chuyển đến nhật ký."
+    "sample_hint": "Nhấp vào văn bản để viết riêng"
   },
   "common": {
     "save": "Lưu",
-    "cancel": "Hủy",
-    "loading": "Đang tải kênh...",
-    "error": "Đã xảy ra lỗi",
-    "success": "Thành công",
-    "delete": "Xóa",
-    "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
-    "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D.",
     "ai_check": "Sửa lỗi AI",
     "ai_checking": "Đang sửa...",
     "ai_analyzing": "Grok AI đang suy nghĩ...",
     "ai_analyzing_desc": "Phân tích nhật ký của bạn và tìm các biểu thức cải tiến.",
-    "apply": "Áp dụng"
+    "apply": "Áp dụng",
+    "cancel": "Hủy",
+    "loading": "Đang tải kênh...",
+    "error": "Đã xảy ra lỗi",
+    "success": "Thành công",
+    "delete": "Xóa"
   },
   "nav": {
     "home": "Trang chủ",
@@ -29,10 +27,10 @@
     "write": "Viết",
     "archive": "Học tập",
     "settings": "Cài đặt",
-    "loading": "Loading...",
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
-    "radio": "Radio"
+    "radio": "Radio",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Đăng nhập để bắt đầu học",
@@ -42,11 +40,6 @@
     "cta": "Đăng nhập",
     "loading": "Đang kiểm tra trạng thái đăng nhập...",
     "languages_label": "Ngôn ngữ hỗ trợ",
-    "steps": {
-      "write": "Viết một đoạn nhật ký ngắn bằng ngôn ngữ mục tiêu.",
-      "review": "AI chỉnh sửa và giải thích ngay.",
-      "save": "Lưu cụm từ hữu ích vào kho và ôn tập."
-    },
     "login_modal_title": "Đăng nhập",
     "signup_modal_title": "Đăng ký",
     "password_reset_modal_title": "Đặt lại mật khẩu",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Email này đã được sử dụng.",
     "error_user_not_found": "Không tìm thấy người dùng.",
     "error_wrong_password": "Mật khẩu không đúng.",
-    "error_auth_failed": "Xác thực thất bại. Vui lòng thử lại."
+    "error_auth_failed": "Xác thực thất bại. Vui lòng thử lại.",
+    "steps": {
+      "write": "Viết một đoạn nhật ký ngắn bằng ngôn ngữ mục tiêu.",
+      "review": "AI chỉnh sửa và giải thích ngay.",
+      "save": "Lưu cụm từ hữu ích vào kho và ôn tập."
+    }
   },
   "home": {
     "title": "Thành thạo ngôn ngữ với Nhật ký AI",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Nội dung gốc",
-    "back": "Quay lại danh sách",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "Quay lại danh sách"
   },
   "write": {
     "title": "Nhật ký mới",
@@ -134,13 +132,13 @@
     "uploading": "Đang tải lên...",
     "upload_failed": "Tải hình thất bại",
     "saved": "Đã lưu mục",
-    "apply_and_save": "Áp dụng và Lưu",
     "back": "Quay lại danh sách",
     "validation_invalid_date": "Chọn ngày hợp lệ (YYYY-MM-DD).",
     "validation_empty_content": "Viết gì đó để lưu.",
     "validation_too_long": "Nội dung quá dài (tối đa 5000 ký tự).",
     "validation_image": "Hãy chọn tệp hình ảnh.",
     "save": "Lưu mục",
+    "apply_and_save": "Áp dụng và Lưu",
     "update": "Lưu thay đổi",
     "ai_checking": "AI đang kiểm tra...",
     "ai_error": "Yêu cầu AI thất bại",
@@ -174,12 +172,14 @@
     "list_title": "Mục đã lưu",
     "quiz_title": "Câu hỏi nhanh",
     "quiz_empty": "Chọn một mục để luyện",
+    "quiz_question": "Ý nghĩa/mẫu chính của \"{title}\" là gì?",
     "quiz_correct": "Đúng!",
     "quiz_wrong": "Thử lại",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Tất cả",
     "title_required": "Cần có tiêu đề",
     "save_error": "Lưu kho thất bại",
-    "quiz_question": "Ý nghĩa/mẫu chính của \"{title}\" là gì?",
     "start_speaking_practice": "Bắt đầu luyện nói",
     "dashboard_title": "Bảng điều khiển học tập",
     "dashboard_subtitle": "Xem cấp độ, lời khuyên và hoạt động trong nháy mắt",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} điểm so với trước",
     "level_trend_down": "-{value} điểm so với trước",
     "level_unknown": "Chưa có cấp",
+    "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2).",
+    "level_status_high": "High level! Keep it up.",
+    "level_status_mid": "Steady progress. A bit more practice to level up.",
+    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
     "activities_title": "Hoạt động",
     "activity_diaries": "Nhật ký (7 ngày)",
     "activity_archives": "Lưu trữ đã lưu",
@@ -209,13 +213,7 @@
     "advice_topic_word": "Từ vựng",
     "advice_topic_style": "Phong cách",
     "advice_topic_other": "Khác",
-    "level_help": "Cấp độ được ước tính từ chỉnh sửa/quiz AI theo CEFR (A1~C2).",
     "dictionary": "Từ điển AI",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
-    "level_status_high": "High level! Keep it up.",
-    "level_status_mid": "Steady progress. A bit more practice to level up.",
-    "level_status_low": "Building fundamentals. Start with easier quizzes and review.",
     "quick_quiz_badge": "Quiz nhanh",
     "correct_count": "Đúng {value} lần",
     "memorized": "Đã ghi nhớ",
@@ -227,6 +225,17 @@
     "level_up": "Lên cấp",
     "advice_filter_applied": "Đã lọc theo {topic}.",
     "advice_filter_applied_all": "Đã lọc theo tất cả các mục."
+  },
+  "dictionary": {
+    "fab_label": "Từ điển AI",
+    "modal_title": "Từ điển AI",
+    "input_placeholder": "Nhập từ...",
+    "search_button": "Tìm kiếm",
+    "save_button": "Lưu vào kho lưu trữ",
+    "saved": "Đã lưu!",
+    "close": "Đóng",
+    "examples": "Ví dụ",
+    "error": "Tạo từ điển thất bại"
   },
   "settings": {
     "title": "Cài đặt",
@@ -272,26 +281,15 @@
     "listening_time": "Thời gian nghe",
     "total": "Tổng cộng",
     "by_language": "Theo ngôn ngữ",
-    "login_required_title": "Cần đăng nhập",
-    "login_required_desc": "Bạn cần đăng nhập để sử dụng Radio Toàn Cầu và lưu yêu thích.",
-    "login_button": "Đăng nhập",
     "added_favorite": "Đã thêm vào yêu thích",
     "removed_favorite": "Đã xóa khỏi yêu thích",
     "error": "Đã xảy ra lỗi",
     "meta_title": "Radio Toàn Cầu - Nghe Các Đài Radio Trên Toàn Thế Giới | Loglingo",
     "meta_description": "Khám phá và nghe các đài radio từ khắp nơi trên thế giới. Hoàn hảo cho việc hoc ngôn ngữ với các đài bằng tiếng Hàn, Nhật, Anh, Tây Ban Nha, Pháp, Đức và nhiều hơn nữa. Radio internet miễn phí với giao diện quả cầu 3D.",
-    "loading": "Đang tải kênh..."
-  },
-  "dictionary": {
-    "fab_label": "Từ điển AI",
-    "modal_title": "Từ điển AI",
-    "input_placeholder": "Nhập từ...",
-    "search_button": "Tìm kiếm",
-    "save_button": "Lưu vào kho lưu trữ",
-    "saved": "Đã lưu!",
-    "close": "Đóng",
-    "examples": "Ví dụ",
-    "error": "Tạo từ điển thất bại"
+    "loading": "Đang tải kênh...",
+    "login_button": "Đăng nhập",
+    "login_required_desc": "Bạn cần đăng nhập để sử dụng Radio Toàn Cầu và lưu yêu thích.",
+    "login_required_title": "Cần đăng nhập"
   },
   "Speaking": {
     "localeName": "Tiếng Việt",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Tôi là Study Duck! Tôi sẽ giúp bạn học tập chăm chỉ!",
       "message_1": "Chào mừng đến với Loglingo!",
       "message_2": "Sẵn sàng học chưa?",
       "message_3": "Bạn đang làm rất tốt!",

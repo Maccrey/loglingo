@@ -2,26 +2,24 @@
   "trial": {
     "signup_prompt": "Cadastre-se para criar seu próprio arquivo.",
     "signup_button": "Cadastrar e Entrar",
+    "already_logged_in": "Você já está logado. Indo para o diário.",
     "banner_title": "Modo de Teste",
     "banner_desc": "Os dados não são salvos no modo de teste.",
     "sample_guide": "Veja como a IA corrige esta frase",
-    "sample_hint": "Clique no texto para escrever",
-    "already_logged_in": "Você já está logado. Indo para o diário."
+    "sample_hint": "Clique no texto para escrever"
   },
   "common": {
     "save": "Salvar",
-    "cancel": "Cancelar",
-    "loading": "Carregando canal...",
-    "error": "Ocorreu um erro",
-    "success": "Sucesso",
-    "delete": "Excluir",
-    "meta_title": "Rádio Global - Ouça Estações de Rádio do Mundo Inteiro | Loglingo",
-    "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D.",
     "ai_check": "Correção de IA",
     "ai_checking": "Corrigindo...",
     "ai_analyzing": "Grok AI está pensando...",
     "ai_analyzing_desc": "Analisando seu diário e encontrando expressões melhoradas.",
-    "apply": "Aplicar"
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "loading": "Carregando canal...",
+    "error": "Ocorreu um erro",
+    "success": "Sucesso",
+    "delete": "Excluir"
   },
   "nav": {
     "home": "Início",
@@ -29,10 +27,10 @@
     "write": "Escrever",
     "archive": "Aprender",
     "settings": "Configurações",
-    "loading": "Loading...",
     "login": "Entrar",
     "logout": "Sair",
-    "radio": "Rádio"
+    "radio": "Rádio",
+    "loading": "Loading..."
   },
   "auth": {
     "title": "Faça login para começar",
@@ -42,11 +40,6 @@
     "cta": "Entrar",
     "loading": "Verificando sua sessão...",
     "languages_label": "Idiomas compatíveis",
-    "steps": {
-      "write": "Escreva um diário curto no idioma que está aprendendo.",
-      "review": "A IA traz correções e explicações na hora.",
-      "save": "Salve frases úteis no arquivo e revise."
-    },
     "login_modal_title": "Entrar",
     "signup_modal_title": "Cadastrar",
     "password_reset_modal_title": "Redefinir senha",
@@ -74,7 +67,12 @@
     "error_email_already_in_use": "Este e-mail já está em uso.",
     "error_user_not_found": "Usuário não encontrado.",
     "error_wrong_password": "Senha incorreta.",
-    "error_auth_failed": "Autenticação falhou. Por favor, tent novamente."
+    "error_auth_failed": "Autenticação falhou. Por favor, tent novamente.",
+    "steps": {
+      "write": "Escreva um diário curto no idioma que está aprendendo.",
+      "review": "A IA traz correções e explicações na hora.",
+      "save": "Salve frases úteis no arquivo e revise."
+    }
   },
   "home": {
     "title": "Domine idiomas com Diário IA",
@@ -117,8 +115,8 @@
     "not_found": "Diary not found",
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Conteúdo Original",
-    "back": "Voltar à lista",
-    "clear_date_filter": "Clear date"
+    "clear_date_filter": "Clear date",
+    "back": "Voltar à lista"
   },
   "write": {
     "title": "Novo diário",
@@ -134,13 +132,13 @@
     "uploading": "Enviando...",
     "upload_failed": "Falha no envio da imagem",
     "saved": "Entrada salva",
-    "apply_and_save": "Aplicar e Salvar",
     "back": "Voltar à lista",
     "validation_invalid_date": "Escolha uma data válida (AAAA-MM-DD).",
     "validation_empty_content": "Escreva algo para salvar.",
     "validation_too_long": "Conteúdo muito longo (máx 5000 caracteres).",
     "validation_image": "Selecione um arquivo de imagem.",
     "save": "Salvar entrada",
+    "apply_and_save": "Aplicar e Salvar",
     "update": "Salvar alterações",
     "ai_checking": "IA está revisando...",
     "ai_error": "Falha na solicitação de IA",
@@ -174,12 +172,14 @@
     "list_title": "Itens salvos",
     "quiz_title": "Quiz rápido",
     "quiz_empty": "Selecione um item para praticar",
+    "quiz_question": "Qual é o significado/padrão chave de \"{title}\"?",
     "quiz_correct": "Correto!",
     "quiz_wrong": "Tente novamente",
+    "show_hint": "Show hint",
+    "hide_hint": "Hide hint",
     "all": "Todos",
     "title_required": "Título é obrigatório",
     "save_error": "Falha ao salvar no arquivo",
-    "quiz_question": "Qual é o significado/padrão chave de \"{title}\"?",
     "start_speaking_practice": "Iniciar prática de fala",
     "dashboard_title": "Painel de aprendizagem",
     "dashboard_subtitle": "Veja seu nível, conselhos e atividade de relance",
@@ -190,6 +190,10 @@
     "level_trend_up": "+{value} pts vs anterior",
     "level_trend_down": "-{value} pts vs anterior",
     "level_unknown": "Sem nível",
+    "level_help": "Os níveis são estimados a partir de correções/quiz de IA usando CEFR (A1~C2).",
+    "level_status_high": "Ótimo! Você está no nível superior.",
+    "level_status_mid": "Bom progresso. Mais prática vai elevar seu nível.",
+    "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais.",
     "activities_title": "Atividades",
     "activity_diaries": "Diários (7d)",
     "activity_archives": "Arquivos salvos",
@@ -209,13 +213,7 @@
     "advice_topic_word": "Vocabulário",
     "advice_topic_style": "Estilo",
     "advice_topic_other": "Outros",
-    "level_help": "Os níveis são estimados a partir de correções/quiz de IA usando CEFR (A1~C2).",
-    "level_status_high": "Ótimo! Você está no nível superior.",
-    "level_status_mid": "Bom progresso. Mais prática vai elevar seu nível.",
-    "level_status_low": "Fortaleça a base. Use quizzes fáceis e revise mais.",
     "dictionary": "Dicionário IA",
-    "hide_hint": "Hide hint",
-    "show_hint": "Show hint",
     "quick_quiz_badge": "Quiz rápido",
     "correct_count": "Acertos {value} vezes",
     "memorized": "Memorizado",
@@ -227,6 +225,17 @@
     "level_up": "Subir de Nível",
     "advice_filter_applied": "Filtrado por {topic}.",
     "advice_filter_applied_all": "Filtrado por todos os itens."
+  },
+  "dictionary": {
+    "fab_label": "Dicionário IA",
+    "modal_title": "Dicionário IA",
+    "input_placeholder": "Digite uma palavra...",
+    "search_button": "Pesquisar",
+    "save_button": "Salvar no arquivo",
+    "saved": "Salvo!",
+    "close": "Fechar",
+    "examples": "Exemplos",
+    "error": "Falha ao gerar dicionário"
   },
   "settings": {
     "title": "Configurações",
@@ -272,26 +281,15 @@
     "listening_time": "Tempo de escuta",
     "total": "Total",
     "by_language": "Por idioma",
-    "login_required_title": "Login necessário",
-    "login_required_desc": "Você precisa fazer login para usar o Rádio Global e salvar favoritos.",
-    "login_button": "Entrar",
     "added_favorite": "Adicionado aos favoritos",
     "removed_favorite": "Removido dos favoritos",
     "error": "Ocorreu um erro",
     "meta_title": "Rádio Global - Ouça Estações de Rádio do Mundo Inteiro | Loglingo",
     "meta_description": "Descubra e ouça estações de rádio de todo o mundo. Perfeito para aprendizado de idiomas com estações em coreano, japonês, inglês, espanhol, francês, alemão e mais. Rádio pela internet grátis com interface de globo 3D.",
-    "loading": "Carregando canal..."
-  },
-  "dictionary": {
-    "fab_label": "Dicionário IA",
-    "modal_title": "Dicionário IA",
-    "input_placeholder": "Digite uma palavra...",
-    "search_button": "Pesquisar",
-    "save_button": "Salvar no arquivo",
-    "saved": "Salvo!",
-    "close": "Fechar",
-    "examples": "Exemplos",
-    "error": "Falha ao gerar dicionário"
+    "loading": "Carregando canal...",
+    "login_button": "Entrar",
+    "login_required_desc": "Você precisa fazer login para usar o Rádio Global e salvar favoritos.",
+    "login_required_title": "Login necessário"
   },
   "Speaking": {
     "localeName": "Português",
@@ -353,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "Sou o Study Duck! Vou te ajudar a estudar bastante!",
       "message_1": "Bem-vindo ao Loglingo!",
       "message_2": "Pronto para aprender?",
       "message_3": "Você está indo muito bem!",
