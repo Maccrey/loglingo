@@ -68,14 +68,14 @@ export function StartButton() {
         )}
       </div>
 
-      {/* Mascot Fixed on Left Side */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50">
+      {/* Mascot Fixed on Right Side */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50">
         <DuckMascot 
           mode="teacher" 
           width={130} 
           height={130} 
           speech={greeting} 
-          bubbleSide="right"
+          bubbleSide="left"
         />
       </div>
     </>
