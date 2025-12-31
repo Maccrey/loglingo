@@ -39,8 +39,9 @@ export function StartButton() {
   if (isTrialAvailable) {
     return (
       <div className="flex flex-col items-center gap-3 relative">
-        {/* Helper Duck */}
-        <div className="absolute -left-[140px] top-1/2 -translate-y-1/2 hidden md:block">
+        {/* Helper Duck - Visible on all devices, drag enabled */}
+        {/* Mobile: Top center, PC: Left side */}
+        <div className="absolute -top-[130px] left-1/2 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2 md:left-auto md:-left-[140px] md:translate-x-0 z-10">
            <DuckMascot mode="teacher" width={120} height={120} />
         </div>
         

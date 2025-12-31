@@ -12,6 +12,7 @@ interface DuckMascotProps {
   height?: number;
 }
 
+
 export const DuckMascot: React.FC<DuckMascotProps> = ({ 
   mode, 
   className = '', 
@@ -19,7 +20,16 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   height = 120 
 }) => {
   return (
-    <div className={`relative flex items-center justify-center ${className}`} style={{ width, height }}>
+    <motion.div 
+      className={`relative flex items-center justify-center ${className} touch-none`} 
+      style={{ width, height }}
+      drag
+      dragConstraints={{ left: -300, right: 300, top: -300, bottom: 300 }}
+      whileHover={{ scale: 1.1, cursor: "grab" }}
+      whileDrag={{ scale: 1.2, cursor: "grabbing" }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+    >
       
       {/* 1. Base Duck Image with Animation */}
       <motion.div
@@ -34,8 +44,9 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
           src="/images/duck_base.png"
           alt="Loglingo Duck Mascot"
           fill
-          className="object-contain drop-shadow-lg"
+          className="object-contain drop-shadow-lg select-none pointer-events-none"
           priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         
         {/* Additional Overlays attached to the duck */}
@@ -46,7 +57,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
              animate={{ opacity: 1, y: 0 }}
            >
              {/* Glasses Overlay */}
-             <svg viewBox="0 0 100 40" className="w-full h-full drop-shadow-md">
+             <svg viewBox="0 0 100 40" className="w-full h-full drop-shadow-md select-none pointer-events-none">
                 <g fill="none" stroke="black" strokeWidth="3">
                   <circle cx="25" cy="20" r="14" />
                   <circle cx="75" cy="20" r="14" />
@@ -63,18 +74,18 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       {mode === 'thinking' && (
         <>
           <motion.div
-            className="absolute top-0 right-0 z-20"
+            className="absolute top-0 right-0 z-20 pointer-events-none"
             animate={{ y: [-5, -15, -5], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-4xl font-bold text-orange-500">?</span>
+            <span className="text-4xl font-bold text-orange-500 select-none">?</span>
           </motion.div>
           <motion.div
-            className="absolute top-4 -right-4 z-20"
+            className="absolute top-4 -right-4 z-20 pointer-events-none"
             animate={{ y: [-5, -15, -5], opacity: [0, 1, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
           >
-             <span className="text-3xl font-bold text-orange-400">?</span>
+             <span className="text-3xl font-bold text-orange-400 select-none">?</span>
           </motion.div>
         </>
       )}
@@ -109,11 +120,11 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
 
       {/* Lonely: Rain/Gloom */}
       {mode === 'lonely' && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 z-20">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 z-20 pointer-events-none">
            <motion.div
              animate={{ y: [0, 10], opacity: [0, 1, 0] }}
              transition={{ duration: 1, repeat: Infinity }}
-             className="text-blue-400 text-2xl"
+             className="text-blue-400 text-2xl select-none"
            >
              💧
            </motion.div>
@@ -123,7 +134,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       {/* Teacher: Pointing Stick */}
       {mode === 'teacher' && (
          <motion.div
-           className="absolute bottom-0 -right-4 z-20 w-8 h-24 origin-bottom-left"
+           className="absolute bottom-0 -right-4 z-20 w-8 h-24 origin-bottom-left pointer-events-none"
            animate={{ rotate: [0, -15, 0] }}
            transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
          >
@@ -131,7 +142,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
          </motion.div>
       )}
 
-    </div>
+    </motion.div>
   );
 };
 
