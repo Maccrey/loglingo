@@ -76,6 +76,7 @@ export function StartButton() {
           height={130} 
           speech={greeting} 
           bubbleSide="left"
+          enableEgg={true}
         />
       </div>
     </>
