@@ -4,12 +4,14 @@ import { usePathname } from 'next/navigation';
 import { DuckMascot } from './DuckMascot';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import { useAuth } from '@/application/auth/AuthProvider';
 
 type PageContext = 'home' | 'diary' | 'speaking' | 'radio' | 'challenge' | 'default';
 
 export default function GlobalMascot() {
   const pathname = usePathname();
   const t = useTranslations('mascot');
+  const { user, loading } = useAuth(); // Get auth state
   const [context, setContext] = useState<PageContext>('home');
   const [msgIndex, setMsgIndex] = useState(1);
   const [mounted, setMounted] = useState(false);
@@ -51,26 +53,26 @@ export default function GlobalMascot() {
 
   }, [pathname]);
 
-  if (!mounted) return null;
+  if (!mounted || loading) return null; // Wait for auth loading
 
   // Determine speech text
-  // format: mascot.{context}.message_{n}
-  // fallback to generic if default
   const messageKeyBase = context === 'default' ? 'home' : context;
-  const speech = t(`${messageKeyBase}.message_${msgIndex}`);
   
-  // Custom Speech Bubble logic per page
-  // Home: Right side, bubble Left.
-  // Others: Maybe bottom right? Or same position for consistency?
-  // User said "Mascot always visible... 18 languages... consistent UI"
-  // I will keep it consistent at bottom-right or right-center.
-  // Previous home button was Right Center.
+  // Logic: Guest on Main Page -> Specific Message + Auto Hatch
+  // Logic: Others -> Random Mesasge + No Egg/Auto Hatch (Just Duck)
   
-  // We can vary the Duck Mode too!
-  // Home -> Teacher (Greeting)
-  // Diary -> Thinking (Reflective) or Teacher
-  // Speaking -> Party (Encouraging)
-  // Radio -> Lonely (Listening music?) or Thinking
+  const isMainPage = context === 'home' || context === 'default';
+  const isGuest = !user;
+  const isGuestOnMain = isGuest && isMainPage;
+
+  let speech = '';
+  if (isGuestOnMain) {
+    const guestMsgIndex = ((msgIndex - 1) % 25) + 1; // Map 1-26 to 1-25
+    speech = t(`guest.message_${guestMsgIndex}`);
+  } else {
+    // Regular random message
+    speech = t(`${messageKeyBase}.message_${msgIndex}`);
+  }
   
   let mode: 'teacher' | 'thinking' | 'party' | 'lonely' = 'teacher';
   
@@ -83,19 +85,28 @@ export default function GlobalMascot() {
     default: mode = 'teacher';
   }
 
+  const handleCrack = () => {
+    // Pick a new random message index between 1 and 26 when egg is clicked
+    const randomIdx = Math.floor(Math.random() * 26) + 1;
+    setMsgIndex(randomIdx);
+  };
+
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 pointer-events-none">
        {/* DuckMascot handles pointer events internally for interactions */}
        <div className="pointer-events-auto">
          <DuckMascot 
+           key={pathname} // Reset on path change to trigger auto-hatch
            mode={mode} 
            speech={speech} 
            bubbleSide="left" 
            enableEgg={true} // Enable lifecycle everywhere
-           width={120}
-           height={120}
+           width={160}
+           height={160}
+           onCrack={handleCrack}
          />
        </div>
     </div>
   );
 }
+

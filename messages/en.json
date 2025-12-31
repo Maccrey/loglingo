@@ -351,6 +351,7 @@
   },
   "mascot": {
     "home": {
+      "guest_welcome": "I'm Study Duck! I'll help you study hard!",
       "message_1": "Welcome to Loglingo!",
       "message_2": "Ready to learn today?",
       "message_3": "You are doing great!",
@@ -489,6 +490,33 @@
       "message_24": "Intense training.",
       "message_25": "Focus mode on.",
       "message_26": "Well done!"
+    },
+    "guest": {
+      "message_1": "I'm Study Duck! Let's learn together!",
+      "message_2": "Sign up to save your daily progress.",
+      "message_3": "Don't lose your streak—log in now!",
+      "message_4": "I can help you fix your diary.",
+      "message_5": "Create a free account to start.",
+      "message_6": "Nice to meet you! I'm your AI tutor.",
+      "message_7": "Want to remember this word? Sign up!",
+      "message_8": "Join our community of learners.",
+      "message_9": "Your language journey starts here.",
+      "message_10": "Login to unlock more features.",
+      "message_11": "I'm waiting for you to sign up!",
+      "message_12": "Let's make learning fun.",
+      "message_13": "Keep your notes safe in the cloud.",
+      "message_14": "Become a member for better feedback.",
+      "message_15": "Hello! I'm here to help.",
+      "message_16": "Ready to master a new language?",
+      "message_17": "Sign up and get smarter everyday.",
+      "message_18": "I'm lonely... join me!",
+      "message_19": "Your personal archive awaits.",
+      "message_20": "Track your growth with a profile.",
+      "message_21": "It's free to join!",
+      "message_22": "Let's study hard today.",
+      "message_23": "I have so much to teach you.",
+      "message_24": "Save your favorite sentences.",
+      "message_25": "Welcome friend! Login to continue."
     }
   }
 }

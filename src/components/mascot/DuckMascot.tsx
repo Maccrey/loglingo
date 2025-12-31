@@ -13,6 +13,7 @@ export interface DuckMascotProps {
   speech?: string;
   bubbleSide?: 'left' | 'right';
   enableEgg?: boolean;
+  onCrack?: () => void;
 }
 
 export const DuckMascot: React.FC<DuckMascotProps> = ({ 
@@ -22,7 +23,8 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   height = 120,
   speech,
   bubbleSide = 'left',
-  enableEgg = false
+  enableEgg = false,
+  onCrack
 }) => {
   const [lifecycle, setLifecycle] = useState<'egg' | 'cracking' | 'duck'>(enableEgg ? 'egg' : 'duck');
   const [showBubble, setShowBubble] = useState(!enableEgg && !!speech);
@@ -39,9 +41,13 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   }, [clearTimers]);
 
   // Handle interaction (Click on Egg)
-  const handleInteraction = () => {
-    if (lifecycle !== 'egg') return; // Only allow triggering from Egg state
+  const handleInteraction = useCallback(() => {
+    // Check local state 'lifecycle' directly. 
+    // This requires 'lifecycle' in dependency array, effectively re-creating function on state change.
+    // However, since we block re-execution via 'lifecycle !== egg', it should be fine.
+    if (lifecycle !== 'egg') return;
 
+    if (onCrack) onCrack(); // Trigger external callback
     clearTimers();
     setLifecycle('cracking');
 
@@ -49,7 +55,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
     const t1 = setTimeout(() => {
       setLifecycle('duck');
       
-      // 2. 1s later -> Bubble appears
+      // 2. 2s later -> Bubble appears
       const t2 = setTimeout(() => {
         if (speech) setShowBubble(true);
         
@@ -60,15 +66,17 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
           // 4. 3s later -> Back to Egg
           const t4 = setTimeout(() => {
             setLifecycle('egg');
+            // Allow auto-hatch to reset if needed, but usually we just want user interaction now.
+            // hasAutoHatched.current is for "Action on Mount". No need to reset it.
           }, 3000);
           timeouts.current.push(t4);
         }, 5000);
         timeouts.current.push(t3);
-      }, 1000);
+      }, 2000);
       timeouts.current.push(t2);
     }, 800);
     timeouts.current.push(t1);
-  };
+  }, [lifecycle, onCrack, clearTimers, speech]);
 
   // If egg mode is disabled, always show bubble if speech exists
   useEffect(() => {
@@ -79,15 +87,40 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
   }, [enableEgg, speech]);
 
   // Auto-hatch on mount
-  const hasAutoHatched = useRef(false);
   useEffect(() => {
-    if (enableEgg && !hasAutoHatched.current) {
-      hasAutoHatched.current = true;
-      // Delay slightly to show egg before cracking
-      const t = setTimeout(() => handleInteraction(), 500);
+    if (enableEgg) {
+      // Delay slightly to show egg before cracking (500ms)
+      const t = setTimeout(() => {
+        // Trigger sequence directly
+        setLifecycle('cracking');
+        if (onCrack) onCrack(); 
+
+        const t1 = setTimeout(() => {
+          setLifecycle('duck');
+          
+          const t2 = setTimeout(() => {
+            if (speech) setShowBubble(true);
+            
+            const t3 = setTimeout(() => {
+              setShowBubble(false);
+              
+              const t4 = setTimeout(() => {
+                setLifecycle('egg');
+              }, 3000);
+              timeouts.current.push(t4);
+            }, 5000); // Bubble duration
+            timeouts.current.push(t3);
+          }, 2000); // Delay before bubble
+          timeouts.current.push(t2);
+        }, 800); // Cracking duration
+        timeouts.current.push(t1);
+
+      }, 500); 
       timeouts.current.push(t);
     }
-  }); // Run on every render but guarded by ref to only execute once
+    // Cleanup on unmount or if enableEgg changes
+    return () => clearTimers();
+  }, [enableEgg, onCrack, speech, clearTimers]);
 
   return (
     <motion.div 
@@ -104,7 +137,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
         {lifecycle === 'egg' || lifecycle === 'cracking' ? (
           <motion.div
             key="egg"
-            className="w-[40%] h-[45%] pointer-events-auto cursor-pointer"
+            className="w-[35%] h-[35%] pointer-events-auto cursor-pointer"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={lifecycle === 'cracking' 
               ? { rotate: [-5, 5, -5, 5, 0], scale: 1.1 } 
@@ -145,7 +178,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
               {showBubble && speech && (
                 <motion.div 
                   className={`absolute top-1/2 -translate-y-1/2 w-48 z-40 ${
-                    bubbleSide === 'left' ? 'right-full mr-12' : 'left-full ml-12'
+                    bubbleSide === 'left' ? 'right-full mr-4' : 'left-full ml-4'
                   }`}
                   initial={{ opacity: 0, x: bubbleSide === 'left' ? 10 : -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -188,7 +221,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
               {/* Additional Overlays attached to the duck */}
               {mode === 'teacher' && (
                  <motion.div 
-                   className="absolute top-[25%] left-[20%] w-[60%] h-[20%]"
+                   className="absolute top-[34%] left-[21%] w-[46%] h-[17%]"
                    initial={{ opacity: 0, y: -10 }}
                    animate={{ opacity: 1, y: 0 }}
                  >
