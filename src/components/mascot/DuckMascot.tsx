@@ -51,11 +51,11 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
     clearTimers();
     setLifecycle('cracking');
 
-    // 1. Cracking Animation (0.8s) -> Duck appears
+    // 1. Cracking Animation (0.6s) -> Duck appears immediately
     const t1 = setTimeout(() => {
       setLifecycle('duck');
       
-      // 2. 2s later -> Bubble appears
+      // 2. 1s later -> Bubble appears
       const t2 = setTimeout(() => {
         if (speech) setShowBubble(true);
         
@@ -72,9 +72,8 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
           timeouts.current.push(t4);
         }, 5000);
         timeouts.current.push(t3);
-      }, 2000);
-      timeouts.current.push(t2);
-    }, 800);
+      }, 1000);
+    }, 200);
     timeouts.current.push(t1);
   }, [lifecycle, onCrack, clearTimers, speech]);
 
@@ -110,9 +109,9 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
               timeouts.current.push(t4);
             }, 5000); // Bubble duration
             timeouts.current.push(t3);
-          }, 2000); // Delay before bubble
+          }, 1000); // Delay before bubble
           timeouts.current.push(t2);
-        }, 800); // Cracking duration
+        }, 200); // Cracking duration - reduced for immediate duck appearance
         timeouts.current.push(t1);
 
       }, 500); 
@@ -133,18 +132,18 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       onClick={enableEgg ? handleInteraction : undefined}
     >
       
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {lifecycle === 'egg' || lifecycle === 'cracking' ? (
           <motion.div
             key="egg"
-            className="w-[35%] h-[35%] pointer-events-auto cursor-pointer"
+            className="absolute inset-0 m-auto w-[35%] h-[35%] pointer-events-auto cursor-pointer"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={lifecycle === 'cracking' 
               ? { rotate: [-5, 5, -5, 5, 0], scale: 1.1 } 
               : { scale: 1, opacity: 1 }
             }
-            exit={{ scale: 0, opacity: 0, transition: { duration: 0.3 } }}
-            transition={lifecycle === 'cracking' ? { duration: 0.2, repeat: 3 } : {}}
+            exit={{ scale: 1.2, opacity: 0, transition: { duration: 0.2 } }}
+            transition={lifecycle === 'cracking' ? { duration: 0.2, repeat: 2 } : {}}
           >
             {/* Egg SVG */}
             <svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-lg">
@@ -167,7 +166,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
         ) : (
           <motion.div
             key="duck"
-            className="relative w-full h-full"
+            className="absolute inset-0 w-full h-full"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
