@@ -45,7 +45,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
           transition={{ delay: 0.5 }}
         >
           <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-xl border border-border/50 relative">
-            <div className="text-base font-bold text-center text-zinc-800 dark:text-zinc-200 break-words leading-snug">
+            <div className="text-base font-extrabold text-center text-zinc-900 dark:text-zinc-100 break-words leading-snug">
               {speech}
             </div>
             {/* Bubble Tail */}
