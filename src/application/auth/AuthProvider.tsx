@@ -70,6 +70,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(current);
       setLoading(false);
     });
+
+    // Use authStateReady for faster initial load detection if available in current SDK
+    // This helps resolve the loading state immediately when the auth state is determined
+    if (auth.authStateReady) {
+      auth.authStateReady().then(() => {
+        setLoading(false);
+      });
+    }
+
     return () => unsub();
   }, []);
 

@@ -9,7 +9,8 @@ import { SignupModal } from "@/components/auth/SignupModal";
 import { PasswordResetModal } from "@/components/auth/PasswordResetModal";
 import { routing } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
-import { Languages, Loader2, NotebookPen, ShieldCheck, Sparkles } from "lucide-react";
+import { Languages, NotebookPen, ShieldCheck, Sparkles } from "lucide-react";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 type AuthGateProps = {
   children: ReactNode;
@@ -37,9 +38,14 @@ export function AuthGate({ children }: AuthGateProps) {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center gap-3">
-        <Loader2 className="h-6 w-6 animate-spin text-primary" aria-hidden />
-        <p className="text-sm text-muted-foreground">{t("loading")}</p>
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4">
+        <DuckMascot 
+          mode="thinking" 
+          width={200} 
+          height={200} 
+          enableEgg={false}
+          speech={t("loading")}
+        />
       </div>
     );
   }
