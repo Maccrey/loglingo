@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/application/auth/AuthProvider";
-import { DuckMascot } from "@/components/mascot/DuckMascot";
+
 
 export function StartButton() {
   const t = useTranslations('home');
@@ -36,7 +36,6 @@ export function StartButton() {
     );
   }
 
-  const greeting = user ? t('mascot_user') : t('mascot_guest');
   const showTrial = isTrialAvailable;
 
   return (
@@ -67,18 +66,7 @@ export function StartButton() {
           </Link>
         )}
       </div>
-
-      {/* Mascot Fixed on Right Side */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50">
-        <DuckMascot 
-          mode="teacher" 
-          width={130} 
-          height={130} 
-          speech={greeting} 
-          bubbleSide="left"
-          enableEgg={true}
-        />
-      </div>
     </>
   );
 }
+
