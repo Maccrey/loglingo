@@ -36,7 +36,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
       {/* 0. Speech Bubble (Optional) - Moves with Duck */}
       {speech && (
         <motion.div 
-          className="absolute top-1/2 -translate-y-1/2 right-full mr-28 w-48 z-40"
+          className="absolute top-1/2 -translate-y-1/2 right-full mr-12 w-48 z-40"
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
