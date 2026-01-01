@@ -141,6 +141,8 @@
     "apply_and_save": "교정 적용 및 저장",
     "update": "변경 내용 저장",
     "ai_checking": "AI가 교정 중...",
+    "ai_analyzing": "Grok AI가 생각 중...",
+    "ai_analyzing_desc": "일기를 분석하고 더 나은 표현을 찾고 있습니다.",
     "ai_error": "AI 요청 실패",
     "ai_timeout": "AI 응답 시간이 초과되었습니다. 잠시 후 다시 시도해주세요.",
     "ai_server_error": "AI 서비스 연결이 원활하지 않습니다.",

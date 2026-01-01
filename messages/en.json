@@ -141,6 +141,8 @@
     "apply_and_save": "Apply & Save",
     "update": "Save changes",
     "ai_checking": "AI is thinking...",
+    "ai_analyzing": "Grok AI is thinking...",
+    "ai_analyzing_desc": "Analyzing your diary and finding improved expressions.",
     "ai_error": "AI request failed",
     "ai_timeout": "AI took too long. Please try again.",
     "ai_server_error": "AI service is temporarily unavailable.",
