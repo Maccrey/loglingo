@@ -335,7 +335,7 @@ function getTransition(mode: DuckMode): any { // Use any to bypass strict easing
     case 'thinking':
       return { duration: 2, repeat: Infinity, ease: "easeInOut" };
     case 'party':
-      return { duration: 0.6, repeat: Infinity, type: "spring" };
+      return { duration: 0.6, repeat: Infinity, ease: "easeInOut" };
     case 'lonely':
       return { duration: 3, repeat: Infinity, ease: "easeInOut" };
     case 'teacher':
