@@ -3,7 +3,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/routing";
-import { ChangeEvent, useTransition } from "react";
+import { ChangeEvent, useTransition, useEffect, useRef } from "react";
 import { useLearningLanguage } from "@/application/i18n/LearningLanguageProvider";
 import { AuthGate } from "@/components/auth/AuthGate";
 import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
@@ -48,6 +48,30 @@ export default function SettingsPage() {
       router.replace(pathname, { locale: nextLocale });
     });
   };
+
+  const bmcContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (bmcContainerRef.current) {
+      // Prevent duplicate script injection
+      if (bmcContainerRef.current.querySelector('script')) return;
+
+      const script = document.createElement('script');
+      script.src = "https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js";
+      script.dataset.name = "bmc-button";
+      script.dataset.slug = "m010716302y";
+      script.dataset.color = "#FFDD00";
+      script.dataset.emoji = "";
+      script.dataset.font = "Comic";
+      script.dataset.text = "Buy me a coffee";
+      script.dataset.outlineColor = "#000000";
+      script.dataset.fontColor = "#000000";
+      script.dataset.coffeeColor = "#ffffff";
+      script.async = true;
+
+      bmcContainerRef.current.appendChild(script);
+    }
+  }, []);
 
   return (
     <AuthGate>
@@ -99,6 +123,9 @@ export default function SettingsPage() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Buy Me A Coffee Button */}
+        <div className="flex justify-center py-4" ref={bmcContainerRef} />
 
         {/* Logout Button */}
         <div className="flex justify-center pt-4">
