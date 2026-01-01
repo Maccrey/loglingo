@@ -141,6 +141,8 @@
     "apply_and_save": "Áp dụng và Lưu",
     "update": "Lưu thay đổi",
     "ai_checking": "AI đang kiểm tra...",
+    "ai_analyzing": "Grok AI đang suy nghĩ...",
+    "ai_analyzing_desc": "Đang phân tích nhật ký của bạn và tìm cách diễn đạt tốt hơn.",
     "ai_error": "Yêu cầu AI thất bại",
     "ai_timeout": "AI mất quá nhiều thời gian. Vui lòng thử lại.",
     "ai_server_error": "Dịch vụ AI tạm thời không khả dụng.",

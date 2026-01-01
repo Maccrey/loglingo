@@ -141,6 +141,8 @@
     "apply_and_save": "Aplicar y guardar",
     "update": "Guardar cambios",
     "ai_checking": "La IA está revisando...",
+    "ai_analyzing": "Grok AI está pensando...",
+    "ai_analyzing_desc": "Analizando tu diario y encontrando mejores expresiones.",
     "ai_error": "Error en la solicitud de IA",
     "ai_timeout": "La IA tardó demasiado. Por favor, inténtelo de nuevo.",
     "ai_server_error": "El servicio de IA no está disponible temporalmente.",

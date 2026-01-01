@@ -141,6 +141,8 @@
     "apply_and_save": "Anwenden & Speichern",
     "update": "Änderungen speichern",
     "ai_checking": "KI prüft...",
+    "ai_analyzing": "Grok AI denkt nach...",
+    "ai_analyzing_desc": "Dein Tagebuch wird analysiert und bessere Ausdrücke werden gesucht.",
     "ai_error": "KI-Anfrage fehlgeschlagen",
     "ai_timeout": "KI hat zu lange gebraucht. Bitte versuchen Sie es erneut.",
     "ai_server_error": "KI-Service ist vorübergehend nicht verfügbar.",

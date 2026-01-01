@@ -141,6 +141,8 @@
     "apply_and_save": "Terapkan & Simpan",
     "update": "Simpan perubahan",
     "ai_checking": "AI sedang memeriksa...",
+    "ai_analyzing": "Grok AI sedang berpikir...",
+    "ai_analyzing_desc": "Menganalisis buku harian Anda dan mencari ekspresi yang lebih baik.",
     "ai_error": "Permintaan AI gagal",
     "ai_timeout": "AI memakan waktu terlalu lama. Silakan coba lagi.",
     "ai_server_error": "Layanan AI tidak tersedia untuk sementara.",

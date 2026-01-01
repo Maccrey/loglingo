@@ -141,6 +141,8 @@
     "apply_and_save": "应用并保存",
     "update": "保存更改",
     "ai_checking": "AI 正在校对...",
+    "ai_analyzing": "Grok AI 正在思考...",
+    "ai_analyzing_desc": "正在分析您的日记并寻找更好的表达方式。",
     "ai_error": "AI 请求失败",
     "ai_timeout": "AI 响应时间过长，请稍后再试。",
     "ai_server_error": "AI 服务暂时不可用。",

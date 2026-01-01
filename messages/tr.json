@@ -141,6 +141,8 @@
     "apply_and_save": "Uygula ve Kaydet",
     "update": "Değişiklikleri kaydet",
     "ai_checking": "AI kontrol ediyor...",
+    "ai_analyzing": "Grok AI düşünüyor...",
+    "ai_analyzing_desc": "Günlüğünüz analiz ediliyor ve daha iyi ifadeler bulunuyor.",
     "ai_error": "AI isteği başarısız",
     "ai_timeout": "Yapay zeka yanıt vermesi çok uzun sürdü. Lütfen tekrar deneyin.",
     "ai_server_error": "Yapay zeka hizmeti geçici olarak kullanılamıyor.",
