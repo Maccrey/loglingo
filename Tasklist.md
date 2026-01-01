@@ -389,6 +389,16 @@
 ## 24. Duck Mascot UI Optimization — Gemini
 - [x] **Mobile Optimization**:
     - [x] Shut down speech bubble size by 30% on mobile devices (w-48 -> w-32, text-base -> text-xs, p-3 -> p-2)
+- [x] **Deployment**:
+   - [x] Build and deploy to Firebase Hosting (v1.5.1)
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
 
+## 25. i18n 번역 키 누락 수정 — Gemini
+- [x] **MISSING_MESSAGE 에러 해결**:
+    - [x] `write.ai_analyzing` 키가 `common` 네임스페이스에만 있고 `write`에 누락된 문제 식별
+    - [x] `ko`, `en` 로캘에 `write.ai_analyzing` 및 `desc` 추가
+    - [x] 나머지 16개국 로캘(ja, zh, es, fr 등)에도 일괄 추가하여 `IntlError` 원천 차단
+- [x] **배포**:
+    - [x] 빌드 검증 및 Firebase Hosting 배포 (v1.5.2)
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
