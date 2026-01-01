@@ -386,4 +386,9 @@
     - [x] 배포 및 최종 확인
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 
+## 24. Duck Mascot UI Optimization — Gemini
+- [x] **Mobile Optimization**:
+    - [x] Shut down speech bubble size by 30% on mobile devices (w-48 -> w-32, text-base -> text-xs, p-3 -> p-2)
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+
 
