@@ -178,7 +178,7 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
             <AnimatePresence>
               {showBubble && speech && (
                 <motion.div 
-                  className={`absolute top-1/2 -translate-y-1/2 w-[8rem] md:w-48 z-40 ${
+                  className={`absolute top-1/2 -translate-y-1/2 w-32 md:w-48 z-40 ${
                     bubbleSide === 'left' ? 'right-full mr-4' : 'left-full ml-4'
                   }`}
                   initial={{ opacity: 0, x: bubbleSide === 'left' ? 10 : -10 }}
