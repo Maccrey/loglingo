@@ -16,6 +16,10 @@ export interface DuckMascotProps {
   onCrack?: () => void;
 }
 
+/**
+ * DuckMascot Component
+ * Handles the animated duck mascot states including Egg -> Cracking -> Duck lifecycle.
+ */
 export const DuckMascot: React.FC<DuckMascotProps> = ({ 
   mode, 
   className = '', 
