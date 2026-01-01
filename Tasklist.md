@@ -402,3 +402,14 @@
 - [x] **배포**:
     - [x] 빌드 검증 및 Firebase Hosting 배포 (v1.5.2)
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+
+## 26. 설정 페이지 BMC 버튼 추가 및 배포 — Gemini
+- [x] **BMC 버튼 구현**:
+    - [x] `settings/page.tsx`에 이미지 링크 방식(Robust)으로 BMC 버튼 추가
+    - [x] 언어 선택과 로그아웃 버튼 사이에 배치
+    - [x] `DuckMascot` Hydration Mismatch 오류 수정 (서버/클라이언트 클래스 동기화)
+- [x] **환경 복구**:
+    - [x] `MODULE_NOT_FOUND` 및 `next` 명령어 누락 오류 해결 (재설치)
+- [x] **배포**:
+    - [x] 빌드 검증 및 Firebase Hosting 배포 (v1.5.3)
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
