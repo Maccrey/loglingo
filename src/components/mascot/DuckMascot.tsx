@@ -186,12 +186,12 @@ export const DuckMascot: React.FC<DuckMascotProps> = ({
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="bg-white dark:bg-zinc-800 p-2 md:p-3 rounded-2xl shadow-xl border border-border/50 relative">
-                    <div className="text-xs md:text-base font-medium text-center text-black dark:text-white break-words leading-snug">
+                  <div className="bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-border/50 relative">
+                    <div className="text-xs md:text-base font-medium text-center text-black break-words leading-snug">
                       {speech}
                     </div>
                     {/* Bubble Tail */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 md:w-3 md:h-3 bg-white dark:bg-zinc-800 border-border/50 transform rotate-45 ${
+                    <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 md:w-3 md:h-3 bg-white border-border/50 transform rotate-45 ${
                       bubbleSide === 'left' 
                         ? '-right-1 md:-right-[6px] border-t border-r' // Points Right
                         : '-left-1 md:-left-[6px] border-b border-l'  // Points Left
