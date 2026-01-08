@@ -33,7 +33,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <Providers>
         <Navigation />
-        <main className="min-h-screen p-4 md:p-8 max-w-screen-xl mx-auto" dir={isRtl ? 'rtl' : 'ltr'}>
+        <main className="min-h-screen px-4 py-20 md:p-8 max-w-screen-xl mx-auto" dir={isRtl ? 'rtl' : 'ltr'}>
           {children}
         </main>
         <GlobalMascot />

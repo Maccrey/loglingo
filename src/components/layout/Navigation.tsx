@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User, Globe } from "lucide-react";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
@@ -14,6 +14,46 @@ import { LANGUAGES } from "@/constants/languages";
 
 // Use shared constants for languages
 const languages = LANGUAGES;
+
+// Extracted Component
+const LanguageSelector = ({ 
+  locale, 
+  tSettings, 
+  onChange 
+}: { 
+  locale: string; 
+  tSettings: any; 
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void; 
+}) => (
+  <div className="relative z-50">
+    <select
+      aria-label={tSettings('ui_language')}
+      className="rounded-lg border border-white/15 bg-black/80 text-white text-xs px-3 py-1.5 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/60 appearance-none"
+      value={locale}
+      onChange={onChange}
+    >
+      {languages.map((lang) => (
+        <option key={lang.code} value={lang.code}>
+          {lang.name}
+        </option>
+      ))}
+    </select>
+    <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-white/70">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-4 w-4"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </div>
+  </div>
+);
 
 export function Navigation() {
   const locale = useLocale();
@@ -42,8 +82,41 @@ export function Navigation() {
     { href: "/settings", label: t('settings'), icon: Settings },
   ];
 
+  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const nextLocale = e.target.value;
+    const langName = languages.find(l => l.code === nextLocale)?.name || nextLocale;
+    import("@/lib/analytics").then(({ trackEvent }) => {
+      trackEvent("click_button", {
+        component_name: "네비게이션",
+        action_detail: "언어 변경",
+        item_name: langName,
+        value_korean: `언어 변경: ${langName}`,
+        target_locale: nextLocale
+      });
+    });
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
+    router.replace(pathname, { locale: nextLocale });
+  };
+
+
+
   return (
     <>
+      {/* Mobile Top Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b border-white/10 bg-black/20 px-4 backdrop-blur-lg md:hidden">
+        <Link href="/">
+          <div className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity">
+            Loglingo
+          </div>
+        </Link>
+        <LanguageSelector 
+          locale={locale} 
+          tSettings={tSettings} 
+          onChange={handleLanguageChange} 
+        />
+      </header>
+
+      {/* Desktop Top Nav / Mobile Bottom Nav */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-black/20 backdrop-blur-lg md:top-0 md:bottom-auto md:border-b md:border-t-0">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-around px-4 md:justify-between">
           <Link href="/" className="hidden md:block">
@@ -81,48 +154,11 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3 text-sm text-muted-foreground">
-            <div className="relative">
-              <select
-                aria-label={tSettings('ui_language')}
-                className="rounded-lg border border-white/15 bg-black/80 text-white text-xs px-3 py-1.5 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/60 appearance-none"
-                value={locale}
-                onChange={(e) => {
-                  const nextLocale = e.target.value;
-                  const langName = languages.find(l => l.code === nextLocale)?.name || nextLocale;
-                  import("@/lib/analytics").then(({ trackEvent }) => {
-                    trackEvent("click_button", {
-                      component_name: "네비게이션",
-                      action_detail: "언어 변경",
-                      item_name: langName,
-                      value_korean: `언어 변경: ${langName}`,
-                      target_locale: nextLocale
-                    });
-                  });
-                  document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
-                  router.replace(pathname, { locale: nextLocale });
-                }}
-              >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.code}>
-                    {lang.name}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-white/70">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </div>
-            </div>
+            <LanguageSelector 
+              locale={locale} 
+              tSettings={tSettings} 
+              onChange={handleLanguageChange} 
+            />
 
             {user ? (
               <>
@@ -203,3 +239,5 @@ export function Navigation() {
     </>
   );
 }
+
+
