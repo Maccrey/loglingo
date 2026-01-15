@@ -32,6 +32,15 @@
     "radio": "Rádio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Blog de Aprendizado",
+    "subtitle": "Dicas e insights para sua jornada linguística",
+    "read_more": "Ler mais",
+    "back_to_list": "Voltar para o Blog",
+    "published_on": "Publicado em {date}",
+    "written_by": "Escrito por {author}",
+    "no_posts": "Nenhuma postagem ainda. Volte em breve!"
+  },
   "auth": {
     "title": "Faça login para começar",
     "description": "O Loglingo guarda seus diários, feedback da IA e arquivo de estudos na sua conta. Entre com o Google.",

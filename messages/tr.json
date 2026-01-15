@@ -32,6 +32,15 @@
     "radio": "Radyo",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Dil Öğrenme Blogu",
+    "subtitle": "Dil yolculuğunuz için ipuçları ve bilgiler",
+    "read_more": "Devamını oku",
+    "back_to_list": "Bloga Geri Dön",
+    "published_on": "{date} tarihinde yayınlandı",
+    "written_by": "{author} tarafından yazıldı",
+    "no_posts": "Henüz gönderi yok. Yakında tekrar kontrol edin!"
+  },
   "auth": {
     "title": "Başlamak için giriş yap",
     "description": "Loglingo günlüklerinizi, yapay zeka geri bildirimlerini ve öğrenme arşivinizi hesabınızda saklar. Devam etmek için Google ile giriş yapın.",

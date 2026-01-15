@@ -2,7 +2,7 @@
 
 
 import { useState, useEffect, ChangeEvent } from "react";
-import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User, Globe } from "lucide-react";
+import { Home, BookOpen, PenTool, Settings, GraduationCap, LogOut, LogIn, User, Globe, Newspaper } from "lucide-react";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/application/auth/AuthProvider";
@@ -79,6 +79,7 @@ export function Navigation() {
     { href: "/diary/new", label: t('write'), icon: PenTool },
     { href: "/archive", label: t('archive'), icon: GraduationCap },
     { href: "/radio", label: t('radio'), icon: Globe },
+    { href: "/blog", label: t('blog'), icon: Newspaper },
     { href: "/settings", label: t('settings'), icon: Settings },
   ];
 
@@ -125,7 +126,7 @@ export function Navigation() {
             </div>
           </Link>
           
-          <div className="flex w-full justify-around md:w-auto md:space-x-8">
+          <div className="flex w-full justify-around md:w-auto md:gap-8">
             {navItems.map((item) => {
               const Icon = item.icon;
 
@@ -144,7 +145,7 @@ export function Navigation() {
                       });
                     });
                   }}
-                  className="flex flex-col items-center justify-center space-y-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-sm"
+                  className="flex flex-col items-center justify-center space-y-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary md:flex-row md:space-x-2 md:space-y-0 md:text-base"
                 >
                   <Icon className="h-5 w-5" />
                   <span>{item.label}</span>

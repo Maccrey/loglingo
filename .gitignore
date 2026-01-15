@@ -53,3 +53,5 @@ cors.json
 .npm-cache/
 .tmp/
 ._*
+
+service-account.json

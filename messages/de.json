@@ -32,6 +32,15 @@
     "radio": "Radio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Sprachlern-Blog",
+    "subtitle": "Tipps und Einblicke für Ihre Sprachreise",
+    "read_more": "Mehr lesen",
+    "back_to_list": "Zurück zum Blog",
+    "published_on": "Veröffentlicht am {date}",
+    "written_by": "Verfasst von {author}",
+    "no_posts": "Noch keine Beiträge. Schauen Sie bald wieder vorbei!"
+  },
   "auth": {
     "title": "Melde dich an, um zu starten",
     "description": "Loglingo speichert deine Tagebücher, KI-Feedback und Lernarchiv in deinem Konto. Melde dich mit Google an.",

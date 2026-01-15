@@ -30,7 +30,17 @@
     "login": "ログイン",
     "logout": "ログアウト",
     "radio": "ラジオ",
+    "blog": "ブログ",
     "loading": "Loading..."
+  },
+  "blog": {
+    "title": "言語学習ブログ",
+    "subtitle": "言語学習の旅に役立つヒントと洞察",
+    "read_more": "続きを読む",
+    "back_to_list": "ブログに戻る",
+    "published_on": "{date} 公開",
+    "written_by": "執筆: {author}",
+    "no_posts": "記事がまだありません。また来てください！"
   },
   "auth": {
     "title": "ログインして学習を始めましょう",

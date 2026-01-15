@@ -32,6 +32,15 @@
     "radio": "Radio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Blog Học Ngôn Ngữ",
+    "subtitle": "Mẹo và thông tin chi tiết cho hành trình học ngôn ngữ của bạn",
+    "read_more": "Đọc thêm",
+    "back_to_list": "Quay lại Blog",
+    "published_on": "Đăng ngày {date}",
+    "written_by": "Viết bởi {author}",
+    "no_posts": "Chưa có bài đăng nào. Hãy quay lại sớm!"
+  },
   "auth": {
     "title": "Đăng nhập để bắt đầu học",
     "description": "Loglingo lưu nhật ký, phản hồi AI và kho học tập của bạn trong tài khoản. Hãy đăng nhập bằng Google.",

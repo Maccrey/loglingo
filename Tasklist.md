@@ -366,6 +366,28 @@
     - [x] **모바일 플레이어 레이아웃 개선**: AI 사전 플로팅 버튼(FAB)과 재생바 겹침 방지
 - [x] **배포**: Firebase Hosting 업데이트 (최신 반영)
 
+## 29. 블로그 (AdSense 대응) — Codex
+- [x] **1. 데이터 설계 및 준비**
+    - [x] `posts` Firestore 컬렉션 스키마 정의 (`BlogRepository`)
+    - [x] 블로그 콘텐츠 15개 생성 (교육 전문가 톤, 다국어 번역 포함)
+    - [x] 블로그 시드 데이터 주입 스크립트 작성 및 실행 (`scripts/seed-blog.ts`)
+    - [x] **콘텐츠 업데이트**: 'Consistency vs. Intensity' 포스트 확장 및 18개국어 지원 적용
+    - [x] **추가 콘텐츠**: 'Listening vs Hearing' 포스트 추가 (18개국어 지원)
+    - [x] **운영 가이드**: 추후 콘텐츠 작성을 위한 `Blog.md` 가이드 문서 작성
+- [x] **2. UI 구현**
+    - [x] `src/app/[locale]/blog/page.tsx`: 블로그 목록 페이지 (카드형 디자인)
+    - [x] `src/app/[locale]/blog/[slug]/page.tsx`: 블로그 상세 페이지 (SEO 메타 태그 포함)
+    - [x] `Navigation.tsx`: Radio와 Settings 사이에 'Blog' 메뉴 추가
+    - [x] 다국어 리소스(`messages/*.json`)에 블로그 관련 키 추가
+- [x] **3. 기능 구현**
+    - [x] Firestore에서 게시글 조회 (`getPosts`, `getPostBySlug`)
+    - [x] Markdown/HTML 렌더러 구현 (스타일링 포함)
+- [x] **4. 배포 및 검증**
+    - [x] 로컬 테스트 (목록/상세/다국어/이미지)
+    - [x] SEO 메타 태그 확인 (Title, Description)
+    - [x] Firebase Hosting 배포 (규칙 업데이트 및 컨텐츠 시드 완료)
+- [x] 완료 시 테스트 통과 확인 후 한국어 커밋
+
 ## 23. 오리 마스코트 (Animation Duck) 구현 — Gemini
 - [x] **디자인 및 에셋 준비**
     - [x] `DuckMascot` SVG 컴포넌트 설계 (기본 형태: 몸통, 날개, 눈, 부리 분리하여 애니메이션 가능하도록)
@@ -429,5 +451,9 @@
 - [x] 완료 시 테스트 통과 확인 후 한국어 커밋
 - [x] **배포 (v1.6.0)**:
     - [x] Firebase Hosting 배포 완료 (모바일 상단 헤더 적용 버전)
+
+## 30. 유지보수 및 버그 수정 (Maintenance)
+- [ ] **Navigation Hydration Mismatch 수정**: 데스크탑 메뉴 폰트 크기 변경(`text-base`) 및 `gap` 조정(`gap-5`) 후 발생한 서버/클라이언트 불일치 해결
+
 
 

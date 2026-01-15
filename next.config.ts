@@ -19,6 +19,11 @@ const remotePatterns: RemotePattern[] = [
     hostname: "logling-34fc9.firebasestorage.app",
     pathname: "/**",
   },
+  {
+    protocol: "https",
+    hostname: "images.unsplash.com",
+    pathname: "/**",
+  },
 ];
 
 /** @type {import('next').NextConfig} */
@@ -28,6 +33,7 @@ const nextConfig: import("next").NextConfig = {
     root: __dirname,
   },
   images: {
+    domains: ['images.unsplash.com'],
     remotePatterns,
   },
   async headers() {

@@ -30,7 +30,17 @@
     "login": "Login",
     "logout": "Logout",
     "radio": "Radio",
+    "blog": "Blog",
     "loading": "Loading..."
+  },
+  "blog": {
+    "title": "Language Learning Blog",
+    "subtitle": "Tips and insights for your language journey",
+    "read_more": "Read more",
+    "back_to_list": "Back to Blog",
+    "published_on": "Published on {date}",
+    "written_by": "Written by {author}",
+    "no_posts": "No posts found yet. Check back soon!"
   },
   "auth": {
     "title": "Sign in to start learning",

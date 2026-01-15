@@ -30,7 +30,17 @@
     "login": "登录",
     "logout": "退出登录",
     "radio": "广播",
+    "blog": "博客",
     "loading": "Loading..."
+  },
+  "blog": {
+    "title": "语言学习博客",
+    "subtitle": "您的语言之旅的技巧和见解",
+    "read_more": "阅读更多",
+    "back_to_list": "返回博客",
+    "published_on": "发布于 {date}",
+    "written_by": "作者：{author}",
+    "no_posts": "暂无文章。敬请期待！"
   },
   "auth": {
     "title": "登录后开始学习",

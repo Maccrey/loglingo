@@ -32,7 +32,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <Providers>
-        <Navigation />
+        <Navigation /> {/* Global Navigation - Updated Gap */}
         <main className="min-h-screen px-4 py-20 md:p-8 max-w-screen-xl mx-auto" dir={isRtl ? 'rtl' : 'ltr'}>
           {children}
         </main>

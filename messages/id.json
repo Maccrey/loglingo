@@ -32,6 +32,15 @@
     "radio": "Radio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Blog Belajar Bahasa",
+    "subtitle": "Tips dan wawasan untuk perjalanan bahasa Anda",
+    "read_more": "Baca selengkapnya",
+    "back_to_list": "Kembali ke Blog",
+    "published_on": "Diterbitkan pada {date}",
+    "written_by": "Ditulis oleh {author}",
+    "no_posts": "Belum ada postingan. Periksa kembali segera!"
+  },
   "auth": {
     "title": "Masuk untuk mulai belajar",
     "description": "Loglingo menyimpan jurnal, umpan balik AI, dan arsip belajar di akun Anda. Masuk dengan Google untuk melanjutkan.",

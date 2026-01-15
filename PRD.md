@@ -75,6 +75,17 @@
   - **청취 시간 기록**: 언어별(ISO Code) 청취 시간을 자동 추적하여 학습 데이터로 활용
 - **지표**: 일간 라디오 청취 시간 평균 ≥ 15분
 
+### 기능 5. 다국어 블로그 (콘텐츠 강화 & AdSense 대응)
+
+- **문제**: 애드센스 심사에서 "콘텐츠 빈약" 사유로 거절되는 경우 발생. 앱 기능 위주 사이트의 고질적 문제.
+- **해결**:
+  - 교재/학습 팁 관련 **고품질 블로그 아티클 15개 이상** 탑재
+  - 교육 전문가 톤앤매너로 작성 (AI 작성 티가 나지 않도록)
+  - 다국어 지원 (18개 언어) 및 SEO 최적화
+  - 추후 기능 제거가 용이하도록 모듈화 설계
+- **내용 예시**: "왜 일기로 언어를 배워야 하는가?", "쉐도잉의 과학적 효과", "망각 곡선과 복습 주기" 등
+- **구조**: Firestore `posts` 컬렉션 사용, `Navigation`에 'Radio'와 'Settings' 사이에 배치
+
 ### 기능 5. 레벨 추정 + 학습 코칭 대시보드
 
 - **문제**: 학습자가 자신의 실력 수준과 부족한 영역을 직관적으로 파악하기 어렵고, 학습 난이도가 개인 수준에 맞지 않을 수 있음
@@ -414,7 +425,26 @@ User ───< LearningArchive ───< QuizQuestions
 | createdAt   | Date       | timestamp | -      | idx_created  | 생성 시각                                   |
 | updatedAt   | Date       | timestamp | -      | -            | 업데이트 시각                               |
 
+| createdAt   | Date       | timestamp | -      | idx_created  | 생성 시각                                   |
+| updatedAt   | Date       | timestamp | -      | -            | 업데이트 시각                               |
+
 ---
+
+### 11. posts (블로그)
+
+**Path**: `posts/{postId}`
+
+| 필드 | TypeScript | Firestore | 제약 | 인덱스 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| id | string | string | PK | PK | 게시글 ID (Slug) |
+| title | map<string,string> | map | - | - | 다국어 제목 |
+| content | map<string,string> | map | - | - | 다국어 본문 (HTML/Markdown) |
+| excerpt | map<string,string> | map | - | - | 다국어 요약 |
+| coverImage | string | string | - | - | 커버 이미지 URL |
+| author | string | string | - | - | 작성자 (표시용) |
+| tags | string[] | array | - | idx_tags | 태그 |
+| published | boolean | boolean | - | idx_pub | 공개 여부 |
+| createdAt | Date | timestamp | - | idx_created | 생성일 |
 
 ### 캐싱 전략
 

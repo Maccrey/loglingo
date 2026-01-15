@@ -30,7 +30,17 @@
     "login": "로그인",
     "logout": "로그아웃",
     "radio": "라디오",
+    "blog": "블로그",
     "loading": "Loading..."
+  },
+  "blog": {
+    "title": "언어 학습 블로그",
+    "subtitle": "언어 학습을 위한 팁과 노하우",
+    "read_more": "더 읽기",
+    "back_to_list": "목록으로 돌아가기",
+    "published_on": "게시일: {date}",
+    "written_by": "작성자: {author}",
+    "no_posts": "아직 게시글이 없습니다. 곧 업데이트됩니다!"
   },
   "auth": {
     "title": "로그인 후 학습을 시작하세요",

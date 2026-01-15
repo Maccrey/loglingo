@@ -32,6 +32,15 @@
     "radio": "Radio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Blog de Idiomas",
+    "subtitle": "Consejos e ideas para tu aprendizaje",
+    "read_more": "Leer más",
+    "back_to_list": "Volver al Blog",
+    "published_on": "Publicado el {date}",
+    "written_by": "Escrito por {author}",
+    "no_posts": "¡Aún no hay publicaciones! Vuelve pronto."
+  },
   "auth": {
     "title": "Inicia sesión para empezar",
     "description": "Loglingo guarda tus diarios, comentarios de IA y archivo de aprendizaje en tu cuenta. Continúa con Google.",

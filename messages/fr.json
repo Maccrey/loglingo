@@ -32,6 +32,15 @@
     "radio": "Radio",
     "loading": "Loading..."
   },
+  "blog": {
+    "title": "Blog d'Apprentissage",
+    "subtitle": "Conseils et idées pour votre voyage linguistique",
+    "read_more": "Lire la suite",
+    "back_to_list": "Retour au Blog",
+    "published_on": "Publié le {date}",
+    "written_by": "Écrit par {author}",
+    "no_posts": "Aucun article pour le moment. Revenez bientôt !"
+  },
   "auth": {
     "title": "Connectez-vous pour démarrer",
     "description": "Loglingo enregistre vos journaux, retours IA et archive d’apprentissage dans votre compte. Connectez-vous avec Google.",
