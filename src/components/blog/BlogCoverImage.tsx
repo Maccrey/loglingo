@@ -18,21 +18,16 @@ export function BlogCoverImage({
 }: BlogCoverImageProps) {
   const [error, setError] = useState(false);
   
-  // If src changes, reset error state
-  if (src && error) {
-    // This is a render-time state update (safe in React if conditional)
-    // But since we can't easily check "previous src", better to use useEffect or key.
-    // Given the simple usage in a list where items might be reused or not, 
-    // let's use a standard useEffect or just rely on the parent key.
-  }
+  const imageSrc = error || !src ? defaultSrc : src;
+  const isExternal = imageSrc.startsWith('http');
 
   return (
     <Image
-       // Force remount if src changes to reset error state automatically specific to that src
       key={src} 
-      src={error || !src ? defaultSrc : src}
+      src={imageSrc}
       alt={alt}
       onError={() => setError(true)}
+      unoptimized={isExternal} // Disable optimization for external images in Firebase Hosting
       {...props}
     />
   );
