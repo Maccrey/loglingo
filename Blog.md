@@ -105,3 +105,37 @@ const POST_MY_TOPIC_CONTENT_KO = `
 - [ ] 본문 길이가 충분한가? (너무 짧으면 사용자 경험 저하)
 - [ ] HTML 태그가 닫히지 않은 곳은 없는가?
 - [ ] 시딩 스크립트 실행 후 "Successfully seeded" 메시지를 확인했는가?
+
+## 6. 작성된 블로그 제목 목록 (중복 방지용)
+
+### Part 1
+- why-keep-diary-for-language-learning
+- power-of-shadowing
+- spaced-repetition-explained
+
+### Part 2
+- context-learning
+
+### Part 3
+- pronunciation-mistakes
+- listening-comprehension-guide
+- language-learning-myths
+
+### Part 4
+- how-to-use-chatgpt
+- language-audit
+- immersion-at-home
+
+### Part 5
+- how-to-read-books
+- travel-hacks-language
+- motivation-slump
+
+### Part 6
+- consistency-vs-intensity
+- learning-through-netflix-spotify
+- setting-smart-goals
+- how-to-find-language-partner
+
+### Part 7 (신규)
+- track-your-level-improve-faster

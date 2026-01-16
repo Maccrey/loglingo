@@ -7,6 +7,7 @@ import { BLOG_POSTS_PART_3 } from "./blog-data-part3";
 import { BLOG_POSTS_PART_4 } from "./blog-data-part4";
 import { BLOG_POSTS_PART_5 } from "./blog-data-part5";
 import { BLOG_POSTS_PART_6 } from "./blog-data-part6";
+import { BLOG_POSTS_PART_7 } from "./blog-data-part7";
 import { loadEnvConfig } from '@next/env';
 
 loadEnvConfig(process.cwd());
@@ -60,7 +61,8 @@ async function seedBlog() {
     ...BLOG_POSTS_PART_3,
     ...BLOG_POSTS_PART_4,
     ...BLOG_POSTS_PART_5,
-    ...BLOG_POSTS_PART_6
+    ...BLOG_POSTS_PART_6,
+    ...BLOG_POSTS_PART_7
   ];
 
   let count = 0;
