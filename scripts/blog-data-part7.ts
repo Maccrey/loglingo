@@ -169,8 +169,23 @@ const POST_LEVEL_CONTENT_JA = `
         </article>
       `;
 
-// 나머지 15개 언어 번역은 동일한 패턴으로 작성...
-// (중국어, 스페인어, 프랑스어, 독일어, 태국어, 베트남어, 인도네시아어, 포르투갈어, 터키어, 아랍어, 힌디어, 러시아어, 벵골어, 우르두어, 네팔어)
+
+// 나머지 15개 언어 번역 콘텐츠
+const POST_LEVEL_CONTENT_ZH = POST_LEVEL_CONTENT_EN; // 중국어 번역 필요
+const POST_LEVEL_CONTENT_ES = POST_LEVEL_CONTENT_EN; // 스페인어 번역 필요
+const POST_LEVEL_CONTENT_FR = POST_LEVEL_CONTENT_EN; // 프랑스어 번역 필요
+const POST_LEVEL_CONTENT_DE = POST_LEVEL_CONTENT_EN; // 독일어 번역 필요
+const POST_LEVEL_CONTENT_TH = POST_LEVEL_CONTENT_EN; // 태국어 번역 필요
+const POST_LEVEL_CONTENT_VI = POST_LEVEL_CONTENT_EN; // 베트남어 번역 필요
+const POST_LEVEL_CONTENT_ID = POST_LEVEL_CONTENT_EN; // 인도네시아어 번역 필요
+const POST_LEVEL_CONTENT_PT = POST_LEVEL_CONTENT_EN; // 포르투갈어 번역 필요
+const POST_LEVEL_CONTENT_TR = POST_LEVEL_CONTENT_EN; // 터키어 번역 필요
+const POST_LEVEL_CONTENT_AR = POST_LEVEL_CONTENT_EN; // 아랍어 번역 필요
+const POST_LEVEL_CONTENT_HI = POST_LEVEL_CONTENT_EN; // 힌디어 번역 필요
+const POST_LEVEL_CONTENT_RU = POST_LEVEL_CONTENT_EN; // 러시아어 번역 필요
+const POST_LEVEL_CONTENT_BN = POST_LEVEL_CONTENT_EN; // 벵골어 번역 필요
+const POST_LEVEL_CONTENT_UR = POST_LEVEL_CONTENT_EN; // 우르두어 번역 필요
+const POST_LEVEL_CONTENT_NE = POST_LEVEL_CONTENT_EN; // 네팔어 번역 필요
 
 export const BLOG_POSTS_PART_7: BlogPost[] = [
   {
@@ -219,23 +234,23 @@ export const BLOG_POSTS_PART_7: BlogPost[] = [
       en: POST_LEVEL_CONTENT_EN,
       ko: POST_LEVEL_CONTENT_KO,
       ja: POST_LEVEL_CONTENT_JA,
-      zh: POST_LEVEL_CONTENT_EN, // 임시로 영어 사용, 나중에 번역 필요
-      es: POST_LEVEL_CONTENT_EN,
-      fr: POST_LEVEL_CONTENT_EN,
-      de: POST_LEVEL_CONTENT_EN,
-      th: POST_LEVEL_CONTENT_EN,
-      vi: POST_LEVEL_CONTENT_EN,
-      id: POST_LEVEL_CONTENT_EN,
-      pt: POST_LEVEL_CONTENT_EN,
-      tr: POST_LEVEL_CONTENT_EN,
-      ar: POST_LEVEL_CONTENT_EN,
-      hi: POST_LEVEL_CONTENT_EN,
-      ru: POST_LEVEL_CONTENT_EN,
-      bn: POST_LEVEL_CONTENT_EN,
-      ur: POST_LEVEL_CONTENT_EN,
-      ne: POST_LEVEL_CONTENT_EN
+      zh: POST_LEVEL_CONTENT_ZH,
+      es: POST_LEVEL_CONTENT_ES,
+      fr: POST_LEVEL_CONTENT_FR,
+      de: POST_LEVEL_CONTENT_DE,
+      th: POST_LEVEL_CONTENT_TH,
+      vi: POST_LEVEL_CONTENT_VI,
+      id: POST_LEVEL_CONTENT_ID,
+      pt: POST_LEVEL_CONTENT_PT,
+      tr: POST_LEVEL_CONTENT_TR,
+      ar: POST_LEVEL_CONTENT_AR,
+      hi: POST_LEVEL_CONTENT_HI,
+      ru: POST_LEVEL_CONTENT_RU,
+      bn: POST_LEVEL_CONTENT_BN,
+      ur: POST_LEVEL_CONTENT_UR,
+      ne: POST_LEVEL_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80",
+    coverImage: "/assets/blog/level-tracking-dashboard.png",
     author: "Dr. Lingua",
     tags: ["AI Learning", "Level Tracking", "Speaking Practice", "Personalization"],
     published: true,
