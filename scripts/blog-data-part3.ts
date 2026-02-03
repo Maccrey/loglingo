@@ -1779,7 +1779,7 @@ export const BLOG_POSTS_PART_3: Partial<BlogPost>[] = [
       ur: POST_PRONUNCIATION_CONTENT_UR,
       ne: POST_PRONUNCIATION_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/pronunciation_mistakes.png",
     author: "Lisa Park",
     tags: ["Pronunciation", "Speaking", "Mistakes", "Guide"],
     published: true,
@@ -1848,7 +1848,7 @@ export const BLOG_POSTS_PART_3: Partial<BlogPost>[] = [
       ur: POST_LISTENING_CONTENT_UR,
       ne: POST_LISTENING_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/listening_comprehension_guide.png",
     author: "Sound Engineer",
     tags: ["Listening", "Comprehension", "Tips", "Practice"],
     published: true,
@@ -1917,7 +1917,7 @@ export const BLOG_POSTS_PART_3: Partial<BlogPost>[] = [
       ur: POST_MYTHS_CONTENT_UR,
       ne: POST_MYTHS_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/language_learning_myths.png",
     author: "Brain Hacker",
     tags: ["Mindset", "Myths", "Motivation", "Psychology"],
     published: true,

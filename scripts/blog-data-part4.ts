@@ -1900,7 +1900,7 @@ export const BLOG_POSTS_PART_4: Partial<BlogPost>[] = [
       es: POST_CHATGPT_CONTENT_ES, pt: POST_CHATGPT_CONTENT_PT, fr: POST_CHATGPT_CONTENT_FR, de: POST_CHATGPT_CONTENT_DE, tr: POST_CHATGPT_CONTENT_TR,
       ar: POST_CHATGPT_CONTENT_AR, hi: POST_CHATGPT_CONTENT_HI, ru: POST_CHATGPT_CONTENT_RU, bn: POST_CHATGPT_CONTENT_BN, ur: POST_CHATGPT_CONTENT_UR, ne: POST_CHATGPT_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/how_to_use_chatgpt.png",
     author: "AI Explorer",
     tags: ["AI", "ChatGPT", "Tools", "Technology"],
     published: true,
@@ -1956,7 +1956,7 @@ export const BLOG_POSTS_PART_4: Partial<BlogPost>[] = [
       es: POST_AUDIT_CONTENT_ES, pt: POST_AUDIT_CONTENT_PT, fr: POST_AUDIT_CONTENT_FR, de: POST_AUDIT_CONTENT_DE, tr: POST_AUDIT_CONTENT_TR,
       ar: POST_AUDIT_CONTENT_AR, hi: POST_AUDIT_CONTENT_HI, ru: POST_AUDIT_CONTENT_RU, bn: POST_AUDIT_CONTENT_BN, ur: POST_AUDIT_CONTENT_UR, ne: POST_AUDIT_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/language_audit.png",
     author: "Productivity Coach",
     tags: ["Planning", "Productivity", "Review", "Habits"],
     published: true,
@@ -2012,7 +2012,7 @@ export const BLOG_POSTS_PART_4: Partial<BlogPost>[] = [
       es: POST_IMMERSION_CONTENT_ES, pt: POST_IMMERSION_CONTENT_PT, fr: POST_IMMERSION_CONTENT_FR, de: POST_IMMERSION_CONTENT_DE, tr: POST_IMMERSION_CONTENT_TR,
       ar: POST_IMMERSION_CONTENT_AR, hi: POST_IMMERSION_CONTENT_HI, ru: POST_IMMERSION_CONTENT_RU, bn: POST_IMMERSION_CONTENT_BN, ur: POST_IMMERSION_CONTENT_UR, ne: POST_IMMERSION_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1555212697-194d092e3b8f?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/immersion_at_home.png",
     author: "Design Thinker",
     tags: ["Immersion", "Environment", "Hacks", "Lifestyle"],
     published: true,

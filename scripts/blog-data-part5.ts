@@ -1519,7 +1519,7 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
       es: POST_READING_CONTENT_ES, pt: POST_READING_CONTENT_PT, fr: POST_READING_CONTENT_FR, de: POST_READING_CONTENT_DE, tr: POST_READING_CONTENT_TR,
       ar: POST_READING_CONTENT_AR, hi: POST_READING_CONTENT_HI, ru: POST_READING_CONTENT_RU, bn: POST_READING_CONTENT_BN, ur: POST_READING_CONTENT_UR, ne: POST_READING_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1491841573634-28140fc7ced2?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/how_to_read_books.png",
     author: "Bookworm",
     tags: ["Reading", "Methods", "Vocabulary", "Study"],
     published: true,
@@ -1575,7 +1575,7 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
       es: POST_TRAVEL_CONTENT_ES, pt: POST_TRAVEL_CONTENT_PT, fr: POST_TRAVEL_CONTENT_FR, de: POST_TRAVEL_CONTENT_DE, tr: POST_TRAVEL_CONTENT_TR,
       ar: POST_TRAVEL_CONTENT_AR, hi: POST_TRAVEL_CONTENT_HI, ru: POST_TRAVEL_CONTENT_RU, bn: POST_TRAVEL_CONTENT_BN, ur: POST_TRAVEL_CONTENT_UR, ne: POST_TRAVEL_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/travel_hacks_language.png",
     author: "Global Nomad",
     tags: ["Travel", "Speaking", "Hacks", "Real World"],
     published: true,
@@ -1631,7 +1631,7 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
       es: POST_MOTIVATION_CONTENT_ES, pt: POST_MOTIVATION_CONTENT_PT, fr: POST_MOTIVATION_CONTENT_FR, de: POST_MOTIVATION_CONTENT_DE, tr: POST_MOTIVATION_CONTENT_TR,
       ar: POST_MOTIVATION_CONTENT_AR, hi: POST_MOTIVATION_CONTENT_HI, ru: POST_MOTIVATION_CONTENT_RU, bn: POST_MOTIVATION_CONTENT_BN, ur: POST_MOTIVATION_CONTENT_UR, ne: POST_MOTIVATION_CONTENT_NE
     },
-    coverImage: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=1000",
+    coverImage: "/assets/blog/motivation_slump.png",
     author: "Life Coach",
     tags: ["Motivation", "Mental Health", "Growth", "Persistence"],
     published: true,

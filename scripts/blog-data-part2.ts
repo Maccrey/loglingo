@@ -1748,7 +1748,7 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
         ur: POST_CONTEXT_CONTENT_UR,
         ne: POST_CONTEXT_CONTENT_NE
      },
-     coverImage: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1000",
+     coverImage: "/assets/blog/context-is-king.png",
      author: "Sarah Kim",
      tags: ["Vocabulary", "Reading", "Context", "Tips"],
      published: true,
@@ -1817,7 +1817,7 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
         ur: POST_PLATEAU_CONTENT_UR,
         ne: POST_PLATEAU_CONTENT_NE
      },
-     coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000",
+     coverImage: "/assets/blog/intermediate-plateau.png",
      author: "Dr. Lingua",
      tags: ["Motivation", "Advanced", "Plateau", "Strategy"],
      published: true,
@@ -1886,7 +1886,7 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
         ur: POST_POLYGLOT_CONTENT_UR,
         ne: POST_POLYGLOT_CONTENT_NE
      },
-     coverImage: "https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?auto=format&fit=crop&q=80&w=1000",
+     coverImage: "/assets/blog/polyglot-secrets.png",
      author: "Steve Chen",
      tags: ["Inspiration", "Polyglot", "Habits", "Tips"],
      published: true,
