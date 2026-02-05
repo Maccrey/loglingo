@@ -1,2022 +1,2210 @@
 
-import { BlogPost } from "../src/domain/blog";
+export const BLOG_POSTS_PART_4_ID = 'test'; // temporary export to prevent unused error
 
 // ==========================================
-// Post 7: ChatGPT as Your Personal Tutor
+// Post 13: The Intermediate Plateau
 // ==========================================
-const POST_CHATGPT_CONTENT_EN = `
-        <article>
-          <p>The era of expensive private tutors is ending. With Large Language Models (LLMs) like ChatGPT, Claude, and Gemini, you have access to a polyglot genius 24/7—for free. But most people only use it as a glorified Google Translate. Here is how to unlock its full potential.</p>
-
-          <h2>1. The "Roleplay" Prompt</h2>
-          <p>Textbooks are static. AI is dynamic. You can simulate real-life conversations.</p>
-          <p><strong>Prompt:</strong> "Act as a grumpy barista in a busy cafe in Paris. I am a customer ordering coffee. Ask me questions one by one. Correct my French mistakes after each response, then continue the roleplay."</p>
-          <p>This provides interactive practice in a low-stakes environment.</p>
-
-          <h2>2. The "Simplifier" Prompt</h2>
-          <p>Found an article that is too hard to read? Don't give up.</p>
-          <p><strong>Prompt:</strong> "Rewrite the following text to CEFR A2 level (Upper Beginner). Keep the meaning but simplify the vocabulary and grammar: [Paste Text]"</p>
-          <p>Now you have your own custom graded reader.</p>
-
-          <h2>3. The "Grammar Detective" Prompt</h2>
-          <p>Don't just ask for the fix; ask for the <em>why</em>.</p>
-          <p><strong>Prompt:</strong> "Here is a sentence I wrote: [Sentence]. Is it natural? If not, please correct it and explain the grammar rule I violated. Also, give me 3 more examples using this rule."</p>
-
-          <h2>4. The "Vocabulary Expansion" Prompt</h2>
-          <p>Learn words in clusters.</p>
-          <p><strong>Prompt:</strong> "I want to talk about [Cooking]. Give me the 20 most common verbs and nouns related to cooking in Spanish. Put them in a table with English translations and an example sentence for each."</p>
-
-          <h2>5. The "Opposite Perspective" Prompt</h2>
-          <p>To master advanced argumentation:</p>
-          <p><strong>Prompt:</strong> "I am going to argue that [Video Games are good for kids]. Debate me in German. Counter my points one by one."</p>
-
-          <div class="tip-box">
-             <strong>Warning:</strong> AI can hallucinate (make things up). Always double-check facts or nuances if something feels off. Use AI for practice and generation, but trust official dictionaries for definitions.
-          </div>
-        </article>
-`;
-
-const POST_CHATGPT_CONTENT_KO = `
-        <article>
-          <p>비싼돈 내고 과외받던 시대는 갔습니다. ChatGPT, Claude 같은 AI 모델 덕분에 우리는 24시간 대기하는 천재 선생님을 무료로 고용할 수 있게 되었습니다. 하지만 대부분은 이걸 그냥 번역기로만 씁니다. AI의 잠재력을 200% 끌어내는 프롬프트 작성법을 알려드립니다.</p>
-
-          <h2>1. "롤플레잉(상황극)" 프롬프트</h2>
-          <p>교재는 죽어있지만 AI는 살아있습니다. 실제 대화 상황을 시뮬레이션해 보세요.</p>
-          <p><strong>프롬프트 예시:</strong> "너는 파리의 바쁜 카페에서 일하는 불친절한 바리스타야. 나는 손님이야. 주문을 받아줘. 한 번에 하나씩 질문하고, 내 프랑스어 답변이 틀리면 고쳐준 뒤에 상황극을 계속 진행해."</p>
-          <p>긴장감 없이 실전 회화를 연습할 수 있는 최고의 방법입니다.</p>
-
-          <h2>2. "난이도 조절(Simplifier)" 프롬프트</h2>
-          <p>읽고 싶은 기사가 있는데 너무 어려워서 포기하셨나요?</p>
-          <p><strong>프롬프트 예시:</strong> "다음 텍스트를 A2(초급) 레벨로 다시 써줘. 내용은 유지하되 단어와 문법을 쉽게 바꿔줘: [텍스트 붙여넣기]"</p>
-          <p>순식간에 나만을 위한 맞춤형 읽기 자료가 탄생합니다.</p>
-
-          <h2>3. "문법 탐정" 프롬프트</h2>
-          <p>그냥 고쳐달라고 하지 말고, <em>왜</em> 틀렸는지 물어보세요.</p>
-          <p><strong>프롬프트 예시:</strong> "내가 쓴 문장이야: [문장]. 이거 자연스러워? 만약 어색하다면, 고쳐주고 내가 어떤 문법 규칙을 어겼는지 설명해 줘. 그리고 이 규칙을 쓴 예문 3개만 더 보여줘."</p>
-
-          <h2>4. "어휘 확장" 프롬프트</h2>
-          <p>단어는 주제별로 묶어서 배우는 게 좋습니다.</p>
-          <p><strong>프롬프트 예시:</strong> "[요리]에 대해 말하고 싶어. 스페인어에서 요리와 관련된 가장 흔한 동사와 명사 20개를 뽑아서 표로 정리해 줘. 한국어 번역이랑 예문도 같이 넣어줘."</p>
-
-          <h2>5. "반대 토론" 프롬프트</h2>
-          <p>고급 논리력을 키우고 싶다면?</p>
-          <p><strong>프롬프트 예시:</strong> "나는 [비디오 게임이 아이들에게 좋다]고 주장할 거야. 독일어로 나에게 반박해 봐. 내 논리를 하나씩 깨트려 봐."</p>
-
-          <div class="tip-box">
-             <strong>주의사항:</strong> AI는 가끔 없는 사실을 지어내기도 합니다(할루시네이션). 뭔가 이상하다 싶으면 사전으로 교차 검증을 하세요. 연습 파트너로는 훌륭하지만, 정보의 절대적 출처로 믿지는 마세요.
-          </div>
-        </article>
-`;
-
-
-const POST_CHATGPT_CONTENT_JA = `
-        <article>
-          <p>高額な家庭教師の時代は終わりました。ChatGPT、Claude、Geminiのような大規模言語モデル（LLM）のおかげで、あなたは24時間365日、多言語の天才に無料でアクセスできます。しかし、ほとんどの人はそれを単なる高性能なGoogle翻訳としてしか使っていません。ここでは、その潜在能力を最大限に引き出す方法を紹介します。</p>
-
-          <h2>1. 「ロールプレイ」プロンプト</h2>
-          <p>教科書は静的です。AIは動的です。実際の会話をシミュレートできます。</p>
-          <p><strong>プロンプト:</strong> 「パリの混雑したカフェにいる不機嫌なバリスタとして振る舞ってください。私はコーヒーを注文する客です。一つずつ質問してください。各回答の後に私のフランス語の間違いを訂正し、その後ロールプレイを続けてください。」</p>
-          <p>これにより、リスクの少ない環境でインタラクティブな練習ができます。</p>
-
-          <h2>2. 「単純化（Simplifier）」プロンプト</h2>
-          <p>読むのが難しすぎる記事を見つけましたか？あきらめないでください。</p>
-          <p><strong>プロンプト:</strong> 「以下のテキストをCEFR A2レベル（初級後半）に書き直してください。意味は保ちつつ、語彙と文法を単純化してください: [テキストを貼り付け]」</p>
-          <p>これで、あなた専用のレベル別リーダーが手に入ります。</p>
-
-          <h2>3. 「文法探偵」プロンプト</h2>
-          <p>単に修正を求めるのではなく、<em>理由</em>を尋ねましょう。</p>
-          <p><strong>プロンプト:</strong> 「私が書いた文はこれです: [文]。これは自然ですか？もしそうでなければ、訂正して、私が違反した文法規則を説明してください。また、この規則を使った例をあと3つ挙げてください。」</p>
-
-          <h2>4. 「語彙拡張」プロンプト</h2>
-          <p>単語はクラスター（塊）で学びましょう。</p>
-          <p><strong>プロンプト:</strong> 「[料理]について話したいです。スペイン語で料理に関連する最も一般的な動詞と名詞を20個挙げてください。それらを英語の翻訳とそれぞれの例文付きの表にしてください。」</p>
-
-          <h2>5. 「反対の視点」プロンプト</h2>
-          <p>高度な議論をマスターするために：</p>
-          <p><strong>プロンプト:</strong> 「私は[ビデオゲームは子供に良い]と主張します。ドイツ語で私と議論してください。私のポイントに一つずつ反論してください。」</p>
-
-          <div class="tip-box">
-             <strong>警告:</strong> AIは幻覚（作り話）を起こすことがあります。何かがおかしいと感じたら、常に事実やニュアンスをダブルチェックしてください。練習や生成にはAIを使用しますが、定義については公式の辞書を信頼してください。
-          </div>
-        </article>
-      `;
-
-const POST_CHATGPT_CONTENT_ZH = `
-        <article>
-          <p>昂贵的私人导师时代正在结束。有了ChatGPT、Claude和Gemini等大型语言模型（LLM），你可以全天候免费访问一位多语言天才。但大多数人仅仅把它当作高级版的谷歌翻译。以下是如何释放其全部潜力的方法。</p>
-
-          <h2>1. “角色扮演”提示词</h2>
-          <p>教科书是静态的。AI是动态的。你可以模拟真实的对话。</p>
-          <p><strong>提示词：</strong> “扮演一位在巴黎繁忙咖啡馆里脾气暴躁的咖啡师。我是点咖啡的顾客。请逐一问我问题。在每次回答后纠正我的法语错误，然后继续角色扮演。”</p>
-          <p>这提供了一个低风险环境中的互动练习。</p>
-
-          <h2>2. “简化器”提示词</h2>
-          <p>发现了一篇太难读的文章？不要放弃。</p>
-          <p><strong>提示词：</strong> “将以下文本重写为CEFR A2级别（初级进阶）。保持原意，但简化词汇和语法：[粘贴文本]”</p>
-          <p>现在你有了自己定制的分级读物。</p>
-
-          <h2>3. “语法侦探”提示词</h2>
-          <p>不仅仅要求修正；还要问<em>为什么</em>。</p>
-          <p><strong>提示词：</strong> “这是我写的一个句子：[句子]。它自然吗？如果不自然，请纠正它并解释我违反的语法规则。另外，再给我3个使用此规则的例子。”</p>
-
-          <h2>4. “词汇扩展”提示词</h2>
-          <p>按类别学习单词。</p>
-          <p><strong>提示词：</strong> “我想谈论[烹饪]。给我20个与烹饪相关的最常用的西班牙语动词和名词。把它们放在一个表格里，附上英语翻译和每个词的例句。”</p>
-
-          <h2>5. “反面观点”提示词</h2>
-          <p>为了掌握高级辩论：</p>
-          <p><strong>提示词：</strong> “我要论证[电子游戏对孩子有益]。用德语反驳我。逐一反驳我的观点。”</p>
-
-          <div class="tip-box">
-             <strong>警告：</strong> AI可能会产生幻觉（编造事实）。如果感觉不对劲，一定要反复核对事实或细微差别。利用AI进行练习和生成，但在定义上要相信官方词典。
-          </div>
-        </article>
-      `;
-
-const POST_CHATGPT_CONTENT_ES = `
-        <article>
-          <p>La era de los tutores privados costosos está terminando. Con Grandes Modelos de Lenguaje (LLM) como ChatGPT, Claude y Gemini, tienes acceso a un genio políglota las 24 horas, los 7 días de la semana, de forma gratuita. Pero la mayoría de la gente solo lo usa como un Google Translate glorificado. Así es como puedes desbloquear todo su potencial.</p>
-
-          <h2>1. El Prompt de "Juego de Roles"</h2>
-          <p>Los libros de texto son estáticos. La IA es dinámica. Puedes simular conversaciones de la vida real.</p>
-          <p><strong>Prompt:</strong> "Actúa como un barista gruñón en una cafetería concurrida de París. Soy un cliente pidiendo café. Hazme preguntas una por una. Corrige mis errores de francés después de cada respuesta, luego continúa el juego de roles."</p>
-          <p>Esto proporciona práctica interactiva en un entorno de bajo riesgo.</p>
-
-          <h2>2. El Prompt "Simplificador"</h2>
-          <p>¿Encontraste un artículo que es demasiado difícil de leer? No te rindas.</p>
-          <p><strong>Prompt:</strong> "Reescribe el siguiente texto al nivel CEFR A2 (Principiante Alto). Mantén el significado pero simplifica el vocabulario y la gramática: [Pegar texto]"</p>
-          <p>Ahora tienes tu propia lectura graduada personalizada.</p>
-
-          <h2>3. El Prompt "Detective de Gramática"</h2>
-          <p>No pidas solo la corrección; pregunta el <em>por qué</em>.</p>
-          <p><strong>Prompt:</strong> "Aquí hay una frase que escribí: [Frase]. ¿Es natural? Si no, corrígela y explica la regla gramatical que violé. Además, dame 3 ejemplos más usando esta regla."</p>
-
-          <h2>4. El Prompt "Expansión de Vocabulario"</h2>
-          <p>Aprende palabras en grupos.</p>
-          <p><strong>Prompt:</strong> "Quiero hablar sobre [Cocina]. Dame los 20 verbos y sustantivos más comunes relacionados con la cocina en español. Ponlos en una tabla con traducciones al inglés y una frase de ejemplo para cada uno."</p>
-
-          <h2>5. El Prompt "Perspectiva Opuesta"</h2>
-          <p>Para dominar la argumentación avanzada:</p>
-          <p><strong>Prompt:</strong> "Voy a argumentar que [Los videojuegos son buenos para los niños]. Debáteme en alemán. Contrarresta mis puntos uno por uno."</p>
-
-          <div class="tip-box">
-             <strong>Advertencia:</strong> La IA puede alucinar (inventar cosas). Siempre verifica los hechos o matices si algo se siente extraño. Usa la IA para practicar y generar, pero confía en los diccionarios oficiales para las definiciones.
-  </div>
-</article>
-`;
-
-const POST_CHATGPT_CONTENT_FR = `
+const POST_PLATEAU_CONTENT_EN = `
 <article>
-  <p>L'ère des tuteurs privés coûteux touche à sa fin. Avec les grands modèles de langage (LLM) comme ChatGPT, Claude et Gemini, vous avez accès à un génie polyglotte 24h/24 et 7j/7, gratuitement. Mais la plupart des gens ne l'utilisent que comme un Google Traduction glorifié. Voici comment libérer tout son potentiel.</p>
+  <p>You hit a wall. You studied for 6 months, learned 1000 words, and felt great. Now? Progress feels invisible. You understand 60% of a movie but miss the jokes. You can order food but can't argue politics. Welcome to the Intermediate Plateau. It's not a dead end; it's a long climb.</p>
 
-  <h2>1. Le Prompt "Jeu de Rôle"</h2>
-  <p>Les manuels sont statiques. L'IA est dynamique. Vous pouvez simuler des conversations réelles.</p>
-  <p><strong>Prompt :</strong> "Agis comme un barista grincheux dans un café bondé à Paris. Je suis un client qui commande un café. Pose-moi des questions une par une. Corrige mes erreurs de français après chaque réponse, puis continue le jeu de rôle."</p>
-  <p>Cela fournit une pratique interactive dans un environnement sans risque.</p>
+  <h2>1. Why Real Audio Sounds Like Noise</h2>
+  <p>Textbooks speak slowly and clearly. Real people mumble, interrupt, and use slang. To break through, you must ditch the learner material.</p>
+  <p><strong>The Fix:</strong> Listen to <em>native</em> content for natives. Not "Spanish for Beginners," but "Spanish News." It will be painful at first. That pain is growth.</p>
 
-  <h2>2. Le Prompt "Simplificateur"</h2>
-  <p>Vous avez trouvé un article trop difficile à lire ? N'abandonnez pas.</p>
-  <p><strong>Prompt :</strong> "Réécris le texte suivant au niveau CECR A2 (Débutant Supérieur). Garde le sens mais simplifie le vocabulaire et la grammaire : [Coller le texte]"</p>
-  <p>Vous avez maintenant votre propre lecture graduée personnalisée.</p>
+  <h2>2. The "Good Enough" Trap</h2>
+  <p>You can explain yourself, so you stop pushing. You say "I go store" instead of "I am going to the store." People understand, so you don't correct it.</p>
+  <p><strong>The Fix:</strong> Record yourself speaking for 1 minute. Listen back. You will hear errors you didn't catch in the moment. Correct them. Re-record.</p>
 
-  <h2>3. Le Prompt "Détective de Grammaire"</h2>
-  <p>Ne demandez pas seulement la correction ; demandez le <em>pourquoi</em>.</p>
-  <p><strong>Prompt :</strong> "Voici une phrase que j'ai écrite : [Phrase]. Est-elle naturelle ? Si non, corrige-la et explique la règle de grammaire que j'ai violée. Donne-moi aussi 3 exemples supplémentaires utilisant cette règle."</p>
-
-  <h2>4. Le Prompt "Expansion du Vocabulaire"</h2>
-  <p>Apprenez les mots par groupes.</p>
-  <p><strong>Prompt :</strong> "Je veux parler de [Cuisine]. Donne-moi les 20 verbes et noms les plus courants liés à la cuisine en espagnol. Mets-les dans un tableau avec des traductions en anglais et une phrase d'exemple pour chacun."</p>
-
-  <h2>5. Le Prompt "Perspective Opposée"</h2>
-  <p>Pour maîtriser l'argumentation avancée :</p>
-  <p><strong>Prompt :</strong> "Je vais argumenter que [Les jeux vidéo sont bons pour les enfants]. Débats avec moi en allemand. Contre mes arguments un par un."</p>
+  <h2>3. Vocabulary: Depth over Width</h2>
+  <p>You know "run." But do you know "sprint," "jog," "flee," or "dash"? Intermediate learners need precision.</p>
+  <p><strong>The Fix:</strong> Stop learning random new lists. Take a word you know and learn its 3 synonyms and 3 antonyms. Expands your range instantly.</p>
 
   <div class="tip-box">
-     <strong>Attention :</strong> L'IA peut halluciner (inventer des choses). Vérifiez toujours les faits ou les nuances si quelque chose semble bizarre. Utilisez l'IA pour pratiquer et générer, mais faites confiance aux dictionnaires officiels pour les définitions.
+     <strong>Reality Check:</strong> The journey from 0 to B1 takes 6 months. The journey from B1 to C1 takes 2 years. Adjust your expectations. You aren't failing; you're just in the deep end now.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_DE = `
+const POST_PLATEAU_CONTENT_KO = `
 <article>
-  <p>Die Ära teurer Privatlehrer geht zu Ende. Mit großen Sprachmodellen (LLMs) wie ChatGPT, Claude und Gemini haben Sie rund um die Uhr Zugriff auf ein polyglottes Genie – kostenlos. Aber die meisten nutzen es nur als glorifizierten Google Übersetzer. Hier erfahren Sie, wie Sie das volle Potenzial ausschöpfen.</p>
+  <p>벽에 부딪혔습니다. 6개월 동안 열심히 공부해서 단어 1000개를 외웠고 기분이 좋았죠. 그런데 지금은? 발전이 보이지 않습니다. 영화 내용은 60% 이해하지만 농담은 놓칩니다. 음식 주문은 할 수 있지만 정치 논쟁은 불가능합니다. '중급자 정체기(Intermediate Plateau)'에 오신 것을 환영합니다. 막다른 길이 아닙니다. 긴 등반로일 뿐입니다.</p>
 
-  <h2>1. Der "Rollenspiel"-Prompt</h2>
-  <p>Lehrbücher sind statisch. KI ist dynamisch. Sie können echte Gespräche simulieren.</p>
-  <p><strong>Prompt:</strong> "Spiele einen mürrischen Barista in einem belebten Café in Paris. Ich bin ein Kunde, der Kaffee bestellt. Stelle mir nacheinander Fragen. Korrigiere meine Französischfehler nach jeder Antwort und setze dann das Rollenspiel fort."</p>
-  <p>Dies bietet interaktive Übung in einer stressfreien Umgebung.</p>
+  <h2>1. 진짜 원어민 발음이 소음처럼 들리는 이유</h2>
+  <p>교과서는 천천히 또박또박 말합니다. 실제 사람들은 중얼거리고, 말을 끊고, 은어를 씁니다. 돌파하려면 학습자용 자료를 버려야 합니다.</p>
+  <p><strong>해결책:</strong> 원어민을 위한 <em>진짜</em> 콘텐츠를 들으세요. "초보자를 위한 스페인어"가 아니라 "스페인 뉴스"를 듣는 겁니다. 처음엔 고통스러울 겁니다. 그 고통이 성장입니다.</p>
 
-  <h2>2. Der "Vereinfacher"-Prompt</h2>
-  <p>Einen Artikel gefunden, der zu schwer zu lesen ist? Geben Sie nicht auf.</p>
-  <p><strong>Prompt:</strong> "Schreibe den folgenden Text auf CEFR A2-Niveau (Fortgeschrittener Anfänger) um. Behalte die Bedeutung bei, aber vereinfache Wortschatz und Grammatik: [Text einfügen]"</p>
-  <p>Jetzt haben Sie Ihren eigenen, maßgeschneiderten Lesetext.</p>
+  <h2>2. "이 정도면 통하니까"의 함정</h2>
+  <p>의사소통이 되니까 더 이상 노력하지 않습니다. "나 가게 간다"라고만 해도 통하니까 "저 지금 가게에 가는 중이에요"라고 고치지 않습니다.</p>
+  <p><strong>해결책:</strong> 1분 동안 말하는 것을 녹음하세요. 다시 들어보세요. 말할 땐 몰랐던 실수가 들릴 겁니다. 교정하고, 다시 녹음하세요.</p>
 
-  <h2>3. Der "Grammatik-Detektiv"-Prompt</h2>
-  <p>Bitten Sie nicht nur um die Korrektur; fragen Sie nach dem <em>Warum</em>.</p>
-  <p><strong>Prompt:</strong> "Hier ist ein Satz, den ich geschrieben habe: [Satz]. Ist er natürlich? Wenn nicht, korrigiere ihn bitte und erkläre die Grammatikregel, die ich verletzt habe. Gib mir außerdem 3 weitere Beispiele für diese Regel."</p>
-
-  <h2>4. Der "Wortschatzerweiterung"-Prompt</h2>
-  <p>Lernen Sie Wörter in Clustern.</p>
-  <p><strong>Prompt:</strong> "Ich möchte über [Kochen] sprechen. Gib mir die 20 häufigsten Verben und Nomen im Spanischen, die mit Kochen zu tun haben. Erstelle eine Tabelle mit englischen Übersetzungen und einem Beispielsatz für jedes Wort."</p>
-
-  <h2>5. Der "Gegenperspektive"-Prompt</h2>
-  <p>Um fortgeschrittene Argumentation zu meistern:</p>
-  <p><strong>Prompt:</strong> "Ich werde argumentieren, dass [Videospiele gut für Kinder sind]. Debattiere mit mir auf Deutsch. Widerlege meine Punkte einen nach dem anderen."</p>
+  <h2>3. 어휘: 넓이보다 깊이</h2>
+  <p>"run(달리다)"은 압니다. 하지만 "sprint(전력 질주하다)", "jog(조깅하다)", "flee(달아나다)", "dash(돌진하다)"도 아시나요? 중급자에겐 정밀함이 필요합니다.</p>
+  <p><strong>해결책:</strong> 무작위 단어장은 그만두세요. 이미 아는 단어 하나를 골라 동의어 3개와 반의어 3개를 익히십시오. 표현력이 순식간에 확장됩니다.</p>
 
   <div class="tip-box">
-     <strong>Warnung:</strong> KI kann halluzinieren (Dinge erfinden). Überprüfen Sie immer Fakten oder Nuancen, wenn sich etwas falsch anfühlt. Nutzen Sie KI zum Üben und Generieren, aber vertrauen Sie offiziellen Wörterbüchern für Definitionen.
+     <strong>현실 직시:</strong> 0에서 B1(중급)까지는 6개월이 걸립니다. 하지만 B1에서 C1(고급)까지는 2년이 걸립니다. 기대를 조정하세요. 당신은 실패하고 있는 게 아닙니다. 이제 진짜 깊은 물에 들어온 것입니다.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_TH = `
+const POST_PLATEAU_CONTENT_JA = `
 <article>
-  <p>ยุคของการจ้างครูสอนส่วนตัวราคาแพงกำลังจะหมดไป ด้วย Large Language Models (LLMs) เช่น ChatGPT, Claude และ Gemini คุณสามารถเข้าถึงอัจฉริยะทางภาษาได้ตลอด 24 ชั่วโมงทุกวันฟรีๆ แต่คนส่วนใหญ่ใช้มันเป็นแค่ Google Translate ที่หรูหรา นี่คือวิธีปลดล็อกศักยภาพสูงสุดของมัน</p>
+  <p>壁にぶつかりましたね。半年間勉強し、単語を1000語覚え、順調でした。でも今は？進歩が見えません。映画の60％は理解できますが、ジョークは聞き取れません。食事の注文はできますが、政治の議論はできません。「中級の高原（Intermediate Plateau）」へようこそ。行き止まりではありません。長い登り坂なのです。</p>
 
-  <h2>1. คำสั่ง "สวมบทบาท" (Roleplay)</h2>
-  <p>หนังสือเรียนนั้นนิ่งเฉย แต่ AI นั้นมีพลวัต คุณสามารถจำลองการสนทนาในชีวิตจริงได้</p>
-  <p><strong>คำสั่ง:</strong> "สวมบทบาทเป็นบาริสต้าที่หน้าบึ้งในคาเฟ่ที่คนพลุกพล่านในปารีส ฉันเป็นลูกค้าที่มาสั่งกาแฟ ถามคำถามฉันทีละข้อ แก้ไขข้อผิดพลาดภาษาฝรั่งเศสของฉันหลังจากแต่ละคำตอบ แล้วดำเนินการสวมบทบาทต่อ"</p>
-  <p>สิ่งนี้ช่วยให้คุณฝึกฝนแบบโต้ตอบได้ในสภาพแวดล้อมที่ไม่มีความเสี่ยง</p>
+  <h2>1. リアルな音声が雑音のように聞こえる理由</h2>
+  <p>教科書はゆっくりと明瞭に話します。実際の人々はボソボソ話し、話を遮り、スラングを使います。突破するには、学習者用教材を捨てる必要があります。</p>
+  <p><strong>解決策：</strong>ネイティブのための、<em>生（なま）の</em>コンテンツを聞いてください。「初心者のためのスペイン語」ではなく、「スペインのニュース」です。最初は苦痛でしょう。その痛みが成長です。</p>
 
-  <h2>2. คำสั่ง "ผู้ทำให้ง่าย" (Simplifier)</h2>
-  <p>เจอบทความที่อ่านยากเกินไปใช่ไหม? อย่าเพิ่งยอมแพ้</p>
-  <p><strong>คำสั่ง:</strong> "เขียนข้อความต่อไปนี้ใหม่ในระดับ CEFR A2 (ระดับต้นตอนปลาย) รักษความหมายเดิมไว้ แต่ทำให้คำศัพท์และไวยากรณ์ง่ายขึ้น: [วางข้อความ]"</p>
-  <p>ตอนนี้คุณมีบทอ่านระดับเดียวกับคุณแล้ว</p>
+  <h2>2. 「これで通じるからいいや」の罠</h2>
+  <p>言いたいことは伝わるので、それ以上頑張らなくなります。「私、店、行く」と言っても通じるので、「私は今からお店に行きます」と直そうとしません。</p>
+  <p><strong>解決策：</strong>自分が話しているのを1分間録音してください。聞き返してください。話している時は気づかなかったミスが聞こえるはずです。それを直し、再録音してください。</p>
 
-  <h2>3. คำสั่ง "นักสืบไวยากรณ์"</h2>
-  <p>อย่าขอแค่การแก้ไข ให้ถามว่า <em>ทำไม</em></p>
-  <p><strong>คำสั่ง:</strong> "นี่คือประโยคที่ฉันเขียน: [ประโยค] มันดูเป็นธรรมชาติไหม? ถ้าไม่ ช่วยแก้ให้หน่อยและอธิบายกฎไวยากรณ์ที่ฉันทำผิด พร้อมยกตัวอย่างเพิ่มเติมอีก 3 ตัวอย่างโดยใช้กฎนี้"</p>
-
-  <h2>4. คำสั่ง "ขยายคำศัพท์"</h2>
-  <p>เรียนรู้คำศัพท์เป็นกลุ่ม</p>
-  <p><strong>คำสั่ง:</strong> "ฉันอยากคุยเรื่อง [การทำอาหาร] บอกคำกริยาและคำนามที่พบบ่อยที่สุด 20 คำที่เกี่ยวกับการทำอาหารในภาษาสเปนให้หน่อย ใส่ลงในตารางพร้อมคำแปลภาษาอังกฤษและประโยคตัวอย่างสำหรับแต่ละคำ"</p>
-
-  <h2>5. คำสั่ง "มุมมองตรงข้าม"</h2>
-  <p>เพื่อฝึกฝนการโต้เถียงขั้นสูง:</p>
-  <p><strong>คำสั่ง:</strong> "ฉันจะโต้แย้งว่า [วิดีโอเกมดีต่อเด็ก] ช่วยโต้เถียงกับฉันเป็นภาษาเยอรมันหน่อย แย้งประเด็นของฉันทีละข้อ"</p>
+  <h2>3. 語彙：広さより深さ</h2>
+  <p>「run（走る）」は知っていますね。でも、「sprint（全力疾走する）」「jog（ジョギングする）」「flee（逃げる）」「dash（突進する）」は知っていますか？中級者には精密さが必要です。</p>
+  <p><strong>解決策：</strong>ランダムな単語帳はやめましょう。知っている単語を1つ選び、その類義語を3つ、対義語を3つ学んでください。表現力が一気に広がります。</p>
 
   <div class="tip-box">
-     <strong>คำเตือน:</strong> AI อาจ "หลอน" (แต่งเรื่องขึ้นเอง) ได้ ตรวจสอบข้อเท็จจริงหรือบริบทเสมอหากรู้สึกว่ามีอะไรแปลกๆ ใช้ AI เพื่อฝึกฝนและสร้างเนื้อหา แต่ให้เชื่อถือพจนานุกรมที่เป็นทางการสำหรับคำนิยาม
+     <strong>現実チェック：</strong>ゼロからB1（中級）までは半年かかります。しかし、B1からC1（上級）までは2年かかります。期待値を調整しましょう。あなたは失敗しているのではありません。今、本当の深みに入っただけなのです。
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_VI = `
+const POST_PLATEAU_CONTENT_ZH = `
 <article>
-  <p>Kỷ nguyên của những gia sư tư nhân đắt đỏ đang kết thúc. Nhờ các Mô hình Ngôn ngữ Lớn (LLM) như ChatGPT, Claude và Gemini, bạn có thể tiếp cận một thiên tài đa ngôn ngữ 24/7 miễn phí. Nhưng hầu hết mọi người chỉ sử dụng nó như một Google Dịch cao cấp. Dưới đây là cách khai thác tối đa tiềm năng của nó.</p>
+  <p>你遇到了瓶颈。你学习了6个月，记住了1000个单词，感觉很棒。现在呢？进步似乎看不见。你能听懂电影的60%，但听不懂笑话。你会点菜，但无法讨论政治。欢迎来到“中级高原期”。这不是死胡同，这是一段漫长的攀登。</p>
 
-  <h2>1. Câu lệnh "Nhập vai" (Roleplay)</h2>
-  <p>Sách giáo khoa thì tĩnh. AI thì động. Bạn có thể mô phỏng các cuộc hội thoại thực tế.</p>
-  <p><strong>Câu lệnh:</strong> "Hãy đóng vai một nhân viên pha chế khó tính tại một quán cà phê đông đúc ở Paris. Tôi là khách hàng đang gọi cà phê. Hãy hỏi tôi từng câu hỏi một. Sửa lỗi tiếng Pháp của tôi sau mỗi câu trả lời, sau đó tiếp tục vai diễn."</p>
-  <p>Điều này cung cấp sự luyện tập tương tác trong một môi trường không rủi ro.</p>
+  <h2>1. 为什么真实的音频听起来像噪音</h2>
+  <p>教科书说话缓慢而清晰。真实的人会喃喃自语、打断插话、使用俚语。要突破这一点，你必须抛弃学习者材料。</p>
+  <p><strong>解决方法：</strong>听<em>真实的</em>母语内容。不是“初学者西班牙语”，而是“西班牙新闻”。起初会很痛苦。那种痛苦就是成长。</p>
 
-  <h2>2. Câu lệnh "Đơn giản hóa" (Simplifier)</h2>
-  <p>Tìm thấy một bài báo quá khó đọc? Đừng bỏ cuộc.</p>
-  <p><strong>Câu lệnh:</strong> "Viết lại văn bản sau ở cấp độ CEFR A2 (Sơ cấp cao). Giữ nguyên ý nghĩa nhưng đơn giản hóa từ vựng và ngữ pháp: [Dán văn bản]"</p>
-  <p>Bây giờ bạn đã có bài đọc phù hợp với trình độ của mình.</p>
+  <h2>2. “这就够了”的陷阱</h2>
+  <p>你能表达自己的意思，所以你停止了努力。你说“我去店”，而不是“我要去商店”。人们能听懂，所以你不去纠正它。</p>
+  <p><strong>解决方法：</strong>录下自己说1分钟的话。回放。你会听到当时没注意到的错误。纠正它们。重新录制。</p>
 
-  <h2>3. Câu lệnh "Thám tử Ngữ pháp"</h2>
-  <p>Đừng chỉ yêu cầu sửa lỗi; hãy hỏi <em>tại sao</em>.</p>
-  <p><strong>Câu lệnh:</strong> "Đây là câu tôi đã viết: [Câu]. Nó có tự nhiên không? Nếu không, hãy sửa nó và giải thích quy tắc ngữ pháp mà tôi đã vi phạm. Ngoài ra, hãy cho tôi thêm 3 ví dụ sử dụng quy tắc này."</p>
-
-  <h2>4. Câu lệnh "Mở rộng Vốn từ"</h2>
-  <p>Học từ vựng theo nhóm.</p>
-  <p><strong>Câu lệnh:</strong> "Tôi muốn nói về [Nấu ăn]. Hãy cho tôi 20 động từ và danh từ phổ biến nhất liên quan đến nấu ăn trong tiếng Tây Ban Nha. Đặt chúng vào một bảng với bản dịch tiếng Anh và một câu ví dụ cho mỗi từ."</p>
-
-  <h2>5. Câu lệnh "Góc nhìn Đối lập"</h2>
-  <p>Để thành thạo tranh luận nâng cao:</p>
-  <p><strong>Câu lệnh:</strong> "Tôi sẽ lập luận rằng [Trò chơi điện tử tốt cho trẻ em]. Hãy tranh luận với tôi bằng tiếng Đức. Phản bác từng điểm của tôi."</p>
+  <h2>3. 词汇：深度胜于广度</h2>
+  <p>你知道“run（跑）”。但你知道“sprint（冲刺）”、“jog（慢跑）”、“flee（逃跑）”或“dash（猛冲）”吗？中级学习者需要精准度。</p>
+  <p><strong>解决方法：</strong>停止学习随机的新单词列表。拿一个你认识的单词，学习它的3个同义词和3个反义词。瞬间扩展你的表达范围。</p>
 
   <div class="tip-box">
-     <strong>Cảnh báo:</strong> AI có thể bị "ảo giác" (bịa đặt thông tin). Luôn kiểm tra lại sự thật hoặc sắc thái nếu cảm thấy có gì đó không ổn. Sử dụng AI để luyện tập và tạo nội dung, nhưng hãy tin tưởng từ điển chính thống cho các định nghĩa.
+     <strong>现实核查：</strong>从0到B1需要6个月。从B1到C1需要2年。调整你的期望。你没有失败；你只是现在进入了深水区。
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_ID = `
+const POST_PLATEAU_CONTENT_TH = `
 <article>
-  <p>Era tutor pribadi yang mahal akan segera berakhir. Berkat Model Bahasa Besar (LLM) seperti ChatGPT, Claude, dan Gemini, Anda memiliki akses ke jenius poliglot 24/7 secara gratis. Namun, kebanyakan orang hanya menggunakannya sebagai Google Translate yang dimuliakan. Inilah cara membuka potensi penuhnya.</p>
+  <p>คุณชนกำแพงเข้าแล้ว คุณเรียนมา 6 เดือน จำศัพท์ได้ 1,000 คำ และรู้สึกดีมาก แต่ตอนนี้ล่ะ? ความก้าวหน้าดูเหมือนล่องหน คุณเข้าใจหนัง 60% แต่ไม่เข้าใจมุกตลก คุณสั่งอาหารได้แต่เถียงเรื่องการเมืองไม่ได้ ยินดีต้อนรับสู่ "ที่ราบสูงระดับกลาง" (Intermediate Plateau) มันไม่ใช่ทางตัน แต่มันคือการปีนเขาที่ยาวนาน</p>
 
-  <h2>1. Prompt "Roleplay"</h2>
-  <p>Buku teks itu statis. AI itu dinamis. Anda dapat mensimulasikan percakapan kehidupan nyata.</p>
-  <p><strong>Prompt:</strong> "Bertindaklah sebagai barista pemarah di kafe yang ramai di Paris. Saya pelanggan yang memesan kopi. Ajukan pertanyaan satu per satu. Koreksi kesalahan bahasa Prancis saya setelah setiap jawaban, lalu lanjutkan permainan peran."</p>
-  <p>Ini memberikan latihan interaktif dalam lingkungan yang berisiko rendah.</p>
+  <h2>1. ทำไมเสียงจริงถึงฟังดูเหมือนเสียงรบกวน</h2>
+  <p>หนังสือเรียนพูดช้าและชัดเจน คนจริงๆ พูดพึมพำ ขัดจังหวะ และใช้คำแสลง เพื่อที่จะก้าวผ่าน คุณต้องทิ้งสื่อการเรียนสำหรับผู้เริ่มต้น</p>
+  <p><strong>วิธีแก้:</strong> ฟังเนื้อหา <em>เจ้าของภาษา</em> จริงๆ ไม่ใช่ "ภาษาสเปนสำหรับผู้เริ่มต้น" แต่เป็น "ข่าวสเปน" ช่วงแรกจะเจ็บปวด ความเจ็บปวดนั้นคือการเติบโต</p>
 
-  <h2>2. Prompt "Penyederhana" (Simplifier)</h2>
-  <p>Menemukan artikel yang terlalu sulit dibaca? Jangan menyerah.</p>
-  <p><strong>Prompt:</strong> "Tulis ulang teks berikut ke level CEFR A2 (Pemula Tingkat Lanjut). Pertahankan maknanya tetapi sederhanakan kosakata dan tata bahasanya: [Tempel teks]"</p>
-  <p>Sekarang Anda memiliki bahan bacaan berjenjang pribadi Anda sendiri.</p>
+  <h2>2. กับดักของคำว่า "ดีพอแล้ว"</h2>
+  <p>คุณอธิบายตัวเองได้ คุณเลยหยุดผลักดัน คุณพูดว่า "ฉันไปร้าน" แทนที่จะเป็น "ฉันกำลังจะไปที่ร้านค้า" ผู้คนเข้าใจ คุณเลยไม่แก้ไขมัน</p>
+  <p><strong>วิธีแก้:</strong> อัดเสียงตัวเองพูด 1 นาที ฟังย้อนหลัง คุณจะได้ยินข้อผิดพลาดที่คุณไม่ทันสังเกตในตอนนั้น แก้ไขซะ แล้วอัดใหม่</p>
 
-  <h2>3. Prompt "Detektif Tata Bahasa"</h2>
-  <p>Jangan hanya meminta koreksi; tanyakan <em>kenapa</em>.</p>
-  <p><strong>Prompt:</strong> "Ini kalimat yang saya tulis: [Kalimat]. Apakah ini alami? Jika tidak, tolong perbaiki dan jelaskan aturan tata bahasa yang saya langgar. Juga, beri saya 3 contoh lagi menggunakan aturan ini."</p>
-
-  <h2>4. Prompt "Perluasan Kosakata"</h2>
-  <p>Pelajari kata-kata dalam kelompok.</p>
-  <p><strong>Prompt:</strong> "Saya ingin berbicara tentang [Memasak]. Beri saya 20 kata kerja dan kata benda paling umum yang terkait dengan memasak dalam bahasa Spanyol. Masukkan ke dalam tabel dengan terjemahan bahasa Inggris dan satu kalimat contoh untuk masing-masing kata."</p>
-
-  <h2>5. Prompt "Sudut Pandang Berlawanan"</h2>
-  <p>Untuk menguasai argumentasi tingkat lanjut:</p>
-  <p><strong>Prompt:</strong> "Saya akan berargumen bahwa [Video game baik untuk anak-anak]. Debat saya dalam bahasa Jerman. Bantah poin saya satu per satu."</p>
+  <h2>3. คำศัพท์: ความลึกสำคัญกว่าความกว้าง</h2>
+  <p>คุณรู้จัก "run (วิ่ง)" แต่คุณรู้จัก "sprint (วิ่งเร็วจี๋)", "jog (วิ่งเหยาะๆ)", "flee (หนี)", หรือ "dash (พุ่งชน)" ไหม? ผู้เรียนระดับกลางต้องการความแม่นยำ</p>
+  <p><strong>วิธีแก้:</strong> เลิกท่องศัพท์ใหม่แบบสุ่ม เลือกคำที่คุณรู้อยู่แล้วและเรียนรู้คำเหมือน 3 คำและคำตรงข้าม 3 คำ ขยายขอบเขตของคุณในทันที</p>
 
   <div class="tip-box">
-     <strong>Peringatan:</strong> AI bisa berhalusinasi (mengarang sesuatu). Selalu periksa fakta atau nuansa jika ada yang terasa aneh. Gunakan AI untuk latihan dan menghasilkan konten, tetapi percayakan definisi pada kamus resmi.
+     <strong>เช็คความจริง:</strong> การเดินทางจาก 0 ถึง B1 ใช้เวลา 6 เดือน การเดินทางจาก B1 ถึง C1 ใช้เวลา 2 ปี ปรับความคาดหวังของคุณ คุณไม่ได้ล้มเหลว คุณแค่กำลังอยู่ในจุดน้ำลึกแล้ว
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_PT = `
+const POST_PLATEAU_CONTENT_VI = `
 <article>
-  <p>A era dos tutores particulares caros está acabando. Graças aos Grandes Modelos de Linguagem (LLMs) como ChatGPT, Claude e Gemini, você tem acesso a um gênio poliglota 24 horas por dia, 7 dias por semana, gratuitamente. Mas a maioria das pessoas só o usa como um Google Tradutor glorificado. Veja como desbloquear todo o seu potencial.</p>
+  <p>Bạn đã đụng phải một bức tường. Bạn đã học trong 6 tháng, học được 1000 từ và cảm thấy tuyệt vời. Còn bây giờ? Tiến bộ dường như vô hình. Bạn hiểu 60% một bộ phim nhưng bỏ lỡ những câu chuyện cười. Bạn có thể gọi đồ ăn nhưng không thể tranh luận về chính trị. Chào mừng đến với "Cao nguyên Trung cấp" (Intermediate Plateau). Nó không phải là ngõ cụt; nó là một chặng đường leo núi dài.</p>
 
-  <h2>1. O Prompt "Roleplay" (Encenação)</h2>
-  <p>Os livros didáticos são estáticos. A IA é dinâmica. Você pode simular conversas da vida real.</p>
-  <p><strong>Prompt:</strong> "Aja como um barista mal-humorado em um café lotado em Paris. Eu sou um cliente pedindo café. Faça-me perguntas, uma de cada vez. Corrija meus erros de francês após cada resposta e, em seguida, continue a encenação."</p>
-  <p>Isso fornece prática interativa em um ambiente de baixo risco.</p>
+  <h2>1. Tại sao âm thanh thực nghe như tiếng ồn</h2>
+  <p>Sách giáo khoa nói chậm và rõ ràng. Người thật lầm bầm, ngắt lời và sử dụng tiếng lóng. Để đột phá, bạn phải vứt bỏ tài liệu cho người học.</p>
+  <p><strong>Giải pháp:</strong> Nghe nội dung <em>bản ngữ</em> dành cho người bản ngữ. Không phải "Tiếng Tây Ban Nha cho người mới bắt đầu", mà là "Tin tức Tây Ban Nha". Ban đầu sẽ rất đau đớn. Nỗi đau đó là sự trưởng thành.</p>
 
-  <h2>2. O Prompt "Simplificador"</h2>
-  <p>Encontrou um artigo muito difícil de ler? Não desista.</p>
-  <p><strong>Prompt:</strong> "Reescreva o seguinte texto no nível CEFR A2 (Iniciante Avançado). Mantenha o significado, mas simplifique o vocabulário e a gramática: [Colar texto]"</p>
-  <p>Agora você tem sua própria leitura graduada personalizada.</p>
+  <h2>2. Cái bẫy "Đủ tốt"</h2>
+  <p>Bạn có thể giải thích ý mình, vì vậy bạn ngừng cố gắng. Bạn nói "Tôi đi cửa hàng" thay vì "Tôi đang đi đến cửa hàng". Mọi người hiểu, vì vậy bạn không sửa nó.</p>
+  <p><strong>Giải pháp:</strong> Ghi âm chính mình nói trong 1 phút. Nghe lại. Bạn sẽ nghe thấy những lỗi mà bạn không nhận ra lúc đó. Sửa chúng. Ghi âm lại.</p>
 
-  <h2>3. O Prompt "Detetive de Gramática"</h2>
-  <p>Não peça apenas a correção; pergunte o <em>porquê</em>.</p>
-  <p><strong>Prompt:</strong> "Aqui está uma frase que escrevi: [Frase]. Soa natural? Se não, corrija e explique a regra gramatical que violei. Além disso, me dê mais 3 exemplos usando essa regra."</p>
-
-  <h2>4. O Prompt "Expansão de Vocabulário"</h2>
-  <p>Aprenda palavras em grupos.</p>
-  <p><strong>Prompt:</strong> "Quero falar sobre [Culinária]. Me dê os 20 verbos e substantivos mais comuns relacionados à culinária em espanhol. Coloque-os em uma tabela com traduções para o inglês e uma frase de exemplo para cada um."</p>
-
-  <h2>5. O Prompt "Perspectiva Oposta"</h2>
-  <p>Para dominar a argumentação avançada:</p>
-  <p><strong>Prompt:</strong> "Vou argumentar que [Videogames são bons para crianças]. Debata comigo em alemão. Conteste meus pontos um por um."</p>
+  <h2>3. Từ vựng: Chiều sâu hơn Chiều rộng</h2>
+  <p>Bạn biết từ "run (chạy)". Nhưng bạn có biết "sprint (chạy nước rút)", "jog (chạy bộ)", "flee (chạy trốn)" hay "dash (lao tới)" không? Người học trung cấp cần sự chính xác.</p>
+  <p><strong>Giải pháp:</strong> Ngừng học các danh sách từ mới ngẫu nhiên. Lấy một từ bạn biết và học 3 từ đồng nghĩa và 3 từ trái nghĩa của nó. Mở rộng phạm vi của bạn ngay lập tức.</p>
 
   <div class="tip-box">
-     <strong>Aviso:</strong> A IA pode alucinar (inventar coisas). Sempre verifique os fatos ou nuances se algo parecer estranho. Use a IA para praticar e gerar, mas confie em dicionários oficiais para definições.
+     <strong>Kiểm tra thực tế:</strong> Hành trình từ 0 đến B1 mất 6 tháng. Hành trình từ B1 đến C1 mất 2 năm. Điều chỉnh kỳ vọng của bạn. Bạn không thất bại; bạn chỉ đang ở vùng nước sâu ngay bây giờ.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_TR = `
+const POST_PLATEAU_CONTENT_ID = `
 <article>
-  <p>Pahalı özel ders öğretmenleri dönemi sona eriyor. ChatGPT, Claude ve Gemini gibi Büyük Dil Modelleri (LLM'ler) sayesinde, 7/24 ücretsiz olarak çok dilli bir dahiye erişiminiz var. Ancak çoğu insan bunu sadece süslü bir Google Çeviri olarak kullanıyor. İşte tam potansiyelini nasıl ortaya çıkarabileceğiniz.</p>
+  <p>Anda menabrak dinding. Anda belajar selama 6 bulan, mempelajari 1000 kata, dan merasa hebat. Sekarang? Kemajuan terasa tidak terlihat. Anda mengerti 60% dari sebuah film tetapi melewatkan leluconnya. Anda bisa memesan makanan tetapi tidak bisa berdebat politik. Selamat datang di "Dataran Tinggi Menengah" (Intermediate Plateau). Ini bukan jalan buntu; ini adalah pendakian yang panjang.</p>
 
-  <h2>1. "Rol Yapma" (Roleplay) İstemi</h2>
-  <p>Ders kitapları durağandır. Yapay zeka dinamiktir. Gerçek hayattaki konuşmaları simüle edebilirsiniz.</p>
-  <p><strong>İstem (Prompt):</strong> "Paris'teki kalabalık bir kafede huysuz bir barista gibi davran. Ben kahve sipariş eden bir müşteriyim. Bana sırayla sorular sor. Her cevaptan sonra Fransızca hatalarımı düzelt ve ardından rol yapmaya devam et."</p>
-  <p>Bu, düşük riskli bir ortamda etkileşimli pratik sağlar.</p>
+  <h2>1. Mengapa Audio Asli Terdengar Seperti Kebisingan</h2>
+  <p>Buku teks berbicara perlahan dan jelas. Orang sungguhan bergumam, menyela, dan menggunakan bahasa gaul. Untuk menerobos, Anda harus membuang materi pembelajar.</p>
+  <p><strong>Perbaikannya:</strong> Dengarkan konten <em>asli</em> untuk penutur asli. Bukan "Bahasa Spanyol untuk Pemula," tapi "Berita Spanyol." Awalnya akan menyakitkan. Rasa sakit itu adalah pertumbuhan.</p>
 
-  <h2>2. "Basitleştirici" İstemi</h2>
-  <p>Okuması çok zor bir makale mi buldunuz? Pes etmeyin.</p>
-  <p><strong>İstem (Prompt):</strong> "Aşağıdaki metni CEFR A2 (İleri Başlangıç) seviyesinde yeniden yaz. Anlamı koru ancak kelime dağarcığını ve dilbilgisini basitleştir: [Metni yapıştır]"</p>
-  <p>Artık kendi kişiselleştirilmiş dereceli okuma parçanız var.</p>
+  <h2>2. Perangkap "Cukup Baik"</h2>
+  <p>Anda bisa menjelaskan diri sendiri, jadi Anda berhenti mendorong diri. Anda mengatakan "Saya pergi toko" alih-alih "Saya pergi ke toko." Orang mengerti, jadi Anda tidak memperbaikinya.</p>
+  <p><strong>Perbaikannya:</strong> Rekam diri Anda berbicara selama 1 menit. Dengarkan kembali. Anda akan mendengar kesalahan yang tidak Anda sadari saat itu. Perbaiki. Rekam ulang.</p>
 
-  <h2>3. "Dilbilgisi Dedektifi" İstemi</h2>
-  <p>Sadece düzeltme istemeyin; <em>nedenini</em> sorun.</p>
-  <p><strong>İstem (Prompt):</strong> "İşte yazdığım bir cümle: [Cümle]. Doğal mı? Değilse, düzeltin ve ihlal ettiğim dilbilgisi kuralını açıklayın. Ayrıca, bu kuralı kullanan 3 örnek daha verin."</p>
-
-  <h2>4. "Kelime Dağarcığı Genişletme" İstemi</h2>
-  <p>Kelimeleri kümeler halinde öğrenin.</p>
-  <p><strong>İstem (Prompt):</strong> "[Yemek Pişirme] hakkında konuşmak istiyorum. Bana İspanyolca yemek pişirme ile ilgili en yaygın 20 fiili ve ismi ver. Bunları İngilizce çevirileri ve her biri için örnek bir cümle ile bir tabloya koy."</p>
-
-  <h2>5. "Karşıt Bakış Açısı" İstemi</h2>
-  <p>İleri düzey tartışmalarda ustalaşmak için:</p>
-  <p><strong>İstem (Prompt):</strong> "[Video oyunlarının çocuklar için iyi olduğunu] savunacağım. Benimle Almanca tartış. Noktalarımı tek tek çürüt."</p>
+  <h2>3. Kosakata: Kedalaman di atas Keluasan</h2>
+  <p>Anda tahu "run (lari)." Tapi apakah Anda tahu "sprint (lari cepat)," "jog (joging)," "flee (melarikan diri)," atau "dash (melesat)"? Pembelajar tingkat menengah membutuhkan ketepatan.</p>
+  <p><strong>Perbaikannya:</strong> Berhentilah mempelajari daftar kata baru secara acak. Ambil satu kata yang Anda tahu dan pelajari 3 sinonim dan 3 antonimnya. Memperluas jangkauan Anda secara instan.</p>
 
   <div class="tip-box">
-     <strong>Uyarı:</strong> Yapay zeka halüsinasyon görebilir (şeyler uydurabilir). Garip gelen bir şey varsa her zaman gerçekleri veya nüansları iki kez kontrol edin. Pratik yapmak ve üretmek için yapay zekayı kullanın, ancak tanımlar için resmi sözlüklere güvenin.
+     <strong>Pemeriksaan Realitas:</strong> Perjalanan dari 0 ke B1 memakan waktu 6 bulan. Perjalanan dari B1 ke C1 memakan waktu 2 tahun. Sesuaikan harapan Anda. Anda tidak gagal; Anda baru saja berada di ujung yang dalam sekarang.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_AR = `
+const POST_PLATEAU_CONTENT_ES = `
 <article>
-  <p>عصر المعلمين الخصوصيين باهظي الثمن يقترب من نهايته. بفضل نماذج اللغة الكبيرة (LLMs) مثل ChatGPT و Claude و Gemini، لديك إمكانية الوصول إلى عبقري متعدد اللغات على مدار الساعة طوال أيام الأسبوع مجانًا. لكن معظم الناس يستخدمونه فقط كنسخة ممجدة من Google Translate. إليك كيفية إطلاق العنان لإمكاناته الكاملة.</p>
+  <p>Te has topado con un muro. Estudiaste durante 6 meses, aprendiste 1000 palabras y te sentías genial. ¿Y ahora? El progreso parece invisible. Entiendes el 60% de una película, pero te pierdes los chistes. Puedes pedir comida, pero no puedes debatir sobre política. Bienvenido a la "Meseta Intermedia". No es un callejón sin salida; es una larga escalada.</p>
 
-  <h2>1. مطالبة "لعب الأدوار" (Roleplay)</h2>
-  <p>الكتب المدرسية ثابتة. الذكاء الاصطناعي ديناميكي. يمكنك محاكاة محادثات الحياة الواقعية.</p>
-  <p><strong>المطالبة:</strong> "تصرّف نادل غاضب في مقهى مزدحم في باريس. أنا زبون يطلب القهوة. اطرح عليّ أسئلة واحداً تلو الآخر. صحح أخطائي في اللغة الفرنسية بعد كل إجابة، ثم استمر في لعب الدور."</p>
-  <p>هذا يوفر ممارسة تفاعلية في بيئة منخفضة المخاطر.</p>
+  <h2>1. Por qué el audio real suena como ruido</h2>
+  <p>Los libros de texto hablan despacio y con claridad. La gente real murmura, interrumpe y usa jerga. Para avanzar, debes abandonar el material para estudiantes.</p>
+  <p><strong>La solución:</strong> Escucha contenido <em>nativo</em> para nativos. No "Español para principiantes", sino "Noticias en español". Al principio será doloroso. Ese dolor es crecimiento.</p>
 
-  <h2>2. مطالبة "التبسيط" (Simplifier)</h2>
-  <p>هل وجدت مقالاً صعب القراءة للغاية؟ لا تستسلم.</p>
-  <p><strong>المطالبة:</strong> "أعد كتابة النص التالي بمستوى CEFR A2 (مبتدئ متقدم). حافظ على المعنى ولكن بسّط المفردات والقواعد: [لصق النص]"</p>
-  <p>الآن لديك مادة قراءة متدرجة مخصصة لك.</p>
+  <h2>2. La trampa de "Lo suficientemente bueno"</h2>
+  <p>Puedes explicarte, así que dejas de esforzarte. Dices "Yo ir tienda" en lugar de "Voy a la tienda". La gente te entiende, así que no lo corriges.</p>
+  <p><strong>La solución:</strong> GRábate hablando durante 1 minuto. Escúchalo. Oirás errores que no notaste en el momento. Corrígelos. Graba de nuevo.</p>
 
-  <h2>3. مطالبة "محقّق القواعد"</h2>
-  <p>لا تطلب التصحيح فقط؛ اسأل عن <em>السبب</em>.</p>
-  <p><strong>المطالبة:</strong> "إليك جملة كتبتها: [الجملة]. هل هي طبيعية؟ إذا لم تكن كذلك، فصححها واشرح القاعدة النحوية التي خالفتها. أيضاً، أعطني 3 أمثلة أخرى باستخدام هذه القاعدة."</p>
-
-  <h2>4. مطالبة "توسيع المفردات"</h2>
-  <p>تعلم الكلمات في مجموعات.</p>
-  <p><strong>المطالبة:</strong> "أريد التحدث عن [الطبخ]. أعطني أكثر 20 فعلاً واسماً شيوعاً متعلقاً بالطبخ باللغة الإسبانية. ضعها في جدول مع ترجمة باللغة الإنجليزية وجملة مثال لكل منها."</p>
-
-  <h2>5. مطالبة "وجهة النظر المعاكسة"</h2>
-  <p>لإتقان الجدال المتقدم:</p>
-  <p><strong>المطالبة:</strong> "سأجادل بأن [ألعاب الفيديو جيدة للأطفال]. جادلني باللغة الألمانية. دحض نقاطي واحدة تلو الأخرى."</p>
+  <h2>3. Vocabulario: Profundidad sobre amplitud</h2>
+  <p>Conoces "run (correr)". Pero, ¿conoces "sprint (esprintar)", "jog (trotar)", "flee (huir)" o "dash (precipitarse)"? Los estudiantes intermedios necesitan precisión.</p>
+  <p><strong>La solución:</strong> Deja de aprender listas aleatorias de palabras nuevas. Toma una palabra que conozcas y aprende sus 3 sinónimos y 3 antónimos. Amplía tu rango al instante.</p>
 
   <div class="tip-box">
-     <strong>تحذير:</strong> يمكن للذكاء الاصطناعي أن "يهلوس" (يختلق أشياء). تحقق دائماً من الحقائق أو الفروق الدقيقة إذا شعرت أن هناك شيئاً غريباً. استخدم الذكاء الاصطناعي للممارسة والتوليد، ولكن ثق بالقواميس الرسمية للتعريفات.
+     <strong>Dosis de realidad:</strong> El viaje de 0 a B1 toma 6 meses. El viaje de B1 a C1 toma 2 años. Ajusta tus expectativas. No estás fallando; simplemente estás en la parte profunda ahora.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_HI = `
+const POST_PLATEAU_CONTENT_PT = `
 <article>
-  <p>महंगे निजी ट्यूटर्स का युग समाप्त हो रहा है। ChatGPT, Claude और Gemini जैसे बड़े भाषा मॉडल (LLMs) के लिए धन्यवाद, आपके पास 24/7 एक बहुभाषी जीनियस तक मुफ्त पहुंच है। लेकिन अधिकांश लोग इसे केवल एक महिमामंडित Google अनुवाद के रूप में उपयोग करते हैं। यहाँ बताया गया है कि इसकी पूरी क्षमता को कैसे अनलॉक किया जाए।</p>
+  <p>Você bateu em uma parede. Estudou por 6 meses, aprendeu 1000 palavras e se sentiu ótimo. E agora? O progresso parece invisível. Você entende 60% de um filme, mas perde as piadas. Você pode pedir comida, mas não pode discutir política. Bem-vindo ao "Planalto Intermediário". Não é um beco sem saída; é uma longa escalada.</p>
 
-  <h2>1. "रोलप्ले" (Roleplay) प्रॉम्प्ट</h2>
-  <p>पाठ्यपुस्तकें स्थिर हैं। AI गतिशील है। आप वास्तविक जीवन की बातचीत का अनुकरण कर सकते हैं।</p>
-  <p><strong>प्रॉम्प्ट:</strong> "पेरिस के एक भीड़-भाड़ वाले कैफे में एक क्रोधी बरिस्ता (barista) की तरह व्यवहार करें। मैं कॉफी ऑर्डर करने वाला ग्राहक हूं। मुझसे एक-एक करके सवाल पूछें। हर जवाब के बाद मेरी फ्रेंच गलतियों को सुधारें, और फिर रोलप्ले जारी रखें।"</p>
-  <p>यह कम जोखिम वाले वातावरण में इंटरैक्टिव अभ्यास प्रदान करता है।</p>
+  <h2>1. Por que o áudio real soa como ruído</h2>
+  <p>Os livros didáticos falam devagar e com clareza. Pessoas reais resmungam, interrompem e usam gírias. Para romper isso, você deve abandonar o material de estudante.</p>
+  <p><strong>A solução:</strong> Ouça conteúdo <em>nativo</em> para nativos. Não "Espanhol para Iniciantes", mas "Notícias em Espanhol". Será doloroso no começo. Essa dor é crescimento.</p>
 
-  <h2>2. "सिम्पलीफायर" (Simplifier) प्रॉम्प्ट</h2>
-  <p>क्या कोई लेख पढ़ने में बहुत कठिन लगा? हार न मानें।</p>
-  <p><strong>प्रॉम्प्ट:</strong> "निम्नलिखित पाठ को CEFR A2 स्तर (उच्च शुरुआती) पर फिर से लिखें। अर्थ बनाए रखें लेकिन शब्दावली और व्याकरण को सरल बनाएं: [पाठ पेस्ट करें]"</p>
-  <p>अब आपके पास अपना व्यक्तिगत ग्रेडेड रीडर है।</p>
+  <h2>2. A armadilha do "Bom o Suficiente"</h2>
+  <p>Você consegue se explicar, então para de se esforçar. Você diz "Eu ir loja" em vez de "Eu vou para a loja". As pessoas entendem, então você não corrige.</p>
+  <p><strong>A solução:</strong> Grave-se falando por 1 minuto. Ouça depois. Você ouvirá erros que não percebeu no momento. Corrija-os. Grave novamente.</p>
 
-  <h2>3. "व्याकरण जासूस" (Grammar Detective) प्रॉम्प्ट</h2>
-  <p>केवल सुधार न मांगें; पूछें <em>क्यों</em>।</p>
-  <p><strong>प्रॉम्प्ट:</strong> "यहाँ एक वाक्य है जो मैंने लिखा है: [वाक्य]। क्या यह स्वाभाविक है? यदि नहीं, तो इसे सही करें और उस व्याकरण नियम की व्याख्या करें जिसका मैंने उल्लंघन किया है। साथ ही, इस नियम का उपयोग करते हुए मुझे 3 और उदाहरण दें।"</p>
-
-  <h2>4. "शब्दावली विस्तार" (Vocabulary Expansion) प्रॉम्प्ट</h2>
-  <p>समूहों (clusters) में शब्द सीखें।</p>
-  <p><strong>प्रॉम्प्ट:</strong> "मैं [खाना पकाने] के बारे में बात करना चाहता हूं। मुझे स्पेनिश में खाना पकाने से संबंधित 20 सबसे आम क्रियाएं और संज्ञाएं दें। उन्हें अंग्रेजी अनुवाद और प्रत्येक के लिए एक उदाहरण वाक्य के साथ एक तालिका में रखें।"</p>
-
-  <h2>5. "विपरीत परिप्रेक्ष्य" (Opposing Perspective) प्रॉम्प्ट</h2>
-  <p>उन्नत तर्क-वितर्क (argumentation) में महारत हासिल करने के लिए:</p>
-  <p><strong>प्रॉम्प्ट:</strong> "मैं तर्क दूंगा कि [वीडियो गेम बच्चों के लिए अच्छे हैं]। मेरे साथ जर्मन में बहस करें। मेरी बातों का एक-एक करके खंडन करें।"</p>
+  <h2>3. Vocabulário: Profundidade sobre Largura</h2>
+  <p>Você conhece "run (correr)". Mas você conhece "sprint (disparar)", "jog (trotar)", "flee (fugir)" ou "dash (arremessar-se)"? Alunos intermediários precisam de precisão.</p>
+  <p><strong>A solução:</strong> Pare de aprender listas aleatórias de novas palavras. Pegue uma palavra que você conhece e aprenda seus 3 sinônimos e 3 antônimos. Expande seu alcance instantaneamente.</p>
 
   <div class="tip-box">
-     <strong>चेतावनी:</strong> AI "भ्रमित" (hallucinate) हो सकता है (चीजें बना सकता है)। यदि कुछ अजीब लगता है तो हमेशा तथ्यों या बारीकियों की दोबारा जांच करें। अभ्यास और निर्माण के लिए AI का उपयोग करें, लेकिन परिभाषाओं के लिए आधिकारिक शब्दकोशों पर भरोसा करें।
+     <strong>Verificação da Realidade:</strong> A jornada de 0 para B1 leva 6 meses. A jornada de B1 para C1 leva 2 anos. Ajuste suas expectativas. Você não está falhando; você está apenas na parte funda agora.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_RU = `
+const POST_PLATEAU_CONTENT_FR = `
 <article>
-  <p>Эра дорогих частных репетиторов подходит к концу. Благодаря большим языковым моделям (LLM), таким как ChatGPT, Claude и Gemini, у вас есть круглосуточный доступ к полиглоту-гению бесплатно. Но большинство людей используют его просто как продвинутый Google Translate. Вот как раскрыть его полный потенциал.</p>
+  <p>Vous avez heurté un mur. Vous avez étudié pendant 6 mois, appris 1000 mots et vous vous sentiez bien. Et maintenant ? Les progrès semblent invisibles. Vous comprenez 60 % d'un film mais manquez les blagues. Vous pouvez commander à manger mais ne pouvez pas débattre de politique. Bienvenue sur le « Plateau Intermédiaire ». Ce n'est pas une impasse ; c'est une longue ascension.</p>
 
-  <h2>1. Промпт "Ролевая игра" (Roleplay)</h2>
-  <p>Учебники статичны. ИИ динамичен. Вы можете симулировать разговоры из реальной жизни.</p>
-  <p><strong>Промпт:</strong> "Веди себя как сварливый бариста в переполненном кафе в Париже. Я клиент, заказывающий кофе. Задавай мне вопросы по одному. Исправляй мои ошибки во французском после каждого ответа, а затем продолжай ролевую игру."</p>
-  <p>Это обеспечивает интерактивную практику в безопасной среде.</p>
+  <h2>1. Pourquoi l'audio réel ressemble à du bruit</h2>
+  <p>Les manuels parlent lentement et clairement. Les vrais gens marmonnent, interrompent et utilisent de l'argot. Pour percer, vous devez abandonner le matériel d'apprenant.</p>
+  <p><strong>La solution :</strong> Écoutez du contenu <em>natif</em> pour les natifs. Pas « L'espagnol pour les débutants », mais « Les nouvelles espagnoles ». Ce sera douloureux au début. Cette douleur, c'est la croissance.</p>
 
-  <h2>2. Промпт "Упроститель" (Simplifier)</h2>
-  <p>Нашли статью, которую слишком сложно читать? Не сдавайтесь.</p>
-  <p><strong>Промпт:</strong> "Перепиши следующий текст на уровень CEFR A2 (продвинутый новичок). Сохрани смысл, но упрости лексику и грамматику: [Вставить текст]"</p>
-  <p>Теперь у вас есть собственное адаптированное чтение.</p>
+  <h2>2. Le piège du « Suffisamment bon »</h2>
+  <p>Vous pouvez vous faire comprendre, alors vous arrêtez de pousser. Vous dites « Moi aller magasin » au lieu de « Je vais au magasin. » Les gens comprennent, donc vous ne corrigez pas.</p>
+  <p><strong>La solution :</strong> Enregistrez-vous en train de parler pendant 1 minute. Réécoutez. Vous entendrez des erreurs que vous n'aviez pas remarquées sur le moment. Corrigez-les. Réenregistrez.</p>
 
-  <h2>3. Промпт "Грамматический детектив"</h2>
-  <p>Не просите просто исправить; спрашивайте <em>почему</em>.</p>
-  <p><strong>Промпт:</strong> "Вот предложение, которое я написал: [Предложение]. Это звучит естественно? Если нет, исправь его и объясни грамматическое правило, которое я нарушил. Также дай мне еще 3 примера использования этого правила."</p>
-
-  <h2>4. Промпт "Расширение словаря"</h2>
-  <p>Учите слова группами.</p>
-  <p><strong>Промпт:</strong> "Я хочу поговорить о [Кулинарии]. Дай мне 20 самых распространенных глаголов и существительных, связанных с кулинарией, на испанском языке. Оформи их в таблицу с английским переводом и примером предложения для каждого."</p>
-
-  <h2>5. Промпт "Противоположная точка зрения"</h2>
-  <p>Чтобы освоить продвинутую аргументацию:</p>
-  <p><strong>Промпт:</strong> "Я буду утверждать, что [Видеоигры полезны для детей]. Поспорь со мной на немецком. Опровергай мои пункты один за другим."</p>
+  <h2>3. Vocabulaire : La profondeur plutôt que la largeur</h2>
+  <p>Vous connaissez « run (courir) ». Mais connaissez-vous « sprint (sprinter) », « jog (faire du jogging) », « flee (s'enfuir) » ou « dash (se précipiter) » ? Les apprenants intermédiaires ont besoin de précision.</p>
+  <p><strong>La solution :</strong> Arrêtez d'apprendre des listes aléatoires de nouveaux mots. Prenez un mot que vous connaissez et apprenez ses 3 synonymes et 3 antonymes. Cela élargit votre gamme instantanément.</p>
 
   <div class="tip-box">
-     <strong>Предупреждение:</strong> ИИ может "галлюцинировать" (выдумывать факты). Всегда перепроверяйте факты или нюансы, если что-то кажется странным. Используйте ИИ для практики и генерации, но доверяйте официальным словарям в вопросах определений.
+     <strong>Réalité :</strong> Le voyage de 0 à B1 prend 6 mois. Le voyage de B1 à C1 prend 2 ans. Ajustez vos attentes. Vous n'échouez pas ; vous êtes juste dans le grand bain maintenant.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_BN = `
+const POST_PLATEAU_CONTENT_DE = `
 <article>
-  <p>ব্যয়বহুল প্রাইভেট টিউটরদের যুগ শেষ হচ্ছে। ChatGPT, Claude এবং Gemini-এর মতো বড় ল্যাঙ্গুয়েজ মডেল (LLMs) এর জন্য ধন্যবাদ, আপনি বিনামূল্যে 24/7 বহুভাষিক প্রতিভার কাছে অ্যাক্সেস পাচ্ছেন। কিন্তু বেশিরভাগ মানুষ এটিকে শুধুমাত্র একটি মহিমান্বিত গুগল অনুবাদ হিসেবে ব্যবহার করে। এখানে এর পূর্ণ সম্ভাবনা আনলক করার উপায় রয়েছে।</p>
+  <p>Sie sind gegen eine Wand gefahren. Sie haben 6 Monate gelernt, 1000 Wörter gelernt und sich großartig gefühlt. Und jetzt? Fortschritt fühlt sich unsichtbar an. Sie verstehen 60% eines Films, verpassen aber die Witze. Sie können Essen bestellen, aber nicht über Politik streiten. Willkommen auf dem "Mittelstufen-Plateau". Es ist keine Sackgasse; es ist ein langer Anstieg.</p>
 
-  <h2>১. "রোলপ্লে" (Roleplay) প্রম্পট</h2>
-  <p>পাঠ্যবইগুলো স্থির। এআই (AI) গতিশীল। আপনি বাস্তব জীবনের কথোপকথন অনুকরণ করতে পারেন।</p>
-  <p><strong>প্রম্পট:</strong> "প্যারিসের একটি ভিড় করা ক্যাফেতে একজন বদমেজাজি বারিস্তা হিসেবে আচরণ করুন। আমি কফি অর্ডার করা একজন গ্রাহক। আমাকে একে একে প্রশ্ন জিজ্ঞাসা করুন। প্রতিটি উত্তরের পরে আমার ফরাসি ভুলগুলো সংশোধন করুন, এবং তারপর রোলপ্লে চালিয়ে যান।"</p>
-  <p>এটি কম ঝুঁকিপূর্ণ পরিবেশে ইন্টারেক্টিভ অনুশীলনের সুযোগ দেয়।</p>
+  <h2>1. Warum echte Audioaufnahmen wie Lärm klingen</h2>
+  <p>Lehrbücher sprechen langsam und deutlich. Echte Menschen nuscheln, unterbrechen und benutzen Slang. Um durchzubrechen, müssen Sie das Lernmaterial wegwerfen.</p>
+  <p><strong>Die Lösung:</strong> Hören Sie <em>native</em> Inhalte für Muttersprachler. Nicht "Spanisch für Anfänger", sondern "Spanische Nachrichten". Es wird anfangs schmerzhaft sein. Dieser Schmerz ist Wachstum.</p>
 
-  <h2>২. "সিম্পলিফায়ার" (Simplifier) প্রম্পট</h2>
-  <p>খুব কঠিন একটি নিবন্ধ খুঁজে পেয়েছেন? হাল ছাড়বেন না।</p>
-  <p><strong>প্রম্পট:</strong> "নিম্নলিখিত পাঠ্যটি CEFR A2 স্তরে (উচ্চ শিক্ষানবিস) পুনরায় লিখুন। অর্থ বজায় রাখুন কিন্তু শব্দভান্ডার এবং ব্যাকরণ সহজ করুন: [টেক্সট পেস্ট করুন]"</p>
-  <p>এখন আপনার কাছে আপনার নিজস্ব গ্রেডেড রিডার আছে।</p>
+  <h2>2. Die "Gut genug"-Falle</h2>
+  <p>Sie können sich erklären, also hören Sie auf, sich anzustrengen. Sie sagen "Ich gehen Laden" statt "Ich gehe in den Laden". Die Leute verstehen es, also korrigieren Sie es nicht.</p>
+  <p><strong>Die Lösung:</strong> Nehmen Sie sich 1 Minute lang beim Sprechen auf. Hören Sie es sich an. Sie werden Fehler hören, die Sie im Moment nicht bemerkt haben. Korrigieren Sie sie. Nehmen Sie erneut auf.</p>
 
-  <h2>৩. "ব্যাকরণ গোয়েন্দা" (Grammar Detective) প্রম্পট</h2>
-  <p>শুধুমাত্র সংশোধনের জন্য জিজ্ঞাসা করবেন না; জিজ্ঞাসা করুন <em>কেন</em>।</p>
-  <p><strong>প্রম্পট:</strong> "এখানে একটি বাক্য আছে যা আমি লিখেছি: [বাক্য]। এটা কি স্বাভাবিক? যদি না হয়, তবে এটি সংশোধন করুন এবং আমি যে ব্যাকরণ নিয়মটি লঙ্ঘন করেছি তা ব্যাখ্যা করুন। এছাড়াও, এই নিয়মটি ব্যবহার করে আমাকে আরও ৩টি উদাহরণ দিন।"</p>
-
-  <h2>৪. "শব্দভান্ডার প্রসারণ" (Vocabulary Expansion) প্রম্পট</h2>
-  <p>গুচ্ছ আকারে (clusters) শব্দ শিখুন।</p>
-  <p><strong>প্রম্পট:</strong> "আমি [রান্না] সম্পর্কে কথা বলতে চাই। আমাকে স্প্যানিশ ভাষায় রান্না সম্পর্কিত ২০টি সবচেয়ে সাধারণ ক্রিয়াপদ এবং বিশেষ্য দিন। সেগুলোকে ইংরেজি অনুবাদ এবং প্রতিটির জন্য একটি উদাহরণ বাক্য সহ একটি টেবিলে রাখুন।"</p>
-
-  <h2>৫. "বিপরীত দৃষ্টিভঙ্গি" (Opposing Perspective) প্রম্পট</h2>
-  <p>উন্নত যুক্তি আয়ত্ত করতে:</p>
-  <p><strong>প্রম্পট:</strong> "আমি যুক্তি দেব যে [ভিডিও গেম শিশুদের জন্য ভালো]। আমার সাথে জার্মান ভাষায় বিতর্ক করুন। আমার পয়েন্টগুলো একে একে খণ্ডন করুন।"</p>
+  <h2>3. Vokabular: Tiefe über Breite</h2>
+  <p>Sie kennen "run (rennen)". Aber kennen Sie "sprint (sprinten)", "jog (joggen)", "flee (fliehen)" oder "dash (sausen)"? Mittelstufenlerner brauchen Präzision.</p>
+  <p><strong>Die Lösung:</strong> Hören Sie auf, wahllos neue Listen zu lernen. Nehmen Sie ein Wort, das Sie kennen, und lernen Sie seine 3 Synonyme und 3 Antonyme. Erweitert Ihren Wortschatz sofort.</p>
 
   <div class="tip-box">
-     <strong>সতর্কতা:</strong> এআই "হ্যালুসিনেট" করতে পারে (জিনিস বানাতে পারে)। যদি কিছু অদ্ভুত মনে হয় তবে সর্বদা সত্য বা সূক্ষ্মতা দুবার পরীক্ষা করুন। অনুশীলন এবং জেনারেট করার জন্য এআই ব্যবহার করুন, তবে সংজ্ঞার জন্য অফিসিয়াল অভিধানের উপর বিশ্বাস রাখুন।
+     <strong>Realitätscheck:</strong> Die Reise von 0 auf B1 dauert 6 Monate. Die Reise von B1 auf C1 dauert 2 Jahre. Passen Sie Ihre Erwartungen an. Sie scheitern nicht; Sie sind jetzt nur im tiefen Wasser.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_UR = `
+const POST_PLATEAU_CONTENT_TR = `
 <article>
-  <p>مہنگے پرائیویٹ ٹیوٹرز کا دور ختم ہو رہا ہے۔ ChatGPT، Claude اور Gemini جیسے بڑے لینگویج ماڈلز (LLMs) کی بدولت، آپ کو 24/7 مفت میں کثیر لسانی ذہانت تک رسائی حاصل ہے۔ لیکن زیادہ تر لوگ اسے صرف ایک شاندار گوگل ٹرانسلیٹ کے طور پر استعمال کرتے ہیں۔ یہاں اس کی مکمل صلاحیت کو کھولنے کا طریقہ دیا گیا ہے۔</p>
+  <p>Bir duvara tosladınız. 6 ay çalıştınız, 1000 kelime öğrendiniz ve harika hissettiniz. Şimdi mi? İlerleme görünmez geliyor. Bir filmin %60'ını anlıyorsunuz ama şakaları kaçırıyorsunuz. Yemek siparişi verebiliyorsunuz ama siyaset tartışamıyorsunuz. "Orta Seviye Platosu"na hoş geldiniz. Bu bir çıkmaz sokak değil; uzun bir tırmanış.</p>
 
-  <h2>1. "رول پلے" (Roleplay) پرامپٹ</h2>
-  <p>نصابی کتابیں ساکت ہیں۔ AI متحرک ہے۔ آپ حقیقی زندگی کی گفتگو کی نقالی کر سکتے ہیں۔</p>
-  <p><strong>پرامپٹ:</strong> "پیرس کے ایک پرہجوم کیفے میں ایک بدمزاج بارسٹا (barista) کے طور پر کام کریں۔ میں کافی آرڈر کرنے والا گاہک ہوں۔ مجھ سے ایک ایک کرکے سوالات پوچھیں۔ ہر جواب کے بعد میری فرانسیسی غلطیوں کی اصلاح کریں، اور پھر رول پلے جاری رکھیں۔"</p>
-  <p>یہ کم خطرے والے ماحول میں انٹرایکٹو پریکٹس فراہم کرتا ہے۔</p>
+  <h2>1. Gerçek Ses Neden Gürültü Gibi Geliyor?</h2>
+  <p>Ders kitapları yavaş ve net konuşur. Gerçek insanlar mırıldanır, söz keser ve argo kullanır. Bunu aşmak için öğrenci materyallerini bir kenara bırakmalısınız.</p>
+  <p><strong>Çözüm:</strong> Yerliler için <em>yerel</em> içerik dinleyin. "Yeni Başlayanlar İçin İspanyolca" değil, "İspanyol Haberleri". Başta acı verici olacak. O acı büyümedir.</p>
 
-  <h2>2. "سمپلیفائر" (Simplifier) پرامپٹ</h2>
-  <p>کوئی ایسا مضمون ملا جو پڑھنے میں بہت مشکل ہے؟ ہار نہ مانیں۔</p>
-  <p><strong>پرامپٹ:</strong> "درج ذیل متن کو CEFR A2 لیول (اعلیٰ ابتدائی) پر دوبارہ لکھیں۔ معنی برقرار رکھیں لیکن ذخیرہ الفاظ اور گرامر کو آسان بنائیں: [ٹیکسٹ پیسٹ کریں]"</p>
-  <p>اب آپ کے پاس اپنی ذاتی گریڈڈ ریڈر (graded reader) ہے۔</p>
+  <h2>2. "Yeterince İyi" Tuzağı</h2>
+  <p>Kendinizi anlatabiliyorsunuz, bu yüzden zorlamayı bırakıyorsunuz. "Ben markete gidiyorum" yerine "Ben git market" diyorsunuz. İnsanlar anlıyor, bu yüzden düzeltmiyorsunuz.</p>
+  <p><strong>Çözüm:</strong> Konuşurken sesinizi 1 dakika kaydedin. Tekrar dinleyin. O an fark etmediğiniz hataları duyacaksınız. Düzeltin. Tekrar kaydedin.</p>
 
-  <h2>3. "گرامر جاسوس" (Grammar Detective) پرامپٹ</h2>
-  <p>صرف اصلاح نہ مانگیں؛ پوچھیں <em>کیوں</em>۔</p>
-  <p><strong>پرامپٹ:</strong> "یہ ایک جملہ ہے جو میں نے لکھا ہے: [جملہ]۔ کیا یہ فطری ہے؟ اگر نہیں، تو اسے درست کریں اور اس گرامر کے اصول کی وضاحت کریں جس کی میں نے خلاف ورزی کی ہے۔ نیز، اس اصول کا استعمال کرتے ہوئے مجھے 3 مزید مثالیں دیں۔"</p>
-
-  <h2>4. "ذخیرہ الفاظ میں توسیع" (Vocabulary Expansion) پرامپٹ</h2>
-  <p>الفاظ کو گروپوں (clusters) میں سیکھیں۔</p>
-  <p><strong>پرامپٹ:</strong> "میں [کھانا پکانے] کے بارے میں بات کرنا چاہتا ہوں۔ مجھے ہسپانوی میں کھانا پکانے سے متعلق 20 سب سے عام فعل اور اسم دیں۔ انہیں انگریزی ترجمہ اور ہر ایک کے لیے ایک مثال کے جملے کے ساتھ ٹیبل میں رکھیں۔"</p>
-
-  <h2>5. "مخالف نقطہ نظر" (Opposing Perspective) پرامپٹ</h2>
-  <p>اعلیٰ درجہ کی دلیل (argumentation) میں مہارت حاصل کرنے کے لیے:</p>
-  <p><strong>پرامپٹ:</strong> "میں دلیل دوں گا کہ [ویڈیو گیمز بچوں کے لیے اچھے ہیں]۔ میرے ساتھ جرمن میں بحث کریں۔ میرے پوائنٹس کو ایک ایک کرکے رد کریں۔"</p>
+  <h2>3. Kelime Bilgisi: Genişlikten Ziyade Derinlik</h2>
+  <p>"Run (koşmak)" kelimesini biliyorsunuz. Ama "sprint (depar atmak)", "jog (hafif koşmak)", "flee (kaçmak)" veya "dash (fırlamak)" kelimelerini biliyor musunuz? Orta seviye öğrencilerin kesinliğe ihtiyacı vardır.</p>
+  <p><strong>Çözüm:</strong> Rastgele yeni listeler öğrenmeyi bırakın. Bildiğiniz bir kelimeyi alın ve onun 3 eş anlamlısını ve 3 zıt anlamlısını öğrenin. Menzilinizi anında genişletir.</p>
 
   <div class="tip-box">
-     <strong>انتباہ:</strong> AI "خواب" (hallucinate) دکھا سکتا ہے (چیزیں بنا سکتا ہے)۔ اگر کچھ عجیب لگتا ہے تو ہمیشہ حقائق یا باریکیوں کی دوبارہ جانچ کریں۔ پریکٹس اور تخلیق کے لیے AI کا استعمال کریں، لیکن تعریفوں کے لیے سرکاری لغات پر بھروسہ کریں۔
+     <strong>Gerçeklik Kontrolü:</strong> 0'dan B1'e yolculuk 6 ay sürer. B1'den C1'e yolculuk 2 yıl sürer. Beklentilerinizi ayarlayın. Başarısız olmuyorsunuz; sadece şu an derin sulardasınız.
   </div>
 </article>
 `;
 
-const POST_CHATGPT_CONTENT_NE = `
+const POST_PLATEAU_CONTENT_AR = `
 <article>
-  <p>महँगो निजी शिक्षकहरूको युग समाप्त हुँदैछ। ChatGPT, Claude र Gemini जस्ता ठूला भाषा मोडेलहरू (LLMs) लाई धन्यवाद, तपाईंसँग 24/7 बहुभाषी प्रतिभामा निःशुल्क पहुँच छ। तर धेरैजसो मानिसहरू यसलाई केवल एक महिमित गुगल अनुवादको रूपमा प्रयोग गर्छन्। यहाँ यसको पूर्ण क्षमता कसरी अनलक गर्ने भन्ने छ।</p>
+  <p>لقد اصطدمت بحائط. درست لمدة 6 أشهر، وتعلمت 1000 كلمة، وشعرت بشعور رائع. والآن؟ التقدم يبدو غير مرئي. تفهم 60% من الفيلم لكن النكات تفوتك. يمكنك طلب الطعام لكن لا يمكنك مناقشة السياسة. مرحباً بك في "هضبة المستوى المتوسط". إنها ليست طريقاً مسدوداً؛ إنها تسلق طويل.</p>
 
-  <h2>१. "भूमिका निर्वाह" (Roleplay) प्रम्प्ट</h2>
-  <p>पाठ्यपुस्तकहरू स्थिर छन्। AI गतिशील छ। तपाईं वास्तविक जीवन कुराकानीहरू अनुकरण गर्न सक्नुहुन्छ।</p>
-  <p><strong>प्रम्प्ट:</strong> "पेरिसको भीडभाड भएको क्याफेमा एक रिसाहा बारिस्टाको रूपमा व्यवहार गर्नुहोस्। म कफी अर्डर गर्ने ग्राहक हुँ। मलाई एक-एक गरेर प्रश्नहरू सोध्नुहोस्। प्रत्येक जवाफ पछि मेरो फ्रान्सेली गल्तीहरू सच्याउनुहोस्, र त्यसपछि भूमिका निर्वाह जारी राख्नुहोस्।"</p>
-  <p>यसले कम जोखिमको वातावरणमा अन्तरक्रियात्मक अभ्यास प्रदान गर्दछ।</p>
+  <h2>1. لماذا يبدو الصوت الحقيقي وكأنه ضوضاء</h2>
+  <p>تتحدث الكتب المدرسية ببطء ووضوح. يتمتم الناس الحقيقيون، ويقاطعون، ويستخدمون العامية. للاختراق، يجب عليك التخلي عن مواد المتعلم.</p>
+  <p><strong>الحل:</strong> استمع إلى محتوى <em>أصلي</em> للسكان الأصليين. ليس "اللغة الإسبانية للمبتدئين"، بل "الأخبار الإسبانية". سيكون الأمر مؤلماً في البداية. هذا الألم هو النمو.</p>
 
-  <h2>२. "सरलीकरण" (Simplifier) प्रम्प्ट</h2>
-  <p>पढ्न धेरै गाह्रो भएको लेख फेला पार्नुभयो? हार नमान्नुहोस्।</p>
-  <p><strong>प्रम्प्ट:</strong> "तलको पाठलाई CEFR A2 स्तर (उच्च शुरुवातकर्ता) मा पुन: लेख्नुहोस्। अर्थ राख्नुहोस् तर शब्दावली र व्याकरण सरल बनाउनुहोस्: [पाठ टाँस्नुहोस्]"</p>
-  <p>अब तपाईंसँग आफ्नै व्यक्तिगत ग्रेडेड रिडर छ।</p>
+  <h2>2. فخ "جيد بما فيه الكفاية"</h2>
+  <p>يمكنك شرح نفسك، لذلك تتوقف عن الدفع. تقول "أنا ذهاب متجر" بدلاً من "أنا ذاهب إلى المتجر". الناس يفهمون، لذلك لا تصححها.</p>
+  <p><strong>الحل:</strong> سجل صوتك وأنت تتحدث لمدة دقيقة واحدة. استمع مرة أخرى. ستسمع أخطاء لم تلاحظها في اللحظة. صححها. أعد التسجيل.</p>
 
-  <h2>३. "व्याकरण जासूस" (Grammar Detective) प्रम्प्ट</h2>
-  <p>सुधारको लागि मात्र नसोध्नुहोस्; सोध्नुहोस् <em>किन</em>।</p>
-  <p><strong>प्रम्प्ट:</strong> "यहाँ मैले लेखेको एउटा वाक्य छ: [वाक्य]। के यो स्वाभाविक छ? यदि छैन भने, यसलाई सच्याउनुहोस् र मैले उल्लङ्घन गरेको व्याकरण नियम व्याख्या गर्नुहोस्। साथै, यो नियम प्रयोग गरेर मलाई ३ थप उदाहरणहरू दिनुहोस्।"</p>
-
-  <h2>४. "शब्दावली विस्तार" (Vocabulary Expansion) प्रम्प्ट</h2>
-  <p>समूहहरूमा शब्दहरू सिक्नुहोस्।</p>
-  <p><strong>प्रम्प्ट:</strong> "म [खाना पकाउने] बारे कुरा गर्न चाहन्छु। मलाई स्पेनिसमा खाना पकाउनेसँग सम्बन्धित २० सबैभन्दा सामान्य क्रिया र नामहरू दिनुहोस्। तिनीहरूलाई अंग्रेजी अनुवाद र प्रत्येकको लागि उदाहरण वाक्यको साथ तालिकामा राख्नुहोस्।"</p>
-
-  <h2>५. "विपरित दृष्टिकोण" (Opposing Perspective) प्रम्प्ट</h2>
-  <p>उन्नत तर्कमा महारत हासिल गर्न:</p>
-  <p><strong>प्रम्प्ट:</strong> "म तर्क गर्नेछु कि [भिडियो गेमहरू बच्चाहरूका लागि राम्रो छन्]। मसँग जर्मनमा बहस गर्नुहोस्। मेरा बुँदाहरू एक-एक गरेर खण्डन गर्नुहोस्।"</p>
+  <h2>3. المفردات: العمق أهم من الاتساع</h2>
+  <p>أنت تعرف كلمة "run (يجري)". لكن هل تعرف "sprint (يركض بسرعة)"، "jog (يهرول)"، "flee (يفر)"، أو "dash (يندفع)"؟ يحتاج متعلمو المستوى المتوسط إلى الدقة.</p>
+  <p><strong>الحل:</strong> توقف عن تعلم قوائم عشوائية جديدة. خذ كلمة تعرفها وتعلم 3 مرادفات و 3 أضداد لها. يوسع نطاقك فوراً.</p>
 
   <div class="tip-box">
-     <strong>चेतावनी:</strong> AI ले "ह्यालुसिनेट" (hallucinate) गर्न सक्छ (कुराहरू बनाउन सक्छ)। यदि केहि अनौठो लाग्छ भने सधैं तथ्य वा सूक्ष्मताहरू दुई पटक जाँच गर्नुहोस्। अभ्यास र सिर्जना गर्न AI प्रयोग गर्नुहोस्, तर परिभाषाहरूको लागि आधिकारिक शब्दकोशहरूमा भरोसा गर्नुहोस्।
+     <strong>تحقق من الواقع:</strong> الرحلة من 0 إلى B1 تستغرق 6 أشهر. الرحلة من B1 إلى C1 تستغرق سنتين. اضبط توقعاتك. أنت لا تفشل؛ أنت فقط في المياه العميقة الآن.
   </div>
 </article>
 `;
+
+const POST_PLATEAU_CONTENT_HI = `
+<article>
+  <p>आप एक दीवार से टकरा गए हैं। आपने 6 महीने अध्ययन किया, 1000 शब्द सीखे, और बहुत अच्छा महसूस किया। अब? प्रगति अदृश्य लगती है। आप एक फिल्म का 60% समझते हैं लेकिन चुटकुले याद नहीं रहते। आप खाना ऑर्डर कर सकते हैं लेकिन राजनीति पर बहस नहीं कर सकते। "इंटरमीडिएट पठार" (Intermediate Plateau) में आपका स्वागत है। यह कोई बंद गली नहीं है; यह एक लंबी चढ़ाई है।</p>
+
+  <h2>1. असली ऑडियो शोर जैसा क्यों लगता है</h2>
+  <p>पाठ्यपुस्तकें धीरे और स्पष्ट बोलती हैं। असली लोग बुदबुदाते हैं, बीच में बोलते हैं, और कठबोली (slang) का उपयोग करते हैं। इसे तोड़ने के लिए, आपको शिक्षार्थी सामग्री छोड़नी होगी।</p>
+  <p><strong>उपाय:</strong> मूल निवासियों के लिए <em>मूल</em> सामग्री सुनें। "शुरुआती लोगों के लिए स्पेनिश" नहीं, बल्कि "स्पेनिश समाचार"। यह पहले दर्दनाक होगा। वह दर्द ही विकास है।</p>
+
+  <h2>2. "काफी अच्छा" जाल</h2>
+  <p>आप खुद को समझा सकते हैं, इसलिए आप जोर लगाना बंद कर देते हैं। आप "मैं दुकान जाता" कहते हैं न कि "मैं दुकान जा रहा हूँ।" लोग समझते हैं, इसलिए आप इसे सही नहीं करते हैं।</p>
+  <p><strong>उपाय:</strong> 1 मिनट के लिए खुद को बोलते हुए रिकॉर्ड करें। वापस सुनें। आप ऐसी गलतियाँ सुनेंगे जो आपने उस समय नहीं पकड़ी थीं। उन्हें सुधारें। फिर से रिकॉर्ड करें।</p>
+
+  <h2>3. शब्दावली: चौड़ाई से अधिक गहराई</h2>
+  <p>आप "run (दौड़ना)" जानते हैं। लेकिन क्या आप "sprint (तेज दौड़ना)", "jog (जॉगिंग)", "flee (भागना)", या "dash (झपटना)" जानते हैं? इंटरमीडिएट शिक्षार्थियों को सटीकता की आवश्यकता होती है।</p>
+  <p><strong>उपाय:</strong> यादृच्छिक नई सूचियां सीखना बंद करें। एक शब्द लें जिसे आप जानते हैं और उसके 3 पर्यायवाची और 3 विलोम शब्द सीखें। आपकी सीमा का तुरंत विस्तार करता है।</p>
+
+  <div class="tip-box">
+     <strong>वास्तविकता की जाँच:</strong> 0 से B1 की यात्रा में 6 महीने लगते हैं। B1 से C1 की यात्रा में 2 साल लगते हैं। अपनी अपेक्षाओं को समायोजित करें। आप असफल नहीं हो रहे हैं; आप अभी गहरे पानी में हैं।
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_RU = `
+<article>
+  <p>Вы уперлись в стену. Вы учились 6 месяцев, выучили 1000 слов и чувствовали себя прекрасно. А сейчас? Прогресс кажется невидимым. Вы понимаете 60% фильма, но упускаете шутки. Вы можете заказать еду, но не можете спорить о политике. Добро пожаловать на "Плато среднего уровня". Это не тупик; это долгий подъем.</p>
+
+  <h2>1. Почему реальная речь звучит как шум</h2>
+  <p>Учебники говорят медленно и четко. Реальные люди бормочут, перебивают и используют сленг. Чтобы прорваться, вы должны отказаться от учебных материалов.</p>
+  <p><strong>Решение:</strong> Слушайте <em>нативный</em> контент для носителей. Не "Испанский для начинающих", а "Испанские новости". Сначала будет больно. Эта боль — рост.</p>
+
+  <h2>2. Ловушка "И так сойдет"</h2>
+  <p>Вы можете объясниться, поэтому вы перестаете напрягаться. Вы говорите "Я идти магазин" вместо "Я иду в магазин". Люди понимают, поэтому вы не исправляете это.</p>
+  <p><strong>Решение:</strong> Запишите, как вы говорите, в течение 1 минуты. Прослушайте. Вы услышите ошибки, которые не заметили в моменте. Исправьте их. Запишите снова.</p>
+
+  <h2>3. Словарный запас: Глубина важнее ширины</h2>
+  <p>Вы знаете "run (бежать)". Но знаете ли вы "sprint (спринт)", "jog (бег трусцой)", "flee (спасаться бегством)" или "dash (мчаться)"? Ученикам среднего уровня нужна точность.</p>
+  <p><strong>Решение:</strong> Перестаньте учить случайные новые списки. Возьмите слово, которое вы знаете, и выучите его 3 синонима и 3 антонима. Мгновенно расширяет ваш диапазон.</p>
+
+  <div class="tip-box">
+     <strong>Проверка реальностью:</strong> Путь от 0 до B1 занимает 6 месяцев. Путь от B1 до C1 занимает 2 года. Скорректируйте свои ожидания. Вы не терпите неудачу; вы просто сейчас на глубине.
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_BN = `
+<article>
+  <p>আপনি দেয়ালে ধাক্কা খেয়েছেন। আপনি ৬ মাস পড়াশোনা করেছেন, ১০০০ শব্দ শিখেছেন এবং খুব ভালো অনুভব করেছেন। এখন? অগ্রগতি অদৃশ্য মনে হচ্ছে। আপনি একটি সিনেমার ৬০% বোঝেন কিন্তু কৌতুক মিস করেন। আপনি খাবার অর্ডার করতে পারেন কিন্তু রাজনীতি নিয়ে তর্ক করতে পারেন না। "ইন্টারমিডিয়েট মালভূমি" (Intermediate Plateau)-তে স্বাগতম। এটি কানাগলি নয়; এটি একটি দীর্ঘ আরোহণ।</p>
+
+  <h2>১. কেন আসল অডিও গোলমালের মতো শোনায়</h2>
+  <p>পাঠ্যপুস্তক ধীরে এবং স্পষ্টভাবে কথা বলে। আসল মানুষ বিড়বিড় করে, বাধা দেয় এবং অপভাষা ব্যবহার করে। এটি ভেদ করতে, আপনাকে শিক্ষার্থীদের উপাদান ত্যাগ করতে হবে।</p>
+  <p><strong>সমাধান:</strong> স্থানীয়দের জন্য <em>স্থানীয়</em> কন্টেন্ট শুনুন। "নতুনদের জন্য স্প্যানিশ" নয়, বরং "স্প্যানিশ খবর"। এটি প্রথমে বেদনাদায়ক হবে। সেই বেদনাই বৃদ্ধি।</p>
+
+  <h2>২. "যথেষ্ট ভালো" ফাঁদ</h2>
+  <p>আপনি নিজেকে ব্যাখ্যা করতে পারেন, তাই আপনি চাপ দেয়া বন্ধ করেন। আপনি "আমি দোকানে যাচ্ছি" এর পরিবর্তে "আমি দোকান যাই" বলেন। মানুষ বোঝে, তাই আপনি এটি সংশোধন করেন না।</p>
+  <p><strong>সমাধান:</strong> ১ মিনিটের জন্য নিজের কথা রেকর্ড করুন। আবার শুনুন। আপনি এমন ভুল শুনতে পাবেন যা আপনি সেই মুহূর্তে ধরেননি। সেগুলি সংশোধন করুন। পুনরায় রেকর্ড করুন।</p>
+
+  <h2>৩. শব্দভাণ্ডার: প্রস্থের চেয়ে গভীরতা</h2>
+  <p>আপনি "run (দৌড়ানো)" জানেন। কিন্তু আপনি কি "sprint (স্প্রিন্ট)", "jog (জগিং)", "flee (পালানো)", বা "dash (ড্যাশ)" জানেন? মধ্যবর্তী শিক্ষার্থীদের নির্ভুলতা প্রয়োজন।</p>
+  <p><strong>সমাধান:</strong> এলোমেলো নতুন তালিকা শেখা বন্ধ করুন। আপনার জানা একটি শব্দ নিন এবং এর ৩টি সমার্থক এবং ৩টি বিপরীতার্থক শব্দ শিখুন। অবিলম্বে আপনার পরিসর প্রসারিত করে।</p>
+
+  <div class="tip-box">
+     <strong>বাস্তবতা পরীক্ষা:</strong> ০ থেকে B1 পর্যন্ত যাত্রায় ৬ মাস সময় লাগে। B1 থেকে C1 পর্যন্ত যাত্রায় ২ বছর সময় লাগে। আপনার প্রত্যাশা সামঞ্জস্য করুন। আপনি ব্যর্থ হচ্ছেন না; আপনি এখন গভীর জলে আছেন।
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_UR = `
+<article>
+  <p>آپ ایک دیوار سے ٹکرا گئے ہیں۔ آپ نے 6 ماہ تک مطالعہ کیا، 1000 الفاظ سیکھے، اور بہت اچھا محسوس کیا۔ اب؟ ترقی نادیدہ محسوس ہوتی ہے۔ آپ فلم کا 60٪ سمجھتے ہیں لیکن لطیفے یاد نہیں کر پاتے۔ آپ کھانا آرڈر کر سکتے ہیں لیکن سیاست پر بحث نہیں کر سکتے۔ "انٹرمیڈیٹ پلیٹیو" (Intermediate Plateau) میں خوش آمدید۔ یہ کوئی بند گلی نہیں ہے؛ یہ ایک لمبی چڑھائی ہے۔</p>
+
+  <h2>1. اصلی آڈیو شور کی طرح کیوں لگتا ہے</h2>
+  <p>نصابی کتابیں آہستہ اور واضح بولتی ہیں۔ اصلی لوگ بڑبڑاتے ہیں، بات کاٹتے ہیں، اور سلینگ استعمال کرتے ہیں۔ اسے توڑنے کے لیے، آپ کو سیکھنے والے مواد کو چھوڑنا ہوگا۔</p>
+  <p><strong>حل:</strong> مقامی لوگوں کے لیے <em>مقامی</em> مواد سنیں۔ "ابتدائی لوگوں کے لیے ہسپانوی" نہیں، بلکہ "ہسپانوی خبریں"۔ یہ پہلے تکلیف دہ ہوگا۔ وہ تکلیف ہی نمو ہے۔</p>
+
+  <h2>2. "کافی اچھا" جال</h2>
+  <p>آپ خود کو سمجھا سکتے ہیں، اس لیے آپ زور لگانا بند کر دیتے ہیں۔ آپ "میں اسٹور جا رہا ہوں" کے بجائے "میں اسٹور جاتا" کہتے ہیں۔ لوگ سمجھتے ہیں، اس لیے آپ اسے درست نہیں کرتے۔</p>
+  <p><strong>حل:</strong> 1 منٹ کے لیے خود کو بولتے ہوئے ریکارڈ کریں۔ واپس سنیں۔ آپ ایسی غلطیاں سنیں گے جو آپ نے اس وقت نہیں پکڑی تھیں۔ انہیں درست کریں۔ دوبارہ ریکارڈ کریں۔</p>
+
+  <h2>3. ذخیرہ الفاظ: چوڑائی سے زیادہ گہرائی</h2>
+  <p>آپ "run (دوڑنا)" جانتے ہیں۔ لیکن کیا آپ "sprint (سپرنٹ)"، "jog (جاگنگ)"، "flee (بھاگنا)"، یا "dash (ڈیش)" جانتے ہیں؟ انٹرمیڈیٹ سیکھنے والوں کو درستگی کی ضرورت ہوتی ہے۔</p>
+  <p><strong>حل:</strong> بے ترتیب نئی فہرستیں سیکھنا بند کریں۔ ایک لفظ لیں جسے آپ جانتے ہیں اور اس کے 3 مترادف اور 3 متضاد الفاظ سیکھیں۔ آپ کی رینج کو فوری طور پر وسیع کرتا ہے۔</p>
+
+  <div class="tip-box">
+     <strong>حقیقت کی جانچ:</strong> 0 سے B1 تک کے سفر میں 6 ماہ لگتے ہیں۔ B1 سے C1 تک کے سفر میں 2 سال لگتے ہیں۔ اپنی توقعات کو ایڈجسٹ کریں۔ آپ ناکام نہیں ہو رہے ہیں؛ آپ بس اب گہرے پانی میں ہیں۔
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_NE = `
+<article>
+  <p>तपाईं एउटा पर्खालमा ठोक्किनुभयो। तपाईंले ६ महिना अध्ययन गर्नुभयो, १००० शब्दहरू सिक्नुभयो, र धेरै राम्रो महसुस गर्नुभयो। अब? प्रगति अदृश्य देखिन्छ। तपाईं चलचित्रको ६०% बुझ्नुहुन्छ तर चुटकिलाहरू बुझ्नुहुन्न। तपाईं खाना अर्डर गर्न सक्नुहुन्छ तर राजनीतिमा तर्क गर्न सक्नुहुन्न। "मध्यवर्ती पठार" (Intermediate Plateau) मा स्वागत छ। यो कुनै बन्द गल्ली होइन; यो एक लामो चढाई हो।</p>
+
+  <h2>१. किन वास्तविक अडियो शोर जस्तो लाग्छ</h2>
+  <p>पाठ्यपुस्तकहरू बिस्तारै र स्पष्ट बोल्छन्। वास्तविक मानिसहरू गनगन गर्छन्, बीचमा बोल्छन्, र अपशब्द प्रयोग गर्छन्। यसलाई तोड्न, तपाईंले सिकारु सामग्री छोड्नुपर्छ।</p>
+  <p><strong>समाधान:</strong> मूल निवासीहरूको लागि <em>मूल</em> सामग्री सुन्नुहोस्। "शुरुआतीहरूको लागि स्पेनिश" होइन, तर "स्पेनिश समाचार"। यो सुरुमा पीडादायी हुनेछ। त्यो पीडा नै वृद्धि हो।</p>
+
+  <h2>२. "काफी राम्रो" जाल</h2>
+  <p>तपाईं आफैलाई व्याख्या गर्न सक्नुहुन्छ, त्यसैले तपाईंले जोड दिन बन्द गर्नुहुन्छ। तपाईं "म पसल जाँदैछु" को सट्टा "म पसल जान्छु" भन्नुहुन्छ। मानिसहरू बुझ्छन्, त्यसैले तपाईं यसलाई सच्याउनुहुन्न।</p>
+  <p><strong>समाधान:</strong> १ मिनेटको लागि आफैलाई बोल्दै रेकर्ड गर्नुहोस्। फिर्ता सुन्नुहोस्। तपाईंले गल्तीहरू सुन्नुहुनेछ जुन तपाईंले त्यस समयमा थाहा पाउनुभएन। तिनीहरूलाई सच्याउनुहोस्। पुन: रेकर्ड गर्नुहोस्।</p>
+
+  <h2>३. शब्दावली: चौडाइ भन्दा गहिराई</h2>
+  <p>तपाईंलाई "run (दौडनु)" थाहा छ। तर के तपाईंलाई "sprint (स्प्रिन्ट)", "jog (जगिङ)", "flee (भाग्नु)", वा "dash (ड्याश)" थाहा छ? मध्यवर्ती शिक्षार्थीहरूलाई सटीकता चाहिन्छ।</p>
+  <p><strong>समाधान:</strong> अनियमित नयाँ सूचीहरू सिक्न बन्द गर्नुहोस्। तपाईंलाई थाहा भएको एउटा शब्द लिनुहोस् र यसको ३ पर्यायवाची र ३ विपरित शब्दहरू सिक्नुहोस्। तपाईंको दायरा तुरुन्तै विस्तार गर्दछ।</p>
+
+  <div class="tip-box">
+     <strong>वास्तविकता जाँच:</strong> ० देखि B1 सम्मको यात्रामा ६ महिना लाग्छ। B1 देखि C1 सम्मको यात्रामा २ वर्ष लाग्छ। आफ्ना आशाहरू समायोजन गर्नुहोस्। तपाईं असफल हुनुहुन्न; तपाईं अहिले गहिरो पानीमा हुनुहुन्छ।
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_SI = `
+<article>
+  <p>ඔබ බිත්තියක වැදුණා. ඔබ මාස 6 ක් ඉගෙන ගත්තා, වචන 1000 ක් ඉගෙන ගත්තා, එය විශිෂ්ටයි. දැන්? ප්‍රගතිය අදෘශ්‍යමාන බව පෙනේ. ඔබට චිත්‍රපටයකින් 60% ක් වැටහෙන නමුත් විහිළු මග හැරේ. ඔබට ආහාර ඇණවුම් කළ හැකි නමුත් දේශපාලනය ගැන තර්ක කළ නොහැක. "අතරමැදි සානුව" (Intermediate Plateau) වෙත සාදරයෙන් පිළිගනිමු. එය අවහිරයක් නොවේ; එය දිගු නැගීමකි.</p>
+
+  <h2>1. ඇත්ත ශ්‍රව්‍ය ඝෝෂාවක් ලෙස ඇසෙන්නේ ඇයි?</h2>
+  <p>පෙළපොත් සෙමින් සහ පැහැදිලිව කථා කරයි. සැබෑ මිනිසුන් මුමුණනවා, බාධා කරනවා සහ ස්ලැන්ග් (slang) භාවිතා කරනවා. එය බිඳ දැමීමට, ඔබ ඉගෙනුම් ද්‍රව්‍ය අත්හැරිය යුතුය.</p>
+  <p><strong>විසඳුම:</strong> ස්වදේශිකයන් සඳහා <em>ස්වදේශීය</em> අන්තර්ගතයට සවන් දෙන්න. "ආධුනිකයන් සඳහා ස්පාඤ්ඤ" නොව, "ස්පාඤ්ඤ පුවත්". එය මුලදී වේදනාකාරී වනු ඇත. ඒ වේදනාව වර්ධනයයි.</p>
+
+  <h2>2. "ප්‍රමාණවත් තරම් හොඳයි" උගුල</h2>
+  <p>ඔබට ඔබ ගැන පැහැදිලි කළ හැකිය, එබැවින් ඔබ තල්ලු කිරීම නවත්වන්න. ඔබ "මම කඩේ යනවා" වෙනුවට "මම කඩේ යනවා" (වැරදි ව්‍යාකරණ) කියනවා. මිනිසුන්ට තේරෙනවා, ඒ නිසා ඔබ එය නිවැරදි කරන්නේ නැහැ.</p>
+  <p><strong>විසඳුම:</strong> විනාඩි 1 ක් කතා කරමින් ඔබම පටිගත කරන්න. නැවත සවන් දෙන්න. එම මොහොතේ ඔබට හසු නො වූ වැරදි ඔබට ඇසෙනු ඇත. ඒවා නිවැරදි කරන්න. නැවත පටිගත කරන්න.</p>
+
+  <h2>3. වචන මාලාව: පළලට වඩා ගැඹුර</h2>
+  <p>ඔබ "run (දුවනවා)" දන්නවා. නමුත් ඔබ "sprint (වේගයෙන් දුවනවා)", "jog (ජොගින්)", "flee (පලා යනවා)", හෝ "dash (වෙගයෙන් යනවා)" දන්නවාද? අතරමැදි ඉගෙන ගන්නන්ට නිරවද්‍යතාවය අවශ්‍ය වේ.</p>
+  <p><strong>විසඳුම:</strong> අහඹු නව ලැයිස්තු ඉගෙනීම නවත්වන්න. ඔබ දන්නා වචනයක් ගෙන එහි සමාන පද 3 ක් සහ ප්‍රතිවිරුද්ධ පද 3 ක් ඉගෙන ගන්න. ඔබේ පරාසය ක්ෂණිකව පුළුල් කරයි.</p>
+
+  <div class="tip-box">
+     <strong>යථාර්ථය පරීක්ෂා කිරීම:</strong> 0 සිට B1 දක්වා ගමනට මාස 6 ක් ගතවේ. B1 සිට C1 දක්වා ගමනට අවුරුදු 2 ක් ගතවේ. ඔබේ බලාපොරොත්තු සකස් කරගන්න. ඔබ අසමත් නොවේ; ඔබ දැන් ඉන්නේ ගැඹුරු කෙළවරේ.
+  </div>
+</article>
+`;
+
+const POST_PLATEAU_CONTENT_SW = `
+<article>
+  <p>Uligonga ukuta. Ulisoma kwa miezi 6, ulijifunza maneno 1000, na ulijisikia vizuri sana. Sasa? Maendeleo yanahisi haionekani. Unaelewa 60% ya filamu lakini unakosa utani. Unaweza kuagiza chakula lakini huwezi kubishana kuhusu siasa. Karibu kwenye "Intermediate Plateau". Sio mwisho mbaya; ni kupanda kwa muda mrefu.</p>
+
+  <h2>1. Kwa Nini Sauti Halisi Inasikika Kama Kelele</h2>
+  <p>Vitabu vya kiada huzungumza polepole na kwa uwazi. Watu halisi hunung'unika, kukatiza, na kutumia lugha ya mtaani. Ili kupenya, lazima utupe nyenzo za mwanafunzi.</p>
+  <p><strong>Suluhisho:</strong> Sikiliza maudhui <em>asilia</em> kwa wazawa. Sio "Kihispania kwa Waanzilishi," bali "Habari za Kihispania." Itakuwa chungu mwanzoni. Maumivu hayo ni ukuaji.</p>
+
+  <h2>2. Mtego wa "Nzuri ya Kutosha"</h2>
+  <p>Unaweza kujieleza, kwa hivyo unaacha kusukuma. Unasema "Mimi nenda duka" badala ya "Ninaenda dukani." Watu wanaelewa, kwa hivyo hurekebishi.</p>
+  <p><strong>Suluhisho:</strong> Jirekodi ukizungumza kwa dakika 1. Sikiliza tena. Utasikia makosa ambayo hukuyapata wakati huo. Yarekebishe. Rekodi tena.</p>
+
+  <h2>3. Msamiati: Kina juu ya Upana</h2>
+  <p>Unajua "run (kimbia)." Lakini unajua "sprint (kimbia mbio)," "jog (kukimbia polepole)," "flee (kimbia/toroka)," au "dash (kimbilia)"? Wanafunzi wa kati wanahitaji usahihi.</p>
+  <p><strong>Suluhisho:</strong> Acha kujifunza orodha mpya bila mpangilio. Chukua neno unalo na ujifunze visawe vyake 3 na vinyume 3. Huongeza anuwai yako mara moja.</p>
+
+  <div class="tip-box">
+     <strong>Uhakiki wa Ukweli:</strong> Safari kutoka 0 hadi B1 inachukua miezi 6. Safari kutoka B1 hadi C1 inachukua miaka 2. Rekebisha matarajio yako. Hujashindwa; uko kwenye kina sasa hivi.
+  </div>
+</article>
+`;
+
+
+// Post 13 Object Definition
+const POST_PLATEAU = {
+    id: 'intermediate-plateau',
+    title: {
+        en: "The Intermediate Plateau: Why You Stopped Improving (And How to Fix It)",
+        ko: "중급자 정체기: 실력이 멈춘 이유와 해결책",
+        ja: "中級の壁：なぜ上達が止まったのか（そしてどう直すか）",
+        zh: "中级高原期：为什么你停止了进步（以及如何修复它）",
+        th: "ที่ราบสูงระดับกลาง: ทำไมคุณถึงหยุดพัฒนา (และวิธีแก้ไข)",
+        vi: "Cao nguyên Trung cấp: Tại sao bạn ngừng tiến bộ (Và cách khắc phục)",
+        id: "Dataran Tinggi Menengah: Mengapa Anda Berhenti Meningkat (Dan Cara Memperbaikinya)",
+        es: "La meseta intermedia: Por qué dejaste de mejorar (y cómo solucionarlo)",
+        pt: "O Planalto Intermediário: Por que você parou de melhorar (e como consertar)",
+        fr: "Le plateau intermédiaire : Pourquoi vous avez cessé de progresser (et comment y remédier)",
+        de: "Das Mittelstufen-Plateau: Warum Sie sich nicht mehr verbessern (und wie Sie das ändern)",
+        tr: "Orta Seviye Platosu: Neden Gelişmeyi Bıraktınız (Ve Nasıl Düzeltilir)",
+        ar: "هضبة المستوى المتوسط: لماذا توقفت عن التحسن (وكيفية إصلاح ذلك)",
+        hi: "इंटरमीडिएट पठार: आपने सुधार करना क्यों बंद कर दिया (और इसे कैसे ठीक करें)",
+        ru: "Плато среднего уровня: почему вы перестали совершенствоваться (и как это исправить)",
+        bn: "ইন্টারমিডিয়েট মালভূমি: কেন আপনি উন্নতি করা বন্ধ করেছেন (এবং কীভাবে এটি ঠিক করবেন)",
+        ur: "انٹرمیڈیٹ پلیٹیو: آپ نے بہتری کیوں روک دی (اور اسے کیسے ٹھیک کیا جائے)",
+        ne: "मध्यवर्ती पठार: तपाईंले किन सुधार गर्न बन्द गर्नुभयो (र यसलाई कसरी समाधान गर्ने)",
+        si: "අතරමැදි සානුව: ඔබ දියුණු වීම නතර කළේ ඇයි (සහ එය නිවැරදි කරන්නේ කෙසේද)",
+        sw: "Intermediate Plateau: Kwa Nini Uliacha Kuboreka (Na Jinsi ya Kurekebisha)"
+    },
+    excerpt: {
+        en: "You aren't a beginner anymore, but you aren't fluent. Welcome to the hardest part of language learning.",
+        ko: "당신은 더 이상 초보자가 아니지만, 유창하지도 않습니다. 언어 학습에서 가장 힘든 구간에 오신 것을 환영합니다.",
+        ja: "あなたはもう初心者ではありませんが、流暢でもありません。言語学習で最も困難な部分へようこそ。",
+        zh: "你不再是初学者，但还没有流利。欢迎来到语言学习最困难的部分。",
+        th: "คุณไม่ใช่ผู้เริ่มต้นอีกต่อไป แต่คุณก็ยังไม่คล่อง ยินดีต้อนรับสู่ส่วนที่ยากที่สุดของการเรียนภาษา",
+        vi: "Bạn không còn là người mới bắt đầu nữa, nhưng bạn chưa trôi chảy. Chào mừng đến với phần khó nhất của việc học ngôn ngữ.",
+        id: "Anda bukan pemula lagi, tetapi Anda belum fasih. Selamat datang di bagian tersulit dalam belajar bahasa.",
+        es: "Ya no eres un principiante, pero no eres fluido. Bienvenido a la parte más difícil del aprendizaje de idiomas.",
+        pt: "Você não é mais um iniciante, mas não é fluente. Bem-vindo à parte mais difícil do aprendizado de idiomas.",
+        fr: "Vous n'êtes plus un débutant, mais vous n'êtes pas courant. Bienvenue dans la partie la plus difficile de l'apprentissage des langues.",
+        de: "Sie sind kein Anfänger mehr, aber Sie sind nicht fließend. Willkommen im härtesten Teil des Sprachenlernens.",
+        tr: "Artık yeni başlayan biri değilsiniz ama akıcı da değilsiniz. Dil öğrenmenin en zor kısmına hoş geldiniz.",
+        ar: "لم تعد مبتدئاً، لكنك لست طليقاً. مرحباً بك في أصعب جزء من تعلم اللغة.",
+        hi: "अब आप शुरुआती नहीं हैं, लेकिन आप धाराप्रवाह नहीं हैं। भाषा सीखने के सबसे कठिन हिस्से में आपका स्वागत है।",
+        ru: "Вы больше не новичок, но вы не говорите свободно. Добро пожаловать в самую сложную часть изучения языка.",
+        bn: "আপনি আর शुरुआती নন, কিন্তু আপনি অনর্গল নন। ভাষা শেখার সবচেয়ে कठिन অংশে স্বাগতম।",
+        ur: "آپ اب مبتدی نہیں ہیں، لیکن آپ روانی سے نہیں بولتے۔ زبان سیکھنے کے سب سے مشکل حصے میں خوش آمدید۔",
+        ne: "तपाईं अब शुरुआती हुनुहुन्न, तर तपाईं धाराप्रवाह हुनुहुन्न। भाषा सिकाइको सबैभन्दा कठिन भागमा स्वागत छ।",
+        si: "ඔබ තවදුරටත් ආධුනිකයෙකු නොවේ, නමුත් ඔබ චතුර නොවේ. භාෂා ඉගෙනීමේ දුෂ්කරම කොටස වෙත සාදරයෙන් පිළිගනිමු.",
+        sw: "Wewe sio mwanzilishi tena, lakini huna ufasaha. Karibu kwenye sehemu ngumu zaidi ya kujifunza lugha."
+    },
+    content: {
+        en: POST_PLATEAU_CONTENT_EN,
+        ko: POST_PLATEAU_CONTENT_KO,
+        ja: POST_PLATEAU_CONTENT_JA,
+        zh: POST_PLATEAU_CONTENT_ZH,
+        th: POST_PLATEAU_CONTENT_TH,
+        vi: POST_PLATEAU_CONTENT_VI,
+        id: POST_PLATEAU_CONTENT_ID,
+        es: POST_PLATEAU_CONTENT_ES,
+        pt: POST_PLATEAU_CONTENT_PT,
+        fr: POST_PLATEAU_CONTENT_FR,
+        de: POST_PLATEAU_CONTENT_DE,
+        tr: POST_PLATEAU_CONTENT_TR,
+        ar: POST_PLATEAU_CONTENT_AR,
+        hi: POST_PLATEAU_CONTENT_HI,
+        ru: POST_PLATEAU_CONTENT_RU,
+        bn: POST_PLATEAU_CONTENT_BN,
+        ur: POST_PLATEAU_CONTENT_UR,
+        ne: POST_PLATEAU_CONTENT_NE,
+        si: POST_PLATEAU_CONTENT_SI,
+        sw: POST_PLATEAU_CONTENT_SW
+    },
+    date: "2024-04-05",
+    readTime: 6,
+    category: "Strategy",
+    coverImage: "/assets/blog/plateau.png",
+    author: "Dr. Lingua",
+    tags: ["Intermediate", "Strategy", "Listening", "Speaking"]
+};
 
 // ==========================================
-// Post 8: Language Audit
+// Post 14: Polyglot Secrets
 // ==========================================
-const POST_AUDIT_CONTENT_EN = `
-        <article>
-          <p>Most learners rely on motivation. But motivation is fickle. It vanishes when you are tired or busy. Successful learners rely on <strong>Systems</strong>. One of the best systems is the "Weekly Language Audit".</p>
-
-          <h2>Why Audit Yourself?</h2>
-          <p>It's easy to lie to yourself. "I studied a lot this week," you think. But did you? Or did you just watch Netflix with English subtitles? An audit forces you to face the data.</p>
-
-          <h2>The Sunday Review Template</h2>
-          <p>Every Sunday evening, spend 10 minutes asking yourself these 4 questions:</p>
-
-          <h3>1. What did I focus on? (Input vs Output)</h3>
-          <p>Estimate your hours. Did you spend 10 hours reading but 0 hours speaking? If so, next week needs more speaking practice. Balance is key.</p>
-
-          <h3>2. What was my big win?</h3>
-          <p>Celebrate small victories. "I understood a joke in a podcast" or "I learned 5 new kanji." This keeps dopamine high.</p>
-
-          <h3>3. Where did I fail?</h3>
-          <p>Be honest. "I skipped Wednesday because I was tired." Okay, why? Maybe you need to study in the morning instead of at night. Analyze the obstacle so you can remove it.</p>
-
-          <h3>4. The One Goal for Next Week</h3>
-          <p>Don't say "Study hard." Be specific. "Read Chapter 3 of Harry Potter and write a 100-word summary." Specific goals create specific actions.</p>
-
-          <h2>Tracking Metrics</h2>
-          <p>You can also track hard numbers:</p>
-          <ul>
-             <li><strong>New Words Added:</strong> (e.g., 25)</li>
-             <li><strong>Time Spent Listening:</strong> (e.g., 3 hours)</li>
-             <li><strong>Pages Read:</strong> (e.g., 15)</li>
-          </ul>
-          <p>Seeing these numbers grow over weeks gives you a sense of momentum that pure "feeling" cannot provided.</p>
-          
-          <div class="tip-box">
-             <strong>Challenge:</strong> Open your calendar right now. Block out your study times for next week. Treat them like doctor appointments—non-cancelable.
-          </div>
-        </article>
-`;
-
-const POST_AUDIT_CONTENT_KO = `
-        <article>
-          <p>대부분의 학습자는 '동기부여'에 의존합니다. 하지만 동기부여는 변덕스럽습니다. 피곤하거나 바쁘면 연기처럼 사라지죠. 성공한 학습자들은 <strong>시스템</strong>에 의존합니다. 최고의 시스템 중 하나가 바로 '주간 언어 감사(Audit)'입니다.</p>
-
-          <h2>왜 스스로 감사해야 하는가?</h2>
-          <p>스스로를 속이기는 쉽습니다. "나 이번 주에 공부 많이 했어." 라고 생각하죠. 하지만 정말 그럴까요? 그냥 한국어 자막 켜놓고 미드 본 거 아닌가요? 감사는 데이터와 직면하게 해줍니다.</p>
-
-          <h2>일요일 리뷰 템플릿</h2>
-          <p>매주 일요일 저녁, 10분만 투자해서 이 4가지 질문을 스스로에게 던져보세요.</p>
-
-          <h3>1. 무엇에 집중했나? (입력 vs 출력)</h3>
-          <p>시간을 따져보세요. 읽기에는 10시간 썼는데 말하기는 0시간이었나요? 그렇다면 다음 주는 말하기 비중을 늘려야 합니다. 균형이 생명입니다.</p>
-
-          <h3>2. 나만의 '작은 승리'는?</h3>
-          <p>사소한 성공을 자축하세요. "팟캐스트에서 농담을 알아들었어"라든가 "한자 5개를 외웠어" 같은 것들이죠. 이것이 도파민을 유지해 줍니다.</p>
-
-          <h3>3. 어디서 실패했나?</h3>
-          <p>솔직해지세요. "수요일은 피곤해서 건너뛰었어." 좋습니다. 그럼 왜요? 밤에 공부하는 게 안 맞나 봅니다. 그럼 아침으로 옮겨야죠. 장애물을 분석해야 제거할 수 있습니다.</p>
-
-          <h3>4. 다음 주의 단 하나의 목표</h3>
-          <p>"열심히 하기"라고 쓰지 마세요. 구체적이어야 합니다. "해리포터 3챕터 읽고 100자 요약문 쓰기." 목표가 구체적이어야 행동도 구체적이 됩니다.</p>
-
-          <h2>숫자로 기록하기</h2>
-          <p>정량적인 수치를 기록하는 것도 좋습니다:</p>
-          <ul>
-             <li><strong>새로 익힌 단어:</strong> (예: 25개)</li>
-             <li><strong>듣기 시간:</strong> (예: 3시간)</li>
-             <li><strong>읽은 페이지:</strong> (예: 15쪽)</li>
-          </ul>
-          <p>이 숫자들이 매주 쌓여가는 것을 눈으로 확인하는 것만큼 확실한 동기부여는 없습니다.</p>
-          
-          <div class="tip-box">
-             <strong>챌린지:</strong> 지금 당장 달력을 여세요. 다음 주 공부 시간을 미리 '예약'하세요. 병원 예약처럼, 절대 취소할 수 없는 약속으로 취급하세요.
-          </div>
-        </article>
-`;
-
-const POST_AUDIT_CONTENT_JA = `
+const POST_POLYGLOT_CONTENT_EN = `
 <article>
-  <p>1週間でどれくらい勉強しましたか？感覚だけではわかりません。データが必要です。毎週日曜日の夜、このシンプルな4ステップの監査を行ってください。</p>
+  <p>You see them on YouTube: people who speak 10 languages perfectly. You think, "They must be born with a special brain." Spoiler: They aren't. They just have better systems than you.</p>
 
-  <h2>ステップ1：データ収集</h2>
-  <p>先週の統計を書き留めてください：</p>
-  <ul>
-     <li><strong>リスニング時間：</strong> (例：3時間)</li>
-     <li><strong>スピーキング時間：</strong> (例：30分)</li>
-     <li><strong>読んだページ数：</strong> (例：15ページ)</li>
-     <li><strong>新しく学んだ単語：</strong> (例：20語)</li>
-  </ul>
+  <h2>Secret 1: They Don't "Find Time", They Steal It</h2>
+  <p>Amateurs wait for free time. Polyglots block out 30 minutes every morning at 7 AM. No excuses. If you rely on motivation, you will fail. If you rely on a schedule, you will win.</p>
   
-  <h2>ステップ2：勝利の分析</h2>
-  <p>何がうまくいきましたか？「毎朝10分ずつDuolingoをやった」のような小さな勝利を見つけてください。</p>
+  <h2>Secret 2: They Tolerance Ambiguity</h2>
+  <p>When a normal learner hears a word they don't know, they panic. A polyglot just guesses context and moves on. They are comfortable being confused. If you stop for every unknown word, you kill the flow.</p>
 
-  <h2>ステップ3：障害の特定</h2>
-  <p>何が妨げになりましたか？「残業で疲れていた」や「Netflixの誘惑に負けた」。言い訳ではなく、分析をしてください。</p>
+  <h2>Secret 3: Interest-Led Learning</h2>
+  <p>They don't use textbooks for long. They learn via cooking, gaming, or history. If you love video games, play *Skyrim* in German. If you love cooking, read recipes in Italian. Your brain remembers what it enjoys.</p>
 
-  <h2>ステップ4：来週の計画調整</h2>
-  <p>先週のデータに基づいて現実的な目標を立ててください。リスニングが不足していたら、通勤時間にポッドキャストを追加してください。</p>
+  <h2>Secret 4: Shadowing</h2>
+  <p>They don't just listen; they repeat. They mimic the speaker like a parrot, copying the speed and emotion. This tricks the brain into thinking, "This language is part of me."</p>
 
-  <h2>テンプレート（コピーして使ってください）</h2>
-  <ul>
-     <li><strong>今週の目標：</strong> [目標を書く]</li>
-     <li><strong>リスニング時間：</strong> [時間]</li>
-     <li><strong>読んだページ数：</strong> [ページ数]</li>
-  </ul>
-  <p>これらの数字が毎週積み重なっていくのを目で確認することほど、確実なモチベーションはありません。</p>
-  
   <div class="tip-box">
-     <strong>チャレンジ：</strong> 今すぐカレンダーを開いてください。来週の勉強時間を予め「予約」してください。病院の予約のように、決してキャンセルできない約束として扱ってください。
+     <strong>The Truth:</strong> There is no magic pill. There is no secret app. The secret is boring consistency applied to interesting content over a long period of time.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_ZH = `
+const POST_POLYGLOT_CONTENT_KO = `
 <article>
-  <p>这周你学习了多少？仅凭感觉是无法得知的。你需要由于数据。每个周日晚上，执行这个简单的四步审计。</p>
+  <p>유트브에서 보셨을 겁니다. 10개 국어를 완벽하게 구사하는 사람들 말이죠. "저 사람들은 특별한 두뇌를 타고났을 거야"라고 생각하시나요? 스포일러: 아닙니다. 그들은 단지 당신보다 더 나은 시스템을 가지고 있을 뿐입니다.</p>
 
-  <h2>第一步：数据收集</h2>
-  <p>写下上周的统计数据：</p>
-  <ul>
-     <li><strong>听力时间：</strong> (例如：3小时)</li>
-     <li><strong>口语时间：</strong> (例如：30分钟)</li>
-     <li><strong>阅读页数：</strong> (例如：15页)</li>
-     <li><strong>新学的单词：</strong> (例如：20个)</li>
-  </ul>
+  <h2>비결 1: 시간을 "찾는" 게 아니라 "훔친다"</h2>
+  <p>아마추어는 남는 시간에 공부하려 합니다. 폴리글롯(다언어 구사자)은 매일 아침 7시부터 30분간 시간을 미리 확보해 둡니다. 변명은 없습니다. 동기부여에 의존하면 실패합니다. 일정에 의존해야 성공합니다.</p>
   
-  <h2>第二步：胜利分析</h2>
-  <p>什么做得好？找出像“每天早上做10分钟的多邻国”这样的小胜利。</p>
+  <h2>비결 2: 모호함을 견딘다</h2>
+  <p>일반 학습자는 모르는 단어가 들리면 당황합니다. 폴리글롯은 문맥으로 추측하고 그냥 넘어갑니다. 혼란스러운 상태를 편안하게 여깁니다. 모르는 단어마다 멈추면 흐름이 끊깁니다.</p>
 
-  <h2>第三步：识别障碍</h2>
-  <p>是什么阻碍了你？“加班太累了”或者“沉迷于Netflix”。不是找借口，而是进行分析。</p>
+  <h2>비결 3: 흥미 주도 학습</h2>
+  <p>그들은 교과서를 오래 보지 않습니다. 요리, 게임, 역사를 통해 배웁니다. 비디오 게임을 좋아한다면, 독일어로 *스카이림*을 플레이하세요. 요리를 좋아한다면 이탈리아어로 레시피를 읽으세요. 뇌는 즐거운 것만 기억합니다.</p>
 
-  <h2>第四步：调整下周计划</h2>
-  <p>根据上周的数据设定现实的目标。如果听力不足，就在通勤时间增加播客。</p>
+  <h2>비결 4: 섀도잉 (Shadowing)</h2>
+  <p>그들은 듣기만 하지 않고 따라 합니다. 앵무새처럼 화자의 속도와 감정을 흉내 냅니다. 이것은 뇌가 "이 언어는 내 일부다"라고 착각하게 만듭니다.</p>
 
-  <h2>模板（复制使用）</h2>
-  <ul>
-     <li><strong>本周目标：</strong> [写下目标]</li>
-     <li><strong>听力时间：</strong> [时间]</li>
-     <li><strong>阅读页数：</strong> [页数]</li>
-  </ul>
-  <p>没有什么比亲眼看到这些数字每周积累起来更能激励人了。</p>
-  
   <div class="tip-box">
-     <strong>挑战：</strong> 现在就打开日历。提前“预订”下周的学习时间。就像预约看病一样，把它当作绝对不能取消的承诺。
+     <strong>진실:</strong> 마법의 알약은 없습니다. 비밀 앱도 없습니다. 비결은 흥미로운 콘텐츠에 지루할 정도의 꾸준함을 아주 오랫동안 쏟아붓는 것입니다.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_ES = `
+const POST_POLYGLOT_CONTENT_JA = `
 <article>
-  <p>¿Cuánto has estudiado esta semana? No puedes saberlo solo por sensaciones. Necesitas datos. Cada domingo por la noche, realiza esta sencilla auditoría de 4 pasos.</p>
+  <p>YouTubeで見たことがあるでしょう。10ヶ国語を完璧に話す人々を。「彼らは特別な脳を持って生まれたに違いない」と思いますか？ネタバレ：違います。彼らはただ、あなたより優れたシステムを持っているだけです。</p>
 
-  <h2>Paso 1: Recopilación de datos</h2>
-  <p>Anota las estadísticas de la semana pasada:</p>
-  <ul>
-     <li><strong>Tiempo de escucha:</strong> (Ej: 3 horas)</li>
-     <li><strong>Tiempo de habla:</strong> (Ej: 30 minutos)</li>
-     <li><strong>Páginas leídas:</strong> (Ej: 15 páginas)</li>
-     <li><strong>Palabras nuevas:</strong> (Ej: 20 palabras)</li>
-  </ul>
+  <h2>秘密1：時間を「見つける」のではなく「盗む」</h2>
+  <p>アマチュアは暇な時間を待ちます。ポリグロット（多言語話者）は毎朝7時に30分間ブロックします。言い訳はなしです。モチベーションに頼れば失敗します。スケジュールに頼れば成功します。</p>
   
-  <h2>Paso 2: Análisis de victorias</h2>
-  <p>¿Qué salió bien? Encuentra pequeñas victorias como "Hice Duolingo 10 minutos cada mañana".</p>
+  <h2>秘密2：曖昧さへの耐性</h2>
+  <p>普通の学習者は知らない単語を聞くとパニックになります。ポリグロットは文脈で推測し、そのまま進みます。混乱している状態を快適に感じます。知らない単語のたびに止まっていたら、流れが死んでしまいます。</p>
 
-  <h2>Paso 3: Identificación de obstáculos</h2>
-  <p>¿Qué te detuvo? "Estaba cansado por las horas extra" o "Caí en la tentación de Netflix". No son excusas, es análisis.</p>
+  <h2>秘密3：興味主導の学習</h2>
+  <p>彼らは教科書を長く使いません。料理、ゲーム、歴史を通じて学びます。テレビゲームが好きなら、ドイツ語で『スカイリム』をプレイしてください。料理が好きなら、イタリア語でレシピを読んでください。脳は楽しいことだけを記憶します。</p>
 
-  <h2>Paso 4: Ajuste del plan para la próxima semana</h2>
-  <p>Establece metas realistas basadas en los datos de la semana pasada. Si te faltó escucha, añade un podcast en tu viaje al trabajo.</p>
+  <h2>秘密4：シャドーイング</h2>
+  <p>彼らは聞くだけでなく、繰り返します。オウムのように話し手のスピードと感情を真似します。これは脳に「この言語は私の一部だ」と錯覚させます。</p>
 
-  <h2>Plantilla (Copia y usa)</h2>
-  <ul>
-     <li><strong>Meta de esta semana:</strong> [Escribir meta]</li>
-     <li><strong>Tiempo de escucha:</strong> [Tiempo]</li>
-     <li><strong>Páginas leídas:</strong> [Páginas]</li>
-  </ul>
-  <p>No hay motivación más segura que ver cómo estos números se acumulan cada semana.</p>
-  
   <div class="tip-box">
-     <strong>Desafío:</strong> Abre tu calendario ahora mismo. "Reserva" tu tiempo de estudio para la próxima semana con antelación. Trátalo como una cita médica, una promesa que no puedes cancelar.</
+     <strong>真実：</strong>魔法の薬はありません。秘密のアプリもありません。秘密は、興味深いコンテンツに対して、退屈なほどの一貫性を長期間にわたって適用することです。
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_FR = `
+const POST_POLYGLOT_CONTENT_ZH = `
 <article>
-  <p>Combien avez-vous étudié cette semaine ? Vous ne pouvez pas le savoir juste au ressenti. Vous avez besoin de données. Chaque dimanche soir, effectuez cet audit simple en 4 étapes.</p>
+  <p>你在YouTube上看到过他们：那些完美地说10种语言的人。你会想，“他们一定是天生有个特殊的大脑。”剧透：并不是。他们只是拥有比你更好的系统。</p>
 
-  <h2>Étape 1 : Collecte de données</h2>
-  <p>Notez les statistiques de la semaine dernière :</p>
-  <ul>
-     <li><strong>Temps d'écoute :</strong> (Ex : 3 heures)</li>
-     <li><strong>Temps de parole :</strong> (Ex : 30 minutes)</li>
-     <li><strong>Pages lues :</strong> (Ex : 15 pages)</li>
-     <li><strong>Nouveaux mots :</strong> (Ex : 20 mots)</li>
-  </ul>
+  <h2>秘密1：他们不是“找时间”，而是“偷时间”</h2>
+  <p>业余爱好者等待空闲时间。多语言者每天早上7点锁定30分钟。没有借口。如果你依赖动力，你会失败。如果你依赖时间表，你会成功。</p>
   
-  <h2>Étape 2 : Analyse des victoires</h2>
-  <p>Qu'est-ce qui a bien fonctionné ? Trouvez de petites victoires comme "J'ai fait Duolingo 10 minutes chaque matin".</p>
+  <h2>秘密2：他们容忍模糊</h2>
+  <p>当普通学习者听到不认识的单词时，他们会惊慌失措。多语言者只是猜测上下文然后继续。他们对困惑感到舒适。如果你为每个生词停下来，你就扼杀了流畅感。</p>
 
-  <h2>Étape 3 : Identification des obstacles</h2>
-  <p>Qu'est-ce qui vous a arrêté ? "J'étais fatigué par les heures supplémentaires" ou "J'ai cédé à la tentation de Netflix". Ce ne sont pas des excuses, c'est de l'analyse.</p>
+  <h2>秘密3：兴趣主导的学习</h2>
+  <p>他们不长期使用教科书。他们通过烹饪、游戏或历史来学习。如果你喜欢电子游戏，用德语玩《天际》。如果你喜欢烹饪，用意大利语读食谱。你的大脑会记住它喜欢的东西。</p>
 
-  <h2>Étape 4 : Ajustement du plan pour la semaine prochaine</h2>
-  <p>Fixez des objectifs réalistes basés sur les données de la semaine dernière. Si vous avez manqué d'écoute, ajoutez un podcast pendant votre trajet.</p>
+  <h2>秘密4：影子跟读 (Shadowing)</h2>
+  <p>他们不仅听；他们重复。他们像鹦鹉一样模仿演讲者的速度和情感。这会欺骗大脑，让它认为“这种语言是我的一部分”。</p>
 
-  <h2>Modèle (Copier et utiliser)</h2>
-  <ul>
-     <li><strong>Objectif de cette semaine :</strong> [Écrire l'objectif]</li>
-     <li><strong>Temps d'écoute :</strong> [Temps]</li>
-     <li><strong>Pages lues :</strong> [Pages]</li>
-  </ul>
-  <p>Il n'y a pas de motivation plus sûre que de voir ces chiffres s'accumuler chaque semaine.</p>
-  
   <div class="tip-box">
-     <strong>Défi :</strong> Ouvrez votre calendrier maintenant. "Réservez" votre temps d'étude pour la semaine prochaine à l'avance. Traitez-le comme un rendez-vous médical, une promesse que vous ne pouvez pas annuler.
+     <strong>真相：</strong>没有神奇药丸。没有秘密应用。秘密是将无聊的坚持长期应用于有趣的内容。
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_DE = `
+const POST_POLYGLOT_CONTENT_TH = `
 <article>
-  <p>Wie viel haben Sie diese Woche gelernt? Nach Gefühl können Sie das nicht wissen. Sie brauchen Daten. Führen Sie jeden Sonntagabend dieses einfache 4-Schritte-Audit durch.</p>
+  <p>คุณเคยเห็นพวกเขาบน YouTube: คนที่พูดได้ 10 ภาษาอย่างสมบูรณ์แบบ คุณคิดว่า "พวกเขาต้องเกิดมาพร้อมกับสมองพิเศษแน่ๆ" สปอยล์: ไม่ใช่หรอก พวกเขาแค่มีระบบที่ดีกว่าคุณ</p>
 
-  <h2>Schritt 1: Datenerfassung</h2>
-  <p>Notieren Sie die Statistiken der letzten Woche:</p>
-  <ul>
-     <li><strong>Hörzeit:</strong> (Bsp.: 3 Stunden)</li>
-     <li><strong>Sprechzeit:</strong> (Bsp.: 30 Minuten)</li>
-     <li><strong>Gelesene Seiten:</strong> (Bsp.: 15 Seiten)</li>
-     <li><strong>Neue Wörter:</strong> (Bsp.: 20 Wörter)</li>
-  </ul>
+  <h2>ความลับที่ 1: พวกเขาไม่ "หาเวลา" แต่พวกเขา "ขโมยมัน"</h2>
+  <p>มือสมัครเล่นรอเวลาว่าง คนเก่งภาษาบล็อกเวลา 30 นาทีทุกเช้าตอน 7 โมง ไม่มีข้อแก้ตัว หากคุณพึ่งพาแรงจูงใจ คุณจะล้มเหลว หากคุณพึ่งพาตารางเวลา คุณจะชนะ</p>
   
-  <h2>Schritt 2: Analyse der Siege</h2>
-  <p>Was lief gut? Finden Sie kleine Siege wie "Ich habe jeden Morgen 10 Minuten Duolingo gemacht".</p>
+  <h2>ความลับที่ 2: ความอดทนต่อความคลุมเครือ</h2>
+  <p>เมื่อผู้เรียนทั่วไปได้ยินคำที่พวกเขาไม่รู้ พวกเขาจะตื่นตระหนก คนเก่งภาษาแค่เดาบริบทแล้วไปต่อ พวกเขาสบายใจที่จะสับสน หากคุณหยุดทุกคำที่ไม่รู้จัก คุณจะฆ่าความต่อเนื่อง</p>
 
-  <h2>Schritt 3: Identifizierung von Hindernissen</h2>
-  <p>Was hat Sie aufgehalten? "Ich war müde von Überstunden" oder "Ich bin der Netflix-Versuchung erlegen". Keine Ausreden, sondern Analyse.</p>
+  <h2>ความลับที่ 3: การเรียนรู้ที่นำโดยความสนใจ</h2>
+  <p>พวกเขาไม่ใช้หนังสือเรียนนาน พวกเขาเรียนรู้ผ่านการทำอาหาร เกม หรือประวัติศาสตร์ หากคุณชอบวิดีโอเกม เล่น *Skyrim* เป็นภาษาเยอรมัน หากคุณชอบทำอาหาร อ่านสูตรอาหารเป็นภาษาอิตาลี สมองของคุณจดจำสิ่งที่มันชอบ</p>
 
-  <h2>Schritt 4: Anpassung des Plans für nächste Woche</h2>
-  <p>Setzen Sie sich realistische Ziele basierend auf den Daten der letzten Woche. Wenn das Hören zu kurz kam, fügen Sie einen Podcast auf dem Weg zur Arbeit hinzu.</p>
+  <h2>ความลับที่ 4: Shadowing (การเลียนแบบเสียง)</h2>
+  <p>พวกเขาไม่เพียงแค่ฟัง; พวกเขาพูดตาม พวกเขาเลียนแบบผู้พูดเหมือนนกแก้ว คัดลอกความเร็วและอารมณ์ สิ่งนี้หลอกสมองให้คิดว่า "ภาษานี้เป็นส่วนหนึ่งของฉัน"</p>
 
-  <h2>Vorlage (Kopieren und verwenden)</h2>
-  <ul>
-     <li><strong>Ziel dieser Woche:</strong> [Ziel schreiben]</li>
-     <li><strong>Hörzeit:</strong> [Zeit]</li>
-     <li><strong>Gelesene Seiten:</strong> [Seiten]</li>
-  </ul>
-  <p>Es gibt keine sicherere Motivation, als zu sehen, wie sich diese Zahlen jede Woche summieren.</p>
-  
   <div class="tip-box">
-     <strong>Herausforderung:</strong> Öffnen Sie jetzt Ihren Kalender. "Buchen" Sie Ihre Lernzeit für nächste Woche im Voraus. Behandeln Sie es wie einen Arzttermin, ein Versprechen, das Sie nicht absagen können.
+     <strong>ความจริง:</strong> ไม่มียาวิเศษ ไม่มีแอปลับ ความลับคือความสม่ำเสมอที่น่าเบื่อกับเนื้อหาที่น่าสนใจเป็นเวลานาน
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_TH = `
+const POST_POLYGLOT_CONTENT_VI = `
 <article>
-  <p>สัปดาห์นี้คุณเรียนไปเท่าไหร่? ความรู้สึกอย่างเดียวไม่สามารถบอกได้ คุณต้องการข้อมูล ทุกเย็นวันอาทิตย์ ให้ทำการตรวจสอบ 4 ขั้นตอนง่ายๆ นี้</p>
+  <p>Bạn thấy họ trên YouTube: những người nói thành thạo 10 ngôn ngữ. Bạn nghĩ, "Họ chắc hẳn sinh ra với bộ não đặc biệt." Tiết lộ: Không phải vậy. Họ chỉ có hệ thống tốt hơn bạn.</p>
 
-  <h2>ขั้นตอนที่ 1: การรวบรวมข้อมูล</h2>
-  <p>จดสถิติของสัปดาห์ที่แล้ว:</p>
-  <ul>
-     <li><strong>เวลาฟัง:</strong> (เช่น: 3 ชั่วโมง)</li>
-     <li><strong>เวลาพูด:</strong> (เช่น: 30 นาที)</li>
-     <li><strong>หน้าที่อ่าน:</strong> (เช่น: 15 หน้า)</li>
-     <li><strong>คำศัพท์ใหม่:</strong> (เช่น: 20 คำ)</li>
-  </ul>
+  <h2>Bí mật 1: Họ không "Tìm thời gian", họ Đánh cắp nó</h2>
+  <p>Những người nghiệp dư chờ đợi thời gian rảnh. Những người đa ngôn ngữ dành ra 30 phút mỗi sáng lúc 7 giờ. Không bào chữa. Nếu bạn dựa vào động lực, bạn sẽ thất bại. Nếu bạn dựa vào lịch trình, bạn sẽ chiến thắng.</p>
   
-  <h2>ขั้นตอนที่ 2: วิเคราะห์ชัยชนะ</h2>
-  <p>อะไรเป็นไปได้ด้วยดี? ค้นหาชัยชนะเล็กๆ เช่น "ฉันเล่น Duolingo 10 นาทีทุกเช้า"</p>
+  <h2>Bí mật 2: Họ chịu đựng sự Mơ hồ</h2>
+  <p>Khi một người học bình thường nghe thấy một từ họ không biết, họ hoảng sợ. Một người đa ngôn ngữ chỉ đoán ngữ cảnh và tiếp tục. Họ thoải mái khi bị bối rối. Nếu bạn dừng lại ở mọi từ chưa biết, bạn sẽ giết chết dòng chảy.</p>
 
-  <h2>ขั้นตอนที่ 3: ระบุอุปสรรค</h2>
-  <p>อะไรหยุดคุณไว้? "ฉันเหนื่อยจากการทำงานล่วงเวลา" หรือ "ฉันแพ้สิ่งยั่วยุจาก Netflix" ไม่ใช่ข้อแก้ตัว แต่เป็นการวิเคราะห์</p>
+  <h2>Bí mật 3: Học tập dựa trên sở thích</h2>
+  <p>Họ không sử dụng sách giáo khoa lâu. Họ học thông qua nấu ăn, chơi game hoặc lịch sử. Nếu bạn thích trò chơi điện tử, hãy chơi *Skyrim* bằng tiếng Đức. Nếu bạn thích nấu ăn, hãy đọc công thức nấu ăn bằng tiếng Ý. Bộ não của bạn ghi nhớ những gì nó thích.</p>
 
-  <h2>ขั้นตอนที่ 4: ปรับแผนสำหรับสัปดาห์หน้า</h2>
-  <p>กำหนดเป้าหมายที่เป็นจริงตามข้อมูลของสัปดาห์ที่แล้ว หากคุณขาดการฟัง ให้เพิ่มพอดแคสต์ในระหว่างการเดินทาง</p>
+  <h2>Bí mật 4: Kỹ thuật Shadowing (Cái bóng)</h2>
+  <p>Họ không chỉ nghe; họ lặp lại. Họ bắt chước người nói như một con vẹt, sao chép tốc độ và cảm xúc. Điều này đánh lừa bộ não nghĩ rằng "Ngôn ngữ này là một phần của tôi".</p>
 
-  <h2>เทมเพลต (คัดลอกและนำไปใช้)</h2>
-  <ul>
-     <li><strong>เป้าหมายสัปดาห์นี้:</strong> [เขียนเป้าหมาย]</li>
-     <li><strong>เวลาฟัง:</strong> [เวลา]</li>
-     <li><strong>หน้าที่อ่าน:</strong> [หน้า]</li>
-  </ul>
-  <p>ไม่มีแรงจูงใจใดที่แน่นอนไปกว่าการเห็นตัวเลขเหล่านี้เพิ่มขึ้นทุกสัปดาห์</p>
-  
   <div class="tip-box">
-     <strong>ความท้าทาย:</strong> เปิดปฏิทินของคุณเดี๋ยวนี้ "จอง" เวลาเรียนของคุณสำหรับสัปดาห์หน้าล่วงหน้า ปฏิบัติต่อมันเหมือนการนัดหมอ สัญญาที่คุณไม่สามารถยกเลิกได้
+     <strong>Sự thật:</strong> Không có viên thuốc thần kỳ nào cả. Không có ứng dụng bí mật. Bí mật là sự kiên định nhàm chán áp dụng cho nội dung thú vị trong một thời gian dài.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_VI = `
+const POST_POLYGLOT_CONTENT_ID = `
 <article>
-  <p>Bạn đã học bao nhiêu trong tuần này? Bạn không thể biết chỉ bằng cảm giác. Bạn cần dữ liệu. Mỗi tối Chủ nhật, hãy thực hiện kiểm toán 4 bước đơn giản này.</p>
+  <p>Anda melihat mereka di YouTube: orang-orang yang bisa berbicara 10 bahasa dengan sempurna. Anda berpikir, "Mereka pasti terlahir dengan otak yang istimewa." Spoiler: Tidak. Mereka hanya memiliki sistem yang lebih baik daripada Anda.</p>
 
-  <h2>Bước 1: Thu thập dữ liệu</h2>
-  <p>Ghi lại số liệu thống kê của tuần trước:</p>
-  <ul>
-     <li><strong>Thời gian nghe:</strong> (VD: 3 giờ)</li>
-     <li><strong>Thời gian nói:</strong> (VD: 30 phút)</li>
-     <li><strong>Số trang đã đọc:</strong> (VD: 15 trang)</li>
-     <li><strong>Từ mới:</strong> (VD: 20 từ)</li>
-  </ul>
+  <h2>Rahasia 1: Mereka Tidak "Mencari Waktu", Mereka Mencurinya</h2>
+  <p>Amatir menunggu waktu luang. Poliglot memblokir 30 menit setiap pagi jam 7 pagi. Tidak ada alasan. Jika Anda mengandalkan motivasi, Anda akan gagal. Jika Anda mengandalkan jadwal, Anda akan menang.</p>
   
-  <h2>Bước 2: Phân tích chiến thắng</h2>
-  <p>Điều gì đã diễn ra tốt đẹp? Tìm những chiến thắng nhỏ như "Tôi đã học Duolingo 10 phút mỗi sáng".</p>
+  <h2>Rahasia 2: Mereka Mentolerir Ambiguitas</h2>
+  <p>Ketika pelajar normal mendengar kata yang tidak mereka ketahui, mereka panik. Seorang poliglot hanya menebak konteks dan melanjutkan. Mereka nyaman menjadi bingung. Jika Anda berhenti untuk setiap kata yang tidak diketahui, Anda membunuh alirannya.</p>
 
-  <h2>Bước 3: Xác định chướng ngại vật</h2>
-  <p>Điều gì đã ngăn cản bạn? "Tôi mệt mỏi vì làm thêm giờ" hoặc "Tôi đã đầu hàng trước cám dỗ của Netflix". Không phải là bào chữa, mà là phân tích.</p>
+  <h2>Rahasia 3: Pembelajaran Berbasis Minat</h2>
+  <p>Mereka tidak menggunakan buku teks dalam waktu lama. Mereka belajar melalui memasak, bermain game, atau sejarah. Jika Anda suka video game, mainkan *Skyrim* dalam bahasa Jerman. Jika Anda suka memasak, baca resep dalam bahasa Italia. Otak Anda mengingat apa yang disukainya.</p>
 
-  <h2>Bước 4: Điều chỉnh kế hoạch cho tuần tới</h2>
-  <p>Đặt mục tiêu thực tế dựa trên dữ liệu của tuần trước. Nếu bạn thiếu nghe, hãy thêm podcast vào thời gian đi làm.</p>
+  <h2>Rahasia 4: Shadowing (Meniru)</h2>
+  <p>Mereka tidak hanya mendengarkan; mereka mengulanginya. Mereka meniru pembicara seperti burung beo, menyalin kecepatan dan emosi. Ini menipu otak untuk berpikir, "Bahasa ini adalah bagian dari saya."</p>
 
-  <h2>Mẫu (Sao chép và sử dụng)</h2>
-  <ul>
-     <li><strong>Mục tiêu tuần này:</strong> [Viết mục tiêu]</li>
-     <li><strong>Thời gian nghe:</strong> [Thời gian]</li>
-     <li><strong>Số trang đã đọc:</strong> [Số trang]</li>
-  </ul>
-  <p>Không có động lực nào chắc chắn hơn việc nhìn thấy những con số này tích lũy mỗi tuần.</p>
-  
   <div class="tip-box">
-     <strong>Thử thách:</strong> Mở lịch của bạn ngay bây giờ. "Đặt trước" thời gian học của bạn cho tuần tới. Hãy coi đó như một cuộc hẹn với bác sĩ, một lời hứa mà bạn không thể hủy bỏ.
+     <strong>Kebenaran:</strong> Tidak ada pil ajaib. Tidak ada aplikasi rahasia. Rahasianya adalah konsistensi membosankan yang diterapkan pada konten menarik dalam jangka waktu yang lama.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_ID = `
+const POST_POLYGLOT_CONTENT_ES = `
 <article>
-  <p>Berapa banyak yang telah Anda pelajari minggu ini? Anda tidak bisa mengetahuinya hanya dengan perasaan. Anda butuh data. Setiap Minggu malam, lakukan audit 4 langkah sederhana ini.</p>
+  <p>Los ves en YouTube: personas que hablan 10 idiomas a la perfección. Piensas: "Deben haber nacido con un cerebro especial". Spoiler: No. Simplemente tienen mejores sistemas que tú.</p>
 
-  <h2>Langkah 1: Pengumpulan Data</h2>
-  <p>Catat statistik minggu lalu:</p>
-  <ul>
-     <li><strong>Waktu mendengarkan:</strong> (Cth: 3 jam)</li>
-     <li><strong>Waktu berbicara:</strong> (Cth: 30 menit)</li>
-     <li><strong>Halaman dibaca:</strong> (Cth: 15 halaman)</li>
-     <li><strong>Kata baru:</strong> (Cth: 20 kata)</li>
-  </ul>
+  <h2>Secreto 1: No "encuentran tiempo", lo roban</h2>
+  <p>Los aficionados esperan el tiempo libre. Los políglotas bloquean 30 minutos cada mañana a las 7 AM. Sin excusas. Si confías en la motivación, fracasarás. Si confías en un horario, ganarás.</p>
   
-  <h2>Langkah 2: Analisis Kemenangan</h2>
-  <p>Apa yang berjalan dengan baik? Temukan kemenangan kecil seperti "Saya mengerjakan Duolingo 10 menit setiap pagi".</p>
+  <h2>Secreto 2: Toleran la ambigüedad</h2>
+  <p>Cuando un estudiante normal escucha una palabra que no conoce, entra en pánico. Un políglota simplemente adivina el contexto y sigue adelante. Se sienten cómodos estando confundidos. Si te detienes por cada palabra desconocida, matas el flujo.</p>
 
-  <h2>Langkah 3: Identifikasi Hambatan</h2>
-  <p>Apa yang menghentikan Anda? "Saya lelah karena lembur" atau "Saya menyerah pada godaan Netflix". Bukan alasan, tapi analisis.</p>
+  <h2>Secreto 3: Aprendizaje guiado por intereses</h2>
+  <p>No usan libros de texto por mucho tiempo. Aprenden a través de la cocina, los juegos o la historia. Si te gustan los videojuegos, juega *Skyrim* en alemán. Si te gusta cocinar, lee recetas en italiano. Tu cerebro recuerda lo que disfruta.</p>
 
-  <h2>Langkah 4: Penyesuaian Rencana untuk Minggu Depan</h2>
-  <p>Tetapkan tujuan realistis berdasarkan data minggu lalu. Jika Anda kurang mendengarkan, tambahkan podcast di perjalanan kerja.</p>
+  <h2>Secreto 4: Shadowing (Sombreado)</h2>
+  <p>No solo escuchan; repiten. Imitan al hablante como un loro, copiando la velocidad y la emoción. Esto engaña al cerebro para que piense: "Este idioma es parte de mí".</p>
 
-  <h2>Templat (Salin dan gunakan)</h2>
-  <ul>
-     <li><strong>Tujuan minggu ini:</strong> [Tulis tujuan]</li>
-     <li><strong>Waktu mendengarkan:</strong> [Waktu]</li>
-     <li><strong>Halaman dibaca:</strong> [Halaman]</li>
-  </ul>
-  <p>Tidak ada motivasi yang lebih pasti daripada melihat angka-angka ini bertambah setiap minggu.</p>
-  
   <div class="tip-box">
-     <strong>Tantangan:</strong> Buka kalender Anda sekarang. "Pesan" waktu belajar Anda untuk minggu depan sebelumnya. Perlakukan itu seperti janji dokter, janji yang tidak bisa Anda batalkan.
+     <strong>La verdad:</strong> No hay píldora mágica. No hay aplicación secreta. El secreto es la constancia aburrida aplicada a contenido interesante durante un largo período de tiempo.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_PT = `
+const POST_POLYGLOT_CONTENT_PT = `
 <article>
-  <p>Quanto você estudou esta semana? Você não consegue saber apenas por sensação. Você precisa de dados. Todo domingo à noite, faça esta auditoria simples de 4 passos.</p>
+  <p>Você os vê no YouTube: pessoas que falam 10 idiomas perfeitamente. Você pensa: "Eles devem ter nascido com um cérebro especial". Spoiler: Não. Eles apenas têm sistemas melhores que os seus.</p>
 
-  <h2>Passo 1: Coleta de Dados</h2>
-  <p>Anote as estatísticas da semana passada:</p>
-  <ul>
-     <li><strong>Tempo de escuta:</strong> (Ex: 3 horas)</li>
-     <li><strong>Tempo de fala:</strong> (Ex: 30 minutos)</li>
-     <li><strong>Páginas lidas:</strong> (Ex: 15 páginas)</li>
-     <li><strong>Palavras novas:</strong> (Ex: 20 palavras)</li>
-  </ul>
+  <h2>Segredo 1: Eles não "encontram tempo", eles o roubam</h2>
+  <p>Amadores esperam pelo tempo livre. Poliglotas bloqueiam 30 minutos todas as manhãs às 7 da manhã. Sem desculpas. Se você confiar na motivação, falhará. Se confiar em um cronograma, vencerá.</p>
   
-  <h2>Passo 2: Análise de Vitórias</h2>
-  <p>O que correu bem? Encontre pequenas vitórias como "Fiz Duolingo 10 minutos todas as manhãs".</p>
+  <h2>Segredo 2: Eles toleram a ambiguidade</h2>
+  <p>Quando um aluno normal ouve uma palavra que não conhece, entra em pânico. Um poliglota apenas adivinha o contexto e segue em frente. Eles se sentem confortáveis estando confusos. Se você parar para cada palavra desconhecida, mata o fluxo.</p>
 
-  <h2>Passo 3: Identificação de Obstáculos</h2>
-  <p>O que te impediu? "Eu estava cansado de fazer hora extra" ou "Cedi à tentação da Netflix". Não são desculpas, é análise.</p>
+  <h2>Segredo 3: Aprendizagem liderada pelo interesse</h2>
+  <p>Eles não usam livros didáticos por muito tempo. Eles aprendem através da culinária, jogos ou história. Se você gosta de videogames, jogue *Skyrim* em alemão. Se gosta de cozinhar, leia receitas em italiano. Seu cérebro lembra do que gosta.</p>
 
-  <h2>Passo 4: Ajuste do Plano para a Próxima Semana</h2>
-  <p>Defina metas realistas com base nos dados da semana passada. Se faltou escuta, adicione um podcast no seu trajeto.</p>
+  <h2>Segredo 4: Shadowing (Sombreamento)</h2>
+  <p>Eles não apenas ouvem; eles repetem. Eles imitam o falante como um papagaio, copiando a velocidade e a emoção. Isso engana o cérebro para pensar: "Essa língua é parte de mim".</p>
 
-  <h2>Modelo (Copie e use)</h2>
-  <ul>
-     <li><strong>Meta desta semana:</strong> [Escrever meta]</li>
-     <li><strong>Tempo de escuta:</strong> [Tempo]</li>
-     <li><strong>Páginas lidas:</strong> [Páginas]</li>
-  </ul>
-  <p>Não há motivação mais segura do que ver esses números se acumularem a cada semana.</p>
-  
   <div class="tip-box">
-     <strong>Desafio:</strong> Abra seu calendário agora mesmo. "Reserve" seu tempo de estudo para a próxima semana com antecedência. Trate como uma consulta médica, uma promessa que você não pode cancelar.
+     <strong>A Verdade:</strong> Não existe pílula mágica. Não existe aplicativo secreto. O segredo é a consistência chata aplicada a conteúdo interessante por um longo período de tempo.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_TR = `
+const POST_POLYGLOT_CONTENT_FR = `
 <article>
-  <p>Bu hafta ne kadar çalıştınız? Sadece hissederek bilemezsiniz. Veriye ihtiyacınız var. Her Pazar akşamı, bu basit 4 adımlı denetimi gerçekleştirin.</p>
+  <p>Vous les voyez sur YouTube : des gens qui parlent parfaitement 10 langues. Vous pensez : « Ils sont forcément nés avec un cerveau spécial. » Spoiler : Non. Ils ont juste de meilleurs systèmes que vous.</p>
 
-  <h2>1. Adım: Veri Toplama</h2>
-  <p>Geçen haftanın istatistiklerini not edin:</p>
-  <ul>
-     <li><strong>Dinleme süresi:</strong> (Örn: 3 saat)</li>
-     <li><strong>Konuşma süresi:</strong> (Örn: 30 dakika)</li>
-     <li><strong>Okunan sayfa:</strong> (Örn: 15 sayfa)</li>
-     <li><strong>Yeni kelimeler:</strong> (Örn: 20 kelime)</li>
-  </ul>
+  <h2>Secret 1 : Ils ne « trouvent » pas le temps, ils le volent</h2>
+  <p>Les amateurs attendent d'avoir du temps libre. Les polyglottes bloquent 30 minutes chaque matin à 7 heures. Pas d'excuses. Si vous comptez sur la motivation, vous échouerez. Si vous comptez sur un emploi du temps, vous gagnerez.</p>
   
-  <h2>2. Adım: Zafer Analizi</h2>
-  <p>Ne iyi gitti? "Her sabah 10 dakika Duolingo yaptım" gibi küçük zaferler bulun.</p>
+  <h2>Secret 2 : Ils tolèrent l'ambiguïté</h2>
+  <p>Quand un apprenant normal entend un mot qu'il ne connaît pas, il panique. Un polyglotte devine le contexte et continue. Ils sont à l'aise avec la confusion. Si vous vous arrêtez à chaque mot inconnu, vous tuez le flux.</p>
 
-  <h2>3. Adım: Engellerin Belirlenmesi</h2>
-  <p>Sizi ne durdurdu? "Fazla mesaiden yorgundum" veya "Netflix cazibesine yenik düştüm". Bahane değil, analiz yapın.</p>
+  <h2>Secret 3 : Apprentissage axé sur l'intérêt</h2>
+  <p>Ils n'utilisent pas de manuels scolaires longtemps. Ils apprennent à travers la cuisine, les jeux ou l'histoire. Si vous aimez les jeux vidéo, jouez à *Skyrim* en allemand. Si vous aimez cuisiner, lisez des recettes en italien. Votre cerveau retient ce qu'il aime.</p>
 
-  <h2>4. Adım: Gelecek Hafta Planının Ayarlanması</h2>
-  <p>Geçen haftanın verilerine dayanarak gerçekçi hedefler belirleyin. Dinleme eksikse, işe gidip gelirken bir podcast ekleyin.</p>
+  <h2>Secret 4 : Le Shadowing (Perroquet)</h2>
+  <p>Ils n'écoutent pas seulement ; ils répètent. Ils imitent l'orateur comme un perroquet, copiant la vitesse et l'émotion. Cela trompe le cerveau en lui faisant penser : « Cette langue fait partie de moi. »</p>
 
-  <h2>Şablon (Kopyalayıp kullanın)</h2>
-  <ul>
-     <li><strong>Bu haftanın hedefi:</strong> [Hedefi yaz]</li>
-     <li><strong>Dinleme süresi:</strong> [Süre]</li>
-     <li><strong>Okunan sayfa:</strong> [Sayfa]</li>
-  </ul>
-  <p>Bu sayıların her hafta biriktiğini görmekten daha kesin bir motivasyon yoktur.</p>
-  
   <div class="tip-box">
-     <strong>Meydan Okuma:</strong> Takviminizi hemen şimdi açın. Gelecek hafta için çalışma saatinizi önceden "ayırtın". Bunu bir doktor randevusu gibi, iptal edemeyeceğiniz bir söz gibi değerlendirin.
+     <strong>La vérité :</strong> Il n'y a pas de pilule magique. Il n'y a pas d'application secrète. Le secret est une cohérence ennuyeuse appliquée à un contenu intéressant sur une longue période.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_AR = `
+const POST_POLYGLOT_CONTENT_DE = `
 <article>
-  <p>كم درست هذا الأسبوع؟ لا يمكنك معرفة ذلك بالشعور فقط. أنت بحاجة لبيانات. كل مساء أحد، قم بإجراء هذا التدقيق البسيط في 4 خطوات.</p>
+  <p>Sie sehen sie auf YouTube: Menschen, die 10 Sprachen perfekt sprechen. Sie denken: "Sie müssen mit einem besonderen Gehirn geboren sein." Spoiler: Sind sie nicht. Sie haben einfach bessere Systeme als Sie.</p>
 
-  <h2>الخطوة 1: جمع البيانات</h2>
-  <p>دوّن إحصائيات الأسبوع الماضي:</p>
-  <ul>
-     <li><strong>وقت الاستماع:</strong> (مثال: 3 ساعات)</li>
-     <li><strong>وقت التحدث:</strong> (مثال: 30 دقيقة)</li>
-     <li><strong>الصفحات المقروءة:</strong> (مثال: 15 صفحة)</li>
-     <li><strong>كلمات جديدة:</strong> (مثال: 20 كلمة)</li>
-  </ul>
+  <h2>Geheimnis 1: Sie "finden" keine Zeit, sie stehlen sie</h2>
+  <p>Amateure warten auf Freizeit. Polyglotte blockieren jeden Morgen um 7 Uhr 30 Minuten. Keine Ausreden. Wenn Sie sich auf Motivation verlassen, werden Sie scheitern. Wenn Sie sich auf einen Zeitplan verlassen, werden Sie gewinnen.</p>
   
-  <h2>الخطوة 2: تحليل الانتصارات</h2>
-  <p>ما الذي سار بشكل جيد؟ ابحث عن انتصارات صغيرة مثل "قمت بـ Duolingo لمدة 10 دقائق كل صباح".</p>
+  <h2>Geheimnis 2: Sie tolerieren Mehrdeutigkeit</h2>
+  <p>Wenn ein normaler Lerner ein Wort hört, das er nicht kennt, gerät er in Panik. Ein Polyglott rät einfach den Kontext und macht weiter. Sie fühlen sich wohl dabei, verwirrt zu sein. Wenn Sie für jedes unbekannte Wort anhalten, töten Sie den Fluss.</p>
 
-  <h2>الخطوة 3: تحديد العقبات</h2>
-  <p>ما الذي أوقفك؟ "كنت متعباً من العمل الإضافي" أو "استسلمت لإغراء Netflix". ليست أعذاراً، بل تحليل.</p>
+  <h2>Geheimnis 3: Interessengeleitetes Lernen</h2>
+  <p>Sie benutzen Lehrbücher nicht lange. Sie lernen durch Kochen, Spiele oder Geschichte. Wenn Sie Videospiele lieben, spielen Sie *Skyrim* auf Deutsch. Wenn Sie Kochen lieben, lesen Sie Rezepte auf Italienisch. Ihr Gehirn merkt sich, was ihm Spaß macht.</p>
 
-  <h2>الخطوة 4: تعديل الخطة للأسبوع القادم</h2>
-  <p>ضع أهدافاً واقعية بناءً على بيانات الأسبوع الماضي. إذا كان الاستماع ناقصاً، أضف بودكاست أثناء تنقلك.</p>
+  <h2>Geheimnis 4: Shadowing (Nachsprechen)</h2>
+  <p>Sie hören nicht nur zu; sie wiederholen. Sie ahmen den Sprecher wie ein Papagei nach und kopieren Geschwindigkeit und Emotionen. Das gaukelt dem Gehirn vor: "Diese Sprache ist ein Teil von mir."</p>
 
-  <h2>نموذج (نسخ واستخدام)</h2>
-  <ul>
-     <li><strong>هدف هذا الأسبوع:</strong> [اكتب الهدف]</li>
-     <li><strong>وقت الاستماع:</strong> [الوقت]</li>
-     <li><strong>الصفحات المقروءة:</strong> [الصفحات]</li>
-  </ul>
-  <p>لا يوجد حافز أوثق من رؤية هذه الأرقام تتراكم كل أسبوع.</p>
-  
   <div class="tip-box">
-     <strong>تحدي:</strong> افتح تقويمك الآن. "احجز" وقت دراستك للأسبوع القادم مقدماً. تعامل معه كموعد طبيب، وعد لا يمكنك إلغاؤه.
+     <strong>Die Wahrheit:</strong> Es gibt keine Wunderpille. Es gibt keine geheime App. Das Geheimnis ist langweilige Beständigkeit, die über einen langen Zeitraum auf interessante Inhalte angewendet wird.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_HI = `
+const POST_POLYGLOT_CONTENT_TR = `
 <article>
-  <p>आपने इस सप्ताह कितना अध्ययन किया? आप केवल महसूस करके यह नहीं जान सकते। आपको डेटा चाहिए। हर रविवार शाम को, यह सरल 4-चरणीय ऑडिट करें।</p>
+  <p>Onları YouTube'da görüyorsunuz: 10 dili mükemmel konuşan insanlar. "Özel bir beyinle doğmuş olmalılar" diye düşünüyorsunuz. Spoiler: Öyle değiller. Sadece sizden daha iyi sistemleri var.</p>
 
-  <h2>चरण 1: डेटा संग्रह</h2>
-  <p>पिछले सप्ताह के आँकड़े लिखें:</p>
-  <ul>
-     <li><strong>सुनने का समय:</strong> (उदा: 3 घंटे)</li>
-     <li><strong>बोलने का समय:</strong> (उदा: 30 मिनट)</li>
-     <li><strong>पढ़े गए पृष्ठ:</strong> (उदा: 15 पृष्ठ)</li>
-     <li><strong>नए शब्द:</strong> (उदा: 20 शब्द)</li>
-  </ul>
+  <h2>Sır 1: Zaman "Bulmazlar", Çalarlar</h2>
+  <p>Amatörler boş zaman bekler. Çok dilliler her sabah saat 7'de 30 dakikayı bloke eder. Bahane yok. Motivasyona güvenirseniz başarısız olursunuz. Bir programa güvenirseniz kazanırsınız.</p>
   
-  <h2>चरण 2: जीत का विश्लेषण</h2>
-  <p>क्या अच्छा रहा? "मैंने हर सुबह 10 मिनट डुओलिंगो किया" जैसी छोटी जीत खोजें।</p>
+  <h2>Sır 2: Belirsizliğe Tahammül Ederler</h2>
+  <p>Normal bir öğrenci bilmediği bir kelime duyduğunda paniğe kapılır. Çok dilli biri sadece bağlamı tahmin eder ve devam eder. Kafalarının karışmasından rahatsız olmazlar. Her bilinmeyen kelime için durursanız, akışı öldürürsünüz.</p>
 
-  <h2>चरण 3: बाधाओं की पहचान</h2>
-  <p>आपको किस चीज़ ने रोका? "मैं ओवरटाइम से थक गया था" या "मैं नेटफ्लिक्स के प्रलोभन में आ गया"। बहाने नहीं, बल्कि विश्लेषण करें।</p>
+  <h2>Sır 3: İlgi Odaklı Öğrenme</h2>
+  <p>Ders kitaplarını uzun süre kullanmazlar. Yemek pişirme, oyun veya tarih yoluyla öğrenirler. Video oyunlarını seviyorsanız, *Skyrim*'i Almanca oynayın. Yemek yapmayı seviyorsanız, İtalyanca tarifler okuyun. Beyniniz neyden hoşlandığını hatırlar.</p>
 
-  <h2>चरण 4: अगले सप्ताह की योजना का समायोजन</h2>
-  <p>पिछले सप्ताह के डेटा के आधार पर यथार्थवादी लक्ष्य निर्धारित करें। यदि सुनना कम था, तो अपने आवागमन (commute) में एक पॉडकास्ट जोड़ें।</p>
+  <h2>Sır 4: Gölgeleme (Shadowing)</h2>
+  <p>Sadece dinlemezler; tekrar ederler. Konuşmacıyı bir papağan gibi taklit eder, hızı ve duyguyu kopyalarlar. Bu, beyni "Bu dil benim bir parçam" diye düşünmesi için kandırır.</p>
 
-  <h2>टेम्पलेट (कॉपी और उपयोग करें)</h2>
-  <ul>
-     <li><strong>इस सप्ताह का लक्ष्य:</strong> [लक्ष्य लिखें]</li>
-     <li><strong>सुनने का समय:</strong> [समय]</li>
-     <li><strong>पढ़े गए पृष्ठ:</strong> [पृष्ठ]</li>
-  </ul>
-  <p>इन संख्याओं को हर सप्ताह जमा होते देखने से अधिक निश्चित प्रेरणा कोई नहीं है।</p>
-  
   <div class="tip-box">
-     <strong>चुनौती:</strong> अपना कैलेंडर अभी खोलें। अगले सप्ताह के लिए अपने अध्ययन के समय को पहले से "बुक" करें। इसे डॉक्टर की नियुक्ति की तरह समझें, एक ऐसा वादा जिसे आप रद्द नहीं कर सकते।
+     <strong>Gerçek:</strong> Sihirli bir hap yok. Gizli bir uygulama yok. Sır, uzun bir süre boyunca ilginç içeriğe uygulanan sıkıcı tutarlılıktır.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_RU = `
+const POST_POLYGLOT_CONTENT_AR = `
 <article>
-  <p>Сколько вы учились на этой неделе? Вы не можете узнать это просто по ощущениям. Вам нужны данные. Каждый воскресный вечер проводите этот простой 4-этапный аудит.</p>
+  <p>تراهم على يوتيوب: أناس يتحدثون 10 لغات بطلاقة. تعتقد، "لا بد أنهم ولدوا بدماغ مميز." حرق للأحداث: ليسوا كذلك. لديهم فقط أنظمة أفضل منك.</p>
 
-  <h2>Шаг 1: Сбор данных</h2>
-  <p>Запишите статистику за прошлую неделю:</p>
-  <ul>
-     <li><strong>Время аудирования:</strong> (Прим.: 3 часа)</li>
-     <li><strong>Время говорения:</strong> (Прим.: 30 минут)</li>
-     <li><strong>Прочитанные страницы:</strong> (Прим.: 15 страниц)</li>
-     <li><strong>Новые слова:</strong> (Прим.: 20 слов)</li>
-  </ul>
+  <h2>السر 1: لا "يجدون الوقت"، بل يسرقونه</h2>
+  <p>ينتظر الهواة وقت الفراغ. يحجز متعدد اللغات 30 دقيقة كل صباح الساعة 7 صباحاً. لا أعذار. إذا اعتمدت على الدافع، ستفشل. إذا اعتمدت على جدول زمني، ستفوز.</p>
   
-  <h2>Шаг 2: Анализ побед</h2>
-  <p>Что прошло хорошо? Найдите маленькие победы, например "Я занимался в Duolingo 10 минут каждое утро".</p>
+  <h2>السر 2: يتسامحون مع الغموض</h2>
+  <p>عندما يسمع متعلم عادي كلمة لا يعرفها، يصاب بالذعر. متعدد اللغات يخمن السياق فقط ويمضي قدماً. إنهم مرتاحون لكونهم مرتبكين. إذا توقفت عند كل كلمة غير معروفة، فإنك تقتل التدفق.</p>
 
-  <h2>Шаг 3: Выявление препятствий</h2>
-  <p>Что вас остановило? "Я устал от сверхурочной работы" или "Я поддался искушению Netflix". Не оправдания, а анализ.</p>
+  <h2>السر 3: التعلم القائم على الاهتمامات</h2>
+  <p>لا يستخدمون الكتب المدرسية لفترة طويلة. يتعلمون عبر الطبخ، الألعاب، أو التاريخ. إذا كنت تحب ألعاب الفيديو، العب *Skyrim* بالألمانية. إذا كنت تحب الطبخ، اقرأ وصفات بالإيطالية. يتذكر عقلك ما يستمتع به.</p>
 
-  <h2>Шаг 4: Корректировка плана на следующую неделю</h2>
-  <p>Поставьте реалистичные цели на основе данных прошлой недели. Если не хватало аудирования, добавьте подкаст во время поездки на работу.</p>
+  <h2>السر 4: التظليل (Shadowing)</h2>
+  <p>لا يستمعون فقط؛ بل يكررون. يقلدون المتحدث مثل الببغاء، وينسخون السرعة والعاطفة. هذا يخدع الدماغ ليعتقد، "هذه اللغة جزء مني."</p>
 
-  <h2>Шаблон (Скопировать и использовать)</h2>
-  <ul>
-     <li><strong>Цель на эту неделю:</strong> [Написать цель]</li>
-     <li><strong>Время аудирования:</strong> [Время]</li>
-     <li><strong>Прочитанные страницы:</strong> [Страницы]</li>
-  </ul>
-  <p>Нет более надежной мотивации, чем видеть, как эти цифры накапливаются каждую неделю.</p>
-  
   <div class="tip-box">
-     <strong>Вызов:</strong> Откройте свой календарь прямо сейчас. "Забронируйте" время для учебы на следующую неделю заранее. Относитесь к этому как к визиту к врачу, обещанию, которое нельзя отменить.
+     <strong>الحقيقة:</strong> لا توجد حبة سحرية. لا يوجد تطبيق سري. السر هو الاستمرار الممل المطبق على محتوى مثير للاهتمام لفترة طويلة من الزمن.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_BN = `
+const POST_POLYGLOT_CONTENT_HI = `
 <article>
-  <p>এই সপ্তাহে আপনি কতটুকু পড়াশোনা করেছেন? আপনি শুধু অনুভব করে তা জানতে পারবেন না। আপনার ডেটা প্রয়োজন। প্রতি রবিবার সন্ধ্যায়, এই সহজ ৪-ধাপের অডিট করুন।</p>
+  <p>आप उन्हें YouTube पर देखते हैं: लोग जो 10 भाषाएँ पूरी तरह से बोलते हैं। आप सोचते हैं, "वे निश्चित रूप से एक विशेष दिमाग के साथ पैदा हुए होंगे।" स्पॉइलर: वे नहीं हैं। उनके पास बस आपसे बेहतर सिस्टम हैं।</p>
 
-  <h2>ধাপ ১: ডেটা সংগ্রহ</h2>
-  <p>গত সপ্তাহের পরিসংখ্যান লিখুন:</p>
-  <ul>
-     <li><strong>শোনার সময়:</strong> (উদাঃ ৩ ঘণ্টা)</li>
-     <li><strong>কথা বলার সময়:</strong> (উদাঃ ৩০ মিনিট)</li>
-     <li><strong>পড়া পৃষ্ঠা:</strong> (উদাঃ ১৫ পৃষ্ঠা)</li>
-     <li><strong>নতুন শব্দ:</strong> (উদাঃ ২০টি শব্দ)</li>
-  </ul>
+  <h2>रहस्य 1: वे समय "ढूँढते" नहीं हैं, वे इसे चुराते हैं</h2>
+  <p>शौकिया लोग खाली समय का इंतजार करते हैं। पॉलीग्लॉट (बहुभाषी) हर सुबह 7 बजे 30 मिनट ब्लॉक करते हैं। कोई बहाना नहीं। यदि आप प्रेरणा पर भरोसा करते हैं, तो आप असफल हो जाएंगे। यदि आप एक कार्यक्रम पर भरोसा करते हैं, तो आप जीतेंगे।</p>
   
-  <h2>ধাপ ২: জয়ের বিশ্লেষণ</h2>
-  <p>কী ভালো হয়েছে? ছোট ছোট জয় খুঁজুন যেমন "আমি প্রতিদিন সকালে ১০ মিনিট ডুলিংগো করেছি"।</p>
+  <h2>रहस्य 2: वे अस्पष्टता को सहन करते हैं</h2>
+  <p>जब एक सामान्य शिक्षार्थी कोई ऐसा शब्द सुनता है जिसे वे नहीं जानते, तो वे घबरा जाते हैं। एक पॉलीग्लॉट केवल संदर्भ का अनुमान लगाता है और आगे बढ़ता है। वे भ्रमित होने में सहज होते हैं। यदि आप हर अज्ञात शब्द के लिए रुकते हैं, तो आप प्रवाह को मार देते हैं।</p>
 
-  <h2>ধাপ ৩: বাধা সনাক্তকরণ</h2>
-  <p>আপনাকে কী থামিয়েছে? "আমি অতিরিক্ত কাজের কারণে ক্লান্ত ছিলাম" বা "আমি নেটফ্লিক্সের প্রলোভনে পড়েছিলাম"। অজুহাত নয়, বিশ্লেষণ করুন।</p>
+  <h2>रहस्य 3: रुचि आधारित शिक्षा</h2>
+  <p>वे लंबे समय तक पाठ्यपुस्तकों का उपयोग नहीं करते हैं। वे खाना पकाने, गेमिंग या इतिहास के माध्यम से सीखते हैं। यदि आप वीडियो गेम पसंद करते हैं, तो जर्मन में *Skyrim* खेलें। यदि आप खाना पकाना पसंद करते हैं, तो इतालवी में व्यंजन पढ़ें। आपका मस्तिष्क वही याद रखता है जो उसे पसंद है।</p>
 
-  <h2>ধাপ ৪: আগামী সপ্তাহের পরিকল্পনা সমন্বয়</h2>
-  <p>গত সপ্তাহের ডেটার উপর ভিত্তি করে বাস্তবসম্মত লক্ষ্য নির্ধারণ করুন। যদি শোনার অভাব থাকে, তবে আপনার যাতায়াতের সময় একটি পডকাস্ট যোগ করুন।</p>
+  <h2>रहस्य 4: शैडोइंग (Shadowing)</h2>
+  <p>वे केवल सुनते नहीं हैं; वे दोहराते हैं। वे तोते की तरह वक्ता की नकल करते हैं, गति और भावना की नकल करते हैं। यह मस्तिष्क को यह सोचने के लिए चकमा देता है, "यह भाषा मेरा हिस्सा है।"</p>
 
-  <h2>টেমপ্লেট (কপি করে ব্যবহার করুন)</h2>
-  <ul>
-     <li><strong>এই সপ্তাহের লক্ষ্য:</strong> [লক্ষ্য লিখুন]</li>
-     <li><strong>শোনার সময়:</strong> [সময়]</li>
-     <li><strong>পড়া পৃষ্ঠা:</strong> [পৃষ্ঠা]</li>
-  </ul>
-  <p>প্রতি সপ্তাহে এই সংখ্যাগুলো জমা হতে দেখার চেয়ে নিশ্চিত অনুপ্রেরণা আর নেই।</p>
-  
   <div class="tip-box">
-     <strong>চ্যালেঞ্জ:</strong> এখনই আপনার ক্যালেন্ডার খুলুন। আগামী সপ্তাহের জন্য আপনার অধ্যয়নের সময় আগে থেকেই "বুক" করুন। এটিকে ডাক্তারের অ্যাপয়েন্টমেন্টের মতো মনে করুন, একটি প্রতিশ্রুতি যা আপনি বাতিল করতে পারবেন না।
+     <strong>सच:</strong> कोई जादुई गोली नहीं है। कोई गुप्त ऐप नहीं है। रहस्य उबाऊ निरंतरता है जो लंबे समय तक दिलचस्प सामग्री पर लागू होती है।
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_UR = `
+const POST_POLYGLOT_CONTENT_RU = `
 <article>
-  <p>اس ہفتے آپ نے کتنا مطالعہ کی؟ آپ صرف محسوس کر کے یہ نہیں جان سکتے۔ آپ کو ڈیٹا کی ضرورت ہے۔ ہر اتوار کی شام، یہ سادہ 4-مرحلہ وار آڈٹ کریں۔</p>
+  <p>Вы видите их на YouTube: людей, которые идеально говорят на 10 языках. Вы думаете: "Должно быть, они родились с особенным мозгом". Спойлер: Нет. У них просто системы лучше, чем у вас.</p>
 
-  <h2>مرحلہ 1: ڈیٹا جمع کرنا</h2>
-  <p>گزشتہ ہفتے کے اعدادوشمار لکھیں:</p>
-  <ul>
-     <li><strong>سننے کا وقت:</strong> (مثال: 3 گھنٹے)</li>
-     <li><strong>بولنے کا وقت:</strong> (مثال: 30 منٹ)</li>
-     <li><strong>پڑھے گئے صفحات:</strong> (مثال: 15 صفحات)</li>
-     <li><strong>نئے الفاظ:</strong> (مثال: 20 الفاظ)</li>
-  </ul>
+  <h2>Секрет 1: Они не "находят время", они крадут его</h2>
+  <p>Любители ждут свободного времени. Полиглоты выделяют 30 минут каждое утро в 7 утра. Никаких оправданий. Если вы полагаетесь на мотивацию, вы проиграете. Если вы полагаетесь на расписание, вы выиграете.</p>
   
-  <h2>مرحلہ 2: فتح کا تجزیہ</h2>
-  <p>کیا اچھا رہا؟ چھوٹی چھوٹی جیتیں تلاش کریں جیسے "میں نے ہر صبح 10 منٹ ڈوولنگو کیا"۔</p>
+  <h2>Секрет 2: Они терпимы к неопределенности</h2>
+  <p>Когда обычный ученик слышит слово, которого не знает, он паникует. Полиглот просто угадывает контекст и идет дальше. Им комфортно быть в замешательстве. Если вы останавливаетесь на каждом незнакомом слове, вы убиваете поток.</p>
 
-  <h2>مرحلہ 3: رکاوٹ کی نشاندہی</h2>
-  <p>آپ کو کس چیز نے روکا؟ "میں اوور ٹائم سے تھک گیا تھا" یا "میں نیٹ فلکس کے لالچ میں آگیا"۔ بہانے نہیں، بلکہ تجزیہ کریں۔</p>
+  <h2>Секрет 3: Обучение, основанное на интересе</h2>
+  <p>Они не используют учебники долго. Они учатся через готовку, игры или историю. Если вы любите видеоигры, играйте в *Skyrim* на немецком. Если вы любите готовить, читайте рецепты на итальянском. Ваш мозг запоминает то, что ему нравится.</p>
 
-  <h2>مرحلہ 4: اگلے ہفتے کے منصوبے کی ایڈجسٹمنٹ</h2>
-  <p>گزشتہ ہفتے کے ڈیٹا کی بنیاد پر حقیقت پسندانہ اہداف مقرر کریں۔ اگر سننا کم تھا، تو اپنے سفر کے دوران ایک پوڈ کاسٹ شامل کریں۔</p>
+  <h2>Секрет 4: Теневой повтор (Shadowing)</h2>
+  <p>Они не просто слушают; они повторяют. Они подражают говорящему, как попугай, копируя скорость и эмоции. Это обманывает мозг, заставляя его думать: "Этот язык — часть меня".</p>
 
-  <h2>ٹیمپلیٹ (کاپی کریں اور استعمال کریں)</h2>
-  <ul>
-     <li><strong>اس ہفتے کا ہدف:</strong> [ہدف لکھیں]</li>
-     <li><strong>سننے کا وقت:</strong> [وقت]</li>
-     <li><strong>پڑھے گئے صفحات:</strong> [صفحات]</li>
-  </ul>
-  <p>ہر ہفتے ان نمبروں کو جمع ہوتے دیکھنے سے زیادہ یقینی حوصلہ افزائی کوئی نہیں ہے۔</p>
-  
   <div class="tip-box">
-     <strong>چیلنج:</strong> اپنا کیلنڈر ابھی کھولیں۔ اگلے ہفتے کے لیے اپنے مطالعہ کا وقت پہلے سے "بک" کریں۔ اسے ڈاکٹر کی اپائنٹمنٹ کی طرح سمجھیں، ایک ایسا وعدہ جسے آپ منسوخ نہیں کر سکتے۔
+     <strong>Правда:</strong> Нет волшебной таблетки. Нет секретного приложения. Секрет — это скучное постоянство, применяемое к интересному контенту в течение длительного периода времени.
   </div>
 </article>
 `;
 
-const POST_AUDIT_CONTENT_NE = `
+const POST_POLYGLOT_CONTENT_BN = `
 <article>
-  <p>यस हप्ता तपाईंले कति अध्ययन गर्नुभयो? तपाईंले केवल महसुस गरेर यो थाहा पाउन सक्नुहुन्न। तपाईंलाई डाटा चाहिन्छ। हरेक आइतबार साँझ, यो सरल ४-चरण लेखापरीक्षण गर्नुहोस्।</p>
+  <p>আপনি ইউটিউবে তাদের দেখেন: যারা ১০টি ভাষায় নিখুঁতভাবে কথা বলে। আপনি ভাবেন, "তারা নিশ্চয়ই বিশেষ মস্তিষ্ক নিয়ে জন্মেছে।" স্পয়লার: তারা তা নয়। তাদের কেবল আপনার চেয়ে ভালো সিস্টেম রয়েছে।</p>
 
-  <h2>चरण १: डाटा सङ्कलन</h2>
-  <p>गत हप्ताको तथ्याङ्क लेख्नुहोस्:</p>
-  <ul>
-     <li><strong>सुन्ने समय:</strong> (उदा: ३ घण्टा)</li>
-     <li><strong>बोल्ने समय:</strong> (उदा: ३० मिनेट)</li>
-     <li><strong>पढेका पृष्ठहरू:</strong> (उदा: १५ पृष्ठ)</li>
-     <li><strong>नयाँ शब्दहरू:</strong> (उदा: २० शब्द)</li>
-  </ul>
+  <h2>গোপন রহস্য ১: তারা সময় "খোঁজে" না, তারা তা চুরি করে</h2>
+  <p>অপেশাদাররা অবসর সময়ের জন্য অপেক্ষা করে। পলিগ্লটরা প্রতিদিন সকাল ৭টায় ৩০ মিনিট সময় ব্লক করে রাখে। কোন অজুহাত নেই। আপনি যদি অনুপ্রেরণার উপর নির্ভর করেন তবে আপনি ব্যর্থ হবেন। আপনি যদি সময়সূচীর উপর নির্ভর করেন তবে আপনি জিতবেন।</p>
   
-  <h2>चरण २: जितको विश्लेषण</h2>
-  <p>के राम्रो भयो? साना जितहरू खोज्नुहोस् जस्तै "मैले हरेक बिहान १० मिनेट डुओलिङ्गो गरेँ"।</p>
+  <h2>গোপন রহস্য ২: তারা অস্পষ্টতা সহ্য করে</h2>
+  <p>যখন একজন সাধারণ শিক্ষার্থী এমন কোন শব্দ শোনে যা তারা জানে না, তারা আতঙ্কিত হয়ে পড়ে। একজন পলিগ্লট কেবল প্রসঙ্গ অনুমান করে এবং এগিয়ে যায়। তারা বিভ্রান্ত হতে স্বাচ্ছন্দ্য বোধ করে। আপনি যদি প্রতিটি অজানা শব্দের জন্য থামেন তবে আপনি প্রবাহকে মেরে ফেলবেন।</p>
 
-  <h2>चरण ३: अवरोध पहिचान</h2>
-  <p>तपाईंलाई केले रोक्यो? "म ओभरटाइम कामले थकित थिएँ" वा "म नेटफ्लिक्सको प्रलोभनमा परें"। बहाना होइन, विश्लेषण गर्नुहोस्।</p>
+  <h2>গোপন রহস্য ৩: আগ্রহ-ভিত্তিক শিক্ষা</h2>
+  <p>তারা দীর্ঘ সময়ের জন্য পাঠ্যপুস্তক ব্যবহার করে না। তারা রান্না, গেম বা ইতিহাসের মাধ্যমে শেখে। আপনি যদি ভিডিও গেম পছন্দ করেন, তবে জার্মানে *স্কাইরিম* খেলুন। আপনি যদি রান্না করতে পছন্দ করেন তবে ইতালীয় ভাষায় রেসিপি পড়ুন। আপনার মস্তিষ্ক যা উপভোগ করে তা মনে রাখে।</p>
 
-  <h2>चरण ४: अर्को हप्ताको योजना समायोजन</h2>
-  <p>गत हप्ताको डाटाको आधारमा यथार्थपरक लक्ष्यहरू सेट गर्नुहोस्। यदि सुन्नु कम थियो भने, तपाईंको यात्रामा पोडकास्ट थप्नुहोस्।</p>
+  <h2>গোপন রহস্য ৪: শ্যাডোয়িং (Shadowing)</h2>
+  <p>তারা কেবল শোনে না; তারা পুনরাবৃত্তি করে। তারা তোতার মতো বক্তার নকল করে, গতি এবং আবেগ অনুলিপি করে। এটি মস্তিষ্ককে ভাবতে বাধ্য করে, "এই ভাষাটি আমার অংশ।"</p>
 
-  <h2>टेम्प्लेट (प्रतिलिपि गरेर प्रयोग गर्नुहोस्)</h2>
-  <ul>
-     <li><strong>यस हप्ताको लक्ष्य:</strong> [लक्ष्य लेख्नुहोस्]</li>
-     <li><strong>सुन्ने समय:</strong> [समय]</li>
-     <li><strong>पढेका पृष्ठहरू:</strong> [पृष्ठहरू]</li>
-  </ul>
-  <p>हरेक हप्ता यी संख्याहरू जम्मा भएको देख्नु भन्दा निश्चित प्रेरणा अरू छैन।</p>
-  
   <div class="tip-box">
-     <strong>चुनौती:</strong> आफ्नो पात्रो अहिले नै खोल्नुहोस्। अर्को हप्ताको लागि आफ्नो अध्ययन समय अग्रिम "बुक" गर्नुहोस्। यसलाई डाक्टरको भेट जस्तै व्यवहार गर्नुहोस्, एक वाचा जुन तपाईं रद्द गर्न सक्नुहुन्न।
+     <strong>সত্য:</strong> কোন জাদুর বড়ি নেই। কোন গোপন অ্যাপ নেই। গোপন রহস্য হল দীর্ঘ সময় ধরে আকর্ষণীয় সামগ্রীতে প্রয়োগ করা বিরক্তিকর ধারাবাহিকতা।
   </div>
 </article>
 `;
+
+const POST_POLYGLOT_CONTENT_UR = `
+<article>
+  <p>آپ انہیں یوٹیوب پر دیکھتے ہیں: وہ لوگ جو 10 زبانیں روانی سے بولتے ہیں۔ آپ سوچتے ہیں، "وہ ضرور ایک خاص دماغ کے ساتھ پیدا ہوئے ہوں گے۔" اسپائلر: وہ نہیں ہیں۔ ان کے پاس بس آپ سے بہتر نظام ہیں۔</p>
+
+  <h2>راز 1: وہ وقت "ڈھونڈتے" نہیں، وہ اسے چراتے ہیں</h2>
+  <p>شوقیہ لوگ فارغ وقت کا انتظار کرتے ہیں۔ پولی گلوٹ ہر صبح 7 بجے 30 منٹ بلاک کر دیتے ہیں۔ کوئی بہانہ نہیں۔ اگر آپ حوصلہ افزائی پر انحصار کرتے ہیں تو آپ ناکام ہو جائیں گے۔ اگر آپ شیڈول پر انحصار کرتے ہیں تو آپ جیت جائیں گے۔</p>
+  
+  <h2>راز 2: وہ ابہام کو برداشت کرتے ہیں</h2>
+  <p>جب ایک عام سیکھنے والا کوئی ایسا لفظ سنتا ہے جو وہ نہیں جانتا، تو وہ گھبرا جاتا ہے۔ ایک پولی گلوٹ صرف سیاق و سباق کا اندازہ لگاتا ہے اور آگے بڑھتا ہے۔ وہ الجھن میں رہنے میں راحت محسوس کرتے ہیں۔ اگر آپ ہر نامعلوم لفظ کے لیے رک جاتے ہیں، تو آپ بہاؤ کو ختم کر دیتے ہیں۔</p>
+
+  <h2>راز 3: دلچسپی پر مبنی سیکھنا</h2>
+  <p>وہ طویل عرصے تک نصابی کتابیں استعمال نہیں کرتے ہیں۔ وہ کھانا پکانے، گیمنگ، یا تاریخ کے ذریعے سیکھتے ہیں۔ اگر آپ ویڈیو گیمز پسند کرتے ہیں تو جرمن میں *Skyrim* کھیلیں۔ اگر آپ کھانا پکانا پسند کرتے ہیں تو اطالوی میں ترکیبیں پڑھیں۔ آپ کا دماغ وہی یاد رکھتا ہے جو اسے پسند ہے۔</p>
+
+  <h2>راز 4: شیڈونگ (Shadowing)</h2>
+  <p>وہ صرف سنتے نہیں ہیں؛ وہ دہراتے ہیں۔ وہ طوطے کی طرح بولنے والے کی نقل کرتے ہیں، رفتار اور جذبات کی نقل کرتے ہیں۔ یہ دماغ کو یہ سوچنے پر مجبور کرتا ہے، "یہ زبان میرا حصہ ہے۔"</p>
+
+  <div class="tip-box">
+     <strong>سچ:</strong> کوئی جادوئی گولی نہیں ہے۔ کوئی خفیہ ایپ نہیں ہے۔ راز بورنگ مستقل مزاجی ہے جو طویل عرصے تک دلچسپ مواد پر لاگو ہوتی ہے۔
+  </div>
+</article>
+`;
+
+const POST_POLYGLOT_CONTENT_NE = `
+<article>
+  <p>तपाईंले तिनीहरूलाई YouTube मा देख्नुहुन्छ: मानिसहरू जो १० भाषाहरू पूर्ण रूपमा बोल्छन्। तपाईं सोच्नुहुन्छ, "तिनीहरू पक्कै पनि विशेष दिमागका साथ जन्मेका हुनुपर्छ।" स्पोइलर: तिनीहरू होइनन्। तिनीहरूसँग तपाईंको भन्दा राम्रो प्रणालीहरू छन्।</p>
+
+  <h2>रहस्य १: तिनीहरू समय "फेला पार्दैनन्", तिनीहरू यसलाई चोर्छन्</h2>
+  <p>एमेच्योरहरू खाली समय पर्खन्छन्। पोलिग्लोटहरू हरेक बिहान ७ बजे ३० मिनेट छुटाउँछन्। कुनै बहाना छैन। यदि तपाईं प्रेरणामा भर पर्नुहुन्छ भने, तपाईं असफल हुनुहुनेछ। यदि तपाईं तालिकामा भर पर्नुहुन्छ भने, तपाईं जित्नुहुनेछ।</p>
+  
+  <h2>रहस्य २: तिनीहरू अस्पष्टता सहन गर्छन्</h2>
+  <p>जब एक सामान्य सिकारुले आफूलाई थाहा नभएको शब्द सुन्छ, तिनीहरू आत्तिन्छन्। पोलिग्लोटले सन्दर्भ मात्र अनुमान गर्छ र अगाडि बढ्छ। तिनीहरू अन्योलमा रहन सहज हुन्छन्। यदि तपाईं हरेक अज्ञात शब्दको लागि रोकिनुहुन्छ भने, तपाईं प्रवाहलाई मार्नुहुन्छ।</p>
+
+  <h2>रहस्य ३: रुचि-नेतृत्वको सिकाइ</h2>
+  <p>तिनीहरूले लामो समयसम्म पाठ्यपुस्तकहरू प्रयोग गर्दैनन्। तिनीहरू खाना पकाउने, गेमिङ वा इतिहास मार्फत सिक्छन्। यदि तपाइँ भिडियो गेमहरू मन पराउनुहुन्छ भने, जर्मनमा *Skyrim* खेल्नुहोस्। यदि तपाइँ खाना पकाउन मन पराउनुहुन्छ भने, इटालियनमा व्यञ्जनहरू पढ्नुहोस्। तपाईंको दिमागले आफूलाई मनपर्ने कुरा सम्झन्छ।</p>
+
+  <h2>रहस्य ४: छायांकन (Shadowing)</h2>
+  <p>तिनीहरू सुन्छन् मात्र होइन; तिनीहरू दोहोर्याउँछन्। तिनीहरू सुगाजस्तै वक्ताको नक्कल गर्छन्, गति र भावनाको प्रतिलिपि गर्छन्। यसले मस्तिष्कलाई सोच्न बाध्य पार्छ, "यो भाषा मेरो अंश हो।"</p>
+
+  <div class="tip-box">
+     <strong>सत्य:</strong> त्यहाँ कुनै जादुई गोली छैन। कुनै गोप्य एप छैन। रहस्य भनेको लामो समयसम्म चाखलाग्दो सामग्रीमा लागू गरिएको बोरिंग निरन्तरता हो।
+  </div>
+</article>
+`;
+
+const POST_POLYGLOT_CONTENT_SI = `
+<article>
+  <p>ඔබ ඔවුන්ව යූටියුබ් හි දකිනවා: භාෂා 10 ක් හොඳින් කතා කරන අය. ඔබ සිතනවා, "ඔවුන් විශේෂ මොළයකින් ඉපදී තිබිය යුතුයි." ස්පොයිලර්: ඔවුන් එසේ නොවේ. ඔවුන්ට ඇත්තේ ඔබට වඩා හොඳ පද්ධති පමණි.</p>
+
+  <h2>රහස 1: ඔවුන් කාලය "සොයා ගන්නේ" නැත, ඔවුන් එය සොරකම් කරයි</h2>
+  <p>ආධුනිකයන් නිදහස් කාලය එනතුරු බලා සිටියි. බහුභාෂාකාරයන් සෑම උදෑසනකම පෙ.ව. 7 ට විනාඩි 30 ක් වෙන් කරයි. නිදහසට කරුණු නැත. ඔබ අභිප්රේරණය මත රඳා පවතින්නේ නම්, ඔබ අසමත් වනු ඇත. ඔබ කාලසටහනක් මත රඳා පවතින්නේ නම්, ඔබ දිනනු ඇත.</p>
+  
+  <h2>රහස 2: ඔවුන් අවිනිශ්චිතතාවය ඉවසයි</h2>
+  <p>සාමාන්‍ය ඉගෙන ගන්නෙකු තමන් නොදන්නා වචනයක් ඇසූ විට, ඔවුන් කලබල වේ. බහුභාෂාකාරයෙක් සන්දර්භය අනුමාන කර ඉදිරියට යයි. ඔවුන් ව්‍යාකූල වීමට පහසුය. ඔබ නොදන්නා සෑම වචනයක් සඳහාම නතර වන්නේ නම්, ඔබ ගලායාම මරා දමයි.</p>
+
+  <h2>රහස 3: උනන්දුව මත පදනම් වූ ඉගෙනීම</h2>
+  <p>ඔවුන් වැඩි කාලයක් පෙළපොත් භාවිතා නොකරයි. ඔවුන් ඉවුම් පිහුම්, ක්‍රීඩා හෝ ඉතිහාසය හරහා ඉගෙන ගනී. ඔබ වීඩියෝ ක්‍රීඩා වලට කැමති නම්, ජර්මානු භාෂාවෙන් *Skyrim* වාදනය කරන්න. ඔබ ඉවුම් පිහුම් වලට කැමති නම්, ඉතාලි භාෂාවෙන් වට්ටෝරු කියවන්න. ඔබේ මොළය එය කැමති දේ මතක තබා ගනී.</p>
+
+  <h2>රහස 4: ෂැඩෝවිං (Shadowing)</h2>
+  <p>ඔවුන් නිකම්ම අසන්නේ නැත; ඔවුන් නැවත නැවත කියයි. ඔවුන් ගිරවෙක් මෙන් කථිකයා අනුකරණය කරයි, වේගය සහ හැඟීම් පිටපත් කරයි. මෙය මොළය රවටයි, "මේ භාෂාව මගේ කොටසක්" කියා සිතීමට.</p>
+
+  <div class="tip-box">
+     <strong>සත්යය:</strong> මැජික් පෙත්තක් නොමැත. රහස් යෙදුමක් නොමැත. රහස නම් දිගු කාලයක් පුරා රසවත් අන්තර්ගතයන් සඳහා යොදන නීරස අනුකූලතාවයි.
+  </div>
+</article>
+`;
+
+const POST_POLYGLOT_CONTENT_SW = `
+<article>
+  <p>Unawaona kwenye YouTube: watu wanaozungumza lugha 10 kikamilifu. Unafikiri, "Lazima wamezaliwa na ubongo maalum." Spoiler: Hawa sio. Wana mifumo bora tu kuliko wewe.</p>
+
+  <h2>Siri ya 1: Hawa "upati Muda", Wanauiba</h2>
+  <p>Wapenda kujifunza husubiri wakati wa bure. Polyglots huzuia dakika 30 kila asubuhi saa 1 asubuhi. Hakuna visingizio. Ikiwa unategemea motisha, utashindwa. Ikiwa unategemea ratiba, utashinda.</p>
+  
+  <h2>Siri ya 2: Wanavumilia Utata</h2>
+  <p>Mwanafunzi wa kawaida anaposikia neno asilolijua, anapaniki. Polyglot anakisia tu muktadha na kuendelea. Wanajisikia vizuri kuchanganyikiwa. Ikiwa utasimama kwa kila neno usilolijua, unaua mtiririko.</p>
+
+  <h2>Siri ya 3: Kujifunza Kunakoongozwa na Maslahi</h2>
+  <p>Hawatumii vitabu vya kiada kwa muda mrefu. Wanajifunza kupitia kupika, michezo, au historia. Ikiwa unapenda michezo ya video, cheza *Skyrim* kwa Kijerumani. Ikiwa unapenda kupika, soma mapishi kwa Kiitaliano. Ubongo wako unakumbuka kile unachofurahia.</p>
+
+  <h2>Siri ya 4: Shadowing (Kuiga)</h2>
+  <p>Hawasikilizi tu; wanarudia. Wanamuiga mzungumzaji kama kasuku, wakinakili kasi na hisia. Hii inadanganya ubongo kufikiria, "Lugha hii ni sehemu yangu."</p>
+
+  <div class="tip-box">
+     <strong>Ukweli:</strong> Hakuna kidonge cha uchawi. Hakuna programu ya siri. Siri ni uthabiti wa kuchosha unaotumika kwa maudhui ya kuvutia kwa muda mrefu.
+  </div>
+</article>
+`;
+
+// Post 14 Object Definition
+const POST_POLYGLOT = {
+    id: 'polyglot-secrets',
+    title: {
+        en: "4 Secrets of Polyglots (That Have Nothing to Do with Talent)",
+        ko: "폴리글롯의 4가지 비밀 (재능과는 상관없습니다)",
+        ja: "ポリグロットの4つの秘密（才能とは無関係です）",
+        zh: "多语言者的4个秘密（与天赋无关）",
+        th: "4 ความลับของคนเก่งภาษา (ที่ไม่เกี่ยวกับพรสวรรค์)",
+        vi: "4 Bí mật của người đa ngôn ngữ (Không liên quan đến tài năng)",
+        id: "4 Rahasia Poliglot (Yang Tidak Ada Hubungannya dengan Bakat)",
+        es: "4 secretos de los políglotas (que no tienen nada que ver con el talento)",
+        pt: "4 Segredos dos Poliglotas (Que não têm nada a ver com talento)",
+        fr: "4 secrets des polyglottes (qui n'ont rien à voir avec le talent)",
+        de: "4 Geheimnisse von Polyglotten (die nichts mit Talent zu tun haben)",
+        tr: "Çok Dillilerin 4 Sırrı (Yetenekle Hiçbir İlgisi Olmayan)",
+        ar: "4 أسرار لمتعددي اللغات (لا علاقة لها بالموهبة)",
+        hi: "पॉलीग्लॉट्स के 4 रहस्य (जिनका प्रतिभा से कोई लेना-देना नहीं है)",
+        ru: "4 секрета полиглотов (которые не имеют ничего общего с талантом)",
+        bn: "পলিগ্লটদের ৪টি গোপন রহস্য (যার প্রতিভার সাথে কোন সম্পর্ক নেই)",
+        ur: "پولی گلوٹس کے 4 راز (جن کا ٹیلنٹ سے کوئی تعلق نہیں ہے)",
+        ne: "पोलिग्लोट्सका ४ रहस्यहरू (जसको प्रतिभासँग कुनै सरोकार छैन)",
+        si: "බහුභාෂාකාරයින්ගේ රහස් 4 ක් (දක්ෂතාවයට කිසිදු සම්බන්ධයක් නැති)",
+        sw: "Siri 4 za Polyglots (Ambazo Hazihusiani na Kipaji)"
+    },
+    excerpt: {
+        en: "Stop waiting for the 'magic brain' update. Here is the actual operating system used by people who learn 10+ languages.",
+        ko: "'마법의 두뇌' 업데이트를 기다리지 마세요. 여기 10개 국어 이상을 배우는 사람들이 실제로 쓰는 운영 체제가 있습니다.",
+        ja: "「魔法の脳」のアップデートを待つのはやめましょう。これが、10カ国語以上を学ぶ人々が実際に使っているオペレーティングシステムです。",
+        zh: "停止等待“神奇大脑”的更新。这是学习10多种语言的人实际上使用的操作系统。",
+        th: "เลิกรออัปเดต 'สมองวิเศษ' นี่คือระบบปฏิบัติการจริงที่ใช้โดยคนที่เรียนรู้มากกว่า 10 ภาษา",
+        vi: "Ngừng chờ đợi bản cập nhật 'bộ não ma thuật'. Đây là hệ điều hành thực tế được sử dụng bởi những người học hơn 10 ngôn ngữ.",
+        id: "Berhentilah menunggu pembaruan 'otak ajaib'. Ini adalah sistem operasi sebenarnya yang digunakan oleh orang-orang yang mempelajari 10+ bahasa.",
+        es: "Deja de esperar la actualización del 'cerebro mágico'. Este es el sistema operativo real utilizado por personas que aprenden más de 10 idiomas.",
+        pt: "Pare de esperar pela atualização do 'cérebro mágico'. Este é o sistema operacional real usado por pessoas que aprendem mais de 10 idiomas.",
+        fr: "Arrêtez d'attendre la mise à jour du « cerveau magique ». Voici le système d'exploitation réel utilisé par les personnes qui apprennent plus de 10 langues.",
+        de: "Hören Sie auf, auf das 'magische Gehirn'-Update zu warten. Hier ist das tatsächliche Betriebssystem, das von Menschen verwendet wird, die 10+ Sprachen lernen.",
+        tr: "'Sihirli beyin' güncellemesini beklemeyi bırakın. İşte 10'dan fazla dil öğrenen insanların kullandığı asıl işletim sistemi.",
+        ar: "توقف عن انتظار تحديث 'الدماغ السحري'. هذا هو نظام التشغيل الفعلي الذي يستخدمه الأشخاص الذين يتعلمون أكثر من 10 لغات.",
+        hi: "'जादुई दिमाग' अपडेट की प्रतीक्षा करना बंद करें। यहाँ वास्तविक ऑपरेटिंग सिस्टम है जिसका उपयोग 10+ भाषाएँ सीखने वाले लोग करते हैं।",
+        ru: "Перестаньте ждать обновления 'волшебного мозга'. Вот реальная операционная система, которую используют люди, изучающие более 10 языков.",
+        bn: "'জাদু মস্তিষ্ক' আপডেটের জন্য অপেক্ষা করা বন্ধ করুন। এখানে ১০+ ভাষা শেখা মানুষদের দ্বারা ব্যবহৃত প্রকৃত অপারেটিং সিস্টেম রয়েছে।",
+        ur: "'جادوئی دماغ' کی تازہ کاری کا انتظار کرنا بند کریں۔ یہاں اصل آپریٹنگ سسٹم ہے جو 10+ زبانیں سیکھنے والے لوگ استعمال کرتے ہیں۔",
+        ne: "'जादुई दिमाग' अपडेटको लागि पर्खन बन्द गर्नुहोस्। यहाँ वास्तविक अपरेटिङ सिस्टम छ जुन १०+ भाषाहरू सिक्ने मानिसहरूले प्रयोग गर्छन्।",
+        si: "'මැජික් මොළය' යාවත්කාලීන කිරීම බලා සිටීම නවත්වන්න. භාෂා 10+ ඉගෙන ගන්නා පුද්ගලයින් විසින් භාවිතා කරන සැබෑ මෙහෙයුම් පද්ධතිය මෙයයි.",
+        sw: "Acha kusubiri sasisho la 'ubongo wa uchawi'. Hii ndio mfumo halisi wa uendeshaji unaotumiwa na watu wanaojifunza lugha 10+."
+    },
+    content: {
+        en: POST_POLYGLOT_CONTENT_EN,
+        ko: POST_POLYGLOT_CONTENT_KO,
+        ja: POST_POLYGLOT_CONTENT_JA,
+        zh: POST_POLYGLOT_CONTENT_ZH,
+        th: POST_POLYGLOT_CONTENT_TH,
+        vi: POST_POLYGLOT_CONTENT_VI,
+        id: POST_POLYGLOT_CONTENT_ID,
+        es: POST_POLYGLOT_CONTENT_ES,
+        pt: POST_POLYGLOT_CONTENT_PT,
+        fr: POST_POLYGLOT_CONTENT_FR,
+        de: POST_POLYGLOT_CONTENT_DE,
+        tr: POST_POLYGLOT_CONTENT_TR,
+        ar: POST_POLYGLOT_CONTENT_AR,
+        hi: POST_POLYGLOT_CONTENT_HI,
+        ru: POST_POLYGLOT_CONTENT_RU,
+        bn: POST_POLYGLOT_CONTENT_BN,
+        ur: POST_POLYGLOT_CONTENT_UR,
+        ne: POST_POLYGLOT_CONTENT_NE,
+        si: POST_POLYGLOT_CONTENT_SI,
+        sw: POST_POLYGLOT_CONTENT_SW
+    },
+    date: "2024-04-10",
+    readTime: 5,
+    category: "Inspiration",
+    coverImage: "/assets/blog/polyglot.png",
+    author: "Alexander Argüelles Fan",
+    tags: ["Polyglot", "Methods", "Inspiration", "Habits"]
+};
 
 // ==========================================
-// Post 9: Immersion at Home
+// Post 15: Overcoming Fear of Speaking
+// ==========================================
+const POST_FEAR_CONTENT_EN = `
+<article>
+  <p>Your hands sweat. Your heart races. You open your mouth, and... nothing comes out. You know the words, but fear freezes you. This is "Foreign Language Anxiety," and every learner faces it.</p>
+
+  <h2>1. The Spotlight Effect (Nobody Cares)</h2>
+  <p>You think everyone is judging your grammar. In reality, they are thinking about their own lunch, their hair, or their bills. Humans are selfish. Your mistakes are a tiny blip in their day. Relax.</p>
+
+  <h2>2. Embrace the "Baby Phase"</h2>
+  <p>Babies babble. They say "Mama milk" instead of "Mother, may I please have some calcium." And we applaud them. You are a baby in this new language. Give yourself permission to sound silly for a year. It's the only way to grow.</p>
+
+  <h2>3. The "Script" Hack</h2>
+  <p>Don't improvise. Prepare. Write down 3 scripts for situations you face:</p>
+  <ul>
+      <li>Ordering coffee</li>
+      <li>Introducing yourself</li>
+      <li>Asking for directions</li>
+  </ul>
+  <p>Memorize them perfectly. When you use them and they work, your brain gets a dopamine hit. Confidence is built on these small wins.</p>
+
+  <h2>4. Talk to Robots First</h2>
+  <p>Siri, Google Assistant, and ChatGPT don't judge you. Change your phone language and try to set an alarm with your voice. If Siri understands you, a human will too.</p>
+
+  <div class="tip-box">
+     <strong>Courage:</strong> Courage is not the absence of fear. Courage is speaking *despite* the fear. Open your mouth. Make the mistake. Survive. Repeat.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_KO = `
+<article>
+  <p>손에 땀이 납니다. 심장이 뜁니다. 입을 열었는데... 아무 소리도 안 나옵니다. 단어는 아는데 두려움이 당신을 얼어붙게 만듭니다. 이것이 "외국어 불안"이며, 모든 학습자가 겪는 일입니다.</p>
+
+  <h2>1. 조명 효과 (아무도 신경 안 씁니다)</h2>
+  <p>당신은 모두가 당신의 문법을 평가한다고 생각합니다. 사실 그들은 오늘 점심 메뉴, 자신의 머리 스타일, 카드값을 걱정하고 있습니다. 인간은 이기적입니다. 당신의 실수는 그들의 하루 중 아주 작은 점일 뿐입니다. 긴장을 푸세요.</p>
+
+  <h2>2. "아기 단계"를 받아들이세요</h2>
+  <p>아기는 옹알이를 합니다. "어머니, 칼슘을 좀 섭취해도 될까요?" 대신 "엄마 우유"라고 합니다. 그래도 우리는 박수를 칩니다. 당신은 이 새로운 언어에서 아기입니다. 1년 동안은 바보처럼 들려도 된다고 스스로에게 허락하세요. 그것만이 성장하는 길입니다.</p>
+
+  <h2>3. "대본" 해킹</h2>
+  <p>즉흥적으로 하지 마세요. 준비하세요. 자주 겪는 상황을 위한 대본 3개를 쓰세요:</p>
+  <ul>
+      <li>커피 주문하기</li>
+      <li>자기소개하기</li>
+      <li>길 묻기</li>
+  </ul>
+  <p>완벽하게 외우세요. 그것들을 사용해서 통했을 때, 뇌는 도파민을 얻습니다. 자신감은 이런 작은 승리들 위에 쌓입니다.</p>
+
+  <h2>4. 로봇과 먼저 대화하세요</h2>
+  <p>Siri, Google Assistant, ChatGPT는 당신을 평가하지 않습니다. 폰 언어를 바꾸고 목소리로 알람을 설정해 보세요. Siri가 알아듣는다면, 사람도 알아듣습니다.</p>
+
+  <div class="tip-box">
+     <strong>용기:</strong> 용기는 두려움이 없는 상태가 아닙니다. 용기는 두려움에도 *불구하고* 말하는 것입니다. 입을 여세요. 실수하세요. 살아남으세요. 반복하세요.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_JA = `
+<article>
+  <p>手に汗をかきます。心臓がバクバクします。口を開きますが…何も出てきません。単語は知っているのに、恐怖で凍りついてしまいます。これは「外国語不安」であり、すべての学習者が直面するものです。</p>
+
+  <h2>1. スポットライト効果（誰も気にしていません）</h2>
+  <p>あなたは、皆があなたの文法を評価していると思っています。実際には、彼らは自分の昼食、髪型、請求書のことを考えています。人間は自己中心的です。あなたのミスは彼らの1日のほんの一部に過ぎません。リラックスしてください。</p>
+
+  <h2>2. 「赤ちゃん段階」を受け入れる</h2>
+  <p>赤ちゃんは喃語（なんご）を話します。「お母様、カルシウムを少々いただけますか」ではなく「ママ、ミルク」と言います。それでも私たちは拍手します。あなたはこの新しい言語においては赤ちゃんです。1年間は馬鹿みたいに聞こえてもいいと自分に許可を与えてください。それが成長する唯一の方法です。</p>
+
+  <h2>3. 「台本」ハック</h2>
+  <p>即興でやろうとしないでください。準備してください。直面する状況のために3つの台本を書き留めてください：</p>
+  <ul>
+      <li>コーヒーを注文する</li>
+      <li>自己紹介をする</li>
+      <li>道を尋ねる</li>
+  </ul>
+  <p>それらを完璧に暗記してください。それらを使って通じた時、脳はドーパミンを得ます。自信はこうした小さな勝利の上に築かれます。</p>
+
+  <h2>4. まずロボットと話す</h2>
+  <p>Siri、Googleアシスタント、ChatGPTはあなたを評価しません。電話の言語を変更し、声でアラームを設定してみてください。Siriがあなたを理解できれば、人間も理解できます。</p>
+
+  <div class="tip-box">
+     <strong>勇気：</strong>勇気とは恐怖がないことではありません。勇気とは恐怖にも *かかわらず* 話すことです。口を開けてください。間違えてください。生き延びてください。繰り返してください。
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_ZH = `
+<article>
+  <p>你的手心出汗。心跳加速。你张开嘴，但是……什么也说不出来。你知道单词，但恐惧让你僵住了。这就是“外语焦虑”，每个学习者都会面对。</p>
+
+  <h2>1. 聚光灯效应（没人从在乎）</h2>
+  <p>你以为每个人都在评判你的语法。实际上，而在考虑他们自己的午餐、发型或账单。人类是自私的。你的错误只是他们一天中微不足道的一个小点。放轻松。</p>
+
+  <h2>2. 拥抱“婴儿阶段”</h2>
+  <p>婴儿牙牙学语。他们说“妈妈奶”，而不是“母亲，请给我一些钙好吗。”我们却为他们鼓掌。在这门新语言中，你就是个婴儿。允许自己听起来像个傻瓜一年。这是成长的唯一途径。</p>
+
+  <h2>3. “剧本”黑客</h2>
+  <p>不要即兴发挥。准备。为你面临的情况写下3个剧本：</p>
+  <ul>
+      <li>点咖啡</li>
+      <li>自我介绍</li>
+      <li>问路</li>
+  </ul>
+  <p>完美地背诵它们。当你使用它们并且奏效时，你的大脑会获得多巴胺。自信建立在这些小胜利之上。</p>
+
+  <h2>4. 先和机器人说话</h2>
+  <p>Siri、Google Assistant和ChatGPT不会评判你。更改你的手机语言，尝试用语音设置闹钟。如果Siri能听懂你，人类也能。</p>
+
+  <div class="tip-box">
+     <strong>勇气：</strong>勇气不是没有恐惧。勇气是*尽管*恐惧也要说话。张开嘴。犯错。活下来。重复。
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_TH = `
+<article>
+  <p>มือคุณเหงื่อออก ใจเต้นรัว คุณอ้าปาก แต่... ไม่มีเสียงออกมา คุณรู้คำศัพท์ แต่ความกลัวทำให้คุณตัวแข็ง นี่คือ "ความวิตกกังวลในการพูดภาษาต่างประเทศ" และผู้เรียนทุกคนต้องเผชิญกับมัน</p>
+
+  <h2>1. ปรากฏการณ์สปอตไลท์ (ไม่มีใครสนใจ)</h2>
+  <p>คุณคิดว่าทุกคนกำลังตัดสินไวยากรณ์ของคุณ ในความเป็นจริง พวกเขากำลังคิดถึงอาหารกลางวัน ทรงผม หรือบิลค่าใช้จ่ายของตัวเอง มนุษย์มีความเห็นแก่ตัว ความผิดพลาดของคุณเป็นเพียงจุดเล็กๆ ในวันของพวกเขา ผ่อนคลายซะ</p>
+
+  <h2>2. ยอมรับ "ช่วงทารก"</h2>
+  <p>ทารกพูดอ้อแอ้ พวกเขาพูดว่า "แม่ นม" แทนที่จะเป็น "คุณแม่ครับ ขอแคลเซียมหน่อยได้ไหม" และเราก็ปรบมือให้พวกเขา คุณคือทารกในภาษาใหม่นี้ อนุญาตให้ตัวเองดูงี่เง่าได้สักปี มันเป็นวิธีเดียวที่จะเติบโต</p>
+
+  <h2>3. แฮ็กด้วย "สคริปต์"</h2>
+  <p>อย่าด้นสด เตรียมตัว เขียนสคริปต์ 3 บทสำหรับสถานการณ์ที่คุณต้องเจอ:</p>
+  <ul>
+      <li>สั่งกาแฟ</li>
+      <li>แนะนำตัวเอง</li>
+      <li>ถามทาง</li>
+  </ul>
+  <p>ท่องจำให้แม่น เมื่อคุณใช้มันและมันได้ผล สมองของคุณจะได้รับโดปามีน ความมั่นใจสร้างขึ้นจากชัยชนะเล็กๆ เหล่านี้</p>
+
+  <h2>4. คุยกับหุ่นยนต์ก่อน</h2>
+  <p>Siri, Google Assistant และ ChatGPT ไม่ตัดสินคุณ เปลี่ยนภาษาในโทรศัพท์แล้วลองตั้งปลุกด้วยเสียง ถ้า Siri เข้าใจคุณ มนุษย์ก็จะเข้าใจคุณ</p>
+
+  <div class="tip-box">
+     <strong>ความกล้าหาญ:</strong> ความกล้าหาญไม่ใช่การไม่มีความกลัว ความกล้าหาญคือการพูด *ทั้งๆ ที่* กลัว อ้าปาก ทำผิดพลาด รอดชีวิต ทำซ้ำ
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_VI = `
+<article>
+  <p>Tay bạn đổ mồ hôi. Tim bạn đập nhanh. Bạn mở miệng, và... không có gì thoát ra cả. Bạn biết từ ngữ, nhưng nỗi sợ hãi làm bạn đóng băng. Đây là "Nỗi lo âu về Ngoại ngữ" và mọi người học đều phải đối mặt với nó.</p>
+
+  <h2>1. Hiệu ứng Tiêu điểm (Không ai quan tâm)</h2>
+  <p>Bạn nghĩ mọi người đang đánh giá ngữ pháp của bạn. Trong thực tế, họ đang nghĩ về bữa trưa của riêng họ, mái tóc của họ hoặc hóa đơn của họ. Con người ích kỷ. Sai lầm của bạn chỉ là một đốm nhỏ trong ngày của họ. Thư giãn đi.</p>
+
+  <h2>2. Ôm lấy "Giai đoạn Em bé"</h2>
+  <p>Trẻ sơ sinh bập bẹ. Chúng nói "Mẹ sữa" thay vì "Mẹ ơi, con có thể xin ít canxi được không." Và chúng ta vỗ tay cho chúng. Bạn là một đứa trẻ trong ngôn ngữ mới này. Hãy cho phép bản thân nghe có vẻ ngớ ngẩn trong một năm. Đó là cách duy nhất để phát triển.</p>
+
+  <h2>3. Hack bằng "Kịch bản"</h2>
+  <p>Đừng ứng biến. Chuẩn bị. Viết ra 3 kịch bản cho các tình huống bạn gặp phải:</p>
+  <ul>
+      <li>Gọi cà phê</li>
+      <li>Giới thiệu bản thân</li>
+      <li>Hỏi đường</li>
+  </ul>
+  <p>Ghi nhớ chúng một cách hoàn hảo. Khi bạn sử dụng chúng và chúng hoạt động, não của bạn sẽ nhận được một cú hích dopamine. Sự tự tin được xây dựng trên những chiến thắng nhỏ này.</p>
+
+  <h2>4. Nói chuyện với Robot trước</h2>
+  <p>Siri, Google Assistant và ChatGPT không đánh giá bạn. Thay đổi ngôn ngữ điện thoại của bạn và cố gắng đặt báo thức bằng giọng nói của bạn. Nếu Siri hiểu bạn, con người cũng sẽ hiểu.</p>
+
+  <div class="tip-box">
+     <strong>Lòng can đảm:</strong> Lòng can đảm không phải là sự vắng mặt của nỗi sợ hãi. Can đảm là nói *bất chấp* nỗi sợ hãi. Mở miệng ra. Phạm sai lầm. Sống sót. Lặp lại.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_ID = `
+<article>
+  <p>Tangan Anda berkeringat. Jantung Anda berpacu. Anda membuka mulut, dan... tidak ada yang keluar. Anda tahu kata-katanya, tetapi rasa takut membekukan Anda. Ini adalah "Kecemasan Bahasa Asing," dan setiap pelajar menghadapinya.</p>
+
+  <h2>1. Efek Sorotan (Tidak Ada yang Peduli)</h2>
+  <p>Anda pikir semua orang menilai tata bahasa Anda. Kenyataannya, mereka memikirkan makan siang mereka sendiri, rambut mereka, atau tagihan mereka. Manusia itu egois. Kesalahan Anda hanyalah setitik kecil di hari mereka. Santai saja.</p>
+
+  <h2>2. Rangkul "Fase Bayi"</h2>
+  <p>Bayi mengoceh. Mereka berkata "Mama susu" alih-alih "Ibu, bolehkah saya minta kalsium." Dan kita bertepuk tangan untuk mereka. Anda adalah bayi dalam bahasa baru ini. Beri diri Anda izin untuk terdengar konyol selama setahun. Itu satu-satunya cara untuk tumbuh.</p>
+
+  <h2>3. Peretasan "Skrip"</h2>
+  <p>Jangan berimprovisasi. Bersiaplah. Tuliskan 3 skrip untuk situasi yang Anda hadapi:</p>
+  <ul>
+      <li>Memesan kopi</li>
+      <li>Memperkenalkan diri</li>
+      <li>Menanyakan arah</li>
+  </ul>
+  <p>Hafalkan dengan sempurna. Saat Anda menggunakannya dan berhasil, otak Anda mendapat suntikan dopamin. Keyakinan dibangun di atas kemenangan-kemenangan kecil ini.</p>
+
+  <h2>4. Bicaralah dengan Robot Dulu</h2>
+  <p>Siri, Google Assistant, dan ChatGPT tidak menilai Anda. Ubah bahasa ponsel Anda dan coba atur alarm dengan suara Anda. Jika Siri mengerti Anda, manusia juga akan mengerti.</p>
+
+  <div class="tip-box">
+     <strong>Keberanian:</strong> Keberanian bukan berarti tidak adanya rasa takut. Keberanian adalah berbicara *meskipun* ada rasa takut. Buka mulut Anda. Buat kesalahan. Bertahan hidup. Ulangi.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_ES = `
+<article>
+  <p>Te sudan las manos. Tu corazón se acelera. Abres la boca y... no sale nada. Sabes las palabras, pero el miedo te congela. Esto es "Ansiedad por la Lengua Extranjera", y todo estudiante se enfrenta a ella.</p>
+
+  <h2>1. El efecto del foco (A nadie le importa)</h2>
+  <p>Piensas que todos juzgan tu gramática. En realidad, están pensando en su propio almuerzo, su cabello o sus facturas. Los humanos son egoístas. Tus errores son un pequeño punto en su día. Relájate.</p>
+
+  <h2>2. Abraza la "Fase de Bebé"</h2>
+  <p>Los bebés balbucean. Dicen "Mamá leche" en lugar de "Madre, ¿podría darme un poco de calcio, por favor?". Y les aplaudimos. Eres un bebé en este nuevo idioma. Date permiso para sonar tonto por un año. Es la única forma de crecer.</p>
+
+  <h2>3. El truco del "Guion"</h2>
+  <p>No improvises. Prepárate. Escribe 3 guiones para situaciones que enfrentas:</p>
+  <ul>
+      <li>Pedir café</li>
+      <li>Presentarte</li>
+      <li>Pedir direcciones</li>
+  </ul>
+  <p>Memorízalos perfectamente. Cuando los uses y funcionen, tu cerebro recibirá un golpe de dopamina. La confianza se construye sobre estas pequeñas victorias.</p>
+
+  <h2>4. Habla con robots primero</h2>
+  <p>Siri, Google Assistant y ChatGPT no te juzgan. Cambia el idioma de tu teléfono e intenta configurar una alarma con tu voz. Si Siri te entiende, un humano también lo hará.</p>
+
+  <div class="tip-box">
+     <strong>Coraje:</strong> El coraje no es la ausencia de miedo. El coraje es hablar *a pesar* del miedo. Abre la boca. Comete el error. Sobrevive. Repite.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_PT = `
+<article>
+  <p>Suas mãos suam. Seu coração dispara. Você abre a boca e... nada sai. Você sabe as palavras, mas o medo te congela. Isso é "Ansiedade de Língua Estrangeira", e todo aprendiz enfrenta isso.</p>
+
+  <h2>1. O Efeito Holofote (Ninguém se Importa)</h2>
+  <p>Você acha que todo mundo está julgando sua gramática. Na realidade, eles estão pensando em seu próprio almoço, seu cabelo ou suas contas. Os humanos são egoístas. Seus erros são um pequeno pontinho no dia deles. Relaxe.</p>
+
+  <h2>2. Abrace a "Fase de Bebê"</h2>
+  <p>Bebês balbuciam. Eles dizem "Mamãe leite" em vez de "Mãe, você poderia me dar um pouco de cálcio, por favor?". E nós os aplaudimos. Você é um bebê nesta nova língua. Dê a si mesmo permissão para soar bobo por um ano. É a única maneira de crescer.</p>
+
+  <h2>3. O Hack do "Script"</h2>
+  <p>Não improvise. Prepare-se. Escreva 3 scripts para situações que você enfrenta:</p>
+  <ul>
+      <li>Pedir café</li>
+      <li>Apresentar-se</li>
+      <li>Pedir direções</li>
+  </ul>
+  <p>Memorize-os perfeitamente. Quando você usá-los e funcionarem, seu cérebro recebe uma dose de dopamina. A confiança é construída sobre essas pequenas vitórias.</p>
+
+  <h2>4. Fale com Robôs Primeiro</h2>
+  <p>Siri, Google Assistant e ChatGPT não te julgam. Mude o idioma do seu telefone e tente definir um alarme com sua voz. Se a Siri te entender, um humano também vai.</p>
+
+  <div class="tip-box">
+     <strong>Coragem:</strong> Coragem não é a ausência de medo. Coragem é falar *apesar* do medo. Abra a boca. Cometa o erro. Sobreviva. Repita.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_FR = `
+<article>
+  <p>Vos mains sont moites. Votre cœur s'emballe. Vous ouvrez la bouche, et... rien ne sort. Vous connaissez les mots, mais la peur vous fige. C'est l'« anxiété liée aux langues étrangères », et tout apprenant y est confronté.</p>
+
+  <h2>1. L'effet de projecteur (Personne ne s'en soucie)</h2>
+  <p>Vous pensez que tout le monde juge votre grammaire. En réalité, ils pensent à leur propre déjeuner, à leurs cheveux ou à leurs factures. Les humains sont égoïstes. Vos erreurs sont un petit point dans leur journée. Détendez-vous.</p>
+
+  <h2>2. Embrassez la « Phase Bébé »</h2>
+  <p>Les bébés babillent. Ils disent « Maman lait » au lieu de « Mère, pourrais-je avoir un peu de calcium, s'il te plaît. » Et nous les applaudissons. Vous êtes un bébé dans cette nouvelle langue. Donnez-vous la permission d'avoir l'air bête pendant un an. C'est la seule façon de grandir.</p>
+
+  <h2>3. L'astuce du « Scénario »</h2>
+  <p>N'improvisez pas. Préparez-vous. Écrivez 3 scénarios pour les situations auxquelles vous êtes confronté :</p>
+  <ul>
+      <li>Commander un café</li>
+      <li>Se présenter</li>
+      <li>Demander son chemin</li>
+  </ul>
+  <p>Mémorisez-les parfaitement. Lorsque vous les utilisez et qu'ils fonctionnent, votre cerveau reçoit une dose de dopamine. La confiance se construit sur ces petites victoires.</p>
+
+  <h2>4. Parlez d'abord aux robots</h2>
+  <p>Siri, Google Assistant et ChatGPT ne vous jugent pas. Changez la langue de votre téléphone et essayez de régler une alarme avec votre voix. Si Siri vous comprend, un humain le fera aussi.</p>
+
+  <div class="tip-box">
+     <strong>Courage :</strong> Le courage n'est pas l'absence de peur. Le courage, c'est de parler *malgré* la peur. Ouvrez la bouche. Faites l'erreur. Survivez. Répétez.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_DE = `
+<article>
+  <p>Ihre Hände schwitzen. Ihr Herz rast. Sie öffnen den Mund und... nichts kommt heraus. Sie kennen die Wörter, aber die Angst lähmt Sie. Das ist "Fremdsprachenangst", und jeder Lerner ist damit konfrontiert.</p>
+
+  <h2>1. Der Scheinwerfer-Effekt (Niemanden interessiert es)</h2>
+  <p>Sie denken, jeder beurteilt Ihre Grammatik. In Wirklichkeit denken sie an ihr eigenes Mittagessen, ihre Haare oder ihre Rechnungen. Menschen sind egoistisch. Ihre Fehler sind ein winziger Fleck in ihrem Tag. Entspannen Sie sich.</p>
+
+  <h2>2. Umarmen Sie die "Baby-Phase"</h2>
+  <p>Babys brabbeln. Sie sagen "Mama Milch" statt "Mutter, dürfte ich bitte etwas Kalzium haben." Und wir applaudieren ihnen. Sie sind ein Baby in dieser neuen Sprache. Erlauben Sie sich, ein Jahr lang albern zu klingen. Das ist der einzige Weg zu wachsen.</p>
+
+  <h2>3. Der "Skript"-Hack</h2>
+  <p>Improvisieren Sie nicht. Bereiten Sie sich vor. Schreiben Sie 3 Skripte für Situationen, denen Sie begegnen:</p>
+  <ul>
+      <li>Kaffee bestellen</li>
+      <li>Sich selbst vorstellen</li>
+      <li>Nach dem Weg fragen</li>
+  </ul>
+  <p>Lernen Sie sie perfekt auswendig. Wenn Sie sie benutzen und sie funktionieren, bekommt Ihr Gehirn einen Dopamin-Kick. Selbstvertrauen baut auf diesen kleinen Siegen auf.</p>
+
+  <h2>4. Sprechen Sie zuerst mit Robotern</h2>
+  <p>Siri, Google Assistant und ChatGPT verurteilen Sie nicht. Ändern Sie Ihre Telefonsprache und versuchen Sie, einen Wecker mit Ihrer Stimme zu stellen. Wenn Siri Sie versteht, wird es auch ein Mensch tun.</p>
+
+  <div class="tip-box">
+     <strong>Mut:</strong> Mut ist nicht die Abwesenheit von Angst. Mut ist, *trotz* der Angst zu sprechen. Öffnen Sie den Mund. Machen Sie den Fehler. Überleben Sie. Wiederholen Sie.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_TR = `
+<article>
+  <p>Elleriniz terliyor. Kalbiniz küt küt atıyor. Ağzınızı açıyorsunuz ve... hiçbir şey çıkmıyor. Kelimeleri biliyorsunuz ama korku sizi donduruyor. Bu "Yabancı Dil Kaygısı"dır ve her öğrenci bununla yüzleşir.</p>
+
+  <h2>1. Spot Işığı Etkisi (Kimsenin Umurunda Değil)</h2>
+  <p>Herkesin gramerinizi yargıladığını sanıyorsunuz. Gerçekte, kendi öğle yemeklerini, saçlarını veya faturalarını düşünüyorlar. İnsanlar bencildir. Hatalarınız onların gününde küçücük bir noktadır. Rahatlayın.</p>
+
+  <h2>2. "Bebek Evresini" Kucaklayın</h2>
+  <p>Bebekler agular. "Anneciğim, lütfen biraz kalsiyum alabilir miyim" yerine "Anne süt" derler. Ve biz onları alkışlarız. Siz bu yeni dilde bir bebeksiniz. Bir yıl boyunca aptalca konuşmak için kendinize izin verin. Büyümenin tek yolu budur.</p>
+
+  <h2>3. "Senaryo" Hilesi</h2>
+  <p>Doğaçlama yapmayın. Hazırlanın. Karşılaştığınız durumlar için 3 senaryo yazın:</p>
+  <ul>
+      <li>Kahve siparişi vermek</li>
+      <li>Kendinizi tanıtmak</li>
+      <li>Yol sormak</li>
+  </ul>
+  <p>Onları mükemmel bir şekilde ezberleyin. Onları kullandığınızda ve işe yaradıklarında, beyniniz dopamin salgılar. Özgüven bu küçük zaferler üzerine inşa edilir.</p>
+
+  <h2>4. Önce Robotlarla Konuşun</h2>
+  <p>Siri, Google Asistan ve ChatGPT sizi yargılamaz. Telefonunuzun dilini değiştirin ve sesinizle alarm kurmayı deneyin. Siri sizi anlarsa, bir insan da anlayacaktır.</p>
+
+  <div class="tip-box">
+     <strong>Cesaret:</strong> Cesaret korkunun yokluğu değildir. Cesaret korkuya *rağmen* konuşmaktır. Ağzınızı açın. Hata yapın. Hayatta kalın. Tekrar edin.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_AR = `
+<article>
+  <p>تتعرق يداك. يتسارع قلبك. تفتح فمك، و... لا شيء يخرج. أنت تعرف الكلمات، لكن الخوف يجعلك تتجمد. هذا هو "قلق اللغة الأجنبية"، ويواجهه كل متعلم.</p>
+
+  <h2>1. تأثير بقعة الضوء (لا أحد يهتم)</h2>
+  <p>أنت تعتقد أن الجميع يحكم على قواعدك النحوية. في الواقع، هم يفكرون في غدائهم، أو شعرهم، أو فواتيرهم. البشر أنانيون. أخطاؤك مجرد نقطة صغيرة في يومهم. استرخ.</p>
+
+  <h2>2. احتضن "مرحلة الطفل"</h2>
+  <p>الأطفال يثرثرون. يقولون "ماما حليب" بدلاً من "أمي، هل يمكنني الحصول على بعض الكالسيوم من فضلك." ونحن نصفق لهم. أنت طفل في هذه اللغة الجديدة. امنح نفسك الإذن لتبدو سخيفاً لمدة عام. هذه هي الطريقة الوحيدة للنمو.</p>
+
+  <h2>3. خدعة "السيناريو"</h2>
+  <p>لا ترتجل. استعد. اكتب 3 سيناريوهات للمواقف التي تواجهها:</p>
+  <ul>
+      <li>طلب قهوة</li>
+      <li>التعريف بنفسك</li>
+      <li>السؤال عن الاتجاهات</li>
+  </ul>
+  <p>احفظها تماماً. عندما تستخدمها وتنجح، يحصل عقلك على جرعة دوبامين. تُبنى الثقة على هذه الانتصارات الصغيرة.</p>
+
+  <h2>4. تحدث إلى الروبوتات أولاً</h2>
+  <p>Siri و Google Assistant و ChatGPT لا يحكمون عليك. غير لغة هاتفك وحاول ضبط منبه بصوتك. إذا فهمتك Siri، سيفهمك الإنسان أيضاً.</p>
+
+  <div class="tip-box">
+     <strong>الشجاعة:</strong> الشجاعة ليست غياب الخوف. الشجاعة هي التحدث *رغم* الخوف. افتح فمك. ارتكب الخطأ. ابق على قيد الحياة. كرر.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_HI = `
+<article>
+  <p>आपके हाथों में पसीना आ रहा है। आपका दिल तेजी से धड़क रहा है। आप अपना मुंह खोलते हैं, और... कुछ भी बाहर नहीं आता है। आप शब्द जानते हैं, लेकिन डर आपको जमा देता है। यह "विदेशी भाषा की चिंता" है, और हर शिक्षार्थी इसका सामना करता है।</p>
+
+  <h2>1. स्पॉटलाइट प्रभाव (कोई परवाह नहीं करता)</h2>
+  <p>आपको लगता है कि हर कोई आपके व्याकरण को आंक रहा है। वास्तव में, वे अपने दोपहर के भोजन, अपने बालों या अपने बिलों के बारे में सोच रहे हैं। इंसान स्वार्थी होते हैं। आपकी गलतियाँ उनके दिन में एक छोटा सा धब्बा हैं। आराम करें।</p>
+
+  <h2>2. "शिशु चरण" को अपनाएं</h2>
+  <p>बच्चे बड़बड़ाते हैं। वे "माँ, क्या मुझे कृपया थोड़ा कैल्शियम मिल सकता है" के बजाय "मामा दूध" कहते हैं। और हम उनकी सराहना करते हैं। आप इस नई भाषा में एक बच्चे हैं। खुद को एक साल तक मूर्ख लगने की अनुमति दें। यह बढ़ने का एकमात्र तरीका है।</p>
+
+  <h2>3. "स्क्रिप्ट" हैक</h2>
+  <p>आशुभाषण न करें। तैयारी करें। आपके सामने आने वाली स्थितियों के लिए 3 स्क्रिप्ट लिखें:</p>
+  <ul>
+      <li>कॉफी ऑर्डर करना</li>
+      <li>अपना परिचय देना</li>
+      <li>दिशानिर्देश मांगना</li>
+  </ul>
+  <p>उन्हें पूरी तरह से याद कर लें। जब आप उनका उपयोग करते हैं और वे काम करते हैं, तो आपके मस्तिष्क को डोपामाइन हिट मिलता है। आत्मविश्वास इन छोटी जीतों पर बनता है।</p>
+
+  <h2>4. पहले रोबोट से बात करें</h2>
+  <p>Siri, Google Assistant और ChatGPT आपको आंकते नहीं हैं। अपने फोन की भाषा बदलें और अपनी आवाज से अलार्म सेट करने का प्रयास करें। यदि Siri आपको समझता है, तो एक इंसान भी समझेगा।</p>
+
+  <div class="tip-box">
+     <strong>साहस:</strong> साहस डर की अनुपस्थिति नहीं है। साहस डर के *बावजूद* बोलना है। अपना मुंह खोलें। गलती करें। जीवित रहें। दोहराएं।
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_RU = `
+<article>
+  <p>Ваши руки потеют. Сердце колотится. Вы открываете рот, и... ничего не выходит. Вы знаете слова, но страх парализует вас. Это "Тревожность иностранного языка", и с ней сталкивается каждый изучающий.</p>
+
+  <h2>1. Эффект прожектора (Всем все равно)</h2>
+  <p>Вы думаете, что все оценивают вашу грамматику. На самом деле они думают о своем обеде, прическе или счетах. Люди эгоистичны. Ваши ошибки — это крошечная точка в их дне. Расслабьтесь.</p>
+
+  <h2>2. Примите "Фазу младенца"</h2>
+  <p>Младенцы лепечут. Они говорят "Мама молоко" вместо "Мама, не могла бы ты дать мне немного кальция, пожалуйста". И мы аплодируем им. Вы младенец в этом новом языке. Разрешите себе звучать глупо в течение года. Это единственный способ расти.</p>
+
+  <h2>3. Хак "Сценарий"</h2>
+  <p>Не импровизируйте. Готовьтесь. Напишите 3 сценария для ситуаций, с которыми вы сталкиваетесь:</p>
+  <ul>
+      <li>Заказ кофе</li>
+      <li>Представление себя</li>
+      <li>Спрос дороги</li>
+  </ul>
+  <p>Выучите их идеально. Когда вы используете их, и они работают, ваш мозг получает дозу дофамина. Уверенность строится на этих маленьких победах.</p>
+
+  <h2>4. Сначала поговорите с роботами</h2>
+  <p>Siri, Google Assistant и ChatGPT не осуждают вас. Измените язык телефона и попробуйте установить будильник голосом. Если Siri понимает вас, человек тоже поймет.</p>
+
+  <div class="tip-box">
+     <strong>Мужество:</strong> Мужество — это не отсутствие страха. Мужество — это говорить *вопреки* страху. Откройте рот. Сделайте ошибку. Выживите. Повторите.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_BN = `
+<article>
+  <p>আপনার হাতের তালু ঘামছে। আপনার হৃদস্পন্দন দ্রুত হচ্ছে। আপনি মুখ খুললেন, এবং... কিছুই বের হলো না। আপনি শব্দগুলো জানেন, কিন্তু ভয় আপনাকে জমিয়ে দিয়েছে। এটি "বিদেশী ভাষার উদ্বেগ" (Foreign Language Anxiety), এবং প্রতিটি শিক্ষার্থী এর মুখোমুখি হয়।</p>
+
+  <h2>১. স্পটলাইট প্রভাব (কেউ পাত্তা দেয় না)</h2>
+  <p>আপনি ভাবছেন সবাই আপনার ব্যাকরণ বিচার করছে। বাস্তবে, তারা তাদের নিজেদের দুপুরের খাবার, তাদের চুল বা তাদের বিল নিয়ে ভাবছে। মানুষ স্বার্থপর। আপনার ভুলগুলো তাদের দিনের একটি ক্ষুদ্র বিন্দু মাত্র। শান্ত হোন।</p>
+
+  <h2>২. "শিশু পর্যায়" আলিঙ্গন করুন</h2>
+  <p>শিশুরা আধো-আধো কথা বলে। তারা "মা, আমি কি দয়া করে একটু ক্যালসিয়াম পেতে পারি" এর পরিবর্তে "মা দুধ" বলে। এবং আমরা তাদের জন্য হাততালি দিই। আপনি এই নতুন ভাষায় একটি শিশু। নিজেকে এক বছরের জন্য বোকা শোনানোর অনুমতি দিন। এটিই বড় হওয়ার একমাত্র উপায়।</p>
+
+  <h2>৩. "স্ক্রিপ্ট" হ্যাক</h2>
+  <p>তাৎক্ষণিক কিছু করবেন না। প্রস্তুত হন। আপনি যে পরিস্থিতির মুখোমুখি হন তার জন্য ৩টি স্ক্রিপ্ট লিখুন:</p>
+  <ul>
+      <li>কফি অর্ডার করা</li>
+      <li>নিজের পরিচয় দেওয়া</li>
+      <li>রাস্তার নির্দেশনা চাওয়া</li>
+  </ul>
+  <p>সেগুলো নিখুঁতভাবে মুখস্থ করুন। যখন আপনি সেগুলো ব্যবহার করবেন এবং সেগুলো কাজ করবে, তখন আপনার মস্তিষ্ক ডোপামিনের আঘাত পাবে। আত্মবিশ্বাস এই ছোট ছোট জয়ের উপর নির্মিত হয়।</p>
+
+  <h2>৪. প্রথমে রোবটদের সাথে কথা বলুন</h2>
+  <p>Siri, Google Assistant এবং ChatGPT আপনাকে বিচার করে না। আপনার ফোনের ভাষা পরিবর্তন করুন এবং আপনার ভয়েস দিয়ে অ্যালার্ম সেট করার চেষ্টা করুন। যদি Siri আপনাকে বুঝতে পারে, তবে একজন মানুষও বুঝবে।</p>
+
+  <div class="tip-box">
+     <strong>সাহস:</strong> সাহস ভয়ের অনুপস্থিতি নয়। সাহস হলো ভয় *সত্ত্বেও* কথা বলা। মুখ খুলুন। ভুল করুন। টিকে থাকুন। পুনরাবৃত্তি করুন।
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_UR = `
+<article>
+  <p>آپ کے ہاتھ پسینے سے شرابور ہیں۔ آپ کا دل تیزی سے دھڑک رہا ہے۔ آپ اپنا منہ کھولتے ہیں، اور... کچھ باہر نہیں آتا۔ آپ الفاظ جانتے ہیں، لیکن ڈر آپ کو جما دیتا ہے۔ یہ "غیر ملکی زبان کی اضطراب" ہے، اور ہر سیکھنے والا اس کا سامنا کرتا ہے۔</p>
+
+  <h2>1. اسپاٹ لائٹ اثر (کسی کو پرواہ نہیں)</h2>
+  <p>آپ سوچتے ہیں کہ ہر کوئی آپ کی گرامر کو پرکھ رہا ہے۔ حقیقت میں، وہ اپنے دوپہر کے کھانے، اپنے بالوں، یا اپنے بلوں کے بارے میں سوچ رہے ہیں۔ انسان خود غرض ہوتے ہیں۔ آپ کی غلطیاں ان کے دن میں ایک چھوٹا سا دھبہ ہیں۔ پرسکون ہو جائیں۔</p>
+
+  <h2>2. "بچے کے مرحلے" کو گلے لگائیں</h2>
+  <p>بچے توتلی زبان بولتے ہیں۔ وہ "ماں، کیا مجھے براہ کرم کچھ کیلشیم مل سکتا ہے" کے بجائے "ماما دودھ" کہتے ہیں۔ اور ہم ان کے لیے تالیاں بجاتے ہیں۔ آپ اس نئی زبان میں ایک بچے ہیں۔ اپنے آپ کو ایک سال تک بیوقوف لگنے کی اجازت دیں۔ یہ بڑھنے کا واحد طریقہ ہے۔</p>
+
+  <h2>3. "اسکرپٹ" ہیک</h2>
+  <p>فی البدیہہ بات نہ کریں۔ تیاری کریں۔ ان حالات کے لیے 3 اسکرپٹ لکھیں جن کا آپ سامنا کرتے ہیں:</p>
+  <ul>
+      <li>کافی کا آرڈر دینا</li>
+      <li>اپنا تعارف کروانا</li>
+      <li>راستہ پوچھنا</li>
+  </ul>
+  <p>انہیں مکمل طور پر یاد کر لیں۔ جب آپ انہیں استعمال کرتے ہیں اور وہ کام کرتے ہیں، تو آپ کے دماغ کو ڈوپامائن کی ہٹ ملتی ہے۔ اعتماد ان چھوٹی فتوحات پر تعمیر ہوتا ہے۔</p>
+
+  <h2>4. پہلے روبوٹ سے بات کریں</h2>
+  <p>Siri، Google Assistant اور ChatGPT آپ کو نہیں پرکھتے۔ اپنے فون کی زبان تبدیل کریں اور اپنی آواز سے الارم سیٹ کرنے کی کوشش کریں۔ اگر Siri آپ کو سمجھتی ہے، تو ایک انسان بھی سمجھے گا۔</p>
+
+  <div class="tip-box">
+     <strong>ہمت:</strong> ہمت ڈر کی غیر موجودگی نہیں ہے۔ ہمت ڈر کے *باوجود* بولنا ہے۔ اپنا منہ کھولیں۔ غلطی کریں۔ زندہ رہیں۔ دہرائیں۔
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_NE = `
+<article>
+  <p>तपाईंको हातमा पसिना आउँछ। तपाईंको मुटुको धड्कन बढ्छ। तपाईं आफ्नो मुख खोल्नुहुन्छ, र ... केहि बाहिर आउँदैन। तपाईंलाई शब्दहरू थाहा छ, तर डरले तपाईंलाई जमाउँछ। यो "विदेशी भाषाको चिन्ता" हो, र प्रत्येक शिक्षार्थीले यसको सामना गर्दछ।</p>
+
+  <h2>१. स्पटलाइट प्रभाव (कसैले वास्ता गर्दैन)</h2>
+  <p>तपाईंलाई लाग्छ कि सबैले तपाईंको व्याकरणको न्याय गरिरहेका छन्। वास्तवमा, तिनीहरू आफ्नै दिउँसोको खाना, तिनीहरूको कपाल, वा तिनीहरूको बिलहरूको बारेमा सोचिरहेका छन्। मानिस स्वार्थी हुन्छ। तपाईका गल्तीहरू तिनीहरूको दिनको सानो थोपा मात्र हुन्। शान्त हुनुहोस्।</p>
+
+  <h2>२. "शिशु चरण" लाई अँगाल्नुहोस्</h2>
+  <p>बच्चाहरु बर्बराउँछन्। तिनीहरू "आमा, के मलाई थोरै क्याल्सियम मिल्यो" को सट्टा "मामा दूध" भन्छन्। र हामी तिनीहरूको लागि ताली बजाउँछौं। तपाईं यो नयाँ भाषामा बच्चा हुनुहुन्छ। आफैलाई एक वर्षको लागि मूर्ख सुनिने अनुमति दिनुहोस्। यो बढ्ने एक मात्र तरिका हो।</p>
+
+  <h2>३. "स्क्रिप्ट" ह्याक</h2>
+  <p>तत्काल नबोल्नुहोस्। तयारी गर्नुहोस्। तपाईंले सामना गर्ने परिस्थितिहरूको लागि ३ स्क्रिप्टहरू लेख्नुहोस्:</p>
+  <ul>
+      <li>कफी अर्डर गर्दै</li>
+      <li>आफ्नो परिचय दिँदै</li>
+      <li>बाटो सोध्दै</li>
+  </ul>
+  <p>तिनीहरूलाई पूर्ण रूपमा याद गर्नुहोस्। जब तपाइँ तिनीहरूलाई प्रयोग गर्नुहुन्छ र तिनीहरूले काम गर्छन्, तपाइँको दिमागले डोपामाइन हिट प्राप्त गर्दछ। आत्मविश्वास यी साना जीतहरूमा निर्मित हुन्छ।</p>
+
+  <h2>४. पहिले रोबोटसँग कुरा गर्नुहोस्</h2>
+  <p>Siri, Google Assistant र ChatGPT ले तपाईंलाई न्याय गर्दैनन्। आफ्नो फोनको भाषा परिवर्तन गर्नुहोस् र आफ्नो आवाजले अलार्म सेट गर्ने प्रयास गर्नुहोस्। यदि Siri ले तपाईंलाई बुझ्छिन् भने, मानिसले पनि बुझ्नेछ।</p>
+
+  <div class="tip-box">
+     <strong>साहस:</strong> साहस डरको अनुपस्थिति होइन। साहस भनेको डरको *बावजुद* बोल्नु हो। आफ्नो मुख खोल्नुहोस्। गल्ती गर्नुहोस्। बाच्नुहोस्। दोहोर्याउनुहोस्।
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_SI = `
+<article>
+  <p>ඔබේ අත් දහඩිය දමයි. ඔබේ හදවත වේගයෙන් ගැහෙනවා. ඔබ කට අරිනවා, ඒත්... මොකුත් එළියට එන්නේ නැහැ. ඔබ වචන දන්නවා, නමුත් බිය ඔබව ගල් කරයි. මෙය "විදේශීය භාෂා කාංසාව" වන අතර සෑම ඉගෙන ගන්නෙකුම එයට මුහුණ දෙයි.</p>
+
+  <h2>1. විමසුම් ආලෝක ආචරණය (කිසිවෙකු ගණන් ගන්නේ නැත)</h2>
+  <p>සෑම කෙනෙකුම ඔබේ ව්‍යාකරණ විනිශ්චය කරන බව ඔබ සිතනවා. යථාර්ථයේ දී, ඔවුන් සිතන්නේ ඔවුන්ගේ දිවා ආහාරය, ඔවුන්ගේ කොණ්ඩය හෝ ඔවුන්ගේ බිල්පත් ගැන ය. මිනිසුන් ආත්මාර්ථකාමී ය. ඔබේ වැරදි ඔවුන්ගේ දවසේ කුඩා ලපයක් පමණි. සැහැල්ලුවෙන් ඉන්න.</p>
+
+  <h2>2. "ළදරු අදියර" වැළඳ ගන්න</h2>
+  <p>ළදරුවන් කියවනවා. ඔවුන් "අම්මා, මට කරුණාකර කැල්සියම් ටිකක් ලබා ගත හැකිද" වෙනුවට "අම්මා කිරි" යැයි කියති. අපි ඔවුන්ට අත්පොළසන් දෙනවා. ඔබ මේ අලුත් භාෂාවේ බබෙක්. අවුරුද්දක් මෝඩ ලෙස ශබ්ද කිරීමට ඔබට අවසර දෙන්න. වර්ධනය වීමට ඇති එකම මාර්ගය එයයි.</p>
+
+  <h2>3. "ස්ක්රිප්ට්" හැක්</h2>
+  <p>හිටිවනම කියන්න එපා. සූදානම් වෙන්න. ඔබ මුහුණ දෙන අවස්ථා සඳහා ස්ක්‍රිප්ට් 3ක් ලියන්න:</p>
+  <ul>
+      <li>කෝපි ඇණවුම් කිරීම</li>
+      <li>ඔබව හඳුන්වා දීම</li>
+      <li>පාර ඇසීම</li>
+  </ul>
+  <p>ඒවා හොඳින් මතක තබා ගන්න. ඔබ ඒවා භාවිතා කරන විට සහ ඒවා වැඩ කරන විට, ඔබේ මොළයට ඩොපමයින් පහරක් ලැබේ. ආත්ම විශ්වාසය ගොඩනැගී ඇත්තේ මෙම කුඩා ජයග්‍රහණ මත ය.</p>
+
+  <h2>4. මුලින්ම රොබෝවරුන් සමඟ කතා කරන්න</h2>
+  <p>Siri, Google Assistant සහ ChatGPT ඔබව විනිශ්චය කරන්නේ නැහැ. ඔබේ දුරකථන භාෂාව වෙනස් කර ඔබේ හඬින් එලාම් එකක් තැබීමට උත්සාහ කරන්න. සිරි ඔබව තේරුම් ගත්තා නම්, මිනිසෙක් ද තේරුම් ගනීවි.</p>
+
+  <div class="tip-box">
+     <strong>ධෛර්යය:</strong> ධෛර්යය යනු බිය නොමැතිකම නොවේ. ධෛර්යය යනු බිය *මධ්‍යයේ වුවද* කතා කිරීමයි. කට අරින්න. වැරැද්ද කරන්න. ජීවත් වෙන්න. නැවත කරන්න.
+  </div>
+</article>
+`;
+
+const POST_FEAR_CONTENT_SW = `
+<article>
+  <p>Mikono yako inatoa jasho. Moyo wako unapiga mbio. Unafungua mdomo wako, na... hakuna kinachotoka. Unajua maneno, lakini hofu inakugandisha. Hii ni "Wasiwasi wa Lugha ya Kigeni," na kila mwanafunzi anakabiliana nayo.</p>
+
+  <h2>1. Athari ya Mwangaza (Hakuna Anayejali)</h2>
+  <p>Unafikiri kila mtu anahukumu sarufi yako. Kwa kweli, wanafikiria juu ya chakula chao cha mchana, nywele zao, au bili zao. Wanadamu ni wabinafsi. Makosa yako ni doa ndogo katika siku yao. Tulia.</p>
+
+  <h2>2. Kubali "Awamu ya Mtoto"</h2>
+  <p>Watoto hupiga kelele. Wanasema "Mama maziwa" badala ya "Mama, naomba nipate kalsiamu kidogo." Na tunawapigia makofi. Wewe ni mtoto katika lugha hii mpya. Jipe ruhusa ya kusikika mjinga kwa mwaka mmoja. Niyo njia pekee ya kukua.</p>
+
+  <h2>3. Hila ya "Hati"</h2>
+  <p>Usibuni papo hapo. Jitayarishe. Andika hati 3 kwa hali unazokabiliana nazo:</p>
+  <ul>
+      <li>Kuagiza kahawa</li>
+      <li>Kujitambulisha</li>
+      <li>Kuuliza maelekezo</li>
+  </ul>
+  <p>Zikariri kikamilifu. Unapozitumia na zinafanya kazi, ubongo wako hupata hit ya dopamini. Kujiamini hujengwa juu ya ushindi huu mdogo.</p>
+
+  <h2>4. Zungumza na Roboti Kwanza</h2>
+  <p>Siri, Google Assistant, na ChatGPT hawakuhukumu. Badilisha lugha ya simu yako na ujaribu kuweka kengele kwa sauti yako. Ikiwa Siri anakuelewa, mwanadamu pia atakuelewa.</p>
+
+  <div class="tip-box">
+     <strong>Ujasiri:</strong> Ujasiri sio kutokuwepo kwa hofu. Ujasiri ni kuzungumza *licha ya* hofu. Fungua mdomo wako. Fanya kosa. Survive. Rudia.
+  </div>
+</article>
+`;
+
+// Post 15 Object Definition
+const POST_FEAR = {
+    id: 'fear-of-speaking',
+    title: {
+        en: "How to Overcome the Fear of Speaking (And Why Nobody Cares About Your Grammar)",
+        ko: "말하기 두려움을 극복하는 법 (그리고 아무도 당신의 문법에 신경 쓰지 않는 이유)",
+        ja: "話すことへの恐怖を克服する方法（そして誰もあなたの文法を気にしていない理由）",
+        zh: "如何克服开口说话的恐惧（以及为什么没人这乎你的语法）",
+        th: "วิธีเอาชนะความกลัวในการพูด (และทำไมไม่มีใครสนใจไวยากรณ์ของคุณ)",
+        vi: "Cách vượt qua nỗi sợ nói (Và tại sao không ai quan tâm đến ngữ pháp của bạn)",
+        id: "Cara Mengatasi Ketakutan Berbicara (Dan Mengapa Tidak Ada yang Peduli dengan Tata Bahasa Anda)",
+        es: "Cómo superar el miedo a hablar (y por qué a nadie le importa tu gramática)",
+        pt: "Como superar o medo de falar (e por que ninguém se importa com sua gramática)",
+        fr: "Comment surmonter la peur de parler (et pourquoi personne ne se soucie de votre grammaire)",
+        de: "Wie man die Angst vor dem Sprechen überwindet (und warum sich niemand für Ihre Grammatik interessiert)",
+        tr: "Konuşma Korkusu Nasıl Yenilir (Ve Neden Kimse Gramerinizi Umursamaz)",
+        ar: "كيف تتغلب على الخوف من التحدث (ولماذا لا يهتم أحد بقواعدك)",
+        hi: "बोलने के डर को कैसे दूर करें (और कोई भी आपके व्याकरण की परवाह क्यों नहीं करता)",
+        ru: "Как преодолеть страх говорить (и почему всем плевать на вашу грамматику)",
+        bn: "কীভাবে কথা বলার ভয় কাটিয়ে উঠবেন (এবং কেন কেউ আপনার ব্যাকরণের পরোয়া করে না)",
+        ur: "بولنے کے ڈر پر کیسے قابو پایا جائے (اور کوئی آپ کی گرامر کی پرواہ کیوں نہیں کرتا)",
+        ne: "बोल्ने डरलाई कसरी जित्ने (र कसैले तपाईंको व्याकरणको वास्ता किन गर्दैन)",
+        si: "කතා කිරීමට ඇති බිය ජය ගන්නේ කෙසේද (සහ කිසිවෙකු ඔබේ ව්‍යාකරණ ගැන නොසලකන්නේ ඇයි)",
+        sw: "Jinsi ya Kushinda Hofu ya Kuzungumza (Na Kwa Nini Hakuna Anayejali Kuhusu Sarufi Yako)"
+    },
+    excerpt: {
+        en: "Your heart races. Your palms sweat. You freeze. Here is how to kill foreign language anxiety forever.",
+        ko: "심장이 뜁니다. 손에 땀이 납니다. 얼어붙습니다. 여기 외국어 불안을 영원히 없애는 방법이 있습니다.",
+        ja: "心臓がバクバクします。手に汗をかきます。凍りつきます。これが外国語不安を永遠に消し去る方法です。",
+        zh: "心跳加速。手心出汗。你僵住了。这是永远消除外语焦虑的方法。",
+        th: "ใจเต้นรัว มือเหงื่อออก ตัวแข็ง นี่คือ วิธีกำจัดความวิตกกังวลในการพูดภาษาต่างประเทศตลอดไป",
+        vi: "Tim bạn đập nhanh. Lòng bàn tay đổ mồ hôi. Bạn đóng băng. Đây là cách để tiêu diệt nỗi lo âu ngoại ngữ mãi mãi.",
+        id: "Jantung Anda berpacu. Telapak tangan Anda berkeringat. Anda membeku. Inilah cara membunuh kecemasan bahasa asing selamanya.",
+        es: "Tu corazón se acelera. Tus palmas sudan. Te congelas. Aquí te mostramos cómo acabar con la ansiedad por los idiomas extranjeros para siempre.",
+        pt: "Seu coração dispara. Suas palmas suam. Você congela. Aqui está como acabar com a ansiedade de língua estrangeira para sempre.",
+        fr: "Votre cœur s'emballe. Vos paumes transpirent. Vous figez. Voici comment tuer l'anxiété liée aux langues étrangères pour toujours.",
+        de: "Ihr Herz rast. Ihre Handflächen schwitzen. Sie erstarren. Hier erfahren Sie, wie Sie die Fremdsprachenangst für immer besiegen.",
+        tr: "Kalbiniz küt küt atıyor. Avuçlarınız terliyor. Donup kalıyorsunuz. İşte yabancı dil kaygısını sonsuza dek yok etmenin yolu.",
+        ar: "يتسارع قلبك. تتعرق راحة يدك. تتجمد. إليك كيف تقتل قلق اللغة الأجنبية إلى الأبد.",
+        hi: "आपका दिल तेजी से धड़कता है। आपकी हथेलियों में पसीना आता है। आप जम जाते हैं। यहाँ विदेशी भाषा की चिंता को हमेशा के लिए खत्म करने का तरीका बताया गया है।",
+        ru: "Сердце колотится. Ладони потеют. Вы застываете. Вот как убить тревожность иностранного языка навсегда.",
+        bn: "আপনার হৃদস্পন্দন দ্রুত হচ্ছে। আপনার হাতের তালু ঘামছে। আপনি জমে গেছেন। বিদেশী ভাষার উদ্বেগ চিরতরে শেষ করার উপায় এখানে।",
+        ur: "آپ کا دل تیزی سے دھڑکتا ہے۔ آپ کی ہتھیلیوں پر پسینہ آتا ہے۔ آپ جم جاتے ہیں۔ غیر ملکی زبان کی اضطراب کو ہمیشہ کے لیے ختم کرنے کا طریقہ یہاں ہے۔",
+        ne: "तपाईंको मुटुको धड्कन बढ्छ। हत्केलामा पसिना आउँछ। तपाईं जमेको छ। यहाँ सधैंको लागि विदेशी भाषा चिन्ता मार्ने तरिका छ।",
+        si: "ඔබේ හදවත වේගයෙන් ගැහෙනවා. ඔබේ අත්ල දහඩිය දමයි. ඔබ ගල් වෙනවා. සදහටම විදේශීය භාෂා කාංසාව නැති කරන හැටි මෙන්න.",
+        sw: "Moyo wako unapiga mbio. Viganja vyako vinatoa jasho. Unaganda. Hivi ndivyo unavyoweza kuua wasiwasi wa lugha ya kigeni milele."
+    },
+    content: {
+        en: POST_FEAR_CONTENT_EN,
+        ko: POST_FEAR_CONTENT_KO,
+        ja: POST_FEAR_CONTENT_JA,
+        zh: POST_FEAR_CONTENT_ZH,
+        th: POST_FEAR_CONTENT_TH,
+        vi: POST_FEAR_CONTENT_VI,
+        id: POST_FEAR_CONTENT_ID,
+        es: POST_FEAR_CONTENT_ES,
+        pt: POST_FEAR_CONTENT_PT,
+        fr: POST_FEAR_CONTENT_FR,
+        de: POST_FEAR_CONTENT_DE,
+        tr: POST_FEAR_CONTENT_TR,
+        ar: POST_FEAR_CONTENT_AR,
+        hi: POST_FEAR_CONTENT_HI,
+        ru: POST_FEAR_CONTENT_RU,
+        bn: POST_FEAR_CONTENT_BN,
+        ur: POST_FEAR_CONTENT_UR,
+        ne: POST_FEAR_CONTENT_NE,
+        si: POST_FEAR_CONTENT_SI,
+        sw: POST_FEAR_CONTENT_SW
+    },
+    date: "2024-04-15",
+    readTime: 4,
+    category: "Mindset",
+    coverImage: "/assets/blog/fear.png",
+    author: "Dr. Lingua",
+    tags: ["Mindset", "Speaking", "Confidence", "Psychology"]
+};
+
+// ==========================================
+// Post 16: The Art of Immersion (Without Traveling)
 // ==========================================
 const POST_IMMERSION_CONTENT_EN = `
-        <article>
-          <p>The biggest advantage of living abroad isn't the air or the food. It's the <strong>inescapability</strong> of the language. You have to use it to survive. You can simulate this "survival mode" at home with a few strategic tweaks to your environment.</p>
+<article>
+  <p>The biggest lie in language learning: "You need to live in the country to become fluent." False. I know people who lived in Japan for 10 years and can't order sushi. I know people who never left Ohio and speak fluent Japanese. Immersion is not a location; it's a choice.</p>
 
-          <h2>1. The Digital Switch</h2>
-          <p>We spend 8 hours a day on screens. Change the language of your:</p>
-          <ul>
-            <li>Phone OS (iOS/Android)</li>
-            <li>Computer OS</li>
-            <li>Google/YouTube Accounts</li>
-            <li>Video Games</li>
-          </ul>
-          <p>Suddenly, "Settings", "Cancel", and "Save" become vocabulary practice. You are forcing your brain to navigate everyday tasks in the target language.</p>
+  <h2>1. Change Your Digital Environment</h2>
+  <p>You look at your phone 100 times a day. Change the language to your target language. Now, every time you check the weather or adjust settings, you are learning vocabulary. Force your brain to adapt.</p>
 
-          <h2>2. The Audio Bubble</h2>
-          <p>Create a rule: "Whenever I am doing chores, I am listening."</p>
-          <p>Washing dishes? Podcast. Commuting? Audio book. Walking the dog? Radio app. Fill the silence with the target language. Even if you aren't 100% focused, you are training your ear to the rhythm and intonation.</p>
+  <h2>2. The "Narrate Your Life" Technique</h2>
+  <p>When you are alone, talk to yourself. Narrate what you are doing. "I am washing the dishes. The water is hot. This plate is dirty." It sounds crazy, but it builds the connection between *action* and *speech* without the pressure of a listener.</p>
 
-          <h2>3. Visual Cues (Post-it Notes 2.0)</h2>
-          <p>putting sticky notes with "Chair" on a chair is beginner stuff. Try <strong>Sentence Stickies</strong>.</p>
-          <p>Put a note on the mirror: "You look tired today. Did you sleep well?" (in target language). Put one on the fridge: "Don't eat too much, you're on a diet." These contextual phrases are far more useful than nouns.</p>
+  <h2>3. The One-Hour Bubble</h2>
+  <p>Create a strict rule: From 8 PM to 9 PM, no English allowed. Watch a movie, read a book, or talk to your pet in your target language. If you don't know a word, look it up or talk around it. Create a mini-immersion zone in your living room.</p>
 
-          <h2>4. Social Media Algorithm Hack</h2>
-          <p>Create a separate YouTube/Instagram/TikTok account purely for the target language. Like and subscribe ONLY to content in that language. Train the algorithm to feed you French cooking videos or Korean makeup tutorials. Turn your procrastination time into study time.</p>
+  <h2>4. Hack Your YouTube Algorithm</h2>
+  <p>Create a new YouTube account. Only search for content in your target language. Watch cooking videos, tech reviews, or vlogs. Soon, your homepage will look like you live in that country. Let the algorithm feed you immersion.</p>
 
-          <h2>5. The "No English" Zone</h2>
-          <p>Designate a specific chair or corner of your room as the "Target Language Zone." When you sit there, you are NOT allowed to speak, read, or think in your native language. Even if you just sit there and read a comic book, you are building a physical anchor for your new identity.</p>
-
-          <div class="tip-box">
-             <strong>The Goal:</strong> To make avoiding the language harder than doing it. If you have to click through German menus to check your email, you are learning German whether you want to or not.
-          </div>
-        </article>
+  <div class="tip-box">
+     <strong>Conclusion:</strong> You don't need a plane ticket. You need a VPN and some discipline. You can build a "Virtual Tokyo" or "Virtual Paris" right in your bedroom. Start today.
+  </div>
+</article>
 `;
 
 const POST_IMMERSION_CONTENT_KO = `
-        <article>
-          <p>해외 거주의 가장 큰 장점은 공기나 음식이 아닙니다. 바로 언어로부터 <strong>도망칠 수 없다</strong>는 점입니다. 살기 위해선 써야 하니까요. 몇 가지 전략적인 환경 설정만으로 집에서도 이런 '생존 모드'를 시뮬레이션할 수 있습니다.</p>
+<article>
+  <p>언어 학습의 가장 큰 거짓말: "유창해지려면 그 나라에 살아야 한다." 거짓입니다. 저는 일본에 10년 살고도 스시 하나 주문 못 하는 사람들을 압니다. 반면 오하이오주를 떠난 적이 없는데 일본어를 유창하게 하는 사람들도 압니다. 몰입은 장소가 아니라 선택입니다.</p>
 
-          <h2>1. 디지털 이민 가기</h2>
-          <p>우리는 하루 8시간을 화면 앞에서 보냅니다. 다음 기기들의 언어 설정을 바꾸세요:</p>
-          <ul>
-            <li>스마트폰 (iOS/Android)</li>
-            <li>컴퓨터 OS</li>
-            <li>구글/유튜브 계정</li>
-            <li>비디오 게임</li>
-          </ul>
-          <p>갑자기 "설정", "취소", "저장"이 어휘 공부가 됩니다. 뇌가 일상적인 업무를 해당 언어로 처리하도록 강제하는 것입니다.</p>
+  <h2>1. 디지털 환경을 바꾸세요</h2>
+  <p>당신은 하루에 100번 핸드폰을 봅니다. 언어를 목표 언어로 바꾸세요. 날씨를 확인하거나 설정을 바꿀 때마다 어휘를 배우게 됩니다. 뇌가 적응하도록 강요하세요.</p>
 
-          <h2>2. 오디오 버블 만들기</h2>
-          <p>규칙을 만드세요: "단순 노동을 할 때는 무조건 듣는다."</p>
-          <p>설거지할 때? 팟캐스트. 출근길? 오디오북. 개 산책? 라디오 앱. 모든 침묵의 시간을 목표 언어로 채우세요. 100% 집중하지 않더라도, 귀가 그 언어의 리듬과 억양에 적응하게 됩니다.</p>
+  <h2>2. "내 인생 중계하기" 기법</h2>
+  <p>혼자 있을 때, 혼잣말을 하세요. 당신이 하고 있는 일을 중계하세요. "나는 설거지를 하고 있다. 물이 뜨겁다. 이 접시는 더럽다." 미친 것처럼 들리겠지만, 청중의 압박 없이 *행동*과 *말* 사이의 연결을 만들어줍니다.</p>
 
-          <h2>3. 시각적 단서 (포스트잇 2.0)</h2>
-          <p>의자에 'Chair'라고 쓴 포스트잇을 붙이는 건 초보적인 방법입니다. <strong>문장 포스트잇</strong>을 써보세요.</p>
-          <p>거울에 붙이세요: "오늘 좀 피곤해 보이네. 잠은 잘 잤니?"(목표 언어로). 냉장고에 붙이세요: "너무 많이 먹지 마, 다이어트 중이잖아." 이런 문맥이 있는 문장이 명사 나부랭이보다 훨씬 유용합니다.</p>
+  <h2>3. 1시간 버블</h2>
+  <p>엄격한 규칙을 만드세요: 저녁 8시부터 9시까지 한국어 금지. 목표 언어로 영화를 보거나, 책을 읽거나, 애완동물에게 말을 거세요. 단어를 모르면 찾아보거나 돌려서 설명하세요. 거실에 미니 몰입 구역을 만드세요.</p>
 
-          <h2>4. 소셜 미디어 알고리즘 해킹</h2>
-          <p>유튜브/인스타그램/틱톡 계정을 하나 새로 만드세요. 오직 목표 언어로 된 콘텐츠만 '좋아요' 하고 구독하세요. 알고리즘이 나에게 프랑스 요리 영상이나 한국 화장법 영상을 떠먹여 주도록 훈련시키세요. 딴짓하는 시간조차 공부 시간으로 바뀝니다.</p>
+  <h2>4. 유튜브 알고리즘 해킹하기</h2>
+  <p>새 유튜브 계정을 만드세요. 오직 목표 언어로만 콘텐츠를 검색하세요. 요리 영상, 테크 리뷰, 브이로그를 보세요. 곧 당신의 홈 화면은 당신이 그 나라에 사는 것처럼 보일 것입니다. 알고리즘이 당신에게 몰입을 떠먹여 주게 하세요.</p>
 
-          <h2>5. "모국어 금지" 구역</h2>
-          <p>방 안의 특정 의자나 구석을 '외국어 존'으로 지정하세요. 그곳에 앉아있을 때는 절대 모국어를 말하거나, 읽거나, 생각하면 안 됩니다. 거기 앉아서 만화책만 보더라도, 새로운 언어 정체성을 위한 물리적인 닻(Anchor)을 내리는 셈입니다.</p>
-
-          <div class="tip-box">
-             <strong>목표:</strong> 언어를 공부하는 것보다 '안 하는 것'을 더 귀찮게 만드는 것입니다. 이메일을 확인하기 위해 독일어 메뉴를 클릭해야 한다면, 원하든 원하지 않든 독일어를 배우게 될 겁니다.
-          </div>
-        </article>
+  <div class="tip-box">
+     <strong>결론:</strong> 비행기 표는 필요 없습니다. VPN과 약간의 규율만 있으면 됩니다. 침실에 "가상 도쿄"나 "가상 파리"를 지을 수 있습니다. 오늘 시작하세요.
+  </div>
+</article>
 `;
 
 const POST_IMMERSION_CONTENT_JA = `
 <article>
-  <p>海外生活の最大の利点は、空気や食べ物ではありません。それは言語から<strong>逃れられない</strong>という点です。生き残るためにそれを使わなければなりません。環境にいくつかの戦略的な調整を加えるだけで、自宅でこの「サバイバルモード」をシミュレートできます。</p>
+  <p>言語学習における最大の嘘：「流暢になるにはその国に住まなければならない。」間違いです。私は日本に10年住んでいて寿司も注文できない人を知っています。逆に、オハイオ州を出たことがないのに流暢な日本語を話す人も知っています。没入（イマージョン）は場所ではなく、選択です。</p>
 
-  <h2>1. デジタルスイッチ</h2>
-  <p>私たちは1日8時間を画面の前で過ごします。以下の言語設定を変更してください：</p>
-  <ul>
-    <li>スマホのOS (iOS/Android)</li>
-    <li>コンピュータのOS</li>
-    <li>Google/YouTubeアカウント</li>
-    <li>ビデオゲーム</li>
-  </ul>
-  <p>突然、「設定」「キャンセル」「保存」が語彙の練習になります。日常的なタスクをターゲット言語でナビゲートするように脳を強制しているのです。</p>
+  <h2>1. デジタル環境を変える</h2>
+  <p>あなたは1日に100回スマホを見ます。言語を目標言語に変えてください。天気を確認したり設定を調整したりするたびに、語彙を学ぶことになります。脳に適応を強制してください。</p>
 
-  <h2>2. オーディオバブル</h2>
-  <p>ルールを作りましょう：「家事をしている間は、必ず聞く」</p>
-  <p>皿洗い？ポッドキャスト。通勤？オーディオブック。犬の散歩？ラジオアプリ。沈黙をターゲット言語で埋め尽くしてください。100%集中していなくても、リズムとイントネーションに耳を慣らすことができます。</p>
+  <h2>2. 「自分の人生を実況する」テクニック</h2>
+  <p>一人の時、独り言を言ってください。自分がしていることを実況するのです。「私は皿を洗っている。水が熱い。この皿は汚れている。」クレイジーに聞こえますが、聞き手のプレッシャーなしに*行動*と*言葉*のつながりを築きます。</p>
 
-  <h2>3. 視覚的合図 (ポストイット 2.0)</h2>
-  <p>椅子に「椅子」と書いた付箋を貼るのは初心者のすることです。<strong>文章付箋</strong>を試してください。</p>
-  <p>鏡にメモを貼りましょう：「今日は疲れているみたいだね。よく眠れた？」（ターゲット言語で）。冷蔵庫に貼りましょう：「食べ過ぎないで、ダイエット中でしょ」。これらの文脈のあるフレーズは、名詞よりもはるかに便利です。</p>
+  <h2>3. 1時間のバブル</h2>
+  <p>厳格なルールを作ってください：午後8時から9時まで母国語禁止。目標言語で映画を見たり、本を読んだり、ペットに話しかけたりしてください。単語がわからなければ、調べるか、別の言葉で説明してください。リビングルームにミニ没入ゾーンを作ってください。</p>
 
-  <h2>4. ソーシャルメディアアルゴリズムのハッキング</h2>
-  <p>ターゲット言語専用のYouTube/Instagram/TikTokアカウントを別途作成してください。その言語のコンテンツ<strong>だけ</strong>を「いいね」して登録してください。アルゴリズムを訓練して、フランス料理の動画や韓国のメイクアップチュートリアルを提供させましょう。先延ばしの時間を勉強時間に変えましょう。</p>
-
-  <h2>5. 「母国語禁止」ゾーン</h2>
-  <p>部屋の特定の椅子や隅を「ターゲット言語ゾーン」として指定してください。そこに座っているときは、母国語を話したり、読んだり、考えたりすることは<strong>禁止</strong>です。ただそこに座って漫画を読むだけでも、新しいアイデンティティのための物理的なアンカー（いかり）を下ろしていることになります。</p>
+  <h2>4. YouTubeのアルゴリズムをハックする</h2>
+  <p>新しいYouTubeアカウントを作成してください。目標言語のコンテンツのみを検索してください。料理動画、技術レビュー、Vlogを見てください。すぐにあなたのホームページは、あなたがその国に住んでいるかのように見えるでしょう。アルゴリズムに没入を供給させてください。</p>
 
   <div class="tip-box">
-     <strong>目標：</strong> その言語を避けるのを、やるよりも難しくすることです。メールをチェックするためにドイツ語のメニューをクリックしなければならないなら、望むと望まざるとにかかわらず、ドイツ語を学ぶことになります。
+     <strong>結論：</strong>飛行機のチケットは必要ありません。VPNと少しの規律があればいいのです。寝室に「バーチャル東京」や「バーチャルパリ」を構築できます。今日から始めましょう。
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_ZH = `
 <article>
-  <p>在国外生活的最大好处不是空气或食物。而是语言的<strong>不可逃避性</strong>。你必须使用它才能生存。通过对你的环境进行一些战略性的调整，你可以在家里模拟这种“生存模式”。</p>
+  <p>语言学习中最大的谎言：“你需要住在那个国家才能变得流利。” 错误的。我认识在日本住了10年却不会点寿司的人。我也认识从未离开过俄亥俄州却能说流利日语的人。沉浸不是地点；它是选择。</p>
 
-  <h2>1. 数字化转换</h2>
-  <p>我们每天花8小时在屏幕前。更改以下设备的语言设置：</p>
-  <ul>
-    <li>手机操作系统 (iOS/Android)</li>
-    <li>电脑操作系统</li>
-    <li>Google/YouTube账户</li>
-    <li>视频游戏</li>
-  </ul>
-  <p>突然间，“设置”、“取消”和“保存”变成了词汇练习。你正在强迫你的大脑在目标语言中处理日常任务。</p>
+  <h2>1. 改变你的数字环境</h2>
+  <p>你每天看100次手机。把语言改成你的目标语言。现在，每次你查看天气或调整设置，你都在学习词汇。强迫你的大脑去适应。</p>
 
-  <h2>2. 音频泡沫</h2>
-  <p>制定一条规则：“每当我做家务时，我都在听。”</p>
-  <p>洗碗？播客。通勤？有声书。遛狗？广播应用。用目标语言填满沉默。即使你不是100%专注，你也在训练你的耳朵适应节奏和语调。</p>
+  <h2>2. “叙述你的生活”技巧</h2>
+  <p>当你独自一人时，自言自语。叙述你在做什么。“我正在洗碗。水很热。这个盘子很脏。”听起来很疯狂，但它在没有听众压力的情况下建立了*行动*和*语言*之间的联系。</p>
 
-  <h2>3. 视觉提示 (便利贴 2.0)</h2>
-  <p>在椅子上贴上写着“椅子”的便利贴是初学者的做法。试试<strong>句子便利贴</strong>。</p>
-  <p>在镜子上贴一张便条：“你今天看起来很累。睡得好吗？”（用目标语言）。在冰箱上贴一张：“别吃太多，你在节食。”这些有语境的短语比名词有用得多。</p>
+  <h2>3. 一小时气泡</h2>
+  <p>制定一个严格的规则：从晚上8点到9点，禁止说母语。用目标语言看电影、读书或和你的宠物说话。如果你不知道一个词，查一下或者绕着弯说。在你的客厅里建立一个迷你沉浸区。</p>
 
-  <h2>4. 社交媒体算法黑客</h2>
-  <p>创建一个专门用于目标语言的YouTube/Instagram/TikTok账户。<strong>只</strong>点赞和订阅该语言的内容。训练算法为你提供法国烹饪视频或韩国化妆教程。把你的拖延时间变成学习时间。</p>
-
-  <h2>5. “禁止母语”区</h2>
-  <p>指定房间里的特定椅子或角落为“目标语言区”。当你坐在那里时，<strong>不</strong>允许说、读或想你的母语。即使你只是坐在那里看漫画书，你也是在为你新的身份建立一个物理锚点。</p>
+  <h2>4. 黑入你的YouTube算法</h2>
+  <p>创建一个新的YouTube账号。只搜索目标语言的内容。看烹饪视频、科技评论或Vlog。很快，你的主页看起来就像你住在那个国家一样。让算法喂给你沉浸感。</p>
 
   <div class="tip-box">
-     <strong>目标：</strong> 让回避语言比使用语言更难。如果你必须点击德语菜单来查看邮件，无论你愿不愿意，你都在学习德语。
-  </div>
-</article>
-`;
-
-const POST_IMMERSION_CONTENT_ES = `
-<article>
-  <p>La mayor ventaja de vivir en el extranjero no es el aire ni la comida. Es la <strong>inevitabilidad</strong> del idioma. Tienes que usarlo para sobrevivir. Puedes simular este "modo de supervivencia" en casa con algunos ajustes estratégicos en tu entorno.</p>
-
-  <h2>1. El cambio digital</h2>
-  <p>Pasamos 8 horas al día frente a pantallas. Cambia el idioma de tu:</p>
-  <ul>
-    <li>SO del teléfono (iOS/Android)</li>
-    <li>SO de la computadora</li>
-    <li>Cuentas de Google/YouTube</li>
-    <li>Videojuegos</li>
-  </ul>
-  <p>De repente, "Ajustes", "Cancelar" y "Guardar" se convierten en práctica de vocabulario. Estás forzando a tu cerebro a navegar las tareas diarias en el idioma objetivo.</p>
-
-  <h2>2. La burbuja de audio</h2>
-  <p>Crea una regla: "Siempre que estoy haciendo tareas domésticas, estoy escuchando".</p>
-  <p>¿Lavando platos? Podcast. ¿En el transporte? Audiolibro. ¿Paseando al perro? App de radio. Llena el silencio con el idioma objetivo. Incluso si no estás 100% concentrado, estás entrenando tu oído al ritmo y la entonación.</p>
-
-  <h2>3. Señales visuales (Post-it 2.0)</h2>
-  <p>Poner notas adhesivas con "Silla" en una silla es de principiantes. Prueba las <strong>Notas de Frases</strong>.</p>
-  <p>Pon una nota en el espejo: "Te ves cansado hoy. ¿Dormiste bien?" (en el idioma objetivo). Pon una en el refrigerador: "No comas demasiado, estás a dieta". Estas frases contextuales son mucho más útiles que los sustantivos.</p>
-
-  <h2>4. Hackeo del algoritmo de redes sociales</h2>
-  <p>Crea una cuenta separada de YouTube/Instagram/TikTok puramente para el idioma objetivo. Dale like y suscríbete <strong>SOLO</strong> a contenido en ese idioma. Entrena al algoritmo para que te alimente con videos de cocina francesa o tutoriales de maquillaje coreanos. Convierte tu tiempo de procrastinación en tiempo de estudio.</p>
-
-  <h2>5. La zona "Sin [Idioma Nativo]"</h2>
-  <p>Designa una silla específica o un rincón de tu habitación como la "Zona del Idioma Objetivo". Cuando te sientes allí, <strong>NO</strong> se te permite hablar, leer o pensar en tu idioma nativo. Incluso si solo te sientas allí y lees un cómic, estás construyendo un ancla física para tu nueva identidad.</p>
-
-  <div class="tip-box">
-     <strong>El objetivo:</strong> Hacer que evitar el idioma sea más difícil que hacerlo. Si tienes que hacer clic en menús en alemán para revisar tu correo electrónico, estás aprendiendo alemán quieras o no.
-  </div>
-</article>
-`;
-
-const POST_IMMERSION_CONTENT_FR = `
-<article>
-  <p>Le plus grand avantage de vivre à l'étranger n'est pas l'air ou la nourriture. C'est l'<strong>inéluctabilité</strong> de la langue. Vous devez l'utiliser pour survivre. Vous pouvez simuler ce « mode survie » à la maison avec quelques ajustements stratégiques de votre environnement.</p>
-
-  <h2>1. Le changement numérique</h2>
-  <p>Nous passons 8 heures par jour sur des écrans. Changez la langue de votre :</p>
-  <ul>
-    <li>OS du téléphone (iOS/Android)</li>
-    <li>OS de l'ordinateur</li>
-    <li>Comptes Google/YouTube</li>
-    <li>Jeux vidéo</li>
-  </ul>
-  <p>Soudainement, « Paramètres », « Annuler » et « Enregistrer » deviennent un exercice de vocabulaire. Vous forcez votre cerveau à naviguer dans les tâches quotidiennes dans la langue cible.</p>
-
-  <h2>2. La bulle audio</h2>
-  <p>Créez une règle : « Chaque fois que je fais des corvées, j'écoute. »</p>
-  <p>Vaisselle ? Podcast. Transport ? Livre audio. Promener le chien ? Appli radio. Remplissez le silence avec la langue cible. Même si vous n'êtes pas concentré à 100 %, vous entraînez votre oreille au rythme et à l'intonation.</p>
-
-  <h2>3. Indices visuels (Post-it 2.0)</h2>
-  <p>Mettre des notes adhésives avec « Chaise » sur une chaise, c'est pour les débutants. Essayez les <strong>Post-it de phrases</strong>.</p>
-  <p>Mettez une note sur le miroir : « Tu as l'air fatigué aujourd'hui. As-tu bien dormi ? » (dans la langue cible). Mettez-en une sur le frigo : « Ne mange pas trop, tu es au régime. » Ces phrases contextuelles sont bien plus utiles que des noms.</p>
-
-  <h2>4. Piratage de l'algorithme des réseaux sociaux</h2>
-  <p>Créez un compte YouTube/Instagram/TikTok séparé uniquement pour la langue cible. Aimez et abonnez-vous <strong>UNIQUEMENT</strong> au contenu dans cette langue. Entraînez l'algorithme à vous nourrir de vidéos de cuisine française ou de tutoriels de maquillage coréens. Transformez votre temps de procrastination en temps d'étude.</p>
-
-  <h2>5. La zone « Sans [Langue maternelle] »</h2>
-  <p>Désignez une chaise spécifique ou un coin de votre chambre comme la « Zone de langue cible ». Lorsque vous vous asseyez là, vous n'êtes <strong>PAS</strong> autorisé à parler, lire ou penser dans votre langue maternelle. Même si vous vous asseyez simplement là et lisez une bande dessinée, vous construisez une ancre physique pour votre nouvelle identité.</p>
-
-  <div class="tip-box">
-     <strong>L'objectif :</strong> Rendre l'évitement de la langue plus difficile que de la pratiquer. Si vous devez cliquer dans des menus en allemand pour vérifier vos e-mails, vous apprenez l'allemand, que vous le vouliez ou non.
-  </div>
-</article>
-`;
-
-const POST_IMMERSION_CONTENT_DE = `
-<article>
-  <p>Der größte Vorteil, im Ausland zu leben, ist nicht die Luft oder das Essen. Es ist die <strong>Unvermeidbarkeit</strong> der Sprache. Sie müssen sie benutzen, um zu überleben. Sie können diesen "Überlebensmodus" zu Hause mit ein paar strategischen Anpassungen Ihrer Umgebung simulieren.</p>
-
-  <h2>1. Der digitale Schalter</h2>
-  <p>Wir verbringen 8 Stunden am Tag vor Bildschirmen. Ändern Sie die Sprache Ihres:</p>
-  <ul>
-    <li>Handy-Betriebssystem (iOS/Android)</li>
-    <li>Computer-Betriebssystem</li>
-    <li>Google/YouTube-Konten</li>
-    <li>Videospiele</li>
-  </ul>
-  <p>Plötzlich werden "Einstellungen", "Abbrechen" und "Speichern" zur Vokabelübung. Sie zwingen Ihr Gehirn, alltägliche Aufgaben in der Zielsprache zu bewältigen.</p>
-
-  <h2>2. Die Audio-Blase</h2>
-  <p>Erstellen Sie eine Regel: "Wann immer ich Hausarbeiten mache, höre ich zu."</p>
-  <p>Abwaschen? Podcast. Pendeln? Hörbuch. Mit dem Hund spazieren gehen? Radio-App. Füllen Sie die Stille mit der Zielsprache. Auch wenn Sie nicht zu 100% konzentriert sind, trainieren Sie Ihr Ohr auf den Rhythmus und die Intonation.</p>
-
-  <h2>3. Visuelle Hinweise (Post-it 2.0)</h2>
-  <p>Haftnotizen mit "Stuhl" auf einen Stuhl zu kleben, ist Anfängerkram. Probieren Sie <strong>Satz-Haftnotizen</strong>.</p>
-  <p>Kleben Sie eine Notiz an den Spiegel: "Du siehst heute müde aus. Hast du gut geschlafen?" (in der Zielsprache). Kleben Sie eine an den Kühlschrank: "Iss nicht zu viel, du bist auf Diät." Diese kontextbezogenen Sätze sind weitaus nützlicher als Substantive.</p>
-
-  <h2>4. Social-Media-Algorithmus-Hack</h2>
-  <p>Erstellen Sie ein separates YouTube/Instagram/TikTok-Konto nur für die Zielsprache. Liken und abonnieren Sie <strong>NUR</strong> Inhalte in dieser Sprache. Trainieren Sie den Algorithmus, Ihnen französische Kochvideos oder koreanische Make-up-Tutorials zu liefern. Verwandeln Sie Ihre Prokrastinationszeit in Lernzeit.</p>
-
-  <h2>5. Die "Kein [Muttersprache]"-Zone</h2>
-  <p>Bestimmen Sie einen bestimmten Stuhl oder eine Ecke Ihres Zimmers als "Zielsprachenzone". Wenn Sie dort sitzen, dürfen Sie <strong>NICHT</strong> in Ihrer Muttersprache sprechen, lesen oder denken. Selbst wenn Sie nur dort sitzen und ein Comicbuch lesen, bauen Sie einen physischen Anker für Ihre neue Identität auf.</p>
-
-  <div class="tip-box">
-     <strong>Das Ziel:</strong> Das Vermeiden der Sprache schwieriger zu machen als das Üben. Wenn Sie sich durch deutsche Menüs klicken müssen, um Ihre E-Mails zu checken, lernen Sie Deutsch, ob Sie wollen oder nicht.
+     <strong>结论：</strong>你不需要机票。你需要一个VPN和一些自律。你可以在卧室里建立一个“虚拟东京”或“虚拟巴黎”。今天就开始吧。
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_TH = `
 <article>
-  <p>ข้อได้เปรียบที่ใหญ่ที่สุดของการอาศัยอยู่ในต่างประเทศไม่ใช่อากาศหรืออาหาร แต่มันคือการที่ภาษาเป็นสิ่งที่ <strong>หลีกเลี่ยงไม่ได้</strong> คุณต้องใช้มันเพื่อความอยู่รอด คุณสามารถจำลอง "โหมดเอาตัวรอด" นี้ที่บ้านได้ด้วยการปรับเปลี่ยนสภาพแวดล้อมของคุณเพียงเล็กน้อย</p>
+  <p>คำโกหกที่ยิ่งใหญ่ที่สุดในการเรียนภาษา: "คุณต้องอาศัยอยู่ในประเทศนั้นเพื่อที่จะคล่องแคล่ว" ผิดครับ ผมรู้จักคนที่อาศัยอยู่ในญี่ปุ่นมา 10 ปีและสั่งซูชิไม่ได้ ผมรู้จักคนที่ไม่เคยออกจากโอไฮโอแต่พูดภาษาญี่ปุ่นคล่อง การแช่ตัว (Immersion) ไม่ใช่สถานที่ แต่มันคือทางเลือก</p>
 
-  <h2>1. สลับสู่ดิจิทัล</h2>
-  <p>เราใช้เวลา 8 ชั่วโมงต่อวันบนหน้าจอ เปลี่ยนภาษาของ:</p>
-  <ul>
-    <li>ระบบปฏิบัติการโทรศัพท์ (iOS/Android)</li>
-    <li>ระบบปฏิบัติการคอมพิวเตอร์</li>
-    <li>บัญชี Google/YouTube</li>
-    <li>วิดีโอเกม</li>
-  </ul>
-  <p>ทันใดนั้น "การตั้งค่า", "ยกเลิก" และ "บันทึก" ก็กลายเป็นการฝึกคำศัพท์ คุณกำลังบังคับให้สมองของคุณทำงานประจำวันในภาษาเป้าหมาย</p>
+  <h2>1. เปลี่ยนสภาพแวดล้อมดิจิทัลของคุณ</h2>
+  <p>คุณดูโทรศัพท์วันละ 100 ครั้ง เปลี่ยนภาษาเป็นภาษาเป้าหมายของคุณ ตอนนี้ ทุกครั้งที่คุณเช็คสภาพอากาศหรือปรับการตั้งค่า คุณกำลังเรียนรู้คำศัพท์ บังคับให้สมองปรับตัว</p>
 
-  <h2>2. ฟองสบู่เสียง</h2>
-  <p>สร้างกฎ: "เมื่อใดก็ตามที่ฉันทำงานบ้าน ฉันจะฟัง"</p>
-  <p>ล้างจาน? พอดแคสต์ เดินทาง? หนังสือเสียง พาสุนัขเดินเล่น? แอปวิทยุ เติมความเงียบด้วยภาษาเป้าหมาย แม้ว่าคุณจะไม่ได้โฟกัส 100% แต่คุณกำลังฝึกหูของคุณให้คุ้นเคยกับจังหวะและน้ำเสียง</p>
+  <h2>2. เทคนิค "บรรยายชีวิตของคุณ"</h2>
+  <p>เมื่อคุณอยู่คนเดียว ให้พูดกับตัวเอง บรรยายสิ่งที่คุณกำลังทำ "ฉันกำลังล้างจาน น้ำร้อน จานนี้สกปรก" มันฟังดูบ้า แต่มันสร้างความเชื่อมโยงระหว่าง *การกระทำ* และ *คำพูด* โดยไม่มีแรงกดดันจากคนฟัง</p>
 
-  <h2>3. สัญญาณภาพ (โพสต์-อิท 2.0)</h2>
-  <p>การแปะโน้ตที่มีคำว่า "เก้าอี้" ไว้บนเก้าอี้เป็นเรื่องของมือใหม่ ลอง <strong>โพสต์-อิทประโยค</strong> ดูสิ</p>
-  <p>แปะโน้ตไว้ที่กระจก: "วันนี้ดูเหนื่อยจัง หลับสบายไหม?" (ในภาษาเป้าหมาย) แปะไว้ที่ตู้เย็น: "อย่ากินเยอะนะ กำลังลดน้ำหนักอยู่" วลีที่มีบริบทเหล่านี้มีประโยชน์มากกว่าคำนามมาก</p>
+  <h2>3. ฟองสบู่หนึ่งชั่วโมง</h2>
+  <p>สร้างกฎที่เข้มงวด: ตั้งแต่ 2 ทุ่มถึง 3 ทุ่ม ห้ามใช้ภาษาแม่ ดูหนัง อ่านหนังสือ หรือคุยกับสัตว์เลี้ยงเป็นภาษาเป้าหมาย ถ้าคุณไม่รู้คำศัพท์ ให้เปิดหาหรือพูดอ้อมๆ สร้างโซนแช่ตัวขนาดเล็กในห้องนั่งเล่นของคุณ</p>
 
-  <h2>4. แฮ็กอัลกอริทึมโซเชียลมีเดีย</h2>
-  <p>สร้างบัญชี YouTube/Instagram/TikTok แยกต่างหากสำหรับภาษาเป้าหมายโดยเฉพาะ กดถูกใจและติดตาม <strong>เฉพาะ</strong> เนื้อหาในภาษานั้น ฝึกอัลกอริทึมให้ป้อนวิดีโอทำอาหารฝรั่งเศสหรือสอนแต่งหน้าเกาหลีให้คุณ เปลี่ยนเวลาผัดวันประกันพรุ่งของคุณเป็นเวลาเรียน</p>
-
-  <h2>5. โซน "ห้ามใช้ภาษาแม่"</h2>
-  <p>กำหนดเก้าอี้หรือมุมเฉพาะของห้องของคุณให้เป็น "โซนภาษาเป้าหมาย" เมื่อคุณนั่งที่นั่น คุณ <strong>ไม่</strong> ได้รับอนุญาตให้พูด อ่าน หรือคิดในภาษาแม่ของคุณ แม้ว่าคุณจะแค่นั่งอ่านการ์ตูนที่นั่น คุณก็กำลังสร้างจุดยึดทางกายภาพสำหรับตัวตนใหม่ของคุณ</p>
+  <h2>4. แฮ็กอัลกอริทึม YouTube ของคุณ</h2>
+  <p>สร้างบัญชี YouTube ใหม่ ค้นหาเนื้อหาในภาษาเป้าหมายเท่านั้น ดูวิดีโอทำอาหาร รีวิวเทคโนโลยี หรือ vlogs เร็วๆ นี้ หน้าแรกของคุณจะดูเหมือนว่าคุณอาศัยอยู่ในประเทศนั้น ให้อัลกอริทึมป้อนการแช่ตัวให้คุณ</p>
 
   <div class="tip-box">
-     <strong>เป้าหมาย:</strong> ทำให้การหลีกเลี่ยงภาษาทำได้ยากกว่าการใช้มัน หากคุณต้องคลิกเมนูภาษาเยอรมันเพื่อเช็คอีเมล คุณกำลังเรียนภาษาเยอรมันไม่ว่าคุณจะอยากหรือไม่ก็ตาม
+     <strong>สรุป:</strong> คุณไม่ต้องมีตั๋วเครื่องบิน คุณต้องมี VPN และวินัยนิดหน่อย คุณสามารถสร้าง "Virtual Tokyo" หรือ "Virtual Paris" ในห้องนอนของคุณได้ เริ่มวันนี้เลย
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_VI = `
 <article>
-  <p>Lợi thế lớn nhất của việc sống ở nước ngoài không phải là không khí hay thức ăn. Đó là sự <strong>không thể thoát khỏi</strong> ngôn ngữ. Bạn phải sử dụng nó để tồn tại. Bạn có thể mô phỏng "chế độ sinh tồn" này tại nhà với một vài điều chỉnh chiến lược cho môi trường của mình.</p>
+  <p>Lời nói dối lớn nhất trong việc học ngôn ngữ: "Bạn cần sống ở quốc gia đó để trở nên trôi chảy." Sai. Tôi biết những người sống ở Nhật Bản 10 năm mà không thể gọi sushi. Tôi biết những người chưa bao giờ rời khỏi Ohio mà nói tiếng Nhật trôi chảy. Đắm mình không phải là một địa điểm; đó là một sự lựa chọn.</p>
 
-  <h2>1. Chuyển đổi Kỹ thuật số</h2>
-  <p>Chúng ta dành 8 giờ mỗi ngày trên màn hình. Thay đổi ngôn ngữ của:</p>
-  <ul>
-    <li>Hệ điều hành điện thoại (iOS/Android)</li>
-    <li>Hệ điều hành máy tính</li>
-    <li>Tài khoản Google/YouTube</li>
-    <li>Trò chơi điện tử</li>
-  </ul>
-  <p>Đột nhiên, "Cài đặt", "Hủy" và "Lưu" trở thành bài luyện tập từ vựng. Bạn đang buộc não bộ điều hướng các nhiệm vụ hàng ngày bằng ngôn ngữ mục tiêu.</p>
+  <h2>1. Thay đổi Môi trường Kỹ thuật số của bạn</h2>
+  <p>Bạn nhìn vào điện thoại 100 lần một ngày. Thay đổi ngôn ngữ sang ngôn ngữ mục tiêu của bạn. Bây giờ, mỗi khi bạn kiểm tra thời tiết hoặc điều chỉnh cài đặt, bạn đang học từ vựng. Buộc não của bạn phải thích nghi.</p>
 
-  <h2>2. Bong bóng Âm thanh</h2>
-  <p>Tạo một quy tắc: "Bất cứ khi nào tôi làm việc nhà, tôi đều nghe."</p>
-  <p>Rửa bát? Podcast. Đi làm? Sách nói. Dắt chó đi dạo? Ứng dụng radio. Lấp đầy sự im lặng bằng ngôn ngữ mục tiêu. Ngay cả khi bạn không tập trung 100%, bạn đang rèn luyện đôi tai của mình với nhịp điệu và ngữ điệu.</p>
+  <h2>2. Kỹ thuật "Tường thuật Cuộc sống của Bạn"</h2>
+  <p>Khi bạn ở một mình, hãy nói chuyện với chính mình. Tường thuật những gì bạn đang làm. "Tôi đang rửa bát. Nước nóng. Cái đĩa này bẩn." Nghe có vẻ điên rồ, nhưng nó xây dựng mối liên hệ giữa *hành động* và *lời nói* mà không có áp lực của người nghe.</p>
 
-  <h2>3. Tín hiệu Hình ảnh (Giấy nhớ 2.0)</h2>
-  <p>Dán giấy nhớ có chữ "Cái ghế" lên ghế là việc của người mới bắt đầu. Hãy thử <strong>Giấy nhớ Câu</strong>.</p>
-  <p>Dán một mảnh giấy lên gương: "Hôm nay trông bạn mệt mỏi thế. Bạn ngủ có ngon không?" (bằng ngôn ngữ mục tiêu). Dán một cái lên tủ lạnh: "Đừng ăn nhiều quá, bạn đang ăn kiêng đấy." Những cụm từ theo ngữ cảnh này hữu ích hơn nhiều so với danh từ.</p>
+  <h2>3. Bong bóng Một giờ</h2>
+  <p>Tạo một quy tắc nghiêm ngặt: Từ 8 giờ tối đến 9 giờ tối, không được phép dùng tiếng mẹ đẻ. Xem phim, đọc sách hoặc nói chuyện với thú cưng bằng ngôn ngữ mục tiêu. Nếu bạn không biết một từ, hãy tra cứu hoặc nói vòng quanh nó. Tạo một khu vực đắm mình thu nhỏ trong phòng khách của bạn.</p>
 
-  <h2>4. Hack Thuật toán Mạng xã hội</h2>
-  <p>Tạo một tài khoản YouTube/Instagram/TikTok riêng biệt chỉ dành cho ngôn ngữ mục tiêu. Thích và đăng ký <strong>CHỈ</strong> nội dung bằng ngôn ngữ đó. Huấn luyện thuật toán để cung cấp cho bạn video nấu ăn Pháp hoặc hướng dẫn trang điểm Hàn Quốc. Biến thời gian trì hoãn của bạn thành thời gian học tập.</p>
-
-  <h2>5. Khu vực "Không [Ngôn ngữ mẹ đẻ]"</h2>
-  <p>Chỉ định một chiếc ghế hoặc góc cụ thể trong phòng của bạn là "Khu vực Ngôn ngữ Mục tiêu". Khi bạn ngồi đó, bạn <strong>KHÔNG</strong> được phép nói, đọc hoặc suy nghĩ bằng ngôn ngữ mẹ đẻ của mình. Ngay cả khi bạn chỉ ngồi đó và đọc truyện tranh, bạn đang xây dựng một neo vật lý cho bản sắc mới của mình.</p>
+  <h2>4. Hack Thuật toán YouTube của bạn</h2>
+  <p>Tạo tài khoản YouTube mới. Chỉ tìm kiếm nội dung bằng ngôn ngữ mục tiêu của bạn. Xem video nấu ăn, đánh giá công nghệ hoặc vlog. Sớm thôi, trang chủ của bạn sẽ trông giống như bạn đang sống ở quốc gia đó. Hãy để thuật toán nuôi dưỡng sự đắm mình cho bạn.</p>
 
   <div class="tip-box">
-     <strong>Mục tiêu:</strong> Làm cho việc tránh ngôn ngữ khó hơn là thực hiện nó. Nếu bạn phải nhấp qua các menu tiếng Đức để kiểm tra email, bạn đang học tiếng Đức dù muốn hay không.
+     <strong>Kết luận:</strong> Bạn không cần vé máy bay. Bạn cần VPN và một chút kỷ luật. Bạn có thể xây dựng một "Tokyo ảo" hoặc "Paris ảo" ngay trong phòng ngủ của mình. Bắt đầu ngay hôm nay.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_ID = `
 <article>
-  <p>Keuntungan terbesar tinggal di luar negeri bukanlah udara atau makanannya. Itu adalah <strong>ketidakterhindaran</strong> bahasa. Anda harus menggunakannya untuk bertahan hidup. Anda dapat mensimulasikan "mode bertahan hidup" ini di rumah dengan beberapa penyesuaian strategis pada lingkungan Anda.</p>
+  <p>Kebohongan terbesar dalam belajar bahasa: "Anda harus tinggal di negara tersebut untuk menjadi fasih." Salah. Saya kenal orang yang tinggal di Jepang selama 10 tahun dan tidak bisa memesan sushi. Saya kenal orang yang tidak pernah meninggalkan Ohio dan berbicara bahasa Jepang dengan lancar. Imersi bukan lokasi; itu adalah pilihan.</p>
 
-  <h2>1. Peralihan Digital</h2>
-  <p>Kita menghabiskan 8 jam sehari di depan layar. Ubah bahasa:</p>
-  <ul>
-    <li>OS Telepon (iOS/Android)</li>
-    <li>OS Komputer</li>
-    <li>Akun Google/YouTube</li>
-    <li>Video Game</li>
-  </ul>
-  <p>Tiba-tiba, "Pengaturan", "Batal", dan "Simpan" menjadi latihan kosakata. Anda memaksa otak Anda untuk menavigasi tugas sehari-hari dalam bahasa target.</p>
+  <h2>1. Ubah Lingkungan Digital Anda</h2>
+  <p>Anda melihat ponsel Anda 100 kali sehari. Ubah bahasanya ke bahasa target Anda. Sekarang, setiap kali Anda memeriksa cuaca atau menyesuaikan pengaturan, Anda sedang belajar kosakata. Paksa otak Anda untuk beradaptasi.</p>
 
-  <h2>2. Gelembung Audio</h2>
-  <p>Buat aturan: "Setiap kali saya melakukan pekerjaan rumah tangga, saya mendengarkan."</p>
-  <p>Mencuci piring? Podcast. Perjalanan kerja? Buku audio. Mengajak anjing jalan-jalan? Aplikasi radio. Isi kesunyian dengan bahasa target. Bahkan jika Anda tidak fokus 100%, Anda melatih telinga Anda terhadap ritme dan intonasi.</p>
+  <h2>2. Teknik "Menceritakan Hidup Anda"</h2>
+  <p>Saat Anda sendirian, bicaralah pada diri sendiri. Ceritakan apa yang Anda lakukan. "Saya sedang mencuci piring. Airnya panas. Piring ini kotor." Kedengarannya gila, tetapi ini membangun hubungan antara *tindakan* dan *ucapan* tanpa tekanan pendengar.</p>
 
-  <h2>3. Isyarat Visual (Post-it 2.0)</h2>
-  <p>Menempelkan catatan tempel dengan tulisan "Kursi" di kursi adalah hal pemula. Cobalah <strong>Catatan Kalimat</strong>.</p>
-  <p>Tempel catatan di cermin: "Kamu terlihat lelah hari ini. Apakah kamu tidur nyenyak?" (dalam bahasa target). Tempel satu di lemari es: "Jangan makan terlalu banyak, kamu sedang diet." Frasa kontekstual ini jauh lebih berguna daripada kata benda.</p>
+  <h2>3. Gelembung Satu Jam</h2>
+  <p>Buat aturan ketat: Dari jam 8 malam sampai jam 9 malam, tidak boleh menggunakan bahasa ibu. Tonton film, baca buku, atau bicara dengan hewan peliharaan Anda dalam bahasa target. Jika Anda tidak tahu satu kata, cari atau bicaralah di sekitarnya. Buat zona imersi mini di ruang tamu Anda.</p>
 
-  <h2>4. Peretasan Algoritma Media Sosial</h2>
-  <p>Buat akun YouTube/Instagram/TikTok terpisah murni untuk bahasa target. Sukai dan berlangganan <strong>HANYA</strong> ke konten dalam bahasa itu. Latih algoritma untuk memberi Anda video memasak Prancis atau tutorial makeup Korea. Ubah waktu penundaan Anda menjadi waktu belajar.</p>
-
-  <h2>5. Zona "Tanpa [Bahasa Ibu]"</h2>
-  <p>Tetapkan kursi atau sudut tertentu di kamar Anda sebagai "Zona Bahasa Target". Saat Anda duduk di sana, Anda <strong>TIDAK</strong> diperbolehkan berbicara, membaca, atau berpikir dalam bahasa ibu Anda. Bahkan jika Anda hanya duduk di sana dan membaca buku komik, Anda sedang membangun jangkar fisik untuk identitas baru Anda.</p>
+  <h2>4. Retas Algoritma YouTube Anda</h2>
+  <p>Buat akun YouTube baru. Hanya cari konten dalam bahasa target Anda. Tonton video memasak, ulasan teknologi, atau vlog. Segera, beranda Anda akan terlihat seperti Anda tinggal di negara itu. Biarkan algoritma memberi makan imersi Anda.</p>
 
   <div class="tip-box">
-     <strong>Tujuannya:</strong> Membuat menghindari bahasa menjadi lebih sulit daripada melakukannya. Jika Anda harus mengklik menu bahasa Jerman untuk memeriksa email Anda, Anda sedang belajar bahasa Jerman baik Anda mau atau tidak.
+     <strong>Kesimpulan:</strong> Anda tidak butuh tiket pesawat. Anda butuh VPN dan sedikit disiplin. Anda dapat membangun "Tokyo Virtual" atau "Paris Virtual" tepat di kamar tidur Anda. Mulailah hari ini.
+  </div>
+</article>
+`;
+
+const POST_IMMERSION_CONTENT_ES = `
+<article>
+  <p>La mayor mentira en el aprendizaje de idiomas: "Necesitas vivir en el país para ser fluido". Falso. Conozco personas que vivieron en Japón durante 10 años y no pueden pedir sushi. Conozco personas que nunca salieron de Ohio y hablan japonés fluido. La inmersión no es un lugar; es una elección.</p>
+
+  <h2>1. Cambia tu entorno digital</h2>
+  <p>Miras tu teléfono 100 veces al día. Cambia el idioma a tu idioma objetivo. Ahora, cada vez que revisas el clima o ajustas la configuración, estás aprendiendo vocabulario. Obliga a tu cerebro a adaptarse.</p>
+
+  <h2>2. La técnica de "Narrar tu vida"</h2>
+  <p>Cuando estés solo, habla contigo mismo. Narra lo que estás haciendo. "Estoy lavando los platos. El agua está caliente. Este plato está sucio". Suena loco, pero construye la conexión entre *acción* y *habla* sin la presión de un oyente.</p>
+
+  <h2>3. La burbuja de una hora</h2>
+  <p>Crea una regla estricta: De 8 PM a 9 PM, no se permite tu lengua materna. Mira una película, lee un libro o habla con tu mascota en tu idioma objetivo. Si no sabes una palabra, búscala o explícala con otras palabras. Crea una mini zona de inmersión en tu sala de estar.</p>
+
+  <h2>4. Hackea tu algoritmo de YouTube</h2>
+  <p>Crea una nueva cuenta de YouTube. Solo busca contenido en tu idioma objetivo. Mira videos de cocina, reseñas de tecnología o vlogs. Pronto, tu página de inicio parecerá que vives en ese país. Deja que el algoritmo te alimente con inmersión.</p>
+
+  <div class="tip-box">
+     <strong>Conclusión:</strong> No necesitas un boleto de avión. Necesitas una VPN y algo de disciplina. Puedes construir un "Tokio virtual" o un "París virtual" justo en tu habitación. Empieza hoy.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_PT = `
 <article>
-  <p>A maior vantagem de viver no exterior não é o ar ou a comida. É a <strong>inevitabilidade</strong> do idioma. Você tem que usá-lo para sobreviver. Você pode simular esse "modo de sobrevivência" em casa com alguns ajustes estratégicos em seu ambiente.</p>
+  <p>A maior mentira no aprendizado de idiomas: "Você precisa morar no país para se tornar fluente". Falso. Conheço pessoas que moraram no Japão por 10 anos e não conseguem pedir sushi. Conheço pessoas que nunca saíram de Ohio e falam japonês fluente. Imersão não é um local; é uma escolha.</p>
 
-  <h2>1. A Mudança Digital</h2>
-  <p>Passamos 8 horas por dia em telas. Mude o idioma do seu:</p>
-  <ul>
-    <li>SO do telefone (iOS/Android)</li>
-    <li>SO do computador</li>
-    <li>Contas Google/YouTube</li>
-    <li>Videogames</li>
-  </ul>
-  <p>De repente, "Configurações", "Cancelar" e "Salvar" tornam-se prática de vocabulário. Você está forçando seu cérebro a navegar nas tarefas diárias no idioma de destino.</p>
+  <h2>1. Mude seu Ambiente Digital</h2>
+  <p>Você olha para o seu telefone 100 vezes por dia. Mude o idioma para o seu idioma de destino. Agora, toda vez que você verificar o clima ou ajustar as configurações, estará aprendendo vocabulário. Force seu cérebro a se adaptar.</p>
 
-  <h2>2. A Bolha de Áudio</h2>
-  <p>Crie uma regra: "Sempre que estou fazendo tarefas domésticas, estou ouvindo."</p>
-  <p>Lavando louça? Podcast. No trânsito? Audiolivro. Passeando com o cachorro? App de rádio. Preencha o silêncio com o idioma de destino. Mesmo que você não esteja 100% focado, você está treinando seu ouvido para o ritmo e a entonação.</p>
+  <h2>2. A Técnica "Narre Sua Vida"</h2>
+  <p>Quando estiver sozinho, fale consigo mesmo. Narre o que você está fazendo. "Estou lavando a louça. A água está quente. Este prato está sujo." Parece loucura, mas constrói a conexão entre *ação* e *fala* sem a pressão de um ouvinte.</p>
 
-  <h2>3. Dicas Visuais (Post-it 2.0)</h2>
-  <p>Colocar notas adesivas com "Cadeira" em uma cadeira é coisa de iniciante. Tente <strong>Notas de Frase</strong>.</p>
-  <p>Coloque uma nota no espelho: "Você parece cansado hoje. Dormiu bem?" (no idioma de destino). Coloque uma na geladeira: "Não coma muito, você está de dieta." Essas frases contextuais são muito mais úteis do que substantivos.</p>
+  <h2>3. A Bolha de Uma Hora</h2>
+  <p>Crie uma regra estrita: Das 20h às 21h, nada de língua materna. Assista a um filme, leia um livro ou fale com seu animal de estimação em seu idioma de destino. Se não souber uma palavra, pesquise ou fale sobre ela. Crie uma mini zona de imersão na sua sala de estar.</p>
 
-  <h2>4. Hack do Algoritmo de Mídia Social</h2>
-  <p>Crie uma conta separada no YouTube/Instagram/TikTok puramente para o idioma de destino. Curta e inscreva-se <strong>APENAS</strong> em conteúdo nesse idioma. Treine o algoritmo para alimentá-lo com vídeos de culinária francesa ou tutoriais de maquiagem coreana. Transforme seu tempo de procrastinação em tempo de estudo.</p>
-
-  <h2>5. A Zona "Sem [Língua Nativa]"</h2>
-  <p>Designe uma cadeira ou canto específico do seu quarto como a "Zona do Idioma de Destino". Quando você se senta lá, você <strong>NÃO</strong> tem permissão para falar, ler ou pensar em sua língua nativa. Mesmo que você apenas se sente lá e leia um gibi, você está construindo uma âncora física para sua nova identidade.</p>
+  <h2>4. Hackeie seu Algoritmo do YouTube</h2>
+  <p>Crie uma nova conta no YouTube. Pesquise apenas conteúdo no seu idioma de destino. Assista a vídeos de culinária, análises de tecnologia ou vlogs. Em breve, sua página inicial parecerá que você mora naquele país. Deixe o algoritmo alimentar sua imersão.</p>
 
   <div class="tip-box">
-     <strong>O Objetivo:</strong> Tornar evitar o idioma mais difícil do que fazê-lo. Se você tiver que clicar em menus em alemão para verificar seu e-mail, você está aprendendo alemão querendo ou não.
+     <strong>Conclusão:</strong> Você não precisa de uma passagem de avião. Você precisa de uma VPN e alguma disciplina. Você pode construir uma "Tóquio Virtual" ou "Paris Virtual" bem no seu quarto. Comece hoje.
+  </div>
+</article>
+`;
+
+const POST_IMMERSION_CONTENT_FR = `
+<article>
+  <p>Le plus grand mensonge dans l'apprentissage des langues : « Il faut vivre dans le pays pour devenir courant. » Faux. Je connais des gens qui ont vécu au Japon pendant 10 ans et ne peuvent pas commander de sushis. Je connais des gens qui n'ont jamais quitté l'Ohio et parlent couramment japonais. L'immersion n'est pas un lieu ; c'est un choix.</p>
+
+  <h2>1. Changez votre environnement numérique</h2>
+  <p>Vous regardez votre téléphone 100 fois par jour. Changez la langue pour votre langue cible. Maintenant, chaque fois que vous vérifiez la météo ou ajustez les paramètres, vous apprenez du vocabulaire. Forcez votre cerveau à s'adapter.</p>
+
+  <h2>2. La technique « Narrer sa vie »</h2>
+  <p>Quand vous êtes seul, parlez-vous à vous-même. Racontez ce que vous faites. « Je fais la vaisselle. L'eau est chaude. Cette assiette est sale. » Cela semble fou, mais cela construit la connexion entre *l'action* et *la parole* sans la pression d'un auditeur.</p>
+
+  <h2>3. La bulle d'une heure</h2>
+  <p>Créez une règle stricte : De 20h à 21h, pas de langue maternelle. Regardez un film, lisez un livre ou parlez à votre animal de compagnie dans votre langue cible. Si vous ne connaissez pas un mot, cherchez-le ou contournez-le. Créez une mini-zone d'immersion dans votre salon.</p>
+
+  <h2>4. Piratez votre algorithme YouTube</h2>
+  <p>Créez un nouveau compte YouTube. Recherchez uniquement du contenu dans votre langue cible. Regardez des vidéos de cuisine, des critiques technologiques ou des vlogs. Bientôt, votre page d'accueil donnera l'impression que vous vivez dans ce pays. Laissez l'algorithme vous nourrir d'immersion.</p>
+
+  <div class="tip-box">
+     <strong>Conclusion :</strong> Vous n'avez pas besoin d'un billet d'avion. Vous avez besoin d'un VPN et d'un peu de discipline. Vous pouvez construire un « Tokyo virtuel » ou un « Paris virtuel » directement dans votre chambre. Commencez aujourd'hui.
+  </div>
+</article>
+`;
+
+const POST_IMMERSION_CONTENT_DE = `
+<article>
+  <p>Die größte Lüge beim Sprachenlernen: "Man muss im Land leben, um fließend zu werden." Falsch. Ich kenne Leute, die 10 Jahre in Japan gelebt haben und kein Sushi bestellen können. Ich kenne Leute, die Ohio nie verlassen haben und fließend Japanisch sprechen. Immersion ist kein Ort; es ist eine Entscheidung.</p>
+
+  <h2>1. Ändern Sie Ihre digitale Umgebung</h2>
+  <p>Sie schauen 100 Mal am Tag auf Ihr Telefon. Ändern Sie die Sprache in Ihre Zielsprache. Jetzt lernen Sie jedes Mal Vokabeln, wenn Sie das Wetter checken oder Einstellungen anpassen. Zwingen Sie Ihr Gehirn, sich anzupassen.</p>
+
+  <h2>2. Die "Narrate Your Life"-Technik</h2>
+  <p>Wenn Sie allein sind, sprechen Sie mit sich selbst. Erzählen Sie, was Sie tun. "Ich wasche das Geschirr ab. Das Wasser ist heiß. Dieser Teller ist schmutzig." Es klingt verrückt, aber es baut die Verbindung zwischen *Handlung* und *Sprache* ohne den Druck eines Zuhörers auf.</p>
+
+  <h2>3. Die Ein-Stunden-Blase</h2>
+  <p>Erstellen Sie eine strikte Regel: Von 20 bis 21 Uhr ist keine Muttersprache erlaubt. Schauen Sie einen Film, lesen Sie ein Buch oder sprechen Sie mit Ihrem Haustier in Ihrer Zielsprache. Wenn Sie ein Wort nicht kennen, schlagen Sie es nach oder umschreiben Sie es. Erstellen Sie eine Mini-Immersionszone in Ihrem Wohnzimmer.</p>
+
+  <h2>4. Hacken Sie Ihren YouTube-Algorithmus</h2>
+  <p>Erstellen Sie ein neues YouTube-Konto. Suchen Sie nur nach Inhalten in Ihrer Zielsprache. Schauen Sie Kochvideos, Tech-Reviews oder Vlogs. Bald wird Ihre Startseite so aussehen, als würden Sie in diesem Land leben. Lassen Sie sich vom Algorithmus mit Immersion füttern.</p>
+
+  <div class="tip-box">
+     <strong>Fazit:</strong> Sie brauchen kein Flugticket. Sie brauchen ein VPN und etwas Disziplin. Sie können ein "virtuelles Tokio" oder "virtuelles Paris" direkt in Ihrem Schlafzimmer bauen. Fangen Sie heute an.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_TR = `
 <article>
-  <p>Yurt dışında yaşamanın en büyük avantajı havası ya da yemeği değildir. Dilin <strong>kaçınılmazlığıdır</strong>. Hayatta kalmak için onu kullanmak zorundasınız. Çevrenizde yapacağınız birkaç stratejik değişiklikle evde bu "hayatta kalma modunu" simüle edebilirsiniz.</p>
+  <p>Dil öğrenimindeki en büyük yalan: "Akıcı olmak için o ülkede yaşamanız gerekir." Yanlış. Japonya'da 10 yıl yaşayıp suşi sipariş edemeyen insanlar tanıyorum. Ohio'dan hiç ayrılmamış ama akıcı Japonca konuşan insanlar tanıyorum. Daldırma (Immersion) bir yer değildir; bir seçimdir.</p>
 
-  <h2>1. Dijital Geçiş</h2>
-  <p>Günde 8 saatimizi ekran başında geçiriyoruz. Şunların dilini değiştirin:</p>
-  <ul>
-    <li>Telefon İşletim Sistemi (iOS/Android)</li>
-    <li>Bilgisayar İşletim Sistemi</li>
-    <li>Google/YouTube Hesapları</li>
-    <li>Video Oyunları</li>
-  </ul>
-  <p>Birdenbire "Ayarlar", "İptal" ve "Kaydet" kelime pratiği haline gelir. Beynini günlük görevleri hedef dilde yapmaya zorluyorsun.</p>
+  <h2>1. Dijital Ortamınızı Değiştirin</h2>
+  <p>Günde 100 kez telefonunuza bakıyorsunuz. Dili hedef dilinizle değiştirin. Artık hava durumunu her kontrol ettiğinizde veya ayarları her değiştirdiğinizde kelime öğreniyorsunuz. Beyninizi uyum sağlamaya zorlayın.</p>
 
-  <h2>2. Ses Balonu</h2>
-  <p>Bir kural oluşturun: "Ne zaman ev işi yapsam, dinliyorum."</p>
-  <p>Bulaşık mı yıkıyorsun? Podcast. İşe mi gidiyorsun? Sesli kitap. Köpeği mi gezdiriyorsun? Radyo uygulaması. Sessizliği hedef dille doldurun. %100 odaklanmasanız bile kulağınızı ritim ve tonlamaya alıştırırsınız.</p>
+  <h2>2. "Hayatını Anlat" Tekniği</h2>
+  <p>Yalnızken kendi kendinize konuşun. Ne yaptığınızı anlatın. "Bulaşıkları yıkıyorum. Su sıcak. Bu tabak kirli." Kulağa çılgınca geliyor ama bir dinleyicinin baskısı olmadan *eylem* ve *konuşma* arasındaki bağlantıyı kuruyor.</p>
 
-  <h2>3. Görsel İpuçları (Post-it 2.0)</h2>
-  <p>Bir sandalyeye "Sandalye" yazan yapışkan notlar yapıştırmak yeni başlayanlar içindir. <strong>Cümle Yapışkan Notlarını</strong> deneyin.</p>
-  <p>Aynaya bir not yapıştırın: "Bugün yorgun görünüyorsun. İyi uyudun mu?" (hedef dilde). Buzdolabına bir tane yapıştırın: "Çok yeme, diyettesin." Bu bağlamsal ifadeler isimlerden çok daha yararlıdır.</p>
+  <h2>3. Bir Saatlik Baloncuk</h2>
+  <p>Kesin bir kural oluşturun: Akşam 8'den 9'a kadar ana dil yasak. Hedef dilinizde bir film izleyin, kitap okuyun veya evcil hayvanınızla konuşun. Bir kelimeyi bilmiyorsanız, araştırın veya etrafından dolaşarak anlatın. Oturma odanızda mini bir daldırma bölgesi oluşturun.</p>
 
-  <h2>4. Sosyal Medya Algoritma Hack'i</h2>
-  <p>Sadece hedef dil için ayrı bir YouTube/Instagram/TikTok hesabı oluşturun. <strong>SADECE</strong> o dildeki içerikleri beğenin ve abone olun. Algoritmayı size Fransız yemek videoları veya Kore makyaj eğitimleri sunması için eğitin. Erteleme zamanınızı çalışma zamanına dönüştürün.</p>
-
-  <h2>5. "[Ana Dil] Yok" Bölgesi</h2>
-  <p>Odanızın belirli bir sandalyesini veya köşesini "Hedef Dil Bölgesi" olarak belirleyin. Oraya oturduğunuzda, ana dilinizde konuşmanıza, okumanıza veya düşünmenize izin <strong>VERİLMEZ</strong>. Sadece orada oturup çizgi roman okusanız bile, yeni kimliğiniz için fiziksel bir çapa oluşturuyorsunuz.</p>
+  <h2>4. YouTube Algoritmanızı Hackleyin</h2>
+  <p>Yeni bir YouTube hesabı oluşturun. Sadece hedef dilinizdeki içeriği arayın. Yemek pişirme videoları, teknoloji incelemeleri veya vlog'lar izleyin. Yakında ana sayfanız sanki o ülkede yaşıyormuşsunuz gibi görünecek. Algoritmanın sizi daldırma ile beslemesine izin verin.</p>
 
   <div class="tip-box">
-     <strong>Hedef:</strong> Dilden kaçınmayı onu yapmaktan daha zor hale getirmek. E-postalarınızı kontrol etmek için Almanca menülere tıklamak zorundaysanız, isteseniz de istemeseniz de Almanca öğreniyorsunuz demektir.
+     <strong>Sonuç:</strong> Uçak biletine ihtiyacınız yok. Bir VPN'e ve biraz disipline ihtiyacınız var. Yatak odanızda bir "Sanal Tokyo" veya "Sanal Paris" inşa edebilirsiniz. Bugün başlayın.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_AR = `
 <article>
-  <p>أكبر ميزة للعيش في الخارج ليست الهواء أو الطعام. إنها <strong>حتمية</strong> اللغة. عليك استخدامها للبقاء على قيد الحياة. يمكنك محاكاة "وضع البقاء" هذا في المنزل ببعض التعديلات الاستراتيجية على بيئتك.</p>
+  <p>أكبر كذبة في تعلم اللغة: "تحتاج إلى العيش في البلد لتصبح طليقاً." خطأ. أعرف أشخاصاً عاشوا في اليابان لمدة 10 سنوات ولا يستطيعون طلب السوشي. وأعرف أشخاصاً لم يغادروا أوهايو ويتحدثون اليابانية بطلاقة. الانغماس ليس موقعاً؛ إنه خيار.</p>
 
-  <h2>1. التحول الرقمي</h2>
-  <p>نقضي 8 ساعات يوميًا أمام الشاشات. غيّر لغة:</p>
-  <ul>
-    <li>نظام تشغيل الهاتف (iOS/Android)</li>
-    <li>نظام تشغيل الكمبيوتر</li>
-    <li>حسابات Google/YouTube</li>
-    <li>ألعاب الفيديو</li>
-  </ul>
-  <p>فجأة، تصبح "الإعدادات" و "إلغاء" و "حفظ" ممارسة للمفردات. أنت تجبر عقلك على التنقل في المهام اليومية باللغة المستهدفة.</p>
+  <h2>1. غير بيئتك الرقمية</h2>
+  <p>تنظر إلى هاتفك 100 مرة في اليوم. غير اللغة إلى لغتك المستهدفة. الآن، في كل مرة تتحقق فيها من الطقس أو تضبط الإعدادات، تتعلم مفردات. أجبر عقلك على التكيف.</p>
 
-  <h2>2. الفقاعة الصوتية</h2>
-  <p>أنشئ قاعدة: "كلما قمت بالأعمال المنزلية، أنا أستمع."</p>
-  <p>غسل الأطباق؟ بودكاست. التنقل؟ كتاب صوتي. تمشية الكلب؟ تطبيق راديو. املأ الصمت باللغة المستهدفة. حتى لو لم تكن مركزًا بنسبة 100٪، فأنت تدرب أذنك على الإيقاع والتنغيم.</p>
+  <h2>2. تقنية "اروِ حياتك"</h2>
+  <p>عندما تكون وحدك، تحدث إلى نفسك. اروِ ما تفعله. "أنا أغسل الأطباق. الماء ساخن. هذا الطبق قذر." يبدو الأمر مجنوناً، لكنه يبني الرابط بين *الفعل* و *الكلام* دون ضغط المستمع.</p>
 
-  <h2>3. الإشارات المرئية (الملاحظات اللاصقة 2.0)</h2>
-  <p>وضع ملاحظات لاصقة بكلمة "كرسي" على الكرسي هو للمبتدئين. جرب <strong>ملاحظات الجمل</strong>.</p>
-  <p>ضع ملاحظة على المرآة: "تبدو متعبًا اليوم. هل نمت جيدًا؟" (باللغة المستهدفة). ضع واحدة على الثلاجة: "لا تأكل كثيرًا، أنت تتبع حمية." هذه العبارات السياقية أكثر فائدة بكثير من الأسماء.</p>
+  <h2>3. فقاعة الساعة الواحدة</h2>
+  <p>ضع قاعدة صارمة: من الساعة 8 مساءً حتى 9 مساءً، لا يُسمح باللغة الأم. شاهد فيلماً، أو اقرأ كتاباً، أو تحدث إلى حيوانك الأليف بلغتك المستهدفة. إذا كنت لا تعرف كلمة، فابحث عنها أو تحدث حولها. أنشئ منطقة انغماس مصغرة في غرفة معيشتك.</p>
 
-  <h2>4. اختراق خوارزمية وسائل التواصل الاجتماعي</h2>
-  <p>أنشئ حساب YouTube/Instagram/TikTok منفصلًا تمامًا للغة المستهدفة. قم بالإعجاب والاشتراك <strong>فقط</strong> في المحتوى بتلك اللغة. درب الخوارزمية لتغذيتك بمقاطع فيديو الطبخ الفرنسي أو دروس المكياج الكورية. حول وقت المماطلة إلى وقت للدراسة.</p>
-
-  <h2>5. منطقة "ممنوع [اللغة الأم]"</h2>
-  <p>خصص كرسيًا معينًا أو زاوية في غرفتك كـ "منطقة اللغة المستهدفة". عندما تجلس هناك، <strong>لا</strong> يُسمح لك بالتحدث أو القراءة أو التفكير بلغتك الأم. حتى لو جلست هناك فقط لتقرأ كتابًا فكاهيًا، فأنت تبني مرساة مادية لهويتك الجديدة.</p>
+  <h2>4. اخترق خوارزمية يوتيوب الخاصة بك</h2>
+  <p>أنشئ حساب يوتيوب جديداً. ابحث فقط عن المحتوى بلغتك المستهدفة. شاهد فيديوهات الطبخ، أو المراجعات التقنية، أو المدونات المرئية. قريباً، ستبدو صفحتك الرئيسية وكأنك تعيش في ذلك البلد. دع الخوارزمية تغذيك بالانغماس.</p>
 
   <div class="tip-box">
-     <strong>الهدف:</strong> جعل تجنب اللغة أصعب من ممارستها. إذا كان عليك النقر فوق القوائم الألمانية للتحقق من بريدك الإلكتروني، فأنت تتعلم الألمانية سواء كنت تريد ذلك أم لا.
+     <strong>الخلاصة:</strong> لا تحتاج إلى تذكرة طائرة. تحتاج إلى VPN وبعض الانضباط. يمكنك بناء "طوكيو افتراضية" أو "باريس افتراضية" في غرفة نومك مباشرة. ابدأ اليوم.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_HI = `
 <article>
-  <p>विदेश में रहने का सबसे बड़ा फायदा हवा या खाना नहीं है। यह भाषा की <strong>अपरिहार्यता</strong> है। जीवित रहने के लिए आपको इसका उपयोग करना ही होगा। आप अपने वातावरण में कुछ रणनीतिक बदलावों के साथ घर पर इस "उत्तरजीविता मोड" (Survival Mode) का अनुकरण कर सकते हैं।</p>
+  <p>भाषा सीखने में सबसे बड़ा झूठ: "धाराप्रवाह होने के लिए आपको देश में रहने की आवश्यकता है।" गलत। मैं ऐसे लोगों को जानता हूं जो 10 साल तक जापान में रहे और सुशी ऑर्डर नहीं कर सकते। मैं ऐसे लोगों को जानता हूं जिन्होंने कभी ओहियो नहीं छोड़ा और धाराप्रवाह जापानी बोलते हैं। विसर्जन (Immersion) एक स्थान नहीं है; यह एक विकल्प है।</p>
 
-  <h2>1. डिजिटल स्विच</h2>
-  <p>हम स्क्रीन पर दिन में 8 घंटे बिताते हैं। इनकी भाषा बदलें:</p>
-  <ul>
-    <li>फ़ोन OS (iOS/Android)</li>
-    <li>कंप्यूटर OS</li>
-    <li>Google/YouTube खाते</li>
-    <li>वीडियो गेम</li>
-  </ul>
-  <p>अचानक, "Settings", "Cancel", और "Save" शब्दावली अभ्यास बन जाते हैं। आप अपने मस्तिष्क को लक्षित भाषा में रोजमर्रा के कार्यों को करने के लिए मजबूर कर रहे हैं।</p>
+  <h2>1. अपना डिजिटल वातावरण बदलें</h2>
+  <p>आप दिन में 100 बार अपने फोन को देखते हैं। भाषा को अपनी लक्षित भाषा में बदलें। अब, हर बार जब आप मौसम की जांच करते हैं या सेटिंग्स समायोजित करते हैं, तो आप शब्दावली सीख रहे होते हैं। अपने मस्तिष्क को अनुकूलित करने के लिए मजबूर करें।</p>
 
-  <h2>2. ऑडियो बबल (Audio Bubble)</h2>
-  <p>एक नियम बनाएं: "जब भी मैं घर का काम कर रहा होता हूं, मैं सुन रहा होता हूं।"</p>
-  <p>बर्तन धो रहे हैं? पॉडकास्ट। यात्रा कर रहे हैं? ऑडियो बुक। कुत्ते को टहला रहे हैं? रेडियो ऐप। सन्नाटे को लक्षित भाषा से भर दें। भले ही आप 100% केंद्रित न हों, आप अपने कान को लय और स्वर के लिए प्रशिक्षित कर रहे हैं।</p>
+  <h2>2. "अपने जीवन का वर्णन करें" तकनीक</h2>
+  <p>जब आप अकेले हों, तो खुद से बात करें। आप जो कर रहे हैं उसका वर्णन करें। "मैं बर्तन धो रहा हूँ। पानी गर्म है। यह प्लेट गंदी है।" यह पागलपन लगता है, लेकिन यह श्रोता के दबाव के बिना *क्रिया* और *भाषण* के बीच संबंध बनाता है।</p>
 
-  <h2>3. दृश्य संकेत (पोस्ट-इट 2.0)</h2>
-  <p>कुर्सी पर "कुर्सी" के साथ चिपचिपे नोट्स लगाना शुरुआती लोगों का काम है। <strong>वाक्य नोट्स</strong> आज़माएं।</p>
-  <p>दर्पण पर एक नोट लगाएं: "आप आज थके हुए लग रहे हैं। क्या आप ठीक से सोए थे?" (लक्षित भाषा में)। फ्रिज पर एक लगाएं: "बहुत मत खाओ, तुम डाइट पर हो।" ये प्रासंगिक वाक्यांश संज्ञाओं की तुलना में कहीं अधिक उपयोगी हैं।</p>
+  <h2>3. एक घंटे का बुलबुला</h2>
+  <p>एक सख्त नियम बनाएं: रात 8 बजे से रात 9 बजे तक, कोई मातृभाषा की अनुमति नहीं है। एक फिल्म देखें, एक किताब पढ़ें, या अपने पालतू जानवर से अपनी लक्षित भाषा में बात करें। यदि आप एक शब्द नहीं जानते हैं, तो इसे देखें या इसके चारों ओर बात करें। अपने लिविंग रूम में एक मिनी-विसर्जन क्षेत्र बनाएं।</p>
 
-  <h2>4. सोशल मीडिया एल्गोरिथम हैक</h2>
-  <p>पूरी तरह से लक्षित भाषा के लिए एक अलग YouTube/Instagram/TikTok खाता बनाएं। <strong>केवल</strong> उस भाषा की सामग्री को लाइक और सब्सक्राइब करें। एल्गोरिथम को आपको फ्रेंच कुकिंग वीडियो या कोरियाई मेकअप ट्यूटोरियल खिलाने के लिए प्रशिक्षित करें। अपने टालमटोल के समय को अध्ययन के समय में बदलें।</p>
-
-  <h2>5. "[मातृभाषा] नहीं" क्षेत्र</h2>
-  <p>अपने कमरे की एक विशिष्ट कुर्सी या कोने को "लक्षित भाषा क्षेत्र" के रूप में नामित करें। जब आप वहां बैठते हैं, तो आपको अपनी मातृभाषा में बोलने, पढ़ने या सोचने की अनुमति <strong>नहीं</strong> है। भले ही आप बस वहां बैठें और कॉमिक बुक पढ़ें, आप अपनी नई पहचान के लिए एक भौतिक लंगर (anchor) बना रहे हैं।</p>
+  <h2>4. अपने YouTube एल्गोरिदम को हैक करें</h2>
+  <p>एक नया YouTube खाता बनाएँ। केवल अपनी लक्षित भाषा में सामग्री खोजें। कुकिंग वीडियो, टेक रिव्यू या व्लॉग देखें। जल्द ही, आपका होमपेज ऐसा लगेगा जैसे आप उस देश में रहते हैं। एल्गोरिदम को आपको विसर्जन खिलाने दें।</p>
 
   <div class="tip-box">
-     <strong>लक्ष्य:</strong> भाषा से बचने को इसे करने से कठिन बनाना। यदि आपको अपना ईमेल चेक करने के लिए जर्मन मेनू पर क्लिक करना पड़ता है, तो आप जर्मन सीख रहे हैं चाहे आप चाहें या नहीं।
+     <strong>निष्कर्ष:</strong> आपको हवाई जहाज के टिकट की आवश्यकता नहीं है। आपको वीपीएन और कुछ अनुशासन की आवश्यकता है। आप सीधे अपने बेडरूम में "वर्चुअल टोक्यो" या "वर्चुअल पेरिस" बना सकते हैं। आज ही शुरू करें।
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_RU = `
 <article>
-  <p>Самое большое преимущество жизни за границей — это не воздух или еда. Это <strong>неизбежность</strong> языка. Вы должны использовать его, чтобы выжить. Вы можете имитировать этот «режим выживания» дома с помощью нескольких стратегических изменений в вашем окружении.</p>
+  <p>Самая большая ложь в изучении языков: "Вам нужно жить в стране, чтобы заговорить свободно". Неправда. Я знаю людей, которые прожили в Японии 10 лет и не могут заказать суши. Я знаю людей, которые никогда не покидали Огайо и свободно говорят по-японски. Погружение — это не место; это выбор.</p>
 
-  <h2>1. Цифровой переключатель</h2>
-  <p>Мы проводим 8 часов в день перед экранами. Измените язык вашего:</p>
-  <ul>
-    <li>ОС телефона (iOS/Android)</li>
-    <li>ОС компьютера</li>
-    <li>Аккаунтов Google/YouTube</li>
-    <li>Видеоигр</li>
-  </ul>
-  <p>Внезапно «Настройки», «Отмена» и «Сохранить» становятся практикой словарного запаса. Вы заставляете свой мозг выполнять повседневные задачи на изучаемом языке.</p>
+  <h2>1. Измените свою цифровую среду</h2>
+  <p>Вы смотрите на телефон 100 раз в день. Измените язык на целевой. Теперь каждый раз, когда вы проверяете погоду или меняете настройки, вы учите лексику. Заставьте свой мозг адаптироваться.</p>
 
-  <h2>2. Аудиопузырь</h2>
-  <p>Создайте правило: «Всякий раз, когда я делаю работу по дому, я слушаю».</p>
-  <p>Моете посуду? Подкаст. Едете на работу? Аудиокнига. Гуляете с собакой? Радио-приложение. Заполните тишину изучаемым языком. Даже если вы не сосредоточены на 100%, вы тренируете свой слух на ритм и интонацию.</p>
+  <h2>2. Техника "Озвучивай свою жизнь"</h2>
+  <p>Когда вы одни, говорите с собой. Комментируйте то, что вы делаете. "Я мою посуду. Вода горячая. Эта тарелка грязная". Это звучит безумно, но это строит связь между *действием* и *речью* без давления слушателя.</p>
 
-  <h2>3. Визуальные подсказки (Post-it 2.0)</h2>
-  <p>Наклеивать стикеры со словом «Стул» на стул — это для новичков. Попробуйте <strong>Стикеры с предложениями</strong>.</p>
-  <p>Приклейте записку на зеркало: «Ты сегодня выглядишь усталым. Ты хорошо спал?» (на изучаемом языке). Приклейте одну на холодильник: «Не ешь слишком много, ты на диете». Эти контекстные фразы гораздо полезнее существительных.</p>
+  <h2>3. Часовой пузырь</h2>
+  <p>Создайте строгое правило: с 20:00 до 21:00 никакого родного языка. Посмотрите фильм, почитайте книгу или поговорите с питомцем на целевом языке. Если вы не знаете слова, посмотрите его или объясните описательно. Создайте мини-зону погружения в своей гостиной.</p>
 
-  <h2>4. Взлом алгоритма соцсетей</h2>
-  <p>Создайте отдельный аккаунт YouTube/Instagram/TikTok чисто для изучаемого языка. Лайкайте и подписывайтесь <strong>ТОЛЬКО</strong> на контент на этом языке. Обучите алгоритм подсовывать вам французские кулинарные видео или корейские уроки макияжа. Превратите время прокрастинации в время учебы.</p>
-
-  <h2>5. Зона «Без [Родного языка]»</h2>
-  <p>Назначьте определенный стул или угол вашей комнаты «Зоной изучаемого языка». Когда вы сидите там, вам <strong>НЕ</strong> разрешается говорить, читать или думать на родном языке. Даже если вы просто сидите там и читаете комикс, вы создаете физический якорь для своей новой личности.</p>
+  <h2>4. Взломайте свой алгоритм YouTube</h2>
+  <p>Создайте новый аккаунт YouTube. Ищите контент только на целевом языке. Смотрите кулинарные видео, обзоры техники или влоги. Скоро ваша домашняя страница будет выглядеть так, будто вы живете в этой стране. Позвольте алгоритму кормить вас погружением.</p>
 
   <div class="tip-box">
-     <strong>Цель:</strong> Сделать избегание языка труднее, чем его использование. Если вам нужно продираться через немецкие меню, чтобы проверить почту, вы учите немецкий, хотите вы этого или нет.
+     <strong>Вывод:</strong> Вам не нужен билет на самолет. Вам нужен VPN и немного дисциплины. Вы можете построить "Виртуальный Токио" или "Виртуальный Париж" прямо в своей спальне. Начните сегодня.
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_BN = `
 <article>
-  <p>বিদেশে বসবাসের সবচেয়ে বড় সুবিধা বাতাস বা খাবার নয়। এটি ভাষার <strong>অপরিহার্যতা</strong>। বেঁচে থাকার জন্য আপনাকে এটি ব্যবহার করতেই হবে। আপনি আপনার পরিবেশে কয়েকটি কৌশলগত পরিবর্তন করে বাড়িতে এই "বেঁচে থাকার মোড" (Survival Mode) অনুकरण করতে পারেন।</p>
+  <p>ভাষা শেখার সবচেয়ে বড় মিথ্যা: "অনর্গল হওয়ার জন্য আপনাকে সেই দেশে থাকতে হবে।" ভুল। আমি এমন লোকদের চিনি যারা ১০ বছর ধরে জাপানে বসবাস করেছেন এবং সুশি অর্ডার করতে পারেন না। আমি এমন লোকদের চিনি যারা কখনই ওহিও ত্যাগ করেননি এবং অনর্গল জাপানি বলেন। নিমজ্জন (Immersion) কোন অবস্থান নয়; এটি একটি পছন্দ।</p>
 
-  <h2>১. ডিজিটাল সুইচ</h2>
-  <p>আমরা দিনে ৮ ঘণ্টা স্ক্রিনে ব্যয় করি। ভাষা পরিবর্তন করুন:</p>
-  <ul>
-    <li>ফোন ওএস (iOS/Android)</li>
-    <li>কম্পিউটার ওএস</li>
-    <li>গুগল/ইউটিউব অ্যাকাউন্ট</li>
-    <li>ভিডিও গেমস</li>
-  </ul>
-  <p>হঠাৎ, "Settings", "Cancel", এবং "Save" শব্দভান্ডার অনুশীলনে পরিণত হয়। আপনি আপনার মস্তিষ্ককে লক্ষ্য ভাষায় দৈনন্দিন কাজগুলি পরিচালনা করতে বাধ্য করছেন।</p>
+  <h2>১. আপনার ডিজিটাল পরিবেশ পরিবর্তন করুন</h2>
+  <p>আপনি দিনে ১০০ বার আপনার ফোনের দিকে তাকান। ভাষাটিকে আপনার লক্ষ্য ভাষায় পরিবর্তন করুন। এখন, যতবার আপনি আবহাওয়া পরীক্ষা করবেন বা সেটিংস সামঞ্জস্য করবেন, আপনি শব্দভাণ্ডার শিখছেন। আপনার মস্তিষ্ককে মানিয়ে নিতে বাধ্য করুন।</p>
 
-  <h2>২. অডিও বাবল</h2>
-  <p>একটি নিয়ম তৈরি করুন: "যখনই আমি বাড়ির কাজ করছি, আমি শুনছি।"</p>
-  <p>বাসন মাজছেন? পডকাস্ট। যাতায়াত করছেন? অডিও বই। কুকুর নিয়ে হাঁটছেন? রেডিও অ্যাপ। নিস্তব্ধতা লক্ষ্য ভাষা দিয়ে পূর্ণ করুন। এমনকি আপনি ১০০% মনোযোগী না হলেও, আপনি আপনার কানকে ছন্দ এবং স্বরভঙ্গির জন্য প্রশিক্ষণ দিচ্ছেন।</p>
+  <h2>২. "আপনার জীবন বর্ণনা করুন" কৌশল</h2>
+  <p>আপনি যখন একা থাকেন, নিজের সাথে কথা বলুন। আপনি যা করছেন তা বর্ণনা করুন। "আমি থালা - বাসন ধুচ্ছি। জল গরম। এই থালাটি নোংরা।" এটি পাগলের মতো শোনাচ্ছে, তবে এটি শ্রোতার চাপ ছাড়াই *ক্রিয়া* এবং *বক্তৃতা* এর মধ্যে সংযোগ তৈরি করে।</p>
 
-  <h2>৩. ভিজ্যুয়াল ইঙ্গিত (পোস্ট-ইট ২.০)</h2>
-  <p>চেয়ারে "চেয়ার" লেখা স্টিকি নোট লাগানো নতুনদের কাজ। <strong>বাক্য স্টিকি</strong> চেষ্টা করুন।</p>
-  <p>আয়নায় একটি নোট লাগান: "আপনাকে আজ ক্লান্ত দেখাচ্ছে। আপনি কি ভালো ঘুমিয়েছেন?" (লক্ষ্য ভাষায়)। ফ্রিজে একটি লাগান: "বেশি খাবেন না, আপনি ডায়েটে আছেন।" এই প্রাসঙ্গিক বাক্যাংশগুলি বিশেষ্যগুলির চেয়ে অনেক বেশি কার্যকর।</p>
+  <h2>৩. এক ঘন্টার বুদবুদ</h2>
+  <p>একটি কঠোর নিয়ম তৈরি করুন: রাত ৮টা থেকে রাত ৯টা পর্যন্ত, কোন মাতৃভাষার অনুমতি নেই। একটি সিনেমা দেখুন, একটি বই পড়ুন, বা আপনার লক্ষ্য ভাষায় আপনার পোষা প্রাণীর সাথে কথা বলুন। আপনি যদি কোন শব্দ না জানেন তবে এটি সন্ধান করুন বা এটি ঘুরিয়ে বলুন। আপনার বসার ঘরে একটি মিনি-নিমজ্জন অঞ্চল তৈরি করুন।</p>
 
-  <h2>৪. সোশ্যাল মিডিয়া অ্যালগরিদম হ্যাক</h2>
-  <p>শুধুমাত্র লক্ষ্য ভাষার জন্য একটি পৃথক YouTube/Instagram/TikTok অ্যাকাউন্ট তৈরি করুন। <strong>শুধুমাত্র</strong> সেই ভাষার বিষয়বস্তু লাইক এবং সাবস্ক্রাইব করুন। অ্যালগরিদমকে আপনাকে ফরাসি রান্নার ভিডিও বা কোরিয়ান মেকআপ টিউটোরিয়াল দিতে প্রশিক্ষণ দিন। আপনার গড়িমসি করার সময়কে পড়ার সময়ে পরিণত করুন।</p>
-
-  <h2>৫. "[মাতৃভাষা] নেই" জোন</h2>
-  <p>আপনার ঘরের একটি নির্দিষ্ট চেয়ার বা কোণকে "লক্ষ্য ভাষা জোন" হিসাবে মনোনীত করুন। আপনি যখন সেখানে বসেন, তখন আপনাকে আপনার মাতৃভাষায় কথা বলার, পড়ার বা চিন্তা করার অনুমতি দেওয়া হয় <strong>না</strong>। এমনকি আপনি যদি সেখানে বসে একটি কমিক বইও পড়েন, আপনি আপনার নতুন পরিচয়ের জন্য একটি শারীরিক নোঙ্গর (anchor) তৈরি করছেন।</p>
+  <h2>৪. আপনার ইউটিউব অ্যালগরিদম হ্যাক করুন</h2>
+  <p>একটি নতুন ইউটিউব অ্যাকাউন্ট তৈরি করুন। শুধুমাত্র আপনার লক্ষ্য ভাষায় সামগ্রী অনুসন্ধান করুন। রান্নার ভিডিও, প্রযুক্তি পর্যালোচনা বা ভ্লগ দেখুন। শীঘ্রই, আপনার হোমপেজটি এমন দেখাবে যে আপনি সেই দেশে বাস করেন। অ্যালগরিদম আপনাকে নিমজ্জন খাওয়াতে দিন।</p>
 
   <div class="tip-box">
-     <strong>লক্ষ্য:</strong> ভাষা এড়ানোকে এটি করার চেয়ে কঠিন করে তোলা। যদি আপনার ইমেল চেক করার জন্য আপনাকে জার্মান মেনুতে ক্লিক করতে হয়, তবে আপনি জার্মান শিখছেন, আপনি চান বা না চান।
+     <strong>উপসংহার:</strong> আপনার বিমানের টিকিটের দরকার নেই। আপনার একটি ভিপিএন এবং কিছু শৃঙ্খলার প্রয়োজন। আপনি আপনার শোবার ঘরেই একটি "ভার্চুয়াল টোকিও" বা "ভার্চুয়াল প্যারিস" তৈরি করতে পারেন। আজই শুরু করুন।
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_UR = `
 <article>
-  <p>بیرون ملک رہنے کا سب سے بڑا فائدہ ہوا یا کھانا نہیں ہے۔ یہ زبان کا <strong>ناگزیر ہونا</strong> ہے۔ آپ کو زندہ رہنے کے لیے اسے استعمال کرنا ہی پڑتا ہے۔ آپ اپنے ماحول میں چند اسٹریٹجک تبدیلیوں کے ساتھ گھر پر اس "بقا کے موڈ" (Survival Mode) کی نقالی کر سکتے ہیں۔</p>
+  <p>زبان سیکھنے میں سب سے بڑا جھوٹ: "آپ کو روانی حاصل کرنے کے لیے ملک میں رہنے کی ضرورت ہے۔" غلط۔ میں ایسے لوگوں کو جانتا ہوں جو 10 سال جاپان میں رہے اور سوشی کا آرڈر نہیں دے سکتے۔ میں ایسے لوگوں کو جانتا ہوں جنہوں نے کبھی اوہائیو نہیں چھوڑا اور روانی سے جاپانی بولتے ہیں۔ وسرجن (Immersion) کوئی مقام نہیں ہے؛ یہ ایک انتخاب ہے۔</p>
 
-  <h2>1. ڈیجیٹل سوئچ</h2>
-  <p>ہم دن میں 8 گھنٹے اسکرین پر گزارتے ہیں۔ ان کی زبان تبدیل کریں:</p>
-  <ul>
-    <li>فون OS (iOS/Android)</li>
-    <li>کمپیوٹر OS</li>
-    <li>Google/YouTube اکاؤنٹس</li>
-    <li>ویڈیو گیمز</li>
-  </ul>
-  <p>اچانک، "Settings"، "Cancel"، اور "Save" الفاظ کی مشق بن جاتے ہیں۔ آپ اپنے دماغ کو ہدف کی زبان میں روزمرہ کے کاموں کو نیویگیٹ کرنے پر مجبور کر رہے ہیں۔</p>
+  <h2>1. اپنا ڈیجیٹل ماحول تبدیل کریں</h2>
+  <p>آپ دن میں 100 بار اپنے فون کو دیکھتے ہیں۔ زبان کو اپنی ہدف کی زبان میں تبدیل کریں۔ اب، جب بھی آپ موسم چیک کرتے ہیں یا ترتیبات کو ایڈجسٹ کرتے ہیں، تو آپ الفاظ سیکھ رہے ہوتے ہیں۔ اپنے دماغ کو ڈھالنے پر مجبور کریں۔</p>
 
-  <h2>2. آڈیو بلبلہ</h2>
-  <p>ایک اصول بنائیں: "جب بھی میں گھر کا کام کر رہا ہوتا ہوں، میں سن رہا ہوتا ہوں۔"</p>
-  <p>برتن دھو رہے ہیں؟ پوڈ کاسٹ۔ سفر کر رہے ہیں؟ آڈیو بک۔ کتے کو ٹہلا رہے ہیں؟ ریڈیو ایپ۔ خاموشی کو ہدف کی زبان سے بھر دیں۔ یہاں تک کہ اگر آپ 100% توجہ مرکوز نہیں کر رہے ہیں، آپ اپنے کان کو تال اور لہجے کے لیے تربیت دے رہے ہیں۔</p>
+  <h2>2. "اپنی زندگی بیان کریں" تکنیک</h2>
+  <p>جب آپ اکیلے ہوں تو خود سے بات کریں۔ آپ جو کر رہے ہیں اسے بیان کریں۔ "میں برتن دھو رہا ہوں۔ پانی گرم ہے۔ یہ پلیٹ گندی ہے۔" یہ پاگل پن لگتا ہے، لیکن یہ سننے والے کے دباؤ کے بغیر *عمل* اور *تقریر* کے درمیان تعلق استوار کرتا ہے۔</p>
 
-  <h2>3. بصری اشارے (پوسٹ-اٹ 2.0)</h2>
-  <p>کرسی پر "کرسی" کے ساتھ چپکنے والے نوٹ لگانا مبتدیوں کا کام ہے۔ <strong>جملوں والا نوٹ</strong> آزمائیں۔</p>
-  <p> آئینے پر ایک نوٹ لگائیں: "آپ آج تھکے ہوئے لگ رہے ہیں۔ کیا آپ ٹھیک سے سوئے تھے؟" (ہدف کی زبان میں)۔ فریج پر ایک لگائیں: "زیادہ مت کھائیں، آپ ڈائٹ پر ہیں۔" یہ سیاق و سباق کے جملے اسموں سے کہیں زیادہ مفید ہیں۔</p>
+  <h2>3. ایک گھنٹے کا بلبلہ</h2>
+  <p>ایک سخت اصول بنائیں: رات 8 بجے سے رات 9 بجے تک، کسی مادری زبان کی اجازت نہیں ہے۔ کوئی فلم دیکھیں، کتاب پڑھیں، یا اپنے پالتو جانور سے اپنی ہدف کی زبان میں بات کریں۔ اگر آپ کوئی لفظ نہیں جانتے تو اسے تلاش کریں یا اس کے ارد گرد بات کریں۔ اپنے رہنے والے کمرے میں ایک منی وسرجن زون بنائیں۔</p>
 
-  <h2>4. سوشل میڈیا الگورتھم ہیک</h2>
-  <p>مکمل طور پر ہدف کی زبان کے لیے ایک الگ YouTube/Instagram/TikTok اکاؤنٹ بنائیں۔ <strong>صرف</strong> اس زبان کے مواد کو لائک اور سبسکرائب کریں۔ الگورتھم کو آپ کو فرانسیسی کوکنگ ویڈیوز یا کوریائی میک اپ ٹیوٹوریلز فیڈ کرنے کے لیے تربیت دیں۔ اپنے ٹال مٹول کے وقت کو مطالعہ کے وقت میں تبدیل کریں۔</p>
-
-  <h2>5. "[مادری زبان] نہیں" زون</h2>
-  <p>اپنے کمرے کی ایک مخصوص کرسی یا کونے کو "ہدف زبان زون" کے طور پر نامزد کریں۔ جب آپ وہاں بیٹھتے ہیں، تو آپ کو اپنی مادری زبان میں بولنے، پڑھنے یا سوچنے کی اجازت <strong>نہیں</strong> ہے۔ یہاں تک کہ اگر آپ بس وہاں بیٹھیں اور کامک بک پڑھیں، آپ اپنی نئی شناخت کے لیے ایک جسمانی لنگر (anchor) بنا رہے ہیں۔</p>
+  <h2>4. اپنے YouTube الگورتھم کو ہیک کریں</h2>
+  <p>ایک نیا YouTube اکاؤنٹ بنائیں۔ صرف اپنی ہدف کی زبان میں مواد تلاش کریں۔ کھانا پکانے کی ویڈیوز، ٹیک ریویو، یا وی لاگز دیکھیں۔ جلد ہی، آپ کا ہوم پیج ایسا نظر آئے گا جیسے آپ اس ملک میں رہتے ہیں۔ الگورتھم کو آپ کو وسرجن کھلانے دیں۔</p>
 
   <div class="tip-box">
-     <strong>مقصد:</strong> زبان سے بچنے کو اسے کرنے سے زیادہ مشکل بنانا۔ اگر آپ کو اپنی ای میل چیک کرنے کے لیے جرمن مینیو پر کلک کرنا پڑتا ہے، تو آپ جرمن سیکھ رہے ہیں چاہے آپ چاہیں یا نہ چاہیں۔
+     <strong>نتیجہ:</strong> آپ کو ہوائی جہاز کے ٹکٹ کی ضرورت نہیں ہے۔ آپ کو ایک VPN اور کچھ نظم و ضبط کی ضرورت ہے۔ آپ اپنے سونے کے کمرے میں ہی ایک "ورچوئل ٹوکیو" یا "ورچوئل پیرس" بنا سکتے ہیں۔ آج ہی شروع کریں۔
   </div>
 </article>
 `;
 
 const POST_IMMERSION_CONTENT_NE = `
 <article>
-  <p>विदेशमा बस्नुको सबैभन्दा ठूलो फाइदा हावा वा खाना होइन। यो भाषाको <strong>अपरिहार्यता</strong> हो। बाँच्नको लागि तपाईंले यसलाई प्रयोग गर्नुपर्छ। तपाईं आफ्नो वातावरणमा केही रणनीतिक परिवर्तनहरू गरेर घरमै यो "सर्भाइभल मोड" (Survival Mode) अनुकरण गर्न सक्नुहुन्छ।</p>
+  <p>भाषा सिकाइमा सबैभन्दा ठूलो झूट: "धाराप्रवाह हुनको लागि तपाईंले देशमा बस्नु पर्छ।" गलत। म १० वर्ष जापान बसेका र सुशी अर्डर गर्न नसक्ने मानिसहरूलाई चिन्छु। मलाई थाहा छ जो ओहायो कहिल्यै छोडेका छैनन् र धाराप्रवाह जापानी बोल्छन्। विसर्जन (Immersion) कुनै स्थान होइन; यो एक छनोट हो।</p>
 
-  <h2>१. डिजिटल स्विच</h2>
-  <p>हामी दिनमा ८ घण्टा स्क्रिनमा बिताउँछौं। भाषा परिवर्तन गर्नुहोस्:</p>
-  <ul>
-    <li>फोन OS (iOS/Android)</li>
-    <li>कम्प्युटर OS</li>
-    <li>Google/YouTube खाताहरू</li>
-    <li>भिडियो गेमहरू</li>
-  </ul>
-  <p>अचानक, "Settings", "Cancel", र "Save" शब्दावली अभ्यास बन्छन्। तपाईं आफ्नो दिमागलाई लक्षित भाषामा दैनिक कार्यहरू नेभिगेट गर्न बाध्य पार्दै हुनुहुन्छ।</p>
+  <h2>१. आफ्नो डिजिटल वातावरण परिवर्तन गर्नुहोस्</h2>
+  <p>तपाईं दिनमा १०० पटक आफ्नो फोन हेर्नुहुन्छ। भाषालाई आफ्नो लक्षित भाषामा परिवर्तन गर्नुहोस्। अब, हरेक पटक जब तपाइँ मौसम जाँच गर्नुहुन्छ वा सेटिङहरू समायोजन गर्नुहुन्छ, तपाइँ शब्दावली सिक्दै हुनुहुन्छ। आफ्नो दिमागलाई अनुकूलन गर्न बाध्य पार्नुहोस्।</p>
 
-  <h2>२. अडियो बबल</h2>
-  <p>एउटा नियम बनाउनुहोस्: "जब म घरको काम गर्छु, म सुन्छु।"</p>
-  <p>भाडा माझ्दै हुनुहुन्छ? पोडकास्ट। यात्रा गर्दै हुनुहुन्छ? अडियो बुक। कुकुर डुलाउँदै हुनुहुन्छ? रेडियो एप। सन्नाटालाई लक्षित भाषाले भर्नुहोस्। यदि तपाईं १००% केन्द्रित हुनुहुन्न भने पनि, तपाईं आफ्नो कानलाई ताल र टोनको लागि प्रशिक्षण दिँदै हुनुहुन्छ।</p>
+  <h2>२. "आफ्नो जीवनको वर्णन गर्नुहोस्" प्रविधि</h2>
+  <p>जब तपाईं एक्लै हुनुहुन्छ, आफैसँग कुरा गर्नुहोस्। तपाईं के गर्दै हुनुहुन्छ वर्णन गर्नुहोस्। "म भाडा माझ्दै छु। पानी तातो छ। यो थाल फोहोर छ।" यो पागल सुनिन्छ, तर यसले श्रोताको दबाब बिना *कार्य* र *बोली* बीचको सम्बन्ध बनाउँछ।</p>
 
-  <h2>३. दृश्य संकेतहरू (पोस्ट-इट २.०)</h2>
-  <p>कुर्सीमा "कुर्सी" लेखेको टाँसिने नोटहरू लगाउनु शुरुवात गर्नेहरूको काम हो। <strong>वाक्य स्टिकी</strong> प्रयास गर्नुहोस्।</p>
-  <p>ऐनामा एउटा नोट टाँस्नुहोस्: "तिमी आज थकित देखिन्छौ। के तिमी राम्ररी सुत्यौ?" (लक्षित भाषामा)। फ्रिजमा एउटा टाँस्नुहोस्: "धेरै नखानुहोस्, तपाईं डाइटमा हुनुहुन्छ।" यी सन्दर्भयित वाक्यांशहरू नामसुचक शब्दहरू भन्दा धेरै उपयोगी छन्।</p>
+  <h2>३. एक घण्टाको बबल</h2>
+  <p>कडा नियम बनाउनुहोस्: बेलुका ८ बजेदेखि ९ बजेसम्म, कुनै मातृभाषालाई अनुमति छैन। चलचित्र हेर्नुहोस्, किताब पढ्नुहोस्, वा आफ्नो घरपालुवा जनावरसँग आफ्नो लक्षित भाषामा कुरा गर्नुहोस्। यदि तपाइँ शब्द जान्नुहुन्न भने, यसलाई हेर्नुहोस् वा यसको वरिपरि कुरा गर्नुहोस्। तपाईंको बैठक कोठामा मिनी-विसर्जन क्षेत्र सिर्जना गर्नुहोस्।</p>
 
-  <h2>४. सोशल मिडिया एल्गोरिथ्म ह्याक</h2>
-  <p>लक्षित भाषाको लागि मात्र छुट्टै YouTube/Instagram/TikTok खाता बनाउनुहोस्। <strong>मात्र</strong> त्यो भाषाको सामग्री लाइक र सबस्क्राइब गर्नुहोस्। एल्गोरिथ्मलाई तपाईंलाई फ्रेन्च कुकिङ भिडियोहरू वा कोरियाली मेकअप ट्यूटोरियलहरू फिड गर्न तालिम दिनुहोस्। आफ्नो अल्छी गर्ने समयलाई अध्ययन समयमा बदल्नुहोस्।</p>
-
-  <h2>५. "[मातृभाषा] छैन" क्षेत्र</h2>
-  <p>तपाईंको कोठाको एउटा विशेष कुर्सी वा कुनालाई "लक्षित भाषा क्षेत्र" को रूपमा तोक्नुहोस्। जब तपाईं त्यहाँ बस्नुहुन्छ, तपाईंलाई आफ्नो मातृभाषामा बोल्न, पढ्न वा सोच्न अनुमति <strong>छैन</strong>। यदि तपाईं त्यहाँ बसेर कमिक बुक मात्र पढ्नुहुन्छ भने पनि, तपाईं आफ्नो नयाँ पहिचानको लागि भौतिक एङ्कर (anchor) बनाउँदै हुनुहुन्छ।</p>
+  <h2>४. तपाईंको YouTube एल्गोरिदम ह्याक गर्नुहोस्</h2>
+  <p>नयाँ YouTube खाता सिर्जना गर्नुहोस्। आफ्नो लक्षित भाषामा मात्र सामग्री खोज्नुहोस्। खाना पकाउने भिडियोहरू, प्राविधिक समीक्षाहरू, वा भ्लगहरू हेर्नुहोस्। चाँडै, तपाईंको गृहपृष्ठ तपाईं त्यो देशमा बस्नुहुन्छ जस्तो देखिनेछ। एल्गोरिदमले तपाईंलाई विसर्जन फिड गर्न दिनुहोस्।</p>
 
   <div class="tip-box">
-     <strong>लक्ष्य:</strong> भाषाबाट बच्नलाई यो गर्नु भन्दा गाह्रो बनाउनु। यदि तपाईंले आफ्नो इमेल चेक गर्न जर्मन मेनुमा क्लिक गर्नुपर्छ भने, तपाईंले चाहे पनि नचाहे पनि जर्मन सिक्दै हुनुहुन्छ।
+     <strong>निष्कर्ष:</strong> तपाईंलाई विमानको टिकट चाहिँदैन। तपाईंलाई VPN र केही अनुशासन चाहिन्छ। तपाईं आफ्नो सुत्ने कोठामा "भर्चुअल टोकियो" वा "भर्चुअल पेरिस" बनाउन सक्नुहुन्छ। आजै सुरु गर्नुहोस्।
   </div>
 </article>
 `;
 
+const POST_IMMERSION_CONTENT_SI = `
+<article>
+  <p>භාෂා ඉගෙනීමේ ලොකුම බොරුව: "චතුර වීමට නම් ඔබ රට තුළ ජීවත් විය යුතුය." බොරු. අවුරුදු 10 ක් ජපානයේ ජීවත් වූ සහ සුෂි ඇණවුම් කළ නොහැකි මිනිසුන් මම දනිමි. මම දන්නවා කවදාවත් ඔහියෝ දාලා ගිහින් නැති, ජපන් භාෂාව චතුර ලෙස කතා කරන මිනිස්සු. ගිල්වීම (Immersion) යනු ස්ථානයක් නොවේ; එය තේරීමකි.</p>
 
-export const BLOG_POSTS_PART_4: Partial<BlogPost>[] = [
-  {
-    id: "how-to-use-chatgpt",
+  <h2>1. ඔබේ ඩිජිටල් පරිසරය වෙනස් කරන්න</h2>
+  <p>ඔබ දිනකට 100 වතාවක් ඔබේ දුරකථනය දෙස බලයි. භාෂාව ඔබේ ඉලක්ක භාෂාවට වෙනස් කරන්න. දැන්, ඔබ කාලගුණය පරීක්ෂා කරන හෝ සැකසුම් සකස් කරන සෑම අවස්ථාවකම, ඔබ වචන මාලාව ඉගෙන ගනී. අනුගත වීමට ඔබේ මොළයට බල කරන්න.</p>
+
+  <h2>2. "ඔබේ ජීවිතය විස්තර කරන්න" තාක්ෂණය</h2>
+  <p>තනියම ඉන්නකොට තමන් එක්කම කතා කරන්න. ඔබ කරන දේ විස්තර කරන්න. "මම පිඟන් හෝදමින් ඉන්නවා. වතුර රස්නෙයි. මේ පිඟාන අපිරිසිදුයි." එය පිස්සුවක් ලෙස පෙනේ, නමුත් එය සවන්දෙන්නෙකුගේ පීඩනයකින් තොරව *ක්රියාව* සහ *කථනය* අතර සම්බන්ධතාවය ගොඩනගයි.</p>
+
+  <h2>3. එක් පැයක බුබුල</h2>
+  <p>දැඩි නීතියක් සාදන්න: රාත්‍රී 8 සිට රාත්‍රී 9 දක්වා මව් භාෂාවට අවසර නැත. චිත්‍රපටයක් නරඹන්න, පොතක් කියවන්න, හෝ ඔබේ ඉලක්ක භාෂාවෙන් ඔබේ සුරතලාට කතා කරන්න. ඔබ වචනයක් නොදන්නේ නම්, එය සොයා බලන්න හෝ ඒ ගැන කතා කරන්න. ඔබේ විසිත්ත කාමරයේ කුඩා ගිල්වීමේ කලාපයක් සාදන්න.</p>
+
+  <h2>4. ඔබේ YouTube ඇල්ගොරිතම හැක් කරන්න</h2>
+  <p>නව YouTube ගිණුමක් සාදන්න. ඔබගේ ඉලක්ක භාෂාවෙන් පමණක් අන්තර්ගතය සොයන්න. ඉවුම් පිහුම් වීඩියෝ, තාක්ෂණික සමාලෝචන, හෝ vlogs නරඹන්න. ඉක්මනින්ම, ඔබ එම රටේ ජීවත් වන බව ඔබේ මුල් පිටුවට පෙනෙනු ඇත. ඇල්ගොරිතම ඔබට ගිල්වීම පෝෂණය කිරීමට ඉඩ දෙන්න.</p>
+
+  <div class="tip-box">
+     <strong>නිගමනය:</strong> ඔබට ගුවන් ටිකට් පතක් අවශ්‍ය නොවේ. ඔබට VPN එකක් සහ යම් විනයක් අවශ්‍ය වේ. ඔබට ඔබේ නිදන කාමරයේම "අතථ්‍ය ටෝකියෝ" හෝ "අතථ්‍ය පැරිස්" ගොඩනගා ගත හැක. අදම පටන් ගන්න.
+  </div>
+</article>
+`;
+
+const POST_IMMERSION_CONTENT_SW = `
+<article>
+  <p>Uongo mkubwa zaidi katika kujifunza lugha: "Unahitaji kuishi nchini ili uwe na ufasaha." Uongo. Ninajua watu ambao waliishi Japani kwa miaka 10 na hawawezi kuagiza sushi. Ninajua watu ambao hawakuwahi kuondoka Ohio na wanazungumza Kijapani fasaha. Immersion sio mahali; ni chaguo.</p>
+
+  <h2>1. Badilisha Mazingira Yako ya Dijiti</h2>
+  <p>Unatazama simu yako mara 100 kwa siku. Badilisha lugha iwe lugha unayolenga. Sasa, kila wakati unapoangalia hali ya hewa au kurekebisha mipangilio, unajifunza msamiati. Lazimisha ubongo wako kuzoea.</p>
+
+  <h2>2. Mbinu ya "Simulia Maisha Yako"</h2>
+  <p>Unapokuwa peke yako, zungumza na wewe mwenyewe. Simulia unachofanya. "Ninaosha vyombo. Maji ni ya moto. Sahani hii ni chafu." Inasikika kama kichaa, lakini inajenga uhusiano kati ya *kitendo* na *mazungumzo* bila shinikizo la msikilizaji.</p>
+
+  <h2>3. Povu la Saa Moja</h2>
+  <p>Unda sheria kali: Kuanzia saa 2 usiku hadi saa 3 usiku, lugha ya mama hairuhusiwi. Tazama filamu, soma kitabu, au zungumza na mnyama wako kwa lugha unayolenga. Ikiwa hujui neno, liangalie au zungumza kulihusu. Unda eneo dogo la kuzamisha kwenye sebule yako.</p>
+
+  <h2>4. Hack YouTube Algorithm Yako</h2>
+  <p>Fungua akaunti mpya ya YouTube. Tafuta tu maudhui katika lugha unayolenga. Tazama video za kupikia, hakiki za teknolojia, au vlogs. Hivi karibuni, ukurasa wako wa nyumbani utaonekana kama unaishi katika nchi hiyo. Ruhusu algorithm kukulisha kuzamisha.</p>
+
+  <div class="tip-box">
+     <strong>Hitimisho:</strong> Huhitaji tikiti ya ndege. Unahitaji VPN na nidhamu fulani. Unaweza kujenga "Tokyo ya Mtandaoni" au "Paris ya Mtandaoni" moja kwa moja kwenye chumba chako cha kulala. Anza leo.
+  </div>
+</article>
+`;
+
+// Post 16 Object Definition
+const POST_IMMERSION = {
+    id: 'art-of-immersion',
     title: {
-      en: "ChatGPT as Your Personal Tutor: Prompts for Language Learners",
-      ko: "ChatGPT를 개인 과외 선생님으로 쓰는 법: 어학 학습용 프롬프트 모음",
-      ja: "あなたの個人家庭教師としてのChatGPT: 言語学習者のためのプロンプト",
-      zh: "ChatGPT作为你的私人导师：语言学习者的提示词",
-      th: "ChatGPT ในฐานะติวเตอร์ส่วนตัวของคุณ: คำสั่งสำหรับผู้เรียนภาษา",
-      vi: "ChatGPT là gia sư cá nhân của bạn: Các câu lệnh cho người học ngôn ngữ",
-      id: "ChatGPT sebagai Tutor Pribadi Anda: Prompt untuk Pembelajar Bahasa",
-      es: "ChatGPT como tu tutor personal: Prompts para estudiantes de idiomas",
-      pt: "ChatGPT como seu tutor pessoal: Prompts para estudantes de idiomas",
-      fr: "ChatGPT comme tuteur personnel : Prompts pour les apprenants de langues",
-      de: "ChatGPT als Ihr persönlicher Tutor: Prompts für Sprachlerner",
-      tr: "Kişisel Eğitmeniniz Olarak ChatGPT: Dil Öğrenenler İçin İpuçları (Prompts)",
-      ar: "ChatGPT كمدرسك الشخصي: مطالبات لمتعلمي اللغة",
-      hi: "आपके व्यक्तिगत ट्यूटर के रूप में ChatGPT: भाषा सीखने वालों के लिए संकेत (Prompts)",
-      ru: "ChatGPT как ваш личный репетитор: Промпты для изучающих языки",
-      bn: "আপনার ব্যক্তিগত গৃহশিক্ষক হিসাবে ChatGPT: ভাষা শিক্ষার্থীদের জন্য প্রম্পট",
-      ur: "آپ کے ذاتی ٹیوٹر کے طور پر ChatGPT: زبان سیکھنے والوں کے لیے اشارے",
-      ne: "तपाईंको व्यक्तिगत शिक्षकको रूपमा ChatGPT: भाषा सिकाउनेहरूका लागि प्रम्प्टहरू"
+        en: "The Art of Immersion (Without Buying a Plane Ticket)",
+        ko: "몰입의 기술 (비행기 표를 사지 않고도)",
+        ja: "没入（イマージョン）の技術（航空券を買わずに）",
+        zh: "沉浸的艺术（不用买机票）",
+        th: "ศิลปะแห่งการแช่ตัว (โดยไม่ต้องซื้อตั๋วเครื่องบิน)",
+        vi: "Nghệ thuật Đắm mình (Không cần mua vé máy bay)",
+        id: "Seni Imersi (Tanpa Membeli Tiket Pesawat)",
+        es: "El arte de la inmersión (sin comprar un boleto de avión)",
+        pt: "A Arte da Imersão (Sem comprar passagem de avião)",
+        fr: "L'art de l'immersion (sans acheter de billet d'avion)",
+        de: "Die Kunst der Immersion (ohne Flugticketkauf)",
+        tr: "Daldırma Sanatı (Uçak Bileti Almadan)",
+        ar: "فن الانغماس (دون شراء تذكرة طائرة)",
+        hi: "विसर्जन की कला (हवाई जहाज का टिकट खरीदे बिना)",
+        ru: "Искусство погружения (не покупая билет на самолет)",
+        bn: "নিমজ্জন শিল্প (বিমান টিকিট না কিনে)",
+        ur: "وسرجن کا فن (ہوائی جہاز کا ٹکٹ خریدے بغیر)",
+        ne: "विसर्जनको कला (विमान टिकट नकिनी)",
+        si: "ගිල්වීමේ කලාව (ගුවන් ටිකට් පතක් මිලදී නොගෙන)",
+        sw: "Sanaa ya Immersion (Bila Kununua Tiketi ya Ndege)"
     },
     excerpt: {
-      en: "Don't just ask for translations. Learn how to prompt AI to create roleplays, correct your grammar, and simplify complex texts.",
-      ko: "단순 번역만 시키지 마세요. AI에게 롤플레잉, 문법 교정, 난이도 조절을 시켜 24시간 대기하는 원어민 선생님으로 만드는 비법.",
-      ja: "翻訳を頼むだけではいけません。AIにロールプレイを作成させ、文法を修正させ、複雑なテキストを簡略化させる方法を学びましょう。",
-      zh: "不要只要求翻译。学习如何提示AI创建角色扮演，纠正语法，并简化复杂的文本。",
-      th: "อย่าขอแค่คำแปล เรียนรู้วิธีสั่ง AI ให้สร้างบทบาทสมมติ แก้ไขไวยากรณ์ และทำให้ข้อความที่ซับซ้อนเข้าใจง่ายขึ้น",
-      vi: "Đừng chỉ yêu cầu dịch thuật. Tìm hiểu cách nhắc AI tạo ra các vai diễn, sửa ngữ pháp và đơn giản hóa các văn bản phức tạp.",
-      id: "Jangan hanya meminta terjemahan. Pelajari cara meminta AI untuk membuat permainan peran, memperbaiki tata bahasa Anda, dan menyederhanakan teks yang kompleks.",
-      es: "No pidas solo traducciones. Aprende a pedirle a la IA que cree juegos de rol, corrija tu gramática y simplifique textos complejos.",
-      pt: "Não peça apenas traduções. Aprenda a pedir à IA para criar encenações, corrigir sua gramática e simplificar textos complexos.",
-      fr: "Ne demandez pas seulement des traductions. Apprenez à demander à l'IA de créer des jeux de rôle, de corriger votre grammaire et de simplifier des textes complexes.",
-      de: "Bitten Sie nicht nur um Übersetzungen. Lernen Sie, wie Sie KI dazu bringen, Rollenspiele zu erstellen, Ihre Grammatik zu korrigieren und komplexe Texte zu vereinfachen.",
-      tr: "Sadece çeviri istemeyin. AI'ya rol yapma oyunları oluşturmayı, dil bilginizi düzeltmeyi ve karmaşık metinleri basitleştirmeyi nasıl söyleyeceğinizi öğrenin.",
-      ar: "لا تطلب الترجمة فقط. تعلم كيفية توجيه الذكاء الاصطناعي لإنشاء لعب أدوار، وتصحيح القواعد، وتبسيط النصوص المعقدة.",
-      hi: "केवल अनुवाद न मांगें। रोलप्ले बनाने, अपने व्याकरण को सही करने और जटिल पाठों को सरल बनाने के लिए AI को संकेत देना सीखें।",
-      ru: "Не просто просите перевести. Узнайте, как давать промпты ИИ для создания ролевых игр, исправления грамматики и упрощения сложных текстов.",
-      bn: "শুধুমাত্র অনুবাদের জন্য জিজ্ঞাসা করবেন না। কীভাবে AI কে রোলপ্লে তৈরি করতে, আপনার ব্যাকরণ সংশোধন করতে এবং জটিল পাঠ্যগুলিকে সহজ করতে বলতে হয় তা শিখুন।",
-      ur: "صرف ترجمہ نہ مانگیں۔ سیکھیں کہ AI کو کیسے رول پلے بنانے، اپنی گرامر درست کرنے اور پیچیدہ متن کو آسان بنانے کا کہا جائے۔",
-      ne: "अनुवादका लागि मात्र नसोध्नुहोस्। भूमिका खेल्न, व्याकरण सच्याउन र जटिल पाठहरूलाई सरल बनाउन AI लाई कसरी प्रम्प्ट गर्ने सिक्नुहोस्।"
+        en: "You don't need to move to Paris to learn French. You just need to change your digital zip code. Here is how to create an immersion bubble at home.",
+        ko: "프랑스어를 배우기 위해 파리로 이사할 필요는 없습니다. 디지털 우편번호만 바꾸면 됩니다. 집에서 몰입 버블을 만드는 방법을 알려드립니다.",
+        ja: "フランス語を学ぶためにパリに引っ越す必要はありません。デジタル郵便番号を変えるだけでいいのです。自宅で没入バブルを作る方法は次のとおりです。",
+        zh: "你不需要搬到巴黎去学法语。你只需要改变你的数字邮政编码。这是如何在家里创建一个沉浸气泡。",
+        th: "คุณไม่จำเป็นต้องย้ายไปปารีสเพื่อเรียนภาษาฝรั่งเศส คุณแค่ต้องเปลี่ยนรหัสไปรษณีย์ดิจิทัลของคุณ นี่คือวิธีสร้างฟองสบู่แห่งการแช่ตัวที่บ้าน",
+        vi: "Bạn không cần phải chuyển đến Paris để học tiếng Pháp. Bạn chỉ cần thay đổi mã zip kỹ thuật số của mình. Đây là cách tạo bong bóng đắm mình tại nhà.",
+        id: "Anda tidak perlu pindah ke Paris untuk belajar bahasa Prancis. Anda hanya perlu mengubah kode pos digital Anda. Inilah cara membuat gelembung imersi di rumah.",
+        es: "No necesitas mudarte a París para aprender francés. Solo necesitas cambiar tu código postal digital. Aquí te mostramos cómo crear una burbuja de inmersión en casa.",
+        pt: "Você não precisa se mudar para Paris para aprender francês. Você só precisa mudar seu código postal digital. Veja como criar uma bolha de imersão em casa.",
+        fr: "Vous n'avez pas besoin de déménager à Paris pour apprendre le français. Il vous suffit de changer votre code postal numérique. Voici comment créer une bulle d'immersion à la maison.",
+        de: "Sie müssen nicht nach Paris ziehen, um Französisch zu lernen. Sie müssen nur Ihre digitale Postleitzahl ändern. So erstellen Sie zu Hause eine Immersionsblase.",
+        tr: "Fransızca öğrenmek için Paris'e taşınmanıza gerek yok. Sadece dijital posta kodunuzu değiştirmeniz gerekiyor. İşte evde bir daldırma balonu nasıl oluşturulur.",
+        ar: "لا تحتاج إلى الانتقال إلى باريس لتعلم الفرنسية. تحتاج فقط إلى تغيير رمزك البريدي الرقمي. إليك كيفية إنشاء فقاعة انغماس في المنزل.",
+        hi: "फ्रेंच सीखने के लिए आपको पेरिस जाने की जरूरत नहीं है। आपको बस अपना डिजिटल ज़िप कोड बदलना होगा। यहाँ घर पर विसर्जन बुलबुला बनाने का तरीका बताया गया है।",
+        ru: "Вам не нужно переезжать в Париж, чтобы выучить французский. Вам просто нужно изменить свой цифровой почтовый индекс. Вот как создать пузырь погружения дома.",
+        bn: "ফরাসি শেখার জন্য আপনার প্যারিসে যাওয়ার দরকার নেই। আপনাকে কেবল আপনার ডিজিটাল জিপ কোড পরিবর্তন করতে হবে। বাড়িতে কীভাবে নিমজ্জন বুদবুদ তৈরি করবেন তা এখানে।",
+        ur: "فرانسیسی سیکھنے کے لیے آپ کو پیرس جانے کی ضرورت نہیں ہے۔ آپ کو صرف اپنا ڈیجیٹل زپ کوڈ تبدیل کرنے کی ضرورت ہے۔ گھر پر وسرجن بلبلہ بنانے کا طریقہ یہاں ہے۔",
+        ne: "फ्रेन्च सिक्न पेरिस जानुपर्दैन। तपाईंले आफ्नो डिजिटल जिप कोड परिवर्तन गर्न आवश्यक छ। यहाँ घरमा विसर्जन बबल कसरी बनाउने भन्ने छ।",
+        si: "ප්‍රංශ භාෂාව ඉගෙන ගැනීමට ඔබ පැරිසියට යා යුතු නැත. ඔබට අවශ්‍ය වන්නේ ඔබේ ඩිජිටල් තැපැල් කේතය වෙනස් කිරීම පමණි. නිවසේදී ගිල්වීමේ බුබුලක් සාදා ගන්නේ කෙසේද යන්න මෙන්න.",
+        sw: "Huhitaji kuhamia Paris ili kujifunza Kifaransa. Unahitaji tu kubadilisha msimbo wako wa posta wa dijiti. Hivi ndivyo unavyoweza kuunda povu la kuzamisha nyumbani."
     },
     content: {
-      en: POST_CHATGPT_CONTENT_EN,
-      ko: POST_CHATGPT_CONTENT_KO,
-      ja: POST_CHATGPT_CONTENT_JA, zh: POST_CHATGPT_CONTENT_ZH, th: POST_CHATGPT_CONTENT_TH, vi: POST_CHATGPT_CONTENT_VI, id: POST_CHATGPT_CONTENT_ID,
-      es: POST_CHATGPT_CONTENT_ES, pt: POST_CHATGPT_CONTENT_PT, fr: POST_CHATGPT_CONTENT_FR, de: POST_CHATGPT_CONTENT_DE, tr: POST_CHATGPT_CONTENT_TR,
-      ar: POST_CHATGPT_CONTENT_AR, hi: POST_CHATGPT_CONTENT_HI, ru: POST_CHATGPT_CONTENT_RU, bn: POST_CHATGPT_CONTENT_BN, ur: POST_CHATGPT_CONTENT_UR, ne: POST_CHATGPT_CONTENT_NE
+        en: POST_IMMERSION_CONTENT_EN,
+        ko: POST_IMMERSION_CONTENT_KO,
+        ja: POST_IMMERSION_CONTENT_JA,
+        zh: POST_IMMERSION_CONTENT_ZH,
+        th: POST_IMMERSION_CONTENT_TH,
+        vi: POST_IMMERSION_CONTENT_VI,
+        id: POST_IMMERSION_CONTENT_ID,
+        es: POST_IMMERSION_CONTENT_ES,
+        pt: POST_IMMERSION_CONTENT_PT,
+        fr: POST_IMMERSION_CONTENT_FR,
+        de: POST_IMMERSION_CONTENT_DE,
+        tr: POST_IMMERSION_CONTENT_TR,
+        ar: POST_IMMERSION_CONTENT_AR,
+        hi: POST_IMMERSION_CONTENT_HI,
+        ru: POST_IMMERSION_CONTENT_RU,
+        bn: POST_IMMERSION_CONTENT_BN,
+        ur: POST_IMMERSION_CONTENT_UR,
+        ne: POST_IMMERSION_CONTENT_NE,
+        si: POST_IMMERSION_CONTENT_SI,
+        sw: POST_IMMERSION_CONTENT_SW
     },
-    coverImage: "/assets/blog/how_to_use_chatgpt.png",
-    author: "AI Explorer",
-    tags: ["AI", "ChatGPT", "Tools", "Technology"],
-    published: true,
-    createdAt: new Date("2024-02-15"),
-    updatedAt: new Date("2024-02-15")
-  },
-  {
-    id: "language-audit",
-    title: {
-      en: "The Weekly Language Audit: How to Track Your Progress",
-      ko: "주간 언어 감사: 내 실력을 객관적으로 추적하는 법",
-      ja: "週刊言語監査：進歩を追跡する方法",
-      zh: "每周语言审计：如何追踪你的进度",
-      th: "การตรวจสอบภาษาประจำสัปดาห์: วิธีติดตามความก้าวหน้าของคุณ",
-      vi: "Kiểm toán ngôn ngữ hàng tuần: Cách theo dõi tiến độ của bạn",
-      id: "Audit Bahasa Mingguan: Cara Melacak Kemajuan Anda",
-      es: "La auditoría lingüística semanal: Cómo hacer un seguimiento de tu progreso",
-      pt: "A auditoria linguística semanal: Como acompanhar seu progresso",
-      fr: "L'audit linguistique hebdomadaire : Comment suivre vos progrès",
-      de: "Das wöchentliche Sprachaudit: Wie Sie Ihren Fortschritt verfolgen",
-      tr: "Haftalık Dil Denetimi: İlerlemenizi Nasıl Takip Edersiniz",
-      ar: "التدقيق اللغوي الأسبوعي: كيفية تتبع تقدمك",
-      hi: "साप्ताहिक भाषा ऑडिट (Language Audit): अपनी प्रगति को कैसे ट्रैक करें",
-      ru: "Еженедельный языковой аудит: Как отслеживать свой прогресс",
-      bn: "সাপ্তাহিক ভাষা অডিট: কীভাবে আপনার অগ্রগতি ট্র্যাক করবেন",
-      ur: "ہفتہ وار زبان کا آڈٹ: اپنی ترقی کو کیسے ٹریک کریں",
-      ne: "साप्ताहिक भाषा लेखापरीक्षण: तपाइँको प्रगति कसरी ट्र्याक गर्ने"
-    },
-    excerpt: {
-      en: "You can't improve what you don't measure. A simple template to review your learning week and plan for success.",
-      ko: "측정할 수 없으면 개선할 수 없습니다. 지난주 학습을 되돌아보고 성공적인 다음 주를 계획하는 간단한 템플릿.",
-      ja: "測定できないものは改善できません。学習週間を振り返り、成功を計画するためのシンプルなテンプレート。",
-      zh: "你无法改善你无法衡量的东西。一个简单的模板来回顾你的学习周并在下周取得成功。",
-      th: "คุณไม่สามารถปรับปรุงสิ่งที่คุณวัดไม่ได้ เทมเพลตง่ายๆ เพื่อทบทวนสัปดาห์การเรียนรู้ของคุณและวางแผนเพื่อความสำเร็จ",
-      vi: "Bạn không thể cải thiện những gì bạn không đo lường. Một mẫu đơn giản để xem lại tuần học của bạn và lập kế hoạch cho sự thành công.",
-      id: "Anda tidak dapat meningkatkan apa yang tidak Anda ukur. Templat sederhana untuk meninjau minggu belajar Anda dan merencanakan kesuksesan.",
-      es: "No puedes mejorar lo que no mides. Una plantilla sencilla para revisar tu semana de aprendizaje y planificar el éxito.",
-      pt: "Você não pode melhorar o que não mede. Um modelo simples para revisar sua semana de aprendizado e planejar o sucesso.",
-      fr: "Vous ne pouvez pas améliorer ce que vous ne mesurez pas. Un modèle simple pour passer en revue votre semaine d'apprentissage et planifier votre réussite.",
-      de: "Was man nicht misst, kann man nicht verbessern. Eine einfache Vorlage, um Ihre Lernwoche zu überprüfen und Erfolg zu planen.",
-      tr: "Ölçemediğiniz şeyi geliştiremezsiniz. Öğrenme haftanızı gözden geçirmek ve başarıyı planlamak için basit bir şablon.",
-      ar: "لا يمكنك تحسين ما لا تقيسه. نموذج بسيط لمراجعة أسبوع التعلم الخاص بك والتخطيط للنجاح.",
-      hi: "आप जिसे माप नहीं सकते उसे सुधार नहीं सकते। अपने सीखने के सप्ताह की समीक्षा करने और सफलता की योजना बनाने के लिए एक सरल टेम्पलेट।",
-      ru: "Нельзя улучшить то, что нельзя измерить. Простой шаблон для анализа учебной недели и планирования успеха.",
-      bn: "আপনি যা পরিমাপ করেন না তা উন্নত করতে পারবেন না। আপনার শেখার সপ্তাহ পর্যালোচনা এবং সাফল্যের পরিকল্পনা করার জন্য একটি সহজ টেমপ্লেট।",
-      ur: "آپ اسے بہتر نہیں کر سکتے جس کی پیمائش نہیں کرتے۔ آپ کے سیکھنے کے ہفتے کا جائزہ لینے اور کامیابی کی منصوبہ بندی کرنے کے لیے ایک آسان سانچہ۔",
-      ne: "तपाइँ जे मापन गर्नुहुन्न त्यसलाई सुधार गर्न सक्नुहुन्न। तपाइँको सिकाइ हप्ताको समीक्षा गर्न र सफलताको योजना बनाउनको लागि एक साधारण टेम्प्लेट।"
-    },
-    content: {
-      en: POST_AUDIT_CONTENT_EN,
-      ko: POST_AUDIT_CONTENT_KO,
-      ja: POST_AUDIT_CONTENT_JA, zh: POST_AUDIT_CONTENT_ZH, th: POST_AUDIT_CONTENT_TH, vi: POST_AUDIT_CONTENT_VI, id: POST_AUDIT_CONTENT_ID,
-      es: POST_AUDIT_CONTENT_ES, pt: POST_AUDIT_CONTENT_PT, fr: POST_AUDIT_CONTENT_FR, de: POST_AUDIT_CONTENT_DE, tr: POST_AUDIT_CONTENT_TR,
-      ar: POST_AUDIT_CONTENT_AR, hi: POST_AUDIT_CONTENT_HI, ru: POST_AUDIT_CONTENT_RU, bn: POST_AUDIT_CONTENT_BN, ur: POST_AUDIT_CONTENT_UR, ne: POST_AUDIT_CONTENT_NE
-    },
-    coverImage: "/assets/blog/language_audit.png",
-    author: "Productivity Coach",
-    tags: ["Planning", "Productivity", "Review", "Habits"],
-    published: true,
-    createdAt: new Date("2024-02-20"),
-    updatedAt: new Date("2024-02-20")
-  },
-  {
-    id: "immersion-at-home",
-    title: {
-      en: "Create a Little Italy (or Korea) in Your Bedroom",
-      ko: "내 방을 리틀 이탈리아(또는 한국)로 만드는 법: 방구석 몰입 환경 구축",
-      ja: "ベッドルームにリトル・イタリー（またはコリア）を作る方法",
-      zh: "在你的卧室里打造一个小意大利（或韩国）",
-      th: "สร้างลิตเติ้ลอิตาลี (หรือเกาหลี) ในห้องนอนของคุณ",
-      vi: "Tạo một nước Ý (hoặc Hàn Quốc) thu nhỏ trong phòng ngủ của bạn",
-      id: "Buat Little Italy (atau Korea) di Kamar Tidur Anda",
-      es: "Crea una pequeña Italia (o Corea) en tu dormitorio",
-      pt: "Crie uma pequena Itália (ou Coreia) no seu quarto",
-      fr: "Créez une petite Italie (ou Corée) dans votre chambre",
-      de: "Erschaffen Sie ein Little Italy (oder Korea) in Ihrem Schlafzimmer",
-      tr: "Yatak Odamızda Küçük Bir İtalya (veya Kore) Yaratın",
-      ar: "اصنع إيطاليا (أو كوريا) صغيرة في غرفة نومك",
-      hi: "अपने बेडरूम में एक लिटिल इटली (या कोरिया) बनाएँ",
-      ru: "Создайте маленькую Италию (или Корею) в своей спальне",
-      bn: "আপনার শয়নকক্ষে একটি ছোট ইতালি (বা কোরিয়া) তৈরি করুন",
-      ur: "اپنے سونے کے کمرے میں ایک چھوٹا اٹلی (یا کوریا) بنائیں",
-      ne: "तपाईंको शयनकक्षमा सानो इटाली (वा कोरिया) सिर्जना गर्नुहोस्"
-    },
-    excerpt: {
-      en: "You don't need a plane ticket. Use technology and environment design to force your brain into 'Language Mode' automatically.",
-      ko: "비행기 표는 필요 없습니다. 기술과 환경 설계를 이용해 뇌가 저절로 '외국어 모드'로 전환되게 강제하는 법.",
-      ja: "飛行機のチケットは必要ありません。テクノロジーと環境デザインを使って、脳を自動的に「言語モード」に強制する方法。",
-      zh: "你不需要机票。使用技术和环境设计强迫你的大脑自动进入“语言模式”。",
-      th: "คุณไม่จำเป็นต้องมีตั๋วเครื่องบิน ใช้เทคโนโลยีและการออกแบบสิ่งแวดล้อมเพื่อบังคับให้สมองของคุณเข้าสู่ 'โหมดภาษา' โดยอัตโนมัติ",
-      vi: "Bạn không cần vé máy bay. Sử dụng công nghệ và thiết kế môi trường để buộc não bạn tự động chuyển sang 'Chế độ ngôn ngữ'.",
-      id: "Anda tidak butuh tiket pesawat. Gunakan teknologi dan desain lingkungan untuk memaksa otak Anda masuk ke 'Mode Bahasa' secara otomatis.",
-      es: "No necesitas un billete de avión. Usa la tecnología y el diseño del entorno para forzar a tu cerebro a entrar en el 'Modo Idioma' automáticamente.",
-      pt: "Você não precisa de uma passagem de avião. Use a tecnologia e o design do ambiente para forçar seu cérebro a entrar no 'Modo Idioma' automaticamente.",
-      fr: "Vous n'avez pas besoin d'un billet d'avion. Utilisez la technologie et la conception de l'environnement pour forcer votre cerveau à passer automatiquement en « Mode Langue ».",
-      de: "Sie brauchen kein Flugticket. Nutzen Sie Technologie und Umgebungsdesign, um Ihr Gehirn automatisch in den 'Sprachmodus' zu zwingen.",
-      tr: "Uçak biletine ihtiyacınız yok. Beyninizi otomatik olarak 'Dil Moduna' zorlamak için teknolojiyi ve çevre tasarımını kullanın.",
-      ar: "لست بحاجة إلى تذكرة طائرة. استخدم التكنولوجيا وتصميم البيئة لإجبار عقلك على الدخول في 'وضع اللغة' تلقائياً.",
-      hi: "आपको प्लेन टिकट की जरूरत नहीं है। अपने मस्तिष्क को स्वचालित रूप से 'भाषा मोड' में डालने के लिए तकनीक और पर्यावरण डिजाइन का उपयोग करें।",
-      ru: "Вам не нужен билет на самолет. Используйте технологии и дизайн среды, чтобы автоматически переключить мозг в «Языковой режим».",
-      bn: "আপনার প্লেনের টিকিটের প্রয়োজন নেই। স্বয়ংক্রিয়ভাবে আপনার মস্তিষ্ককে 'ভাষা মোড'-এ বাধ্য করতে প্রযুক্তি এবং পরিবেশ নকশা ব্যবহার করুন।",
-      ur: "آپ کو ہوائی جہاز کے ٹکٹ کی ضرورت نہیں ہے۔ اپنے دماغ کو خود بخود 'لینگویج موڈ' میں زبردستی داخل کرنے کے لیے ٹیکنالوجی اور ماحول کے ڈیزائن کا استعمال کریں۔",
-      ne: "तपाईलाई विमानको टिकट चाहिँदैन। आफ्नो दिमागलाई स्वचालित रूपमा 'भाषा मोड' मा जबरजस्ती गर्न प्रविधि र वातावरण डिजाइन प्रयोग गर्नुहोस्।"
-    },
-    content: {
-      en: POST_IMMERSION_CONTENT_EN,
-      ko: POST_IMMERSION_CONTENT_KO,
-      ja: POST_IMMERSION_CONTENT_JA, zh: POST_IMMERSION_CONTENT_ZH, th: POST_IMMERSION_CONTENT_TH, vi: POST_IMMERSION_CONTENT_VI, id: POST_IMMERSION_CONTENT_ID,
-      es: POST_IMMERSION_CONTENT_ES, pt: POST_IMMERSION_CONTENT_PT, fr: POST_IMMERSION_CONTENT_FR, de: POST_IMMERSION_CONTENT_DE, tr: POST_IMMERSION_CONTENT_TR,
-      ar: POST_IMMERSION_CONTENT_AR, hi: POST_IMMERSION_CONTENT_HI, ru: POST_IMMERSION_CONTENT_RU, bn: POST_IMMERSION_CONTENT_BN, ur: POST_IMMERSION_CONTENT_UR, ne: POST_IMMERSION_CONTENT_NE
-    },
-    coverImage: "/assets/blog/immersion_at_home.png",
-    author: "Design Thinker",
-    tags: ["Immersion", "Environment", "Hacks", "Lifestyle"],
-    published: true,
-    createdAt: new Date("2024-02-25"),
-    updatedAt: new Date("2024-02-25")
-  }
+    date: "2024-04-20",
+    readTime: 5,
+    category: "Immersion",
+    coverImage: "/assets/blog/immersion.png",
+    author: "Dr. Lingua",
+    tags: ["Immersion", "Environment", "Tips", "Hacks"]
+};
+
+export const BLOG_POSTS_PART_4 = [
+    POST_PLATEAU,
+    POST_POLYGLOT,
+    POST_FEAR,
+    POST_IMMERSION
 ];

@@ -21,8 +21,19 @@ const POST_CONSISTENCY_CONTENT_EN = `
           </ul>
           <h2>Conclusion</h2>
           <p>Be the tortoise, not the hare. Stop waiting for "enough time" to study for hours. It will never come. Find 20 minutes today, and do it again tomorrow. That is the only secret.</p>
+          
+          <h2>FAQ</h2>
+          <h3>What's the minimum daily time I should study?</h3>
+          <p>There's no magic number, but 15-20 minutes is a good starting point. The key is consistency, not duration. Even 5 minutes daily is better than 2 hours once a week. Your brain needs regular exposure to build and maintain neural pathways.</p>
+          
+          <h3>What if I'm too busy to study every day?</h3>
+          <p>You're never too busy for 5 minutes. Listen to a podcast during your commute, review flashcards while waiting in line, or watch one YouTube video before bed. The goal is to keep the chain unbroken. On truly hectic days, even opening your language app for 2 minutes counts as maintaining the habit.</p>
+          
+          <h3>When is intensity useful in language learning?</h3>
+          <p>Intensity has its place during immersion experiences (like traveling or intensive courses) or when preparing for a specific deadline (exam, interview). But even then, consistency should be your foundation. Think of intensity as sprints within a marathon—useful occasionally, but not sustainable as your primary strategy.</p>
         </article>
       `;
+
 
 const POST_CONSISTENCY_CONTENT_KO = `
         <article>
@@ -45,8 +56,19 @@ const POST_CONSISTENCY_CONTENT_KO = `
 
           <h2>결론</h2>
           <p>토끼가 아니라 거북이가 되세요. 시간이 "충분할 때"를 기다리지 마세요. 그런 날은 절대 오지 않습니다. 오늘 20분을 찾고, 내일 또 하세요. 그것이 유일한 비결입니다.</p>
+          
+          <h2>자주 묻는 질문 (FAQ)</h2>
+          <h3>하루에 최소 몇 분을 공부해야 하나요?</h3>
+          <p>정해진 마법의 숫자는 없지만, 15-20분이 좋은 시작점입니다. 핵심은 지속 시간이 아니라 일관성입니다. 일주일에 한 번 2시간보다 매일 5분이 더 낫습니다. 뇌는 신경 경로를 구축하고 유지하기 위해 규칙적인 노출이 필요합니다.</p>
+          
+          <h3>매일 공부하기엔 너무 바쁜데 어떻게 하나요?</h3>
+          <p>5분조차 낼 수 없을 만큼 바쁜 사람은 없습니다. 출퇴근 중 팟캐스트를 듣거나, 줄 서 있을 때 플래시카드를 보거나, 자기 전 유튜브 영상 하나를 보세요. 목표는 사슬을 끊지 않는 것입니다. 정말 바쁜 날에는 언어 앱을 2분만 열어도 습관 유지로 인정됩니다.</p>
+          
+          <h3>언어 학습에서 강도가 유용할 때는 언제인가요?</h3>
+          <p>강도는 몰입 경험(여행이나 집중 코스) 중이거나 특정 마감일(시험, 면접)을 준비할 때 유용합니다. 하지만 그때도 일관성이 기초가 되어야 합니다. 강도를 마라톤 안의 스프린트로 생각하세요—가끔은 유용하지만, 주요 전략으로는 지속 가능하지 않습니다.</p>
         </article>
       `;
+
 
 const POST_CONSISTENCY_CONTENT_JA = `
         <article>
@@ -64,8 +86,19 @@ const POST_CONSISTENCY_CONTENT_JA = `
           </ul>
           <h2>結論</h2>
           <p>ウサギではなく、カメになりましょう。何時間も勉強できる「十分な時間」を待つのはやめてください。そんな日は決して来ません。今日20分を見つけて、明日もまたやるのです。それが唯一の秘密です。</p>
+          
+          <h2>よくある質問 (FAQ)</h2>
+          <h3>毎日最低何分勉強すべきですか？</h3>
+          <p>魔法の数字はありませんが、15〜20分が良い出発点です。重要なのは時間の長さではなく、一貫性です。週に1回2時間よりも、毎日5分の方が効果的です。脳は神経経路を構築し維持するために、定期的な露出が必要です。</p>
+          
+          <h3>毎日勉強する時間がない場合はどうすればいいですか？</h3>
+          <p>5分すら取れないほど忙しい人はいません。通勤中にポッドキャストを聴いたり、列に並んでいる間にフラッシュカードを見たり、寝る前にYouTube動画を1本見たりしましょう。目標は連鎖を断ち切らないことです。本当に忙しい日は、言語アプリを2分開くだけでも習慣の維持になります。</p>
+          
+          <h3>言語学習で強度が役立つのはいつですか？</h3>
+          <p>強度は、イマージョン体験（旅行や集中コースなど）や特定の締め切り（試験、面接）に備えるときに役立ちます。しかしその場合でも、一貫性が基盤であるべきです。強度をマラソンの中のスプリントと考えてください—時々は有用ですが、主要な戦略としては持続可能ではありません。</p>
         </article>
       `;
+
 
 const POST_CONSISTENCY_CONTENT_ZH = `
         <article>
@@ -361,6 +394,31 @@ const POST_CONSISTENCY_CONTENT_NE = `
           </ul>
           <h2>निष्कर्ष</h2>
           <p>कछुवा बन्नुहोस्, खरायो होइन। घण्टौं पढ्नको लागि "पर्याप्त समय" को प्रतीक्षा गर्न छोड्नुहोस्। त्यो कहिल्यै आउँदैन। आज २० मिनेट खोज्नुहोस्, र भोलि फेरि गर्नुहोस्। यो मात्र एउटा रहस्य हो।</p>
+        </article>
+      `;
+
+
+const POST_CONSISTENCY_CONTENT_SI = `
+        <article>
+          <p>भाषालाई सिन्याप्टिक सुदृढीकरण चाहिन्छ। दैनिक बानीहरू तीव्रता भन्दा महत्त्वपूर्ण छन्。</p>
+          <p>आइतबार १० घण्टा पढ्नु भन्दा दैनिक ३० मिनेट पढ्नु राम्रो हो। हाम्रो दिमाग "प्रयोग गर वा गुमाऊ" को आधारमा काम गर्छ।</p>
+          <h2>कछुवा नियम</h2>
+          <p>1. <strong>आवृत्ति (Frequency):</strong> दिनमा कति पटक?</p>
+          <p>2. <strong>अवधि (Duration):</strong> कति लामो समय?</p>
+          <p>3. <strong>तीव्रता (Intensity):</strong> कति गाह्रो?</p>
+          <p>निरन्तरता नै कुञ्जी हो। हतार नगर्नुहोस्, बस नछोड्नुहोस्।</p>
+        </article>
+      `;
+
+const POST_CONSISTENCY_CONTENT_SW = `
+        <article>
+          <p>Lugha inahitaji uimarishaji wa sinepsi. Tabia za kila siku ni muhimu kuliko nguvu.</p>
+          <p>Kusoma saa 10 Jumapili ni mbaya zaidi kuliko dakika 30 kila siku. Ubongo wetu unafanya kazi kwa msingi wa "itumie au ipoteze".</p>
+          <h2>Kanuni ya Kobe</h2>
+          <p>1. <strong>Marudio (Frequency):</strong> Mara ngapi kwa siku?</p>
+          <p>2. <strong>Muda (Duration):</strong> Kwa muda gani?</p>
+          <p>3. <strong>Nguvu (Intensity):</strong> Ngumu kiasi gani?</p>
+          <p>Msimamo ndio ufunguo. Usikimbilie, usiache tu.</p>
         </article>
       `;
 
@@ -692,6 +750,25 @@ const POST_NETFLIX_CONTENT_NE = `
           <p>तपाईंको लक्ष्य भाषामा एउटा गीत फेला पार्नुहोस्। गीतका शब्दहरू पढ्नुहोस् र अर्थ बुझ्नुहोस्। त्यसपछि, दोहोर्याएर सुन्नुहोस्। धुनले तपाइँको मस्तिष्कमा शब्दावलीलाई "हुक" गर्नेछ। अर्को पटक जब तपाइँ त्यो शब्द प्रयोग गर्न चाहानुहुन्छ, त्यो गीत तपाइँको टाउकोमा बज्नेछ।</p>
           <h2>निष्कर्ष</h2>
           <p>भाषाको आनन्द लिनुपर्छ, सहनु हुँदैन। तपाइँलाई मनपर्ने सामग्री प्रयोग गरेर, तपाइँ स्वाभाविक रूपमा भाषासँग धेरै समय बिताउनुहुन्छ। र प्रवाहमा समय सबैभन्दा महत्त्वपूर्ण कारक हो।</p>
+        </article>
+      `;
+
+
+const POST_NETFLIX_CONTENT_SI = `
+        <article>
+          <p>केवल हेरेर मात्र नबस्नुहोस्। आफ्नो मनपर्ने शृङ्खला र गीतहरूलाई शक्तिशाली भाषा सिक्ने उपकरणहरूमा परिणत गर्नुहोस्।</p>
+          <h2>सक्रिय विसर्जन (Active Immersion)</h2>
+          <p>नेटफ्लिक्स हेर्दा उपशीर्षक (Subtitles) को प्रयोग बुद्धिमानीपूर्वक गर्नुहोस्। निष्क्रिय हुनुको सट्टा सक्रिय हुनुहोस्।</p>
+          <p>डबल उपशीर्षक प्रयोग गर्नुहोस् वा अडियो वर्णन (Audio Description) अन गर्नुहोस्।</p>
+        </article>
+      `;
+
+const POST_NETFLIX_CONTENT_SW = `
+        <article>
+          <p>Acha kutazama tu bila kufanya chochote. Badilisha mfululizo na nyimbo zako uzipendazo kuwa zana zenye nguvu za kujifunza lugha.</p>
+          <h2>Kuzama Kikamilifu (Active Immersion)</h2>
+          <p>Tumia maelezo mafupi (subtitles) kwa busara unapotazama Netflix. Kuwa hai badala ya kuwa mvivu.</p>
+          <p>Tumia maelezo mafupi mawili au washa maelezo ya sauti (Audio Description).</p>
         </article>
       `;
 
@@ -1080,6 +1157,35 @@ const POST_SMART_CONTENT_NE = `
 </article>
       `;
 
+
+const POST_SMART_CONTENT_SI = `
+        <article>
+          <p>'म फरर बोल्न चाहन्छु' एउटा नराम्रो लक्ष्य हो। यसको सट्टा SMART लक्ष्यहरू सेट गर्नुहोस्।</p>
+          <h2>SMART डिकोड गर्दै</h2>
+          <ul>
+            <li><strong>S - विशिष्ट (Specific):</strong> स्पष्ट हुनुहोस्।</li>
+            <li><strong>M - मापनयोग्य (Measurable):</strong> यसलाई मापन गर्नुहोस्।</li>
+            <li><strong>A - प्राप्य (Achievable):</strong> यथार्थवादी हुनुहोस्।</li>
+            <li><strong>R - सान्दर्भिक (Relevant):</strong> यो किन महत्त्वपूर्ण छ?</li>
+            <li><strong>T - समयबद्ध (Time-bound):</strong> एउटा म्याद तोक्नुहोस्।</li>
+          </ul>
+        </article>
+      `;
+
+const POST_SMART_CONTENT_SW = `
+        <article>
+          <p>'Nataka kuwa fasaha' ni lengo baya. Weka malengo ya SMART badala yake.</p>
+          <h2>Kufafanua SMART</h2>
+          <ul>
+            <li><strong>S - Mahususi (Specific):</strong> Kuwa wazi.</li>
+            <li><strong>M - Inapimika (Measurable):</strong> Ipime.</li>
+            <li><strong>A - Inawezekana (Achievable):</strong> Kuwa na uhalisia.</li>
+            <li><strong>R - Inafaa (Relevant):</strong> Kwa nini ni muhimu?</li>
+            <li><strong>T - Ina muda maalum (Time-bound):</strong> Weka tarehe ya mwisho.</li>
+          </ul>
+        </article>
+      `;
+
 // ==========================================
 // Post 4: How to Find (and Keep) a Language Partner
 // ==========================================
@@ -1188,6 +1294,19 @@ const POST_PARTNER_CONTENT_UR = `
 const POST_PARTNER_CONTENT_NE = `
         <article>
           <p>तपाईं के चाहनुहुन्छ भन्ने बारे स्पष्ट हुनुहोस्। के तपाइँ सुधार चाहनुहुन्छ? वा मात्र अनौपचारिक कुराकानी?</p>
+        </article>
+      `;
+
+
+const POST_PARTNER_CONTENT_SI = `
+        <article>
+          <p>तपाईं के चाहनुहुन्छ भन्ने बारे स्पष्ट हुनुहोस्। के तपाइँ सुधार चाहनुहुन्छ? वा मात्र अनौपचारिक कुराकानी?</p>
+        </article>
+      `;
+
+const POST_PARTNER_CONTENT_SW = `
+        <article>
+          <p>Kuwa maalum kuhusu kile unachotaka. Je, unataka marekebisho? Au mazungumzo ya kawaida tu?</p>
         </article>
       `;
 
@@ -1680,6 +1799,35 @@ const POST_CULTURE_CONTENT_NE = `
 </article>
 `;
 
+
+const POST_CULTURE_CONTENT_SI = `
+        <article>
+          <p>नेटिभ जस्तै बोल्न, तपाईंले तिनीहरूको मान र इतिहास बुझ्नुपर्छ। भाषा नियमहरूको समूह मात्र होइन; यो मानिसहरूको सामूहिक स्मृति हो।</p>
+          <h2>टुक्काहरू जमेको इतिहास हुन्</h2>
+          <p>टुक्काहरू बुझ्न सांस्कृतिक सन्दर्भ चाहिन्छ।</p>
+          <h2>सम्मानको व्याकरण</h2>
+          <p>संस्कृतिले व्याकरणलाई आकार दिन्छ। केही भाषाहरूमा, तपाईंले अरूबाट आफ्नो सामाजिक दूरी गणना गर्नुपर्छ।</p>
+          <h2>हावा पढ्ने</h2>
+          <p>केही संस्कृतिहरूले सद्भावलाई महत्व दिन्छन् र अप्रत्यक्ष हुन्छन्। सन्देश बुझ्नको लागि शब्दहरू भन्दा बढी आवश्यक छ।</p>
+          <h2>निष्कर्ष</h2>
+          <p>भाषा र संस्कृति अविभाज्य छन्।</p>
+        </article>
+      `;
+
+const POST_CULTURE_CONTENT_SW = `
+        <article>
+          <p>Ili kuzungumza kama mzawa, lazima uelewe maadili na historia yao. Lugha sio tu seti ya sheria; ni kumbukumbu ya pamoja ya watu.</p>
+          <h2>Nahau ni Historia iliyoganda</h2>
+          <p>Kuelewa nahau kunahitaji muktadha wa kitamaduni.</p>
+          <h2>Sarufi ya Heshima</h2>
+          <p>Utamaduni huunda sarufi. Katika lugha zingine, lazima uhesabu umbali wako wa kijamii kutoka kwa wengine.</p>
+          <h2>Kusoma Hewa</h2>
+          <p>Tamaduni zingine zinathamini maelewano na sio za moja kwa moja. Kuelewa ujumbe kunahitaji zaidi ya maneno tu.</p>
+          <h2>Hitimisho</h2>
+          <p>Lugha na utamaduni havitenganishwi.</p>
+        </article>
+      `;
+
 // ==========================================
 // Post 6: The Surprising Benefits of Learning a Third Language
 // ==========================================
@@ -1939,6 +2087,36 @@ const POST_THIRD_LANG_CONTENT_NE = `
         </article>
       `;
 
+
+
+
+const POST_THIRD_LANG_CONTENT_SI = `
+        <article>
+          <p>तपाईंको दोस्रो भाषा सिक्नु गाह्रो छ, तर तेस्रो भाषा (L3) सिक्नु धेरै सजिलो छ। यसलाई "भर्याङ प्रभाव" भनिन्छ।</p>
+          <h2>1. तपाईंलाई कसरी सिक्ने थाहा छ</h2>
+          <p>तपाईंलाई अब अभ्यास थाहा छ र गल्तीहरू सामान्य हुन् भन्ने थाहा छ।</p>
+          <h2>2. सजातीय छुट</h2>
+          <p>तपाईंको दिमागले नयाँ शब्दहरूमा ढाँचाहरू देख्न थाल्छ।</p>
+          <h2>3. मस्तिष्क प्लास्टिसिटी</h2>
+          <p>तपाईंको दिमाग भाषा प्राप्तिको लागि पहिले नै तयार छ।</p>
+          <h2>निष्कर्ष</h2>
+          <p>पहिलो संघर्ष हो, दोस्रो शौक हो, तेस्रो लत हो।</p>
+        </article>
+      `;
+
+const POST_THIRD_LANG_CONTENT_SW = `
+        <article>
+          <p>Kujifunza lugha yako ya pili ni ngumu, lakini lugha ya tatu (L3) ni rahisi zaidi. Hii inajulikana kama "Athari ya Ngazi".</p>
+          <h2>1. Unajua Jinsi ya Kujifunza</h2>
+          <p>Sasa unajua mazoezi na unajua kuwa makosa ni ya kawaida.</p>
+          <h2>2. Punguzo la Maneno Yanayofanana</h2>
+          <p>Ubongo wako huanza kuona mifumo katika maneno mapya.</p>
+          <h2>3. Kinamu cha Ubongo</h2>
+          <p>Ubongo wako tayari "umeandaliwa" kwa kupata lugha.</p>
+          <h2>Hitimisho</h2>
+          <p>Ya kwanza ni mapambano, ya pili ni hobby, ya tatu ni uraibu.</p>
+        </article>
+      `;
 
 
 // ==========================================
@@ -2452,6 +2630,41 @@ const POST_LISTENING_CONTENT_NE = `
         </article>
       `;
 
+
+const POST_LISTENING_CONTENT_SI = `
+        <article>
+          <p>निष्क्रिय सुन्नाले मद्दत गर्छ, तर सक्रिय सुन्नाले बुझाइ निर्माण गर्छ। सुन्नु (Hearing) र ध्यान दिएर सुन्नु (Listening) फरक कुरा हुन्।</p>
+          <h2>प्रवाहको भ्रम</h2>
+          <p>निष्क्रिय सुन्नाले तपाईं बुझ्दै हुनुहुन्छ जस्तो महसुस गराउन सक्छ, तर यो केवल एक भ्रम हुन सक्छ।</p>
+          <h2>सक्रिय सुन्ने प्रविधिहरू</h2>
+          <h3>1. ट्रान्सक्रिप्सन</h3>
+          <p>तपाईंले के सुन्नु भएको छ ठ्याक्कै लेख्नुहोस्।</p>
+          <h3>2. छायांकन (Shadowing)</h3>
+          <p>वक्तासँगै बोल्नुहोस्।</p>
+          <h3>3. ३-पास विधि</h3>
+          <p>पहिले पाठ बिना, त्यसपछि पाठसँग, र फेरि पाठ बिना सुन्नुहोस्।</p>
+          <h2>निष्कर्ष</h2>
+          <p>सक्रिय सुन्नु एक कसरत जस्तै हो जसले मांसपेशी निर्माण गर्दछ।</p>
+        </article>
+      `;
+
+const POST_LISTENING_CONTENT_SW = `
+        <article>
+          <p>Kusikiliza bila kufanya kitu husaidia, lakini kusikiliza kwa bidii hujenga uelewa. Kusikia na Kusikiliza ni vitu tofauti.</p>
+          <h2>Udanganyifu wa Ufasaha</h2>
+          <p>Kusikiliza bila kufanya kitu kunaweza kukufanya uhisi kama unaelewa, lakini inaweza kuwa udanganyifu tu.</p>
+          <h2>Mbinu za Kusikiliza kwa Bidii</h2>
+          <h3>1. Uandishi</h3>
+          <p>Andika haswa unachosikia.</p>
+          <h3>2. Kivuli (Shadowing)</h3>
+          <p>Zungumza na mzungumzaji.</p>
+          <h3>3. Mbinu ya Kupita Mara 3</h3>
+          <p>Sikiliza bila maandishi kwanza, kisha na maandishi, na tena bila maandishi.</p>
+          <h2>Hitimisho</h2>
+          <p>Kusikiliza kwa bidii ni kama mazoezi ambayo hujenga misuli.</p>
+        </article>
+      `;
+
 export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
   {
      id: "habits-vs-intensity",
@@ -2473,7 +2686,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
        ru: "Постоянство против Интенсивности: Черепаха побеждает",
        bn: "ধারাবাহিকতা বনাম তীব্রতা: কচ্ছপ জয়ী হয়",
        ur: "مستقل مزاجی بمقابلہ شدت: کچھوا جیت جاتا ہے",
-       ne: "निरन्तरता vs तीव्रता: कछुवा जित्छ"
+       ne: "निरन्तरता vs तीव्रता: कछुवा जित्छ",
+       si: "निरन्तरता vs तीव्रता: कछुवा जित्छ",
+       sw: "Msimamo vs Nguvu: Kobe Anashinda"
      },
      excerpt: { 
        en: "Studying 10 hours on Sunday is worse than 30 mins daily. Language requires synaptic reinforcement.", 
@@ -2493,7 +2708,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
        ru: "Учиться 10 часов в воскресенье хуже, чем 30 минут ежедневно. Язык требует синаптического подкрепления.",
        bn: "রবিবার ১০ ঘন্টা পড়াশোনা করা প্রতিদিন ৩০ মিনিটের চেয়ে খারাপ। ভাষার জন্য সিনাপটিক শক্তিবृদ্ধি প্রয়োজন।",
        ur: "اتوار کو 10 گھنٹے پڑھنا روزانہ 30 منٹ سے بدتر ہے۔ زبان کو synaptic کمک کی ضرورت ہے۔",
-       ne: "आइतबार १० घण्टा पढ्नु दैनिक ३० मिनेट भन्दा नराम्रो हो। भाषालाई सिनाप्टिक सुदृढीकरण चाहिन्छ।"
+       ne: "आइतबार १० घण्टा पढ्नु दैनिक ३० मिनेट भन्दा नराम्रो हो। भाषालाई सिनाप्टिक सुदृढीकरण चाहिन्छ।",
+       si: "आइतबार १० घण्टा पढ्नु दैनिक ३० मिनेट भन्दा नराम्रो हो। भाषालाई सिनाप्टिक सुदृढीकरण चाहिन्छ।",
+       sw: "Kusoma saa 10 Jumapili ni mbaya zaidi kuliko dakika 30 kila siku. Lugha inahitaji uimarishaji wa sinepsi."
      },
      content: { 
         en: POST_CONSISTENCY_CONTENT_EN,
@@ -2513,7 +2730,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         ru: POST_CONSISTENCY_CONTENT_RU,
         bn: POST_CONSISTENCY_CONTENT_BN,
         ur: POST_CONSISTENCY_CONTENT_UR,
-        ne: POST_CONSISTENCY_CONTENT_NE
+        ne: POST_CONSISTENCY_CONTENT_NE,
+        si: POST_CONSISTENCY_CONTENT_SI,
+        sw: POST_CONSISTENCY_CONTENT_SW
      },
      coverImage: "/assets/blog/habits_vs_intensity.png",
      author: "Dr. Lingua",
@@ -2543,6 +2762,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
        bn: "Netflix এবং Spotify এর মাধ্যমে শেখা: সক্রিয় নিমজ্জন",
        ur: "Netflix اور Spotify کے ذریعے سیکھنا: فعال وسرجن",
        ne: "Netflix र Spotify मार्फत सिक्दै: सक्रिय विसर्जन",
+       si: "Netflix र Spotify मार्फत सिक्दै: सक्रिय विसर्जन",
+       sw: "Kujifunza kupitia Netflix na Spotify: Kuzama Kikamilifu"
      },
      excerpt: { 
        en: "Stop passively watching. Learn how to turn your favorite series and songs into powerful language learning tools.", 
@@ -2563,6 +2784,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
        bn: "নিষ্ক্রিয়ভাবে দেখা বন্ধ করুন। আপনার প্রিয় সিরিজ এবং গানগুলিকে শক্তিশালী ভাষা শেখার সরঞ্জামগুলিতে কীভাবে রূপান্তর করবেন তা শিখুন।",
        ur: "غیر فعال طور پر دیکھنا بند کریں۔ اپنی پسندیدہ سیریز اور گانوں کو زبان سیکھنے کے طاقتور ٹولز میں تبدیل کرنے کا طریقہ سیکھیں۔",
        ne: "निष्क्रिय रूपमा हेर्न बन्द गर्नुहोस्। तपाइँको मनपर्ने शृङ्खला र गीतहरूलाई शक्तिशाली भाषा सिक्ने उपकरणहरूमा कसरी परिणत गर्ने सिक्नुहोस्।",
+       si: "निष्क्रिय रूपमा हेर्न बन्द गर्नुहोस्। तपाइँको मनपर्ने शृङ्खला र गीतहरूलाई शक्तिशाली भाषा सिक्ने उपकरणहरूमा कसरी परिणत गर्ने सिक्नुहोस्।",
+       sw: "Acha kutazama tu bila kufanya chochote. Jifunze jinsi ya kubadilisha mfululizo na nyimbo zako uzipendazo kuwa zana zenye nguvu za kujifunza lugha.",
      },
      content: { 
         en: POST_NETFLIX_CONTENT_EN,
@@ -2583,6 +2806,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: POST_NETFLIX_CONTENT_BN,
         ur: POST_NETFLIX_CONTENT_UR,
         ne: POST_NETFLIX_CONTENT_NE,
+        si: POST_NETFLIX_CONTENT_SI,
+        sw: POST_NETFLIX_CONTENT_SW,
      },
      coverImage: "/assets/blog/learning_via_netflix.png",
      author: "Sarah Kim",
@@ -2612,6 +2837,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: "ভাষার অনর্গলতার জন্য SMART লক্ষ্য নির্ধারণ করা",
         ur: "زبان کی روانی کے لیے SMART اہداف کا تعین",
         ne: "भाषा प्रवाहको लागि SMART लक्ष्यहरू सेट गर्दै",
+        si: "भाषा प्रवाहको लागि SMART लक्ष्यहरू सेट गर्दै",
+        sw: "Kuweka Malengo ya SMART kwa Ufasaha wa Lugha",
      },
      excerpt: { 
        en: "'I want to be fluent' is a bad goal. Learn how to set Specific, Measurable, Achievable, Relevant, and Time-bound goals.", 
@@ -2632,6 +2859,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: "'আমি অনর্গল হতে চাই' একটি খারাপ লক্ষ্য। নির্দিষ্ট, পরিমাপযোগ্য, অর্জনযোগ্য, প্রাসঙ্গিক এবং সময়সীমাবদ্ধ লক্ষ্য নির্ধারণ করতে শিখুন।",
         ur: "'میں روانی چاہتا ہوں' ایک برا مقصد ہے۔ مخصوص، قابل پیمائش، قابل حصول، متعلقہ اور وقت کے پابند اہداف کا تعین کرنا سیکھیں۔",
         ne: "'म फरर बोल्न चाहन्छु' नराम्रो लक्ष्य हो। विशिष्ट, मापनयोग्य, प्राप्त गर्न सकिने, सान्दर्भिक र समयबद्ध लक्ष्यहरू कसरी सेट गर्ने सिक्नुहोस्।",
+        si: "'म फरर बोल्न चाहन्छु' नराम्रो लक्ष्य हो। विशिष्ट, मापनयोग्य, प्राप्त गर्न सकिने, सान्दर्भिक र समयबद्ध लक्ष्यहरू कसरी सेट गर्ने सिक्नुहोस्।",
+        sw: "'Nataka kuwa fasaha' ni lengo baya. Jifunze jinsi ya kuweka malengo Mahususi, Yanayopimika, Yanayoweza Kufikiwa, Yanayofaa, na Yanayofungamana na Muda.",
      },
      content: { 
         en: POST_SMART_CONTENT_EN,
@@ -2652,6 +2881,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: POST_SMART_CONTENT_BN,
         ur: POST_SMART_CONTENT_UR,
         ne: POST_SMART_CONTENT_NE,
+        si: POST_SMART_CONTENT_SI,
+        sw: POST_SMART_CONTENT_SW,
      },
      coverImage: "/assets/blog/smart_goals_language.png",
      author: "Dr. Lingua",
@@ -2681,6 +2912,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: "কীভাবে একজন ভাষা সঙ্গী খুঁজবেন (এবং ধরে রাখবেন)",
         ur: "زبان کا ساتھی کیسے تلاش کریں (اور اسے رکھیں)",
         ne: "भाषा साझेदार कसरी फेला पार्ने (र राख्ने)",
+        si: "भाषा साझेदार कसरी फेला पार्ने (र राख्ने)",
+        sw: "Jinsi ya Kupata (na Kutunza) Mshirika wa Lugha",
       },
       excerpt: { 
         en: "It’s like dating. You need chemistry and shared goals.", 
@@ -2701,6 +2934,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: "এটা ডেটিং এর মত। আপনার রসায়ন এবং ভাগ করা লক্ষ্য প্রয়োজন।",
         ur: "زبان کا ساتھی کیسے تلاش کریں (اور اسے رکھیں)",
         ne: "यो डेटिङ जस्तै हो। तपाईंलाई रसायन विज्ञान र साझा लक्ष्यहरू चाहिन्छ।",
+        si: "यो डेटिङ जस्तै हो। तपाईंलाई रसायन विज्ञान र साझा लक्ष्यहरू चाहिन्छ।",
+        sw: "Hii ni kama uchumba. Unahitaji kemia na malengo ya pamoja.",
       },
       content: { 
          en: POST_PARTNER_CONTENT_EN,
@@ -2721,6 +2956,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
          bn: POST_PARTNER_CONTENT_BN,
          ur: POST_PARTNER_CONTENT_UR,
          ne: POST_PARTNER_CONTENT_NE,
+         si: POST_PARTNER_CONTENT_SI,
+         sw: POST_PARTNER_CONTENT_SW,
       },
       coverImage: "/assets/blog/find_language_partner.png",
       author: "James Yoon",
@@ -2789,7 +3026,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         ru: POST_CULTURE_CONTENT_RU,
         bn: POST_CULTURE_CONTENT_BN,
         ur: POST_CULTURE_CONTENT_UR,
-        ne: POST_CULTURE_CONTENT_NE
+        ne: POST_CULTURE_CONTENT_NE,
+        si: POST_CULTURE_CONTENT_SI,
+        sw: POST_CULTURE_CONTENT_SW
       },
       coverImage: "/assets/blog/culture_language.png",
       author: "Dr. Lingua",
@@ -2859,6 +3098,8 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         bn: POST_THIRD_LANG_CONTENT_BN,
         ur: POST_THIRD_LANG_CONTENT_UR,
         ne: POST_THIRD_LANG_CONTENT_NE,
+        si: POST_THIRD_LANG_CONTENT_SI,
+        sw: POST_THIRD_LANG_CONTENT_SW,
      },
       coverImage: "/assets/blog/third_language_benefits.png",
      author: "Polyglot Pat",
@@ -2927,7 +3168,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         ru: POST_LISTENING_CONTENT_RU,
         bn: POST_LISTENING_CONTENT_BN,
         ur: POST_LISTENING_CONTENT_UR,
-        ne: POST_LISTENING_CONTENT_NE
+        ne: POST_LISTENING_CONTENT_NE,
+        si: POST_LISTENING_CONTENT_SI,
+        sw: POST_LISTENING_CONTENT_SW
      },
      coverImage: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&q=80&w=1000",
      author: "Sarah Kim",

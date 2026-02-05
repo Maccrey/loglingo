@@ -54,7 +54,7 @@ async function seedBlog() {
   console.log(`Target Project: ${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
 
   // Supported Locales
-  const LOCALES = ['en', 'ko', 'ja', 'zh', 'th', 'vi', 'id', 'es', 'pt', 'fr', 'de', 'tr', 'ar', 'hi', 'ru', 'bn', 'ur', 'ne'];
+  const LOCALES = ['en', 'ko', 'ja', 'zh', 'th', 'vi', 'id', 'es', 'pt', 'fr', 'de', 'tr', 'ar', 'hi', 'ru', 'bn', 'ur', 'ne', 'si', 'sw'];
 
   const BLOG_POSTS = [
     ...BLOG_POSTS_PART_1,
@@ -95,8 +95,8 @@ async function seedBlog() {
     // Admin SDK usually handles Dates, but better explicit
     const data = {
         ...post,
-        createdAt: post.createdAt ? Timestamp.fromDate(post.createdAt) : Timestamp.now(),
-        updatedAt: post.updatedAt ? Timestamp.fromDate(post.updatedAt) : Timestamp.now(),
+        createdAt: (post as any).createdAt ? Timestamp.fromDate((post as any).createdAt) : Timestamp.now(),
+        updatedAt: (post as any).updatedAt ? Timestamp.fromDate((post as any).updatedAt) : Timestamp.now(),
     };
 
     await db.collection("posts").doc(post.id).set(data, { merge: true });

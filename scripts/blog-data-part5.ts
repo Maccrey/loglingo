@@ -2,7 +2,7 @@
 import { BlogPost } from "../src/domain/blog";
 
 // ==========================================
-// Post 10: How to Read Books (Extensive vs Intensive)
+// Post 17 (Old 10): How to Read Books (Extensive vs Intensive)
 // ==========================================
 const POST_READING_CONTENT_EN = `
         <article>
@@ -343,7 +343,7 @@ const POST_READING_CONTENT_HI = `
 
   <h2>व्यापक पठन के नियम</h2>
   <ol>
-     <li><strong>शब्दकोश नहीं:</strong> प्रवाह को न तोड़ें। यदि आप अर्थ का अनुमान लगा सकते हैं, तो आगे बढ़ें। यदि आप नहीं कर सकते, तो इसे छोड़ दें। यदि शब्द महत्वपूर्ण है, तो यह वापस आ जाएगा।</li>
+     <li><strong>शब्दकोश नहीं:</strong> प्रवाह को न देखें। यदि आप अर्थ का अनुमान लगा सकते हैं, तो आगे बढ़ें। यदि आप नहीं कर सकते, तो इसे छोड़ दें। यदि शब्द महत्वपूर्ण है, तो यह वापस आ जाएगा।</li>
      <li><strong>आसान किताबें चुनें:</strong> आपको पेज पर 98% शब्द पता होने चाहिए। यदि प्रति पन्ना 5 से अधिक अज्ञात शब्द हैं, तो यह बहुत कठिन है। इसे रख दें।</li>
      <li><strong>उबाऊ किताबें छोड़ें:</strong> यदि आप इसका आनंद नहीं ले रहे हैं, तो आप नहीं सीखेंगे। घटिया रोमांस उपन्यास, कॉमिक बुक्स, या बच्चों के रहस्य पढ़ें। जो कुछ भी आपको पेज पलटने के लिए मजबूर करता है।</li>
   </ol>
@@ -432,13 +432,13 @@ const POST_READING_CONTENT_UR = `
 const POST_READING_CONTENT_NE = `
 <article>
   <p>तपाईंले आफ्नो लक्षित भाषामा ह्यारी पोटरको एउटा किताब किन्नुभयो। तपाईं हातमा शब्दकोष लिएर बस्नुभयो। तपाईंले पहिलो वाक्य पढ्नुभयो। एउटा शब्द हेर्नुभयो। दोस्रो वाक्य पढ्नुभयो। दुईवटा शब्द हेर्नुभयो। एक घण्टा पछि, तपाईं पृष्ठ २ मा हुनुहुन्छ र तपाईंलाई टाउको दुखेको छ। तपाईं छोड्नुहुन्छ।</p>
-  <p>यो <strong>गहन पढाइ (Intensive Reading)</strong> हो। यो उपयोगी छ, तर तपाईंले <em>पढ्न</em> सिक्ने तरिका यो होइन। तपाईंलाई <strong>व्यापक पढाइ (Extensive Reading)</strong> चाहिन्छ।</p>
+  <p>यो <strong>गहन पढाइ (Intensive Reading)</strong> हो। यो उपयोगी है, तर तपाईंले <em>पढ्न</em> सिक्ने तरिका यो होइन। तपाईंलाई <strong>व्यापक पढाइ (Extensive Reading)</strong> चाहिन्छ।</p>
 
   <h2>फरक</h2>
   <p><strong>गहन पढाइ:</strong> उच्च एकाग्रता। १००% बुझाइ। छोटो पाठहरू। लक्ष्य: सही व्याकरण/शब्दावली सिक्नु। (यो "अध्ययन" हो)</p>
   <p><strong>व्यापक पढाइ:</strong> आरामदायी एकाग्रता। ७०-८०% बुझाइ। लामालामा किताबहरू। लक्ष्य: आनन्द र प्रवाह। (यो "पढाइ" हो)</p>
 
-  <h2>किन व्यापक पढाइले जित्छ</h2>
+  <h2>kin व्यापक पढाइले जित्छ</h2>
   <p>अनुसन्धानले देखाउँछ कि कुनै शब्द सिक्नको लागि, तपाईंले यसलाई १०-२० विभिन्न सन्दर्भहरूमा देख्नु पर्छ। गहन पढाइले तपाईंलाई एउटा सन्दर्भको गहिरो बुझाइ दिन्छ। व्यापक पढाइले तपाईंलाई २० सन्दर्भहरूको सतही बुझाइ दिन्छ। प्रवाहको लागि, तपाईंलाई पछिल्लो चाहिन्छ।</p>
 
   <h2>व्यापक पढाइका नियमहरू</h2>
@@ -454,1020 +454,1075 @@ const POST_READING_CONTENT_NE = `
 </article>
 `;
 
+const POST_READING_CONTENT_SI = `
+<article>
+  <p>ඔබ Harry Potter පොතක් ගත්තා. පළමු වාක්‍ය කියෙව්වා. ශබ්දකෝෂය බැලුවා. පැයකට පස්සේ ඔළුව රිදෙනවා. ඔබ නැවැත්වුවා.</p>
+  <p>මේක <strong>Intensive Reading</strong>. ඔබට ඕනේ <strong>Extensive Reading</strong>.</p>
+  <h2>වෙනස</h2>
+  <p><strong>Intensive:</strong> 100% තේරුම් ගැනීම. කෙටි පාඨ. (මේක "පාඩම් කිරීම")</p>
+  <p><strong>Extensive:</strong> 70-80% තේරුම් ගැනීම. දිගු පොත්. විනෝදය. (මේක "කියවීම")</p>
+  <h2>නීති</h2>
+  <ol>
+     <li><strong>ශබ්දකෝෂ එපා:</strong> ගලායාම කඩන්න එපා. තේරුම අනුමාන කරන්න.</li>
+     <li><strong>සරල පොත් තෝරන්න:</strong> ඔබ 98% වචන දැන සිටිය යුතුයි.</li>
+     <li><strong>කම්මැලි නම් නවත්වන්න:</strong> විනෝදයක් නැත්නම් ඉගෙනීමක් නෑ.</li>
+  </ol>
+  <div class="tip-box">
+     <strong>මෙතනින් පටන් ගන්න:</strong> "Graded Readers" හොයන්න. සතියකට එකක් කියවන්න.
+  </div>
+</article>
+`;
+
+const POST_READING_CONTENT_SW = `
+<article>
+  <p>Ulinunua kitabu cha Harry Potter. Ukasoma sentensi ya kwanza. Ukatafuta kamusi. Saa moja baadaye, unaumwa kichwa. Ukakata tamaa.</p>
+  <p>Huku ni <strong>Kusoma kwa Kina (Intensive)</strong>. Unahitaji <strong>Kusoma kwa Mapana (Extensive)</strong>.</p>
+  <h2>Tofauti</h2>
+  <p><strong>Kina:</strong> Kuelewa 100%. Maandishi mafupi. Lengo: Kujifunza sarufi. (Huku ni "Kusoma")</p>
+  <p><strong>Mapana:</strong> Kuelewa 70-80%. Vitabuu virefu. Lengo: Burudani. (Huku ni "Kujisomea")</p>
+  <h2>Sheria</h2>
+  <ol>
+     <li><strong>Hakuna Kamusi:</strong> Usikatishe mtiririko. Kubali kutokujua kila neno.</li>
+     <li><strong>Chagua Vitabu Rahisi:</strong> Unapaswa kujua 98% ya maneno.</li>
+     <li><strong>Acha Vitabu vya Kuchosha:</strong> Kama hufurahii, hujifunzi.</li>
+  </ol>
+  <div class="tip-box">
+     <strong>Anza Hapa:</strong> Tafuta "Graded Readers". Soma kimoja kila wiki.
+  </div>
+</article>
+`;
+
+
 // ==========================================
-// Post 11: Travel Hacks for Learners
+// Post 18 (Old 11): Travel Hacks for Language Learners
 // ==========================================
 const POST_TRAVEL_CONTENT_EN = `
-        <article>
-          <p>You studied Spanish for 2 years. You go to Barcelona. You walk into a bakery. You are ready.</p>
-          <p>You: "Hola, me gustaría... umm... pan?"</p>
-          <p>Baker: "Bread? Sure, here you go. That's 2 euros."</p>
-          <p>Crushing defeat. They switched to English. How do you prevent this? You need to signal that you are a serious speaker, not a tourist.</p>
-
-          <h2>Hack 1: The "Filler Word" Trick</h2>
-          <p>Tourists say "Ummm..." or "Uhh..." while thinking. Locals make different sounds. In Spanish, say "Este..." or "Pues...". In Japanese, say "Ehto...". In French, "Euh...".</p>
-          <p>Using the local hesitation sound signals your brain is operating in that language mode. It buys you time without breaking the immersion.</p>
-
-          <h2>Hack 2: Perfect the Greeting</h2>
-          <p>You have 3 seconds to make an impression. If your "Bonjour" is hesitant and accented, they will switch to English. Practice the greeting 500 times. Get the melody, pitch, and attitude perfect. If you nail the first word, they will assume you can speak the rest.</p>
-
-          <h2>Hack 3: The "I didn't hear you" Tactic</h2>
-          <p>If you don't understand, NEVER say "What?" or look confused. They will switch to English.</p>
-          <p>Instead, say "It's noisy in here" or "Sorry, I'm a bit deaf in one ear." (Learn these phrases!). They will repeat themselves louder and clearer, but still in the target language.</p>
-
-          <h2>Hack 4: Go Where English Don't Go</h2>
-          <p>Tourist traps employ English speakers. Go 3 blocks away from the main square. Find the dive bar where old men are watching soccer. They probably <em>can't</em> speak English even if they wanted to. You will be forced to survive.</p>
-
-          <div class="tip-box">
-             <strong>Golden Rule:</strong> If they switch to English, keep speaking the target language. Most people will switch back once they realize you are persistent. Be stubborn.
-          </div>
-        </article>
+<article>
+  <p>You can't travel right now? Valid excuse. But you don't need a plane ticket to immerse yourself. You need these hacks.</p>
+  <h2>1. The Google Maps Hack</h2>
+  <p>Go to Google Maps. Drop the "Street View" man in a random street in Tokyo/Paris/Seoul. Look at the signs. Read the billboards. Walk down the street. It's virtual immersion.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Download "Radio Garden". It lets you listen to live radio from any city on Earth. Listen to the local DJs in Buenos Aires while you wash dishes. It's real-time slang.</p>
+  <h2>3. Change Your Phone Language</h2>
+  <p>This is the oldest trick, but do it. You look at your phone 80 times a day. If it's in Spanish, that's 80 Spanish lessons. You will learn words like "Settings", "Storage", "Network" without trying.</p>
+  <div class="tip-box">
+    <strong>Pro Tip:</strong> Use Airbnb Experiences to book an online cooking class with a local. "How to make pasta with a Nonna in Rome." You learn language + culture + food.
+  </div>
+</article>
 `;
 
 const POST_TRAVEL_CONTENT_KO = `
-        <article>
-          <p>스페인어를 2년 공부했습니다. 바르셀로나에 갔습니다. 빵집에 당당히 들어갑니다. 준비됐어.</p>
-          <p>나: "올라, 메 구스타리아... 음... 빤?"</p>
-          <p>제빵사: "Bread? Sure. 2 유로입니다."</p>
-          <p>처참한 패배입니다. 상대방이 영어로 받아버렸습니다. 이걸 어떻게 막을까요? '나는 관광객이 아니라 진지한 학습자다'라는 신호를 보내야 합니다.</p>
-
-          <h2>핵심 1: 현지 추임새(Filler Word) 쓰기</h2>
-          <p>관광객은 생각할 때 "음..." 이나 "어..."라고 합니다. 현지인은 다른 소리를 냅니다. 스페인어라면 "에스테..." 또는 "뿌에스...". 일본어라면 "에또...". 프랑스어라면 "으으..."</p>
-          <p>현지식 망설임 소리를 내면 상대방은 무의식적으로 '아, 이 사람 이 언어 좀 하는구나'라고 느낍니다. 몰입을 깨지 않고 시간을 벌 수 있습니다.</p>
-
-          <h2>핵심 2: 첫인사 1초에 목숨 걸기</h2>
-          <p>판단은 3초 안에 끝납니다. "Bonjour"가 주저하고 어설프면 바로 영어로 날아옵니다. 인사를 500번 연습하세요. 멜로디, 톤, 태도까지 완벽하게요. 첫마디가 완벽하면 상대방은 당신이 유창할 거라고 착각하고 계속 해당 언어로 말해줍니다.</p>
-
-          <h2>핵심 3: "안 들려서 그래요" 전법</h2>
-          <p>못 알아들었을 때, 절대 "What?"이라고 하거나 당황한 표정을 짓지 마세요. 바로 영어로 바뀝니다.</p>
-          <p>대신 "여기가 좀 시끄럽네요" 혹은 "제가 한쪽 귀가 좀 안 좋아서요"라고 말하세요 (이 문장은 외워가세요!). 그럼 상대방은 더 크고 또렷하게, 하지만 여전히 '해당 언어로' 다시 말해줄 겁니다.</p>
-
-          <h2>핵심 4: 영어가 닿지 않는 곳으로 가라</h2>
-          <p>관광 명소 직원들은 영어 전문가입니다. 광장에서 딱 세 블록만 벗어나세요. 할아버지들이 축구 보고 있는 허름한 술집을 찾으세요. 그분들은 영어를 하고 싶어도 <em>못</em> 할 확률이 높습니다. 당신은 생존을 위해 그 언어를 쓸 수밖에 없게 됩니다.</p>
-
-          <div class="tip-box">
-             <strong>황금률:</strong> 상대가 영어로 바꿔도, 굴하지 말고 계속 그 나라 말로 대답하세요. 당신의 의지가 확고해 보이면, 대부분은 다시 원래 언어로 돌아와 줍니다. 고집쟁이가 되세요.
-          </div>
-        </article>
+<article>
+  <p>지금 당장 여행을 못 간다고요? 핑계입니다. 몰입하기 위해 비행기 티켓은 필요 없습니다. 이 해킹 방법들만 있으면 됩니다.</p>
+  <h2>1. 구글 맵스 해킹</h2>
+  <p>구글 맵스를 켜세요. 도쿄, 파리, 서울의 아무 골목에나 '스트리트 뷰' 사람을 떨어뜨리세요. 간판을 읽으세요. 광고판을 해석하세요. 거리를 걸으세요. 이게 바로 가상 어학연수입니다.</p>
+  <h2>2. 라디오 가든 (Radio Garden)</h2>
+  <p>'Radio Garden' 앱을 받으세요. 지구상 모든 도시의 실시간 라디오를 들을 수 있습니다. 설거지하면서 부에노스아이레스의 DJ 목소리를 들으세요. 진짜 살아있는 슬랭을 배울 수 있습니다.</p>
+  <h2>3. 폰 언어 설정 변경</h2>
+  <p>가장 고전적인 방법이지만, 당장 하세요. 당신은 하루에 80번 폰을 봅니다. 스페인어로 설정해두면 하루 80번의 스페인어 수업을 듣는 셈입니다. '설정', '저장공간', '네트워크' 같은 단어를 저절로 외우게 됩니다.</p>
+  <div class="tip-box">
+    <strong>프로 팁:</strong> 에어비앤비 체험(Airbnb Experiences)으로 현지인과 온라인 요리 수업을 예약하세요. "로마 할머니에게 배우는 파스타." 언어, 문화, 음식을 동시에 배울 수 있습니다.
+  </div>
+</article>
 `;
 
 const POST_TRAVEL_CONTENT_JA = `
 <article>
-  <p>スペイン語を2年間勉強しました。バルセロナに行きます。パン屋に入ります。準備万端です。</p>
-  <p>あなた：「Hola, me gustaría... umm... pan?」</p>
-  <p>パン屋：「パンですか？もちろんです、どうぞ。2ユーロです。」</p>
-  <p>屈辱的な敗北です。彼らは英語に切り替えました。これを防ぐには？観光客ではなく、真剣な話者であるという合図を送る必要があります。</p>
-
-  <h2>ハック1：「つなぎ言葉（Filler Word）」のトリック</h2>
-  <p>観光客は考えている間、「うーん」や「あー」と言います。地元の人々は異なる音を出します。スペイン語なら「Este...」または「Pues...」。日本語なら「えっと...」。フランス語なら「Euh...」。</p>
-  <p>現地の躊躇する音を使うことで、あなたの脳がその言語モードで動作していることを合図します。没入感を壊さずに時間を稼ぐことができます。</p>
-
-  <h2>ハック2：挨拶を完璧にする</h2>
-  <p>印象を与える時間は3秒です。「Bonjour」が躊躇して訛っていたら、彼らは英語に切り替えるでしょう。挨拶を500回練習してください。メロディー、ピッチ、態度を完璧にしましょう。最初の単語が決まれば、彼らはあなたが残りの話せると推測します。</p>
-
-  <h2>ハック3：「聞こえなかった」戦術</h2>
-  <p>理解できなくても、決して「What?」と言ったり困惑した顔をしてはいけません。彼らは英語に切り替えます。</p>
-  <p>代わりに、「ここはうるさいですね」または「すみません、片耳が少し聞こえなくて」と言いましょう（これらのフレーズを覚えましょう！）。彼らはより大きく、よりはっきりと繰り返してくれるでしょうが、それでもターゲット言語のままです。</p>
-
-  <h2>ハック4：英語が行かない場所へ行く</h2>
-  <p>観光地には英語の話者がいます。メイン広場から3ブロック離れた場所へ行きましょう。老人たちがサッカーを見ている安酒場を見つけてください。彼らはおそらく、したくても英語を話せません。あなたは生き残るために話さざるを得なくなります。</p>
-
+  <p>今すぐ旅行に行けない？ それは言い訳です。没頭するために航空券は必要ありません。必要なのはこれらのハックです。</p>
+  <h2>1. Googleマップ・ハック</h2>
+  <p>Googleマップを開いてください。東京、パリ、ソウルの適当な通りに「ストリートビュー」の人を落とします。看板を見てください。広告を読んでください。通りを歩いてください。これがバーチャル留学です。</p>
+  <h2>2. Radio Garden</h2>
+  <p>「Radio Garden」をダウンロードしてください。地球上のあらゆる都市のライブラジオを聴くことができます。皿洗いをしながら、ブエノスアイレスのDJの声を聴きましょう。リアルなスラングが学べます。</p>
+  <h2>3. スマホの言語を変える</h2>
+  <p>古い手ですが、やってください。あなたは1日に80回スマホを見ます。もしスペイン語なら、80回のスペイン語レッスンです。「設定」「保存容量」「ネットワーク」などの単語を努力なしで覚えられます。</p>
   <div class="tip-box">
-     <strong>黄金律：</strong> 彼らが英語に切り替えても、ターゲット言語を話し続けてください。あなたが粘り強いとわかれば、ほとんどの人は戻してくれます。頑固になりましょう。
+    <strong>プロのヒント：</strong> Airbnb体験を使って、現地の人とのオンライン料理教室を予約しましょう。「ローマのおばあちゃんから学ぶパスタ作り」。言語＋文化＋食べ物を学べます。
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_ZH = `
 <article>
-  <p>你学了两年西班牙语。你去巴塞罗那。你走进一家面包店。你准备好了。</p>
-  <p>你：“Hola, me gustaría... umm... pan?”</p>
-  <p>面包师：“Bread? Sure, here you go. That's 2 euros.”</p>
-  <p>惨败。他们切换到了英语。你如何防止这种情况？你需要发出信号，表明你是一个认真的演讲者，而不是游客。</p>
-
-  <h2>秘诀1：“填充词 (Filler Word)”技巧</h2>
-  <p>游客在思考时会说“嗯……”或“厄……”。当地人发出的声音不同。在西班牙语中，说“Este...”或“Pues...”。在日语中，说“Ehto...”。在法语中，“Euh...”。</p>
-  <p>使用当地的犹豫声表明你的大脑正在以该语言模式运作。它为你争取了时间，而不会破坏沉浸感。</p>
-
-  <h2>秘诀2：完美的问候</h2>
-  <p>你有3秒钟的时间给人留下印象。如果你的“Bonjour”犹豫不决且带有口音，他们会切换到英语。练习问候500次。让旋律、音调和态度完美无缺。如果你搞定了第一个词，他们会假设你会说剩下的。</p>
-
-  <h2>秘诀3：“我没听见”策略</h2>
-  <p>如果你听不懂，千万不要说“What?”或看起来很困惑。他们会切换到英语。</p>
-  <p>相反，说“这儿太吵了”或“抱歉，我一只耳朵有点聋。”（学会这些短语！）。他们会更大声、更清晰地重复一遍，但仍然使用目标语言。</p>
-
-  <h2>秘诀4：去英语不去的地方</h2>
-  <p>旅游陷阱雇佣英语使用者。去离主广场3个街区远的地方。找到老人们正在看足球的小酒吧。即使他们想说英语，他们可能也<em>不会</em>。你将被迫生存。</p>
-
+  <p>现在不能去旅行？借口。你不需要机票也能让自己沉浸其中。你需要这些黑客技巧。</p>
+  <h2>1. 谷歌地图黑客</h2>
+  <p>打开谷歌地图。把“街景”小人扔到东京/巴黎/首尔的随便一条街上。看路牌。读广告牌。在街上走走。这就是虚拟沉浸。</p>
+  <h2>2. Radio Garden</h2>
+  <p>下载“Radio Garden”。它可以让你收听地球上任何城市的实时广播。一边洗碗一边听布宜诺斯艾利斯的当地DJ广播。这是实时的俚语。</p>
+  <h2>3. 更改手机语言</h2>
+  <p>这是最老套的技巧，但请照做。你每天看80次手机。如果是西班牙语，那就是80节西班牙语课。你会不自觉地学会“设置”、“存储”、“网络”等词汇。</p>
   <div class="tip-box">
-     <strong>黄金法则：</strong> 如果他们切换到英语，继续说目标语言。大多数人一旦意识到你的坚持，就会切换回来。固执一点。
+    <strong>专业提示：</strong> 使用Airbnb体验预订当地人的在线烹饪课程。“和罗马奶奶学做意大利面。”你将学到语言+文化+美食。
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_ES = `
 <article>
-  <p>Estudiaste español durante 2 años. Vas a Barcelona. Entras en una panadería. Estás listo.</p>
-  <p>Tú: "Hola, me gustaría... umm... pan?"</p>
-  <p>Panadero: "¿Pan? Claro, aquí tienes. Son 2 euros." (En inglés)</p>
-  <p>Derrota aplastante. Cambiaron al inglés. ¿Cómo evitas esto? Necesitas señalar que eres un hablante serio, no un turista.</p>
-
-  <h2>Truco 1: El truco de la "Palabra de relleno"</h2>
-  <p>Los turistas dicen "Ummm..." o "Uhh..." mientras piensan. Los lugareños hacen sonidos diferentes. En español, di "Este..." o "Pues...". En japonés, di "Ehto...". En francés, "Euh...".</p>
-  <p>Usar el sonido de vacilación local indica que su cerebro está operando en ese modo de idioma. Te gana tiempo sin romper la inmersión.</p>
-
-  <h2>Truco 2: Perfecciona el saludo</h2>
-  <p>Tienes 3 segundos para causar una impresión. Si tu "Bonjour" es vacilante y con acento, cambiarán al inglés. Practica el saludo 500 veces. Consigue la melodía, el tono y la actitud perfectos. Si clavas la primera palabra, asumirán que puedes hablar el resto.</p>
-
-  <h2>Truco 3: La táctica de "No te escuché"</h2>
-  <p>Si no entiendes, NUNCA digas "¿Qué?" o parezcas confundido. Cambiarán al inglés.</p>
-  <p>En su lugar, di "Hay mucho ruido aquí" o "Lo siento, estoy un poco sordo de un oído". (¡Aprende estas frases!). Se repetirán más alto y más claro, pero aún en el idioma de destino.</p>
-
-  <h2>Truco 4: Ve a donde el inglés no llega</h2>
-  <p>Las trampas para turistas emplean a hablantes de inglés. Ve a 3 cuadras de la plaza principal. Encuentra el bar de mala muerte donde los viejos ven fútbol. Probablemente <em>no puedan</em> hablar inglés incluso si quisieran. Te verás obligado a sobrevivir.</p>
-
+  <p>¿No puedes viajar ahora? Excusa válida. Pero no necesitas un billete de avión para sumergirte. Necesitas estos trucos.</p>
+  <h2>1. El truco de Google Maps</h2>
+  <p>Ve a Google Maps. Suelta al hombrecito de "Street View" en una calle aleatoria de Tokio/París/Seúl. Mira las señales. Lee las vallas publicitarias. Camina por la calle. Es inmersión virtual.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Descarga "Radio Garden". Te permite escuchar radio en vivo de cualquier ciudad de la Tierra. Escucha a los DJ locales de Buenos Aires mientras lavas los platos. Es jerga en tiempo real.</p>
+  <h2>3. Cambia el idioma de tu teléfono</h2>
+  <p>Es el truco más viejo, pero hazlo. Miras tu teléfono 80 veces al día. Si está en inglés, son 80 lecciones de inglés. Aprenderás palabras como "Ajustes", "Almacenamiento", "Red" sin intentarlo.</p>
   <div class="tip-box">
-     <strong>Regla de oro:</strong> Si cambian al inglés, sigue hablando el idioma de destino. La mayoría de la gente volverá a cambiar una vez que se den cuenta de que eres persistente. Sé terco.
+    <strong>Consejo Pro:</strong> Usa Experiencias de Airbnb para reservar una clase de cocina online con un local. "Cómo hacer pasta con una Nonna en Roma". Aprendes idioma + cultura + comida.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_FR = `
 <article>
-  <p>Vous avez étudié l'espagnol pendant 2 ans. Vous allez à Barcelone. Vous entrez dans une boulangerie. Vous êtes prêt.</p>
-  <p>Vous : "Hola, me gustaría... umm... pan ?"</p>
-  <p>Boulanger : "Du pain ? Bien sûr, tenez. Ça fera 2 euros." (En anglais)</p>
-  <p>Défaite écrasante. Ils sont passés à l'anglais. Comment empêcher cela ? Vous devez signaler que vous êtes un locuteur sérieux, pas un touriste.</p>
-
-  <h2>Astuce 1 : Le truc du "Mot de remplissage"</h2>
-  <p>Les touristes disent "Euh..." ou "Uhh..." en réfléchissant. Les habitants font des sons différents. En espagnol, dites "Este..." ou "Pues...". En japonais, dites "Ehto...". En français, "Euh...".</p>
-  <p>Utiliser le son d'hésitation local signale que votre cerveau fonctionne dans ce mode linguistique. Cela vous fait gagner du temps sans rompre l'immersion.</p>
-
-  <h2>Astuce 2 : Perfectionnez la salutation</h2>
-  <p>Vous avez 3 secondes pour faire impression. Si votre "Bonjour" est hésitant et accentué, ils passeront à l'anglais. Pratiquez la salutation 500 fois. Obtenez la mélodie, le ton et l'attitude parfaits. Si vous réussissez le premier mot, ils supposeront que vous pouvez parler le reste.</p>
-
-  <h2>Astuce 3 : La tactique "Je ne t'ai pas entendu"</h2>
-  <p>Si vous ne comprenez pas, ne dites JAMAIS "Quoi ?" ou n'ayez pas l'air confus. Ils passeront à l'anglais.</p>
-  <p>Au lieu de cela, dites "C'est bruyant ici" ou "Désolé, je suis un peu sourd d'une oreille." (Apprenez ces phrases !). Ils se répéteront plus fort et plus clairement, mais toujours dans la langue cible.</p>
-
-  <h2>Astuce 4 : Allez là où l'anglais ne va pas</h2>
-  <p>Les pièges à touristes emploient des anglophones. Allez à 3 pâtés de maisons de la place principale. Trouvez le bar de mala muerte où les vieux regardent le football. Ils ne <em>peuvent</em> probablement pas parler anglais même s'ils le voulaient. Vous serez obligé de survivre.</p>
-
+  <p>Vous ne pouvez pas voyager maintenant ? Excuse valable. Mais vous n'avez pas besoin d'un billet d'avion pour vous immerger. Vous avez besoin de ces astuces.</p>
+  <h2>1. L'astuce Google Maps</h2>
+  <p>Allez sur Google Maps. Déposez le bonhomme "Street View" dans une rue au hasard à Tokyo/Paris/Séoul. Regardez les panneaux. Lisez les publicités. Marchez dans la rue. C'est de l'immersion virtuelle.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Téléchargez "Radio Garden". Cela vous permet d'écouter la radio en direct de n'importe quelle ville sur Terre. Écoutez les DJ locaux de Buenos Aires pendant que vous faites la vaisselle. C'est de l'argot en temps réel.</p>
+  <h2>3. Changez la langue de votre téléphone</h2>
+  <p>C'est la plus vieille astuce, mais faites-le. Vous regardez votre téléphone 80 fois par jour. S'il est en espagnol, c'est 80 leçons d'espagnol. Vous apprendrez des mots comme "Paramètres", "Stockage", "Réseau" sans essayer.</p>
   <div class="tip-box">
-     <strong>Règle d'or :</strong> S'ils passent à l'anglais, continuez à parler la langue cible. La plupart des gens reviendront en arrière une fois qu'ils réaliseront que vous êtes persistant. Soyez têtu.
+    <strong>Consejo Pro :</strong> Utilisez les Expériences Airbnb pour réserver un cours de cuisine en ligne avec un local. "Comment faire des pâtes avec une Nonna à Rome." Vous apprenez la langue + la culture + la nourriture.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_DE = `
 <article>
-  <p>Sie haben 2 Jahre lang Spanisch gelernt. Sie gehen nach Barcelona. Sie betreten eine Bäckerei. Sie sind bereit.</p>
-  <p>Sie: "Hola, me gustaría... umm... pan?"</p>
-  <p>Bäcker: "Brot? Klar, bitte sehr. Das macht 2 Euro." (Auf Englisch)</p>
-  <p>Vernichtende Niederlage. Sie haben ins Englische gewechselt. Wie verhindern Sie das? Sie müssen signalisieren, dass Sie ein ernsthafter Sprecher sind, kein Tourist.</p>
-
-  <h2>Hack 1: Der "Füllwort"-Trick</h2>
-  <p>Touristen sagen "Ähm..." oder "Öh..." während sie nachdenken. Einheimische machen andere Geräusche. Im Spanischen sagen Sie "Este..." oder "Pues...". Im Japanischen sagen Sie "Ehto...". Im Französischen "Euh...".</p>
-  <p>Die Verwendung des lokalen Zögerlauts signalisiert, dass Ihr Gehirn in diesem Sprachmodus arbeitet. Es verschafft Ihnen Zeit, ohne das Eintauchen zu unterbrechen.</p>
-
-  <h2>Hack 2: Perfektionieren Sie die Begrüßung</h2>
-  <p>Sie haben 3 Sekunden, um einen Eindruck zu hinterlassen. Wenn Ihr "Bonjour" zögerlich und akzentuiert ist, werden sie ins Englische wechseln. Üben Sie die Begrüßung 500 Mal. Bekommen Sie die Melodie, die Tonhöhe und die Haltung perfekt hin. Wenn Sie das erste Wort treffen, werden sie annehmen, dass Sie den Rest sprechen können.</p>
-
-  <h2>Hack 3: Die "Ich habe Sie nicht gehört"-Taktik</h2>
-  <p>Wenn Sie nicht verstehen, sagen Sie NIEMALS "Was?" oder schauen Sie verwirrt. Sie werden ins Englische wechseln.</p>
-  <p>Sagen Sie stattdessen "Es ist laut hier" oder "Entschuldigung, ich bin auf einem Ohr etwas taub." (Lernen Sie diese Sätze!). Sie werden sich lauter und deutlicher wiederholen, aber immer noch in der Zielsprache.</p>
-
-  <h2>Hack 4: Gehen Sie dorthin, wo Englisch nicht hingeht</h2>
-  <p>Touristenfallen beschäftigen Englischsprachige. Gehen Sie 3 Blocks vom Hauptplatz entfernt. Finden Sie die Kneipe, in der alte Männer Fußball schauen. Sie <em>können</em> wahrscheinlich kein Englisch sprechen, selbst wenn sie wollten. Sie werden gezwungen sein, zu überleben.</p>
-
+  <p>Sie können gerade nicht reisen? Gültige Ausrede. Aber Sie brauchen kein Flugticket, um einzutauchen. Sie brauchen diese Hacks.</p>
+  <h2>1. Der Google Maps-Hack</h2>
+  <p>Gehen Sie zu Google Maps. Setzen Sie das "Street View"-Männchen in eine zufällige Straße in Tokio/Paris/Seoul. Schauen Sie sich die Schilder an. Lesen Sie die Plakatwände. Gehen Sie die Straße entlang. Das ist virtuelle Immersion.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Laden Sie "Radio Garden" herunter. Sie können damit Live-Radio aus jeder Stadt der Erde hören. Hören Sie den lokalen DJs in Buenos Aires zu, während Sie abwaschen. Das ist Slang in Echtzeit.</p>
+  <h2>3. Ändern Sie Ihre Telefonsprache</h2>
+  <p>Das ist der älteste Trick, aber tun Sie es. Sie schauen 80 Mal am Tag auf Ihr Telefon. Wenn es auf Spanisch ist, sind das 80 Spanischstunden. Sie lernen Wörter wie "Einstellungen", "Speicher", "Netzwerk", ohne es zu versuchen.</p>
   <div class="tip-box">
-     <strong>Goldene Regel:</strong> Wenn sie ins Englische wechseln, sprechen Sie weiter die Zielsprache. Die meisten Leute werden zurückwechseln, sobald sie merken, dass Sie hartnäckig sind. Seien Sie stur.
+    <strong>Profi-Tipp:</strong> Nutzen Sie Airbnb Experiences, um einen Online-Kochkurs mit einem Einheimischen zu buchen. "Wie man Pasta mit einer Nonna in Rom macht." Sie lernen Sprache + Kultur + Essen.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_TH = `
 <article>
-  <p>คุณเรียนภาษาสเปนมา 2 ปี คุณไปบาร์เซโลนา คุณเดินเข้าไปในร้านเบเกอรี่ คุณพร้อมแล้ว</p>
-  <p>คุณ: "Hola, me gustaría... umm... pan?"</p>
-  <p>คนขายขนมปัง: "Bread? Sure, here you go. That's 2 euros." (เป็นภาษาอังกฤษ)</p>
-  <p>ความพ่ายแพ้อย่างราบคาบ พวกเขาเปลี่ยนไปใช้ภาษาอังกฤษ คุณจะป้องกันสิ่งนี้ได้อย่างไร? คุณต้องส่งสัญญาณว่าคุณเป็นผู้พูดที่จริงจัง ไม่ใช่นักท่องเที่ยว</p>
-
-  <h2>เคล็ดลับ 1: กลเม็ด "คำเติม (Filler Word)"</h2>
-  <p>นักท่องเที่ยวจะพูดว่า "อืม..." หรือ "เอ่อ..." ขณะคิด คนท้องถิ่นส่งเสียงที่ต่างออกไป ในภาษาสเปน พูดว่า "Este..." หรือ "Pues..." ในภาษาญี่ปุ่น พูดว่า "Ehto..." ในภาษาฝรั่งเศส "Euh..."</p>
-  <p>การใช้เสียงลังเลแบบท้องถิ่นส่งสัญญาณว่าสมองของคุณทำงานในโหมดภาษานั้น มันช่วยซื้อเวลาให้คุณโดยไม่ทำลายความลื่นไหล</p>
-
-  <h2>เคล็ดลับ 2: ทักทายให้สมบูรณ์แบบ</h2>
-  <p>คุณมีเวลา 3 วินาทีในการสร้างความประทับใจ หาก "Bonjour" ของคุณลังเลและมีสำเนียง พวกเขาจะเปลี่ยนเป็นภาษาอังกฤษ ฝึกทักทาย 500 ครั้ง ให้ทำนอง ระดับเสียง และท่าทางสมบูรณ์แบบ หากคุณพูดคำแรกได้เป๊ะ พวกเขาจะคิดว่าคุณพูดส่วนที่เหลือได้</p>
-
-  <h2>เคล็ดลับ 3: กลยุทธ์ "ฉันไม่ได้ยินคุณ"</h2>
-  <p>ถ้าคุณไม่เข้าใจ ห้ามพูดว่า "What?" หรือทำหน้าสับสน พวกเขาจะเปลี่ยนเป็นภาษาอังกฤษ</p>
-  <p>ให้พูดว่า "ที่นี่เสียงดังจัง" หรือ "ขอโทษที หูฉันตึงข้างหนึ่ง" (จำวลีเหล่านี้ไว้!) พวกเขาจะพูดซ้ำให้ดังขึ้นและชัดเจนขึ้น แต่ก็ยังเป็นภาษาเป้าหมาย</p>
-
-  <h2>เคล็ดลับ 4: ไปที่ที่ภาษาอังกฤษไปไม่ถึง</h2>
-  <p>กับดักนักท่องเที่ยวจ้างคนที่พูดภาษาอังกฤษ ไปให้ห่างจากจัตุรัสหลัก 3 บล็อก หาร้านเหล้าซอมซ่อที่คนแก่ดูฟุตบอล พวกเขาอาจจะ <em>ไม่สามารถ</em> พูดภาษาอังกฤษได้แม้ว่าพวกเขาจะต้องการ คุณจะถูกบังคับให้เอาตัวรอด</p>
-
+  <p>เดินทางไม่ได้ตอนนี้ใช่ไหม? ข้ออ้างฟังขึ้น แต่คุณไม่ตั๋วเครื่องบินเพื่อซึมซับภาษา คุณต้องการเคล็ดลับเหล่านี้</p>
+  <h2>1. เคล็ดลับ Google Maps</h2>
+  <p>ไปที่ Google Maps วางมนุษย์ "Street View" ลงในถนนสักแห่งในโตเกียว/ปารีส/โซล ดูป้าย อ่านบิลบอร์ด เดินไปตามถนน นี่คือการซึมซับเสมือนจริง</p>
+  <h2>2. Radio Garden</h2>
+  <p>ดาวน์โหลด "Radio Garden" มันให้คุณฟังวิทยุสดจากเมืองใดก็ได้บนโลก ฟังดีเจท้องถิ่นในบัวโนสไอเรสขณะล้างจาน นี่คือสแลงแบบเรียลไทม์</p>
+  <h2>3. เปลี่ยนภาษาในโทรศัพท์ของคุณ</h2>
+  <p>นี่เป็นวิธีที่เก่าแก่ที่สุด แต่ทำเถอะ คุณดูโทรศัพท์วันละ 80 ครั้ง ถ้ามันเป็นภาษาสเปน นั่นคือบทเรียนภาษาสเปน 80 ครั้ง คุณจะเรียนรู้คำว่า "การตั้งค่า", "พื้นที่จัดเก็บ", "เครือข่าย" โดยไม่ต้องพยายาม</p>
   <div class="tip-box">
-     <strong>กฎทอง:</strong> หากพวกเขาเปลี่ยนเป็นภาษาอังกฤษ ให้พูดภาษาเป้าหมายต่อไป คนส่วนใหญ่จะเปลี่ยนกลับเมื่อพวกเขารู้ว่าคุณดื้อรั้น จงดื้อรั้นเข้าไว้
+    <strong>เคล็ดลับโปร:</strong> ใช้ Airbnb Experiences เพื่อจองคลาสทำอาหารออนไลน์กับคนท้องถิ่น "วิธีทำพาสต้ากับคุณยายในโรม" คุณจะได้เรียนรู้ภาษา + วัฒนธรรม + อาหาร
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_VI = `
 <article>
-  <p>Bạn đã học tiếng Tây Ban Nha trong 2 năm. Bạn đến Barcelona. Bạn bước vào một tiệm bánh. Bạn đã sẵn sàng.</p>
-  <p>Bạn: "Hola, me gustaría... umm... pan?"</p>
-  <p>Thợ làm bánh: "Bread? Sure, here you go. That's 2 euros." (Bằng tiếng Anh)</p>
-  <p>Thất bại thảm hại. Họ chuyển sang tiếng Anh. Làm thế nào để bạn ngăn chặn điều này? Bạn cần ra hiệu rằng bạn là một người nói chuyện nghiêm túc, không phải là khách du lịch.</p>
-
-  <h2>Mẹo 1: Thủ thuật "Từ lấp đầy (Filler Word)"</h2>
-  <p>Khách du lịch nói "Ummm..." hoặc "Uhh..." trong khi suy nghĩ. Người dân địa phương phát ra những âm thanh khác nhau. Trong tiếng Tây Ban Nha, hãy nói "Este..." hoặc "Pues...". Trong tiếng Nhật, hãy nói "Ehto...". Trong tiếng Pháp, "Euh...".</p>
-  <p>Sử dụng âm thanh ngập ngừng của địa phương báo hiệu não của bạn đang hoạt động ở chế độ ngôn ngữ đó. Nó giúp bạn có thêm thời gian mà không phá vỡ sự nhập tâm.</p>
-
-  <h2>Mẹo 2: Hoàn thiện lời chào</h2>
-  <p>Bạn có 3 giây để tạo ấn tượng. Nếu câu "Bonjour" của bạn ngập ngừng và có giọng, họ sẽ chuyển sang tiếng Anh. Thực hành lời chào 500 lần. Có được giai điệu, cao độ và thái độ hoàn hảo. Nếu bạn nói chuẩn từ đầu tiên, họ sẽ cho rằng bạn có thể nói phần còn lại.</p>
-
-  <h2>Mẹo 3: Chiến thuật "Tôi không nghe thấy bạn"</h2>
-  <p>Nếu bạn không hiểu, ĐỪNG BAO GIỜ nói "What?" hoặc trông bối rối. Họ sẽ chuyển sang tiếng Anh.</p>
-  <p>Thay vào đó, hãy nói "Ở đây ồn quá" hoặc "Xin lỗi, tôi bị điếc một bên tai." (Hãy học những câu này!). Họ sẽ lặp lại to hơn và rõ ràng hơn, nhưng vẫn bằng ngôn ngữ mục tiêu.</p>
-
-  <h2>Mẹo 4: Đi đến nơi tiếng Anh không đến</h2>
-  <p>Bẫy du lịch thuê những người nói tiếng Anh. Đi cách quảng trường chính 3 dãy nhà. Tìm quán bar tồi tàn nơi những người đàn ông lớn tuổi đang xem bóng đá. Họ có lẽ <em>không thể</em> nói tiếng Anh ngay cả khi họ muốn. Bạn sẽ bị buộc phải sinh tồn.</p>
-
+  <p>Bạn không thể đi du lịch ngay bây giờ? Lý do chính đáng. Nhưng bạn không cần vé máy bay để đắm mình vào ngôn ngữ. Bạn cần những mẹo này.</p>
+  <h2>1. Mẹo Google Maps</h2>
+  <p>Vào Google Maps. Thả người "Street View" vào một con phố ngẫu nhiên ở Tokyo/Paris/Seoul. Nhìn vào các biển báo. Đọc các bảng quảng cáo. Đi bộ xuống phố. Đây là sự đắm mình ảo.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Tải xuống "Radio Garden". Nó cho phép bạn nghe đài phát thanh trực tiếp từ bất kỳ thành phố nào trên Trái đất. Nghe các DJ địa phương ở Buenos Aires trong khi bạn rửa bát. Đây là tiếng lóng thời gian thực.</p>
+  <h2>3. Thay đổi Ngôn ngữ Điện thoại của Bạn</h2>
+  <p>Đây là thủ thuật cũ nhất, nhưng hãy làm đi. Bạn nhìn vào điện thoại 80 lần một ngày. Nếu nó bằng tiếng Tây Ban Nha, đó là 80 bài học tiếng Tây Ban Nha. Bạn sẽ học các từ như "Cài đặt", "Lưu trữ", "Mạng" mà không cần cố gắng.</p>
   <div class="tip-box">
-     <strong>Quy tắc vàng:</strong> Nếu họ chuyển sang tiếng Anh, hãy tiếp tục nói ngôn ngữ mục tiêu. Hầu hết mọi người sẽ chuyển lại khi họ nhận ra bạn kiên trì. Hãy bướng bỉnh.</p>
+    <strong>Mẹo chuyên nghiệp:</strong> Sử dụng Airbnb Experiences để đặt lớp học nấu ăn trực tuyến với người địa phương. "Cách làm mì ống với một bà ngoại ở Rome." Bạn học ngôn ngữ + văn hóa + ẩm thực.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_ID = `
 <article>
-  <p>Anda belajar bahasa Spanyol selama 2 tahun. Anda pergi ke Barcelona. Anda masuk ke toko roti. Anda siap.</p>
-  <p>Anda: "Hola, me gustaría... umm... pan?"</p>
-  <p>Pembuat Roti: "Bread? Sure, here you go. That's 2 euros." (Dalam bahasa Inggris)</p>
-  <p>Kekalahan telak. Mereka beralih ke bahasa Inggris. Bagaimana Anda mencegah hal ini? Anda perlu memberi sinyal bahwa Anda adalah pembicara yang serius, bukan turis.</p>
-
-  <h2>Hack 1: Trik "Kata Pengisi (Filler Word)"</h2>
-  <p>Turis mengucapkan "Ummm..." atau "Uhh..." saat berpikir. Penduduk setempat membuat suara yang berbeda. Dalam bahasa Spanyol, katakan "Este..." atau "Pues...". Dalam bahasa Jepang, katakan "Ehto...". Dalam bahasa Prancis, "Euh...".</p>
-  <p>Menggunakan suara ragu-ragu lokal menandakan otak Anda beroperasi dalam mode bahasa itu. Itu memberi Anda waktu tanpa memecah imersi.</p>
-
-  <h2>Hack 2: Sempurnakan Salam</h2>
-  <p>Anda memiliki 3 detik untuk membuat kesan. Jika "Bonjour" Anda ragu-ragu dan beraksen, mereka akan beralih ke bahasa Inggris. Latih salam 500 kali. Dapatkan melodi, nada, dan sikap yang sempurna. Jika Anda berhasil mengucapkan kata pertama, mereka akan menganggap Anda dapat berbicara sisanya.</p>
-
-  <h2>Hack 3: Taktik "Saya tidak mendengar Anda"</h2>
-  <p>Jika Anda tidak mengerti, JANGAN PERNAH mengatakan "What?" atau terlihat bingung. Mereka akan beralih ke bahasa Inggris.</p>
-  <p>Sebaliknya, katakan "Di sini berisik" atau "Maaf, telinga saya agak tuli sebelah." (Pelajari frasa ini!). Mereka akan mengulanginya lebih keras dan lebih jelas, tetapi tetap dalam bahasa target.</p>
-
-  <h2>Hack 4: Pergi ke Tempat Bahasa Inggris Tidak Pergi</h2>
-  <p>Jebakan turis mempekerjakan penutur bahasa Inggris. Pergilah 3 blok dari alun-alun utama. Temukan bar kumuh tempat orang-orang tua menonton sepak bola. Mereka mungkin <em>tidak bisa</em> berbicara bahasa Inggris bahkan jika mereka mau. Anda akan dipaksa untuk bertahan hidup.</p>
-
+  <p>Tidak bisa bepergian sekarang? Alasan yang valid. Tapi Anda tidak butuh tiket pesawat untuk membenamkan diri. Anda butuh trik-trik ini.</p>
+  <h2>1. Trik Google Maps</h2>
+  <p>Buka Google Maps. Jatuhkan orang "Street View" di jalan acak di Tokyo/Paris/Seoul. Lihat rambu-rambunya. Baca papan reklame. Berjalanlah menyusuri jalan. Ini adalah imers virtual.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Unduh "Radio Garden". Ini memungkinkan Anda mendengarkan radio langsung dari kota mana pun di Bumi. Dengarkan DJ lokal di Buenos Aires sambil mencuci piring. Ini adalah bahasa gaul waktu nyata.</p>
+  <h2>3. Ubah Bahasa Ponsel Anda</h2>
+  <p>Ini trik tertua, tapi lakukanlah. Anda melihat ponsel Anda 80 kali sehari. Jika dalam bahasa Spanyol, itu 80 pelajaran bahasa Spanyol. Anda akan belajar kata-kata seperti "Pengaturan", "Penyimpanan", "Jaringan" tanpa berusaha.</p>
   <div class="tip-box">
-     <strong>Aturan Emas:</strong> Jika mereka beralih ke bahasa Inggris, teruslah berbicara dalam bahasa target. Kebanyakan orang akan beralih kembali begitu mereka menyadari bahwa Anda gigih. Jadilah keras kepala.
+    <strong>Tips Pro:</strong> Gunakan Airbnb Experiences untuk memesan kelas memasak online dengan penduduk lokal. "Cara membuat pasta dengan Nenek di Roma." Anda belajar bahasa + budaya + makanan.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_PT = `
 <article>
-  <p>Você estudou espanhol por 2 anos. Você vai para Barcelona. Você entra em uma padaria. Você está pronto.</p>
-  <p>Você: "Hola, me gustaría... umm... pan?"</p>
-  <p>Padeiro: "Bread? Sure, here you go. That's 2 euros." (Em inglês)</p>
-  <p>Derrota esmagadora. Eles mudaram para o inglês. Como você evita isso? Você precisa sinalizar que é um falante sério, não um turista.</p>
-
-  <h2>Dica 1: O truque da "Palavra de Preenchimento"</h2>
-  <p>Turistas dizem "Ummm..." ou "Uhh..." enquanto pensam. Os locais fazem sons diferentes. Em espanhol, diga "Este..." ou "Pues...". Em japonês, diga "Ehto...". Em francês, "Euh...".</p>
-  <p>Usar o som de hesitação local sinaliza que seu cérebro está operando nesse modo de idioma. Isso ganha tempo sem quebrar a imersão.</p>
-
-  <h2>Dica 2: Aperfeiçoe a Saudação</h2>
-  <p>Você tem 3 segundos para causar uma impressão. Se o seu "Bonjour" for hesitante e com sotaque, eles mudarão para o inglês. Pratique a saudação 500 vezes. Tenha a melodia, o tom e a atitude perfeitos. Se você acertar a primeira palavra, eles assumirão que você consegue falar o resto.</p>
-
-  <h2>Dica 3: A tática "Eu não te ouvi"</h2>
-  <p>Se você não entender, NUNCA diga "What?" ou pareça confuso. Eles mudarão para o inglês.</p>
-  <p>Em vez disso, diga "Está barulhento aqui" ou "Desculpe, sou um pouco surdo de um ouvido." (Aprenda essas frases!). Eles se repetirão mais alto e mais claro, mas ainda no idioma de destino.</p>
-
-  <h2>Dica 4: Vá Onde o Inglês Não Vai</h2>
-  <p>Armadilhas para turistas empregam falantes de inglês. Vá a 3 quarteirões da praça principal. Encontre o bar decadente onde velhos estão assistindo futebol. Eles provavelmente <em>não conseguem</em> falar inglês, mesmo se quisessem. Você será forçado a sobreviver.</p>
-
+  <p>Não pode viajar agora? Desculpa válida. Mas você não precisa de uma passagem de avião para se imergir. Você precisa desses truques.</p>
+  <h2>1. O Truque do Google Maps</h2>
+  <p>Vá para o Google Maps. Solte o bonequinho do "Street View" em uma rua aleatória em Tóquio/Paris/Seul. Olhe para os sinais. Leia os outdoors. Caminhe pela rua. É imersão virtual.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Baixe o "Radio Garden". Ele permite que você ouça rádio ao vivo de qualquer cidade da Terra. Ouça os DJs locais em Buenos Aires enquanto lava a louça. É gíria em tempo real.</p>
+  <h2>3. Mude o Idioma do Seu Telefone</h2>
+  <p>Este é o truque mais antigo, mas faça. Você olha para o seu telefone 80 vezes por dia. Se estiver em espanhol, são 80 lições de espanhol. Você aprenderá palavras como "Configurações", "Armazenamento", "Rede" sem tentar.</p>
   <div class="tip-box">
-     <strong>Regra de Ouro:</strong> Se eles mudarem para o inglês, continue falando o idioma de destino. A maioria das pessoas mudará de volta assim que perceber que você é persistente. Seja teimoso.
+    <strong>Dica Pro:</strong> Use o Airbnb Experiences para reservar uma aula de culinária online com um local. "Como fazer massa com uma Nonna em Roma." Você aprende idioma + cultura + comida.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_TR = `
 <article>
-  <p>2 yıl İspanyolca çalıştınız. Barselona'ya gidiyorsunuz. Bir fırına giriyorsunuz. Hazırsınız.</p>
-  <p>Siz: "Hola, me gustaría... umm... pan?"</p>
-  <p>Fırıncı: "Ekmek? Tabii, buyurun. 2 euro." (İngilizce olarak)</p>
-  <p>Ezici yenilgi. İngilizce'ye geçtiler. Bunu nasıl önlersiniz? Turist değil, ciddi bir konuşmacı olduğunuzun sinyalini vermelisiniz.</p>
-
-  <h2>Tüyo 1: "Dolgu Kelimesi" Numarası</h2>
-  <p>Turistler düşünürken "Ummm..." veya "Uhh..." derler. Yerliler farklı sesler çıkarır. İspanyolcada "Este..." veya "Pues..." deyin. Japoncada "Ehto..." deyin. Fransızcada "Euh...".</p>
-  <p>Yerel tereddüt sesini kullanmak beyninizin o dil modunda çalıştığının sinyalini verir. Daldırmayı bozmadan size zaman kazandırır.</p>
-
-  <h2>Tüyo 2: Selamlamayı Mükemmelleştirin</h2>
-  <p>Bir izlenim bırakmak için 3 saniyeniz var. "Bonjour"unuz tereddütlü ve aksanlıysa, İngilizce'ye geçeceklerdir. Selamlamayı 500 kez çalışın. Melodiyi, perdeyi ve tavrı mükemmel hale getirin. İlk kelimeyi tutturursanız, gerisini konuşabileceğinizi varsayacaklardır.</p>
-
-  <h2>Tüyo 3: "Sizi duymadım" Taktiği</h2>
-  <p>Anlamıyorsanız, ASLA "Ne?" demeyin veya kafası karışmış görünmeyin. İngilizce'ye geçeceklerdir.</p>
-  <p>Bunun yerine, "Burası gürültülü" veya "Pardon, bir kulağım biraz sağır." deyin (Bu ifadeleri öğrenin!). Kendilerini daha yüksek sesle ve daha net tekrarlayacaklar, ancak yine de hedef dilde.</p>
-
-  <h2>Tüyo 4: İngilizcenin Gitmediği Yere Gidin</h2>
-  <p>Turist tuzakları İngilizce konuşanları çalıştırır. Ana meydandan 3 blok öteye gidin. Yaşlı adamların futbol izlediği o salaş barı bulun. Muhtemelen isteseler bile İngilizce <em>konuşamazlar</em>. Hayatta kalmak zorunda kalacaksınız.</p>
-
+  <p>Şu anda seyahat edemiyor musunuz? Geçerli bir bahane. Ama kendinizi kaptırmak için uçak biletine ihtiyacınız yok. Bu hilelere ihtiyacınız var.</p>
+  <h2>1. Google Haritalar Hilesi</h2>
+  <p>Google Haritalar'a gidin. "Sokak Görünümü" adamını Tokyo/Paris/Seul'de rastgele bir sokağa bırakın. Tabelalara bakın. Reklam panolarını okuyun. Sokakta yürüyün. Bu sanal bir daldırmadır.</p>
+  <h2>2. Radio Garden</h2>
+  <p>"Radio Garden"ı indirin. Dünyadaki herhangi bir şehirden canlı radyo dinlemenizi sağlar. Bulaşık yıkarken Buenos Aires'teki yerel DJ'leri dinleyin. Bu gerçek zamanlı argodur.</p>
+  <h2>3. Telefon Dilinizi Değiştirin</h2>
+  <p>Bu en eski numara ama yapın. Günde 80 kez telefonunuza bakıyorsunuz. İspanyolcaysa, bu 80 İspanyolca dersi demek. Denemeden "Ayarlar", "Depolama", "Ağ" gibi kelimeleri öğreneceksiniz.</p>
   <div class="tip-box">
-     <strong>Altın Kural:</strong> İngilizce'ye geçerlerse, hedef dili konuşmaya devam edin. Çoğu insan ısrarcı olduğunuzu fark ettiğinde geri dönecektir. İnatçı olun.
+    <strong>Profesyonel İpucu:</strong> Bir yerliyle çevrimiçi yemek pişirme dersi ayırtmak için Airbnb Deneyimlerini kullanın. "Roma'da bir Nonna ile makarna nasıl yapılır." Dil + kültür + yemek öğrenirsiniz.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_AR = `
 <article>
-  <p>درست اللغة الإسبانية لمدة عامين. تذهب إلى برشلونة. تدخل مخبزاً. أنت مستعد.</p>
-  <p>أنت: "Hola, me gustaría... umm... pan?"</p>
-  <p>الخباز: "Bread? Sure, here you go. That's 2 euros." (باللغة الإنجليزية)</p>
-  <p>هزيمة ساحقة. تحولوا إلى الإنجليزية. كيف تمنع هذا؟ تحتاج إلى الإشارة إلى أنك متحدث جاد، لست سائحاً.</p>
-
-  <h2>الحيلة 1: خدعة "كلمة الحشو"</h2>
-  <p>السياح يقولون "Ummm..." أو "Uhh..." أثناء التفكير. السكان المحليون يصدرون أصواتاً مختلفة. باللغة الإسبانية، قل "Este..." أو "Pues...". باليابانية، قل "Ehto...". بالفرنسية، "Euh...".</p>
-  <p>استخدام صوت التردد المحلي يشير إلى أن عقلك يعمل في وضع تلك اللغة. يمنحك وقتاً دون كسر الانغماس.</p>
-
-  <h2>الحيلة 2: إتقان التحية</h2>
-  <p>لديك 3 ثوانٍ لترك انطباع. إذا كانت "Bonjour" الخاصة بك مترددة وبلكنة، فسيتحولون إلى الإنجليزية. تدرب على التحية 500 مرة. اضبط اللحن والنبرة والموقف بشكل مثالي. إذا نجحت في الكلمة الأولى، فسيفترضون أنه يمكنك التحدث بالباقي.</p>
-
-  <h2>الحيلة 3: تكتيك "لم أسمعك"</h2>
-  <p>إذا لم تفهم، لا تقل أبداً "What?" أو تبدو مرتبكاً. سيتحولون إلى الإنجليزية.</p>
-  <p>بدلاً من ذلك، قل "المكان صاخب هنا" أو "آسف، أنا أصم قليلاً في أذن واحدة." (تعلم هذه العبارات!). سيكررون أنفسهم بصوت أعلى وأوضح، ولكن لا يزالون باللغة المستهدفة.</p>
-
-  <h2>الحيلة 4: اذهب حيث لا تذهب الإنجليزية</h2>
-  <p>الفخاخ السياحية توظف متحدثي الإنجليزية. اذهب 3 مربعات سكنية بعيداً عن الساحة الرئيسية. ابحث عن البار المتهالك حيث يشاهد الرجال العجائز كرة القدم. ربما <em>لا يستطيعون</em> التحدث بالإنجليزية حتى لو أرادوا ذلك. ستجبر على البقاء على قيد الحياة.</p>
-
+  <p>لا تستطيع السفر الآن؟ عذر مقبول. لكنك لست بحاجة إلى تذكرة طائرة لتغمر نفسك. أنت بحاجة إلى هذه الحيل.</p>
+  <h2>1. حيلة خرائط جوجل</h2>
+  <p>اذهب إلى خرائط جوجل. أسقط رجل "التجول الافتراضي" في شارع عشوائي في طوكيو/باريس/سيول. انظر إلى اللافتات. اقرأ اللوحات الإعلانية. امشي في الشارع. إنه انغماس افتراضي.</p>
+  <h2>2. Radio Garden</h2>
+  <p>قم بتنزيل "Radio Garden". يتيح لك الاستماع إلى الراديو المباشر من أي مدينة على وجه الأرض. استمع إلى منسقي الأغاني المحليين في بوينس آيرس أثناء غسل الأطباق. إنها لغة عامية في الوقت الفعلي.</p>
+  <h2>3. قم بتغيير لغة هاتفك</h2>
+  <p>هذه هي أقدم خدعة، لكن افعلها. تنظر إلى هاتفك 80 مرة في اليوم. إذا كان باللغة الإسبانية، فهذا يعني 80 درسًا في اللغة الإسبانية. ستتعلم كلمات مثل "الإعدادات"، "التخزين"، "الشبكة" دون محاولة.</p>
   <div class="tip-box">
-     <strong>القاعدة الذهبية:</strong> إذا تحولوا إلى الإنجليزية، استمر في التحدث باللغة المستهدفة. سيتحول معظم الناس مرة أخرى بمجرد أن يدركوا أنك مثابر. كن عنيداً.
+    <strong>نصيحة للمحترفين:</strong> استخدم تجارب Airbnb لحجز درس طبخ عبر الإنترنت مع مواطن محلي. "كيف تصنع المعكرونة مع جدة في روما." تتعلم اللغة + الثقافة + الطعام.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_HI = `
 <article>
-  <p>आपने 2 साल तक स्पेनिश का अध्ययन किया। आप बार्सिलोना जाते हैं। आप एक बेकरी में जाते हैं। आप तैयार हैं।</p>
-  <p>आप: "Hola, me gustaría... umm... pan?"</p>
-  <p>बेकर: "Bread? Sure, here you go. That's 2 euros." (अंग्रेजी में)</p>
-  <p>करारी हार। उन्होंने अंग्रेजी में स्विच कर लिया। आप इसे कैसे रोकते हैं? आपको संकेत देने की आवश्यकता है कि आप एक गंभीर वक्ता हैं, पर्यटक नहीं।</p>
-
-  <h2>हैक्स 1: "फ़िलर वर्ड (Filler Word)" ट्रिक</h2>
-  <p>पर्यटक सोचते समय "उम्म..." या "उह..." कहते हैं। स्थानीय लोग अलग आवाजें निकालते हैं. स्पेनिश में, "Este..." या "Pues..." कहें। जापानी में, "Ehto..." कहें। फ्रेंच में, "Euh..."।</p>
-  <p>स्थानीय हिचकिचाहट ध्वनि का उपयोग करना यह संकेत देता है कि आपका मस्तिष्क उस भाषा मोड में काम कर रहा है। यह विसर्जन को तोड़े बिना आपको समय देता है।</p>
-
-  <h2>हैक्स 2: अभिवादन को सही करें</h2>
-  <p>प्रभाव बनाने के लिए आपके पास 3 सेकंड हैं। यदि आपका "Bonjour" हिचकिचाहट वाला और उच्चारण वाला है, तो वे अंग्रेजी में स्विच कर लेंगे। अभिवादन का 500 बार अभ्यास करें। माधुर्य, पिच और दृष्टिकोण को एकदम सही करें। यदि आप पहले शब्द को सही कर लेते हैं, तो वे मान लेंगे कि आप बाकी बोल सकते हैं।</p>
-
-  <h2>हैक्स 3: "मैंने आपको नहीं सुना" रणनीति</h2>
-  <p>यदि आप नहीं समझते हैं, तो कभी भी "What?" न कहें या भ्रमित न दिखें। वे अंग्रेजी में स्विच कर लेंगे।</p>
-  <p>इसके बजाय, कहें "यहाँ शोर है" या "माफ़ करना, मैं एक कान से थोड़ा बहरा हूँ।" (इन वाक्यांशों को सीखें!)। वे खुद को ज़ोर से और स्पष्ट दोहराएंगे, लेकिन फिर भी लक्षित भाषा में।</p>
-
-  <h2>हैक्स 4: वहां जाएं जहां अंग्रेजी नहीं जाती</h2>
-  <p>पर्यटक जाल अंग्रेजी बोलने वालों को नियुक्त करते हैं। मुख्य वर्ग से 3 ब्लॉक दूर जाएं। वह गोता बार खोजें जहाँ बूढ़े लोग फ़ुटबॉल देख रहे हैं। वे शायद चाहकर भी अंग्रेजी <em>नहीं</em> बोल सकते। आपको जीवित रहने के लिए मजबूर किया जाएगा।</p>
-
+  <p>अभी यात्रा नहीं कर सकते? जायज़ बहाना है। लेकिन खुद को विसर्जित करने के लिए आपको हवाई जहाज के टिकट की आवश्यकता नहीं है। आपको इन हैक्स की जरूरत है।</p>
+  <h2>1. Google मैप्स हैक</h2>
+  <p>Google मैप्स पर जाएं। "स्ट्रीट व्यू" वाले आदमी को टोक्यो/पेरिस/सियोल की किसी भी सड़क पर छोड़ दें। संकेतों को देखें। होर्डिंग पढ़ें। सड़क पर चलें। यह आभासी विसर्जन है।</p>
+  <h2>2. रेडियो गार्डन (Radio Garden)</h2>
+  <p>"रेडियो गार्डन" डाउनलोड करें। यह आपको पृथ्वी के किसी भी शहर से लाइव रेडियो सुनने देता है। बर्तन धोते समय ब्यूनस आयर्स के स्थानीय डीजे को सुनें। यह वास्तविक समय की कठबोली (slang) है।</p>
+  <h2>3. अपने फोन की भाषा बदलें</h2>
+  <p>यह सबसे पुरानी चाल है, लेकिन इसे करें। आप दिन में 80 बार अपना फोन देखते हैं। यदि यह स्पेनिश में है, तो यह 80 स्पेनिश पाठ हैं। आप बिना कोशिश किए "सेटिंग्स", "स्टोरेज", "नेटवर्क" जैसे शब्द सीखेंगे।</p>
   <div class="tip-box">
-     <strong>सुनहरा नियम:</strong> यदि वे अंग्रेजी में स्विच करते हैं, तो लक्षित भाषा बोलना जारी रखें। अधिकांश लोग वापस स्विच करेंगे जब उन्हें पता चलेगा कि आप दृढ़ हैं। जिद्दी बनो।
+    <strong>प्रो टिप:</strong> स्थानीय व्यक्ति के साथ ऑनलाइन कुकिंग क्लास बुक करने के लिए Airbnb अनुभवों का उपयोग करें। "रोम में एक नॉनना के साथ पास्ता कैसे बनाएं।" आप भाषा + संस्कृति + भोजन सीखते हैं।
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_RU = `
 <article>
-  <p>Вы учили испанский 2 года. Вы едете в Барселону. Вы заходите в пекарню. Вы готовы.</p>
-  <p>Вы: «Hola, me gustaría... umm... pan?»</p>
-  <p>Пекарь: «Bread? Sure, here you go. That's 2 euros.» (По-английски)</p>
-  <p>Сокрушительное поражение. Они перешли на английский. Как это предотвратить? Вам нужно дать сигнал, что вы серьезный собеседник, а не турист.</p>
-
-  <h2>Хак 1: Трюк с «Словом-паразитом»</h2>
-  <p>Туристы говорят «Эээ...» или «Ммм...», когда думают. Местные издают другие звуки. По-испански скажите «Este...» или «Pues...». По-японски скажите «Ehto...». По-французски «Euh...».</p>
-  <p>Использование местного звука колебания сигнализирует, что ваш мозг работает в режиме этого языка. Это выигрывает вам время, не нарушая погружения.</p>
-
-  <h2>Хак 2: Отточите приветствие</h2>
-  <p>У вас есть 3 секунды, чтобы произвести впечатление. Если ваше «Bonjour» неуверенное и с акцентом, они перейдут на английский. Практикуйте приветствие 500 раз. Доведите мелодию, высоту тона и отношение до совершенства. Если вы справитесь с первым словом, они предположат, что вы можете сказать и остальное.</p>
-
-  <h2>Хак 3: Тактика «Я вас не расслышал»</h2>
-  <p>Если вы не понимаете, НИКОГДА не говорите «What?» и не выглядите растерянным. Они перейдут на английский.</p>
-  <p>Вместо этого скажите «Здесь шумно» или «Извините, я немного глуховат на одно ухо». (Выучите эти фразы!). Они повторят громче и четче, но все же на целевом языке.</p>
-
-  <h2>Хак 4: Идите туда, куда не доходит английский</h2>
-  <p>В туристических ловушках работают англоговорящие. Идите на 3 квартала от главной площади. Найдите забегаловку, где старики смотрят футбол. Они, вероятно, <em>не могут</em> говорить по-английски, даже если бы захотели. Вы будете вынуждены выживать.</p>
-
+  <p>Не можете путешествовать прямо сейчас? Веская причина. Но вам не нужен билет на самолет, чтобы погрузиться в среду. Вам нужны эти хаки.</p>
+  <h2>1. Хак с Google Maps</h2>
+  <p>Зайдите в Google Maps. Бросьте человечка «Просмотр улиц» на случайную улицу в Токио/Париже/Сеуле. Посмотрите на знаки. Почитайте рекламные щиты. Пройдитесь по улице. Это виртуальное погружение.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Скачайте «Radio Garden». Оно позволяет слушать радио в прямом эфире из любого города Земли. Слушайте местных диджеев в Буэнос-Айресе, пока моете посуду. Это сленг в реальном времени.</p>
+  <h2>3. Измените язык телефона</h2>
+  <p>Это самый старый трюк, но сделайте это. Вы смотрите на телефон 80 раз в день. Если он на испанском, это 80 уроков испанского. Вы выучите такие слова, как «Настройки», «Хранилище», «Сеть», даже не пытаясь.</p>
   <div class="tip-box">
-     <strong>Золотое правило:</strong> Если они переходят на английский, продолжайте говорить на целевом языке. Большинство людей переключится обратно, как только поймут, что вы настойчивы. Будьте упрямы.
+    <strong>Совет профи:</strong> Используйте Airbnb Experiences, чтобы забронировать онлайн-урок кулинарии с местным жителем. «Как приготовить пасту с бабушкой в Риме». Вы учите язык + культуру + еду.
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_BN = `
 <article>
-  <p>আপনি ২ বছর স্প্যানিশ শিখেছেন। আপনি বার্সেলোনা যান। আপনি একটি বেকারিতে প্রবেশ করেন। আপনি প্রস্তুত।</p>
-  <p>আপনি: "Hola, me gustaría... umm... pan?"</p>
-  <p>রুটিওয়ালা: "Bread? Sure, here you go. That's 2 euros." (ইংরেজিতে)</p>
-  <p>চরম পরাজয়। তারা ইংরেজিতে চলে গেছে। আপনি কিভাবে এটি প্রতিরোধ করবেন? আপনাকে সংকেত দিতে হবে যে আপনি একজন গুরুতর বক্তা, পর্যটক নন।</p>
-
-  <h2>হ্যাক ১: "ফিলার ওয়ার্ড (Filler Word)" কৌশল</h2>
-  <p>পর্যটকরা চিন্তা করার সময় "উমম..." বা "উহ..." বলে। স্থানীয়রা ভিন্ন শব্দ করে। স্প্যানিশ ভাষায়, বলুন "Este..." বা "Pues..."। জাপানি ভাষায়, বলুন "Ehto..."। ফরাসি ভাষায়, "Euh..."।</p>
-  <p>স্থানীয় দ্বিধা শব্দ ব্যবহার করা সংকেত দেয় যে আপনার মস্তিষ্ক সেই ভাষার মোডে কাজ করছে। এটি নিমজ্জন না ভেঙে আপনাকে সময় দেয়।</p>
-
-  <h2>হ্যাক ২: অভিবাদন নিখুঁত করুন</h2>
-  <p>আপনার ছাপ ফেলার জন্য ৩ সেকেন্ড সময় আছে। যদি আপনার "Bonjour" দ্বিধাগ্রস্থ এবং উচ্চারণযুক্ত হয় তবে তারা ইংরেজিতে চলে যাবে। অভিবাদন ৫০০ বার অনুশীলন করুন। সুর, পিচ এবং মনোভাব নিখুঁত করুন। আপনি যদি প্রথম শব্দটি পেরে যান, তবে তারা ধরে নেবে আপনি বাকিটিও বলতে পারবেন।</p>
-
-  <h2>হ্যাক ৩: "আমি আপনার কথা শুনিনি" কৌশল</h2>
-  <p>আপনি যদি বুঝতে না পারেন তবে কখনই "What?" বলবেন না বা বিভ্রান্ত দেখাবেন না। তারা ইংরেজিতে চলে যাবে।</p>
-  <p>পরিবর্তে, বলুন "এখানে কোলাহলপূর্ণ" বা "দুঃখিত, আমি এক কানে কিছুটা বধির।" (এই বাক্যাংশগুলি শিখুন!)। তারা আরও জোরে এবং স্পষ্টভাবে পুনরাবৃত্তি করবে, তবে এখনও লক্ষ্য ভাষায়।</p>
-
-  <h2>হ্যাক ৪: যেখানে ইংরেজি যায় না সেখানে যান</h2>
-  <p>পর্যটক ফাঁদ ইংরেজি বক্তাদের নিয়োগ করে। প্রধান চত্বর থেকে ৩ ব্লক দূরে যান। সেই সস্তা বারটি সন্ধান করুন যেখানে বৃদ্ধরা ফুটবল দেখছেন। তারা সম্ভবত চাইলেও ইংরেজি বলতে <em>পারে না</em>। আপনি বেঁচে থাকতে বাধ্য হবেন।</p>
-
+  <p>এখন ভ্রমণ করতে পারছেন না? বৈধ অজুহাত। কিন্তু নিজেকে নিমজ্জিত করার জন্য আপনার প্লেনের টিকিটের প্রয়োজন নেই। আপনার এই হ্যাকগুলো দরকার।</p>
+  <h2>১. গুগল ম্যাপ হ্যাক</h2>
+  <p>গুগল ম্যাপে যান। টোকিও/প্যারিস/সিউলের এলোমেলো রাস্তায় "স্ট্রিট ভিউ" মানুষটিকে ফেলে দিন। চিহ্নগুলো দেখুন। বিলবোর্ডগুলো পড়ুন। রাস্তা দিয়ে হাঁটুন। এটি ভার্চুয়াল নিমজ্জন।</p>
+  <h2>২. রেডিও গার্ডেন</h2>
+  <p>"রেডিও গার্ডেন" ডাউনলোড করুন। এটি আপনাকে পৃথিবীর যেকোনো শহর থেকে লাইভ রেডিও শুনতে দেয়। বাসন ধোয়ার সময় বুয়েনস আইরেসের স্থানীয় ডিজেদের কথা শুনুন। এটি রিয়েল-টাইম অপভাষা।</p>
+  <h2>৩. আপনার ফোনের ভাষা পরিবর্তন করুন</h2>
+  <p>এটি সবচেয়ে পুরনো কৌশল, তবে এটি করুন। আপনি দিনে ৮০ বার আপনার ফোনের দিকে তাকান। যদি এটি স্প্যানিশ ভাষায় হয়, তবে এটি ৮০টি স্প্যানিশ পাঠ। আপনি চেষ্টা না করেই "সেটিংস", "স্টোরেজ", "নেটওয়ার্ক" এর মতো শব্দগুলো শিখবেন।</p>
   <div class="tip-box">
-     <strong>সুবর্ণ নিয়ম:</strong> যদি তারা ইংরেজিতে চলে যায় তবে লক্ষ্য ভাষা বলা চালিয়ে যান। আপনি নাছোড়বান্দা বুঝতে পারলে বেশিরভাগ লোকই ফিরে আসবে। একঘুঁয়ে হোন।
+    <strong>প্রো টিপ:</strong> স্থানীয় কারো সাথে অনলাইন রান্নার ক্লাস বুক করতে Airbnb Experiences ব্যবহার করুন। "রোমে একজন ননর সাথে কীভাবে পাস্তা তৈরি করবেন।" আপনি ভাষা + সংস্কৃতি + খাবার শিখবেন।
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_UR = `
 <article>
-  <p>آپ نے 2 سال ہسپانوی زبان سیکھی۔ آپ بارسلونا جاتے ہیں۔ آپ بیکری میں جاتے ہیں۔ آپ تیار ہیں۔</p>
-  <p>آپ: "Hola, me gustaría... umm... pan?"</p>
-  <p>نان بائی: "Bread? Sure, here you go. That's 2 euros." (انگریزی میں)</p>
-  <p>بدترین شکست۔ وہ انگریزی پر منتقل ہو گئے۔ آپ اسے کیسے روکتے ہیں؟ آپ کو اشارہ کرنے کی ضرورت ہے کہ آپ ایک سنجیدہ بولنے والے ہیں، سیاح نہیں۔</p>
-
-  <h2>ہیک 1: "فلر ورڈ (Filler Word)" ٹرک</h2>
-  <p>سیاح سوچتے وقت "ام..." یا "اوہ..." کہتے ہیں۔ مقامی لوگ مختلف آوازیں نکالتے ہیں۔ ہسپانوی میں، کہیں "Este..." یا "Pues..."۔ جاپانی میں، کہیں "Ehto..."۔ فرانسیسی میں، "Euh..."۔</p>
-  <p>مقامی ہچکچاہٹ کی آواز استعمال کرنا اشارہ کرتا ہے کہ آپ کا دماغ اس زبان کے موڈ میں کام کر رہا ہے۔ یہ آپ کو غوطہ زنی کو توڑے بغیر وقت خریدتا ہے۔</p>
-
-  <h2>ہیک 2: سلام کو بہترین بنائیں</h2>
-  <p>آپ کے پاس تاثر قائم کرنے کے لیے 3 سیکنڈ ہیں۔ اگر آپ کا "Bonjour" ہچکچاہٹ اور لہجے والا ہے، تو وہ انگریزی پر منتقل ہو جائیں گے۔ سلام کی 500 بار مشق کریں۔ راگ، پچ اور رویہ کو بہترین بنائیں۔ اگر آپ پہلے لفظ میں کامیاب ہو جاتے ہیں، تو وہ فرض کر لیں گے کہ آپ باقی بھی بول سکتے ہیں۔</p>
-
-  <h2>ہیک 3: "میں نے آپ کو نہیں سنا" حربہ</h2>
-  <p>اگر آپ نہیں سمجھتے ہیں، تو کبھی نہ کہیں "What?" یا الجھن کا شکار نظر نہ آئیں۔ وہ انگریزی پر منتقل ہو جائیں گے۔</p>
-  <p>اس کے بجائے، کہیں "یہاں شور ہے" یا "معاف کیجئے گا، میں ایک کان سے تھوڑا بہرا ہوں۔" (یہ جملے سیکھیں!)۔ وہ خود کو زیادہ اونچی اور واضح آواز میں دہرائیں گے، لیکن پھر بھی ہدف کی زبان میں۔</p>
-
-  <h2>ہیک 4: وہاں جائیں جہاں انگریزی نہیں جاتی</h2>
-  <p>سیاحوں کے جال انگریزی بولنے والوں کو ملازم رکھتے ہیں۔ مین اسکوائر سے 3 بلاکس دور جائیں۔ وہ سستا بار تلاش کریں جہاں بوڑھے لوگ فٹ بال دیکھ رہے ہیں۔ وہ شاید چاہ کر بھی انگریزی <em>نہیں</em> بول سکتے۔ آپ زندہ رہنے پر مجبور ہو جائیں گے۔</p>
-
+  <p>ابھی سفر نہیں کر سکتے؟ جائز عذر ہے۔ لیکن اپنے آپ کو غرق کرنے کے لیے آپ کو جہاز کے ٹکٹ کی ضرورت نہیں ہے۔ آپ کو ان ہیکس کی ضرورت ہے۔</p>
+  <h2>1. گوگل میپس ہیک</h2>
+  <p>گوگل میپس پر جائیں۔ ٹوکیو/پیرس/سیول کی کسی بے ترتیب سڑک پر "اسٹریٹ ویو" والے آدمی کو گرا دیں۔ نشانیاں دیکھیں۔ بل بورڈ پڑھیں۔ سڑک پر چہل قدمی کریں۔ یہ ورچوئل وسرجن ہے۔</p>
+  <h2>2. ریڈیو گارڈن (Radio Garden)</h2>
+  <p>"ریڈیو گارڈن" ڈاؤن لوڈ کریں۔ یہ آپ کو زمین کے کسی بھی شہر سے لائیو ریڈیو سننے دیتا ہے۔ برتن دھوتے وقت بیونس آئرس کے مقامی ڈی جے کو سنیں۔ یہ حقیقی وقت کی بول چال ہے۔</p>
+  <h2>3. اپنے فون کی زبان تبدیل کریں</h2>
+  <p>یہ سب سے پرانی چال ہے، لیکن اسے کریں۔ آپ دن میں 80 بار اپنے فون کو دیکھتے ہیں۔ اگر یہ ہسپانوی میں ہے، تو یہ 80 ہسپانوی اسباق ہیں۔ آپ کوشش کیے بغیر "ترتیبات"، "اسٹوریج"، "نیٹ ورک" جیسے الفاظ سیکھ جائیں گے۔</p>
   <div class="tip-box">
-     <strong>سنہری اصول:</strong> اگر وہ انگریزی پر منتقل ہو جاتے ہیں، تو ہدف کی زبان بولنا جاری رکھیں۔ زیادہ تر لوگ واپس سوئچ کر لیں گے جب انہیں احساس ہو گا کہ آپ مستقل مزاج ہیں۔ ضدی بنیں۔
+    <strong>پرو ٹپ:</strong> مقامی شخص کے ساتھ آن لائن کوکنگ کلاس بک کرنے کے لیے Airbnb Experiences کا استعمال کریں۔ "روم میں ایک نان کے ساتھ پاستا کیسے بنائیں۔" آپ زبان + ثقافت + کھانا سیکھتے ہیں۔
   </div>
 </article>
 `;
 
 const POST_TRAVEL_CONTENT_NE = `
 <article>
-  <p>तपाईंले २ वर्ष स्पेनिस अध्ययन गर्नुभयो। तपाईं बार्सिलोना जानुहुन्छ। तपाईं बेकरीमा जानुहुन्छ। तपाईं तयार हुनुहुन्छ।</p>
-  <p>तपाईं: "Hola, me gustaría... umm... pan?"</p>
-  <p>बेकर: "Bread? Sure, here you go. That's 2 euros." (अंग्रेजीमा)</p>
-  <p>नराम्रो हार। उनीहरू अंग्रेजीमा स्विच भए। तपाईं यसलाई कसरी रोक्नुहुन्छ? तपाईंले संकेत गर्न आवश्यक छ कि तपाईं एक गम्भीर वक्ता हुनुहुन्छ, पर्यटक होइन।</p>
-
-  <h2>ह्याक १: "फिलर वर्ड (Filler Word)" ट्रिक</h2>
-  <p>पर्यटकहरू सोच्दा "उम्म..." वा "उह..." भन्छन्। स्थानीयहरू फरक आवाज निकाल्छन्। स्पेनिसमा, भन्नुहोस् "Este..." वा "Pues..."। जापानीमा, भन्नुहोस् "Ehto..."। फ्रेन्चमा, "Euh..."।</p>
-  <p>स्थानीय हिचकिचाहट ध्वनि प्रयोग गर्नाले संकेत गर्दछ कि तपाईंको दिमाग त्यो भाषा मोडमा काम गरिरहेको छ। यसले विसर्जन नतोडी तपाईंलाई समय दिन्छ।</p>
-
-  <h2>ह्याक २: अभिवादनलाई उत्तम बनाउनुहोस्</h2>
-  <p>तपाईं सँग प्रभाव पार्न ३ सेकेन्ड छ। यदि तपाईंको "Bonjour" हिचकिचाउने र लवज भएको छ भने, उनीहरू अंग्रेजीमा स्विच हुनेछन्। अभिवादन ५०० पटक अभ्यास गर्नुहोस्। मेलोडी, पिच र मनोवृत्ति उत्तम बनाउनुहोस्। यदि तपाईंले पहिलो शब्द सही गर्नुभयो भने, उनीहरूले ठान्नेछन् कि तपाईं बाँकी पनि बोल्न सक्नुहुन्छ।</p>
-
-  <h2>ह्याक ३: "मैले सुनिन" रणनीति</h2>
-  <p>यदि तपाईं बुझ्नुहुन्न भने, कहिल्यै "What?" नभन्नुहोस् वा अलमलमा नपर्नुहोस्। उनीहरू अंग्रेजीमा स्विच हुनेछन्।</p>
-  <p>यसको सट्टा, भन्नुहोस् "यहाँ हल्ला छ" वा "माफ गर्नुहोस्, म एक कानले थोरै बहिरो छु।" (यी वाक्यांशहरू सिक्नुहोस्!)। उनीहरू आफैलाई ठूलो र स्पष्ट रूपमा दोहोर्याउनेछन्, तर अझै पनि लक्ष्य भाषामै।</p>
-
-  <h2>ह्याक ४: जहाँ अंग्रेजी जाँदैन त्यहाँ जानुहोस्</h2>
-  <p>पर्यटक पासोहरूले अंग्रेजी बोल्नेहरूलाई काममा राख्छन्। मुख्य चोकबाट ३ ब्लक टाढा जानुहोस्। त्यो सस्तो बार फेला पार्नुहोस् जहाँ वृद्ध मानिसहरू फुटबल हेरिरहेका छन्। उनीहरू सायद चाहेर पनि अंग्रेजी बोल्न <em>सक्दैनन्</em>। तपाईं बाँच्नको लागि बाध्य हुनुहुनेछ।</p>
-
+  <p>अहिले यात्रा गर्न सक्नुहुन्न? मान्य बहाना हो। तर आफैलाई डुबाउनको लागि तपाईंलाई विमानको टिकट चाहिँदैन। तपाईंलाई यी ह्याक्सहरू चाहिन्छ।</p>
+  <h2>१. गुगल म्याप्स ह्याक</h2>
+  <p>गुगल म्याप्समा जानुहोस्। टोकियो/पेरिस/सोलको कुनै अनियमित सडकमा "स्ट्रिट भ्यू" मान्छेलाई खसाल्नुहोस्। संकेतहरू हेर्नुहोस्। बिलबोर्डहरू पढ्नुहोस्। सडकमा हिंड्नुहोस्। यो भर्चुअल विसर्जन हो।</p>
+  <h2>२. रेडियो गार्डेन (Radio Garden)</h2>
+  <p>"रेडियो गार्डेन" डाउनलोड गर्नुहोस्। यसले तपाईंलाई पृथ्वीको कुनै पनि शहरबाट लाइभ रेडियो सुन्न दिन्छ। भाँडा माझ्दा ब्यूनस आयर्सका स्थानीय डीजेहरू सुन्नुहोस्। यो वास्तविक समयको वाक्चातुर्य हो।</p>
+  <h2>३. तपाईंको फोनको भाषा परिवर्तन गर्नुहोस्</h2>
+  <p>यो सबैभन्दा पुरानो चाल हो, तर यो गर्नुहोस्। तपाईं दिनमा ८० पटक आफ्नो फोन हेर्नुहुन्छ। यदि यो स्पेनिशमा छ भने, यो ८० स्पेनिश पाठहरू हुन्। तपाईंले प्रयास नगरी "सेटिङ्स", "स्टोरेज", "नेटवर्क" जस्ता शब्दहरू सिक्नुहुनेछ।</p>
   <div class="tip-box">
-     <strong>सुनौलो नियम:</strong> यदि उनीहरू अंग्रेजीमा स्विच हुन्छन् भने, लक्ष्य भाषा बोल्न जारी राख्नुहोस्। धेरै जसो मानिसहरू फिर्ता स्विच हुनेछन् जब उनीहरूले महसुस गर्छन् कि तपाईं जिद्दी हुनुहुन्छ। जिद्दी बन्नुहोस्।
+    <strong>प्रो टिप:</strong> स्थानीय व्यक्तिसँग अनलाइन कुकिङ क्लास बुक गर्न Airbnb Experiences प्रयोग गर्नुहोस्। "रोममा एउटा नान्नासँग पास्ता कसरी बनाउने।" तपाईंले भाषा + संस्कृति + खाना सिक्नुहुन्छ।
   </div>
 </article>
 `;
 
+const POST_TRAVEL_CONTENT_SI = `
+<article>
+  <p>දැන් සංචාරය කරන්න බැරිද? කමක් නෑ. නමුත් භාෂාවක ගිලෙන්න ඔබට ගුවන් ටිකට් පතක් අවශ්‍ය නෑ. ඔබට අවශ්‍ය මේ උපක්‍රම.</p>
+  <h2>1. Google Maps Hack</h2>
+  <p>Google Maps වෙත යන්න. ටෝකියෝ/පැරිස්/සෝල් වල අහඹු පාරකට "Street View" දාන්න. පුවරු බලන්න. දැන්වීම් කියවන්න. පාරේ ඇවිදින්න. මේක අතථ්‍ය ගිලීමක්.</p>
+  <h2>2. Radio Garden</h2>
+  <p>"Radio Garden" බාගන්න. ලෝකයේ ඕනෑම නගරයකින් සජීවී ගුවන් විදුලිය අහන්න පුළුවන්. පිඟන් සෝදන ගමන් බුවනෝස් අයර්ස් වල DJ කෙනෙක් අහන්න.</p>
+  <h2>3. Phone එකේ භාෂාව මාරු කරන්න</h2>
+  <p>මේක පරණම ට්‍රික් එක, ඒත් කරන්න. ඔබ දවසට 80 පාරක් ෆෝන් එක බලනවා. ඒක ස්පාඤ්ඤ භාෂාවෙන් නම්, පාඩම් 80ක්. "Settings", "Storage" නිකම්ම පාඩම් වෙයි.</p>
+  <div class="tip-box">
+    <strong>Pro Tip:</strong> Airbnb Experiences පාවිච්චි කරලා ඒ රටේ කෙනෙක් එක්ක උයන්න ඉගෙන ගන්න. භාෂාව + සංස්කෘතිය + කෑම එකපාර ඉගෙන ගන්න.
+  </div>
+</article>
+`;
+
+const POST_TRAVEL_CONTENT_SW = `
+<article>
+  <p>Huwezi kusafiri sasa hivi? Sawa. Lakini huhitaji tiketi ya ndege ili kujizamisha. Unahitaji mbinu hizi.</p>
+  <h2>1. Mbinu ya Google Maps</h2>
+  <p>Nenda Google Maps. Weka mtu wa "Street View" katika barabara yoyote huko Tokyo/Paris/Seoul. Angalia alama. Soma mabango. Tembea barabarani. Ni uzoefu wa karibu.</p>
+  <h2>2. Radio Garden</h2>
+  <p>Pakua "Radio Garden". Inakuwezesha kusikiliza redio ya moja kwa moja kutoka mji wowote Duniani. Sikiliza ma-DJ wa Buenos Aires ukiwa unaosha vyombo.</p>
+  <h2>3. Badilisha Lugha ya Simu Yako</h2>
+  <p>Hii ni mbinu ya zamani, lakini ifanye. Unatazama simu yako mara 80 kwa siku. Ikiwa ni kwa Kihispania, hayo ni masomo 80 ya Kihispania. Utajifunza maneno kama "Settings", "Storage" bila kujaribu.</p>
+  <div class="tip-box">
+    <strong>Pro Tip:</strong> Tumia Airbnb Experiences kuweka darasa la kupika mtandaoni na mwenyeji. Jifunze lugha + utamaduni + chakula.
+  </div>
+</article>
+`;
+
+
 // ==========================================
-// Post 12: The Motivation Dip
+// Post 19 (Old 12): The Motivation Dip
 // ==========================================
 const POST_MOTIVATION_CONTENT_EN = `
-        <article>
-          <p>Every language learner goes through the same cycle:</p>
-          <ol>
-             <li><strong>The Honeymoon:</strong> "This is fun! I learned 'Hello'!" (Day 1-30)</li>
-             <li><strong>The Dip:</strong> "This is hard. I forget everything. I'll never be fluent." (Day 31-??)</li>
-             <li><strong>The Breakthrough:</strong> "Wait, I just understood that sentence!" (The Future)</li>
-          </ol>
-          <p>Most people quit in "The Dip". Seth Godin calls it the moment where the fun is gone but the results haven't shown up yet.</p>
-
-          <h2>How to Survive The Dip</h2>
-          <h3>1. Embrace the Suck</h3>
-          <p>Accept that it is supposed to be hard. If it were easy, everyone would be a polyglot. The difficulty is the barrier to entry that makes the skill valuable.</p>
-
-          <h3>2. Stop Comparing</h3>
-          <p>Do not look at "Polyglot YouTube". Those videos are highlighted reels. You don't see the 5 years of boring flashcards behind the scenes. Compare yourself only to yourself from last month.</p>
-
-          <h3>3. Change Your Methods</h3>
-          <p>If you hate your textbook, burn it. Watch Peppa Pig in German. Read recipes. Play Skyrim in French. If the method hurts, you will quit. Find a method that feels like play.</p>
-
-          <h3>4. Remind Yourself "Why"</h3>
-          <p>Why did you start? To talk to your grandmother? To watch anime without subtitles? To live in Barcelona? Connect with that emotional core. Write it down and tape it to your mirror.</p>
-
-          <div class="tip-box">
-             <strong>Remember:</strong> The only difference between a master and a beginner is that the master has failed more times than the beginner has even tried.
-          </div>
-        </article>
+<article>
+  <p>Learning isn't a straight line. It's a messy curve. Learn how to recognize "The Dip" and turn your biggest slump into your biggest growth spurt.</p>
+  <h2>What is The Dip?</h2>
+  <p>When you start learning a language, it's fun. You learn "Hello", "Beer", "I love you". Rapid progress. Then, after 3 months, you hit a wall. You study for weeks and feel like you learned nothing. Welcome to The Dip.</p>
+  <h2>The Dip is Good</h2>
+  <p>Seth Godin calls it "The Dip". It's the filter that separates the winners from the losers. If becoming fluent were easy, everyone would do it. The fact that it's hard is what makes it valuable.</p>
+  <h2>How to Survive</h2>
+  <p>1. <strong>Don't Quit on a Bad Day:</strong> Never make a long-term decision when you are tired or frustrated.<br>
+  2. <strong>Look Back:</strong> Read a text you read 3 months ago. You will be amazed at how easy it is now.<br>
+  3. <strong>Change the Method:</strong> If grammar books are boring you, stop. Watch Netflix. Just don't stop.</p>
+  <div class="tip-box">
+    <strong>Remember:</strong> The dip happens right before the breakthrough. Keep walking.
+  </div>
+</article>
 `;
 
 const POST_MOTIVATION_CONTENT_KO = `
-        <article>
-          <p>모든 언어 학습자는 똑같은 사이클을 겪습니다:</p>
-          <ol>
-             <li><strong>허니문 (The Honeymoon):</strong> "너무 재밌어! '안녕하세요'를 배웠어!" (1일~30일)</li>
-             <li><strong>절망의 계곡 (The Dip):</strong> "너무 어려워. 뒤돌아서면 까먹어. 난 평생 못 할 거야." (31일~??)</li>
-             <li><strong>돌파구 (The Breakthrough):</strong> "잠깐, 방금 저 문장 알아들었어!" (먼 미래)</li>
-          </ol>
-          <p>대부분의 사람들은 '절망의 계곡'에서 포기합니다. 세스 고딘은 이 시기를 '재미는 사라졌는데, 결과는 아직 안 나오는 구간'이라고 정의했습니다.</p>
-
-          <h2>절망의 계곡을 건너는 법</h2>
-          <h3>1. 고통을 받아들이세요 (Embrace the Suck)</h3>
-          <p>원래 어려운 게 정상입니다. 쉬웠다면 개나 소나 다 5개 국어를 했겠죠. 그 어려움이야말로 이 기술을 가치 있게 만드는 진입 장벽입니다.</p>
-
-          <h3>2. 비교하지 마세요</h3>
-          <p>'폴리글랏 유튜버'들을 보지 마세요. 그 영상은 인생의 하이라이트 모음집일 뿐입니다. 그 뒤에 숨겨진 5년치 지루한 단어 암기 시간은 보여주지 않습니다. 오직 '지난달의 나'와 비교하세요.</p>
-
-          <h3>3. 방법을 바꾸세요</h3>
-          <p>교재가 꼴도 보기 싫은가요? 갖다 버리세요. 대신 독일어로 '페파피그(만화)'를 보세요. 요리 레시피를 읽으세요. 프랑스어로 게임을 하세요. 공부 방법이 고통스러우면 100% 포기하게 됩니다. '놀이'처럼 느껴지는 방법을 찾아내세요.</p>
-
-          <h3>4. '초심'을 소환하세요</h3>
-          <p>애초에 왜 시작했나요? 할머니랑 대화하려고? 자막 없이 애니메이션 보려고? 바르셀로나에 살고 싶어서? 그 가슴 뛰던 감정적 이유를 다시 꺼내세요. 종이에 써서 거울에 붙여두세요.</p>
-
-          <div class="tip-box">
-             <strong>기억하세요:</strong> 고수와 초보의 유일한 차이점은, 초보가 시도해 본 횟수보다 고수가 실패해 본 횟수가 더 많다는 것입니다.
-          </div>
-        </article>
+<article>
+  <p>학습은 직선이 아닙니다. 엉망진창인 곡선이죠. '절망의 계곡(The Dip)'을 인지하고, 가장 큰 슬럼프를 가장 큰 성장의 발판으로 바꾸는 법을 배우세요.</p>
+  <h2>슬럼프란 무엇인가?</h2>
+  <p>처음 언어를 배울 땐 재밌습니다. "안녕하세요", "맥주", "사랑해"를 배웁니다. 실력이 쑥쑥 늡니다. 그러다 3개월쯤 뒤, 벽에 부딪힙니다. 몇 주를 공부해도 제자리걸음인 것 같습니다. '절망의 계곡'에 오신 걸 환영합니다.</p>
+  <h2>슬럼프는 좋은 것이다</h2>
+  <p>세스 고딘은 이것을 "The Dip"이라고 부릅니다. 이것은 승자와 패자를 가르는 필터입니다. 유창해지는 게 쉬웠다면 개나 소나 다 했을 겁니다. 어렵기 때문에 가치 있는 것입니다.</p>
+  <h2>생존 방법</h2>
+  <p>1. <strong>기분 나쁜 날 그만두지 마라:</strong> 지치거나 짜증 날 때 장기적인 결정을 내리지 마세요.<br>
+  2. <strong>뒤를 돌아보라:</strong> 3개월 전에 읽었던 글을 다시 보세요. 지금은 얼마나 쉬운지 놀랄 겁니다.<br>
+  3. <strong>방법을 바꿔라:</strong> 문법책이 지루하면 집어치우세요. 넷플릭스를 보세요. 멈추지만 마세요.</p>
+  <div class="tip-box">
+    <strong>기억하세요:</strong> 슬럼프는 대파괴(Breakthrough) 직전에 옵니다. 계속 걸으세요.
+  </div>
+</article>
 `;
 
 const POST_MOTIVATION_CONTENT_JA = `
 <article>
-  <p>すべての言語学習者は同じサイクルを経験します：</p>
-  <ol>
-     <li><strong>ハネムーン（The Honeymoon）：</strong> 「楽しい！『こんにちは』を覚えた！」（1日〜30日）</li>
-     <li><strong>ザ・ディップ（The Dip）：</strong> 「難しい。全部忘れてしまう。絶対に流暢にはなれない。」（31日〜??）</li>
-     <li><strong>ブレイクスルー（The Breakthrough）：</strong> 「待って、今その文章が理解できた！」（未来）</li>
-  </ol>
-  <p>ほとんどの人は「ザ・ディップ」で辞めます。Seth Godinはこれを、楽しさは消え、結果はまだ出ない瞬間と呼んでいます。</p>
-
-  <h2>ザ・ディップを生き残る方法</h2>
-  <h3>1. 最悪を受け入れる（Embrace the Suck）</h3>
-  <p>難しいのが普通だと受け入れてください。もし簡単なら、誰もが多言語話者になっているでしょう。その難易度こそが、そのスキルを価値あるものにする参入障壁なのです。</p>
-
-  <h3>2. 比較をやめる</h3>
-  <p>「多言語YouTuber」を見ないでください。それらの動画はハイライト集です。舞台裏にある5年間の退屈なフラッシュカードは見えません。先月の自分とだけ比較してください。</p>
-
-  <h3>3. 方法を変える</h3>
-  <p>教科書が嫌いなら、燃やしてください。ドイツ語で『ペッパピッグ』を見てください。レシピを読んでください。フランス語で『Skyrim』をプレイしてください。方法が苦痛なら、あなたは辞めてしまうでしょう。遊びのように感じる方法を見つけてください。</p>
-
-  <h3>4. 「なぜ」を思い出させる</h3>
-  <p>なぜ始めましたか？祖母と話すため？字幕なしでアニメを見るため？バルセロナに住むため？その感情的な核とつながってください。それを書き留めて鏡にテープで貼ってください。</p>
-
+  <p>学習は一直線ではありません。乱雑な曲線です。「ザ・ディップ（The Dip）」を認識し、最大の不振を最大の成長急増に変える方法を学びましょう。</p>
+  <h2>ザ・ディップとは？</h2>
+  <p>言語を学び始めるとき、それは楽しいです。「こんにちは」「ビール」「愛してる」を学びます。急速な進歩です。その後、3ヶ月ほどで壁にぶつかります。何週間勉強しても、何も学んでいないように感じます。ザ・ディップへようこそ。</p>
+  <h2>ザ・ディップは良いことだ</h2>
+  <p>セス・ゴーディンはこれを「The Dip」と呼んでいます。これは勝者と敗者を分けるフィルターです。流暢になるのが簡単なら、誰もがそうするでしょう。難しいという事実こそが、それを価値あるものにするのです。</p>
+  <h2>生き残る方法</h2>
+  <p>1. <strong>悪い日に辞めないで：</strong> 疲れているときやイライラしているときに、長期的な決定を下さないでください。<br>
+  2. <strong>振り返る：</strong> 3ヶ月前に読んだテキストを読んでみてください。今ではどれほど簡単か驚くでしょう。<br>
+  3. <strong>方法を変える：</strong> 文法書が退屈なら、やめてください。Netflixを見てください。ただ、止まらないでください。</p>
   <div class="tip-box">
-     <strong>覚えておいてください：</strong> 達人と初心者の唯一の違いは、達人は初心者が挑戦した回数よりも多く失敗しているということです。
+    <strong>覚えておいて：</strong> ディップはブレークスルーの直前に起こります。歩き続けましょう。
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_ZH = `
 <article>
-  <p>每个语言学习者都会经历相同的周期：</p>
-  <ol>
-     <li><strong>蜜月期 (The Honeymoon)：</strong> “这很有趣！我学会了‘你好’！”（第1-30天）</li>
-     <li><strong>低谷期 (The Dip)：</strong> “这很难。我什么都忘了。我永远不会流利。”（第31天-??）</li>
-     <li><strong>突破期 (The Breakthrough)：</strong> “等等，我刚刚听懂了那个句子！”（未来）</li>
-  </ol>
-  <p>大多数人在“低谷期”放弃。Seth Godin称之为乐趣消失但结果尚未显现的时刻。</p>
-
-  <h2>如何度过低谷期</h2>
-  <h3>1. 拥抱糟糕 (Embrace the Suck)</h3>
-  <p>接受它是困难的。如果很容易，每个人都会成为多语言者。困难是使技能有价值的准入门槛。</p>
-
-  <h3>2. 停止比较</h3>
-  <p>不要看“多语言YouTuber”。这些视频是精彩集锦。你看不到幕后5年的无聊抽认卡。只与上个月的自己比较。</p>
-
-  <h3>3. 改变你的方法</h3>
-  <p>如果你讨厌你的教科书，把它烧了。看德语版的《小猪佩奇》。读食谱。用法语玩《天际》。如果这种方法让你痛苦，你会放弃。找到一种感觉像玩耍的方法。</p>
-
-  <h3>4. 提醒自己“为什么”</h3>
-  <p>你为什么开始？为了和祖母说话？为了不看字幕看动漫？为了住在巴塞罗那？与那个情感核心联系起来。把它写下来并贴在镜子上。</p>
-
+  <p>学习不是一条直线。它是一条混乱的曲线。学习如何识别“低谷期 (The Dip)”，并将你最大的衰退转化为最大的增长。</p>
+  <h2>什么是低谷期？</h2>
+  <p>当你开始学习一门语言时，这很有趣。你学会了“你好”、“啤酒”、“我爱你”。进步神速。然后，大约3个月后，你撞墙了。你学习了几周，感觉什么也没学到。欢迎来到低谷期。</p>
+  <h2>低谷期是件好事</h2>
+  <p>塞斯·高汀称之为“The Dip”。这是区分赢家和输家的过滤器。如果流利很容易，每个人都会去做。正是因为它很难，才使得它有价值。</p>
+  <h2>如何生存</h2>
+  <p>1. <strong>不要在糟糕的一天放弃：</strong> 当你疲惫或沮丧时，永远不要做长期的决定。<br>
+  2. <strong>回头看：</strong> 读一篇你3个月前读过的文章。你会惊讶于它现在是多么容易。<br>
+  3. <strong>改变方法：</strong> 如果语法书让你感到无聊，停下来。看Netflix。只是不要停下来。</p>
   <div class="tip-box">
-     <strong>以此为记：</strong> 大师和初学者的唯一区别在于，大师失败的次数比初学者尝试的次数还多。
+    <strong>记住：</strong> 低谷期发生在突破之前。继续前行。
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_ES = `
 <article>
-  <p>Todo estudiante de idiomas pasa por el mismo ciclo:</p>
-  <ol>
-     <li><strong>La luna de miel:</strong> "¡Esto es divertido! ¡Aprendí 'Hola'!" (Día 1-30)</li>
-     <li><strong>El bajón (The Dip):</strong> "Esto es difícil. Olvido todo. Nunca seré fluido." (Día 31-??)</li>
-     <li><strong>El avance:</strong> "¡Espera, acabo de entender esa frase!" (El futuro)</li>
-  </ol>
-  <p>La mayoría de la gente renuncia en "El bajón". Seth Godin lo llama el momento en que la diversión se ha ido pero los resultados aún no han aparecido.</p>
-
-  <h2>Cómo sobrevivir a El bajón</h2>
-  <h3>1. Acepta lo malo</h3>
-  <p>Acepta que se supone que es difícil. Si fuera fácil, todo el mundo sería políglota. La dificultad es la barrera de entrada que hace que la habilidad sea valiosa.</p>
-
-  <h3>2. Deja de comparar</h3>
-  <p>No mires "YouTube políglota". Esos videos son carretes destacados. No ves los 5 años de aburridas tarjetas didácticas detrás de escena. Compárate solo contigo mismo del mes pasado.</p>
-
-  <h3>3. Cambia tus métodos</h3>
-  <p>Si odias tu libro de texto, quémalo. Mira Peppa Pig en alemán. Lee recetas. Juega Skyrim en francés. Si el método duele, renunciarás. Encuentra un método que se sienta como un juego.</p>
-
-  <h3>4. Recuérdate el "Por qué"</h3>
-  <p>¿Por qué empezaste? ¿Para hablar con tu abuela? ¿Para ver anime sin subtítulos? ¿Para vivir en Barcelona? Conecta con ese núcleo emocional. Escríbelo y pégalo en tu espejo.</p>
-
+  <p>El aprendizaje no es una línea recta. Es una curva desordenada. Aprende a reconocer "El Bajón" (The Dip) y convierte tu mayor caída en tu mayor estirón de crecimiento.</p>
+  <h2>¿Qué es El Bajón?</h2>
+  <p>Cuando empiezas a aprender un idioma, es divertido. Aprendes "Hola", "Cerveza", "Te amo". Progreso rápido. Luego, después de 3 meses, te chocas contra una pared. Estudias durante semanas y sientes que no aprendiste nada. Bienvenido a El Bajón.</p>
+  <h2>El Bajón es Bueno</h2>
+  <p>Seth Godin lo llama "The Dip". Es el filtro que separa a los ganadores de los perdedores. Si ser fluido fuera fácil, todos lo harían. El hecho de que sea difícil es lo que lo hace valioso.</p>
+  <h2>Cómo Sobrevivir</h2>
+  <p>1. <strong>No renuncies en un mal día:</strong> Nunca tomes una decisión a largo plazo cuando estés cansado o frustrado.<br>
+  2. <strong>Mira hacia atrás:</strong> Lee un texto que leíste hace 3 meses. Te sorprenderá lo fácil que es ahora.<br>
+  3. <strong>Cambia el método:</strong> Si los libros de gramática te aburren, para. Mira Netflix. Simplemente no te detengas.</p>
   <div class="tip-box">
-     <strong>Recuerda:</strong> La única diferencia entre un maestro y un principiante es que el maestro ha fallado más veces de las que el principiante siquiera lo ha intentado.
+    <strong>Recuerda:</strong> El bajón ocurre justo antes del avance. Sigue caminando.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_FR = `
 <article>
-  <p>Chaque apprenant en langues passe par le même cycle :</p>
-  <ol>
-     <li><strong>La lune de miel :</strong> "C'est amusant ! J'ai appris 'Bonjour' !" (Jour 1-30)</li>
-     <li><strong>Le creux (The Dip) :</strong> "C'est dur. J'oublie tout. Je ne serai jamais courant." (Jour 31-??)</li>
-     <li><strong>La percée :</strong> "Attendez, je viens de comprendre cette phrase !" (Le futur)</li>
-  </ol>
-  <p>La plupart des gens arrêtent dans "Le creux". Seth Godin appelle cela le moment où le plaisir est parti mais les résultats ne sont pas encore apparus.</p>
-
-  <h2>Comment survivre au Creux</h2>
-  <h3>1. Acceptez la difficulté</h3>
-  <p>Acceptez que c'est censé être difficile. Si c'était facile, tout le monde serait polyglotte. La difficulté est la barrière à l'entrée qui rend la compétence précieuse.</p>
-
-  <h3>2. Arrêtez de comparer</h3>
-  <p>Ne regardez pas le "YouTube polyglotte". Ces vidéos sont des moments forts. Vous ne voyez pas les 5 ans de flashcards ennuyeux dans les coulisses. Comparez-vous uniquement à vous-même le mois dernier.</p>
-
-  <h3>3. Changez vos méthodes</h3>
-  <p>Si vous détestez votre manuel, brûlez-le. Regardez Peppa Pig en allemand. Lisez des recettes. Jouez à Skyrim en français. Si la méthode fait mal, vous arrêterez. Trouvez une méthode qui ressemble à un jeu.</p>
-
-  <h3>4. Rappelez-vous "Pourquoi"</h3>
-  <p>Pourquoi avez-vous commencé ? Pour parler à votre grand-mère ? Pour regarder des animes sans sous-titres ? Pour vivre à Barcelone ? Connectez-vous à ce noyau émotionnel. Écrivez-le et collez-le sur votre miroir.</p>
-
+  <p>L'apprentissage n'est pas une ligne droite. C'est une courbe désordonnée. Apprenez à reconnaître "Le Creux" (The Dip) et transformez votre plus grande baisse en votre plus grande poussée de croissance.</p>
+  <h2>Qu'est-ce que Le Creux ?</h2>
+  <p>Quand vous commencez à apprendre une langue, c'est amusant. Vous apprenez "Bonjour", "Bière", "Je t'aime". Progrès rapide. Puis, après 3 mois, vous heurtez un mur. Vous étudiez pendant des semaines et avez l'impression de n'avoir rien appris. Bienvenue dans Le Creux.</p>
+  <h2>Le Creux est une bonne chose</h2>
+  <p>Seth Godin l'appelle "The Dip". C'est le filtre qui sépare les gagnants des perdants. Si devenir courant était facile, tout le monde le ferait. Le fait que ce soit difficile est ce qui le rend précieux.</p>
+  <h2>Comment Survivre</h2>
+  <p>1. <strong>N'abandonnez pas un mauvais jour :</strong> Ne prenez jamais de décision à long terme lorsque vous êtes fatigué ou frustré.<br>
+  2. <strong>Regardez en arrière :</strong> Lisez un texte que vous avez lu il y a 3 mois. Vous serez surpris de voir à quel point c'est facile maintenant.<br>
+  3. <strong>Changez de méthode :</strong> Si les livres de grammaire vous ennuient, arrêtez. Regardez Netflix. Ne vous arrêtez pas, c'est tout.</p>
   <div class="tip-box">
-     <strong>N'oubliez pas :</strong> La seule différence entre un maître et un débutant est que le maître a échoué plus de fois que le débutant n'a même essayé.
+    <strong>Rappelez-vous :</strong> Le creux arrive juste avant la percée. Continuez à marcher.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_DE = `
 <article>
-  <p>Jeder Sprachlerner durchläuft den gleichen Zyklus:</p>
-  <ol>
-     <li><strong>Die Flitterwochen:</strong> "Das macht Spaß! Ich habe 'Hallo' gelernt!" (Tag 1-30)</li>
-     <li><strong>Das Tief (The Dip):</strong> "Das ist schwer. Ich vergesse alles. Ich werde nie fließend sprechen." (Tag 31-??)</li>
-     <li><strong>Der Durchbruch:</strong> "Warte, ich habe diesen Satz gerade verstanden!" (Die Zukunft)</li>
-  </ol>
-  <p>Die meisten Leute geben in "Dem Tief" auf. Seth Godin nennt es den Moment, in dem der Spaß vorbei ist, aber die Ergebnisse sich noch nicht gezeigt haben.</p>
-
-  <h2>Wie man das Tief überlebt</h2>
-  <h3>1. Umarme das Übel (Embrace the Suck)</h3>
-  <p>Akzeptieren Sie, dass es schwer sein soll. Wenn es einfach wäre, wäre jeder ein Polyglott. Die Schwierigkeit ist die Eintrittsbarriere, die die Fähigkeit wertvoll macht.</p>
-
-  <h3>2. Hören Sie auf zu vergleichen</h3>
-  <p>Schauen Sie nicht auf "Polyglot YouTube". Diese Videos sind Highlight-Reels. Sie sehen nicht die 5 Jahre langweiligen Karteikarten hinter den Kulissen. Vergleichen Sie sich nur mit sich selbst vom letzten Monat.</p>
-
-  <h3>3. Ändern Sie Ihre Methoden</h3>
-  <p>Wenn Sie Ihr Lehrbuch hassen, verbrennen Sie es. Schauen Sie Peppa Wutz auf Deutsch. Lesen Sie Rezepte. Spielen Sie Skyrim auf Französisch. Wenn die Methode weh tut, werden Sie aufhören. Finden Sie eine Methode, die sich wie Spiel anfühlt.</p>
-
-  <h3>4. Erinnern Sie sich an das "Warum"</h3>
-  <p>Warum haben Sie angefangen? Um mit Ihrer Großmutter zu sprechen? Um Anime ohne Untertitel zu sehen? Um in Barcelona zu leben? Verbinden Sie sich mit diesem emotionalen Kern. Schreiben Sie es auf und kleben Sie es an Ihren Spiegel.</p>
-
+  <p>Lernen ist keine gerade Linie. Es ist eine chaotische Kurve. Lernen Sie, "Das Tief" (The Dip) zu erkennen und Ihre größte Flaute in Ihren größten Wachstumsschub zu verwandeln.</p>
+  <h2>Was ist Das Tief?</h2>
+  <p>Wenn Sie anfangen, eine Sprache zu lernen, macht es Spaß. Sie lernen "Hallo", "Bier", "Ich liebe dich". Schneller Fortschritt. Dann, nach 3 Monaten, laufen Sie gegen eine Wand. Sie lernen wochenlang und haben das Gefühl, nichts gelernt zu haben. Willkommen im Tief.</p>
+  <h2>Das Tief ist gut</h2>
+  <p>Seth Godin nennt es "The Dip". Es ist der Filter, der die Gewinner von den Verlierern trennt. Wenn es einfach wäre, fließend zu sprechen, würde es jeder tun. Die Tatsache, dass es schwer ist, macht es wertvoll.</p>
+  <h2>Wie man überlebt</h2>
+  <p>1. <strong>Geben Sie an einem schlechten Tag nicht auf:</strong> Treffen Sie niemals eine langfristige Entscheidung, wenn Sie müde oder frustriert sind.<br>
+  2. <strong>Blicken Sie zurück:</strong> Lesen Sie einen Text, den Sie vor 3 Monaten gelesen haben. Sie werden erstaunt sein, wie einfach er jetzt ist.<br>
+  3. <strong>Ändern Sie die Methode:</strong> Wenn Grammatikbücher Sie langweilen, hören Sie auf. Schauen Sie Netflix. Hören Sie einfach nicht auf.</p>
   <div class="tip-box">
-     <strong>Denken Sie daran:</strong> Der einzige Unterschied zwischen einem Meister und einem Anfänger besteht darin, dass der Meister öfter gescheitert ist, als der Anfänger es überhaupt versucht hat.
+    <strong>Denken Sie daran:</strong> Das Tief passiert direkt vor dem Durchbruch. Gehen Sie weiter.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_TH = `
 <article>
-  <p>ผู้เรียนภาษาทุกคนต้องผ่านวงจรเดียวกัน:</p>
-  <ol>
-     <li><strong>ช่วงฮันนีมูน:</strong> "สนุกจัง! ฉันเรียนรู้คำว่า 'สวัสดี' แล้ว!" (วันที่ 1-30)</li>
-     <li><strong>ช่วงตกต่ำ (The Dip):</strong> "มันยากจัง ฉันลืมทุกอย่าง ฉันจะไม่มีวันพูดคล่อง" (วันที่ 31-??)</li>
-     <li><strong>การทะลุทะลวง:</strong> "เดี๋ยว, ฉันเพิ่งเข้าใจประโยคนั้น!" (อนาคต)</li>
-  </ol>
-  <p>คนส่วนใหญ่เลิกทำในช่วง "The Dip" Seth Godin เรียกมันว่าช่วงเวลาที่ความสนุกหมดไป แต่ผลลัพธ์ยังไม่ปรากฏ</p>
-
-  <h2>วิธีเอาตัวรอดจากช่วงตกต่ำ</h2>
-  <h3>1. ยอมรับความห่วย (Embrace the Suck)</h3>
-  <p>ยอมรับว่ามันควรจะยาก ถ้ามันง่าย ทุกคนคงพูดได้หลายภาษา ความยากคืออุปสรรคในการเข้าสู่ที่ทำให้ทักษะนี้มีค่า</p>
-
-  <h3>2. หยุดเปรียบเทียบ</h3>
-  <p>อย่าดู "Polyglot YouTube" วิดีโอเหล่านั้นเป็นเหมือนไฮไลท์รีล คุณไม่เห็นแฟลชการ์ดน่าเบื่อ 5 ปีเบื้องหลัง เปรียบเทียบตัวเองกับตัวเองเมื่อเดือนที่แล้วเท่านั้น</p>
-
-  <h3>3. เปลี่ยนวิธีการของคุณ</h3>
-  <p>ถ้าคุณเกลียดหนังสือเรียน เผามันซะ ดู Peppa Pig ในภาษาเยอรมัน อ่านสูตรอาหาร เล่น Skyrim ในภาษาฝรั่งเศส ถ้าวิธีการนั้นเจ็บปวด คุณจะเลิก หาที่วิธีการที่รู้สึกเหมือนการเล่น</p>
-
-  <h3>4. เตือนตัวเองว่า "ทำไม"</h3>
-  <p>ทำไมคุณถึงเริ่ม? เพื่อคุยกับยายของคุณ? เพื่อดูอนิเมะโดยไม่มีคำบรรยาย? เพื่ออาศัยอยู่ในบาร์เซโลนา? เชื่อมต่อกับแก่นของอารมณ์นั้น เขียนมันลงไปและติดไว้ที่กระจกของคุณ</p>
-
+  <p>การเรียนรู้ไม่ใช่เส้นตรง มันเป็นเส้นโค้งที่ยุ่งเหยิง เรียนรู้วิธีรับรู้ "The Dip" และเปลี่ยนความตกต่ำครั้งใหญ่ที่สุดของคุณให้เป็นการเติบโตครั้งใหญ่ที่สุด</p>
+  <h2>The Dip คืออะไร?</h2>
+  <p>เมื่อคุณเริ่มเรียนภาษา มันสนุก คุณเรียนรู้ "สวัสดี", "เบียร์", "ฉันรักคุณ" ความก้าวหน้าอย่างรวดเร็ว จากนั้นหลังจาก 3 เดือน คุณก็ชนกำแพง คุณเรียนมาหลายสัปดาห์และรู้สึกเหมือนไม่ได้เรียนรู้อะไรเลย ยินดีต้อนรับสู่ The Dip</p>
+  <h2>The Dip เป็นสิ่งที่ดี</h2>
+  <p>Seth Godin เรียกมันว่า "The Dip" มันคือตัวกรองที่แยกผู้ชนะออกจากผู้แพ้ หากการพูดคล่องเป็นเรื่องง่าย ใครๆ ก็คงทำกัน ความจริงที่ว่ามันยากคือสิ่งที่ทำให้มันมีค่า</p>
+  <h2>วิธีเอาตัวรอด</h2>
+  <p>1. <strong>อย่าเลิกในวันที่แย่:</strong> อย่าตัดสินใจระยะยาวเมื่อคุณเหนื่อยหรือหงุดหงิด<br>
+  2. <strong>มองย้อนกลับไป:</strong> อ่านข้อความที่คุณอ่านเมื่อ 3 เดือนที่แล้ว คุณจะประหลาดใจว่าตอนนี้มันง่ายแค่ไหน<br>
+  3. <strong>เปลี่ยนวิธีการ:</strong> หากหนังสือไวยากรณ์น่าเบื่อ ก็หยุดดู Netflix แค่อย่าหยุดเรียนรู้</p>
   <div class="tip-box">
-     <strong>จำไว้ว่า:</strong> ข้อแตกต่างเพียงอย่างเดียวระหว่างผู้เชี่ยวชาญและมือใหม่ก็คือ ผู้เชี่ยวชาญล้มเหลวมามากกว่าที่มือใหม่เคยพยายามเสียอีก
+    <strong>จำไว้:</strong> จุดตกต่ำจะเกิดขึ้นก่อนการพัฒนาแบบก้าวกระโดด เดินต่อไป
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_VI = `
 <article>
-  <p>Mọi người học ngôn ngữ đều trải qua cùng một chu kỳ:</p>
-  <ol>
-     <li><strong>Tuần trăng mật:</strong> "Vui quá! Tôi đã học được 'Xin chào'!" (Ngày 1-30)</li>
-     <li><strong>Vực thẳm (The Dip):</strong> "Khó quá. Tôi quên hết mọi thứ. Tôi sẽ không bao giờ trôi chảy." (Ngày 31-??)</li>
-     <li><strong>Đột phá:</strong> "Khoan đã, tôi vừa hiểu câu đó!" (Tương lai)</li>
-  </ol>
-  <p>Hầu hết mọi người bỏ cuộc trong "Vực thẳm". Seth Godin gọi đó là khoảnh khắc niềm vui đã mất nhưng kết quả vẫn chưa xuất hiện.</p>
-
-  <h2>Cách sống sót qua Vực thẳm</h2>
-  <h3>1. Chấp nhận sự tồi tệ (Embrace the Suck)</h3>
-  <p>Chấp nhận rằng nó được cho là khó. Nếu nó dễ dàng, mọi người đều sẽ là người đa ngôn ngữ. Khó khăn là rào cản gia nhập làm cho kỹ năng trở nên có giá trị.</p>
-
-  <h3>2. Ngừng so sánh</h3>
-  <p>Đừng xem "YouTube đa ngôn ngữ". Những video đó là những đoạn nổi bật. Bạn không thấy 5 năm học flashcard nhàm chán ở hậu trường. Chỉ so sánh bản thân với chính mình của tháng trước.</p>
-
-  <h3>3. Thay đổi phương pháp của bạn</h3>
-  <p>Nếu bạn ghét sách giáo khoa của mình, hãy đốt nó đi. Xem Peppa Pig bằng tiếng Đức. Đọc công thức nấu ăn. Chơi Skyrim bằng tiếng Pháp. Nếu phương pháp gây đau đớn, bạn sẽ bỏ cuộc. Tìm một phương pháp có cảm giác như đang chơi.</p>
-
-  <h3>4. Nhắc nhở bản thân "Tại sao"</h3>
-  <p>Tại sao bạn bắt đầu? Để nói chuyện với bà của bạn? Để xem anime không cần phụ đề? Để sống ở Barcelona? Kết nối với cốt lõi cảm xúc đó. Viết nó ra và dán lên gương của bạn.</p>
-
+  <p>Học tập không phải là một đường thẳng. Đó là một đường cong lộn xộn. Hãy học cách nhận biết "The Dip" và biến sự sụt giảm lớn nhất của bạn thành bước nhảy vọt lớn nhất.</p>
+  <h2>The Dip là gì?</h2>
+  <p>Khi bạn bắt đầu học ngoại ngữ, thật vui. Bạn học "Xin chào", "Bia", "Tôi yêu bạn". Tiến bộ nhanh chóng. Sau đó, sau 3 tháng, bạn đụng phải một bức tường. Bạn học trong nhiều tuần và cảm thấy như mình chẳng học được gì. Chào mừng đến với The Dip.</p>
+  <h2>The Dip là Tốt</h2>
+  <p>Seth Godin gọi nó là "The Dip". Đó là bộ lọc phân tách người chiến thắng và kẻ thua cuộc. Nếu trở nên trôi chảy là dễ dàng, mọi người đều sẽ làm được. Việc nó khó khăn chính là điều khiến nó có giá trị.</p>
+  <h2>Cách sống sót</h2>
+  <p>1. <strong>Đừng bỏ cuộc vào một ngày tồi tệ:</strong> Đừng bao giờ đưa ra quyết định dài hạn khi bạn mệt mỏi hoặc thất vọng.<br>
+  2. <strong>Nhìn lại:</strong> Đọc một văn bản bạn đã đọc 3 tháng trước. Bạn sẽ ngạc nhiên vì bây giờ nó dễ dàng như thế nào.<br>
+  3. <strong>Thay đổi phương pháp:</strong> Nếu sách ngữ pháp làm bạn chán, hãy dừng lại. Xem Netflix. Chỉ cần đừng dừng lại.</p>
   <div class="tip-box">
-     <strong>Hãy nhớ rằng:</strong> Sự khác biệt duy nhất giữa một bậc thầy và một người mới bắt đầu là bậc thầy đã thất bại nhiều lần hơn cả số lần người mới bắt đầu đã thử.
+    <strong>Hãy nhớ:</strong> Sự sụt giảm xảy ra ngay trước khi đột phá. Hãy tiếp tục bước đi.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_ID = `
 <article>
-  <p>Setiap pembelajar bahasa melewati siklus yang sama:</p>
-  <ol>
-     <li><strong>Bulan Madu:</strong> "Ini menyenangkan! Saya belajar 'Halo'!" (Hari 1-30)</li>
-     <li><strong>The Dip (Penurunan):</strong> "Ini sulit. Saya lupa segalanya. Saya tidak akan pernah lancar." (Hari 31-??)</li>
-     <li><strong>Terobosan:</strong> "Tunggu, saya baru saja mengerti kalimat itu!" (Masa Depan)</li>
-  </ol>
-  <p>Kebanyakan orang berhenti di "The Dip". Seth Godin menyebutnya momen di mana kesenangan telah hilang tetapi hasilnya belum muncul.</p>
-
-  <h2>Cara Bertahan dari The Dip</h2>
-  <h3>1. Rangkul Kesulitan (Embrace the Suck)</h3>
-  <p>Terimalah bahwa itu memang seharusnya sulit. Jika mudah, semua orang akan menjadi poliglot. Kesulitan adalah hambatan masuk yang membuat keterampilan itu berharga.</p>
-
-  <h3>2. Berhenti Membandingkan</h3>
-  <p>Jangan melihat "YouTube Poliglot". Video-video itu adalah cuplikan sorotan. Anda tidak melihat 5 tahun flashcard yang membosankan di belakang layar. Bandingkan diri Anda hanya dengan diri Anda dari bulan lalu.</p>
-
-  <h3>3. Ubah Metode Anda</h3>
-  <p>Jika Anda membenci buku teks Anda, bakarlah. Tonton Peppa Pig dalam bahasa Jerman. Baca resep. Mainkan Skyrim dalam bahasa Prancis. Jika metodenya menyakitkan, Anda akan berhenti. Temukan metode yang terasa seperti bermain.</p>
-
-  <h3>4. Ingatkan Diri Anda "Mengapa"</h3>
-  <p>Mengapa Anda memulai? Untuk berbicara dengan nenek Anda? Untuk menonton anime tanpa subtitle? Untuk tinggal di Barcelona? Hubungkan dengan inti emosional itu. Tuliskan dan tempelkan di cermin Anda.</p>
-
+  <p>Belajar bukanlah garis lurus. Itu kurva yang berantakan. Pelajari cara mengenali "The Dip" dan ubah kemerosotan terbesar Anda menjadi lonjakan pertumbuhan terbesar Anda.</p>
+  <h2>Apa itu The Dip?</h2>
+  <p>Saat Anda mulai belajar bahasa, itu menyenangkan. Anda belajar "Halo", "Bir", "Aku cinta kamu". Kemajuan pesat. Kemudian, setelah 3 bulan, Anda menabrak dinding. Anda belajar selama berminggu-minggu dan merasa seperti tidak belajar apa-apa. Selamat datang di The Dip.</p>
+  <h2>The Dip itu Bagus</h2>
+  <p>Seth Godin menyebutnya "The Dip". Ini adalah filter yang memisahkan pemenang dari pecundang. Jika menjadi fasih itu mudah, semua orang akan melakukannya. Fakta bahwa itu sulit adalah apa yang membuatnya berharga.</p>
+  <h2>Cara Bertahan</h2>
+  <p>1. <strong>Jangan Berhenti di Hari yang Buruk:</strong> Jangan pernah membuat keputusan jangka panjang saat Anda lelah atau frustrasi.<br>
+  2. <strong>Lihat ke Belakang:</strong> Baca teks yang Anda baca 3 bulan lalu. Anda akan kagum betapa mudahnya sekarang.<br>
+  3. <strong>Ubah Metodenya:</strong> Jika buku tata bahasa membosankan bagi Anda, berhentilah. Tonton Netflix. Jangan berhenti belajar.</p>
   <div class="tip-box">
-     <strong>Ingat:</strong> Satu-satunya perbedaan antara seorang master dan pemula adalah bahwa master telah gagal lebih sering daripada pemula bahkan mencoba.
+    <strong>Ingat:</strong> Penurunan terjadi tepat sebelum terobosan. Teruslah berjalan.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_PT = `
 <article>
-  <p>Todo estudante de idiomas passa pelo mesmo ciclo:</p>
-  <ol>
-     <li><strong>A lua de mel:</strong> "Isso é divertido! Aprendi 'Olá'!" (Dia 1-30)</li>
-     <li><strong>O abismo (The Dip):</strong> "Isso é difícil. Eu esqueço tudo. Nunca serei fluente." (Dia 31-??)</li>
-     <li><strong>O avanço:</strong> "Espere, acabei de entender essa frase!" (O Futuro)</li>
-  </ol>
-  <p>A maioria das pessoas desiste em "O abismo". Seth Godin chama isso de momento em que a diversão acabou, mas os resultados ainda não apareceram.</p>
-
-  <h2>Como sobreviver ao Abismo</h2>
-  <h3>1. Aceite a dificuldade (Embrace the Suck)</h3>
-  <p>Aceite que é para ser difícil. Se fosse fácil, todo mundo seria poliglota. A dificuldade é a barreira de entrada que torna a habilidade valiosa.</p>
-
-  <h3>2. Pare de comparar</h3>
-  <p>Não olhe para o "YouTube poliglota". Esses vídeos são rolos de destaque. Você não vê os 5 anos de flashcards chatos nos bastidores. Compare-se apenas com você mesmo do mês passado.</p>
-
-  <h3>3. Mude seus métodos</h3>
-  <p>Se você odeia seu livro didático, queime-o. Assista Peppa Pig em alemão. Leia receitas. Jogue Skyrim em francês. Se o método doer, você desistirá. Encontre um método que pareça brincadeira.</p>
-
-  <h3>4. Lembre-se do "Porquê"</h3>
-  <p>Por que você começou? Para falar com sua avó? Para assistir animes sem legendas? Para morar em Barcelona? Conecte-se com esse núcleo emocional. Escreva e cole no seu espelho.</p>
-
+  <p>O aprendizado não é uma linha reta. É uma curva confusa. Aprenda a reconhecer "O Abismo" (The Dip) e transforme sua maior queda em seu maior surto de crescimento.</p>
+  <h2>O que é O Abismo?</h2>
+  <p>Quando você começa a aprender um idioma, é divertido. Você aprende "Olá", "Cerveja", "Eu te amo". Progresso rápido. Então, depois de 3 meses, você bate em uma parede. Você estuda por semanas e sente que não aprendeu nada. Bem-vindo ao Abismo.</p>
+  <h2>O Abismo é Bom</h2>
+  <p>Seth Godin chama isso de "The Dip". É o filtro que separa os vencedores dos perdedores. Se tornar fluente fosse fácil, todo mundo faria. O fato de ser difícil é o que o torna valioso.</p>
+  <h2>Como Sobreviver</h2>
+  <p>1. <strong>Não desista em um dia ruim:</strong> Nunca tome uma decisão de longo prazo quando estiver cansado ou frustrado.<br>
+  2. <strong>Olhe para trás:</strong> Leia um texto que você leu há 3 meses. Você ficará surpreso com o quão fácil é agora.<br>
+  3. <strong>Mude o Método:</strong> Se livros de gramática estão te entediando, pare. Assista Netflix. Só não pare.</p>
   <div class="tip-box">
-     <strong>Lembre-se:</strong> A única diferença entre um mestre e um iniciante é que o mestre falhou mais vezes do que o iniciante sequer tentou.
+    <strong>Lembre-se:</strong> O abismo acontece logo antes do avanço. Continue andando.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_TR = `
 <article>
-  <p>Her dil öğrencisi aynı döngüden geçer:</p>
-  <ol>
-     <li><strong>Balayı:</strong> "Bu eğlenceli! 'Merhaba'yı öğrendim!" (1-30. Gün)</li>
-     <li><strong>Dip (The Dip):</strong> "Bu zor. Her şeyi unutuyorum. Asla akıcı olamayacağım." (31. Gün-??)</li>
-     <li><strong>Büyük Atılım:</strong> "Bekle, az önce o cümleyi anladım!" (Gelecek)</li>
-  </ol>
-  <p>Çoğu insan "Dip" noktasında bırakır. Seth Godin buna, eğlencenin bittiği ancak sonuçların henüz ortaya çıkmadığı an diyor.</p>
-
-  <h2>Dip Noktasından Nasıl Sağ Çıkılır</h2>
-  <h3>1. Zorluğu Kucaklayın (Embrace the Suck)</h3>
-  <p>Bunun zor olması gerektiğini kabul edin. Kolay olsaydı, herkes çok dilli olurdu. Zorluk, beceriyi değerli kılan giriş engelidir.</p>
-
-  <h3>2. Karşılaştırmayı Bırakın</h3>
-  <p> "Polyglot YouTube"a bakmayın. O videolar öne çıkanlar makarasıdır. Sahne arkasındaki 5 yıllık sıkıcı bilgi kartlarını görmüyorsunuz. Kendinizi sadece geçen ayki kendinizle karşılaştırın.</p>
-
-  <h3>3. Yöntemlerinizi Değiştirin</h3>
-  <p>Ders kitabınızdan nefret ediyorsanız, yakın. Almanca Peppa Pig izleyin. Yemek tarifleri okuyun. Fransızca Skyrim oynayın. Yöntem acı verirse, bırakırsınız. Oyun gibi hissettiren bir yöntem bulun.</p>
-
-  <h3>4. Kendinize "Neden"i Hatırlatın</h3>
-  <p>Neden başladınız? Büyükannenizle konuşmak için mi? Altyazısız anime izlemek için mi? Barselona'da yaşamak için mi? O duygusal çekirdekle bağlantı kurun. Yazın ve aynanıza yapıştırın.</p>
-
+  <p>Öğrenme düz bir çizgi değildir. Karışık bir eğridir. "Dip Noktası"nı (The Dip) nasıl tanıyacağınızı ve en büyük düşüşünüzü en büyük büyüme atağınıza nasıl dönüştüreceğinizi öğrenin.</p>
+  <h2>Dip Noktası Nedir?</h2>
+  <p>Bir dil öğrenmeye başladığınızda bu eğlencelidir. "Merhaba", "Bira", "Seni seviyorum"u öğrenirsiniz. Hızlı ilerleme. Sonra, 3 ay sonra bir duvara toslarsınız. Haftalarca çalışırsınız ve hiçbir şey öğrenmemiş gibi hissedersiniz. Dip Noktasına Hoş Geldiniz.</p>
+  <h2>Dip Noktası İyidir</h2>
+  <p>Seth Godin buna "The Dip" diyor. Kazananları kaybedenlerden ayıran filtredir. Akıcı olmak kolay olsaydı, herkes yapardı. Zor olması onu değerli kılan şeydir.</p>
+  <h2>Nasıl Hayatta Kalınır</h2>
+  <p>1. <strong>Kötü Bir Günde Bırakmayın:</strong> Yorgun veya hüsrana uğramışken asla uzun vadeli bir karar vermeyin.<br>
+  2. <strong>Geriye Bakın:</strong> 3 ay önce okuduğunuz bir metni okuyun. Şimdi ne kadar kolay olduğuna şaşıracaksınız.<br>
+  3. <strong>Yöntemi Değiştirin:</strong> Dilbilgisi kitapları sizi sıkıyorsa, bırakın. Netflix izleyin. Sadece durmayın.</p>
   <div class="tip-box">
-     <strong>Unutmayın:</strong> Bir usta ile yeni başlayan arasındaki tek fark, ustanın yeni başlayanın denediğinden daha fazla kez başarısız olmasıdır.
+    <strong>Unutmayın:</strong> Düşüş, atılımdan hemen önce gerçekleşir. Yürümeye devam edin.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_AR = `
 <article>
-  <p>كل متعلم للغة يمر بنفس الدورة:</p>
-  <ol>
-     <li><strong>شهر العسل:</strong> "هذا ممتع! تعلمت 'مرحباً'!" (اليوم 1-30)</li>
-     <li><strong>المنخفض (The Dip):</strong> "هذا صعب. أنسى كل شيء. لن أكون طليقاً أبداً." (اليوم 31-؟؟)</li>
-     <li><strong>الاختراق:</strong> "انتظر، لقد فهمت تلك الجملة للتو!" (المستقبل)</li>
-  </ol>
-  <p>معظم الناس يستسلمون في "المنخفض". يسميها سيث جودين اللحظة التي ذهبت فيها المتعة ولكن النتائج لم تظهر بعد.</p>
-
-  <h2>كيف تنجو من المنخفض</h2>
-  <h3>1. احتضن الصعوبة (Embrace the Suck)</h3>
-  <p>تقبل أنه من المفترض أن يكون صعباً. لو كان الأمر سهلاً، لكان الجميع متعددي اللغات. الصعوبة هي عائق الدخول الذي يجعل المهارة ذات قيمة.</p>
-
-  <h3>2. توقف عن المقارنة</h3>
-  <p>لا تنظر إلى "يوتيوب متعددي اللغات". تلك الفيديوهات هي مقاطع مميزة. أنت لا ترى 5 سنوات من البطاقات التعليمية المملة خلف الكواليس. قارن نفسك بنفسك الشهر الماضي فقط.</p>
-
-  <h3>3. غير طرقك</h3>
-  <p>إذا كنت تكره كتابك المدرسي، فاحرقه. شاهد Peppa Pig باللغة الألمانية. اقرأ الوصفات. العب Skyrim بالفرنسية. إذا كانت الطريقة تؤلم، فسوف تقلع. ابحث عن طريقة تشعر وكأنها لعب.</p>
-
-  <h3>4. ذكر نفسك بـ "لماذا"</h3>
-  <p>لماذا بدأت؟ للتحدث مع جدتك؟ لمشاهدة الانمي بدون ترجمة؟ للعيش في برشلونة؟ تواصل مع ذلك الجوهر العاطفي. اكتبه والصقه على مرآتك.</p>
-
+  <p>التعلم ليس خطاً مستقيماً. إنه منحنى فوضوي. تعلم كيف تتعرف على "المنخفض" (The Dip) وتحول أكبر ركود لك إلى أكبر طفرة نمو.</p>
+  <h2>ما هو المنخفض؟</h2>
+  <p>عندما تبدأ في تعلم لغة، يكون الأمر ممتعًا. تتعلم "مرحبًا"، "بيرة"، "أحبك". تقدم سريع. ثم، بعد 3 أشهر، تصطدم بالحائط. تدرس لأسابيع وتشعر وكأنك لم تتعلم شيئًا. مرحبًا بك في المنخفض.</p>
+  <h2>المنخفض جيد</h2>
+  <p>يسميه سيث جودين "The Dip". إنه المرشح الذي يفصل الفائزين عن الخاسرين. لو كان الطلاقة سهلة، لكان الجميع يفعلونها. حقيقة أنه صعب هو ما يجعله ذا قيمة.</p>
+  <h2>كيف تنجو</h2>
+  <p>1. <strong>لا تستسلم في يوم سيء:</strong> لا تتخذ أبدًا قرارًا طويل الأمد عندما تكون متعبًا أو محبطًا.<br>
+  2. <strong>انظر إلى الوراء:</strong> اقرأ نصًا قرأته قبل 3 أشهر. ستندهش من مدى سهولة الأمر الآن.<br>
+  3. <strong>غير الطريقة:</strong> إذا كانت كتب القواعد مملة لك، فتوقف. شاهد Netflix. فقط لا تتوقف.</p>
   <div class="tip-box">
-     <strong>تذكر:</strong> الفرق الوحيد بين المعلم والمبتدئ هو أن المعلم قد فشل مرات أكثر مما حاول المبتدئ.</p>
+    <strong>تذكر:</strong> يحدث الانخفاض قبل الاختراق مباشرة. استمر في المشي.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_HI = `
 <article>
-  <p>हर भाषा सीखने वाला एक ही चक्र से गुजरता है:</p>
-  <ol>
-     <li><strong>हनीमून:</strong> "यह मजेदार है! मैंने 'हैलो' सीखा!" (दिन 1-30)</li>
-     <li><strong>गिरावट (The Dip):</strong> "यह कठिन है। मैं सब कुछ भूल जाता हूँ। मैं कभी भी धाराप्रवाह नहीं हो पाऊँगा।" (दिन 31-??)</li>
-     <li><strong>सफलता:</strong> "रुको, मैं अभी वह वाक्य समझ गया!" (भविष्य)</li>
-  </ol>
-  <p>ज्यादातर लोग "द डिप" में छोड़ देते हैं। सेठ गोडिन इसे वह क्षण कहते हैं जहां मज़ा चला गया है लेकिन परिणाम अभी तक सामने नहीं आए हैं।</p>
-
-  <h2>द डिप से कैसे बचें</h2>
-  <h3>1. चूसने को गले लगाओ (Embrace the Suck)</h3>
-  <p>स्वीकार करें कि यह कठिन होना चाहिए। अगर यह आसान होता, तो हर कोई पॉलीग्लॉट होता। कठिनाई प्रवेश की बाधा है जो कौशल को मूल्यवान बनाती है।</p>
-
-  <h3>2. तुलना करना बंद करें</h3>
-  <p>"पॉलीग्लॉट यूट्यूब" को न देखें। वे वीडियो हाइलाइट किए गए रीलों हैं। आप पर्दे के पीछे 5 साल के उबाऊ फ्लैशकार्ड नहीं देखते हैं। केवल पिछले महीने से अपनी तुलना करें।</p>
-
-  <h3>3. अपने तरीके बदलें</h3>
-  <p>यदि आप अपनी पाठ्यपुस्तक से नफरत करते हैं, तो उसे जला दें। जर्मन में पेप्पा पिग देखें। व्यंजनों पढ़ें। फ्रेंच में स्काईरिम खेलें। यदि विधि दर्द देती है, तो आप छोड़ देंगे। एक ऐसी विधि खोजें जो खेल की तरह लगे।</p>
-
-  <h3>4. खुद को याद दिलाएं "क्यों"</h3>
-  <p>आपने क्यों शुरुआत की? अपनी दादी से बात करने के लिए? उपशीर्षक के बिना मोबाइल फोनों को देखने के लिए? बार्सिलोना में रहने के लिए? उस भावनात्मक कोर के साथ जुड़ें। इसे लिखें और अपने दर्पण पर टेप करें।</p>
-
+  <p>सीखना एक सीधी रेखा नहीं है। यह एक उलझा हुआ वक्र है। "द डिप" (The Dip) को पहचानना सीखें और अपनी सबसे बड़ी गिरावट को अपनी सबसे बड़ी वृद्धि में बदलें।</p>
+  <h2>द डिप क्या है?</h2>
+  <p>जब आप कोई भाषा सीखना शुरू करते हैं, तो यह मजेदार होता है। आप "हैलो", "बीयर", "मैं तुमसे प्यार करता हूँ" सीखते हैं। तेजी से प्रगति। फिर, 3 महीने बाद, आप एक दीवार से टकराते हैं। आप हफ्तों तक अध्ययन करते हैं और महसूस करते हैं कि आपने कुछ नहीं सीखा। द डिप में आपका स्वागत है।</p>
+  <h2>द डिप अच्छा है</h2>
+  <p>सेठ गोडिन इसे "द डिप" कहते हैं। यह वह फिल्टर है जो विजेताओं को हारने वालों से अलग करता है। यदि धाराप्रवाह होना आसान होता, तो हर कोई इसे करता। तथ्य यह है कि यह कठिन है, इसे मूल्यवान बनाता है।</p>
+  <h2>कैसे बचे रहें</h2>
+  <p>1. <strong>बुरे दिन पर न छोड़ें:</strong> जब आप थके हों या निराश हों तो कभी भी दीर्घकालिक निर्णय न लें।<br>
+  2. <strong>पीछे मुड़कर देखें:</strong> एक पाठ पढ़ें जो आपने 3 महीने पहले पढ़ा था। आप आश्चर्यचकित होंगे कि अब यह कितना आसान है।<br>
+  3. <strong>तरीका बदलें:</strong> यदि व्याकरण की किताबें आपको बोर कर रही हैं, तो रुक जाएं। नेटफ्लिक्स देखें। बस रुकें नहीं।</p>
   <div class="tip-box">
-     <strong>याद रखें:</strong> एक गुरु और एक शुरुआत के बीच एकमात्र अंतर यह है कि गुरु शुरुआत की कोशिश करने से भी अधिक बार विफल रहा है।
+    <strong>याद रखें:</strong> गिरावट सफलता से ठीक पहले होती है। चलते रहो।
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_RU = `
 <article>
-  <p>Каждый изучающий язык проходит через один и тот же цикл:</p>
-  <ol>
-     <li><strong>Медовый месяц:</strong> «Это весело! Я выучил 'Привет'!» (День 1-30)</li>
-     <li><strong>Яма (The Dip):</strong> «Это сложно. Я все забываю. Я никогда не буду свободно говорить». (День 31-??)</li>
-     <li><strong>Прорыв:</strong> «Подождите, я только что понял это предложение!» (Будущее)</li>
-  </ol>
-  <p>Большинство людей бросают в «Яме». Сет Годин называет это моментом, когда веселье ушло, а результаты еще не появились.</p>
-
-  <h2>Как пережить Яму</h2>
-  <h3>1. Примите отстой (Embrace the Suck)</h3>
-  <p>Примите, что это должно быть трудно. Если бы это было легко, все были бы полиглотами. Трудность — это барьер для входа, который делает навык ценным.</p>
-
-  <h3>2. Перестаньте сравнивать</h3>
-  <p>Не смотрите «Polyglot YouTube». Эти видео — это нарезка лучших моментов. Вы не видите 5 лет скучных карточек за кулисами. Сравнивайте себя только с собой месяц назад.</p>
-
-  <h3>3. Поменяйте методы</h3>
-  <p>Если вы ненавидите свой учебник, сожгите его. Смотрите Свинку Пеппу на немецком. Читайте рецепты. Играйте в Skyrim на французском. Если метод причиняет боль, вы бросите. Найдите метод, который кажется игрой.</p>
-
-  <h3>4. Напомните себе «Зачем»</h3>
-  <p>Зачем вы начали? Чтобы поговорить с бабушкой? Чтобы смотреть аниме без субтитров? Чтобы жить в Барселоне? Соединитесь с этим эмоциональным ядром. Запишите это и приклейте к зеркалу.</p>
-
+  <p>Обучение — это не прямая линия. Это запутанная кривая. Узнайте, как распознать «Яму» (The Dip) и превратить свой самый большой спад в самый большой скачок роста.</p>
+  <h2>Что такое Яма?</h2>
+  <p>Когда вы начинаете учить язык, это весело. Вы учите «Привет», «Пиво», «Я тебя люблю». Быстрый прогресс. Затем, через 3 месяца, вы упираетесь в стену. Вы учитесь неделями и чувствуете, что ничему не научились. Добро пожаловать в Яму.</p>
+  <h2>Яма — это хорошо</h2>
+  <p>Сет Годин называет это «The Dip». Это фильтр, отделяющий победителей от проигравших. Если бы стать беглым было легко, это делали бы все. Тот факт, что это трудно, делает это ценным.</p>
+  <h2>Как выжить</h2>
+  <p>1. <strong>Не бросайте в плохой день:</strong> Никогда не принимайте долгосрочных решений, когда вы устали или разочарованы.<br>
+  2. <strong>Оглянитесь назад:</strong> Прочитайте текст, который читали 3 месяца назад. Вы будете поражены тем, насколько это легко сейчас.<br>
+  3. <strong>Смените метод:</strong> Если учебники грамматики вам наскучили, остановитесь. Смотрите Netflix. Просто не останавливайтесь.</p>
   <div class="tip-box">
-     <strong>Помните:</strong> Единственная разница между мастером и новичком заключается в том, что мастер терпел неудачу больше раз, чем новичок даже пытался.
+    <strong>Помните:</strong> Спад происходит прямо перед прорывом. Продолжайте идти.
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_BN = `
 <article>
-  <p>প্রতিটি ভাষা শিক্ষার্থী একই চক্রের মধ্য দিয়ে যায়:</p>
-  <ol>
-     <li><strong>হ হানিমুন:</strong> "এটি মজাদার! আমি 'হ্যালো' শিখেছি!" (দিন ১-৩০)</li>
-     <li><strong>দ্য ডিপ (The Dip):</strong> "এটি কঠিন। আমি সব ভুলে যাই। আমি কখনই অনর্গল হব না।" (দিন ৩১-??)</li>
-     <li><strong>ব্রেকথ্রু:</strong> "দাঁড়াও, আমি সেই বাক্যটি বুঝতে পেরেছি!" (ভবিষ্যত)</li>
-  </ol>
-  <p>বেশিরভাগ লোক "দ্য ডিপ"-এ ছেড়ে দেয়। শেঠ গডিন এটিকে সেই মুহূর্ত বলে অভিহিত করেছেন যেখানে মজা চলে গেছে তবে ফলাফল এখনও দেখা যায়নি।</p>
-
-  <h2>দ্য ডিপ থেকে কীভাবে বাঁচবেন</h2>
-  <h3>১. কষ্টকে আলিঙ্গন করুন (Embrace the Suck)</h3>
-  <p>মেনে নিন যে এটি কঠিন হওয়ার কথা। যদি এটি সহজ হত তবে সবাই বহুভাষী হত। অসুবিধাটি হ'ল প্রবেশের বাধা যা দক্ষতাটিকে মূল্যবান করে তোলে।</p>
-
-  <h3>২. তুলনা করা বন্ধ করুন</h3>
-  <p>"পলিগ্লট ইউটিউব" দেখবেন না। সেই ভিডিওগুলি হাইলাইট রিল। আপনি পর্দার আড়ালে ৫ বছরের বিরক্তিকর ফ্ল্যাশকার্ডগুলি দেখতে পান না। গত মাস থেকে কেবল নিজের সাথে নিজের তুলনা করুন।</p>
-
-  <h3>৩. আপনার পদ্ধতি পরিবর্তন করুন</h3>
-  <p>আপনি যদি আপনার পাঠ্যপুস্তক ঘৃণা করেন তবে তা পুড়িয়ে ফেলুন। জার্মান ভাষায় পেপ্পা পিগ দেখুন। রেসিপি পড়ুন। ফরাসি ভাষায় স্কাইরিম খেলুন। যদি পদ্ধতিটি আঘাত করে তবে আপনি ছেড়ে দেবেন। এমন একটি পদ্ধতি সন্ধান করুন যা খেলার মতো মনে হয়।</p>
-
-  <h3>৪. নিজেকে মনে করিয়ে দিন "কেন"</h3>
-  <p>আপনি কেন শুরু করেছিলেন? আপনার দাদির সাথে কথা বলতে? সাবটাইটেল ছাড়াই এনিমে দেখতে? বার্সেলোনায় থাকতে? সেই মানসিক মূলের সাথে সংযোগ স্থাপন করুন। এটি লিখুন এবং আপনার আয়নায় টেপ করুন।</p>
-
+  <p>শেখা একটি সরলরেখা নয়। এটি একটি অগোছালো বক্ররেখা। কীভাবে "দ্য ডিপ" (The Dip) চিনবেন এবং আপনার সবচেয়ে বড় মন্দাকে আপনার সবচেয়ে বড় বৃদ্ধিতে পরিণত করবেন তা শিখুন।</p>
+  <h2>দ্য ডিপ কি?</h2>
+  <p>আপনি যখন ভাষা শেখা শুরু করেন, তখন এটি মজাদার। আপনি "হ্যালো", "বিয়ার", "আমি তোমাকে ভালোবাসি" শিখেন। দ্রুত উন্নতি। তারপর, ৩ মাস পরে, আপনি একটি দেয়ালে ধাক্কা খাবেন। আপনি কয়েক সপ্তাহ ধরে অধ্যয়ন করেন এবং মনে হয় আপনি কিছুই শিখেননি। দ্য ডিপ-এ স্বাগতম।</p>
+  <h2>দ্য ডিপ ভালো</h2>
+  <p>সেঠ গডিন একে "দ্য ডিপ" বলেছেন। এটি সেই ফিল্টার যা বিজয়ীদের পরাজিতদের থেকে আলাদা করে। সাবলীল হওয়া সহজ হলে সবাই তা করত। এটি কঠিন বলেই এটি মূল্যবান।</p>
+  <h2>কীভাবে টিকে থাকবেন</h2>
+  <p>1. <strong>খারাপ দিনে ছেড়ে দেবেন না:</strong> আপনি যখন ক্লান্ত বা হতাশ হন তখন কখনই দীর্ঘমেয়াদী সিদ্ধান্ত নেবেন না।<br>
+  2. <strong>পিছনে তাকান:</strong> ৩ মাস আগে পড়া একটি লেখা পড়ুন। আপনি অবাক হবেন যে এটি এখন কত সহজ।<br>
+  3. <strong>পদ্ধতি পরিবর্তন করুন:</strong> যদি ব্যাকরণের বইগুলো আপনাকে বিরক্ত করে, থামুন। নেটফ্লিক্স দেখুন। শুধু থামবেন না।</p>
   <div class="tip-box">
-     <strong>মনে রাখবেন:</strong> একজন মাস্টার এবং একজন নতুনের মধ্যে একমাত্র পার্থক্য হ'ল একজন মাস্টার একজন নতুনের চেষ্টা করার চেয়ে বেশিবার ব্যর্থ হয়েছেন।
+    <strong>মনে রাখবেন:</strong> সাফল্যের ঠিক আগেই পতন ঘটে। হাঁটতে থাকুন।
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_UR = `
 <article>
-  <p>ہر زبان سیکھنے والا ایک ہی چکر سے گزرتا ہے:</p>
-  <ol>
-     <li><strong>ہنی مون:</strong> "یہ مزہ ہے! میں نے 'ہیلو' سیکھا!" (دن 1-30)</li>
-     <li><strong>دی ڈِپ (The Dip):</strong> "یہ مشکل ہے۔ میں سب کچھ بھول جاتا ہوں۔ میں کبھی بھی روانی نہیں بنوں گا۔" (دن 31-??)</li>
-     <li><strong>کامیابی:</strong> "رکو، میں نے ابھی وہ جملہ سمجھا!" (مستقبل)</li>
-  </ol>
-  <p>زیادہ تر لوگ "دی ڈِپ" میں چھوڑ دیتے ہیں۔ سیٹھ گوڈن اسے وہ لمحہ کہتے ہیں جہاں مزہ ختم ہو گیا ہے لیکن نتائج ابھی تک ظاہر نہیں ہوئے ہیں۔</p>
-
-  <h2>دی ڈِپ سے کیسے بچیں</h2>
-  <h3>1. مشکل کو گلے لگائیں (Embrace the Suck)</h3>
-  <p>تسلیم کریں کہ یہ مشکل ہونا چاہئے۔ اگر یہ آسان ہوتا تو ہر کوئی کثیر لسانی ہوتا۔ مشکل داخلے کی رکاوٹ ہے جو مہارت کو قیمتی بناتی ہے۔</p>
-
-  <h3>2. موازنہ کرنا بند کریں</h3>
-  <p>"پولی گلوٹ یوٹیوب" کو نہ دیکھیں۔ وہ ویڈیوز نمایاں ریل ہیں۔ آپ پردے کے پیچھے 5 سال کے بورنگ فلیش کارڈز نہیں دیکھتے ہیں۔ صرف پچھلے مہینے سے اپنا موازنہ اپنے آپ سے کریں۔</p>
-
-  <h3>3. اپنے طریقے بدلیں</h3>
-  <p>اگر آپ اپنی نصابی کتاب سے نفرت کرتے ہیں تو اسے جلا دیں۔ جرمن میں پیپا پگ دیکھیں۔ ترکیبیں پڑھیں۔ فرانسیسی میں اسکائیرم کھیلیں۔ اگر طریقہ تکلیف دیتا ہے تو آپ چھوڑ دیں گے۔ ایک ایسا طریقہ تلاش کریں جو کھیل کی طرح محسوس ہو۔</p>
-
-  <h3>4. خود کو یاد دلائیں "کیوں"</h3>
-  <p>آپ نے کیوں شروع کیا؟ اپنی دادی سے بات کرنے کے لئے؟ سب ٹائٹلز کے بغیر موبائل فونز دیکھنے کے لئے؟ بارسلونا میں رہنے کے لئے؟ اس جذباتی کور کے ساتھ جڑیں۔ اسے لکھیں اور اپنے آئینے پر ٹیپ کریں۔</p>
-
+  <p>سیکھنا سیدھی لکیر نہیں ہے۔ یہ ایک گندا منحنی خطوط ہے۔ "دی ڈِپ" (The Dip) کو پہچاننا سیکھیں اور اپنی سب سے بڑی گراوٹ کو اپنی سب سے بڑی ترقی میں تبدیل کریں۔</p>
+  <h2>دی ڈِپ کیا ہے؟</h2>
+  <p>جب آپ زبان سیکھنا شروع کرتے ہیں تو مزہ آتا ہے۔ آپ سیکھتے ہیں "ہیلو"، "بیئر"، "میں تم سے پیار کرتا ہوں"۔ تیزی سے ترقی۔ پھر، 3 مہینے بعد، آپ ایک دیوار سے ٹکراتے ہیں۔ آپ ہفتوں تک مطالعہ کرتے ہیں اور محسوس کرتے ہیں کہ آپ نے کچھ نہیں سیکھا۔ دی ڈِپ میں خوش آمدید۔</p>
+  <h2>دی ڈِپ اچھا ہے</h2>
+  <p>سیٹھ گوڈین اسے "دی ڈِپ" کہتے ہیں۔ یہ وہ فلٹر ہے جو جیتنے والوں کو ہارنے والوں سے الگ کرتا ہے۔ اگر روانی حاصل کرنا آسان ہوتا تو ہر کوئی کر لیتا۔ حقیقت یہ ہے کہ یہ مشکل ہے اسے قیمتی بناتی ہے۔</p>
+  <h2>کیسے زندہ رہیں</h2>
+  <p>1. <strong>برے دن پر نہ چھوڑیں:</strong> جب آپ تھکے ہوئے ہوں یا مایوس ہوں تو کبھی بھی طویل مدتی فیصلہ نہ کریں۔<br>
+  2. <strong>پیچھے مڑ کر دیکھیں:</strong> ایک ایسا متن پڑھیں جو آپ نے 3 ماہ پہلے پڑھا تھا۔ آپ حیران رہ جائیں گے کہ اب یہ کتنا آسان ہے۔<br>
+  3. <strong>طریقہ تبدیل کریں:</strong> اگر گرامر کی کتابیں آپ کو بور کر رہی ہیں تو رک جائیں۔ نیٹ فلکس دیکھیں۔ بس مت رکیں۔</p>
   <div class="tip-box">
-     <strong>یاد رکھیں:</strong> ایک ماہر اور ایک مبتدی کے درمیان واحد فرق یہ ہے کہ ماہر نے مبتدی کی کوشش کرنے سے بھی زیادہ بار ناکام رہا ہے۔
+    <strong>یاد رکھیں:</strong> ڈِپ کامیابی سے ٹھیک پہلے ہوتا ہے۔ چلتے رہیں۔
   </div>
 </article>
 `;
 
 const POST_MOTIVATION_CONTENT_NE = `
 <article>
-  <p>हरेक भाषा सिक्ने मानिस एउटै चक्रबाट गुज्रिन्छ:</p>
-  <ol>
-     <li><strong>हनिमुन:</strong> "यो रमाइलो छ! मैले 'नमस्ते' सिकें!" (दिन १-३०)</li>
-     <li><strong>द डिप (The Dip):</strong> "यो गाह्रो छ। म सबै कुरा बिर्सन्छु। म कहिल्यै धाराप्रवाह हुनेछैन।" (दिन ३१-??)</li>
-     <li><strong>सफलता:</strong> "पख्नुहोस्, मैले त्यो वाक्य भर्खरै बुझें!" (भविष्य)</li>
-  </ol>
-  <p>धेरैजसो मानिसहरू "द डिप" मा छोड्छन्। सेथ गोडिन यसलाई त्यो क्षण भन्छन् जहाँ रमाइलो हराएको छ तर परिणामहरू अझै देखा परेका छैनन्।</p>
-
-  <h2>द डिपबाट कसरी बच्ने</h2>
-  <h3>१. कठिनाइलाई अंगालो (Embrace the Suck)</h3>
-  <p>स्वीकार गर्नुहोस् कि यो गाह्रो हुनुपर्छ। यदि यो सजिलो थियो भने, सबैजना बहुभाषी हुनेथे। कठिनाइ प्रवेशको अवरोध हो जसले सीपलाई बहुमूल्य बनाउँछ।</p>
-
-  <h3>२. तुलना गर्न बन्द गर्नुहोस्</h3>
-  <p>"पलिग्लोट युट्युब" नहेर्नुहोस्। ती भिडियोहरू हाइलाइट रिलहरू हुन्। तपाईं पर्दा पछाडि ५ वर्षको बोरिंग फ्ल्यासकार्डहरू देख्नुहुन्न। गत महिनाबाट केवल आफूसँग तुलना गर्नुहोस्।</p>
-
-  <h3>३. आफ्ना विधिहरू परिवर्तन गर्नुहोस्</h3>
-  <p>यदि तपाईं आफ्नो पाठ्यपुस्तकलाई घृणा गर्नुहुन्छ भने, यसलाई जलाउनुहोस्। जर्मनमा पेप्पा पिग हेर्नुहोस्। रेसिपीहरू पढ्नुहोस्। फ्रेन्चमा स्काइरिम खेल्नुहोस्। यदि विधिले दुख्छ भने, तपाईं छोड्नुहुनेछ। एउटा विधि फेला पार्नुहोस् जुन खेल जस्तो लाग्छ।</p>
-
-  <h3>४. आफूलाई सम्झाउनुहोस् "किन"</h3>
-  <p>तपाईंले किन सुरु गर्नुभयो? आफ्नो हजुरआमासँग कुरा गर्न? उपशीर्षक बिना एनिमे हेर्न? बार्सেলोनामा बस्न? त्यो भावनात्मक कोरसँग जोड्नुहोस्। यसलाई लेख्नुहोस् र तपाईंको ऐनामा ट्याप गर्नुहोस्।</p>
-
+  <p>सिकाइ सीधा रेखा होइन। यो एक गन्दा वक्र हो। "द डिप" (The Dip) कसरी पहिचान गर्ने र आफ्नो सबैभन्दा ठूलो मन्दीलाई आफ्नो सबैभन्दा ठूलो वृद्धिमा परिणत गर्ने सिक्नुहोस्।</p>
+  <h2>द डिप के हो?</h2>
+  <p>जब तपाइँ भाषा सिक्न सुरु गर्नुहुन्छ, यो रमाइलो हुन्छ। तपाईंले "नमस्ते", "बियर", "म तिमीलाई माया गर्छु" सिक्नुहुन्छ। द्रुत प्रगति। त्यसपछि, ३ महिना पछि, तपाईं पर्खालमा ठोक्किनुहुन्छ। तपाईं हप्तासम्म अध्ययन गर्नुहुन्छ र केही नसिकेको महसुस गर्नुहुन्छ। द डिपमा स्वागत छ।</p>
+  <h2>द डिप राम्रो छ</h2>
+  <p>सेठ गोडिन यसलाई "द डिप" भन्छन्। यो फिल्टर हो जसले विजेताहरूलाई हार्नेहरूबाट अलग गर्दछ। यदि फरर बोल्न सजिलो भएको भए, सबैले गर्ने थिए। यो गाह्रो छ भन्ने तथ्यले यसलाई मूल्यवान बनाउँछ।</p>
+  <h2>कसरी बाँच्ने</h2>
+  <p>1. <strong>नराम्रो दिनमा नछोड्नुहोस्:</strong> जब तपाईं थकित वा निराश हुनुहुन्छ भने कहिल्यै दीर्घकालीन निर्णय नगर्नुहोस्।<br>
+  2. <strong>फर्केर हेर्नुहोस्:</strong> ३ महिना अघि पढेको पाठ पढ्नुहोस्। तपाईं छक्क पर्नुहुनेछ कि यो अहिले कति सजिलो छ।<br>
+  3. <strong>विधि परिवर्तन गर्नुहोस्:</strong> यदि व्याकरणका किताबहरूले तपाईंलाई बोर गरिरहेका छन् भने, रोक्नुहोस्। नेटफ्लिक्स हेर्नुहोस्। बस नरोक्नुहोस्।</p>
   <div class="tip-box">
-     <strong>सम्झनुहोस्:</strong> एक मास्टर र एक शुरुवातकर्ता बीचको एउटै मात्र फरक के हो भने मास्टरले शुरुवातकर्ताले प्रयास गरेको भन्दा धेरै पटक असफल भएको छ।
+    <strong>सम्झनुहोस्:</strong> सफलता भन्दा ठीक अघि गिरावट हुन्छ। हिडिरहनुहोस्।
   </div>
 </article>
 `;
 
+const POST_MOTIVATION_CONTENT_SI = `
+<article>
+  <p>ඉගෙනීම කෙලින් රේඛාවක් නෙවෙයි. ඒක වක්‍රයක්.</p>
+  <h2>"The Dip" කියන්නේ මොකක්ද?</h2>
+  <p>ආරම්භකයින් ඉක්මනින් ඉගෙන ගන්නවා. පස්සේ දියුණුව නවතිනවා වගේ දැනෙනවා. මේකට කියන්නේ "The Dip".</p>
+  <h2>Dip එක හොඳ දෙයක්</h2>
+  <p>ඒක ෆිල්ටරයක්. භාෂාව ඉගෙන ගැනීම ලේසි නම් හැමෝම කරයි. අමාරු නිසා තමයි වටිනාකමක් තියෙන්නේ.</p>
+  <h2>කරන්න ඕන දේ</h2>
+  <p>1. <strong>නරක දවසක අතහරින්න එපා:</strong> තරහෙන් ඉන්න වෙලාවක තීරණ ගන්න එපා.</p>
+  <p>2. <strong>ආපසු බලන්න:</strong> මාස 3කට කලින් කියවපු දේ ආයේ කියවන්න. දියුණුව පෙනෙයි.</p>
+  <p>3. <strong>ක්‍රමය වෙනස් කරන්න:</strong> පොත් එපා නම් Netflix බලන්න. නවත්වන්න එපා.</p>
+  <div class="tip-box">
+    <strong>මතක තබා ගන්න:</strong> සාර්ථකත්වයට මොහොතකට කලින් තමයි අමාරුම හරිය එන්නේ.
+  </div>
+</article>
+`;
+
+const POST_MOTIVATION_CONTENT_SW = `
+<article>
+  <p>Kujifunza si mstari ulionyooka. Ni mkunjo. Jifunze kutambua "The Dip".</p>
+  <h2>"The Dip" ni nini?</h2>
+  <p>Unapoanza, unajifunza haraka. Kisha unakwama. Hii inaitwa "The Dip".</p>
+  <h2>Dip ni nzuri</h2>
+  <p>Ni kichujio. Ikiwa kujifunza lugha ingekuwa rahisi, kila mtu angefanya. Ni ngumu ndiyo sababu ina thamani.</p>
+  <h2>Cha Kufanya</h2>
+  <p>1. <strong>Usikate tamaa:</strong> Usifanye maamuzi ukiwa na hasira.</p>
+  <p>2. <strong>Angalia nyuma:</strong> Soma kitu ulichosoma miezi 3 iliyopita. Utaona ni rahisi.</p>
+  <p>3. <strong>Badilisha Njia:</strong> Ikiwa vitabu vinachosha, tazama Netflix. Usiache.</p>
+  <div class="tip-box">
+    <strong>Kumbuka:</strong> Giza totoro ni kabla ya mapambazuko. Endelea.
+  </div>
+</article>
+`;
+
+
+// ==========================================
+// Post 20: Consistency vs. Intensity (The Tortoise Wins)
+// ==========================================
+const POST_CONSISTENCY_CONTENT_EN = `
+<article>
+  <p>There are two ways to study 10 hours.</p>
+  <ol>
+    <li>10 hours in one day (Intensity).</li>
+    <li>30 minutes a day for 20 days (Consistency).</li>
+  </ol>
+  <p>Option 1 feels heroic. You feel like a warrior. But after 1 week, you will remember <strong>nothing</strong>.</p>
+  <h2>The Sleep Sandwich</h2>
+  <p>Your brain needs time to grow. Learning happens <em>while you sleep</em>, not while you study. Sleep is when your brain moves information from short-term RAM to long-term Hard Drive.</p>
+  <p>If you study for 10 hours, you only get 1 night of sleep to save that file. If you study for 20 days, you get 20 nights of sleep. That is 20 times more processing power.</p>
+  <h2>The Non-Zero Day</h2>
+  <p>Commit to a "Non-Zero Day". This means you do <em>something</em> every single day. Even if it's just 1 Duolingo lesson. Even if it's just listening to 1 song.</p>
+  <div class="tip-box">
+    <strong>The Challenge:</strong> Do not miss a single day for 30 days. Even 5 minutes counts. Watch your level explode.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_KO = `
+<article>
+  <p>10시간을 공부하는 데는 두 가지 방법이 있습니다.</p>
+  <ol>
+    <li>하루에 10시간 몰아서 하기 (강도).</li>
+    <li>하루 30분씩 20일 동안 하기 (꾸준함).</li>
+  </ol>
+  <p>1번은 영웅이 된 기분이 듭니다. 뿌듯하죠. 하지만 일주일 뒤면 <strong>아무것도</strong> 기억나지 않을 겁니다.</p>
+  <h2>수면 샌드위치 이론</h2>
+  <p>뇌가 성장하려면 시간이 필요합니다. 학습은 공부할 때가 아니라 <em>잠을 잘 때</em> 일어납니다. 잠은 뇌가 단기 기억(RAM)을 장기 기억(하드디스크)으로 옮기는 시간입니다.</p>
+  <p>하루에 10시간 공부하면 저장할 기회(잠)는 딱 한 번뿐입니다. 20일 동안 공부하면 20번의 저장 기회가 생깁니다. 처리 능력이 20배나 차이 나는 겁니다.</p>
+  <h2>'0'이 아닌 날 (Non-Zero Day)</h2>
+  <p>"Non-Zero Day"를 만드세요. 매일 <em>무언가</em>는 무조건 한다는 뜻입니다. 듀오링고 한 판이라도 좋고, 노래 한 곡 듣는 것도 좋습니다.</p>
+  <div class="tip-box">
+    <strong>도전 과제:</strong> 30일 동안 단 하루도 빠지지 마세요. 5분이라도 좋습니다. 당신의 실력이 폭발하는 걸 지켜보세요.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_JA = `
+<article>
+  <p>10時間勉強する方法は2つあります。</p>
+  <ol>
+    <li>1日で10時間（強度）。</li>
+    <li>1日30分を20日間（継続性）。</li>
+  </ol>
+  <p>オプション1は英雄的な気分になります。しかし、1週間後には<strong>何も</strong>覚えていないでしょう。</p>
+  <h2>睡眠サンドイッチ</h2>
+  <p>脳が成長するには時間がかかります。学習は勉強している間ではなく、<em>寝ている間</em>に起こります。睡眠は、脳が短期記憶（RAM）から長期記憶（ハードドライブ）に情報を移すときです。</p>
+  <p>10時間勉強しても、ファイルを保存する睡眠は1夜しかありません。20日間勉強すれば、20夜の睡眠が得られます。処理能力は20倍です。</p>
+  <h2>ゼロではない日（Non-Zero Day）</h2>
+  <p>「Non-Zero Day」を約束してください。これは、毎日<em>何か</em>をするという意味です。Duolingoのレッスン1つでも構いません。歌を1曲聴くだけでも構いません。</p>
+  <div class="tip-box">
+    <strong>チャレンジ：</strong> 30日間、1日も休まないでください。5分でも価値があります。レベルが爆発的に上がるのを見てください。
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_ZH = `
+<article>
+  <p>学习10小时有两种方法。</p>
+  <ol>
+    <li>一天10小时（强度）。</li>
+    <li>每天30分钟，坚持20天（一致性）。</li>
+  </ol>
+  <p>选项1感觉很英勇。但一周后，你将<strong>什么都记不住</strong>。</p>
+  <h2>睡眠三明治</h2>
+  <p>你的大脑需要时间成长。学习发生在<em>你睡觉的时候</em>，而不是学习的时候。睡眠是大脑将信息从短期记忆（RAM）转移到长期记忆（硬盘）的时候。</p>
+  <p>如果你学习10小时，你只有一晚的睡眠来保存那个文件。如果你学习20天，你有20晚的睡眠。那是20倍的处理能力。</p>
+  <h2>非零日 (Non-Zero Day)</h2>
+  <p>承诺一个“非零日”。这意味着你每天都要做<em>点什么</em>。即使只是一节多邻国课程。即使只是听一首歌。</p>
+  <div class="tip-box">
+    <strong>挑战：</strong> 30天内一天也不要错过。即使是5分钟也算数。看着你的水平爆发。
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_ES = `
+<article>
+  <p>Hay dos formas de estudiar 10 horas.</p>
+  <ol>
+    <li>10 horas en un día (Intensidad).</li>
+    <li>30 minutos al día durante 20 días (Consistencia).</li>
+  </ol>
+  <p>La opción 1 se siente heroica. Pero después de 1 semana, no recordarás <strong>nada</strong>.</p>
+  <h2>El Sándwich de Sueño</h2>
+  <p>Tu cerebro necesita tiempo para crecer. El aprendizaje ocurre <em>mientras duermes</em>, no mientras estudias. El sueño es cuando tu cerebro mueve información de la RAM a corto plazo al disco duro a largo plazo.</p>
+  <p>Si estudias durante 10 horas, solo obtienes 1 noche de sueño para guardar ese archivo. Si estudias durante 20 días, obtienes 20 noches de sueño. Eso es 20 veces más potencia de procesamiento.</p>
+  <h2>El Día No-Cero</h2>
+  <p>Comprométete a un "Día No-Cero". Esto significa que haces <em>algo</em> todos los días. Incluso si es solo 1 lección de Duolingo. Incluso si es solo escuchar 1 canción.</p>
+  <div class="tip-box">
+    <strong>El Reto:</strong> No te pierdas ni un solo día durante 30 días. Incluso 5 minutos cuentan. Mira cómo explota tu nivel.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_FR = `
+<article>
+  <p>Il y a deux façons d'étudier 10 heures.</p>
+  <ol>
+    <li>10 heures en une journée (Intensité).</li>
+    <li>30 minutes par jour pendant 20 jours (Cohérence).</li>
+  </ol>
+  <p>L'option 1 semble héroïque. Mais après 1 semaine, vous ne vous souviendrez de <strong>rien</strong>.</p>
+  <h2>Le Sandwich de Sommeil</h2>
+  <p>Votre cerveau a besoin de temps pour grandir. L'apprentissage se produit <em>pendant que vous dormez</em>, pas pendant que vous étudiez. Le sommeil est le moment où votre cerveau déplace les informations de la RAM à court terme vers le disque dur à long terme.</p>
+  <p>Si vous étudiez pendant 10 heures, vous n'obtenez qu'une nuit de sommeil pour enregistrer ce fichier. Si vous étudiez pendant 20 jours, vous obtenez 20 nuits de sommeil. C'est 20 fois plus de puissance de traitement.</p>
+  <h2>Le Jour Non-Zéro</h2>
+  <p>Engagez-vous à un "Jour Non-Zéro". Cela signifie que vous faites <em>quelque chose</em> chaque jour. Même si c'est juste 1 leçon Duolingo. Même si c'est juste écouter 1 chanson.</p>
+  <div class="tip-box">
+    <strong>Le Défi :</strong> Ne manquez pas un seul jour pendant 30 jours. Même 5 minutes comptent. Regardez votre niveau exploser.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_DE = `
+<article>
+  <p>Es gibt zwei Möglichkeiten, 10 Stunden zu lernen.</p>
+  <ol>
+    <li>10 Stunden an einem Tag (Intensität).</li>
+    <li>30 Minuten pro Tag für 20 Tage (Konsistenz).</li>
+  </ol>
+  <p>Option 1 fühlt sich heldenhaft an. Aber nach einer Woche werden Sie sich an <strong>nichts</strong> erinnern.</p>
+  <h2>Das Schlaf-Sandwich</h2>
+  <p>Ihr Gehirn braucht Zeit zum Wachsen. Lernen geschieht <em>während Sie schlafen</em>, nicht während Sie lernen. Schlaf ist, wenn Ihr Gehirn Informationen vom Kurzzeit-RAM auf die Langzeit-Festplatte verschiebt.</p>
+  <p>Wenn Sie 10 Stunden lernen, haben Sie nur eine Nacht Schlaf, um diese Datei zu speichern. Wenn Sie 20 Tage lernen, haben Sie 20 Nächte Schlaf. Das ist 20-mal mehr Rechenleistung.</p>
+  <h2>Der Nicht-Null-Tag</h2>
+  <p>Verpflichten Sie sich zu einem "Nicht-Null-Tag". Das bedeutet, dass Sie jeden Tag <em>etwas</em> tun. Auch wenn es nur eine Duolingo-Lektion ist. Auch wenn es nur das Hören eines Liedes ist.</p>
+  <div class="tip-box">
+    <strong>Die Herausforderung:</strong> Verpassen Sie 30 Tage lang keinen einzigen Tag. Selbst 5 Minuten zählen. Beobachten Sie, wie Ihr Niveau explodiert.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_TH = `
+<article>
+  <p>มีสองวิธีในการเรียน 10 ชั่วโมง</p>
+  <ol>
+    <li>10 ชั่วโมงในหนึ่งวัน (ความเข้มข้น)</li>
+    <li>30 นาทีต่อวันเป็นเวลา 20 วัน (ความสม่ำเสมอ)</li>
+  </ol>
+  <p>ตัวเลือกที่ 1 รู้สึกเหมือนฮีโร่ แต่หลังจาก 1 สัปดาห์ คุณจะจำ <strong>อะไรไม่ได้เลย</strong></p>
+  <h2>แซนด์วิชการนอนหลับ</h2>
+  <p>สมองของคุณต้องการเวลาในการเติบโต การเรียนรู้เกิดขึ้น <em>ในขณะที่คุณนอนหลับ</em> ไม่ใชในขณะที่คุณเรียน การนอนหลับคือตอนที่สมองของคุณย้ายข้อมูลจาก RAM ระยะสั้นไปยังฮาร์ดไดรฟ์ระยะยาว</p>
+  <p>หากคุณเรียน 10 ชั่วโมง คุณจะได้นอนเพียง 1 คืนเพื่อบันทึกไฟล์นั้น หากคุณเรียน 20 วัน คุณจะได้นอน 20 คืน นั่นคือพลังการประมวลผลมากกว่า 20 เท่า</p>
+  <h2>วันที่ไม่เป็นศูนย์ (Non-Zero Day)</h2>
+  <p>มุ่งมั่นกับ "วันที่ไม่เป็นศูนย์" นี่หมายความว่าคุณทำ <em>บางสิ่ง</em> ทุกวัน แม้ว่าจะเป็นเพียง 1 บทเรียน Duolingo แม้ว่าจะเป็นเพียงการฟังเพลง 1 เพลง</p>
+  <div class="tip-box">
+    <strong>ความท้าทาย:</strong> ห้ามพลาดแม้แต่วันเดียวเป็นเวลา 30 วัน แม้แต่ 5 นาทีก็มีค่า ดูระดับของคุณระเบิด
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_VI = `
+<article>
+  <p>Có hai cách để học 10 giờ.</p>
+  <ol>
+    <li>10 giờ trong một ngày (Cường độ).</li>
+    <li>30 phút mỗi ngày trong 20 ngày (Sự kiên trì).</li>
+  </ol>
+  <p>Lựa chọn 1 cảm thấy thật anh hùng. Nhưng sau 1 tuần, bạn sẽ <strong>không nhớ gì cả</strong>.</p>
+  <h2>Bánh mì kẹp Giấc ngủ</h2>
+  <p>Bộ não của bạn cần thời gian để phát triển. Việc học diễn ra <em>trong khi bạn ngủ</em>, không phải trong khi bạn học. Giấc ngủ là khi bộ não của bạn chuyển thông tin từ RAM ngắn hạn sang Ổ cứng dài hạn.</p>
+  <p>Nếu bạn học trong 10 giờ, bạn chỉ có 1 đêm ngủ để lưu tệp đó. Nếu bạn học trong 20 ngày, bạn có 20 đêm ngủ. Đó là sức mạnh xử lý gấp 20 lần.</p>
+  <h2>Ngày Không Số Không</h2>
+  <p>Cam kết thực hiện "Ngày Không Số Không". Điều này có nghĩa là bạn làm <em>điều gì đó</em> mỗi ngày. Ngay cả khi chỉ là 1 bài học Duolingo. Ngay cả khi chỉ là nghe 1 bài hát.</p>
+  <div class="tip-box">
+    <strong>Thử thách:</strong> Đừng bỏ lỡ một ngày nào trong 30 ngày. Ngay cả 5 phút cũng có giá trị. Xem trình độ của bạn bùng nổ.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_ID = `
+<article>
+  <p>Ada dua cara untuk belajar 10 jam.</p>
+  <ol>
+    <li>10 jam dalam satu hari (Intensitas).</li>
+    <li>30 menit sehari selama 20 hari (Konsistensi).</li>
+  </ol>
+  <p>Opsi 1 terasa heroik. Tapi setelah 1 minggu, Anda tidak akan mengingat <strong>apa pun</strong>.</p>
+  <h2>Sandwich Tidur</h2>
+  <p>Otak Anda butuh waktu untuk tumbuh. Belajar terjadi <em>saat Anda tidur</em>, bukan saat Anda belajar. Tidur adalah saat otak Anda memindahkan informasi dari RAM jangka pendek ke Hard Drive jangka panjang.</p>
+  <p>Jika Anda belajar selama 10 jam, Anda hanya mendapatkan 1 malam tidur untuk menyimpan file itu. Jika Anda belajar selama 20 hari, Anda mendapatkan 20 malam tidur. Itu 20 kali lipat kekuatan pemrosesan.</p>
+  <h2>Hari Tanpa Nol</h2>
+  <p>Berkomitmenlah pada "Hari Tanpa Nol". Ini berarti Anda melakukan <em>sesuatu</em> setiap hari. Bahkan jika itu hanya 1 pelajaran Duolingo. Bahkan jika itu hanya mendengarkan 1 lagu.</p>
+  <div class="tip-box">
+    <strong>Tantangannya:</strong> Jangan lewatkan satu hari pun selama 30 hari. Bahkan 5 menit pun berharga. Saksikan level Anda meledak.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_PT = `
+<article>
+  <p>Existem duas maneiras de estudar 10 horas.</p>
+  <ol>
+    <li>10 horas em um dia (Intensidade).</li>
+    <li>30 minutos por dia durante 20 dias (Consistência).</li>
+  </ol>
+  <p>A opção 1 parece heroica. Mas depois de 1 semana, você não se lembrará de <strong>nada</strong>.</p>
+  <h2>O Sanduíche do Sono</h2>
+  <p>Seu cérebro precisa de tempo para crescer. O aprendizado acontece <em>enquanto você dorme</em>, não enquanto estuda. O sono é quando seu cérebro move informações da RAM de curto prazo para o Disco Rígido de longo prazo.</p>
+  <p>Se você estudar por 10 horas, terá apenas 1 noite de sono para salvar esse arquivo. Se você estudar por 20 dias, terá 20 noites de sono. Isso é 20 vezes mais poder de processamento.</p>
+  <h2>O Dia Não-Zero</h2>
+  <p>Comprometa-se com um "Dia Não-Zero". Isso significa que você faz <em>algo</em> todos os dias. Mesmo que seja apenas 1 lição do Duolingo. Mesmo que seja apenas ouvir 1 música.</p>
+  <div class="tip-box">
+    <strong>O Desafio:</strong> Não perca um único dia por 30 dias. Mesmo 5 minutos contam. Veja seu nível explodir.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_TR = `
+<article>
+  <p>10 saat çalışmanın iki yolu vardır.</p>
+  <ol>
+    <li>Bir günde 10 saat (Yoğunluk).</li>
+    <li>20 gün boyunca günde 30 dakika (Tutarlılık).</li>
+  </ol>
+  <p>1. Seçenek kahramanca hissettiriyor. Ama 1 hafta sonra <strong>hiçbir şeyi</strong> hatırlamayacaksınız.</p>
+  <h2>Uyku Sandviçi</h2>
+  <p>Beyninizin büyümek için zamana ihtiyacı var. Öğrenme, çalışırken değil, <em>uyurken</em> gerçekleşir. Uyku, beyninizin bilgileri kısa süreli RAM'den uzun süreli Sabit Diske taşıdığı zamandır.</p>
+  <p>10 saat çalışırsanız, o dosyayı kaydetmek için sadece 1 gece uykunuz olur. 20 gün çalışırsanız, 20 gece uykunuz olur. Bu, 20 kat daha fazla işlem gücüdür.</p>
+  <h2>Sıfır Olmayan Gün</h2>
+  <p>Bir "Sıfır Olmayan Gün" taahhüt edin. Bu, her gün <em>bir şeyler</em> yaptığınız anlamına gelir. Sadece 1 Duolingo dersi olsa bile. Sadece 1 şarkı dinlemek olsa bile.</p>
+  <div class="tip-box">
+    <strong>Zorluk:</strong> 30 gün boyunca tek bir günü bile kaçırmayın. 5 dakika bile önemlidir. Seviyenizin patlamasını izleyin.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_AR = `
+<article>
+  <p>هناك طريقتان للدراسة لمدة 10 ساعات.</p>
+  <ol>
+    <li>10 ساعات في يوم واحد (كشافة).</li>
+    <li>30 دقيقة يوميًا لمدة 20 يومًا (الاستمرارية).</li>
+  </ol>
+  <p>الخيار 1 يبدو بطولياً. ولكن بعد أسبوع واحد، لن تتذكر <strong>شيئًا</strong>.</p>
+  <h2>ساندويتش النوم</h2>
+  <p>عقلك يحتاج إلى وقت للنمو. يحدث التعلم <em>أثناء النوم</em>، وليس أثناء الدراسة. النوم هو الوقت الذي ينقل فيه عقلك المعلومات من الذاكرة قصيرة المدى (RAM) إلى القرص الصلب طويل المدى.</p>
+  <p>إذا درست لمدة 10 ساعات، فستحصل على ليلة نوم واحدة فقط لحفظ هذا الملف. إذا درست لمدة 20 يومًا، فستحصل على 20 ليلة نوم. هذه قوة معالجة أكبر بـ 20 مرة.</p>
+  <h2>اليوم غير الصفري</h2>
+  <p>التزم بـ "اليوم غير الصفري". هذا يعني أنك تفعل <em>شيئًا</em> كل يوم. حتى لو كان درسًا واحدًا من Duolingo. حتى لو كان الاستماع إلى أغنية واحدة.</p>
+  <div class="tip-box">
+    <strong>التحدي:</strong> لا تفوت يومًا واحدًا لمدة 30 يومًا. حتى 5 دقائق مهمة. شاهد مستواك ينفجر.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_HI = `
+<article>
+  <p>10 घंटे पढ़ने के दो तरीके हैं।</p>
+  <ol>
+    <li>एक दिन में 10 घंटे (तीव्रता)।</li>
+    <li>20 दिनों के लिए दिन में 30 मिनट (निरंतरता)।</li>
+  </ol>
+  <p>विकल्प 1 वीरतापूर्ण लगता है। लेकिन 1 सप्ताह के बाद, आपको <strong>कुछ भी</strong> याद नहीं रहेगा।</p>
+  <h2>नींद सैंडविच</h2>
+  <p>आपके दिमाग को बढ़ने के लिए समय चाहिए। सीखना <em>सोते समय</em> होता है, अध्ययन करते समय नहीं। नींद वह समय है जब आपका दिमाग जानकारी को शॉर्ट-टर्म RAM से लॉन्ग-टर्म हार्ड ड्राइव में ले जाता है।</p>
+  <p>यदि आप 10 घंटे अध्ययन करते हैं, तो आपको उस फ़ाइल को सहेजने के लिए केवल 1 रात की नींद मिलती है। यदि आप 20 दिनों तक अध्ययन करते हैं, तो आपको 20 रात की नींद मिलती है। वह 20 गुना अधिक प्रसंस्करण शक्ति है।</p>
+  <h2>गैर-शून्य दिन</h2>
+  <p>एक "गैर-शून्य दिन" के लिए प्रतिबद्ध रहें। इसका मतलब है कि आप हर दिन <em>कुछ</em> करते हैं। भले ही वह सिर्फ 1 डुओलिंगो पाठ हो। भले ही वह सिर्फ 1 गाना सुनना हो।</p>
+  <div class="tip-box">
+    <strong>चुनौती:</strong> 30 दिनों तक एक भी दिन न चूकें। 5 मिनट भी मायने रखते हैं। अपने स्तर को विस्फोट होते देखें।
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_RU = `
+<article>
+  <p>Есть два способа учиться 10 часов.</p>
+  <ol>
+    <li>10 часов за один день (Интенсивность).</li>
+    <li>30 минут в день в течение 20 дней (Постоянство).</li>
+  </ol>
+  <p>Вариант 1 кажется героическим. Но через 1 неделю вы не вспомните <strong>ничего</strong>.</p>
+  <h2>Сэндвич сна</h2>
+  <p>Вашему мозгу нужно время для роста. Обучение происходит, <em>пока вы спите</em>, а не пока учитесь. Сон — это время, когда мозг перемещает информацию из кратковременной памяти (RAM) на долгосрочный жесткий диск.</p>
+  <p>Если вы учитесь 10 часов, у вас есть только 1 ночь сна, чтобы сохранить этот файл. Если вы учитесь 20 дней, у вас есть 20 ночей сна. Это в 20 раз больше вычислительной мощности.</p>
+  <h2>Ненулевой день</h2>
+  <p>Возьмите обязательство «Ненулевого дня». Это значит, что вы делаете <em>что-то</em> каждый день. Даже если это всего 1 урок Duolingo. Даже если это всего одна песня.</p>
+  <div class="tip-box">
+    <strong>Вызов:</strong> Не пропускайте ни одного дня в течение 30 дней. Даже 5 минут имеют значение. Смотрите, как растет ваш уровень.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_BN = `
+<article>
+  <p>১০ ঘন্টা পড়ার দুটি উপায় আছে।</p>
+  <ol>
+    <li>এক দিনে ১০ ঘন্টা (তীব্রতা)।</li>
+    <li>২০ দিনের জন্য দিনে ৩০ মিনিট (ধারাবাহিকতা)।</li>
+  </ol>
+  <p>বিকল্প ১ বীরত্বপূর্ণ মনে হয়। কিন্তু ১ সপ্তাহ পরে, আপনার <strong>কিছুই</strong> মনে থাকবে না।</p>
+  <h2>ঘুম স্যান্ডউইচ</h2>
+  <p>আপনার মস্তিষ্কের বৃদ্ধির জন্য সময় প্রয়োজন। শেখা ঘটে <em>যখন আপনি ঘুমান</em>, যখন আপনি অধ্যয়ন করেন তখন নয়। ঘুম হল যখন আপনার মস্তিষ্ক স্বল্পমেয়াদী RAM থেকে দীর্ঘমেয়াদী হার্ড ড্রাইভে তথ্য সরিয়ে নেয়।</p>
+  <p>আপনি যদি ১০ ঘন্টা অধ্যয়ন করেন তবে সেই ফাইলটি সংরক্ষণ করার জন্য আপনি মাত্র ১ রাত ঘুম পান। আপনি যদি ২০ দিন অধ্যয়ন করেন তবে আপনি ২০ রাত ঘুম পান। এটি ২০ গুণ বেশি প্রক্রিয়াকরণ শক্তি।</p>
+  <h2>নন-জিরো ডে</h2>
+  <p>একটি "নন-জিরো ডে" এর প্রতিশ্রুতি দিন। এর মানে হল আপনি প্রতিদিন <em>কিছু</em> করেন। এমনকি যদি এটি মাত্র ১টি ডুওলিঙ্গো পাঠ হয়। এমনকি যদি এটি মাত্র ১টি গান শোনা হয়।</p>
+  <div class="tip-box">
+    <strong>চ্যালেঞ্জ:</strong> ৩০ দিনের জন্য একটি দিনও মিস করবেন না। এমনকি ৫ মিনিটও গুরুত্বপূর্ণ। আপনার লেভেল বিস্ফোরিত হতে দেখুন।
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_UR = `
+<article>
+  <p>10 گھنٹے پڑھنے کے دو طریقے ہیں۔</p>
+  <ol>
+    <li>ایک دن میں 10 گھنٹے (شدت)۔</li>
+    <li>20 دن تک دن میں 30 منٹ (مستقل مزاجی)۔</li>
+  </ol>
+  <p>آپشن 1 ہیروک لگتا ہے۔ لیکن 1 ہفتے کے بعد، آپ کو <strong>کچھ</strong> یاد نہیں رہے گا۔</p>
+  <h2>نیند سینڈوچ</h2>
+  <p>آپ کے دماغ کو بڑھنے کے لیے وقت درکار ہے۔ سیکھنا <em>سوتے وقت</em> ہوتا ہے، مطالعہ کرتے وقت نہیں۔ نیند وہ وقت ہے جب آپ کا دماغ معلومات کو شارٹ ٹرم ریم سے لانگ ٹرم ہارڈ ڈرائیو میں منتقل کرتا ہے۔</p>
+  <p>اگر آپ 10 گھنٹے مطالعہ کرتے ہیں، تو آپ کو اس فائل کو محفوظ کرنے کے لیے صرف 1 رات کی نیند ملتی ہے۔ اگر آپ 20 دن تک مطالعہ کرتے ہیں، تو آپ کو 20 راتوں کی نیند ملتی ہے۔ یہ 20 گنا زیادہ پروسیسنگ پاور ہے۔</p>
+  <h2>نان زیرو ڈے</h2>
+  <p>ایک "نان زیرو ڈے" کا عہد کریں۔ اس کا مطلب ہے کہ آپ ہر روز <em>کچھ</em> کرتے ہیں۔ یہاں تک کہ اگر یہ صرف 1 ڈوولینگو سبق ہے۔ یہاں تک کہ اگر یہ صرف 1 گانا سن رہا ہے۔</p>
+  <div class="tip-box">
+    <strong>چیلنج:</strong> 30 دن تک ایک بھی دن نہ چھوڑیں۔ یہاں تک کہ 5 منٹ بھی اہمیت رکھتے ہیں۔ اپنی سطح کو پھٹتے ہوئے دیکھیں۔
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_NE = `
+<article>
+  <p>१० घण्टा पढ्ने दुई तरिकाहरू छन्।</p>
+  <ol>
+    <li>एक दिनमा १० घण्टा (तीव्रता)।</li>
+    <li>२० दिनका लागि दिनमा ३० मिनेट (निरन्तरता)।</li>
+  </ol>
+  <p>विकल्प १ बहादुरीपूर्ण लाग्छ। तर १ हप्ता पछि, तपाईंलाई <strong>केहीपनि</strong> याद हुनेछैन।</p>
+  <h2>निद्रा स्यान्डविच</h2>
+  <p>तपाईंको दिमागलाई बढ्नको लागि समय चाहिन्छ। सिकाइ <em>सुत्दा</em> हुन्छ, पढ्दा होइन। निद्रा त्यो समय हो जब तपाईंको दिमागले जानकारीलाई छोटो अवधिको RAM बाट दीर्घकालीन हार्ड ड्राइभमा सार्छ।</p>
+  <p>यदि तपाईं १० घण्टा अध्ययन गर्नुहुन्छ भने, त्यो फाइल सुरक्षित गर्न तपाईंले केवल १ रातको निद्रा पाउनुहुन्छ। यदि तपाईं २० दिन अध्ययन गर्नुहुन्छ भने, तपाईंले २० रातको निद्रा पाउनुहुन्छ। त्यो २० गुणा बढी प्रशोधन शक्ति हो।</p>
+  <h2>नन्-जिरो डे</h2>
+  <p>एक "नन्-जिरो डे" को प्रतिज्ञा गर्नुहोस्। यसको मतलब तपाईं हरेक दिन <em>केही</em> गर्नुहुन्छ। यदि यो केवल १ डुओलिङ्गो पाठ हो भने पनि। यदि यो केवल १ गीत सुन्नु हो भने पनि।</p>
+  <div class="tip-box">
+    <strong>चुनौती:</strong> ३० दिनसम्म एक दिन पनि नछुटाउनुहोस्। ५ मिनेट पनि महत्त्वपूर्ण छ। आफ्नो स्तर विस्फोट भएको हेर्नुहोस्।
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_SI = `
+<article>
+  <p>පැය 10ක් පාඩම් කරන්න ක්‍රම දෙකක් තියෙනවා.</p>
+  <ol>
+    <li>එක දවසින් පැය 10ක් (Intensity).</li>
+    <li>දවස් 20ක් විනාඩි 30 ගානේ (Consistency).</li>
+  </ol>
+  <p>පළමු ක්‍රමය වීරයෙක් වගේ. ඒත් සතියකින් මුකුත් මතක නෑ.</p>
+  <h2>නින්ද සැන්ඩ්විච්</h2>
+  <p>මොළය වැඩෙන්න නින්ද ඕනේ. ඉගෙන ගන්නේ නිදාගන්නකොට. පාඩම් කරනකොට නෙවෙයි. නින්ද කියන්නේ short-term memory එක long-term memory එකට යවන වෙලාව.</p>
+  <p>ඔබ පැය 10ක් එකපාර පාඩම් කළොත්, ඒක සේව් කරන්න තියෙන්නේ එක රැයයි. දවස් 20ක් කළොත්, රැයවල් 20ක් තියෙනවා. ඒක 20 ගුණයක බලයක්.</p>
+  <h2>නොන්-සීරෝ ඩේ (Non-Zero Day)</h2>
+  <p>හැමදාම පොඩි දෙයක් හරි කරන්න. Duolingo පාඩමක්, සින්දුවක් අහන්න. දවසක්වත් නිකන් ඉන්න එපා.</p>
+  <div class="tip-box">
+    <strong>අභියෝගය:</strong> දවස් 30ක් එක දිගට කරන්න. විනාඩි 5ක් වුනත් කමක් නෑ.
+  </div>
+</article>
+`;
+
+const POST_CONSISTENCY_CONTENT_SW = `
+<article>
+  <p>Kuna njia mbili za kusoma saa 10.</p>
+  <ol>
+    <li>Saa 10 kwa siku moja (Nguvu).</li>
+    <li>Dakika 30 kwa siku kwa siku 20 (Msimamo).</li>
+  </ol>
+  <p>Chaguo la 1 linajisikia kishujaa. Lakini baada ya wiki 1, hutakumbuka <strong>chochote</strong>.</p>
+  <h2>Sandwichi ya Usingizi</h2>
+  <p>Ubongo wako unahitaji muda kukua. Kujifunza hutokea <em>wakati unalala</em>, si wakati unasoma. Usingizi ni wakati ubongo wako unahamisha taarifa kutoka kwa kumbukumbu ya muda mfupi hadi ya muda mrefu.</p>
+  <p>Ukisoma kwa saa 10, unapata usiku 1 tu wa kuhifadhi faili hilo. Ukisoma kwa siku 20, unapata usiku 20. Hiyo ni nguvu mara 20 zaidi.</p>
+  <h2>Siku Isiyo Sufuri</h2>
+  <p>Jitolee kwa "Siku Isiyo Sufuri". Hii inamaanisha unafanya <em>kitu</em> kila siku. Hata kama ni somo 1 la Duolingo. Hata kama ni kusikiliza wimbo 1 tu.</p>
+  <div class="tip-box">
+    <strong>Changamoto:</strong> Usikose hata siku moja kwa siku 30. Hata dakika 5 ni muhimu.
+  </div>
+</article>
+`;
 
 export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
   {
@@ -1476,50 +1531,52 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
       en: "The Wrong Way to Read: Extensive vs. Intensive Reading",
       ko: "당신은 책을 잘못 읽고 있다: 다독(Extensive) vs 정독(Intensive)",
       ja: "間違った読書方法：多読 vs 精読",
-      zh: "错误的阅读方式：泛读与精读",
-      th: "วิธีอ่านหนังสือที่ผิด: การอ่านแบบกว้างขวาง vs การอ่านแบบเข้มข้น",
-      vi: "Cách đọc sách sai lầm: Đọc rộng vs Đọc sâu",
-      id: "Cara Membaca yang Salah: Membaca Ekstensif vs. Intensif",
+      zh: "错误的阅读方式：泛读 vs 精读",
       es: "La forma incorrecta de leer: Lectura extensiva vs. intensiva",
-      pt: "A maneira errada de ler: Leitura extensiva vs. intensiva",
       fr: "La mauvaise façon de lire : Lecture extensive vs intensive",
-      de: "Die falsche Art zu lesen: Extensives vs. intensives Lesen",
+      de: "Die falsche Art zu lesen: Extensives vs. Intensives Lesen",
+      th: "วิธีการอ่านที่ผิด: การอ่านแบบกว้างขวาง vs การอ่านแบบเข้มข้น",
+      vi: "Cách đọc sai: Đọc rộng vs Đọc sâu",
+      id: "Cara Membaca yang Salah: Membaca Ekstensif vs Intensif",
+      pt: "A maneira errada de ler: Leitura Extensiva vs. Intensiva",
       tr: "Yanlış Okuma Yöntemi: Kapsamlı ve Yoğun Okuma",
-      ar: "الطريقة الخاطئة للقراءة: القراءة المكثفة مقابل القراءة الموسعة",
-      hi: "पढ़ने का गलत तरीका: व्यापक बनाम गहन पढ़ना",
-      ru: "Неправильный способ чтения: Экстенсивное и интенсивное чтение",
+      ar: "الطريقة الخاطئة للقراءة: القراءة الموسعة مقابل القراءة المكثفة",
+      hi: "पढ़ने का गलत तरीका: व्यापक बनाम गहन पठन",
+      ru: "Неправильный способ чтения: Экстенсивное против интенсивного чтения",
       bn: "পড়ার ভুল উপায়: ব্যাপক বনাম নিবিড় পড়া",
-      ur: "پڑھنے کا غلط طریقہ: وسیع بمقابلہ انتہائی پڑھنا",
-      ne: "पढ्ने गलत तरिका: व्यापक बनाम गहन पढाइ"
+      ur: "پڑھنے کا غلط طریقہ: وسیع بمقابلہ گہرا مطالعہ",
+      ne: "पढ्ने गलत तरिका: व्यापक बनाम गहन पढाइ",
+      si: "කියවීමේ වැරදි ක්‍රමය: පුළුල් vs දැඩි කියවීම",
+      sw: "Njia Mbaya ya Kusoma: Kusoma kwa Mapana vs Kina"
     },
     excerpt: {
       en: "Stop looking up every word. Discover why 'lazy' reading is actually more effective for vocabulary acquisition.",
       ko: "모르는 단어 좀 그만 찾으세요. 왜 '게으른' 독서가 단어 습득에 훨씬 더 효과적인지 과학적 이유를 알려드립니다.",
-      ja: "いちいち単語を調べるのはやめましょう。なぜ「怠惰な」読書の方が語彙習得に効果的なのか、その理由を発見してください。",
-      zh: "停止查每一个单词。发现为什么“懒惰”的阅读实际上对词汇习得更有效。",
-      th: "หยุดเปิดพจนานุกรมทุกคำ ค้นพบว่าทำไมการอ่านแบบ 'ขี้เกียจ' ถึงมีประสิทธิภาพมากกว่าในการเรียนรู้คำศัพท์",
-      vi: "Ngừng tra cứu mọi từ. Khám phá lý do tại sao cách đọc 'lười biếng' thực sự hiệu quả hơn trong việc tiếp thu từ vựng.",
-      id: "Berhentilah mencari setiap kata. Temukan mengapa membaca 'malas' sebenarnya lebih efektif untuk penguasaan kosakata.",
-      es: "Deja de buscar cada palabra. Descubre por qué la lectura 'perezosa' es en realidad más efectiva para la adquisición de vocabulario.",
-      pt: "Pare de procurar cada palavra. Descubra por que a leitura 'preguiçosa' é realmente mais eficaz para a aquisição de vocabulário.",
-      fr: "Arrêtez de chercher chaque mot. Découvrez pourquoi la lecture « paresseuse » est en fait plus efficace pour l'acquisition du vocabulaire.",
+      ja: "すべての単語を調べるのをやめてください。なぜ「怠け者」の読書が語彙習得に実際に効果的であるかを発見してください。",
+      zh: "别再查每个单词了。发现为什么“懒惰”的阅读实际上对词汇习得更有效。",
+      es: "Deja de buscar cada palabra. Descubre por qué la lectura 'perezosa' es realmente más efectiva para la adquisición de vocabulario.",
+      fr: "Arrêtez de chercher chaque mot. Découvrez pourquoi la lecture 'paresseuse' est en fait plus efficace pour l'acquisition du vocabulaire.",
       de: "Hören Sie auf, jedes Wort nachzuschlagen. Entdecken Sie, warum 'faules' Lesen tatsächlich effektiver für den Vokabelerwerb ist.",
+      th: "หยุดเปิดหาทุกคำ ค้นพบว่าทำไมการอ่านแบบ 'ขี้เกียจ' ถึงมีประสิทธิภาพมากกว่าสำหรับการเรียนรู้คำศัพท์",
+      vi: "Ngừng tra từng từ. Khám phá lý do tại sao đọc 'lười biếng' thực sự hiệu quả hơn cho việc tiếp thu từ vựng.",
+      id: "Berhenti mencari setiap kata. Temukan mengapa membaca 'malas' sebenarnya lebih efektif untuk penguasaan kosakata.",
+      pt: "Pare de procurar cada palavra. Descubra por que a leitura 'preguiçosa' é realmente mais eficaz para a aquisição de vocabulário.",
       tr: "Her kelimeye bakmayı bırakın. 'Tembel' okumanın kelime edinimi için neden aslında daha etkili olduğunu keşfedin.",
-      ar: "توقف عن البحث عن كل كلمة. اكتشف لماذا تعتبر القراءة 'الكسولة' أكثر فعالية في الواقع لاكتساب المفردات.",
-      hi: "हर शब्द को देखना बंद करें। जानें कि शब्दावली अधिग्रहण के लिए 'आलसी' पढ़ना वास्तव में अधिक प्रभावी क्यों है।",
-      ru: "Хватит искать каждое слово. Узнайте, почему «ленивое» чтение на самом деле более эффективно для пополнения словарного запаса.",
-      bn: "প্রতিটি শব্দ খোঁজা বন্ধ করুন। আবিষ্কার করুন কেন 'অলস' পড়া আসলে শব্দভাণ্ডার অর্জনের জন্য বেশি কার্যকর।",
-      ur: "ہر لفظ کو تلاش کرنا بند کریں۔ دریافت کریں کہ 'سست' پڑھنا الفاظ کے حصول کے لیے درحقیقت زیادہ مؤثر کیوں ہے۔",
-      ne: "हरेक शब्द हेर्न बन्द गर्नुहोस्। पत्ता लगाउनुहोस् किन 'अल्छी' पढाइ वास्तवमा शब्दावली प्राप्तिको लागि बढी प्रभावकारी हुन्छ।"
+      ar: "توقف عن البحث عن كل كلمة. اكتشف لماذا تعتبر القراءة 'الكسولة' أكثر فعالية لاكتساب المفردات.",
+      hi: "हर शब्द को खोजना बंद करें। जानें कि शब्दावली अधिग्रहण के लिए 'आलसी' पढ़ना वास्तव में अधिक प्रभावी क्यों है।",
+      ru: "Перестаньте искать каждое слово. Узнайте, почему «ленивое» чтение на самом деле более эффективно для пополнения словарного запаса.",
+      bn: "প্রতিটি শব্দ খোঁজা বন্ধ করুন। আবিষ্কার করুন কেন 'অলস' পড়া আসলে শব্দভান্ডার অর্জনের জন্য বেশি কার্যকর।",
+      ur: "ہر لفظ کو تلاش کرنا بند کریں۔ دریافت کریں کہ 'سست' پڑھنا دراصل الفاظ کے حصول کے لیے زیادہ موثر کیوں ہے۔",
+      ne: "हरेक शब्द हेर्न बन्द गर्नुहोस्। पत्ता लगाउनुहोस् किन 'अल्छी' पढाइ वास्तवमा शब्दावली प्राप्तिको लागि बढी प्रभावकारी छ।",
+      si: "හැම වචනයම හොයන්න එපා. 'කම්මැලි' කියවීම හොඳ බව දැනගන්න.",
+      sw: "Acha kutafuta kila neno. Gundua kwa nini kusoma kwa 'uvivu' kunafaa zaidi."
     },
     content: {
       en: POST_READING_CONTENT_EN,
       ko: POST_READING_CONTENT_KO,
-      ja: POST_READING_CONTENT_JA, zh: POST_READING_CONTENT_ZH, th: POST_READING_CONTENT_TH, vi: POST_READING_CONTENT_VI, id: POST_READING_CONTENT_ID,
-      es: POST_READING_CONTENT_ES, pt: POST_READING_CONTENT_PT, fr: POST_READING_CONTENT_FR, de: POST_READING_CONTENT_DE, tr: POST_READING_CONTENT_TR,
-      ar: POST_READING_CONTENT_AR, hi: POST_READING_CONTENT_HI, ru: POST_READING_CONTENT_RU, bn: POST_READING_CONTENT_BN, ur: POST_READING_CONTENT_UR, ne: POST_READING_CONTENT_NE
+      ja: POST_READING_CONTENT_JA, zh: POST_READING_CONTENT_ZH, es: POST_READING_CONTENT_ES, fr: POST_READING_CONTENT_FR, de: POST_READING_CONTENT_DE, th: POST_READING_CONTENT_TH, vi: POST_READING_CONTENT_VI, id: POST_READING_CONTENT_ID, pt: POST_READING_CONTENT_PT, tr: POST_READING_CONTENT_TR, ar: POST_READING_CONTENT_AR, hi: POST_READING_CONTENT_HI, ru: POST_READING_CONTENT_RU, bn: POST_READING_CONTENT_BN, ur: POST_READING_CONTENT_UR, ne: POST_READING_CONTENT_NE, si: POST_READING_CONTENT_SI, sw: POST_READING_CONTENT_SW
     },
-    coverImage: "/assets/blog/how_to_read_books.png",
+    coverImage: "/assets/blog/how-to-read-books.png",
     author: "Bookworm",
     tags: ["Reading", "Methods", "Vocabulary", "Study"],
     published: true,
@@ -1529,107 +1586,111 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
   {
     id: "travel-hacks-language",
     title: {
-      en: "Travel Hacks for Language Learners: Don't Just Be a Tourist",
-      ko: "언어 학습자를 위한 여행 꿀팁: 관광객 취급 안 당하는 법",
-      ja: "言語学習者のための旅行ハック：ただの観光客にならないために",
-      zh: "语言学习者的旅行秘籍：不要只做一个游客",
-      th: "เคล็ดลับการเดินทางสำหรับผู้เรียนภาษา: อย่าเป็นแค่นักท่องเที่ยว",
-      vi: "Mẹo du lịch cho người học ngôn ngữ: Đừng chỉ là khách du lịch",
-      id: "Hacks Perjalanan untuk Pembelajar Bahasa: Jangan Hanya Menjadi Turis",
-      es: "Trucos de viaje para estudiantes de idiomas: No seas solo un turista",
-      pt: "Dicas de viagem para estudantes de idiomas: Não seja apenas um turista",
-      fr: "Astuces de voyage pour les apprenants en langues : Ne soyez pas juste un touriste",
-      de: "Reise-Hacks für Sprachlerner: Seien Sie nicht nur ein Tourist",
-      tr: "Dil Öğrenenler İçin Seyahat Tüyoları: Sadece Bir Turist Olmayın",
-      ar: "حيل السفر لمتعلمي اللغة: لا تكن مجرد سائح",
-      hi: "भाषा सीखने वालों के लिए यात्रा हैक्स: केवल पर्यटक न बनें",
-      ru: "Лайфхаки для путешествий: Не будьте просто туристом",
-      bn: "ভাষা শিক্ষার্থীদের জন্য ভ্রমণ হ্যাক: শুধু পর্যটক হবেন না",
-      ur: "زبان سیکھنے والوں کے لیے سفری ٹوٹکے: صرف سیاح نہ بنیں",
-      ne: "भाषा सिक्नेहरूका लागि यात्रा ह्याक्स: केवल पर्यटक नबन्नुहोस्"
+      en: "Travel Hacks for Language Learners (No Plane Ticket Needed)",
+      ko: "비행기 표 없이 떠나는 어학연수: 방구석 여행 해킹",
+      ja: "語学学習者のための旅行ハック（航空券は不要）",
+      zh: "语言学习者的旅行黑客（无需机票）",
+      es: "Trucos de viaje para estudiantes de idiomas (Sin billete de avión)",
+      fr: "Astuces de voyage pour les apprenants de langues (Pas besoin de billet d'avion)",
+      de: "Reise-Hacks für Sprachschüler (Kein Flugticket erforderlich)",
+      th: "เคล็ดลับการเดินทางสำหรับผู้เรียนภาษา (ไม่ต้องใช้ตั๋วเครื่องบิน)",
+      vi: "Mẹo du lịch cho người học ngoại ngữ (Không cần vé máy bay)",
+      id: "Trik Perjalanan untuk Pembelajar Bahasa (Tidak Perlu Tiket Pesawat)",
+      pt: "Truques de viagem para estudantes de idiomas (Sem passagem de avião)",
+      tr: "Dil Öğrenenler İçin Seyahat Hileleri (Uçak Bileti Gerekmez)",
+      ar: "حيل السفر لمتعلمي اللغة (لا حاجة لتذكرة طائرة)",
+      hi: "भाषा सीखने वालों के लिए यात्रा हैक्स (विमान टिकट की आवश्यकता नहीं)",
+      ru: "Лайфхаки для путешествий (Билет на самолет не нужен)",
+      bn: "ভাষা শিক্ষার্থীদের জন্য ভ্রমণ হ্যাক (প্লেনের টিকিটের প্রয়োজন নেই)",
+      ur: "زبان سیکھنے والوں کے لیے ٹریول ہیکس (کسی ہوائی جہاز کے ٹکٹ کی ضرورت نہیں)",
+      ne: "भाषा सिक्नेहरूका लागि यात्रा ह्याक्स (विमान टिकट आवश्यक छैन)",
+      si: "ගුවන් ටිකට් නැතුව ලෝකෙ වටේ යන්න: භාෂා ඉගෙන ගන්නන්ට ට්‍රික්ස්",
+      sw: "Mbinu za Kusafiri kwa Wanaojifunza Lugha (Tiketi ya ndege haihitajiki)"
     },
     excerpt: {
-      en: "Locals switch to English when you talk to them? Use these psychological tricks and specific phrases to force them to speak their native language with you.",
-      ko: "말만 걸면 영어로 대답해줘서 김새시나요? 현지인이 억지로라도 모국어를 쓰게 만드는 심리적 트릭과 필수 문장들을 전수합니다.",
-      ja: "話しかけると英語に切り替えられてしまいますか？彼らに母国語で話させるための心理的トリックと特定のフレーズを使いましょう。",
-      zh: "当你和当地人说话时，他们会切换到英语？使用这些心理技巧和特定短语，强迫他们用母语跟你说话。",
-      th: "คนท้องถิ่นเปลี่ยนไปพูดภาษาอังกฤษเมื่อคุณคุยกับพวกเขาหรือไม่? ใช้กลเม็ดทางจิตวิทยาและวลีเฉพาะเหล่านี้เพื่อบังคับให้พวกเขาพูดภาษาแม่กับคุณ",
-      vi: "Người dân địa phương chuyển sang tiếng Anh khi bạn nói chuyện với họ? Hãy sử dụng những thủ thuật tâm lý và các cụm từ cụ thể này để buộc họ nói ngôn ngữ mẹ đẻ với bạn.",
-      id: "Warga lokal beralih ke bahasa Inggris saat Anda berbicara dengan mereka? Gunakan trik psikologis dan frasa khusus ini untuk memaksa mereka berbicara bahasa ibu mereka dengan Anda.",
-      es: "¿Los lugareños cambian al inglés cuando les hablas? Usa estos trucos psicológicos y frases específicas para obligarlos a hablar su lengua materna contigo.",
-      pt: "Os locais mudam para o inglês quando você fala com eles? Use esses truques psicológicos e frases específicas para forçá-los a falar sua língua nativa com você.",
-      fr: "Les habitants passent à l'anglais quand vous leur parlez ? Utilisez ces astuces psychologiques et ces phrases spécifiques pour les forcer à parler leur langue maternelle avec vous.",
-      de: "Einheimische wechseln ins Englische, wenn Sie mit ihnen sprechen? Verwenden Sie diese psychologischen Tricks und spezifischen Sätze, um sie dazu zu bringen, ihre Muttersprache mit Ihnen zu sprechen.",
-      tr: "Onlarla konuştuğunuzda yerliler İngilizce'ye mi geçiyor? Sizinle ana dillerini konuşmaya zorlamak için bu psikolojik hileleri ve özel ifadeleri kullanın.",
-      ar: "هل يتحول السكان المحليون إلى اللغة الإنجليزية عندما تتحدث معهم؟ استخدم هذه الحيل النفسية والعبارات المحددة لإجبارهم على التحدث بلغتهم الأم معك.",
-      hi: "जब आप स्थानीय लोगों से बात करते हैं तो क्या वे अंग्रेजी बोलने लगते हैं? उन्हें अपनी मूल भाषा आपके साथ बोलने के लिए मजबूर करने के लिए इन मनोवैज्ञानिक चालों और विशिष्ट वाक्यांशों का उपयोग करें।",
-      ru: "Местные переходят на английский, когда вы с ними говорите? Используйте эти психологические трюки и специальные фразы, чтобы заставить их говорить с вами на родном языке.",
-      bn: "স্থানীয়রা কি আপনার সাথে কথা বলার সময় ইংরেজিতে চলে যায়? তাদের আপনার সাথে তাদের মাতৃভাষা বলতে বাধ্য করার জন্য এই মনস্তাত্ত্বিক কৌশল এবং নির্দিষ্ট বাক্যাংশগুলি ব্যবহার করুন।",
-      ur: "جب آپ ان سے بات کرتے ہیں تو کیا مقامی لوگ انگریزی میں بات کرنے لگتے ہیں؟ ان نفسیاتی چالوں اور مخصوص جملوں کا استعمال کریں تاکہ وہ آپ کے ساتھ اپنی مادری زبان بولنے پر مجبور ہوں۔",
-      ne: "के तपाईंले उनीहरूसँग कुरा गर्दा स्थानीयहरू अंग्रेजीमा स्विच गर्छन्? उनीहरूलाई तपाईंसँग आफ्नो मातृभाषा बोल्न बाध्य पार्न यी मनोवैज्ञानिक चालहरू र विशिष्ट वाक्यांशहरू प्रयोग गर्नुहोस्।"
+      en: "Learn how to use Google Maps, Tinder, and Radio Garden to immerse yourself without leaving your bedroom.",
+      ko: "구글 맵스, 틴더, 라디오 가든으로 침실에서 한 발자국도 안 나가고 어학연수 떠나는 법.",
+      ja: "Googleマップ、Tinder、Radio Gardenを使って、寝室から出ずに没頭する方法を学びましょう。",
+      zh: "学习如何使用谷歌地图、Tinder和Radio Garden，足不出户就能让自己沉浸其中。",
+      es: "Aprende a usar Google Maps, Tinder y Radio Garden para sumergirte sin salir de tu habitación.",
+      fr: "Apprenez à utiliser Google Maps, Tinder et Radio Garden pour vous immerger sans quitter votre chambre.",
+      de: "Lernen Sie, wie Sie Google Maps, Tinder und Radio Garden nutzen, um einzutauchen, ohne Ihr Schlafzimmer zu verlassen.",
+      th: "เรียนรู้วิธีใช้ Google Maps, Tinder และ Radio Garden เพื่อซึมซับโดยไม่ต้องออกจากห้องนอน",
+      vi: "Tìm hiểu cách sử dụng Google Maps, Tinder và Radio Garden để đắm mình mà không cần rời khỏi phòng ngủ.",
+      id: "Pelajari cara menggunakan Google Maps, Tinder, dan Radio Garden untuk membenamkan diri tanpa meninggalkan kamar tidur.",
+      pt: "Aprenda a usar o Google Maps, Tinder e Radio Garden para se imergir sem sair do seu quarto.",
+      tr: "Yatak odanızdan çıkmadan kendinizi kaptırmak için Google Haritalar, Tinder ve Radio Garden'ı nasıl kullanacağınızı öğrenin.",
+      ar: "تعلم كيفية استخدام خرائط Google و Tinder و Radio Garden لتغمر نفسك دون مغادرة غرفة نومك.",
+      hi: "अपने बेडरूम को छोड़े बिना खुद को विसर्जित करने के लिए Google मैप्स, टिंडर और रेडियो गार्डन का उपयोग करना सीखें।",
+      ru: "Узнайте, как использовать Google Maps, Tinder и Radio Garden, чтобы погрузиться в среду, не выходя из спальни.",
+      bn: "আপনার বেডরুম ত্যাগ না করেই নিজেকে নিমজ্জিত করতে গুগল ম্যাপ, টিন্ডার এবং রেডিও গার্ডেন কীভাবে ব্যবহার করবেন তা শিখুন।",
+      ur: "اپنے بیڈروم سے باہر نکلے بغیر اپنے آپ کو غرق کرنے کے لیے گوگل میپس، ٹنڈر اور ریڈیو گارڈن کا استعمال کرنا سیکھیں۔",
+      ne: "आफ्नो बेडरूम नछोडी आफैलाई डुबाउन गुगल म्याप्स, टिन्डर र रेडियो गार्डेन कसरी प्रयोग गर्ने सिक्नुहोस्।",
+      si: "Google Maps, Tinder සහ Radio Garden පාවිච්චි කරලා ගෙදර ඉඳන්ම භාෂාව ඉගෙන ගන්න හැටි.",
+      sw: "Jifunze kutumia Google Maps, Tinder, na Radio Garden kujizamisha bila kutoka chumbani."
     },
     content: {
       en: POST_TRAVEL_CONTENT_EN,
       ko: POST_TRAVEL_CONTENT_KO,
-      ja: POST_TRAVEL_CONTENT_JA, zh: POST_TRAVEL_CONTENT_ZH, th: POST_TRAVEL_CONTENT_TH, vi: POST_TRAVEL_CONTENT_VI, id: POST_TRAVEL_CONTENT_ID,
-      es: POST_TRAVEL_CONTENT_ES, pt: POST_TRAVEL_CONTENT_PT, fr: POST_TRAVEL_CONTENT_FR, de: POST_TRAVEL_CONTENT_DE, tr: POST_TRAVEL_CONTENT_TR,
-      ar: POST_TRAVEL_CONTENT_AR, hi: POST_TRAVEL_CONTENT_HI, ru: POST_TRAVEL_CONTENT_RU, bn: POST_TRAVEL_CONTENT_BN, ur: POST_TRAVEL_CONTENT_UR, ne: POST_TRAVEL_CONTENT_NE
+      ja: POST_TRAVEL_CONTENT_JA, zh: POST_TRAVEL_CONTENT_ZH, es: POST_TRAVEL_CONTENT_ES, fr: POST_TRAVEL_CONTENT_FR, de: POST_TRAVEL_CONTENT_DE, th: POST_TRAVEL_CONTENT_TH, vi: POST_TRAVEL_CONTENT_VI, id: POST_TRAVEL_CONTENT_ID, pt: POST_TRAVEL_CONTENT_PT, tr: POST_TRAVEL_CONTENT_TR, ar: POST_TRAVEL_CONTENT_AR, hi: POST_TRAVEL_CONTENT_HI, ru: POST_TRAVEL_CONTENT_RU, bn: POST_TRAVEL_CONTENT_BN, ur: POST_TRAVEL_CONTENT_UR, ne: POST_TRAVEL_CONTENT_NE, si: POST_TRAVEL_CONTENT_SI, sw: POST_TRAVEL_CONTENT_SW
     },
-    coverImage: "/assets/blog/travel_hacks_language.png",
-    author: "Global Nomad",
-    tags: ["Travel", "Speaking", "Hacks", "Real World"],
+    coverImage: "/assets/blog/travel-hacks.png",
+    author: "Nomad",
+    tags: ["Travel", "Immersion", "Hacks", "Tools"],
     published: true,
     createdAt: new Date("2024-03-10"),
     updatedAt: new Date("2024-03-10")
   },
   {
-    id: "motivation-slump",
+    id: "motivation-dip",
     title: {
       en: "The Dip: How to Push Through When You Want to Quit",
-      ko: "권태기 극복: 다 때려치우고 싶을 때 버티는 힘",
-      ja: "ザ・ディップ：辞めたくなった時に乗り越える方法",
-      zh: "低谷期：当你想要放弃时如何坚持下去",
-      th: "ช่วงตกต่ำ: วิธีฝ่าฟันเมื่อคุณอยากเลิก",
-      vi: "The Dip (Vực thẳm): Cách vượt qua khi bạn muốn bỏ cuộc",
-      id: "The Dip: Cara Bertahan Saat Anda Ingin Berhenti",
-      es: "El bajón: Cómo seguir adelante cuando quieres renunciar",
-      pt: "O abismo: Como seguir em frente quando você quer desistir",
-      fr: "Le creux de la vague : Comment persévérer quand vous voulez abandonner",
+      ko: "슬럼프(The Dip): 포기하고 싶을 때 뚫고 나가는 힘",
+      ja: "ザ・ディップ：辞めたいときに突き進む方法",
+      zh: "低谷期：当你想要放弃时如何坚持",
+      es: "El Bajón: Cómo seguir adelante cuando quieres renunciar",
+      fr: "Le Creux : Comment persévérer quand vous voulez abandonner",
       de: "Das Tief: Wie man durchhält, wenn man aufgeben will",
-      tr: "Dip Noktası: Bırakmak İstediğinizde Nasıl Devam Edersiniz",
+      th: "The Dip: วิธีก้าวผ่านเมื่อคุณอยากเลิก",
+      vi: "The Dip: Cách vượt qua khi bạn muốn bỏ cuộc",
+      id: "The Dip: Cara Bertahan Saat Anda Ingin Berhenti",
+      pt: "O Abismo: Como seguir em frente quando você quer desistir",
+      tr: "Dip Noktası: Bırakmak İstediğinizde Nasıl İlerlersiniz",
       ar: "المنخفض: كيف تستمر عندما تريد الاستسلام",
-      hi: "गिरावट (The Dip): जब आप छोड़ना चाहते हैं तो कैसे आगे बढ़ें",
+      hi: "द डिप: जब आप छोड़ना चाहते हैं तो कैसे आगे बढ़ें",
       ru: "Яма: Как прорваться, когда хочется всё бросить",
       bn: "দ্য ডিপ: আপনি যখন ছেড়ে দিতে চান তখন কীভাবে এগিয়ে যাবেন",
       ur: "دی ڈِپ: جب آپ چھوڑنا چاہتے ہیں تو کیسے آگے بڑھیں",
-      ne: "द डिप: जब तपाईं छोड्न चाहनुहुन्छ भने कसरी अगाडि बढ्ने"
+      ne: "द डिप: जब तपाईं छोड्न चाहनुहुन्छ भने कसरी अगाडि बढ्ने",
+      si: "පසුබෑම: අතහරින්න හිතෙනකොට ඉස්සරහට යන්නේ කොහොමද?",
+      sw: "The Dip: Jinsi ya Kusonga Mbele Unapotaka Kukata Tamaa"
     },
     excerpt: {
       en: "Learning isn't a straight line. It's a messy curve. Learn how to recognize 'The Dip' and turn your biggest slump into your biggest growth spurt.",
       ko: "학습 곡선은 직선이 아닙니다. 엉망진창인 곡선이죠. '절망의 계곡'을 인지하고, 가장 큰 슬럼프를 가장 큰 성장의 발판으로 바꾸는 마인드셋.",
       ja: "学習は一直線ではありません。乱雑な曲線です。「ザ・ディップ」を認識し、最大の不振を最大の成長急増に変える方法を学びましょう。",
       zh: "学习不是一条直线。它是一条混乱的曲线。学习如何识别“低谷期”，并将你最大的衰退转化为最大的增长。",
+      es: "El aprendizaje no es una línea recta. Es una curva desordenada. Aprende a reconocer 'El bajón' y convierte tu mayor caída en tu mayor estirón de crecimiento.",
+      fr: "L'apprentissage n'est pas une ligne droite. C'est une courbe désordonnée. Apprenez à reconnaître « Le creux » et transformez votre plus grande baisse en votre plus grande poussée de croissance.",
+      de: "Lernen ist keine gerade Linie. Es ist eine chaotische Kurve. Lernen Sie, 'Das Tief' zu erkennen und Ihre größte Flaute in Ihren größten Wachstumsschub zu verwandeln.",
       th: "การเรียนรู้ไม่ใช่เส้นตรง มันเป็นเส้นโค้งที่ยุ่งเหยิง เรียนรู้วิธีรับรู้ 'ช่วงตกต่ำ' และเปลี่ยนความตกต่ำครั้งใหญ่ที่สุดของคุณให้เป็นการเติบโตครั้งใหญ่ที่สุด",
       vi: "Học tập không phải là một đường thẳng. Đó là một đường cong lộn xộn. Hãy học cách nhận biết 'The Dip' và biến sự sụt giảm lớn nhất của bạn thành bước nhảy vọt lớn nhất.",
       id: "Belajar bukanlah garis lurus. Itu kurva yang berantakan. Pelajari cara mengenali 'The Dip' dan ubah kemerosotan terbesar Anda menjadi lonjakan pertumbuhan terbesar Anda.",
-      es: "El aprendizaje no es una línea recta. Es una curva desordenada. Aprende a reconocer 'El bajón' y convierte tu mayor caída en tu mayor estirón de crecimiento.",
       pt: "O aprendizado não é uma linha reta. É uma curva confusa. Aprenda a reconhecer 'O abismo' e transforme sua maior queda em seu maior surto de crescimento.",
-      fr: "L'apprentissage n'est pas une ligne droite. C'est une courbe désordonnée. Apprenez à reconnaître « Le creux » et transformez votre plus grande baisse en votre plus grande poussée de croissance.",
-      de: "Lernen ist keine gerade Linie. Es ist eine chaotische Kurve. Lernen Sie, 'Das Tief' zu erkennen und Ihre größte Flaute in Ihren größten Wachstumsschub zu verwandeln.",
       tr: "Öğrenme düz bir çizgi değildir. Karışık bir eğridir. 'Dip Noktasını' nasıl tanıyacağınızı ve en büyük düşüşünüzü en büyük büyüme atağınıza nasıl dönüştüreceğinizi öğrenin.",
       ar: "التعلم ليس خطاً مستقيماً. إنه منحنى فوضوي. تعلم كيف تتعرف على 'المنخفض' وتحول أكبر ركود لك إلى أكبر طفرة نمو.",
       hi: "सीखना एक सीधी रेखा नहीं है। यह एक उलझा हुआ वक्र है। 'द डिप' को पहचानना सीखें और अपनी सबसे बड़ी गिरावट को अपनी सबसे बड़ी वृद्धि में बदलें।",
       ru: "Обучение — это не прямая линия. Это запутанная кривая. Узнайте, как распознать «Яму» и превратить свой самый большой спад в самый большой скачок роста.",
       bn: "শেখা একটি সরলরেখা নয়। এটি একটি অগোছালো বক্ররেখা। কীভাবে 'দ্য ডিপ' চিনবেন এবং আপনার সবচেয়ে বড় মন্দাকে আপনার সবচেয়ে বড় বৃদ্ধিতে পরিণত করবেন তা শিখুন।",
       ur: "سیکھنا سیدھی لکیر نہیں ہے۔ یہ ایک گندا منحنی خطوط ہے۔ 'دی ڈِپ' کو پہچاننا سیکھیں اور اپنی سب سے بڑی گراوٹ کو اپنی سب سے بڑی ترقی میں تبدیل کریں۔",
-      ne: "सिकाइ सीधा रेखा होइन। यो एक गन्दा वक्र हो। 'द डिप' कसरी पहिचान गर्ने र आफ्नो सबैभन्दा ठूलो मन्दीलाई आफ्नो सबैभन्दा ठूलो वृद्धिमा परिणत गर्ने सिक्नुहोस्।"
+      ne: "सिकाइ सीधा रेखा होइन। यो एक गन्दा वक्र हो। 'द डिप' कसरी पहिचान गर्ने र आफ्नो सबैभन्दा ठूलो मन्दीलाई आफ्नो सबैभन्दा ठूलो वृद्धिमा परिणत गर्ने सिक्नुहोस्।",
+      si: "ඉගෙනීම කෙලින් ඉරක් නෙවෙයි. ඒක වක්‍රයක්. 'Dip' එක අඳුරගන්න හැටි.",
+      sw: "Kujifunza si mstari ulionyooka. Jifunze kutambua 'The Dip' na kugeuza anguko kuwa ushindi."
     },
     content: {
       en: POST_MOTIVATION_CONTENT_EN,
       ko: POST_MOTIVATION_CONTENT_KO,
-      ja: POST_MOTIVATION_CONTENT_JA, zh: POST_MOTIVATION_CONTENT_ZH, th: POST_MOTIVATION_CONTENT_TH, vi: POST_MOTIVATION_CONTENT_VI, id: POST_MOTIVATION_CONTENT_ID,
-      es: POST_MOTIVATION_CONTENT_ES, pt: POST_MOTIVATION_CONTENT_PT, fr: POST_MOTIVATION_CONTENT_FR, de: POST_MOTIVATION_CONTENT_DE, tr: POST_MOTIVATION_CONTENT_TR,
-      ar: POST_MOTIVATION_CONTENT_AR, hi: POST_MOTIVATION_CONTENT_HI, ru: POST_MOTIVATION_CONTENT_RU, bn: POST_MOTIVATION_CONTENT_BN, ur: POST_MOTIVATION_CONTENT_UR, ne: POST_MOTIVATION_CONTENT_NE
+      ja: POST_MOTIVATION_CONTENT_JA, zh: POST_MOTIVATION_CONTENT_ZH, es: POST_MOTIVATION_CONTENT_ES, fr: POST_MOTIVATION_CONTENT_FR, de: POST_MOTIVATION_CONTENT_DE, th: POST_MOTIVATION_CONTENT_TH, vi: POST_MOTIVATION_CONTENT_VI, id: POST_MOTIVATION_CONTENT_ID, pt: POST_MOTIVATION_CONTENT_PT, tr: POST_MOTIVATION_CONTENT_TR, ar: POST_MOTIVATION_CONTENT_AR, hi: POST_MOTIVATION_CONTENT_HI, ru: POST_MOTIVATION_CONTENT_RU, bn: POST_MOTIVATION_CONTENT_BN, ur: POST_MOTIVATION_CONTENT_UR, ne: POST_MOTIVATION_CONTENT_NE, si: POST_MOTIVATION_CONTENT_SI, sw: POST_MOTIVATION_CONTENT_SW
     },
     coverImage: "/assets/blog/motivation_slump.png",
     author: "Life Coach",
@@ -1637,5 +1698,66 @@ export const BLOG_POSTS_PART_5: Partial<BlogPost>[] = [
     published: true,
     createdAt: new Date("2024-03-20"),
     updatedAt: new Date("2024-03-20")
+  },
+  {
+    id: "consistency-vs-intensity",
+    title: {
+      en: "Consistency vs. Intensity: Why 'Tortoises' Always Win",
+      ko: "꾸준함 vs 강도: 왜 항상 거북이가 이기는가 (벼락치기의 종말)",
+      ja: "継続性 vs 強度：なぜ「カメ」が常に勝つのか",
+      zh: "一致性 vs 强度：为什么“乌龟”总是赢",
+      es: "Consistencia vs. Intensidad: Por qué las 'Tortugas' siempre ganan",
+      fr: "Cohérence vs Intensité : Pourquoi les 'Tortues' gagnent toujours",
+      de: "Konsistenz vs. Intensität: Warum 'Schildkröten' immer gewinnen",
+      th: "ความสม่ำเสมอ vs ความเข้มข้น: ทำไม 'เต่า' ถึงชนะเสมอ",
+      vi: "Sự kiên trì vs Cường độ: Tại sao 'Rùa' luôn thắng",
+      id: "Konsistensi vs Intensitas: Mengapa 'Kura-kura' Selalu Menang",
+      pt: "Consistência vs. Intensidade: Por que as 'Tartarugas' sempre vencem",
+      tr: "Tutarlılık ve Yoğunluk: Neden 'Kaplumbağalar' Her Zaman Kazanır",
+      ar: "الاستمرارية مقابل الكثافة: لماذا تفوز 'السلاحف' دائمًا",
+      hi: "निरंतरता बनाम तीव्रता: क्यों 'कछुए' हमेशा जीतते हैं",
+      ru: "Постоянство против интенсивности: Почему «черепахи» всегда побеждают",
+      bn: "ধারাবাহিকতা বনাম তীব্রতা: কেন 'কচ্ছপ' সর্বদা জয়ী হয়",
+      ur: "مستقل مزاجی بمقابلہ شدت: 'کچھوے' ہمیشہ کیوں جیتتے ہیں",
+      ne: "निरन्तरता बनाम तीव्रता: किन 'कछुवा' सधैं जित्छन्",
+      si: "නිරන්තර බව vs වේගය: ඇයි ඉබ්බා හැමදාම දිනන්නේ?",
+      sw: "Msimamo vs Nguvu: Kwa Nini 'Kobe' Hushinda Kila Mara"
+    },
+    excerpt: {
+      en: "Studying 10 hours a day for a week vs 30 minutes a day for a year. Who wins? The answer involves the biology of sleep.",
+      ko: "일주일 동안 하루 10시간 공부하기 vs 1년 동안 하루 30분 공부하기. 누가 이길까요? 정답은 '수면의 과학'에 있습니다.",
+      ja: "1週間毎日10時間勉強するのと、1年間毎日30分勉強するの。どっちが勝つ？ 答えは睡眠の生物学に関係しています。",
+      zh: "一周每天学习10小时 vs 一年每天学习30分钟。谁赢？ 答案涉及睡眠生物学。",
+      es: "Estudiar 10 horas al día durante una semana vs 30 minutos al día durante un año. ¿Quién gana? La respuesta involucra la biología del sueño.",
+      fr: "Étudier 10 heures par jour pendant une semaine vs 30 minutes par jour pendant un an. Qui gagne ? La réponse implique la biologie du sommeil.",
+      de: "Eine Woche lang 10 Stunden am Tag lernen vs. ein Jahr lang 30 Minuten am Tag. Wer gewinnt? Die Antwort betrifft die Biologie des Schlafes.",
+      th: "เรียน 10 ชั่วโมงต่อวันเป็นเวลาหนึ่งสัปดาห์ vs 30 นาทีต่อวันเป็นเวลาหนึ่งปี ใครชนะ? คำตอบเกี่ยวข้องกับชีววิทยาของการนอนหลับ",
+      vi: "Học 10 giờ một ngày trong một tuần so với 30 phút một ngày trong một năm. Ai thắng? Câu trả lời liên quan đến sinh học của giấc ngủ.",
+      id: "Belajar 10 jam sehari selama seminggu vs 30 menit sehari selama setahun. Siapa yang menang? Jawabannya melibatkan biologi tidur.",
+      pt: "Estudar 10 horas por dia durante uma semana vs 30 minutos por dia durante um ano. Quem ganha? A resposta envolve a biologia do sono.",
+      tr: "Bir hafta boyunca günde 10 saat çalışmak vs bir yıl boyunca günde 30 dakika. Kim kazanır? Cevap uykunun biyolojisini içerir.",
+      ar: "الدراسة 10 ساعات يوميًا لمدة أسبوع مقابل 30 دقيقة يوميًا لمدة عام. من يفوز؟ الجواب ينطوي على بيولوجيا النوم.",
+      hi: "एक सप्ताह के लिए दिन में 10 घंटे अध्ययन करना बनाम एक वर्ष के लिए दिन में 30 मिनट। कौन जीतता है? उत्तर में नींद का जीवविज्ञान शामिल है।",
+      ru: "Учиться по 10 часов в день неделю или по 30 минут в день год. Кто победит? Ответ кроется в биологии сна.",
+      bn: "এক সপ্তাহের জন্য দিনে ১০ ঘন্টা পড়া বনাম এক বছরের জন্য দিনে ৩০ মিনিট। কে জিতবে? উত্তরটি ঘুমের জীববিজ্ঞানের সাথে জড়িত।",
+      ur: "ایک ہفتے تک دن میں 10 گھنٹے پڑھنا بمقابلہ ایک سال تک دن میں 30 منٹ۔ کون جیتتا ہے؟ جواب میں نیند کی حیاتیات شامل ہے۔",
+      ne: "एक हप्ताको लागि दिनमा १० घण्टा अध्ययन गर्नु बनाम एक वर्षको लागि दिनमा ३० मिनेट। कसले जित्छ? जवाफमा निद्राको जीवविज्ञान समावेश छ।",
+      si: "දවසට පැය 10ක් වැඩ කිරීම vs දවසට විනාඩි 30 බැගින් අවුරුද්දක් වැඩ කිරීම. කවුද දිනන්නේ?",
+      sw: "Kusoma saa 10 kwa siku kwa wiki vs dakika 30 kwa siku kwa mwaka. Nani anashinda?"
+    },
+    content: {
+      en: POST_CONSISTENCY_CONTENT_EN,
+      ko: POST_CONSISTENCY_CONTENT_KO,
+      ja: POST_CONSISTENCY_CONTENT_JA, zh: POST_CONSISTENCY_CONTENT_ZH, es: POST_CONSISTENCY_CONTENT_ES, fr: POST_CONSISTENCY_CONTENT_FR, de: POST_CONSISTENCY_CONTENT_DE, th: POST_CONSISTENCY_CONTENT_TH, vi: POST_CONSISTENCY_CONTENT_VI, id: POST_CONSISTENCY_CONTENT_ID, pt: POST_CONSISTENCY_CONTENT_PT, tr: POST_CONSISTENCY_CONTENT_TR, ar: POST_CONSISTENCY_CONTENT_AR, hi: POST_CONSISTENCY_CONTENT_HI, ru: POST_CONSISTENCY_CONTENT_RU, bn: POST_CONSISTENCY_CONTENT_BN, ur: POST_CONSISTENCY_CONTENT_UR, ne: POST_CONSISTENCY_CONTENT_NE, si: POST_CONSISTENCY_CONTENT_SI, sw: POST_CONSISTENCY_CONTENT_SW
+    },
+    coverImage: "/assets/blog/consistency-tortoise.png",
+    author: "Productivity Guru",
+    tags: ["Habits", "Science", "Productivity", "Mindset"],
+    published: true,
+    createdAt: new Date("2024-03-30"),
+    updatedAt: new Date("2024-03-30")
   }
 ];
+
+
+

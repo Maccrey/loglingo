@@ -441,7 +441,7 @@ const POST_CONTEXT_CONTENT_ID = `
           <p>Jadi di mana Anda menemukan kalimat-kalimat ini? Anda membutuhkan <strong>Input yang Dapat Dipahami (Comprehensible Input)</strong>.</p>
           <p><strong>1. Bacaan Berjenjang (Graded Readers):</strong> Buku yang ditulis khusus untuk pelajar menggunakan kosakata yang disederhanakan. Mereka menyediakan konteks berbasis cerita yang membuat menebak makna menjadi mudah.</p>
           <p><strong>2. YouTube & Netflix:</strong> Nyalakan subtitle (dalam bahasa target). Saat Anda melihat frasa yang berguna, tangkap layar. Visual adegan menambahkan lapisan konteks memori lainnya.</p>
-          <p><strong>3. Hidup Anda Sendiri (Metode Loglingo):</strong> Menulis jurnal adalah penciptaan konteks pamungkas. Saat Anda mencoba menggambarkan hari <em>Anda</em> dan dikoreksi, kata itu sekarang terhubung dengan memori pribadi. "Saya <em>frustrasi</em> karena bus terlambat." Anda akan mengingat 'frustrated' karena Anda ingat perasaan bus terlambat.</p>
+          <p><strong>3. Hidup Anda Sendiri (Metode Loglingo):</strong> Menulis jurnal adalah penciptaan konteks pamungkas. Saat Anda mencoba menggambarkan hari <em>Anda</em> dan dikoreksi, kata itu sekarang terhubung dengan memori pribadi. "Saya <em>frustrasi</em> karena bus terlambat." Anda akan mengingat 'frustrasi' karena Anda ingat perasaan bus terlambat.</p>
 
           <h2>Kesimpulan</h2>
           <p>Jangan menjadi kolektor kupu-kupu mati (kata-kata terisolasi). Jadilah tukang kebun. Tanam kata-kata di tanah subur kalimat dan cerita, dan saksikan kefasihan Anda tumbuh secara alami.</p>
@@ -1231,6 +1231,67 @@ const POST_PLATEAU_CONTENT_NE = `
         </article>
 `;
 
+const POST_PLATEAU_CONTENT_SI = `
+        <article>
+          <p>සුභ පැතුම්! ඔබට ආහාර ඇණවුම් කිරීමට, මූලික සංවාදයක් පැවැත්වීමට සහ ප්‍රවෘත්ති සිරස්තලවල සාරාංශය තේරුම් ගැනීමට හැකිය. ඔබ අතරමැදි මට්ටමේ (B1/B2) සිටී. නමුත් මෑතකදී, ඔබට සිරවී ඇති බවක් දැනේ.</p>
+          <p>ඔබ පෙර මෙන්ම වෙහෙස මහන්සි වී ඉගෙන ගන්නා නමුත් අලුත් දෙයක් ඉගෙන ගන්නා බවක් ඔබට දැනෙන්නේ නැත. වේගවත් ප්‍රගතියේ උද්යෝගය මැකී ගොස් කලකිරීමෙන් ප්‍රතිස්ථාපනය වී ඇත. <strong>අතරමැදි සානුව (Intermediate Plateau)</strong> වෙත සාදරයෙන් පිළිගනිමු. එය අවසන් මාර්ගයක් නොවේ; එය දිගු, පැතලි මාර්ගයක් පමණි. එය හරහා යන ආකාරය මෙන්න.</p>
+
+          <h2>ප්‍රගතිය මන්දගාමී වන්නේ ඇයි</h2>
+          <p>ආරම්භයේ දී (A1/A2), ඔබ ඉගෙන ගත් සෑම වචනයක්ම ඉහළ වටිනාකමක් ඇත. "කනවා", "යනවා", සහ "අවශ්‍යයි" ඉගෙන ගැනීමෙන් සංවාදවලින් 50% ක් විවෘත විය. සංඛ්‍යාත ආයෝජන මත ප්‍රතිලාභය විශාල විය.</p>
+          <p>දැන්, ඔබ දෛනික භාෂාවෙන් 80-90% ක් පමණ ආවරණය වන වඩාත් පොදු වචන 2,000-3,000 දනී. උසස් (C1) වෙත ළඟා වීමට, ඔබට ඉතිරි 10% ඉගෙන ගැනීමට අවශ්‍ය වේ—එය දස දහස් ගණනක් අඩු සංඛ්‍යාත වචන වලින් සමන්විත වේ (උදාහරණයක් ලෙස, "ඇප්රිකොට් ඇටයේ", "ලැජ්ජාසීලී", "බදු අඩු කිරීම").</p>
+          <p>1% ක වටහා ගත් දියුණුවක් සඳහා ඔබට 10 ගුණයක උත්සාහයක් දැරිය යුතුය. මෙය එකතැන පල්වීමේ මායාවක් ඇති කරයි.</p>
+
+          <h2>උපාය මාර්ගය 1: "අධ්‍යයනය" සිට "භාවිතා කිරීම" වෙත මාරුවන්න</h2>
+          <p>පෙළ පොත් භාවිතා කිරීම නවත්වන්න. ඒවා ආරම්භකයින් සඳහා නිර්මාණය කර ඇත. අතරමැදි අවධියේදී, ඔබ ස්වදේශික කථිකයන් සඳහා අදහස් කරන <strong>දේශීය අන්තර්ගතය</strong> පරිභෝජනය කළ යුතුය.</p>
+          <ul>
+             <li>"ප්‍රංශ ඉගෙනුම් පොඩ්කාස්ට්" වෙනුවට, ප්‍රංශ ප්‍රවෘත්ති නාලිකාවකට හෝ ප්‍රංශ ජාතිකයින් සඳහා ඉතිහාස පොඩ්කාස්ට් එකකට සවන් දෙන්න.</li>
+             <li>ව්‍යාකරණ අභ්‍යාස වෙනුවට නවකතාවක් කියවන්න.</li>
+          </ul>
+          <p>පෙළපොත්වලට ඉගැන්විය නොහැකි සූක්ෂ්මතාවය සහ ප්‍රවාහය ලබා ගැනීමට ඔබ භාෂාව එහි වල්, ස්වභාවික වාසස්ථානවල දැකිය යුතුය.</p>
+
+          <h2>උපාය මාර්ගය 2: දැවැන්ත ආදානය (Massive Input)</h2>
+          <p>එම දුර්ලභ, අඩු සංඛ්‍යාත වචන මතක තබා ගැනීමට ප්‍රමාණවත් වාර ගණනක් හමුවීමට, ඔබට පරිමාව අවශ්‍ය වේ. දැවැන්ත පරිමාව.</p>
+          <p>ස්ටීවන් ක්‍රාෂෙන්ගේ ආදාන කල්පිතය මෙහි ඉතා වැදගත් වේ. ඔබ <em>පුළුල් ලෙස</em> කියවීමට සහ සවන් දීමට අවශ්‍ය වේ. සෑම වචනයක්ම බලන්න එපා. ඔබ 70-80% තේරුම් ගන්නේ නම්, දිගටම කරගෙන යන්න. සන්දර්භයෙන් අර්ථය අනුමාන කරන්න. ඉලක්කය වන්නේ නිරාවරණ ප්රමාණයයි.</p>
+
+          <h2>උපාය මාර්ගය 3: ඉලක්කගත ප්‍රතිදානය</h2>
+          <p>ආදානය විභවය ගොඩනඟන අතර, ප්‍රතිදානය කුසලතා ගොඩනඟයි. සංකීර්ණ මාතෘකා ගැන කතා කිරීමට හෝ ලිවීමට ඔබටම අභියෝග කරන්න.</p>
+          <p>නිකම් "චිත්‍රපටය හොඳයි" කියන්න එපා. සිනමාකරණය බලගතු වූයේ <em>ඇයි</em> හෝ කතා වස්තුව යථාර්ථවාදී නොවූයේ <em>ඇයි</em> යන්න පැහැදිලි කිරීමට උත්සාහ කරන්න. මෙය ඔබව ඔබේ සුවපහසු කලාපයෙන් පිටතට බල කරන උසස් විස්තරාත්මක වචන දඩයම් කිරීමට ඔබට බල කරයි.</p>
+
+          <h2>නිගමනය</h2>
+          <p>අතරමැදි සානුව යනු බුද්ධිය නොව විඳදරාගැනීමේ පරීක්ෂණයකි. අසාර්ථක වීමට ඇති එකම මාර්ගය නතර කිරීමයි. ඔබේ මානසිකත්වය "ශිෂ්‍යයා" සිට "පරිශීලකයා" වෙත වෙනස් කරන්න, ඔබ සැබවින්ම රසවිඳින අන්තර්ගතය පරිභෝජනය කරන්න, අවසානයේදී, ඔබ සානුවෙන් ඉවතට සහ කඳු මුදුනට ගමන් කර ඇති බව ඔබට වැටහෙනු ඇත.</p>
+        </article>
+`;
+
+const POST_PLATEAU_CONTENT_SW = `
+        <article>
+          <p>Hongera! Unaweza kuagiza chakula, kufanya mazungumzo ya kimsingi, na kuelewa kiini cha vichwa vya habari. Uko katika kiwango cha Kati (B1/B2). Lakini hivi karibuni, unahisi umekwama.</p>
+          <p>Unasoma kwa bidii kama hapo awali, lakini hauhisi kama unajifunza chochote kipya. Msisimko wa maendeleo ya haraka umetoweka, na kubadilishwa na kuchanganyikiwa. Karibu kwenye <strong>Bonde la Kati (Intermediate Plateau)</strong>. Sio mwisho mbaya; ni barabara ndefu, tambarare. Hapa ni jinsi ya kuivuka.</p>
+
+          <h2>Kwa Nini Maendeleo Yanapungua</h2>
+          <p>Mwanzoni (A1/A2), kila neno ulilojifunza lilikuwa la thamani kubwa. Kujifunza "kula", "kwenda", na "kutaka" kulifungua 50% of mazungumzo. Marejesho ya uwekezaji wa mara kwa mara yalikuwa makubwa.</p>
+          <p>Sasa, unajua maneno 2,000-3,000 ya kawaida, ambayo yanashughulikia karibu 80-90% ya lugha ya kila siku. Ili kufikia Kiwango cha Juu (C1), unahitaji kujifunza 10% iliyobaki—ambayo ina makumi ya maelfu ya maneno ya masafa ya chini (kwa mfano, "aprikoti", "hazibadiliki", "makato ya kodi").</p>
+          <p>Lazima uweke juhudi mara 10 kwa uboreshaji unaotambulika wa 1%. Hii inajenga udanganyifu wa vilio.</p>
+
+          <h2>Mkakati wa 1: Badilika kutoka "Kusoma" hadi "Kutumia"</h2>
+          <p>Acha kutumia vitabu vya kiada. Zimeundwa kwa ajili ya wanaoanza. Katika hatua ya kati, unahitaji kutumia <strong>maudhui asili</strong> yaliyokusudiwa wazungumzaji asilia.</p>
+          <ul>
+             <li>Badala ya "Podcast ya Kujifunza Kifaransa", sikiliza chaneli ya habari ya Kifaransa au podikasti ya historia ya watu wa Ufaransa.</li>
+             <li>Badala ya mazoezi ya sarufi, soma riwaya.</li>
+  </ul>
+          <p>Unahitaji kuona lugha katika makazi yake ya asili, pori ili kuchukua nuance na mtiririko ambao vitabu vya kiada hauwezi kufundisha.</p>
+
+          <h2>Mkakati wa 2: Ingizo Kubwa (Massive Input)</h2>
+          <p>Ili kukutana na maneno hayo adimu, ya masafa ya chini mara nyingi vya kutosha kuyakariri, unahitaji kiasi. Kiasi kikubwa.</p>
+          <p>Nadharia ya uingizaji ya Stephen Krashen ni muhimu hapa. Unahitaji kusoma na kusikiliza <em>kwa upana</em>. Usitafute kila neno moja. Ikiwa unaelewa 70-80%, endelea. Nadhani maana kutoka kwa muktadha. Lengo ni wingi wa mfiduo.</p>
+
+          <h2>Mkakati wa 3: Pato Linalolengwa</h2>
+          <p>Wakati pembejeo hujenga uwezo, pato hujenga ujuzi. Changamoto mwenyewe kuzungumza au kuandika juu ya mada ngumu.</p>
+          <p>Usiseme tu "Filamu ilikuwa nzuri." Jaribu kueleza <em>kwa nini</em> sinema ilikuwa ya kuvutia au <em>kwa nini</em> mkasa wa hadithi haukuwa wa kweli. Hii inakulazimisha kuwinda maneno hayo ya maelezo ya kina ambayo yanakulazimisha kutoka nje ya eneo lako la faraja.</p>
+
+          <h2>Hitimisho</h2>
+          <p>Bonde la kati ni mtihani wa uvumilivu, sio akili. Njia pekee ya kushindwa ni kuacha. Badilisha mawazo yako kutoka kwa "mwanafunzi" hadi "mtumiaji", tumia maudhui unayofurahia kikweli, na hatimaye, utagundua kuwa umetoka kwenye bonde na kufika kwenye kilele cha mlima.</p>
+        </article>
+`;
 // ==========================================
 // Post 3: Polyglot Secrets
 // ==========================================
@@ -1685,76 +1746,1049 @@ const POST_POLYGLOT_CONTENT_NE = `
 `;
 
 
+const POST_POLYGLOT_CONTENT_SI = `
+          <article>
+            <p>අපි බොහෝ විට භාෂා 5, 10, හෝ 20 කතා කරන පුද්ගලයින් දෙස බලන්නේ විස්මයෙන්. ඔවුන්ට විශේෂ "භාෂා ජානයක්" ඇතැයි අපි උපකල්පනය කරමු. නමුත් ඔබ ඔවුන්ට කතා කරන්නේ නම් - බෙනී ලුවිස් හෝ ස්ටීව් කෝෆ්මන් වැනි පුද්ගලයින් - ඔවුන් ඔබට එකම දේ කියනු ඇත: එය මැජික් නොවේ, එය ක්‍රමයයි.</p>
+
+            <h2>රහස 1: මෝඩයෙකු ලෙස පෙනී සිටීමට ඔවුන් බිය නැත</h2>
+            <p>වැඩිහිටි ඉගෙන ගන්නන්ට බොහෝ විට බිඳෙනසුලු මමත්වයක් ඇත. අපි නැවතත් ළමයෙකු මෙන් දැනීමට අකමැතියි. බහුභාෂා විශාරදයින් අපහසුතාව වැළඳ ගනී. චතුර ලෙස කතා කිරීමට නම් වැරදි කිරීම අනිවාර්ය බව ඔවුන් දනී. ඔවුන් පළමු දිනයේ සිටම කතා කරයි, ඔවුන් වචන 10 ක් පමණක් දැන සිටියද, හිඩැස් පිරවීම සඳහා අභිනයන් සහ සිනහව භාවිතා කරයි.</p>
+            
+            <h2>රහස 2: ඔවුන් වාක්‍ය ඛණ්ඩ ඉගෙන ගනී, වචන නොවේ</h2>
+            <p>බහුභාෂා විශාරදයින් "ඇපල්" මතක තබා ගන්නේ නැත. ඔවුන් මතක තබා ගන්නේ "මට ඇපල් ගෙඩියක් අවශ්‍යයි, කරුණාකර." කැබලි වශයෙන් ඉගෙන ගැනීමෙන් (ශබ්දකෝෂ ප්‍රවේශය), ඔවුන්ට ඔවුන්ගේ හිසෙහි වචනයෙන් වචනය වාක්‍ය එකලස් කිරීමට අවශ්‍ය නොවේ. ව්‍යාකරණ වාක්‍ය ඛණ්ඩය තුළම අඩංගු වේ.</p>
+
+            <h2>රහස 3: ඔවුන් නිවසේදී ගිල්වීමක් නිර්මාණය කරයි</h2>
+            <p>ඔබව ගිල්වා ගැනීමට ඔබට ගුවන් ටිකට් පතක් අවශ්‍ය නොවේ. බහුභාෂා විශාරදයින් ඔවුන්ගේ දුරකථන භාෂාව වෙනස් කරයි, ලොව පුරා ගුවන් විදුලියට සවන් දෙයි, විදේශීය යූ ටියුබර්වරුන් නරඹයි, සහ විදේශීය වට්ටෝරු උයයි. ඔවුන් ඉලක්ක භාෂාවෙන් ගැලවීමට නොහැකි වන පරිදි <strong>අතථ්‍ය ගිල්වීමේ පරිසරයක් (Virtual Immersion Environment)</strong> ගොඩනඟයි.</p>
+
+            <h2>රහස 4: ඔවුන් තීව්‍රතාවයට වඩා අනුකූලතාවයට මුල් තැන දෙයි</h2>
+            <p>සතියකට වරක් පැය 5 ක් පාඩම් කිරීම නිෂ්ල ර ය. සෑම දිනකම විනාඩි 30 ක් පාඩම් කිරීම පරිවර්තනීය වේ. බහුභාෂා විශාරදයින් භාෂා ඉගෙනීම දත් මැදීම මෙන් සලකයි—සාකච්ඡා කළ නොහැකි දෛනික පුරුද්දක්. දිනකට මිනිත්තු 20 ක් සෑම විටම ඉරිදා පැය 4 ක පාඩම් සැසිය පරාජය කරයි.</p>
+
+            <h2>රහස 5: ඔවුන් ක්‍රියාවලිය රසවිඳිති</h2>
+            <p>මෙය වඩාත්ම තීරණාත්මක රහසයි. ඔබ ඔබේ පෙළපොතට වෛර කරන්නේ නම්, ඔබ ඉවත් වනු ඇත. බහුභාෂා විශාරදයින් ඉගෙනීම විනෝදජනක කිරීමට ක්‍රම සොයා ගනී. ඔවුන් විකට පොත් කියවයි, මිතුරන් සමඟ කතාබස් කරයි, හෝ නාට්‍ය නරඹයි. ඔවුන් පාඩම් කරන්නේ නැත; ඔවුන් නව භාෂාවෙන් <em>ජීවත්</em> වෙති.</p>
+
+            <div class="tip-box">
+              <strong>නිගමනය:</strong> භාෂා ඉගෙනීම සමත් විය යුතු ශාස්ත්‍රීය විෂයයක් ලෙස සැලකීම නවත්වන්න. එය ජීවත් විය යුතු ජීවන රටාවක් ලෙස සලකන්න. අද මෙම පුරුදු වලින් එකක් පමණක් අනුගමනය කරන්න, සහ ඔබේ ප්‍රගතිය වේගවත් වන ආකාරය බලන්න.
+            </div>
+          </article>
+`;
+
+const POST_POLYGLOT_CONTENT_SW = `
+          <article>
+            <p>Mara nyingi tunawatazama watu wanaozungumza lugha 5, 10, au 20 kwa mshangao. Tunafikiri wana "jeni maalum ya lugha." Lakini ukizungumza nao—watu kama Benny Lewis au Steve Kaufmann—watakuambia kitu kimoja: Sio uchawi, ni mbinu.</p>
+
+            <h2>Siri ya 1: Hawaogopi Kusikika Wajinga</h2>
+            <p>Wanafunzi watu wazima mara nyingi wana ego dhaifu. Tunachukia kuhisi kama mtoto tena. Watu wanaozungumza lugha nyingi wanakubali hali hiyo ya aibu. Wanajua kuwa kufanya makosa ni gharama ya kuingia kwa ufasaha. Wanazungumza kutoka siku ya kwanza, hata kama wanajua maneno 10 tu, wakitumia ishara na tabasamu kujaza mapengo.</p>
+            
+            <h2>Siri ya 2: Wanajifunza Vishazi, Sio Maneno</h2>
+            <p>Watu wanaozungumza lugha nyingi hawakariri "Tufaha." Wanakariri "Ningependa tufaha, tafadhali." Kwa kujifunza katika vipande (mbinu ya kileksika), hawalazimiki kuunganisha sentensi neno kwa neno vichwani mwao. Sarufi imejumuishwa katika kishazi.</p>
+
+            <h2>Siri ya 3: Wanatengeneza Mazingira ya Kuzama Nyumbani</h2>
+            <p>Hauhitaji tikiti ya ndege ili kuzama. Watu wanaozungumza lugha nyingi hubadilisha lugha ya simu zao, husikiliza redio kutoka kote ulimwenguni, hutazama WanaYouTube wa kigeni, na kupika mapishi ya kigeni. Wanaunda <strong>Mazingira ya Kuzama ya Mtandaoni (Virtual Immersion Environment)</strong> ili wasiweze kutoroka lugha lengwa.</p>
+
+            <h2>Siri ya 4: Wanatoa Kipaumbele kwa Msimamo Juu ya Nguvu</h2>
+            <p>Kusoma kwa masaa 5 mara moja kwa wiki hakuna maana. Kusoma kwa dakika 30 kila siku ni mabadiliko. Watu wanaozungumza lugha nyingi huchukulia kujifunza lugha kama kupiga mswaki—tabia ya kila siku isiyoweza kujadiliwa. Dakika 20 kwa siku hushinda kipindi cha masaa 4 cha kusoma kwa bidii siku ya Jumapili kila wakati.</p>
+
+            <h2>Siri ya 5: Wanafurahia Mchakato</h2>
+            <p>Hii ndiyo siri muhimu zaidi. Ikiwa unachukia kitabu chako cha kiada, utaacha. Watu wanaozungumza lugha nyingi hutafuta njia za kufanya kujifunza kufurahishe. Wanasoma vitabu vya vichekesho, wanapiga gumzo na marafiki, au kutazama tamthilia. Hawasomi; <em>wanaishi</em> katika lugha mpya.</p>
+
+            <div class="tip-box">
+              <strong>Jambo la Kuchukua:</strong> Acha kuchukulia kujifunza lugha kama somo la kitaaluma la kupitishwa. Ichukulie kama mtindo wa maisha wa kuishi. Pitisha moja tu ya tabia hizi leo, na utazame maendeleo yako yakiongezeka kasi.
+            </div>
+          </article>
+`;
+
+// ==========================================
+// Post 7: Pronunciation Mistakes
+// ==========================================
+const POST_PRONUNCIATION_CONTENT_EN = `
+          <article>
+            <p>You’ve mastered the grammar. You’ve memorized the vocabulary. Yet, when you speak, native speakers squint, lean in, and ask, "Sorry, can you repeat that?" It’s frustrating. The culprit isn’t your knowledge; it’s your <strong>pronunciation</strong>.</p>
+
+            <h2>Mistake 1: The Robot Syndrome (Ignoring Intonation)</h2>
+            <p>Many learners speak like robots: flat, monotone, and evenly paced. But natural language is musical. English, for instance, is a <strong>stress-timed language</strong>. We eat up unstressed words (like "to", "for", "at") and punch the stressed ones.</p>
+            <p><em>Fix:</em> Don't just read words. Hum the melody of the sentence first. Listen to the "music" before the lyrics.</p>
+
+            <h2>Mistake 2: Over-Pronouncing Every Letter</h2>
+            <p>Spelling is a liar. In French, half the letters are silent. In English, "Comfortable" looks like ‘Com-fort-a-ble’ but sounds like ‘Comf-tft-bl’. Trying to pronounce every letter makes you sound unnatural and clunky.</p>
+            <p><em>Fix:</em> Learn the IPA (International Phonetic Alphabet) for your target language immediately. Trust your ears, not your eyes.</p>
+
+            <h2>Mistake 3: Neglecting the "Schwa" (ə)</h2>
+            <p>In many languages like English and German, the most common sound is the "Schwa"—a lazy, neutral 'uh' sound. It’s the sound of a vowel losing its identity. If you pronounce every vowel clearly (a as A, e as E), you will sound foreign.</p>
+            <p><em>Fix:</em> Relax your mouth. Stop trying so hard. The secret to sounding native is actually being <em>lazier</em> with unstressed vowels.</p>
+
+            <h2>Mistake 4: Speaking Too Fast</h2>
+            <p>Learners equate speed with fluency. This is a fatal error. When you speak fast with imperfect pronunciation, you just sound like a fast-forwarded mess. Native speakers slur and connect words, but they do it with precision.</p>
+            <p><em>Fix:</em> Slow down. Clarity is king. Speed is a byproduct of mastery, not a shortcut specifically to it.</p>
+
+            <h2>Mistake 5: Not Listening to Your Own Voice</h2>
+            <p>You cannot hear your own mistakes while you are speaking. Your brain tricks you into thinking you sound like the audio clip you just heard. You don't.</p>
+            <p><em>Fix:</em> Record yourself on your phone. Listen to it. Cringe. Then try again. This feedback loop is the fastest way to improve.</p>
+
+            <div class="tip-box">
+              <strong>Challenge:</strong> Pick one sentence today. Listen to a native speaker say it. Record yourself. Compare. Repeat until they match 100%. Quality over quantity.
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_KO = `
+          <article>
+            <p>문법도 완벽하고 단어도 많이 외웠습니다. 하지만 막상 말을 하면 원어민들은 눈을 찡그리며 묻습니다. "죄송한데, 다시 말씀해 주시겠어요?" 좌절스럽죠. 원인은 부족한 지식이 아닙니다. 바로 <strong>발음</strong>입니다.</p>
+
+            <h2>실수 1: 로봇 증후군 (억양 무시)</h2>
+            <p>많은 학습자가 로봇처럼 말합니다. 평탄하고, 단조롭고, 일정한 속도로요. 하지만 자연스러운 언어에는 음악이 있습니다. 예를 들어 영어는 <strong>강세 박자 언어(stress-timed language)</strong>입니다. 중요하지 않은 단어(to, for, at 등)는 삼키고, 중요한 단어는 강하게 내뱉습니다.</p>
+            <p><em>해결책:</em> 단어만 읽지 마세요. 문장의 멜로디를 먼저 흥얼거려 보세요. 가사보다 '음악'을 먼저 들으세요.</p>
+
+            <h2>실수 2: 모든 철자를 정직하게 발음하기</h2>
+            <p>철자는 거짓말쟁이입니다. 프랑스어에서는 철자의 절반이 묵음입니다. 영어의 'Comfortable'은 '컴-포트-에이-블'로 보이지만 실제로는 '컴프-트블'처럼 들립니다. 모든 철자를 다 발음하려 하면 부자연스럽고 투박하게 들립니다.</p>
+            <p><em>해결책:</em> 목표 언어의 IPA(국제 음성 기호)를 당장 배우세요. 눈이 아니라 귀를 믿으세요.</p>
+
+            <h2>실수 3: '슈와(Schwa)' 소리 무시하기 (ə)</h2>
+            <p>영어와 독일어 같은 많은 언어에서 가장 흔한 소리는 "슈와"—게으르고 중립적인 '어' 소리—입니다. 모음이 정체성을 잃을 때 나는 소리죠. 모든 모음을 명확하게(a는 아, e는 에) 발음하면 외국인처럼 들립니다.</p>
+            <p><em>해결책:</em> 입에 힘을 빼세요. 너무 열심히 하지 마세요. 원어민처럼 들리는 비결은 사실 강세가 없는 모음에서 더 <em>게을러지는</em> 것입니다.</p>
+
+            <h2>실수 4: 너무 빨리 말하기</h2>
+            <p>학습자들은 속도가 유창함이라고 착각합니다. 치명적인 실수입니다. 발음이 불완전한 상태에서 빨리 말하면, 그냥 빨리 감기 된 소음처럼 들릴 뿐입니다. 원어민들은 단어를 뭉개고 잇지만, 그 안에는 정교함이 있습니다.</p>
+            <p><em>해결책:</em> 속도를 늦추세요. 명확성이 왕입니다. 속도는 숙달의 부산물이지, 지름길이 아닙니다.</p>
+
+            <h2>실수 5: 자기 목소리를 듣지 않음</h2>
+            <p>말하는 동안에는 자신의 실수를 들을 수 없습니다. 뇌가 방금 들은 오디오 클립처럼 소리 내고 있다고 착각하게 만듭니다. 그렇지 않습니다.</p>
+            <p><em>해결책:</em> 휴대폰으로 녹음하세요. 들어보세요. 오글거림을 참으세요. 그리고 다시 하세요. 이 피드백 루프가 실력을 키우는 가장 빠른 길입니다.</p>
+
+            <div class="tip-box">
+              <strong>도전:</strong> 오늘 딱 한 문장만 고르세요. 원어민의 발음을 듣고, 녹음하고, 비교하세요. 100% 일치할 때까지 반복하세요. 양보다 질입니다.
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_JA = `
+          <article>
+            <p>文法は完璧。単語も暗記した。それなのに、話すとネイティブスピーカーは目を細め、身を乗り出してこう言います。「すみません、もう一度言ってもらえますか？」イライラしますよね。犯人はあなたの知識不足ではありません。<strong>発音</strong>です。</p>
+
+            <h2>間違い1：ロボット症候群（イントネーションの無視）</h2>
+            <p>多くの学習者はロボットのように話します。平坦で、単調で、一定のペースです。しかし、自然な言語には音楽があります。例えば英語は<strong>強勢拍リズムの言語（stress-timed language）</strong>です。強調されない単語（to, for, atなど）は飲み込み、強調される単語は強く打ち出します。</p>
+            <p><em>解決策：</em> 単語だけを読まないでください。まず文のメロディーをハミングしてください。歌詞の前に「音楽」を聴いてください。</p>
+
+            <h2>間違い2：すべての文字を発音しすぎる</h2>
+            <p>スペルは嘘つきです。フランス語では文字の半分が黙字です。英語の「Comfortable」は「コン-フォート-エイ-ブル」に見えますが、実際は「カンプ-タブル」のように聞こえます。すべての文字を発音しようとすると、不自然でぎこちなく聞こえます。</p>
+            <p><em>解決策：</em> 今すぐターゲット言語のIPA（国際音声記号）を学んでください。目ではなく、耳を信じてください。</p>
+
+            <h2>間違い3：「シュワー（Schwa）」を無視する（ə）</h2>
+            <p>英語やドイツ語のような多くの言語で、最も一般的な音は「シュワー」——怠惰で中立的な「ア（uh）」の音——です。これは母音がアイデンティティを失った時の音です。すべての母音を明確に（aをア、eをエと）発音すると、外国人のように聞こえます。</p>
+            <p><em>解決策：</em> 口の力を抜いてください。頑張りすぎないでください。ネイティブのように聞こえる秘訣は、実は強調されない母音においてもっと<em>怠惰になる</em>ことなのです。</p>
+
+            <h2>間違い4：早口で話す</h2>
+            <p>学習者はスピードと流暢さを同一視します。これは致命的な間違いです。発音が不完全なまま早く話すと、早送りされた雑音のように聞こえるだけです。ネイティブスピーカーは単語をつなげたり滑らせたりしますが、そこには正確さがあります。</p>
+            <p><em>解決策：</em> スピードを落としてください。明瞭さが王です。スピードは熟達の副産物であり、近道ではありません。</p>
+
+            <h2>間違い5：自分の声を聞かない</h2>
+            <p>話している最中には、自分の間違いを聞くことはできません。脳が、今聞いたオーディオクリップのように発音していると錯覚させるからです。実際は違います。</p>
+            <p><em>解決策：</em> 携帯電話で録音してください。聞いてください。身悶えしてください。そしてもう一度やってください。このフィードバックループが上達への近道です。</p>
+
+            <div class="tip-box">
+              <strong>チャレンジ：</strong> 今日、一文だけ選んでください。ネイティブの発音を聞き、録音し、比較してください。100%一致するまで繰り返してください。量より質です。
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_ZH = `
+          <article>
+            <p>你掌握了语法。你背熟了词汇。然而，当你说话时，母语人士眯起眼睛，探过身来问道：“对不起，你能再说一遍吗？” 这令人沮丧。罪魁祸首不是你的知识；是你的<strong>发音</strong>。</p>
+
+            <h2>错误1：机器人综合症（忽视语调）</h2>
+            <p>许多学习者说话像机器人：平淡、单调且节奏均匀。但自然语言是有音乐性的。例如，英语是一种<strong>重音计时语言（stress-timed language）</strong>。我们要吞掉非重读单词（如 "to", "for", "at"），并重击重读单词。</p>
+            <p><em>修正：</em> 不要只读单词。先哼出句子的旋律。在看歌词之前先听“音乐”。</p>
+
+            <h2>错误2：过度发音每个字母</h2>
+            <p>拼写是骗人的。在法语中，一半的字母是不发音的。在英语中，“Comfortable”看起来像‘Com-fort-a-ble’，但听起来像‘Comf-tft-bl’。试图发音每个字母会让你听起来不自然且笨拙。</p>
+            <p><em>修正：</em> 立即学习目标语言的IPA（国际音标）。相信你的耳朵，而不是眼睛。</p>
+
+            <h2>错误3：忽视“Schwa”（ə）</h2>
+            <p>在许多语言（如英语和德语）中，最常见的声音是“Schwa”——一种慵懒、中性的‘uh’音。这是元音失去其身份时的声音。如果你清晰地发音每个元音（a发A，e发E），你会听起来像外国人。</p>
+            <p><em>修正：</em> 放松你的嘴巴。别太用力。听起来像母语人士的秘诀实际上是对非重读元音更加<em>懒惰</em>。</p>
+
+            <h2>错误4：说得太快</h2>
+            <p>学习者将速度等同于流利度。这是一个致命的错误。当你发音不完美却说得很快时，你听起来就像一段快进的杂音。母语人士会连读和吞音，但他们做得非常精准。</p>
+            <p><em>修正：</em> 慢下来。清晰度即王道。速度是精通的副产品，而不是捷径。</p>
+
+            <h2>错误5：不听自己的声音</h2>
+            <p>说话时你听不到自己的错误。你的大脑会欺骗你，让你以为你听起来就像你刚才听到的音频片段。其实不然。</p>
+            <p><em>修正：</em> 用手机录下自己的声音。听一听。感到尴尬。然后再试一次。这种反馈循环是进步的最快途径。</p>
+
+            <div class="tip-box">
+              <strong>挑战：</strong> 今天选一个句子。听母语人士怎么说。录下自己说的。比较。重复直到100%匹配。质量胜于数量。
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_TH = `
+          <article>
+            <p>คุณเชี่ยวชาญไวยากรณ์ คุณท่องจำคำศัพท์ได้แล้ว แต่เมื่อคุณพูด เจ้าของภาษากลับหรี่ตา โน้มตัวเข้ามาและถามว่า "ขอโทษนะ พูดอีกทีได้ไหม?" มันน่าหงุดหงิด ตัวการไม่ใช่ความรู้ของคุณ แต่มันคือ <strong>การออกเสียง</strong> ของคุณ</p>
+
+            <h2>ข้อผิดพลาด 1: โรคหุ่นยนต์ (เพิกเฉยต่อการเน้นเสียง)</h2>
+            <p>ผู้เรียนหลายคนพูดเหมือนหุ่นยนต์: ราบเรียบ โทนเดียว และจังหวะสม่ำเสมอ แต่ภาษาธรรมชาติมีดนตรี ตัวอย่างเช่น ภาษาอังกฤษเป็น <strong>ภาษาที่เน้นจังหวะหนักเบา (stress-timed language)</strong> เราจะกลืนคำที่ไม่เน้น (เช่น "to", "for", "at") และกระแทกเสียงคำที่เน้น</p>
+            <p><em>วิธีแก้ไข:</em> อย่าอ่านแค่คำ ฮัมทำนองของประโยคก่อน ฟัง "ดนตรี" ก่อนเนื้อร้อง</p>
+
+            <h2>ข้อผิดพลาด 2: ออกเสียงทุกตัวอักษรมากเกินไป</h2>
+            <p>การสะกดคำเป็นคนโกหก ในภาษาฝรั่งเศส ตัวอักษรครึ่งหนึ่งไม่ออกเสียง ในภาษาอังกฤษ "Comfortable" ดูเหมือน ‘Com-fort-a-ble’ แต่ฟังดูเหมือน ‘Comf-tft-bl’ การพยายามออกเสียงทุกตัวอักษรทำให้คุณฟังดูไม่เป็นธรรมชาติและเก้งก้าง</p>
+            <p><em>วิธีแก้ไข:</em> เรียนรู้ IPA (สัทอักษรสากล) สำหรับภาษาเป้าหมายของคุณทันที เชื่อหูของคุณ ไม่ใช่ตาของคุณ</p>
+
+            <h2>ข้อผิดพลาด 3: ละเลยเสียง "Schwa" (ə)</h2>
+            <p>ในหลายภาษา เช่น อังกฤษและเยอรมัน เสียงที่พบบ่อยที่สุดคือ "Schwa"—เสียง 'เออะ' ที่ขี้เกียจและเป็นกลาง มันคือเสียงของสระที่สูญเสียตัวตน หากคุณออกเสียงสระทุกตัวชัดเจน (a เป็น A, e เป็น E) คุณจะฟังดูเหมือนชาวต่างชาติ</p>
+            <p><em>วิธีแก้ไข:</em> ผ่อนคลายปากของคุณ อย่าพยายามมากเกินไป เคล็ดลับในการฟังดูเหมือนเจ้าของภาษาคือการ <em>ขี้เกียจ</em> กับสระที่ไม่เน้นเสียงให้มากขึ้น</p>
+
+            <h2>ข้อผิดพลาด 4: พูดเร็วเกินไป</h2>
+            <p>ผู้เรียนเข้าใจผิดว่าความเร็วคือความคล่องแคล่ว นี่คือข้อผิดพลาดร้ายแรง เมื่อคุณพูดเร็วด้วยการออกเสียงที่ไม่สมบูรณ์ คุณจะฟังดูเหมือนเสียงรบกวนที่ถูกกรอไปข้างหน้าอย่างรวดเร็ว เจ้าของภาษาเชื่อมคำและกลืนเสียง แต่พวกเขาทำด้วยความแม่นยำ</p>
+            <p><em>วิธีแก้ไข:</em> ช้าลง ความชัดเจนคือสิ่งสำคัญที่สุด ความเร็วเป็นผลพลอยได้จากความเชี่ยวชาญ ไม่ใช่ทางลัด</p>
+
+            <h2>ข้อผิดพลาด 5: ไม่ฟังเสียงของตัวเอง</h2>
+            <p>คุณไม่ได้ยินข้อผิดพลาดของตัวเองในขณะที่คุณกำลังพูด สมองของคุณหลอกคุณให้คิดว่าคุณฟังดูเหมือนคลิปเสียงที่คุณเพิ่งได้ยิน แต่คุณไม่ได้เป็นอย่างนั้น</p>
+            <p><em>วิธีแก้ไข:</em> บันทึกเสียงตัวเองในโทรศัพท์ ฟังมัน รู้สึกขนลุก แล้วลองอีกครั้ง วงจรป้อนกลับนี้เป็นวิธีที่เร็วที่สุดในการปรับปรุง</p>
+
+            <div class="tip-box">
+              <strong>ความท้าทาย:</strong> เลือกหนึ่งประโยคในวันนี้ ฟังเจ้าของภาษาพูด บันทึกเสียงตัวเอง เปรียบเทียบ ทำซ้ำจนกว่าจะตรงกัน 100% คุณภาพสำคัญกว่าปริมาณ
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_VI = `
+          <article>
+            <p>Bạn đã nắm vững ngữ pháp. Bạn đã ghi nhớ từ vựng. Tuy nhiên, khi bạn nói, người bản xứ nheo mắt, nghiêng người và hỏi: "Xin lỗi, bạn có thể nhắc lại không?" Thật là bực bội. Thủ phạm không phải là kiến thức của bạn; đó là <strong>phát âm</strong> của bạn.</p>
+
+            <h2>Lỗi 1: Hội chứng Robot (Bỏ qua Ngữ điệu)</h2>
+            <p>Nhiều người học nói như robot: phẳng lặng, đơn điệu và đều đều. Nhưng ngôn ngữ tự nhiên có âm nhạc. Ví dụ, tiếng Anh là một <strong>ngôn ngữ theo nhịp trọng âm (stress-timed language)</strong>. Chúng ta nuốt những từ không được nhấn mạnh (như "to", "for", "at") và nhấn mạnh vào những từ quan trọng.</p>
+            <p><em>Cách khắc phục:</em> Đừng chỉ đọc từ. Hãy ngâm nga giai điệu của câu trước. Nghe "âm nhạc" trước khi nghe lời bài hát.</p>
+
+            <h2>Lỗi 2: Phát âm quá mức mọi chữ cái</h2>
+            <p>Chính tả là kẻ nói dối. Trong tiếng Pháp, một nửa số chữ cái là âm câm. Trong tiếng Anh, "Comfortable" trông giống như ‘Com-fort-a-ble’ nhưng nghe giống như ‘Comf-tft-bl’. Cố gắng phát âm từng chữ cái khiến bạn nghe có vẻ thiếu tự nhiên và vụng về.</p>
+            <p><em>Cách khắc phục:</em> Học IPA (Bảng phiên âm quốc tế) cho ngôn ngữ mục tiêu của bạn ngay lập tức. Hãy tin vào đôi tai của bạn, không phải đôi mắt của bạn.</p>
+
+            <h2>Lỗi 3: Bỏ qua âm "Schwa" (ə)</h2>
+            <p>Trong nhiều ngôn ngữ như tiếng Anh và tiếng Đức, âm phổ biến nhất là "Schwa"—một âm 'ơ' lười biếng, trung tính. Đó là âm thanh của một nguyên âm mất đi bản sắc của nó. Nếu bạn phát âm rõ ràng từng nguyên âm (a là A, e là E), bạn sẽ nghe như người nước ngoài.</p>
+            <p><em>Cách khắc phục:</em> Thả lỏng miệng. Đừng cố gắng quá sức. Bí quyết để nghe như người bản xứ thực sự là <em>lười biếng hơn</em> với các nguyên âm không được nhấn mạnh.</p>
+
+            <h2>Lỗi 4: Nói quá nhanh</h2>
+            <p>Người học đánh đồng tốc độ với sự trôi chảy. Đây là một sai lầm chết người. Khi bạn nói nhanh với phát âm không hoàn hảo, bạn chỉ nghe giống như một mớ hỗn độn được tua nhanh. Người bản xứ nói lướt và nối từ, nhưng họ làm điều đó với sự chính xác.</p>
+            <p><em>Cách khắc phục:</em> Chậm lại. Sự rõ ràng là vua. Tốc độ là sản phẩm phụ của sự thành thạo, không phải là lối tắt.</p>
+
+            <h2>Lỗi 5: Không nghe giọng nói của chính mình</h2>
+            <p>Bạn không thể nghe thấy lỗi của chính mình khi bạn đang nói. Bộ não đánh lừa bạn nghĩ rằng bạn nghe giống như đoạn âm thanh bạn vừa nghe. Bạn không phải vậy.</p>
+            <p><em>Cách khắc phục:</em> Ghi âm chính mình trên điện thoại. Nghe nó. Cảm thấy xấu hổ. Sau đó thử lại. Vòng phản hồi này là cách nhanh nhất để cải thiện.</p>
+
+            <div class="tip-box">
+              <strong>Thử thách:</strong> Chọn một câu hôm nay. Nghe người bản xứ nói câu đó. Ghi âm chính mình. So sánh. Lặp lại cho đến khi khớp 100%. Chất lượng hơn số lượng.
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_ID = `
+          <article>
+            <p>Anda sudah menguasai tata bahasa. Anda sudah menghafal kosakata. Namun, ketika Anda berbicara, penutur asli menyipitkan mata, condong ke depan, dan bertanya, "Maaf, bisa diulangi?" Itu membuat frustrasi. Penyebabnya bukan pengetahuan Anda; itu adalah <strong>pelafalan</strong> Anda.</p>
+
+            <h2>Kesalahan 1: Sindrom Robot (Mengabaikan Intonasi)</h2>
+            <p>Banyak pelajar berbicara seperti robot: datar, monoton, dan dengan kecepatan yang sama. Tapi bahasa alami itu musikal. Bahasa Inggris, misalnya, adalah <strong>bahasa yang diatur oleh tekanan (stress-timed language)</strong>. Kita menelan kata-kata yang tidak ditekan (seperti "to", "for", "at") dan menonjolkan kata-kata yang ditekan.</p>
+            <p><em>Perbaikan:</em> Jangan hanya membaca kata-kata. Gumamkan melodi kalimat terlebih dahulu. Dengarkan "musik"-nya sebelum liriknya.</p>
+
+            <h2>Kesalahan 2: Melafalkan Setiap Huruf Secara Berlebihan</h2>
+            <p>Ejaan itu pembohong. Dalam bahasa Prancis, separuh hurufnya tidak diucapkan. Dalam bahasa Inggris, "Comfortable" terlihat seperti ‘Com-fort-a-ble’ tapi terdengar seperti ‘Comf-tft-bl’. Mencoba melafalkan setiap huruf membuat Anda terdengar tidak alami dan kaku.</p>
+            <p><em>Perbaikan:</em> Pelajari IPA (Alfabet Fonetik Internasional) untuk bahasa target Anda segera. Percayalah pada telinga Anda, bukan mata Anda.</p>
+
+            <h2>Kesalahan 3: Mengabaikan "Schwa" (ə)</h2>
+            <p>Dalam banyak bahasa seperti Inggris dan Jerman, bunyi yang paling umum adalah "Schwa"—bunyi 'uh' yang malas dan netral. Itu adalah bunyi vokal yang kehilangan identitasnya. Jika Anda melafalkan setiap vokal dengan jelas (a sebagai A, e sebagai E), Anda akan terdengar asing.</p>
+            <p><em>Perbaikan:</em> Rilekskan mulut Anda. Berhentilah berusaha terlalu keras. Rahasia untuk terdengar seperti penutur asli sebenarnya adalah menjadi lebih <em>malas</em> dengan vokal yang tidak ditekan.</p>
+
+            <h2>Kesalahan 4: Berbicara Terlalu Cepat</h2>
+            <p>Pelajar menyamakan kecepatan dengan kefasihan. Ini adalah kesalahan fatal. Ketika Anda berbicara cepat dengan pelafalan yang tidak sempurna, Anda hanya terdengar seperti kekacauan yang dipercepat. Penutur asli menyingkat dan menghubungkan kata-kata, tetapi mereka melakukannya dengan presisi.</p>
+            <p><em>Perbaikan:</em> Pelan-pelan. Kejelasan adalah raja. Kecepatan adalah produk sampingan dari penguasaan, bukan jalan pintas.</p>
+
+            <h2>Kesalahan 5: Tidak Mendengarkan Suara Anda Sendiri</h2>
+            <p>Anda tidak dapat mendengar kesalahan Anda sendiri saat Anda berbicara. Otak Anda menipu Anda untuk berpikir bahwa Anda terdengar seperti klip audio yang baru saja Anda dengar. Nyatanya tidak.</p>
+            <p><em>Perbaikan:</em> Rekam diri Anda di ponsel. Dengarkan. Merasa ngeri. Lalu coba lagi. Lingkaran umpan balik ini adalah cara tercepat untuk meningkat.</p>
+
+            <div class="tip-box">
+              <strong>Tantangan:</strong> Pilih satu kalimat hari ini. Dengarkan penutur asli mengucapkannya. Rekam diri Anda. Bandingkan. Ulangi sampai cocok 100%. Kualitas di atas kuantitas.
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_ES = `
+          <article>
+            <p>Has dominado la gramática. Has memorizado el vocabulario. Sin embargo, cuando hablas, los hablantes nativos entornan los ojos, se inclinan y preguntan: "Perdón, ¿puedes repetir eso?" Es frustrante. El culpable no es tu conocimiento; es tu <strong>pronunciación</strong>.</p>
+
+            <h2>Error 1: El Síndrome del Robot (Ignorar la Entonación)</h2>
+            <p>Muchos estudiantes hablan como robots: planos, monótonos y con un ritmo uniforme. Pero el lenguaje natural es musical. El inglés, por ejemplo, es un <strong>idioma cronometrado por el estrés (stress-timed language)</strong>. Nos comemos las palabras no acentuadas (como "to", "for", "at") y golpeamos las acentuadas.</p>
+            <p><em>Solución:</em> No solo leas palabras. Tararea la melodía de la oración primero. Escucha la "música" antes que la letra.</p>
+
+            <h2>Error 2: Pronunciar Excesivamente Cada Letra</h2>
+            <p>La ortografía es una mentirosa. En francés, la mitad de las letras son mudas. En inglés, "Comfortable" parece ‘Com-fort-a-ble’ pero suena como ‘Comf-tft-bl’. Intentar pronunciar cada letra te hace sonar poco natural y torpe.</p>
+            <p><em>Solución:</em> Aprende el AFI (Alfabeto Fonético Internacional) para tu idioma objetivo de inmediato. Confía en tus oídos, no en tus ojos.</p>
+
+            <h2>Error 3: Descuidar la "Schwa" (ə)</h2>
+            <p>En muchos idiomas como el inglés y el alemán, el sonido más común es la "Schwa"—un sonido 'uh' perezoso y neutral. Es el sonido de una vocal perdiendo su identidad. Si pronuncias cada vocal claramente (a como A, e como E), sonarás extranjero.</p>
+            <p><em>Solución:</em> Relaja la boca. Deja de esforzarte tanto. El secreto para sonar nativo es en realidad ser más <em>perezoso</em> con las vocales no acentuadas.</p>
+
+            <h2>Error 4: Hablar Demasiado Rápido</h2>
+            <p>Los estudiantes equiparan la velocidad con la fluidez. Este es un error fatal. Cuando hablas rápido con una pronunciación imperfecta, solo suenas como un desastre en cámara rápida. Los hablantes nativos arrastran y conectan palabras, pero lo hacen con precisión.</p>
+            <p><em>Solución:</em> Ve más despacio. La claridad es el rey. La velocidad es un subproducto de la maestría, no un atajo hacia ella.</p>
+
+            <h2>Error 5: No Escuchar Tu Propia Voz</h2>
+            <p>No puedes escuchar tus propios errores mientras hablas. Tu cerebro te engaña haciéndote pensar que suenas como el clip de audio que acabas de escuchar. No es así.</p>
+            <p><em>Solución:</em> Grábate en tu teléfono. Escúchalo. Siente vergüenza ajena. Luego inténtalo de nuevo. Este ciclo de retroalimentación es la forma más rápida de mejorar.</p>
+
+            <div class="tip-box">
+              <strong>Desafío:</strong> Elige una frase hoy. Escucha a un hablante nativo decirla. Grábate. Compara. Repite hasta que coincidan al 100%. Calidad sobre cantidad.
+            </div>
+          </article>
+`;
+
+const POST_PRONUNCIATION_CONTENT_PT = `
+          <article>
+            <p>Você dominou a gramática. Memorizou o vocabulário. No entanto, quando fala, os falantes nativos estreitam os olhos, inclinam-se e perguntam: "Desculpe, pode repetir?" É frustrante. O culpado não é seu conhecimento; é sua <strong>pronúncia</strong>.</p>
+            <h2>Erro 1: A Síndrome do Robô (Ignorar a Entonação)</h2>
+            <p>Muitos alunos falam como robôs: planos, monótonos e com ritmo uniforme. Mas a linguagem natural é musical. O inglês, por exemplo, é uma <strong>língua cronometrada pelo estresse (stress-timed language)</strong>. Comemos palavras não acentuadas (como "to", "for", "at") e socamos as acentuadas.</p>
+            <p><em>Correção:</em> Não leia apenas palavras. Humme a melodia da frase primeiro. Ouça a "música" antes da letra.</p>
+            <h2>Erro 2: Pronunciar Demais Cada Letra</h2>
+            <p>A ortografia é uma mentirosa. Em francês, metade das letras são mudas. Em inglês, "Comfortable" parece ‘Com-fort-a-ble’, mas soa como ‘Comf-tft-bl’. Tentar pronunciar cada letra faz você soar pouco natural e desajeitado.</p>
+            <p><em>Correção:</em> Aprenda o IPA (Alfabeto Fonético Internacional) para seu idioma de destino imediatamente. Confie em seus ouvidos, não em seus olhos.</p>
+            <h2>Erro 3: Negligenciar o "Schwa" (ə)</h2>
+            <p>Em muitas línguas como inglês e alemão, o som mais comum é o "Schwa" - um som 'uh' preguiçoso e neutro. É o som de uma vogal perdendo sua identidade. Se você pronunciar cada vogal claramente (a como A, e como E), soará estrangeiro.</p>
+            <p><em>Correção:</em> Relaxe a boca. Pare de tentar tanto. O segredo para soar nativo é, na verdade, ser mais <em>preguçoso</em> com vogais não acentuadas.</p>
+            <h2>Erro 4: Falar Muito Rápido</h2>
+            <p>Os alunos igualam velocidade com fluência. Este é um erro fatal. Quando você fala rápido com pronúncia imperfeita, soa apenas como uma bagunça acelerada. Falantes nativos ligam e conectam palavras, mas fazem isso com precisão.</p>
+            <p><em>Correção:</em> Vá devagar. Clareza é rei. A velocidade é um subproduto da maestria, não um atalho para ela.</p>
+            <h2>Erro 5: Não Ouvir Sua Própria Voz</h2>
+            <p>Você não consegue ouvir seus próprios erros enquanto fala. Seu cérebro engana você, fazendo-o pensar que soa como o clipe de áudio que acabou de ouvir. Você não soa.</p>
+            <p><em>Correção:</em> Grave-se no telefone. Ouça. Sinta vergonha. Em seguida, tente novamente. Este ciclo de feedback é a maneira mais rápida de melhorar.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_FR = `
+          <article>
+            <p>Vous avez maîtrisé la grammaire. Vous avez mémorisé le vocabulaire. Pourtant, lorsque vous parlez, les locuteurs natifs plissent les yeux, se penchent et demandent : « Désolé, pouvez-vous répéter cela ? » C’est frustrant. Le coupable n’est pas vos connaissances ; c’est votre <strong>prononciation</strong>.</p>
+            <h2>Erreur 1 : Le syndrome du robot (ignorer l’intonation)</h2>
+            <p>Beaucoup d’apprenants parlent comme des robots : plat, monotone et au rythme régulier. Mais le langage naturel est musical. L’anglais, par exemple, est une <strong>langue accentuée (stress-timed language)</strong>. Nous avalons les mots non accentués (comme « to », « for », « at ») et frappons les mots accentués.</p>
+            <p><em>Correction :</em> Ne lisez pas seulement des mots. Fredonnez d’abord la mélodie de la phrase. Écoutez la « musique » avant les paroles.</p>
+            <h2>Erreur 2 : Trop prononcer chaque lettre</h2>
+            <p>L’orthographe est un menteur. En français, la moitié des lettres sont muettes. En anglais, « Comfortable » ressemble à ‘Com-fort-a-ble’ mais sonne comme ‘Comf-tft-bl’. Essayer de prononcer chaque lettre vous fait paraître peu naturel et maladroit.</p>
+            <p><em>Correction :</em> Apprenez immédiatement l’API (Alphabet Phonétique International) pour votre langue cible. Faites confiance à vos oreilles, pas à vos yeux.</p>
+            <h2>Erreur 3 : Négliger le « Schwa » (ə)</h2>
+            <p>Dans de nombreuses langues comme l’anglais et l’allemand, le son le plus courant est le « Schwa » — un son ‘euh’ paresseux et neutre. C’est le son d’une voyelle perdant son identité. Si vous prononcez clairement chaque voyelle, vous aurez l’air étranger.</p>
+            <p><em>Correction :</em> Détendez votre bouche. Arrêtez d’essayer si fort. Le secret pour avoir l’air natif est en fait d’être plus <em>paresseux</em> avec les voyelles non accentuées.</p>
+            <h2>Erreur 4 : Parler trop vite</h2>
+            <p>Les apprenants assimilent la vitesse à la fluidité. C’est une erreur fatale. Lorsque vous parlez vite avec une prononciation imparfaite, vous ressemblez simplement à un gâchis accéléré. Les locuteurs natifs lient les mots, mais ils le font avec précision.</p>
+            <p><em>Correction :</em> Ralentissez. La clarté est reine. La vitesse est un sous-produit de la maîtrise, pas un raccourci vers celle-ci.</p>
+            <h2>Erreur 5 : Ne pas écouter sa propre voix</h2>
+            <p>Vous ne pouvez pas entendre vos propres erreurs pendant que vous parlez. Votre cerveau vous fait croire que vous sonnez comme le clip audio que vous venez d’entendre. Ce n’est pas le cas.</p>
+            <p><em>Correction :</em> Enregistrez-vous sur votre téléphone. Écoutez. Grimacez. Puis réessayez. Cette boucle de rétroaction est le moyen le plus rapide de s’améliorer.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_DE = `
+          <article>
+            <p>Sie beherrschen die Grammatik. Sie haben die Vokabeln auswendig gelernt. Doch wenn Sie sprechen, kneifen Muttersprachler die Augen zusammen, lehnen sich vor und fragen: „Entschuldigung, können Sie das wiederholen?“ Es ist frustrierend. Der Übeltäter ist nicht Ihr Wissen; es ist Ihre <strong>Aussprache</strong>.</p>
+            <h2>Fehler 1: Das Roboter-Syndrom (Ignorieren der Intonation)</h2>
+            <p>Viele Lernende sprechen wie Roboter: flach, monoton und gleichmäßig. Aber natürliche Sprache ist musikalisch. Englisch ist zum Beispiel eine <strong>stress-timed language</strong>. Wir verschlucken unbetonte Wörter und betonen die wichtigen.</p>
+            <p><em>Lösung:</em> Lesen Sie nicht nur Wörter. Summen Sie zuerst die Melodie des Satzes. Hören Sie die „Musik“ vor dem Text.</p>
+            <h2>Fehler 2: Überbetonung jedes Buchstabens</h2>
+            <p>Rechtschreibung ist ein Lügner. Im Französischen ist die Hälfte der Buchstaben stumm. Im Englischen sieht „Comfortable“ aus wie ‘Com-fort-a-ble’, klingt aber wie ‘Comf-tft-bl’. Der Versuch, jeden Buchstaben auszusprechen, lässt Sie unnatürlich und klobig klingen.</p>
+            <p><em>Lösung:</em> Lernen Sie sofort das IPA (Internationales Phonetisches Alphabet) für Ihre Zielsprache. Vertrauen Sie Ihren Ohren, nicht Ihren Augen.</p>
+            <h2>Fehler 3: Vernachlässigung des „Schwa“ (ə)</h2>
+            <p>In vielen Sprachen wie Englisch und Deutsch ist der häufigste Laut das „Schwa“ – ein fauler, neutraler ‚uh‘-Laut. Es ist der Klang eines Vokals, der seine Identität verliert. Wenn Sie jeden Vokal deutlich aussprechen, klingen Sie fremd.</p>
+            <p><em>Lösung:</em> Entspannen Sie Ihren Mund. Hören Sie auf, sich so sehr anzustrengen. Das Geheimnis, wie ein Muttersprachler zu klingen, besteht tatsächlich darin, mit unbetonten Vokalen <em>fauler</em> zu sein.</p>
+            <h2>Fehler 4: Zu schnell sprechen</h2>
+            <p>Lernende setzen Geschwindigkeit mit Fließfähigkeit gleich. Das ist ein fataler Fehler. Wenn Sie mit unvollkommener Aussprache schnell sprechen, klingen Sie nur wie ein schnell vorgespultes Durcheinander.</p>
+            <p><em>Lösung:</em> Werden Sie langsamer. Klarheit ist König. Geschwindigkeit ist ein Nebenprodukt der Meisterschaft, keine Abkürzung.</p>
+            <h2>Fehler 5: Die eigene Stimme nicht hören</h2>
+            <p>Sie können Ihre eigenen Fehler nicht hören, während Sie sprechen. Ihr Gehirn täuscht Sie vor, dass Sie wie der Audioclip klingen, den Sie gerade gehört haben. Tun Sie nicht.</p>
+            <p><em>Lösung:</em> Nehmen Sie sich mit Ihrem Telefon auf. Hören Sie zu. Schämen Sie sich. Versuchen Sie es dann erneut. Diese Rückkopplungsschleife ist der schnellste Weg zur Verbesserung.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_TR = `
+          <article>
+            <p>Gramerde ustalaştınız. Kelimeleri ezberlediniz. Yine de konuştuğunuzda, anadili İngilizce olanlar gözlerini kısar, öne eğilir ve sorar: "Üzgünüm, tekrar edebilir misiniz?" Bu sinir bozucu. Suçlu bilginiz değil; <strong>telaffuzunuzdur</strong>.</p>
+            <h2>Hata 1: Robot Sendromu (Tonlamayı Yok Saymak)</h2>
+            <p>Birçok öğrenci robot gibi konuşur: düz, monoton ve eşit aralıklı. Ama doğal dil müzikaldir. Örneğin İngilizce, <strong>vurgu zamanlı bir dildir (stress-timed language)</strong>. Vurgusuz kelimeleri yutarız ve vurgulananları yumruklarız.</p>
+            <p><em>Çözüm:</em> Sadece kelimeleri okumayın. Önce cümlenin melodisini mırıldanın. Şarkı sözlerinden önce "müziği" dinleyin.</p>
+            <h2>Hata 2: Her Harfi Aşırı Telaffuz Etmek</h2>
+            <p>İmla bir yalancıdır. Fransızcada harflerin yarısı sessizdir. İngilizcede "Comfortable" ‘Com-fort-a-ble’ gibi görünür ama ‘Comf-tft-bl’ gibi duyulur. Her harfi telaffuz etmeye çalışmak sizi doğal olmayan ve hantal gösterir.</p>
+            <p><em>Çözüm:</em> Hedef diliniz için hemen IPA'yı (Uluslararası Fonetik Alfabe) öğrenin. Gözlerinize değil, kulaklarınıza güvenin.</p>
+            <h2>Hata 3: "Schwa"yı (ə) İhmal Etmek</h2>
+            <p>İngilizce ve Almanca gibi birçok dilde en yaygın ses "Schwa"dır—tembel, nötr bir 'uh' sesi. Kimliğini kaybeden bir sesli harfin sesidir. Her sesli harfi net bir şekilde telaffuz ederseniz, yabancı gibi duyulursunuz.</p>
+            <p><em>Çözüm:</em> Ağzınızı gevşetin. Bu kadar çok çabalamayı bırakın. Yerli gibi duyulmanın sırrı aslında vurgusuz sesli harflerle daha <em>tembel</em> olmaktır.</p>
+            <h2>Hata 4: Çok Hızlı Konuşmak</h2>
+            <p>Öğrenciler hızı akıcılıkla bir tutarlar. Bu ölümcül bir hatadır. Kusurlu telaffuzla hızlı konuştuğunuzda, sadece hızlı ileri sarılmış bir karmaşa gibi duyulursunuz.</p>
+            <p><em>Çözüm:</em> Yavaşlayın. Netlik kraldır. Hız ustalığın bir yan ürünüdür, ona giden bir kestirme yol değildir.</p>
+            <h2>Hata 5: Kendi Sesinizi Dinlememek</h2>
+            <p>Konuşurken kendi hatalarınızı duyamazsınız. Beyniniz sizi az önce duyduğunuz ses klibi gibi olduğunuza inandırır. Öyle değilsiniz.</p>
+            <p><em>Çözüm:</em> Kendinizi telefonunuza kaydedin. Dinleyin. Utanın. Sonra tekrar deneyin. Bu geri bildirim döngüsü gelişmenin en hızlı yoludur.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_AR = `
+          <article>
+            <p>لقد أتقنت القواعد. لقد حفظت المفردات. ومع ذلك، عندما تتحدث، يضيق المتحدثون الأصليون أعينهم، وينحنون، ويسألون: "آسف، هل يمكنك تكرار ذلك؟" إنه أمر محبط. الجاني ليس معرفتك؛ إنه <strong>نطقك</strong>.</p>
+            <h2>الخطأ 1: متلازمة الروبوت (تجاهل التنغيم)</h2>
+            <p>يتحدث العديد من المتعلمين مثل الروبوتات: مسطح، رتيب، وبوتيرة متساوية. لكن اللغة الطبيعية موسيقية. اللغة الإنجليزية، على سبيل المثال، هي <strong>لغة تعتمد على الضغط (stress-timed language)</strong>. نأكل الكلمات غير المضغوطة ونلكم الكلمات المضغوطة.</p>
+            <p><em>الحل:</em> لا تقرأ الكلمات فقط. دندن لحن الجملة أولاً. استمع إلى "الموسيقى" قبل الكلمات.</p>
+            <h2>الخطأ 2: المبالغة في نطق كل حرف</h2>
+            <p>الإملاء كاذب. في الفرنسية، نصف الحروف صامتة. في الإنجليزية، كلمة "Comfortable" تبدو مثل ‘Com-fort-a-ble’ لكنها تبدو مثل ‘Comf-tft-bl’. محاولة نطق كل حرف تجعلك تبدو غير طبيعي وغير متقن.</p>
+            <p><em>الحل:</em> تعلم الأبجدية الصوتية الدولية (IPA) للغتك المستهدفة على الفور. ثق بأذنيك، وليس عينيك.</p>
+            <h2>الخطأ 3: إهمال "Schwa" (ə)</h2>
+            <p>في العديد من اللغات مثل الإنجليزية والألمانية، الصوت الأكثر شيوعاً هو "Schwa" - صوت "أه" كسول ومحايد. إنه صوت حرف متحرك يفقد هويته. إذا كنت تنطق كل حرف متحرك بوضوح، فستبدو أجنبياً.</p>
+            <p><em>الحل:</em> أرخِ فمك. توقف عن المحاولة بجدية. السر لتبدو وكأنك متحدث أصلي هو في الواقع أن تكون أكثر <em>كسلاً</em> مع حروف العلة غير المضغوطة.</p>
+            <h2>الخطأ 4: التحدث بسرعة كبيرة</h2>
+            <p>يساوي المتعلمون بين السرعة والطلاقة. هذا خطأ فادح. عندما تتحدث بسرعة بنطق غير كامل، فإنك تبدو فقط وكأنك فوضى سريعة التقديم.</p>
+            <p><em>الحل:</em> تمهل. الوضوح هو الملك. السرعة هي نتاج ثانوي للإتقان، وليست طريقاً مختصراً إليه.</p>
+            <h2>الخطأ 5: عدم الاستماع إلى صوتك</h2>
+            <p>لا يمكنك سماع أخطائك أثناء التحدث. يخدعك عقلك لتعتقد أنك تبدو مثل المقطع الصوتي الذي سمعته للتو. أنت لست كذلك.</p>
+            <p><em>الحل:</em> سجل لنفسك على هاتفك. استمع إليه. اشعر بالإحراج. ثم حاول مرة أخرى. حلقة التغذية المرتدة هذه هي أسرع طريقة للتحسن.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_HI = `
+          <article>
+            <p>आपने व्याकरण में महारत हासिल कर ली है। आपने शब्दावली याद कर ली है। फिर भी, जब आप बोलते हैं, तो मूल वक्ता अपनी आँखें सिकोड़ते हैं, झुकते हैं, और पूछते हैं, "क्षमा करें, क्या आप इसे दोहरा सकते हैं?" यह निराशाजनक है। अपराधी आपका ज्ञान नहीं है; यह आपका <strong>उच्चारण</strong> है।</p>
+            <h2>गलती 1: रोबोट सिंड्रोम (intonation की अनदेखी)</h2>
+            <p>कई शिक्षार्थी रोबोट की तरह बोलते हैं: सपाट, नीरस और समान गति वाले। लेकिन प्राकृतिक भाषा संगीतमय है। उदाहरण के लिए, अंग्रेजी एक <strong>तनाव-समय वाली भाषा (stress-timed language)</strong> है। हम बिना तनाव वाले शब्दों (जैसे "to", "for", "at") को खा जाते हैं और तनाव वाले शब्दों को पंच करते हैं।</p>
+            <p><em>समाधान:</em> केवल शब्द न पढ़ें। पहले वाक्य की धुन गुनगुनाएं। बोल से पहले "संगीत" सुनें।</p>
+            <h2>गलती 2: हर अक्षर का अति-उच्चारण</h2>
+            <p>वर्तनी झूठी है। फ्रेंच में, आधे अक्षर मौन हैं। अंग्रेजी में, "Comfortable" ‘Com-fort-a-ble’ जैसा दिखता है लेकिन ‘Comf-tft-bl’ जैसा लगता है। हर अक्षर का उच्चारण करने की कोशिश करना आपको अप्राकृतिक और भद्दा बनाता है।</p>
+            <p><em>समाधान:</em> अपनी लक्षित भाषा के लिए तुरंत आईपीए (अंतर्राष्ट्रीय ध्वन्यात्मक वर्णमाला) सीखें। अपनी आंखों पर नहीं, अपने कानों पर भरोसा करें।</p>
+            <h2>गलती 3: "Schwa" (ə) की उपेक्षा</h2>
+            <p>अंग्रेजी और जर्मन जैसी कई भाषाओं में, सबसे आम ध्वनि "Schwa" है - एक आलसी, तटस्थ 'uh' ध्वनि। यह अपनी पहचान खोने वाले स्वर की ध्वनि है। यदि आप प्रत्येक स्वर का स्पष्ट रूप से उच्चारण करते हैं, तो आप विदेशी लगेंगे।</p>
+            <p><em>समाधान:</em> अपना मुँह ढीला करो। इतनी कोशिश करना बंद करो। मूल निवासी की तरह लगने का रहस्य वास्तव में बिना तनाव वाले स्वरों के साथ अधिक <em>आलसी</em> होना है।</p>
+            <h2>गलती 4: बहुत तेजी से बोलना</h2>
+            <p>शिक्षार्थी गति की बराबरी प्रवाह से करते हैं। यह एक घातक त्रुटि है। जब आप अपूर्ण उच्चारण के साथ तेजी से बोलते हैं, तो आप बस एक फास्ट-फॉरवर्ड गड़बड़ की तरह लगते हैं।</p>
+            <p><em>समाधान:</em> धीरे करो। स्पष्टता राजा है। गति निपुणता का उप-उत्पाद है, इसके लिए शॉर्टकट नहीं है।</p>
+            <h2>गलती 5: अपनी खुद की आवाज़ न सुनना</h2>
+            <p>बोलते समय आप अपनी गलतियाँ नहीं सुन सकते। आपका दिमाग आपको यह सोचने में धोखा देता है कि आप उस ऑडियो क्लिप की तरह लगते हैं जिसे आपने अभी सुना है। आप नहीं हैं।</p>
+            <p><em>समाधान:</em> अपने फोन पर खुद को रिकॉर्ड करें। इसे सुनें। संकोच करें। फिर पुनः प्रयास करें। यह फीडबैक लूप सुधार करने का सबसे तेज़ तरीका है।</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_RU = `
+          <article>
+            <p>Вы освоили грамматику. Вы выучили словарный запас. Тем не менее, когда вы говорите, носители языка щурятся, наклоняются и спрашивают: «Извините, вы не могли бы повторить?» Это расстраивает. Виновник не ваши знания; это ваше <strong>произношение</strong>.</p>
+            <h2>Ошибка 1: Синдром робота (игнорирование интонации)</h2>
+            <p>Многие ученики говорят как роботы: плоско, монотонно и размеренно. Но естественный язык музыкален. Английский, например, является <strong>языком с тактовым ударением (stress-timed language)</strong>. Мы проглатываем безударные слова и выделяем ударные.</p>
+            <p><em>Решение:</em> Не просто читайте слова. Сначала напевайте мелодию предложения. Слушайте «музыку» перед текстом.</p>
+            <h2>Ошибка 2: Чрезмерное произношение каждой буквы</h2>
+            <p>Орфография лжет. Во французском языке половина букв не произносится. В английском «Comfortable» выглядит как ‘Com-fort-a-ble’, но звучит как ‘Comf-tft-bl’. Попытка произнести каждую букву заставляет вас звучать неестественно и неуклюже.</p>
+            <p><em>Решение:</em> Немедленно выучите IPA (Международный фонетический алфавит) для вашего целевого языка. Верьте своим ушам, а не глазам.</p>
+            <h2>Ошибка 3: Игнорирование «Шва» (ə)</h2>
+            <p>Во многих языках, таких как английский и немецкий, самым распространенным звуком является «Шва» — ленивый, нейтральный звук «э». Это звук гласной, теряющей свою идентичность. Если вы будете четко произносить каждую гласную, вы будете звучать как иностранец.</p>
+            <p><em>Решение:</em> Расслабьте рот. Перестаньте так стараться. Секрет того, чтобы звучать как носитель, на самом деле заключается в том, чтобы быть <em>ленивее</em> с безударными гласными.</p>
+            <h2>Ошибка 4: Слишком быстрая речь</h2>
+            <p>Ученики приравнивают скорость к беглости. Это фатальная ошибка. Когда вы говорите быстро с несовершенным произношением, вы просто звучите как ускоренная каша.</p>
+            <p><em>Решение:</em> Замедлитесь. Ясность — это главное. Скорость — это побочный продукт мастерства, а не короткий путь к нему.</p>
+            <h2>Ошибка 5: Не слушать свой собственный голос</h2>
+            <p>Вы не можете слышать свои собственные ошибки, пока говорите. Ваш мозг обманывает вас, заставляя думать, что вы звучите как аудиоклип, который вы только что прослушали. Это не так.</p>
+            <p><em>Решение:</em> Запишите себя на телефон. Послушайте. Испытайте стыд. Затем попробуйте еще раз. Эта петля обратной связи — самый быстрый способ улучшиться.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_BN = `
+          <article>
+            <p>আপনি ব্যাকরণ আয়ত্ত করেছেন। আপনি শব্দভান্ডার মুখস্থ করেছেন। তবুও, আপনি যখন কথা বলেন, স্থানীয় বক্তারা তাদের চোখ কুঁচকে, ঝুঁকে এবং জিজ্ঞাসা করে, "দুঃখিত, আপনি কি ওটা পুনরাবৃত্তি করতে পারেন?" এটা হতাশাজনক। অপরাধী আপনার জ্ঞান নয়; এটা আপনার <strong>উচ্চারণ</strong>।</p>
+            <h2>ভুল ১: রোবট সিনড্রোম (ইন্টোনেশন উপেক্ষা করা)</h2>
+            <p>অনেক শিক্ষার্থী রোবটের মতো কথা বলে: সমতল, একঘেয়ে এবং সমান গতিতে। কিন্তু প্রাকৃতিক ভাষা বাদ্যযন্ত্র। উদাহরণস্বরূপ, ইংরেজি একটি <strong>চাপ-সময়ের ভাষা (stress-timed language)</strong>। আমরা চাপহীন শব্দগুলো খেয়ে ফেলি এবং চাপযুক্ত শব্দগুলোকে আঘাত করি।</p>
+            <p><em>সমাধান:</em> শুধু শব্দ পড়বেন না। প্রথমে বাক্যের সুরটি গুনগুন করুন। গানের কথার আগে "সঙ্গীত" শুনুন।</p>
+            <h2>ভুল ২: প্রতিটি অক্ষরের অতিরিক্ত উচ্চারণ</h2>
+            <p>বানান একটি মিথ্যাবাদী। ফরাসি ভাষায়, অর্ধেক অক্ষর নীরব। ইংরেজিতে, "Comfortable" দেখতে 'Com-fort-a-ble' এর মতো কিন্তু শোনায় 'Comf-tft-bl' এর মতো। প্রতিটি অক্ষর উচ্চারণ করার চেষ্টা করা আপনাকে অপ্রাকৃতিক এবং বিশ্রী শোনায়।</p>
+            <p><em>সমাধান:</em> অবিলম্বে আপনার লক্ষ্য ভাষার জন্য আইপিএ (আন্তর্জাতিক ফোনেটিক বর্ণমালা) শিখুন। আপনার কানকে বিশ্বাস করুন, আপনার চোখকে নয়।</p>
+            <h2>ভুল ৩: "Schwa" (ə) অবহেলা করা</h2>
+            <p>ইংরেজি এবং জার্মানের মতো অনেক ভাষায়, সবচেয়ে সাধারণ শব্দ হল "Schwa"—একটি অলস, নিরপেক্ষ 'uh' ধ্বনি। এটি একটি স্বরবর্ণের তার পরিচয় হারানোর শব্দ। আপনি যদি প্রতিটি স্বরবর্ণ স্পষ্টভাবে উচ্চারণ করেন তবে আপনাকে বিদেশী শোনাবে।</p>
+            <p><em>সমাধান:</em> আপনার মুখ শিথিল করুন। আত্ম চেষ্টা করা বন্ধ করুন। নেটিভের মতো শোনানোর গোপনীয়তা আসলে চাপহীন স্বরবর্ণের সাথে আরও <em>অলস</em> হওয়া।</p>
+            <h2>ভুল ৪: খুব দ্রুত কথা বলা</h2>
+            <p>শিক্ষার্থীরা গতিকে সাবলীলতার সাথে সমান করে। এটি একটি মারাত্মক ভুল। আপনি যখন অসম্পূর্ণ উচ্চারণের সাথে দ্রুত কথা বলেন, তখন আপনাকে কেবল দ্রুত-ফরওয়ার্ড করা জগাখিচুড়ির মতো শোনায়।</p>
+            <p><em>সমাধান:</em> ধীর করুন। স্পষ্টতাই রাজা। গতি আয়ত্তের একটি উপজাত, এটির সংক্ষিপ্ত পথ নয়।</p>
+            <h2>ভুল ৫: নিজের কণ্ঠস্বর না শোনা</h2>
+            <p>কথা বলার সময় আপনি নিজের ভুল শুনতে পাবেন না। আপনার মস্তিষ্ক আপনাকে ভাবতে প্রতারিত করে যে আপনি এইমাত্র শোনা অডিও ক্লিপটির মতো শোনাচ্ছেন। আপনি তা নন।</p>
+            <p><em>সমাধান:</em> আপনার ফোনে নিজেকে রেকর্ড করুন। এটি শুনুন। সংকুচিত হন। তারপর আবার চেষ্টা করুন। এই প্রতিক্রিয়া লুপ উন্নতির দ্রুততম উপায়।</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_UR = `
+          <article>
+            <p>آپ نے گرامر میں مہارت حاصل کر لی ہے۔ آپ نے الفاظ حفظ کر لیے ہیں۔ پھر بھی، جب آپ بولتے ہیں، تو مقامی بولنے والے اپنی آنکھیں سکیڑتے ہیں، جھکتے ہیں، اور پوچھتے ہیں، "معاف کیجئے، کیا آپ اسے دہرا سکتے ہیں؟" یہ مایوس کن ہے۔ مجرم آپ کا علم نہیں ہے؛ یہ آپ کا <strong>تلفظ</strong> ہے۔</p>
+            <h2>غلطی 1: روبوٹ سنڈروم (انٹونیشن کو نظر انداز کرنا)</h2>
+            <p>بہت سے سیکھنے والے روبوٹ کی طرح بولتے ہیں: سپاٹ، یکसاں اور ایک ہی رفتار سے۔ لیکن قدرتی زبان موسیقی والی ہوتی ہے۔ مثال کے طور پر انگریزی ایک <strong>تناؤ کے وقت والی زبان (stress-timed language)</strong> ہے۔ ہم بغیر تناؤ والے الفاظ کھا جاتے ہیں اور تناؤ والے الفاظ کو پنچ کرتے ہیں۔</p>
+            <p><em>حل:</em> صرف الفاظ نہ پڑھیں۔ پہلے جملے کی دھن گنگنائیں۔ بول سے پہلے "موسیقی" سنیں۔</p>
+            <h2>غلطی 2: ہر حرف کا حد سے زیادہ تلفظ</h2>
+            <p>ہجے جھوٹا ہے۔ فرانسیسی میں، آدھے حروف خاموش ہیں۔ انگریزی میں، "Comfortable" 'Com-fort-a-ble' جیسا لگتا ہے لیکن 'Comf-tft-bl' جیسا لگتا ہے۔ ہر حرف کا تلفظ کرنے کی کوشش کرنا آپ کو غیر فطری اور اناڑی بناتا ہے۔</p>
+            <p><em>حل:</em> اپنی ہدف کی زبان کے لیے فوراً IPA (بین الاقوامی صوتیاتی حروف تہجی) سیکھیں۔ اپنی آنکھوں پر نہیں، اپنے کانوں پر بھروسہ کریں۔</p>
+            <h2>غلطی 3: "Schwa" (ə) کو نظر انداز کرنا</h2>
+            <p>انگریزی اور جرمن جیسی بہت سی زبانوں میں، سب سے عام آواز "Schwa" ہے — ایک سست، غیر جانبدار 'uh' آواز۔ یہ اپنی شناخت کھونے والے سر کی آواز ہے۔ اگر آپ ہر سر کا واضح طور پر تلفظ کرتے ہیں، تو آپ غیر ملکی لگیں گے۔</p>
+            <p><em>حل:</em> اپنا منہ ڈھیلا کریں۔ اتنی کوشش کرنا چھوڑ دیں۔ مقامی کی طرح لگنے کا راز دراصل بغیر تناؤ والے سروں کے ساتھ زیادہ <em>سست</em> ہونا ہے۔</p>
+            <h2>غلطی 4: بہت تیزی سے بولنا</h2>
+            <p>سیکھنے والے رفتار کو روانی کے برابر سمجھتے ہیں۔ یہ ایک مہلک غلطی ہے۔ جب آپ نامکمل تلفظ کے ساتھ تیزی سے بولتے ہیں، تو آپ صرف ایک فاسٹ فارورڈ گڑبڑ کی طرح لگتے ہیں۔</p>
+            <p><em>حل:</em> آہستہ کریں۔ وضاحت بادشاہ ہے۔ رفتار مہارت کا ایک ضمنی پروڈکٹ ہے، اس کا شارٹ کٹ نہیں ہے۔</p>
+            <h2>غلطی 5: اپنی آواز نہ سننا</h2>
+            <p>بولتے وقت آپ اپنی غلطیاں نہیں سن سکتے۔ آپ کا دماغ آپ کو یہ سوچنے میں دھوکہ دیتا ہے کہ آپ اس آڈیو کلپ کی طرح لگتے ہیں جسے آپ نے ابھی سنا ہے۔ آپ نہیں ہیں۔</p>
+            <p><em>حل:</em> اپنے فون پر خود کو ریکارڈ کریں۔ اسے سنیں۔ شرمندہ ہوں۔ پھر دوبارہ کوشش کریں۔ یہ فیڈ بیک لوپ بہتر بنانے کا تیز ترین طریقہ ہے۔</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_NE = `
+          <article>
+            <p>तपाईंले व्याकरणमा महारत हासिल गर्नुभएको छ। तपाईंले शब्दावली कण्ठ गर्नुभएको छ। तैपनि, जब तपाईं बोल्नुहुन्छ, मूल वक्ताहरू आँखा तन्काउँछन्, ढल्किन्छन् र सोध्छन्, "माफ गर्नुहोस्, के तपाईं त्यो दोहोर्याउन सक्नुहुन्छ?" यो निराशाजनक छ। अपराधी तपाईंको ज्ञान होइन; यो तपाईंको <strong>उच्चारण</strong> हो।</p>
+            <h2>गल्ती १: रोबोट सिन्ड्रोम (इन्टोनेसनलाई बेवास्ता गर्ने)</h2>
+            <p>धेरै शिक्षार्थीहरू रोबोट जस्तै बोल्छन्: समतल, एकसमान र समान गति। तर प्राकृतिक भाषा संगीतमय हुन्छ। उदाहरणका लागि, अंग्रेजी एक <strong>तनाव-समय भाषा (stress-timed language)</strong> हो। हामी तनाव नभएका शब्दहरू खान्छौं र तनाव भएका शब्दहरूलाई पञ्च गर्छौं।</p>
+            <p><em>समाधान:</em> शब्दहरू मात्र नपढ्नुहोस्। पहिले वाक्यको धुन गुनगुनाउनुहोस्। गीतका शब्दहरू भन्दा पहिले "संगीत" सुन्नुहोस्।</p>
+            <h2>गल्ती २: हरेक अक्षरको अत्यधिक उच्चारण</h2>
+            <p>हिज्जे झूटो हो। फ्रान्सेलीमा, आधा अक्षरहरू मौन हुन्छन्। अंग्रेजीमा, "Comfortable" 'Com-fort-a-ble' जस्तो देखिन्छ तर 'Comf-tft-bl' जस्तो सुनिन्छ। हरेक अक्षर उच्चारण गर्ने प्रयास गर्दा तपाईं अप्राकृतिक र भद्दा देखिनुहुन्छ।</p>
+            <p><em>समाधान:</em> आफ्नो लक्षित भाषाको लागि तुरुन्तै IPA (अन्तर्राष्ट्रिय फोनेटिक वर्णमाला) सिक्नुहोस्। आफ्नो कानलाई विश्वास गर्नुहोस्, आँखालाई होइन।</p>
+            <h2>गल्ती ३: "Schwa" (ə) लाई बेवास्ता गर्ने</h2>
+            <p>अंग्रेजी र जर्मन जस्ता धेरै भाषाहरूमा, सबैभन्दा सामान्य ध्वनि "Schwa" हो — एक अल्छी, तटस्थ 'uh' ধ্বনি। यो आफ्नो पहिचान गुमाउने स्वरको ध्वनि हो। यदि तपाईंले हरेक स्वर स्पष्ट रूपमा उच्चारण गर्नुभयो भने, तपाईं विदेशी जस्तो सुनिनुहुनेछ।</p>
+            <p><em>समाधान:</em> आफ्नो मुख खुकुलो पार्नुहोस्। यति धेरै प्रयास गर्न छोड्नुहोस्। नेटिभ जस्तो सुनिने रहस्य वास्तवमा तनाव नभएका स्वरहरूसँग बढी <em>अल्छी</em> हुनु हो।</p>
+            <h2>गल्ती ४: धेरै छिटो बोल्नु</h2>
+            <p>शिक्षार्थीहरूले गतिलाई प्रवाहिततासँग बराबर ठान्छन्। यो एक घातक गल्ती हो। जब तपाईं अपूर्ण उच्चारणको साथ छिटो बोल्नुहुन्छ, तपाईं केवल एक फास्ट-फर्वार्ड गरिएको गडबडी जस्तो सुनिनुहुन्छ।</p>
+            <p><em>समाधान:</em> सुस्त हुनुहोस्। स्पष्टता राजा हो। गति निपुणताको उप-उत्पादन हो, यसको सर्टकट होइन।</p>
+            <h2>गल्ती ५: आफ्नै आवाज नसुन्नु</h2>
+            <p>बोल्दा तपाईं आफ्नै गल्तीहरू सुन्न सक्नुहुन्न। तपाईंको दिमागले तपाईंलाई भरखरै सुनेको अडियो क्लिप जस्तै आवाज निकालिरहेको छु भनी सोच्न धोका दिन्छ। तपाईं हुनुहुन्न।</p>
+            <p><em>समाधान:</em> आफ्नो फोनमा आफूलाई रेकर्ड गर्नुहोस्। यसलाई सुन्नुहोस्। लजाउनुहोस्। त्यसपछि फेरि प्रयास गर्नुहोस्। यो प्रतिक्रिया लूप सुधार गर्ने सबैभन्दा छिटो तरिका हो।</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_SI = `
+          <article>
+            <p>ඔබ ව්‍යාකරණ ප්‍රගුණ කර ඇත. ඔබ වචන මාලාව මතක තබා ගෙන ඇත. එහෙත්, ඔබ කතා කරන විට, ස්වදේශික කථිකයන් දෑස් කුඩා කර, ඉදිරියට නැමී, "සමාවන්න, ඔබට එය නැවත කියන්න පුළුවන්ද?"යි අසයි. එය කලකිරෙන සුළුය. වැරදිකරු ඔබේ දැනුම නොවේ; ඒ ඔබේ <strong>උච්චාරණයයි</strong>.</p>
+            <h2>වැරැද්ද 1: රොබෝ සින්ඩ්‍රෝමය (ස්වරය නොසලකා හැරීම)</h2>
+            <p>බොහෝ ඉගෙන ගන්නන් රොබෝවරුන් මෙන් කතා කරයි: පැතලි, ඒකාකාරී සහ සමාන වේගයකින්. නමුත් ස්වභාවික භාෂාව සංගීතමය වේ. උදාහරණයක් ලෙස ඉංග්‍රීසි යනු <strong>ආතතිය පදනම් කරගත් භාෂාවකි (stress-timed language)</strong>. අපි ආතතියට ලක් නොවූ වචන ගිල දමමු සහ ආතතියට ලක් වූ වචන වලට පහර දෙමු.</p>
+            <p><em>විසඳුම:</em> වචන කියවන්න එපා. පළමුව වාක්‍යයේ තනු නිර්මාණය මුමුණන්න. පද රචනයට පෙර "සංගීතයට" සවන් දෙන්න.</p>
+            <h2>වැරැද්ද 2: සෑම අකුරක්ම අධික ලෙස උච්චාරණය කිරීම</h2>
+            <p>අක්ෂර වින්‍යාසය බොරුවකි. ප්‍රංශ භාෂාවෙන් අකුරු වලින් භාගයක් නිහඬයි. ඉංග්‍රීසියෙන්, "Comfortable" පෙනෙන්නේ 'Com-fort-a-ble' ලෙස නමුත් ඇසෙන්නේ 'Comf-tft-bl' ලෙසයි. සෑම අකුරක්ම උච්චාරණය කිරීමට උත්සාහ කිරීම ඔබව අස්වාභාවික සහ අවලස්සන කරයි.</p>
+            <p><em>විසඳුම:</em> ඔබේ ඉලක්ක භාෂාව සඳහා IPA (ජාත්‍යන්තර ෆොනටික් හෝඩිය) වහාම ඉගෙන ගන්න. ඔබේ දෑස් නොව ඔබේ කන් විශ්වාස කරන්න.</p>
+            <h2>වැරැද්ද 3: "Schwa" (ə) නොසලකා හැරීම</h2>
+            <p>ඉංග්‍රීසි සහ ජර්මානු වැනි බොහෝ භාෂාවල, වඩාත් පොදු ශබ්දය වන්නේ "Schwa"—කම්මැලි, මධ්‍යස්ථ 'uh' ශබ්දයයි. එය ස්වරයක් එහි අනන්‍යතාවය නැති කර ගන්නා ශබ්දයයි. ඔබ සෑම ස්වරයක්ම පැහැදිලිව උච්චාරණය කරන්නේ නම්, ඔබ විදේශිකයෙකු ලෙස ඇසෙනු ඇත.</p>
+            <p><em>විසඳුම:</em> ඔබේ මුඛය ලිහිල් කරන්න. එතරම් උත්සාහ කිරීම නවත්වන්න. ස්වදේශිකයෙකු ලෙස ඇසීමේ රහස ඇත්ත වශයෙන්ම ආතතියට ලක් නොවූ ස්වර සමඟ වඩා <em>කම්මැලි</em> වීමයි.</p>
+            <h2>වැරැද්ද 4: වේගයෙන් කතා කිරීම</h2>
+            <p>ඉගෙන ගන්නන් වේගය චතුර ලෙස සමාන කරයි. මෙය මාරාන්තික වරදකි. ඔබ අසම්පූර්ණ උච්චාරණය සමඟ වේගයෙන් කතා කරන විට, ඔබ ඇසෙන්නේ වේගයෙන් ඉදිරියට ගෙන ගිය අවුල් ජාලයක් ලෙස ය.</p>
+            <p><em>විසඳුම:</em> වේගය අඩු කරන්න. පැහැදිලි බව රජු ය. වේගය යනු ප්‍රවීණත්වයේ අතුරු ඵලයකි, ඊට කෙටි පාරක් නොවේ.</p>
+            <h2>වැරැද්ද 5: ඔබේම කටහඬට සවන් නොදීම</h2>
+            <p>කතා කරන අතරතුර ඔබේ වැරදි ඔබට ඇසෙන්නේ නැත. ඔබ දැන් අසාපු ඕඩියෝ ක්ලිප් එක වගේ ඇහෙනවා කියලා හිතන්න ඔබේ මොළය ඔබව රවටනවා. ඔබ එසේ නොවේ.</p>
+            <p><em>විසඳුම:</em> ඔබේ දුරකථනයෙන් ඔබම පටිගත කරන්න. එයට සවන් දෙන්න. ලැජ්ජා වන්න. ඉන්පසු නැවත උත්සාහ කරන්න. මෙම ප්‍රතිපෝෂණ ලූපය වැඩිදියුණු කිරීමට වේගවත්ම මාර්ගයයි.</p>
+          </article>
+`;
+const POST_PRONUNCIATION_CONTENT_SW = `
+          <article>
+            <p>Umemudu sarufi. Umekariri msamiati. Hata hivyo, unapozungumza, wazungumzaji asilia wanapunguza macho, wanainama, na kuuliza, "Samahani, unaweza kurudia hiyo?" Inakatisha tamaa. Mhusika sio ujuzi wako; ni <strong>matamshi</strong> yako.</p>
+            <h2>Kosa la 1: Ugonjwa wa Roboti (Kupuuza Kiimbo)</h2>
+            <p>Wanafunzi wengi huzungumza kama roboti: bapa, monotone, na kwa kasi sawa. Lakini lugha ya asili ni ya muziki. Kiingereza, kwa mfano, ni <strong>lugha inayotegemea mkazo (stress-timed language)</strong>. Tunakula maneno yasiyo na mkazo na kupiga yale yenye mkazo.</p>
+            <p><em>Suluhisho:</em> Usisome maneno tu. Vuma wimbo wa sentensi kwanza. Sikiliza "muziki" kabla ya maneno.</p>
+            <h2>Kosa la 2: Kutamka Kila Herufi Kupita Kiasi</h2>
+            <p>Tahajia ni mwongo. Kwa Kifaransa, nusu ya herufi ziko kimya. Kwa Kiingereza, "Comfortable" inaonekana kama ‘Com-fort-a-ble’ lakini inasikika kama ‘Comf-tft-bl’. Kujaribu kutatamka kila herufi kunakufanya usikike si wa asili na mzito.</p>
+            <p><em>Suluhisho:</em> Jifunze IPA (Alfabeti ya Kimataifa ya Fonetiki) kwa lugha unayolenga mara moja. Amini masikio yako, si macho yako.</p>
+            <h2>Kosa la 3: Kupuuza "Schwa" (ə)</h2>
+            <p>Katika lugha nyingi kama Kiingereza na Kijerumani, sauti ya kawaida ni "Schwa"—sauti ya 'uh' ya uvivu na isiyoegemea upande wowote. Ni sauti ya vokali inayopoteza utambulisho wake. Ikiwa unatamka kila vokali wazi, utasikika mgeni.</p>
+            <p><em>Suluhisho:</em> Tuliza mdomo wako. Acha kujaribu sana. Siri ya kusikika asili ni kuwa <em>mvivu</em> zaidi na vokali zisizo na mkazo.</p>
+            <h2>Kosa la 4: Kuzungumza Haraka Mno</h2>
+            <p>Wanafunzi hulinganisha kasi na ufasaha. Hili ni kosa mbaya. Unapozungumza haraka na matamshi yasiyo kamili, unasikika tu kama fujo iliyosongeshwa mbele haraka.</p>
+            <p><em>Suluhisho:</em> Punguza mwendo. Uwazi ndio mfalme. Kasi ni zao la umahiri, sio njia ya mkato.</p>
+            <h2>Kosa la 5: Kutosikiliza Sauti Yako Mwenyewe</h2>
+            <p>Huwezi kusikia makosa yako mwenyewe wakati unazungumza. Ubongo wako unakudanganya kufikiria unasikika kama klipu ya sauti uliyosikia hivi punde. Haufanyi hivyo.</p>
+            <p><em>Suluhisho:</em> Jirekodi kwenye simu yako. Sikiliza. Jikunyata. Kisha jaribu tena. Kitanzi hiki cha maoni ndiyo njia ya haraka zaidi ya kuboresha.</p>
+          </article>
+`;
+
+
+const POST_LISTENING_CONTENT_EN = `
+          <article>
+            <p>You know 2,000 words. You can read a newspaper. But when you turn on a podcast or watch a movie without subtitles, it sounds like gibberish. Why? Are they speaking too fast? No. They are speaking <em>naturally</em>.</p>
+            <h2>The "Sound Shape" Mismatch</h2>
+            <p>Textbooks teach you words in isolation. Real people speak in sound chunks. We don't say "What did you do?". We say "Whadjado?". If your brain is listening for four distinct words, it misses the single chunk "Whadjado".</p>
+            <h2>Secret 1: Connected Speech</h2>
+            <p>Words are not bricks; they are water. They flow into each other.
+            <ul>
+              <li><strong>Catenation:</strong> Consonant + Vowel. "An apple" becomes "Anapple".</li>
+              <li><strong>Intrusion:</strong> "Go out" becomes "Go-w-out".</li>
+              <li><strong>Elision:</strong> "Next door" becomes "Nexdoor" (the 't' disappears).</li>
+            </ul>
+            </p>
+            <h2>Secret 2: The Weak Forms</h2>
+            <p>English is a stress-timed language. Grammar words (can, have, to, for) are crushed. "I can go" sounds like "I kn go". If you try to hear "can" clearly, you will get lost.</p>
+            <h2>How to Fix It: Active Dictation</h2>
+            <p>Stop passive listening. Do this instead:</p>
+            <ol>
+              <li>Find a 30-second audio clip (with transcript available).</li>
+              <li>Listen 3 times without looking at the text. Write down what you hear.</li>
+              <li>Compare your version with the real transcript.</li>
+              <li><strong>Analyze the gaps.</strong> Did you miss a word because it was reduced? Did two words blend together?</li>
+            </ol>
+            <p>This "gap analysis" retrains your brain to decode real speech.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_KO = `
+          <article>
+            <p>당신은 2,000개의 단어를 압니다. 신문도 읽을 수 있습니다. 하지만 자막 없이 영화를 보거나 팟캐스트를 들으면 외계어처럼 들립니다. 왜일까요? 그들이 너무 빨리 말해서일까요? 아닙니다. 그들은 단지 <em>자연스럽게</em> 말하고 있을 뿐입니다.</p>
+            <h2>"소리 형태"의 불일치</h2>
+            <p>교과서는 단어를 고립된 형태로 가르칩니다. 실제 사람들은 소리 덩어리로 말합니다. "What did you do?"라고 또박또박 말하는 사람은 없습니다. "Whadjado?(왓쟈두)"라고 하죠. 뇌가 네 개의 별개 단어를 찾고 있으면, "왓쟈두"라는 하나의 덩어리를 놓치게 됩니다.</p>
+            <h2>비밀 1: 연음 법칙 (Connected Speech)</h2>
+            <p>단어는 벽돌이 아니라 물입니다. 서로 흘러 들어갑니다.
+            <ul>
+              <li><strong>연음:</strong> "Put it on"은 "Pu-di-don(푸디돈)"이 됩니다.</li>
+              <li><strong>탈락:</strong> "Next door"는 "Nexdoor(넥스도어)"가 됩니다 ('t' 발음 생략).</li>
+            </ul>
+            </p>
+            <h2>비밀 2: 약형 (Weak Forms)</h2>
+            <p>영어는 강세 중심 언어입니다. 문법 단어(can, have, to, for)는 찌그러집니다. "I can go"는 "아이 큰 고"처럼 들립니다. "can"을 명확하게 들으려 하면 길을 잃습니다.</p>
+            <h2>해결책: 능동적 받아쓰기 (Active Dictation)</h2>
+            <p>수동적인 흘려듣기는 그만두세요. 대신 이렇게 하세요:</p>
+            <ol>
+              <li>30초짜리 오디오 클립을 찾으세요 (스크립트 있는 것으로).</li>
+              <li>스크립트를 보지 않고 3번 듣습니다. 들리는 대로 적으세요.</li>
+              <li>당신의 버전과 실제 스크립트를 비교하세요.</li>
+              <li><strong>차이를 분석하세요.</strong> 단어가 축약되어 놓쳤나요? 두 단어가 섞였나요?</li>
+            </ol>
+            <p>이 "차이 분석"이 당신의 뇌를 훈련시켜 실제 말하기를 해독하게 합니다.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_JA = `
+          <article>
+            <p>あなたは2,000語を知っています。新聞も読めます。しかし、字幕なしで映画を見たりポッドキャストを聞いたりすると、宇宙語のように聞こえます。なぜでしょうか？彼らが早口すぎるから？いいえ。彼らはただ<em>自然に</em>話しているだけです。</p>
+            <h2>「音の形」の不一致</h2>
+            <p>教科書は単語を孤立させて教えます。実際の人々は音の塊で話します。「What did you do?」と一語一語言う人はいません。「Whadjado?（ワジャドゥ）」と言います。脳が4つの別々の単語を探していると、この「ワジャドゥ」という塊を聞き逃してしまいます。</p>
+            <h2>秘密1：連結音声（リエゾン）</h2>
+            <p>単語はレンガではなく、水です。互いに流れ込みます。
+            <ul>
+              <li><strong>連結:</strong> "Put it on" は "Pu-di-don（プディドン）" になります。</li>
+              <li><strong>脱落:</strong> "Next door" は "Nexdoor（ネクスドア）" になります（'t'が消える）。</li>
+            </ul>
+            </p>
+            <h2>秘密2：弱形（Weak Forms）</h2>
+            <p>英語はストレス（強勢）中心の言語です。文法語（can, have, to, for）は押しつぶされます。"I can go" は "アイ・クン・ゴー" のように聞こえます。"can" をはっきり聞こうとすると、迷子になります。</p>
+            <h2>解決策：アクティブ・ディクテーション</h2>
+            <p>受動的な聞き流しはやめましょう。代わりにこうしてください：</p>
+            <ol>
+              <li>30秒のオーディオクリップを見つけます（スクリプト付き）。</li>
+              <li>テキストを見ずに3回聞きます。聞こえた通りに書き留めます。</li>
+              <li>自分のバージョンと実際のスクリプトを比較します。</li>
+              <li><strong>ギャップを分析します。</strong> 短縮されたから単語を逃しましたか？2つの単語が混ざっていましたか？</li>
+            </ol>
+            <p>この「ギャップ分析」が、実際の話言葉を解読できるように脳を再訓練します。</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_ZH = `
+          <article>
+            <p>你认识2000个单词。你可以看懂报纸。但是当你打开播客或看没有字幕的电影时，听起来就像是天书。为什么？是他们说得太快了吗？不。他们只是在<em>自然地</em>说话。</p>
+            <h2>“声音形状”的不匹配</h2>
+            <p>教科书孤立地教你单词。真正在说话时是成块的。“What did you do?”没人会一个词一个词地说。我们说“Whadjado?”。如果你大脑在寻找四个不同的单词，你就会错过“Whadjado”这一整块。</p>
+            <h2>秘密1：连读 (Connected Speech)</h2>
+            <p>单词不是砖块；它们是水。它们相互流动。
+            <ul>
+              <li><strong>辅元连读:</strong> "An apple" 变成 "Anapple"。</li>
+              <li><strong>省音:</strong> "Next door" 变成 "Nexdoor" ('t' 消失了)。</li>
+            </ul>
+            </p>
+            <h2>秘密2：弱读形式 (Weak Forms)</h2>
+            <p>英语是一种重音计时的语言。语法词（can, have, to, for）会被压缩。"I can go" 听起来像 "I kn go"。如果你试图清楚地听到 "can"，你会跟不上。</p>
+            <h2>如何解决：主动听写</h2>
+            <p>停止被动地听。这样做：</p>
+            <ol>
+              <li>找一段30秒的音频片段（有文本的）。</li>
+              <li>不看文本听3遍。写下你听到的内容。</li>
+              <li>将你的版本与真实文本进行比较。</li>
+              <li><strong>分析差距。</strong> 你是因为它被弱读而漏掉了一个词吗？两个词混在一起了吗？</li>
+            </ol>
+            <p>这种“差距分析”重新训练你的大脑来解码真实的语音。</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_TH = `
+          <article>
+            <p>คุณรู้คำศัพท์ 2,000 คำ คุณอ่านหนังสือพิมพ์ได้ แต่เมื่อคุณเปิดพอดแคสต์หรือดูหนังโดยไม่มีคำบรรยาย มันฟังดูไม่รู้เรื่องเลย ทำไม? พวกเขาพูดเร็วเกินไปหรือเปล่า? ไม่ พวกเขาแค่พูดอย่าง<em>เป็นธรรมชาติ</em></p>
+            <h2>ความไม่ตรงกันของ "รูปทรงเสียง"</h2>
+            <p>หนังสือเรียนสอนคำศัพท์แบบแยกส่วน แต่คนจริงๆ พูดเป็นกลุ่มเสียง เราไม่พูดว่า "What did you do?" เราพูดว่า "Whadjado?" ถ้าสมองของคุณกำลังมองหาคำสี่คำที่แตกต่างกัน คุณจะพลาดกลุ่มคำ "Whadjado" นี้ไป</p>
+            <h2>ความลับที่ 1: การเชื่อมเสียง (Connected Speech)</h2>
+            <p>คำไม่ใช่ก้อนอิฐ แต่มันคือน้ำ มันไหลเข้าหากัน
+            <ul>
+              <li><strong>การเชื่อมคำ:</strong> "An apple" กลายเป็น "Anapple"</li>
+              <li><strong>การกร่อนเสียง:</strong> "Next door" กลายเป็น "Nexdoor" (เสียง 't' หายไป)</li>
+            </ul>
+            </p>
+            <h2>ความลับที่ 2: รูปแบบเสียงเบา (Weak Forms)</h2>
+            <p>ภาษาอังกฤษเป็นภาษาที่เน้นจังหวะเสียงหนัก (stress-timed language) คำไวยากรณ์ (can, have, to, for) จะถูกบีบอัด "I can go" ฟังดูเหมือน "I kn go" ถ้าคุณพยายามฟังคำว่า "can" ให้ชัดเจน คุณจะหลงทาง</p>
+            <h2>วิธีแก้ไข: การเขียนตามคำบอกเชิงรุก</h2>
+            <p>หยุดการฟังแบบผ่านๆ ให้ทำสิ่งนี้แทน:</p>
+            <ol>
+              <li>หาคลิปเสียงความยาว 30 วินาที (ที่มีบทถอดเสียง)</li>
+              <li>ฟัง 3 ครั้งโดยไม่ดูข้อความ จดสิ่งที่คุณได้ยิน</li>
+              <li>เปรียบเทียบเวอร์ชันของคุณกับบทถอดเสียงจริง</li>
+              <li><strong>วิเคราะห์ช่องว่าง</strong> คุณพลาดคำเพราะมันถูกลดเสียงหรือไม่? สองคำผสมกันหรือไม่?</li>
+            </ol>
+            <p>"การวิเคราะห์ช่องว่าง" นี้จะฝึกสมองของคุณใหม่เพื่อถอดรหัสคำพูดจริง</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_VI = `
+          <article>
+            <p>Bạn biết 2.000 từ. Bạn có thể đọc một tờ báo. Nhưng khi bạn bật podcast hoặc xem phim không có phụ đề, nó nghe như tiếng vượn. Tại sao? Họ nói quá nhanh à? Không. Họ đang nói một cách <em>tự nhiên</em>.</p>
+            <h2>Sự không khớp về "Hình dạng âm thanh"</h2>
+            <p>Sách giáo khoa dạy bạn các từ một cách riêng biệt. Người thật nói theo từng đoạn âm thanh. Chúng tôi không nói "What did you do?". Chúng tôi nói "Whadjado?". Nếu não bạn đang tìm kiếm bốn từ riêng biệt, nó sẽ bỏ lỡ một đoạn "Whadjado" duy nhất.</p>
+            <h2>Bí mật 1: Lời nói kết nối (Connected Speech)</h2>
+            <p>Từ ngữ không phải là những viên gạch; chúng là nước. Chúng chảy vào nhau.
+            <ul>
+              <li><strong>Nối âm:</strong> "An apple" trở thành "Anapple".</li>
+              <li><strong>Nuốt âm:</strong> "Next door" trở thành "Nexdoor" (chữ 't' biến mất).</li>
+            </ul>
+            </p>
+            <h2>Bí mật 2: Dạng yếu (Weak Forms)</h2>
+            <p>Tiếng Anh là ngôn ngữ canh thời gian theo trọng âm. Các từ ngữ pháp (can, have, to, for) bị nghiền nát. "I can go" nghe như "I kn go". Nếu bạn cố gắng nghe rõ từ "can", bạn sẽ bị lạc.</p>
+            <h2>Cách khắc phục: Nghe chép chính tả chủ động</h2>
+            <p>Ngừng nghe thụ động. Hãy làm điều này thay thế:</p>
+            <ol>
+              <li>Tìm một đoạn âm thanh dài 30 giây (có sẵn bản ghi).</li>
+              <li>Nghe 3 lần mà không nhìn văn bản. Viết xuống những gì bạn nghe được.</li>
+              <li>So sánh phiên bản của bạn với bản ghi thực tế.</li>
+              <li><strong>Phân tích khoảng trống.</strong> Bạn đã bỏ lỡ một từ vì nó bị giảm âm? Hai từ có hòa vào nhau không?</li>
+            </ol>
+            <p>"Phân tích khoảng trống" này huấn luyện lại não bộ của bạn để giải mã lời nói thực tế.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_ID = `
+          <article>
+            <p>Anda tahu 2.000 kata. Anda bisa membaca koran. Tapi ketika Anda menyalakan podcast atau menonton film tanpa subtitle, terdengar seperti omong kosong. Mengapa? Apakah mereka berbicara terlalu cepat? Tidak. Mereka berbicara secara <em>alami</em>.</p>
+            <h2>Ketidakcocokan "Bentuk Suara"</h2>
+            <p>Buku pelajaran mengajarkan kata-kata secara terisolasi. Orang sungguhan berbicara dalam potongan suara. Kami tidak mengatakan "What did you do?". Kami mengatakan "Whadjado?". Jika otak Anda mendengarkan empat kata yang berbeda, ia akan melewatkan satu potongan "Whadjado".</p>
+            <h2>Rahasia 1: Ucapan Terhubung (Connected Speech)</h2>
+            <p>Kata-kata bukanlah batu bata; mereka adalah air. Mereka mengalir satu sama lain.
+            <ul>
+              <li><strong>Katenasi:</strong> "An apple" menjadi "Anapple".</li>
+              <li><strong>Elisi:</strong> "Next door" menjadi "Nexdoor" ('t' menghilang).</li>
+            </ul>
+            </p>
+            <h2>Rahasia 2: Bentuk Lemah (Weak Forms)</h2>
+            <p>Bahasa Inggris adalah bahasa yang diatur oleh tekanan (stress-timed). Kata-kata tata bahasa (can, have, to, for) dihancurkan. "I can go" terdengar seperti "I kn go". Jika Anda mencoba mendengar "can" dengan jelas, Anda akan tersesat.</p>
+            <h2>Cara Memperbaikinya: Dikte Aktif</h2>
+            <p>Berhentilah mendengarkan secara pasif. Lakukan ini sebagai gantinya:</p>
+            <ol>
+              <li>Temukan klip audio 30 detik (dengan transkrip tersedia).</li>
+              <li>Dengarkan 3 kali tanpa melihat teks. Tulis apa yang Anda dengar.</li>
+              <li>Bandingkan versi Anda dengan transkrip asli.</li>
+              <li><strong>Analisis celahnya.</strong> Apakah Anda melewatkan satu kata karena dikurangi? Apakah dua kata menyatu?</li>
+            </ol>
+            <p>"Analisis celah" ini melatih kembali otak Anda untuk memecahkan kode ucapan nyata.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_ES = `
+          <article>
+            <p>Sabes 2.000 palabras. Puedes leer un periódico. Pero cuando pones un podcast o ves una película sin subtítulos, suena como un galimatías. ¿Por qué? ¿Hablan demasiado rápido? No. Están hablando <em>naturalmente</em>.</p>
+            <h2>El desajuste de la "Forma del Sonido"</h2>
+            <p>Los libros de texto te enseñan palabras de forma aislada. Las personas reales hablan en fragmentos de sonido. No decimos "What did you do?". Decimos "Whadjado?". Si tu cerebro está escuchando cuatro palabras distintas, se pierde el fragmento único "Whadjado".</p>
+            <h2>Secreto 1: El Discurso Conectado</h2>
+            <p>Las palabras no son ladrillos; son agua. Fluyen unas dentro de otras.
+            <ul>
+              <li><strong>Encadenamiento:</strong> "An apple" se convierte en "Anapple".</li>
+              <li><strong>Elisión:</strong> "Next door" se convierte en "Nexdoor" (la 't' desaparece).</li>
+            </ul>
+            </p>
+            <h2>Secreto 2: Las Formas Débiles</h2>
+            <p>El inglés es un idioma cronometrado por el estrés. Las palabras gramaticales (can, have, to, for) son aplastadas. "I can go" suena como "I kn go". Si intentas escuchar "can" claramente, te perderás.</p>
+            <h2>Cómo solucionarlo: Dictado Activo</h2>
+            <p>Deja de escuchar pasivamente. Haz esto en su lugar:</p>
+            <ol>
+              <li>Encuentra un clip de audio de 30 segundos (con transcripción disponible).</li>
+              <li>Escucha 3 veces sin mirar el texto. Escribe lo que escuchas.</li>
+              <li>Compara tu versión con la transcripción real.</li>
+              <li><strong>Analiza las brechas.</strong> ¿Perdiste una palabra porque se redujo? ¿Se mezclaron dos palabras?</li>
+            </ol>
+            <p>Este "análisis de brechas" reentrena tu cerebro para decodificar el habla real.</p>
+          </article>
+`;
+
+
+const POST_LISTENING_CONTENT_PT = `
+          <article>
+            <p>Você conhece 2.000 palavras. Você pode ler um jornal. Mas quando você liga um podcast ou assiste a um filme sem legendas, soa como uma algaravia. Por quê? Eles estão falando rápido demais? Não. Eles estão falando <em>naturalmente</em>.</p>
+            <h2>A incompatibilidade da "Forma do Som"</h2>
+            <p>Os livros didáticos ensinam palavras isoladamente. Pessoas reais falam em pedaços de som. Não dizemos "What did you do?". Dizemos "Whadjado?". Se o seu cérebro está procurando por quatro palavras distintas, ele perde o único pedaço "Whadjado".</p>
+            <h2>Segredo 1: Discurso Conectado (Connected Speech)</h2>
+            <p>Palavras não são tijolos; são água. Elas fluem umas para as outras.
+            <ul>
+              <li><strong>Encadeamento:</strong> "An apple" torna-se "Anapple".</li>
+              <li><strong>Elisão:</strong> "Next door" torna-se "Nexdoor" (o 't' desaparece).</li>
+            </ul>
+            </p>
+            <h2>Segredo 2: Formas Fracas (Weak Forms)</h2>
+            <p>O inglês é uma língua cronometrada pelo estresse. Palavras gramaticais (can, have, to, for) são esmagadas. "I can go" soa como "I kn go". Se você tentar ouvir "can" claramente, ficará perdido.</p>
+            <h2>Como corrigir: Ditado Ativo</h2>
+            <p>Pare de ouvir passivamente. Faça isso em vez disso:</p>
+            <ol>
+              <li>Encontre um clipe de áudio de 30 segundos (com transcrição disponível).</li>
+              <li>Ouça 3 vezes sem olhar para o texto. Escreva o que ouvir.</li>
+              <li>Compare sua versão com a transcrição real.</li>
+              <li><strong>Analise as lacunas.</strong> Você perdeu uma palavra porque ela foi reduzida? Duas palavras se misturaram?</li>
+            </ol>
+            <p>Essa "análise de lacunas" treina seu cérebro para decodificar a fala real.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_FR = `
+          <article>
+            <p>Vous connaissez 2 000 mots. Vous pouvez lire un journal. Mais quand vous allumez un podcast ou regardez un film sans sous-titres, cela ressemble à du charabia. Pourquoi ? Parlent-ils trop vite ? Non. Ils parlent <em>naturellement</em>.</p>
+            <h2>Le décalage de la « Forme Sonore »</h2>
+            <p>Les manuels vous enseignent les mots de manière isolée. Les vrais gens parlent par morceaux sonores. Nous ne disons pas « What did you do? ». Nous disons « Whadjado? ». Si votre cerveau écoute quatre mots distincts, il manque le seul morceau « Whadjado ».</p>
+            <h2>Secret 1 : Le Discours Connecté (Connected Speech)</h2>
+            <p>Les mots ne sont pas des briques ; ils sont de l’eau. Ils coulent les uns dans les autres.
+            <ul>
+              <li><strong>Enchaînement :</strong> « An apple » devient « Anapple ».</li>
+              <li><strong>Élision :</strong> « Next door » devient « Nexdoor » (le ‘t’ disparaît).</li>
+            </ul>
+            </p>
+            <h2>Secret 2 : Les Formes Faibles (Weak Forms)</h2>
+            <p>L’anglais est une langue accentuée. Les mots grammaticaux (can, have, to, for) sont écrasés. « I can go » sonne comme « I kn go ». Si vous essayez d'entendre « can » clairement, vous serez perdu.</p>
+            <h2>Comment y remédier : Dictée Active</h2>
+            <p>Arrêtez l’écoute passive. Faites ceci à la place :</p>
+            <ol>
+              <li>Trouvez un clip audio de 30 secondes (avec transcription disponible).</li>
+              <li>Écoutez 3 fois sans regarder le texte. Écrivez ce que vous entendez.</li>
+              <li>Comparez votre version avec la vraie transcription.</li>
+              <li><strong>Analysez les lacunes.</strong> Avez-vous manqué un mot parce qu'il était réduit ? Deux mots se sont-ils mélangés ?</li>
+            </ol>
+            <p>Cette « analyse des lacunes » entraîne votre cerveau à décoder le vrai discours.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_DE = `
+          <article>
+            <p>Sie kennen 2.000 Wörter. Sie können eine Zeitung lesen. Aber wenn Sie einen Podcast einschalten oder einen Film ohne Untertitel ansehen, klingt es wie Kauderwelsch. Warum? Sprechen sie zu schnell? Nein. Sie sprechen <em>natürlich</em>.</p>
+            <h2>Die „Klangform“-Diskrepanz</h2>
+            <p>Lehrbücher bringen Ihnen Wörter isoliert bei. Echte Menschen sprechen in Klangblöcken. Wir sagen nicht „What did you do?“. Wir sagen „Whadjado?“. Wenn Ihr Gehirn nach vier verschiedenen Wörtern sucht, verpasst es den einzelnen Block „Whadjado“.</p>
+            <h2>Geheimnis 1: Verbundene Sprache (Connected Speech)</h2>
+            <p>Wörter sind keine Ziegelsteine; sie sind Wasser. Sie fließen ineinander.
+            <ul>
+              <li><strong>Verkettung:</strong> „An apple“ wird zu „Anapple“.</li>
+              <li><strong>Elision:</strong> „Next door“ wird zu „Nexdoor“ (das ‚t‘ verschwindet).</li>
+            </ul>
+            </p>
+            <h2>Geheimnis 2: Die schwachen Formen (Weak Forms)</h2>
+            <p>Englisch ist eine stress-timed language. Grammatikwörter (can, have, to, for) werden zerquetscht. „I can go“ klingt wie „I kn go“. Wenn Sie versuchen, „can“ deutlich zu hören, werden Sie sich verlieren.</p>
+            <h2>Wie man es behebt: Aktives Diktat</h2>
+            <p>Hören Sie auf, passiv zuzuhören. Tun Sie stattdessen dies:</p>
+            <ol>
+              <li>Suchen Sie einen 30-sekündigen Audioclip (mit verfügbarem Transkript).</li>
+              <li>Hören Sie 3 Mal zu, ohne auf den Text zu schauen. Schreiben Sie auf, was Sie hören.</li>
+              <li>Vergleichen Sie Ihre Version mit dem echten Transkript.</li>
+              <li><strong>Analysieren Sie die Lücken.</strong> Haben Sie ein Wort verpasst, weil es reduziert wurde? Haben sich zwei Wörter vermischt?</li>
+            </ol>
+            <p>Diese „Lückenanalyse“ trainiert Ihr Gehirn neu, um echte Sprache zu entschlüsseln.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_TR = `
+          <article>
+            <p>2.000 kelime biliyorsunuz. Gazete okuyabilirsiniz. Ancak bir podcast açtığınızda veya altyazısız bir film izlediğinizde, kulağa anlamsız geliyor. Neden? Çok mu hızlı konuşuyorlar? Hayır. <em>Doğal</em> konuşuyorlar.</p>
+            <h2>"Ses Şekli" Uyumsuzluğu</h2>
+            <p>Ders kitapları size kelimeleri izole bir şekilde öğretir. Gerçek insanlar ses parçaları halinde konuşur. "What did you do?" demiyoruz. "Whadjado?" diyoruz. Beyniniz dört farklı kelimeyi dinliyorsa, tek "Whadjado" parçasını kaçırır.</p>
+            <h2>Sır 1: Bağlantılı Konuşma (Connected Speech)</h2>
+            <p>Kelimeler tuğla değildir; sudur. Birbirlerinin içine akarlar.
+            <ul>
+              <li><strong>Zincirleme:</strong> "An apple", "Anapple" olur.</li>
+              <li><strong>Ses Düşmesi:</strong> "Next door", "Nexdoor" olur ('t' kaybolur).</li>
+            </ul>
+            </p>
+            <h2>Sır 2: Zayıf Formlar (Weak Forms)</h2>
+            <p>İngilizce vurgu zamanlı bir dildir. Dilbilgisi kelimeleri (can, have, to, for) ezilir. "I can go", "I kn go" gibi duyulur. "can" kelimesini net bir şekilde duymaya çalışırsanız, kaybolursunuz.</p>
+            <h2>Nasıl Onarılır: Aktif Dikte</h2>
+            <p>Pasif dinlemeyi bırakın. Bunun yerine şunu yapın:</p>
+            <ol>
+              <li>30 saniyelik bir ses klibi bulun (transkripti mevcut olan).</li>
+              <li>Metne bakmadan 3 kez dinleyin. Duyduklarınızı yazın.</li>
+              <li>Sürümünüzü gerçek transkriptle karşılaştırın.</li>
+              <li><strong>Boşlukları analiz edin.</strong> Bir kelimeyi kısaltıldığı için mi kaçırdınız? İki kelime birbirine mi karıştı?</li>
+            </ol>
+            <p>Bu "boşluk analizi", beyninizi gerçek konuşmayı çözmesi için yeniden eğitir.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_AR = `
+          <article>
+            <p>أنت تعرف 2000 كلمة. يمكنك قراءة صحيفة. ولكن عندما تقوم بتشغيل بودكاست أو مشاهدة فيلم بدون ترجمة، يبدو الأمر وكأنه رطانة. لماذا؟ هل يتحدثون بسرعة كبيرة؟ لا. إنهم يتحدثون <em>بشكل طبيعي</em>.</p>
+            <h2>عدم تطابق "شكل الصوت"</h2>
+            <p>تعلمك الكتب المدرسية الكلمات بمعزل عن غيرها. يتحدث الناس الحقيقيون في أجزاء صوتية. نحن لا نقول "What did you do?". نحن نقول "Whadjado?". إذا كان عقلك يستمع لأربع كلمات مميزة، فسوف يفتقد القطعة الواحدة "Whadjado".</p>
+            <h2>السر 1: الكلام المتصل (Connected Speech)</h2>
+            <p>الكلمات ليست طوباً؛ إنها ماء. تتدفق في بعضها البعض.
+            <ul>
+              <li><strong>التسلسل:</strong> "An apple" تصبح "Anapple".</li>
+              <li><strong>الإدغام:</strong> "Next door" تصبح "Nexdoor" (حرف 't' يختفي).</li>
+            </ul>
+            </p>
+            <h2>السر 2: الأشكال الضعيفة (Weak Forms)</h2>
+            <p>الإنجليزية هي لغة تعتمد على الضغط. يتم سحق الكلمات النحوية (can, have, to, for). عبارة "I can go" تبدو مثل "I kn go". إذا حاولت سماع "can" بوضوح، فسوف تضيع.</p>
+            <h2>كيفية إصلاح ذلك: الإملاء النشط</h2>
+            <p>توقف عن الاستماع السلبي. افعل هذا بدلاً من ذلك:</p>
+            <ol>
+              <li>اعثر على مقطع صوتي مدته 30 ثانية (مع توفر نص مكتوب).</li>
+              <li>استمع 3 مرات دون النظر إلى النص. اكتب ما تسمعه.</li>
+              <li>قارن نسختك بالنص الحقيقي.</li>
+              <li><strong>حلل الفجوات.</strong> هل فاتتك كلمة لأنها تم تقليلها؟ هل امتزجت كلمتان معاً؟</li>
+            </ol>
+            <p>يعيد "تحليل الفجوة" هذا تدريب عقلك لفك تشفير الكلام الحقيقي.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_HI = `
+          <article>
+            <p>आप 2,000 शब्द जानते हैं। आप अखबार पढ़ सकते हैं। लेकिन जब आप कोई पॉडकास्ट चालू करते हैं या बिना सबटाइटल के कोई फिल्म देखते हैं, तो यह बकवास जैसा लगता है। क्यों? क्या वे बहुत तेजी से बोल रहे हैं? नहीं। वे <em>स्वाभाविक रूप से</em> बोल रहे हैं।</p>
+            <h2>"ध्वनि आकार" बेमेल</h2>
+            <p>पाठ्यपुस्तकें आपको अलगाव में शब्द सिखाती हैं। असली लोग ध्वनि के टुकड़ों में बोलते हैं। हम "What did you do?" नहीं कहते हैं। हम "Whadjado?" कहते हैं। यदि आपका मस्तिष्क चार अलग-अलग शब्दों को सुन रहा है, तो वह एकल टुकड़े "Whadjado" को याद करता है।</p>
+            <h2>रहस्य 1: कनेक्टेड स्पीच (Connected Speech)</h2>
+            <p>शब्द ईंट नहीं हैं; वे पानी हैं। वे एक दूसरे में प्रवाहित होते हैं।
+            <ul>
+              <li><strong>Catenation:</strong> "An apple", "Anapple" बन जाता है।</li>
+              <li><strong>Elision:</strong> "Next door", "Nexdoor" बन जाता है ('t' गायब हो जाता है)।</li>
+            </ul>
+            </p>
+            <h2>रहस्य 2: कमजोर रूप (Weak Forms)</h2>
+            <p>अंग्रेजी एक तनाव-समय वाली भाषा है। व्याकरण के शब्द (can, have, to, for) कुचले जाते हैं। "I can go", "I kn go" जैसा लगता है। यदि आप "can" को स्पष्ट रूप से सुनने की कोशिश करते हैं, तो आप खो जाएंगे।</p>
+            <h2>इसे कैसे ठीक करें: सक्रिय श्रुतलेख</h2>
+            <p>निष्क्रिय सुनना बंद करो। इसके बजाय यह करें:</p>
+            <ol>
+              <li>30 सेकंड की ऑडियो क्लिप ढूंढें (प्रतिलेख उपलब्ध होने के साथ)।</li>
+              <li>टेक्स्ट को देखे बिना 3 बार सुनें। जो आप सुनते हैं उसे लिखें।</li>
+              <li>असली प्रतिलेख के साथ अपने संस्करण की तुलना करें।</li>
+              <li><strong>अंतराल का विश्लेषण करें।</strong> क्या आपने कोई शब्द याद किया क्योंकि वह कम हो गया था? क्या दो शब्द आपस में मिल गए थे?</li>
+            </ol>
+            <p>यह "गैप विश्लेषण" वास्तविक भाषण को डिकोड करने के लिए आपके मस्तिष्क को फिर से प्रशिक्षित करता है।</p>
+          </article>
+`;
+
+
+const POST_LISTENING_CONTENT_RU = `
+          <article>
+            <p>Вы знаете 2000 слов. Вы можете прочитать газету. Но когда вы включаете подкаст или смотрите фильм без субтитров, это звучит как тарабарщина. Почему? Они говорят слишком быстро? Нет. Они говорят <em>естественно</em>.</p>
+            <h2>Несоответствие «звуковой формы»</h2>
+            <p>Учебники учат вас словам изолированно. Реальные люди говорят звуковыми порциями. Мы не говорим «What did you do?». Мы говорим «Whadjado?». Если ваш мозг ищет четыре отдельных слова, он пропускает единственный фрагмент «Whadjado».</p>
+            <h2>Секрет 1: Слитная речь (Connected Speech)</h2>
+            <p>Слова — это не кирпичи; это вода. Они перетекают друг в друга.
+            <ul>
+              <li><strong>Сцепление:</strong> «An apple» становится «Anapple».</li>
+              <li><strong>Элизия:</strong> «Next door» становится «Nexdoor» (буква «т» исчезает).</li>
+            </ul>
+            </p>
+            <h2>Секрет 2: Слабые формы (Weak Forms)</h2>
+            <p>Английский — это язык с тактовым ударением. Грамматические слова (can, have, to, for) сминаются. «I can go» звучит как «I kn go». Если вы попытаетесь четко услышать «can», вы потеряетесь.</p>
+            <h2>Как это исправить: Активный диктант</h2>
+            <p>Перестаньте слушать пассивно. Вместо этого сделайте следующее:</p>
+            <ol>
+              <li>Найдите 30-секундный аудиоклип (с доступной расшифровкой).</li>
+              <li>Слушайте 3 раза, не глядя в текст. Запишите то, что вы слышите.</li>
+              <li>Сравните свою версию с реальной расшифровкой.</li>
+              <li><strong>Проанализируйте пробелы.</strong> Вы пропустили слово, потому что оно было сокращено? Два слова смешались вместе?</li>
+            </ol>
+            <p>Этот «анализ пробелов» переучивает ваш мозг расшифровывать настоящую речь.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_BN = `
+          <article>
+            <p>আপনি ২,০০০ শব্দ জানেন। আপনি একটি সংবাদপত্র পড়তে পারেন। কিন্তু যখন আপনি একটি পডকাস্ট চালু করেন বা সাবটাইটেল ছাড়াই একটি সিনেমা দেখেন, তখন এটি আবোলতাবোলের মতো শোনায়। কেন? তারা কি খুব দ্রুত কথা বলছে? না। তারা <em>স্বাভাবিকভাবে</em> কথা বলছে।</p>
+            <h2>"সাউন্ড শেপ" অমিল</h2>
+            <p>পাঠ্যপুস্তক আপনাকে বিচ্ছিন্নভাবে শব্দ শেখায়। আসল মানুষ শব্দ খণ্ডে কথা বলে। আমরা বলি না "What did you do?"। আমরা বলি "Whadjado?"। যদি আপনার মস্তিষ্ক চারটি ভিন্ন শব্দের জন্য শুনছে, তবে এটি একক অংশ "Whadjado" মিস করে।</p>
+            <h2>গোপন ১: সংযুক্ত বক্তৃতা (Connected Speech)</h2>
+            <p>শব্দ ইট নয়; এগুলো জল। তারা একে অপরের মধ্যে প্রবাহিত হয়।
+            <ul>
+              <li><strong>ক্যাটেনেশন:</strong> "An apple" হয়ে যায় "Anapple"।</li>
+              <li><strong>ইলিশন:</strong> "Next door" হয়ে যায় "Nexdoor" ('t' অদৃশ্য হয়ে যায়)।</li>
+            </ul>
+            </p>
+            <h2>গোপন ২: দুর্বল ফর্ম (Weak Forms)</h2>
+            <p>ইংরেজি একটি চাপ-সময়ের ভাষা। ব্যাকরণ শব্দ (can, have, to, for) চূর্ণ করা হয়। "I can go" শুনতে "I kn go"-এর মতো। আপনি যদি স্পষ্টভাবে "can" শোনার চেষ্টা করেন তবে আপনি হারিয়ে যাবেন।</p>
+            <h2>কীভাবে এটি ঠিক করবেন: সক্রিয় ডিকটেশন</h2>
+            <p>নিষ্ক্রিয় শোনা বন্ধ করুন। পরিবর্তে এটি করুন:</p>
+            <ol>
+              <li>একটি ৩০-সেকেন্ডের অডিও ক্লিপ খুঁজুন (ট্রান্সক্রিপ্ট উপলব্ধ সহ)।</li>
+              <li>পাঠ্যের দিকে না তাকিয়ে ৩ বার শুনুন। আপনি যা শুনছেন তা লিখুন।</li>
+              <li>আসল প্রতিলিপির সাথে আপনার সংস্করণ তুলনা করুন।</li>
+              <li><strong>ফাঁকগুলো বিশ্লেষণ করুন।</strong> আপনি কি একটি শব্দ মিস করেছেন কারণ এটি হ্রাস করা হয়েছিল? দুটি শব্দ কি একসাথে মিশে গেছে?</li>
+            </ol>
+            <p>এই "ফাঁক বিশ্লেষণ" আপনার মস্তিষ্ককে প্রকৃত বক্তৃতা ডিকোড করতে পুনরায় প্রশিক্ষণ দেয়।</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_UR = `
+          <article>
+            <p>آپ 2,000 الفاظ جانتے ہیں۔ آپ اخبار پڑھ سکتے ہیں۔ لیکن جب آپ پوڈ کاسٹ آن کرتے ہیں یا سب ٹائٹلز کے بغیر فلم دیکھتے ہیں، تو یہ گڑبڑ لگتی ہے۔ کیوں؟ کیا وہ بہت تیز بول رہے ہیں؟ نہیں. وہ <em>فطری طور پر</em> بول رہے ہیں۔</p>
+            <h2>"آواز کی شکل" میں مماثلت</h2>
+            <p>درسی کتب آپ کو الگ تھلگ الفاظ سکھاتی ہیں۔ اصلی لوگ صوتی ٹکڑوں میں بولتے ہیں۔ ہم یہ نہیں کہتے کہ "What did you do?"۔ ہم کہتے ہیں "Whadjado?"۔ اگر آپ کا دماغ چار الگ الگ الفاظ سن رہا ہے، تو یہ ایک ہی حصہ "Whadjado" کو یاد کرتا ہے۔</p>
+            <h2>راز 1: منسلک تقریر (Connected Speech)</h2>
+            <p>الفاظ اینٹیں نہیں ہیں۔ وہ پانی ہیں. وہ ایک دوسرے میں بہتے ہیں.
+            <ul>
+              <li><strong>دیوار بندی:</strong> "An apple" بن جاتا ہے "Anapple"۔</li>
+              <li><strong>اخراج:</strong> "Next door" بن جاتا ہے "Nexdoor" ('t' غائب ہو جاتا ہے)۔</li>
+            </ul>
+            </p>
+            <h2>راز 2: کمزور شکلیں (Weak Forms)</h2>
+            <p>انگریزی ایک تناؤ کے وقت والی زبان ہے۔ گرامر کے الفاظ (can, have, to, for) کچل دیے جاتے ہیں۔ "I can go" لگتا ہے "I kn go"۔ اگر آپ "can" کو واضح طور پر سننے کی کوشش کریں گے تو آپ گم ہو جائیں گے۔</p>
+            <h2>اسے کیسے ٹھیک کریں: ایکٹو ڈکٹیشن</h2>
+            <p>غیر فعال سننا بند کریں۔ اس کے بجائے یہ کریں:</p>
+            <ol>
+              <li>30 سیکنڈ کا آڈیو کلپ تلاش کریں (نقل دستیاب ہونے کے ساتھ)۔</li>
+              <li>متن کو دیکھے بغیر 3 بار سنیں۔ جو آپ سنتے ہیں اسے لکھیں۔</li>
+              <li>اصل نقل کے ساتھ اپنے ورژن کا موازنہ کریں۔</li>
+              <li><strong>خلا کا تجزیہ کریں۔</strong> کیا آپ نے کوئی لفظ یاد کیا کیونکہ اسے کم کیا گیا تھا؟ کیا دو الفاظ آپس میں مل گئے؟</li>
+            </ol>
+            <p>یہ "گیپ اینالیسز" آپ کے دماغ کو حقیقی تقریر کو ڈی کوڈ کرنے کے لیے دوبارہ تربیت دیتا ہے۔</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_NE = `
+          <article>
+            <p>तपाईंलाई २,००० शब्दहरू थाहा छ। तपाईं अखबार पढ्न सक्नुहुन्छ। तर जब तपाइँ पोडकास्ट खोल्नुहुन्छ वा सबटाइटल बिना चलचित्र हेर्नुहुन्छ, यो अस्पष्ट लाग्छ। किन? के तिनीहरू धेरै छिटो बोल्दै छन्? होइन। तिनीहरू <em>स्वाभाविक रूपमा</em> बोल्दै छन्।</p>
+            <h2>"ध्वनि आकार" बेमेल</h2>
+            <p>पाठ्यपुस्तकहरूले तपाईंलाई अलगावमा शब्दहरू सिकाउँछन्। वास्तविक मानिसहरू ध्वनि टुक्राहरूमा बोल्छन्। हामी भन्दैनौं "What did you do?"। हामी भन्छौं "Whadjado?"। यदि तपाइँको दिमागले चार फरक शब्दहरू सुनिरहेको छ भने, यसले एकल टुक्रा "Whadjado" गुमाउँछ।</p>
+            <h2>रहस्य १: जोडिएको भाषण (Connected Speech)</h2>
+            <p>शब्दहरू इँटा होइनन्; तिनीहरू पानी हुन्। तिनीहरू एक अर्कामा बग्छन्।
+            <ul>
+              <li><strong>क्याटेनेसन:</strong> "An apple" हुन्छ "Anapple"।</li>
+              <li><strong>लोप:</strong> "Next door" बन्छ "Nexdoor" ('t' गायब हुन्छ)।</li>
+            </ul>
+            </p>
+            <h2>रहस्य २: कमजोर फारमहरू (Weak Forms)</h2>
+            <p>अंग्रेजी तनाव-समय भाषा हो। व्याकरण शब्दहरू (can, have, to, for) कुचिएका छन्। "I can go" सुनिन्छ "I kn go"। यदि तपाइँ "can" स्पष्ट रूपमा सुन्न प्रयास गर्नुभयो भने, तपाइँ हराउनुहुनेछ।</p>
+            <h2>यसलाई कसरी समाधान गर्ने: सक्रिय श्रुतलेख</h2>
+            <p>निष्क्रिय सुन्न बन्द गर्नुहोस्। यसको सट्टा यो गर्नुहोस्:</p>
+            <ol>
+              <li>३० सेकेन्डको अडियो क्लिप फेला पार्नुहोस् (ट्रान्सक्रिप्ट उपलब्ध भएको)।</li>
+              <li>पाठ नहेरी ३ पटक सुन्नुहोस्। तपाईंले सुनेको कुरा लेख्नुहोस्।</li>
+              <li>वास्तविक ट्रान्सक्रिप्टसँग आफ्नो संस्करण तुलना गर्नुहोस्।</li>
+              <li><strong>अन्तरालहरू विश्लेषण गर्नुहोस्।</strong> के तपाईंले कुनै शब्द छुटाउनुभयो किनभने यो घटाइएको थियो? के दुई शब्दहरू सँगै मिसियो?</li>
+            </ol>
+            <p>यो "ग्याप विश्लेषण" ले तपाईंको दिमागलाई वास्तविक भाषण डिकोड गर्न पुन: तालिम दिन्छ।</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_SI = `
+          <article>
+            <p>ඔබ වචන 2,000 ක් දන්නවා. ඔබට පුවත්පතක් කියවිය හැකිය. නමුත් ඔබ උපසිරැසි නොමැතිව පොඩ්කාස්ට් එකක් ක්‍රියාත්මක කරන විට හෝ චිත්‍රපටයක් බලන විට, එය විකාරයක් ලෙස පෙනේ. ඇයි? ඔවුන් වේගයෙන් කතා කරනවාද? නැත. ඔවුන් කතා කරන්නේ <em>ස්වභාවිකව</em>යි.</p>
+            <h2>"ශබ්ද හැඩය" නොගැලපීම</h2>
+            <p>පෙළපොත් ඔබට තනිව වචන උගන්වයි. සැබෑ මිනිසුන් කතා කරන්නේ ශබ්ද කැබලිවලිනි. අපි කියන්නේ නැහැ "What did you do?" කියලා. අපි කියන්නේ "Whadjado?". ඔබේ මොළය වෙනස් වචන හතරක් සඳහා සවන් දෙන්නේ නම්, එයට "Whadjado" තනි කොටස මග හැරේ.</p>
+            <h2>රහස 1: සම්බන්ධිත කථාව (Connected Speech)</h2>
+            <p>වචන ගඩොල් නොවේ; ඒවා ජලයයි. ඒවා එකිනෙකට ගලා යයි.
+            <ul>
+              <li><strong>සම්බන්ධ කිරීම:</strong> "An apple" බවට පත්වේ "Anapple".</li>
+              <li><strong>ඉවත් කිරීම:</strong> "Next door" බවට පත්වේ "Nexdoor" ('t' අතුරුදහන් වේ).</li>
+            </ul>
+            </p>
+            <h2>රහස 2: දුර්වල ආකෘති (Weak Forms)</h2>
+            <p>ඉංග්‍රීසි යනු ආතතිය පදනම් කරගත් භාෂාවකි. ව්‍යාකරණ වචන (can, have, to, for) පොඩි කර ඇත. "I can go" ඇසෙන්නේ "I kn go" ලෙසයි. ඔබ "can" පැහැදිලිව ඇසීමට උත්සාහ කරන්නේ නම්, ඔබ අතරමං වනු ඇත.</p>
+            <h2>එය නිවැරදි කරන්නේ කෙසේද: සක්‍රීය අක්ෂර වින්‍යාසය</h2>
+            <p>නිෂ්ක්‍රීයව සවන් දීම නවත්වන්න. ඒ වෙනුවට මෙය කරන්න:</p>
+            <ol>
+              <li>තත්පර 30 ක ශ්‍රව්‍ය පටයක් සොයන්න (පිටපත තිබේ).</li>
+              <li>පෙළ දෙස නොබලා 3 වතාවක් සවන් දෙන්න. ඔබට ඇසෙන දේ ලියන්න.</li>
+              <li>ඔබේ අනුවාදය සැබෑ පිටපත සමඟ සසඳන්න.</li>
+              <li><strong>හිඩැස් විශ්ලේෂණය කරන්න.</strong> එය අඩු කළ නිසා ඔබට වචනයක් මග හැරුණාද? වචන දෙකක් එකට මිශ්‍ර වී තිබේද?</li>
+            </ol>
+            <p>මෙම "පරතරය විශ්ලේෂණය" සැබෑ කථාව විකේතනය කිරීමට ඔබේ මොළය නැවත පුහුණු කරයි.</p>
+          </article>
+`;
+const POST_LISTENING_CONTENT_SW = `
+          <article>
+            <p>Unajua maneno 2,000. Unaweza kusoma gazeti. Lakini unapowasha podikasti au kutazama filamu bila manukuu, inasikika kama upuuzi. Kwa nini? Je, wao wanazungumza haraka sana? Hapana. Wanazungumza <em>kawaida</em>.</p>
+            <h2>Kutolingana kwa "Muundo wa Sauti"</h2>
+            <p>Vitabu vya kiada hukukufunza maneno kwa upweke. Watu halisi huzungumza kwa vipande vya sauti. Hatuwezi kusema "What did you do?". Tunasema "Whadjado?". Ikiwa ubongo wako unasikiliza maneno manne tofauti, unakosa kipande kimoja "Whadjado".</p>
+            <h2>Siri ya 1: Matamshi Yaliyounganishwa (Connected Speech)</h2>
+            <p>Maneno si matofali; ni maji. Zinatiririka ndani ya kila mmoja.
+            <ul>
+              <li><strong>Uunganishaji:</strong> "An apple" inakuwa "Anapple".</li>
+              <li><strong>Ufupisho:</strong> "Next door" inakuwa "Nexdoor" ('t' inatoweka).</li>
+            </ul>
+            </p>
+            <h2>Siri ya 2: Fomu Dhaifu (Weak Forms)</h2>
+            <p>Kiingereza ni lugha inayotegemea mkazo. Maneno ya sarufi (can, have, to, for) yamepondwa. "I can go" inasikika kama "I kn go". Ukijaribu kusikia "can" vizuri, utapotea.</p>
+            <h2>Jinsi ya Kurekebisha: Imla Inayotumika</h2>
+            <p>Acha kusikiliza tu. Fanya hivi badala yake:</p>
+            <ol>
+              <li>Pata klipu ya sauti ya sekunde 30 (iliyo na nakala).</li>
+              <li>Sikiliza mara 3 bila kuangalia maandishi. Andika unachosikia.</li>
+              <li>Linganisha toleo lako na nakala halisi.</li>
+              <li><strong>Chambua mapengo.</strong> Je, umekosa neno kwa sababu lilipunguzwa? Je, maneno mawili yalichanganyika pamoja?</li>
+            </ol>
+            <p>"Uchambuzi huu wa pengo" hufunza tena ubongo wako kusimbua matamshi halisi.</p>
+          </article>
+`;
+
 export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
-  {
-     id: "context-learning",
-     title: { 
-       en: "Context is King: Why Learning Words in Isolation is a Trap", 
-       ko: "문맥이 왕이다: 단어장 암기가 함정인 이유와 자연스러운 습득법",
-       ja: "文脈が王様：単語を単独で学ぶのが罠である理由",
-       zh: "语境为王：为什么孤立地学习单词是一个陷阱",
-       th: "บริบทคือราชา: ทำไมการท่องศัพท์เป็นคำๆ ถึงเป็นกับดัก",
-       vi: "Ngữ cảnh là Vua: Tại sao học từ vựng riêng lẻ là một cái bẫย",
-       id: "Konteks adalah Raja: Mengapa Belajar Kata secara Terisolasi adalah Perangkap",
-       es: "El contexto es el rey: Por qué aprender palabras de forma aislada es una trampa",
-       pt: "O contexto é rei: Por que aprender palavras isoladamente é uma armadilha",
-       fr: "Le contexte est roi : Pourquoi apprendre des mots isolément est un piège",
-       de: "Kontext ist König: Warum das Lernen von Wörtern in Isolation eine Falle ist",
-       tr: "Bağlam Kraldır: Kelimeleri Tek Başına Öğrenmek Neden Bir Tuzaktır",
-       ar: "السياق هو الملك: لماذا يعتبر تعلم الكلمات بشكل منعزل فخاً",
-       hi: "संदर्भ ही राजा है: शब्दों को अलग-ثलग करके सीखना एक जाल क्यों है",
-       ru: "Контекст — это король: Почему учить слова изолированно — это ловушка",
-       bn: "প্রসঙ্গই রাজা: কেন বিচ্ছিন্নভাবে শব্দ শেখা একটি ফাঁদ",
-       ur: "سیاق و سباق بادشاہ ہے: الفاظ کو الگ تھلگ سیکھنا ایک جال کیوں ہے",
-       ne: "सन्दर्भ राजा हो: किन शब्दहरू एक्लै सिक्नु एउटा पासो हो"
-     },
-     excerpt: { 
-       en: "Memorizing dictionary definitions is inefficient and boring. Learn how to absorb vocabulary from sentences, stories, and real-life situations.", 
-       ko: "사전적 정의만 외우는 건 지루하고 비효율적입니다. 문장, 이야기, 실제 상황에서 단어를 스펀지처럼 흡수하는 법을 배우세요.",
-       ja: "辞書の定義を暗記するのは非効率で退屈です。文章、物語、そして実際の状況から語彙を吸収する方法を学びましょう。",
-       zh: "死记硬背字典定义即低效又无聊。学习如何从句子、故事和现实生活中吸收词汇。",
-       th: "การจำความหมายจากพจนานุกรมนั้นไม่มีประสิทธิภาพและน่าเบื่อ เรียนรู้วิธีซึมซับคำศัพท์จากประโยค เรื่องราว และสถานการณ์จริง",
-       vi: "Ghi nhớ định nghĩa trong từ điển là không hiệu quả và nhàm chán. Hãy học cách hấp thụ từ vựng từ các câu, câu chuyện và tình huống thực tế.",
-       id: "Menghafal definisi kamus tidak efisien dan membosankan. Pelajari cara menyerap kosakata dari kalimat, cerita, dan situasi kehidupan nyata.",
-       es: "Memorizar definiciones del diccionario es ineficiente y aburrido. Aprende a absorber vocabulario de oraciones, historias y situaciones de la vida real.",
-       pt: "Memorizar definições de dicionário é ineficiente e chato. Aprenda a absorver vocabulário de frases, histórias e situações da vida real.",
-       fr: "Mémoriser les définitions du dictionnaire est inefficace et ennuyeux. Apprenez à absorber le vocabulaire à partir de phrases, d'histoires et de situations réelles.",
-       de: "Das Auswendiglernen von Wörterbuchdefinitionen ist ineffizient und langweilig. Erfahren Sie, wie Sie Vokabeln aus Sätzen, Geschichten und Situationen des wirklichen Lebens aufnehmen können.",
-       tr: "Sözlük tanımlarını ezberlemek verimsiz ve sıkıcıdır. Kelimeleri cümlelerden, hikayelerden ve gerçek yaşam durumlarından nasıl özümseyeceğinizi öğrenin.",
-       ar: "حفظ تعريفات القاموس غير فعال وممل. تعلم كيف تستوعب المفردات من الجمل، والقصص، ومواقف الحياة الواقعية.",
-       hi: "शब्दकोश की परिभाषाओं को याद रखना अक्षम और उबाऊ है। वाक्यों, कहानियों और वास्तविक जीवन की स्थितियों से शब्दावली को कैसे अवशोषित किया जाए, यह सीखें।",
-       ru: "Заучивание определений из словаря неэффективно и скучно. Узнайте, как усваивать словарный запас из предложений, историй и реальных ситуаций.",
-       bn: "অভিধানের সংজ্ঞা মুখস্ত করা অকার্যকর এবং বিরক্তিকর। বাক্য, গল্প এবং বাস্তব জীবনের পরিস্থিতি থেকে শব্দভাণ্ডার কীভাবে শোষণ করা যায় তা শিখুন।",
-       ur: "لغت کی تعریفیں حفظ کرنا غیر موثر اور بورنگ ہے۔ جملوں، کہانیوں اور حقیقی زندگی کے حالات سے الفاظ کو جذب کرنے کا طریقہ سیکھیں۔",
-       ne: "शब्दकोश परिभाषाहरू कण्ठ गर्नु अदक्ष र बोरिंग छ। वाक्यहरू, कथाहरू र वास्तविक जीवनका परिस्थितिहरूबाट शब्दावली कसरी लिने सिक्नुहोस्।"
-     },
-     content: { 
-        en: POST_CONTEXT_CONTENT_EN,
-        ko: POST_CONTEXT_CONTENT_KO,
-        ja: POST_CONTEXT_CONTENT_JA,
-        zh: POST_CONTEXT_CONTENT_ZH,
-        th: POST_CONTEXT_CONTENT_TH,
-        vi: POST_CONTEXT_CONTENT_VI,
-        id: POST_CONTEXT_CONTENT_ID,
-        es: POST_CONTEXT_CONTENT_ES,
-        pt: POST_CONTEXT_CONTENT_PT,
-        fr: POST_CONTEXT_CONTENT_FR,
-        de: POST_CONTEXT_CONTENT_DE,
-        tr: POST_CONTEXT_CONTENT_TR,
-        ar: POST_CONTEXT_CONTENT_AR,
-        hi: POST_CONTEXT_CONTENT_HI,
-        ru: POST_CONTEXT_CONTENT_RU,
-        bn: POST_CONTEXT_CONTENT_BN,
-        ur: POST_CONTEXT_CONTENT_UR,
-        ne: POST_CONTEXT_CONTENT_NE
-     },
-     coverImage: "/assets/blog/context-is-king.png",
-     author: "Sarah Kim",
-     tags: ["Vocabulary", "Reading", "Context", "Tips"],
-     published: true,
-     createdAt: new Date("2024-01-15"),
-     updatedAt: new Date("2024-01-15")
-  },
+
   {
      id: "intermediate-plateau",
      title: { 
@@ -1775,7 +2809,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
        ru: "Застряли на B2? Как преодолеть плато среднего уровня",
        bn: "B2 তে আটকে আছেন? ইন্টারমিডিয়েট প্লেটো কীভাবে ভাঙবেন",
        ur: "B2 پر پھنس گئے ہیں؟ انٹرمیڈیٹ سطح کو کیسے عبور کریں",
-       ne: "B2 मा अड्कनुभयो? मध्यवर्ती पठार कसरी तोड्ने"
+       ne: "B2 मा अड्कनुभयो? मध्यवर्ती पठार कसरी तोड्ने",
+       si: "B2 හි සිරවී තිබේද? අතරමැදි සානුව බිඳ දමන්නේ කෙසේද",
+       sw: "Je, umekwama katika B2? Jinsi ya Kuvunja Bonde la Kati"
      },
      excerpt: { 
        en: "The intermediate plateau is where most learners quit. Understand why progress slows down and the massive input strategy needed to reach advanced C1 fluency.", 
@@ -1795,7 +2831,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
        ru: "Плато среднего уровня — это место, где большинство изучающих бросают. Поймите, почему прогресс замедляется и какая стратегия массового ввода необходима для достижения свободного владения уровнем C1.",
        bn: "ইন্টারমিডিয়েট প্লেটো হল সেই জায়গা যেখানে বেশিরভাগ শিক্ষার্থী ছেড়ে দেয়। কেন অগ্রগতি ধীর হয়ে যায় এবং উন্নত C1 সাবলীলতায় পৌঁছানোর জন্য প্রয়োজনীয় বিশাল ইনপুট কৌশলটি বুঝুন।",
        ur: "انٹرمیڈیٹ سطح وہ جگہ ہے جہاں زیادہ تر سیکھنے والے چھوڑ دیتے ہیں۔ سمجھیں کہ ترقی کیوں سست ہو جاتی ہے اور اعلی درجے کی C1 روانی تک پہنچنے کے لیے درکار بڑے پیمانے پر ان پٹ حکمت عملی۔",
-       ne: "मध्यवर्ती पठार त्यो हो जहाँ धेरैजसो शिक्षार्थीहरूले छोड्छन्। प्रगति किन सुस्त हुन्छ र उन्नत C1 प्रवाहिततामा पुग्न आवश्यक ठूलो इनपुट रणनीति बुझ्नुहोस्।"
+       ne: "मध्यवर्ती पठार त्यो हो जहाँ धेरैजसो शिक्षार्थीहरूले छोड्छन्। प्रगति किन सुस्त हुन्छ र उन्नत C1 प्रवाहिततामा पुग्न आवश्यक ठूलो इनपुट रणनीति बुझ्नुहोस्।",
+       si: "අතරමැදි සානුව යනු බොහෝ ඉගෙන ගන්නන් ඉවත් වන ස්ථානයයි. ප්‍රගතිය මන්දගාමී වන්නේ ඇයි සහ උසස් C1 චතුරතාව කරා ළඟා වීමට අවශ්‍ය දැවැන්ත ආදාන උපාය මාර්ගය තේරුම් ගන්න.",
+       sw: "Bonde la kati ni pale ambapo wanafunzi wengi huacha. Elewa ni kwa nini maendeleo hupungua na mkakati mkubwa wa uingizaji unaohitajika ili kufikia ufasaha wa hali ya juu wa C1."
      },
      content: { 
         en: POST_PLATEAU_CONTENT_EN,
@@ -1815,7 +2853,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
         ru: POST_PLATEAU_CONTENT_RU,
         bn: POST_PLATEAU_CONTENT_BN,
         ur: POST_PLATEAU_CONTENT_UR,
-        ne: POST_PLATEAU_CONTENT_NE
+        ne: POST_PLATEAU_CONTENT_NE,
+        si: POST_PLATEAU_CONTENT_SI,
+        sw: POST_PLATEAU_CONTENT_SW
      },
      coverImage: "/assets/blog/intermediate-plateau.png",
      author: "Dr. Lingua",
@@ -1844,7 +2884,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
        ru: "5 секретов полиглотов: Что они делают иначе",
        bn: "বহুভাষী লোকদের ৫টি গোপনীয়তা: তারা কি ভিন্নভাবে করে",
        ur: "کثیر لسانی لوگوں کے 5 راز: وہ کیا مختلف کرتے ہیں",
-       ne: "बहुभाषीहरूको ५ रहस्य: तिनीहरू के फरक गर्छन्"
+       ne: "बहुभाषीहरूको ५ रहस्य: तिनीहरू के फरक गर्छन्",
+       si: "බහුභාෂා විශාරදයින්ගේ රහස් 5: ඔවුන් වෙනස් ලෙස කරන දේ",
+       sw: "Siri 5 za Watu Wanaozungumza Lugha Nyingi: Wanachofanya Tofauti"
      },
      excerpt: {
        en: "Polyglots aren't geniuses. They just have better habits. Learn the 5 core principles that allow people to learn 5+ languages.",
@@ -1864,7 +2906,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
        ru: "Полиглоты не гении. У них просто лучшие привычки. Узнайте 5 основных принципов, которые позволяют людям учить более 5 языков.",
        bn: "বহুভাষী লোকেরা প্রতিভাবান নয়। তাদের কেবল ভাল অভ্যাস রয়েছে। ৫+ ভাষা শেখার অনুমতি দেয় এমন ৫টি মূল নীতি শিখুন।",
        ur: "کثیر لسانی لوگ ذہین نہیں ہوتے۔ ان کی صرف بہتر عادات ہوتی ہیں۔ وہ 5 بنیادی اصول سیکھیں جو لوگوں کو 5+ زبانیں سیکھنے کی اجازت دیتے ہیں۔",
-       ne: "बहुभाषीहरू प्रतिभाशाली होइनन्। उनीहरूसँग राम्रो बानीहरू मात्र छन्। ५ भन्दा बढी भाषाहरू सिक्न मानिसहरूलाई अनुमति दिने ५ मुख्य सिद्धान्तहरू सिक्नुहोस्।"
+       ne: "बहुभाषीहरू प्रतिभाशाली होइनन्। उनीहरूसँग राम्रो बानीहरू मात्र छन्। ५ भन्दा बढी भाषाहरू सिक्न मानिसहरूलाई अनुमति दिने ५ मुख्य सिद्धान्तहरू सिक्नुहोस्।",
+       si: "බහුභාෂා විශාරදයින් දක්ෂයන් නොවේ. ඔවුන්ට ඇත්තේ වඩා හොඳ පුරුදු පමණි. මිනිසුන්ට භාෂා 5+ ක් ඉගෙන ගැනීමට ඉඩ සලසන මූලික ප්‍රතිපත්ති 5 ඉගෙන ගන්න.",
+       sw: "Watu wanaozungumza lugha nyingi sio wajanja sana. Wana tabia bora tu. Jifunze kanuni 5 za msingi zinazoruhusu watu kujifunza lugha 5+."
      },
      content: {
         en: POST_POLYGLOT_CONTENT_EN,
@@ -1884,7 +2928,9 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
         ru: POST_POLYGLOT_CONTENT_RU,
         bn: POST_POLYGLOT_CONTENT_BN,
         ur: POST_POLYGLOT_CONTENT_UR,
-        ne: POST_POLYGLOT_CONTENT_NE
+        ne: POST_POLYGLOT_CONTENT_NE,
+        si: POST_POLYGLOT_CONTENT_SI,
+        sw: POST_POLYGLOT_CONTENT_SW
      },
      coverImage: "/assets/blog/polyglot-secrets.png",
      author: "Steve Chen",
@@ -1892,5 +2938,155 @@ export const BLOG_POSTS_PART_2: Partial<BlogPost>[] = [
      published: true,
      createdAt: new Date("2024-01-25"),
      updatedAt: new Date("2024-01-25")
+   },
+   {
+      id: "pronunciation-mistakes",
+      title: {
+        en: "Stop Sounding Foreign: 5 Pronunciation Mistakes Making You Hard to Understand",
+        ko: "외국인 티 벗기: 당신의 말을 못 알아듣게 만드는 5가지 발음 실수",
+        ja: "外国人のように聞こえるのをやめる：理解されにくくする5つの発音ミス",
+        zh: "停止听起来像外国人：让你难以被理解的5个发音错误",
+        th: "หยุดฟังดูเหมือนชาวต่างชาติ: 5 ข้อผิดพลาดในการออกเสียงที่ทำให้คุณเข้าใจยาก",
+        vi: "Ngừng nghe như người nước ngoài: 5 Lỗi phát âm khiến bạn khó hiểu",
+        id: "Berhenti Terdengar Asing: 5 Kesalahan Pengucapan yang Membuat Anda Sulit Dipahami",
+        es: "Deja de sonar extranjero: 5 errores de pronunciación que te hacen difícil de entender",
+        pt: "Pare de parecer estrangeiro: 5 erros de pronúncia que tornam você difícil de entender",
+        fr: "Arrêtez d'avoir l'air étranger : 5 erreurs de prononciation qui vous rendent difficile à comprendre",
+        de: "Klingen Sie nicht mehr fremd: 5 Aussprachefehler, die Sie schwer verständlich machen",
+        tr: "Yabancı Gibi Duyulmayı Bırakın: Sizi Anlaşılması Zor Yapan 5 Telaffuz Hatası",
+        ar: "توقف عن أن تبدو أجنبياً: 5 أخطاء في النطق تجعل من الصعب فهمك",
+        hi: "विदेशी लगना बंद करें: 5 उच्चारण की गलतियाँ जो आपको (समझने में) मुश्किल बनाती हैं",
+        ru: "Перестаньте звучать как иностранец: 5 ошибок произношения, из-за которых вас трудно понять",
+        bn: "বিদেশীর মতো শোনানো বন্ধ করুন: ৫টি উচ্চারণের ভুল যা আপনাকে বোঝা কঠিন করে তোলে",
+        ur: "غیر ملکی لگنا بند کریں: تلفظ کی 5 غلطیاں جو آپ کو سمجھنا مشکل بناتی ہیں",
+        ne: "विदेशी जस्तो आवाज बन्द गर्नुहोस्: ५ उच्चारण गल्तीहरू जसले तपाईंलाई बुझ्न गाह्रो बनाउँछ",
+        si: "විදේශිකයෙකු ලෙස ශබ්ද කිරීම නවත්වන්න: ඔබව තේරුම් ගැනීමට අපහසු කරන උච්චාරණ වැරදි 5 ක්",
+        sw: "Acha Kusikika kama Mgeni: Makosa 5 ya Matamshi Yanayokufanya Uwe Mwepesi Kueleweka"
+      },
+      excerpt: {
+        en: "Improving pronunciation isn't about accent reduction; it's about clarity. Discover the 5 most common pronunciation traps and how to fix them immediately.",
+        ko: "발음 교정은 악센트를 없애는 것이 아니라 명확성을 높이는 것입니다. 흔히 저지르는 5가지 발음 함정과 즉시 고치는 법을 알아보세요.",
+        ja: "発音の改善は、アクセントを減らすことではなく、明瞭さを高めることです。最も一般的な5つの発音の罠と、それらをすぐに修正する方法を発見してください。",
+        zh: "改善发音不是为了减少口音，而是为了清晰度。发现5个最常见的发音陷阱以及如何立即修复它们。",
+        th: "การปรับปรุงการออกเสียงไม่ใช่การลดสำเนียง แต่เป็นเรื่องของความชัดเจน ค้นพบ 5 กับดักการออกเสียงที่พบบ่อยที่สุดและวิธีแก้ไขทันที",
+        vi: "Cải thiện phát âm không phải là giảm bớt giọng, mà là về sự rõ ràng. Khám phá 5 bẫy phát âm phổ biến nhất và cách khắc phục chúng ngay lập tức.",
+        id: "Memperbaiki pengucapan bukan tentang pengurangan aksen; ini tentang kejelasan. Temukan 5 jebakan pengucapan paling umum dan cara memperbaikinya segera.",
+        es: "Mejorar la pronunciación no se trata de reducir el acento; se trata de claridad. Descubre las 5 trampas de pronunciación más comunes y cómo solucionarlas de inmediato.",
+        pt: "Melhorar a pronúncia não é reduzir o sotaque; é sobre clareza. Descubra as 5 armadilhas de pronúncia mais comuns e como corrigi-las imediatamente.",
+        fr: "Améliorer la prononciation n'est pas une question de réduction d'accent ; c'est une question de clarté. Découvrez les 5 pièges de prononciation les plus courants et comment les corriger immédiatement.",
+        de: "Bei der Verbesserung der Aussprache geht es nicht um Akzentreduzierung; es geht um Klarheit. Entdecken Sie die 5 häufigsten Aussprachefallen und wie Sie sie sofort beheben können.",
+        tr: "Telaffuzu geliştirmek aksanı azaltmakla ilgili değildir; netlikle ilgilidir. En yaygın 5 telaffuz tuzağını ve bunları hemen nasıl düzelteceğinizi keşfedin.",
+        ar: "تحسين النطق لا يتعلق بتقليل اللهجة؛ يتعلق الأمر بالوضوح. اكتشف أفخاخ النطق الخمسة الأكثر شيوعاً وكيفية إصلاحها على الفور.",
+        hi: "उच्चारण में सुधार करना उच्चारण कम करने के बारे में नहीं है; यह स्पष्टता के बारे में है। 5 सबसे आम उच्चारण जाल और उन्हें तुरंत ठीक करने का तरीका खोजें।",
+        ru: "Улучшение произношения — это не уменьшение акцента; это ясность. Откройте для себя 5 самых распространенных ловушек произношения и узнайте, как их немедленно исправить.",
+        bn: "উচ্চারণের উন্নতি করা উচ্চারণ কমানোর বিষয়ে নয়; এটা স্বচ্ছতা সম্পর্কে। ৫টি সবচেয়ে সাধারণ উচ্চারণ ফাঁদ এবং কীভাবে সেগুলি অবিলম্বে ঠিক করবেন তা আবিষ্কার করুন।",
+        ur: "تلفظ کو بہتر بنانا لہجے میں کمی کے بارے میں نہیں ہے۔ یہ وضاحت کے بارے میں ہے. تلفظ کے 5 عام ٹریپس دریافت کریں اور انہیں فوری طور پر کیسے ٹھیک کریں۔",
+        ne: "उच्चारण सुधार्नु भनेको उच्चारण घटाउने होइन; यो स्पष्टता को बारे मा छ। ५ सबैभन्दा सामान्य उच्चारण पासोहरू र तिनिहरूलाई तुरुन्तै कसरी ठीक गर्ने भनेर पत्ता लगाउनुहोस्।",
+        si: "උච්චාරණය දියුණු කිරීම යනු උච්චාරණය අඩු කිරීම නොවේ; එය පැහැදිලිකම ගැන ය. වඩාත් සුලභ උච්චාරණ උගුල් 5 සහ ඒවා වහාම නිවැරදි කරන්නේ කෙසේදැයි සොයා බලන්න.",
+        sw: "Kuboresha matamshi sio kupunguza lafudhi; ni kuhusu uwazi. Gundua mitego 5 ya kawaida ya matamshi na jinsi ya kuirekebisha mara moja."
+      },
+      content: {
+         en: POST_PRONUNCIATION_CONTENT_EN,
+         ko: POST_PRONUNCIATION_CONTENT_KO,
+         ja: POST_PRONUNCIATION_CONTENT_JA,
+         zh: POST_PRONUNCIATION_CONTENT_ZH,
+         th: POST_PRONUNCIATION_CONTENT_TH,
+         vi: POST_PRONUNCIATION_CONTENT_VI,
+         id: POST_PRONUNCIATION_CONTENT_ID,
+         es: POST_PRONUNCIATION_CONTENT_ES,
+         pt: POST_PRONUNCIATION_CONTENT_PT,
+         fr: POST_PRONUNCIATION_CONTENT_FR,
+         de: POST_PRONUNCIATION_CONTENT_DE,
+         tr: POST_PRONUNCIATION_CONTENT_TR,
+         ar: POST_PRONUNCIATION_CONTENT_AR,
+         hi: POST_PRONUNCIATION_CONTENT_HI,
+         ru: POST_PRONUNCIATION_CONTENT_RU,
+         bn: POST_PRONUNCIATION_CONTENT_BN,
+         ur: POST_PRONUNCIATION_CONTENT_UR,
+         ne: POST_PRONUNCIATION_CONTENT_NE,
+         si: POST_PRONUNCIATION_CONTENT_SI,
+         sw: POST_PRONUNCIATION_CONTENT_SW
+      },
+      coverImage: "/assets/blog/pronunciation-mistakes.png",
+      author: "Dr. Lingua",
+      tags: ["Pronunciation", "Speaking", "Mistakes", "Correction"],
+      published: true,
+      createdAt: new Date("2024-02-01"),
+      updatedAt: new Date("2024-02-01")
+   },
+   { 
+      id: "listening-comprehension-guide",
+      title: { 
+        en: "Listening Hacking: Why You Understand 'Textbook' Audio But Not Netflix", 
+        ko: "리스닝 해킹: 교과서 오디오는 들리는데 넷플릭스는 안 들리는 이유",
+        ja: "リスニング・ハッキング：教科書の音声はわかるのにNetflixがわからない理由",
+        zh: "听力黑客：为什么你能听懂“教科书”音频却听不懂Netflix",
+        th: "การแฮ็กการฟัง: ทำไมคุณถึงเข้าใจเสียงใน 'หนังสือเรียน' แต่ไม่ใช่ Netflix",
+        vi: "Hack kỹ năng nghe: Tại sao bạn hiểu âm thanh 'Sách giáo khoa' nhưng không phải Netflix",
+        id: "Peretasan Mendengarkan: Mengapa Anda Memahami Audio 'Buku Teks' Tapi Tidak Netflix",
+        es: "Hackeo de escucha: Por qué entiendes el audio de los 'libros de texto' pero no Netflix",
+        pt: "Hacking de escuta: Por que você entende o áudio do 'livro didático', mas não a Netflix",
+        fr: "Piratage de l'écoute : Pourquoi vous comprenez l'audio des « manuels » mais pas Netflix",
+        de: "Hör-Hacking: Warum Sie „Lehrbuch“-Audio verstehen, aber nicht Netflix",
+        tr: "Dinleme Hacking: Neden 'Ders Kitabı' Sesini Anlıyorsunuz da Netflix'i Anlamıyorsunuz",
+        ar: "اختراق الاستماع: لماذا تفهم صوت 'الكتب المدرسية' ولكن لا تفهم Netflix",
+        hi: "सुनने की हैकिंग: आप 'पाठ्यपुस्तक' ऑडियो क्यों समझते हैं लेकिन नेटफ्लिक्स नहीं",
+        ru: "Взлом аудирования: Почему вы понимаете аудио из «учебника», но не Netflix",
+        bn: "লিসেনিং হ্যাকিং: কেন আপনি 'টেক্সটবুক' অডিও বোঝেন কিন্তু নেটফ্লিক্স নয়",
+        ur: "سننے کی ہیکنگ: آپ 'ٹیکسٹ بک' آڈیو کیوں سمجھتے ہیں لیکن نیٹ فلکس نہیں",
+        ne: "सुन्ने ह्याकिङ: किन तपाइँ 'पाठ्यपुस्तक' अडियो बुझ्नुहुन्छ तर Netflix होइन",
+        si: "සවන්දීමේ හැක් කිරීම: ඔබට 'පෙළපොත්' ශ්‍රව්‍ය තේරෙන්නේ ඇයි නමුත් Netflix නොවේ",
+        sw: "Udukuzi wa Kusikiliza: Kwa Nini Unaelewa Sauti ya 'Kitabu cha kiada' Lakini Si Netflix"
+      },
+      excerpt: { 
+        en: "Textbooks lie. Real people mumble, link words, and use slang. Learn how to decode real-world speech with the 'Active Transcription' method.", 
+        ko: "교과서는 거짓말을 합니다. 실제 사람들은 웅얼거리고, 단어를 잇고, 은어를 씁니다. '능동적 받아쓰기' 방법으로 실전 회화를 해독하는 법을 배우세요.",
+        ja: "教科書は嘘をつきます。実際の人々はつぶやき、言葉をつなぎ、スラングを使います。「アクティブ・ディクテーション」メソッドで現実世界の言葉を解読する方法を学びましょう。",
+        zh: "教科書在撒谎。真实的人会含糊其辞、连读单词并使用俚语。学习如何用“主动听写”法解码真实世界的语音。",
+        th: "หนังสือเรียนโกหก คนจริงๆ พูดพึมพำ เชื่อมคำ และใช้คำแสลง เรียนรู้วิธีถอดรหัสคำพูดในโลกแห่งความเป็นจริงด้วยวิธี 'การเขียนตามคำบอกเชิงรุก'",
+        vi: "Sách giáo khoa nói dối. Người thật lầm bầm, nối từ và dùng tiếng lóng. Tìm hiểu cách giải mã lời nói trong thế giới thực bằng phương pháp 'Nghe chép chính tả chủ động'.",
+        id: "Buku pelajaran berbohong. Orang sungguhan bergumam, menghubungkan kata, dan menggunakan bahasa gaul. Pelajari cara memecahkan kode ucapan dunia nyata dengan metode 'Dikte Aktif'.",
+        es: "Los libros de texto mienten. La gente real murmura, une palabras y usa jerga. Aprende a decodificar el habla del mundo real con el método de 'Dictado Activo'.",
+        pt: "Os livros didáticos mentem. Pessoas reais resmungam, ligam palavras e usam gírias. Aprenda a decodificar a fala do mundo real com o método de 'Ditado Ativo'.",
+        fr: "Les manuels mentent. Les vrais gens marmonnent, lient les mots et utilisent de l'argot. Apprenez à décoder le discours du monde réel avec la méthode de la « Dictée Active ».",
+        de: "Lehrbücher lügen. Echte Menschen murmeln, verbinden Wörter und verwenden Slang. Lernen Sie, wie Sie mit der „Aktiven Diktat“-Methode echte Sprache entschlüsseln.",
+        tr: "Ders kitapları yalan söyler. Gerçek insanlar mırıldanır, kelimeleri birleştirir ve argo kullanır. 'Aktif Dikte' yöntemiyle gerçek dünyadaki konuşmayı nasıl çözeceğinizi öğrenin.",
+        ar: "الكتب المدرسية تكذب. يتمتم الناس الحقيقيون، ويربطون الكلمات، ويستخدمون العامية. تعلم كيفية فك تشفير الكلام في العالم الحقيقي باستخدام طريقة 'الإملاء النشط'.",
+        hi: "पाठ्यपुस्तकें झूठ बोलती हैं। असली लोग बड़बड़ाते हैं, शब्दों को जोड़ते हैं और कठबोली का उपयोग करते हैं। 'सक्रिय श्रुतलेख' पद्धति के साथ वास्तविक दुनिया के भाषण को डिकोड करना सीखें।",
+        ru: "Учебники лгут. Реальные люди бормочут, связывают слова и используют сленг. Узнайте, как расшифровать речь реального мира с помощью метода «Активного диктанта».",
+        bn: "পাঠ্যপুস্তক মিথ্যা বলে। আসল মানুষ বিড়বিড় করে, শব্দ লিঙ্ক করে এবং অপশব্দ ব্যবহার করে। 'সক্রিয় ডিকটেশন' পদ্ধতির মাধ্যমে কীভাবে বাস্তব-বিশ্বের বক্তৃতা ডিকোড করবেন তা শিখুন।",
+        ur: "درسی کتابیں جھوٹ بولتی ہیں۔ حقیقی لوگ بڑبڑاتے ہیں، الفاظ کو جوڑتے ہیں، اور بول چال کا استعمال کرتے ہیں۔ 'ایکٹو ڈکٹیشن' کے طریقہ کار کے ساتھ حقیقی دنیا کی تقریر کو ڈی کوڈ کرنے کا طریقہ سیکھیں۔",
+        ne: "पाठ्यपुस्तकहरू झूट बोल्छन्। वास्तविक मानिसहरू गनगन गर्छन्, शब्दहरू जोड्छन्, र अपशब्द प्रयोग गर्छन्। 'सक्रिय श्रुतलेख' विधिको साथ वास्तविक-विश्व भाषण कसरी डिकोड गर्ने सिक्नुहोस्।",
+        si: "පෙළපොත් බොරු කියයි. සැබෑ මිනිසුන් මුමුණයි, වචන සම්බන්ධ කරයි, සහ ස්ලැං භාවිතා කරයි. 'සක්‍රීය අක්ෂර වින්‍යාසය' ක්‍රමය සමඟ සැබෑ ලෝකයේ කථාව විකේතනය කරන්නේ කෙසේදැයි ඉගෙන ගන්න.",
+        sw: "Vitabu vya kiada vinasema uwongo. Watu halisi hunung'unika, huunganisha maneno, na kutumia misimu. Jifunze jinsi ya kusimbua matamshi ya ulimwengu halisi ukitumia mbinu ya 'Imla Inayotumika'."
+      },
+      content: { 
+         en: POST_LISTENING_CONTENT_EN,
+         ko: POST_LISTENING_CONTENT_KO,
+         ja: POST_LISTENING_CONTENT_JA,
+         zh: POST_LISTENING_CONTENT_ZH,
+         th: POST_LISTENING_CONTENT_TH,
+         vi: POST_LISTENING_CONTENT_VI,
+         id: POST_LISTENING_CONTENT_ID,
+         es: POST_LISTENING_CONTENT_ES,
+         pt: POST_LISTENING_CONTENT_PT,
+         fr: POST_LISTENING_CONTENT_FR,
+         de: POST_LISTENING_CONTENT_DE,
+         tr: POST_LISTENING_CONTENT_TR,
+         ar: POST_LISTENING_CONTENT_AR,
+         hi: POST_LISTENING_CONTENT_HI,
+         ru: POST_LISTENING_CONTENT_RU,
+         bn: POST_LISTENING_CONTENT_BN,
+         ur: POST_LISTENING_CONTENT_UR,
+         ne: POST_LISTENING_CONTENT_NE,
+         si: POST_LISTENING_CONTENT_SI,
+         sw: POST_LISTENING_CONTENT_SW
+      },
+      coverImage: "/assets/blog/listening-comprehension.png",
+      author: "Dr. Lingua",
+      tags: ["Listening", "Connected Speech", "Native Speaker", "Method"],
+      published: true,
+      createdAt: new Date("2024-02-05"),
+      updatedAt: new Date("2024-02-05")
    }
 ];

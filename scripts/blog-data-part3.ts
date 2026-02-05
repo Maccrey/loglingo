@@ -2,742 +2,7 @@
 import { BlogPost } from "../src/domain/blog";
 
 // ==========================================
-// Post 4: Pronunciation Mistakes
-// ==========================================
-const POST_PRONUNCIATION_CONTENT_EN = `
-        <article>
-          <p>You know the grammar. You have a great vocabulary. But as soon as you open your mouth, people switch to English. Is it your accent? Usually, it's not the "sound" of the letters that's the problem, but the "music" of the sentence. Here are the top 5 pronunciation traps that sophisticated learners fall into.</p>
-
-          <h2>1. Monotone Speaking</h2>
-          <p>Every language has a melody. English goes up and down to show stress and emotion. Italian sings. Japanese is flatter but has pitch accents. If you apply your native language's melody to a new language, you will sound robotic or foreign.</p>
-          <p><strong>Fix:</strong> Hum the sentence before you say it. Focus purely on the up and down movement of the voice, ignoring the words.</p>
-
-          <h2>2. Over-enunciating Every Word</h2>
-          <p>In school, we are taught to speak CLEAR-LY. But native speakers don't speak clearly. They connect words together (linking). "Put it on" sounds like "Pu-ti-ton". If you pronounce "Put" -> pause -> "it" -> pause -> "on", you sound unnatural and aggressive.</p>
-          <p><strong>Fix:</strong> Learn IPA (International Phonetic Alphabet) for connected speech features like elision and assimilation.</p>
-
-          <h2>3. Misplaced Stress</h2>
-          <p>In English, stress changes the meaning. "PRE-sent" is a gift. "Pre-SENT" is a verb. In Spanish, "Pa-PA" is dad, "PA-pa" is potato. Getting the stress wrong can lead to embarrassing misunderstandings.</p>
-
-          <h2>4. Ignoring Vowel Length</h2>
-          <p>In many languages (like Japanese or Finnish), the length of the vowel changes the word completely. "Obasan" (Aunt) vs "Obaasan" (Grandmother). In English, "Sheep" vs "Ship" is largely about vowel quality and length. Ignoring this makes your speech muddy.</p>
-
-          <h2>5. The "Th" Obsession</h2>
-          <p>Many learners obsess over the tricky "Th" sound. Ironically, getting this wrong rarely hurts communication. Saying "ze car" instead of "the car" is perfectly understandable.</p>
-          <p><strong>The Real Trap:</strong> Focusing so hard on "Th" that you mess up the rhythm of the rest of the sentence. Prioritize rhythm and vowel sounds over difficult consonants.</p>
-
-          <div class="tip-box">
-             <strong>Action Plan:</strong> Record yourself speaking for 1 minute. Listen to it. Then listen to a native speaker saying the same thing. note the differences in speed, pauses, and pitch. That gap is your curriculum.
-          </div>
-        </article>
-`;
-
-const POST_PRONUNCIATION_CONTENT_KO = `
-        <article>
-          <p>문법도 완벽하고 단어도 많이 아는데, 입만 열면 상대방이 영어로 대답하나요? 단순히 발음이 안 좋아서일까요? 보통 문제는 개별 철자의 '소리'가 아니라 문장의 '음악'에 있습니다. 고급 학습자들도 흔히 저지르는 5가지 발음 함정을 소개합니다.</p>
-
-          <h2>1. 로봇 같은 단조로운 톤 (Monotone)</h2>
-          <p>모든 언어에는 고유의 멜로디가 있습니다. 영어는 감정과 강조를 위해 억양이 위아래로 심하게 요동칩니다. 이탈리아어는 노래하듯 흐르죠. 반면 한국어는 비교적 평탄합니다. 모국어의 멜로디를 그대로 가져가면 로봇처럼 들리거나 화난 것처럼 들릴 수 있습니다.</p>
-          <p><strong>해결책:</strong> 문장을 말하기 전에 허밍(Humming)으로 소리 내보세요. 가사를 빼고 음의 높낮이만 따라 해보는 겁니다.</p>
-
-          <h2>2. 또박또박 끊어서 말하기</h2>
-          <p>학교에서는 "또박또박 말해라"라고 배웁니다. 하지만 원어민들은 그렇지 않습니다. 그들은 단어를 뭉개고 연결합니다(연음). "Put it on"은 실제로는 "푸-티-톤"처럼 들립니다. 이걸 "풋, 잇, 온"이라고 정직하게 발음하면 매우 어색하고 기계적으로 들립니다.</p>
-          <p><strong>해결책:</strong> 연음(Linking) 규칙을 배우세요. 단어와 단어가 만날 때 소리가 어떻게 변하는지(Elision, Assimilation)를 익혀야 원어민처럼 들립니다.</p>
-
-          <h2>3. 강세(Stress) 무시하기</h2>
-          <p>영어에서 강세는 뜻을 바꿉니다. "PRE-sent"는 선물, "Pre-SENT"는 발표하다/제출하다입니다. 스페인어에서 "Pa-PA"는 아빠, "PA-pa"는 감자입니다. 강세를 틀리면 전혀 다른 뜻이 되어버립니다.</p>
-
-          <h2>4. 장단음(Vowel Length) 무시하기</h2>
-          <p>일본어에서 "오바상(아주머니)"과 "오바-상(할머니)"은 길이 하나 차이로 뜻이 바뀝니다. 영어의 "Sheep(양)"과 "Ship(배)"도 모음의 길이와 품질 차이입니다. 이 미세한 길이를 무시하면 발음이 뭉개져 들립니다.</p>
-
-          <h2>5. 어려운 발음에만 집착하기 ('Th' 사운드 등)</h2>
-          <p>많은 학습자가 'Th'나 'R' 발음에 목숨을  겁니다. 아이러니하게도 이런 자음 발음이 조금 틀려도("The"를 "Ze"라고 해도) 의사소통에는 큰 지장이 없습니다.</p>
-          <p><strong>진짜 함정:</strong> 어려운 발음 하나 신경 쓰느라 문장 전체의 리듬을 망치는 것입니다. 자음 하나보다 문장 전체의 박자와 모음의 정확성이 훨씬 중요합니다.</p>
-
-          <div class="tip-box">
-             <strong>실천 계획:</strong> 본인의 목소리를 1분간 녹음하세요. 원어민 파일과 비교해서 들어보세요. 내 발음이 틀린 게 아니라, '속도', '쉬는 구간', '음정'이 다르다는 것을 깨닫게 될 것입니다. 그 차이를 메우는 것이 발음 교정의 시작입니다.
-          </div>
-        </article>
-`;
-
-const POST_PRONUNCIATION_CONTENT_JA = `
-        <article>
-          <p>文法は完璧。語彙も豊富。でも口を開いた瞬間、相手は英語に切り替える。あなたのアクセントのせい？ 多くの場合は、個々の文字の「音」ではなく、文の「音楽」が問題です。上級者でも陥りやすい5つの発音の落とし穴を紹介します。</p>
-
-          <h2>1. ロボットのような単調な話し方（Monotone）</h2>
-          <p>すべての言語にはメロディーがあります。英語は感情や強調を示すために、ピッチが激しく上下します。日本語は比較的平坦ですが、そのまま英語に当てはめると、ロボットのように聞こえたり、不機嫌に聞こえたりします。</p>
-          <p><strong>解決策：</strong> 話す前に文をハミングしてください。歌詞を無視して、声の上下の動きだけに集中します。</p>
-
-          <h2>2. 一語一句はっきりと発音しすぎる</h2>
-          <p>学校では「はっきりと話しなさい」と教わります。しかし、ネイティブははっきり話しません。単語を繋げます（リエゾン）。"Put it on" は "Pu-ti-ton" のように聞こえます。「プット・イット・オン」と切って話すと、不自然で攻撃的に聞こえます。</p>
-          <p><strong>解決策：</strong> IPA（国際音声記号）を学び、音がどのように脱落したり同化したりするかを理解しまょう。</p>
-
-          <h2>3. ストレス（強勢）の間違い</h2>
-          <p>英語ではストレスが意味を変えます。"PRE-sent" はプレゼント。"Pre-SENT" は提示する。日本語にはこの強弱のリズムがあまりないので、これを間違えると恥ずかしい誤解を招くことがあります。</p>
-
-          <h2>4. 母音の長さを無視する</h2>
-          <p>日本語の「おばさん」と「おばあさん」のように、英語でも "Sheep"（羊）と "Ship"（船）は母音の長さと質で区別されます。これを無視すると、発音が濁って聞こえます。</p>
-
-          <h2>5. "Th" への執着</h2>
-          <p>多くの学習者が "Th" の発音にこだわります。皮肉なことに、これを少し間違えても（"The" を "Ze" と言っても）、コミュニケーションにはほとんど影響しません。</p>
-          <p><strong>真の罠：</strong> 難しい子音に集中しすぎて、文全体のリズムを崩してしまうことです。難しい子音よりも、リズムと母音の音質を優先してください。</p>
-
-          <div class="tip-box">
-             <strong>アクションプラン：</strong> 1分間自分の声を録音してください。それを聞き、同じ内容を話すネイティブの音声と比べてください。その「ギャップ」こそが、あなたのカリキュラムです。
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_ZH = `
-        <article>
-          <p>你懂语法。你有很大的词汇量。但是一旦你开口，人们就会切换到英语。是你的口音吗？通常，问题不在于字母的“声音”，而在于句子的“音乐”。这里有高级学习者也会掉进的5个发音陷阱。</p>
-
-          <h2>1. 单调的说话方式（Monotone）</h2>
-          <p>每种语言都有旋律。英语通过音调的起伏来表达重音和情感。汉语有声调，但英语的句调起伏更大。如果你用母语的旋律说英语，你会听起来像机器人或外国人。</p>
-          <p><strong>修正：</strong> 在说之前哼唱句子。专注于声音的上下移动，忽略单词。</p>
-
-          <h2>2. 过度清晰地发每一个词</h2>
-          <p>在学校，我们被教导要说清楚(CLEAR-LY)。但母语人士并不说得那么“清楚”。他们把词连在一起（连读）。"Put it on" 听起来像 "Pu-ti-ton"。如果你发音 "Put" -> 停顿 -> "it" -> 停顿 -> "on"，你听起来既不自然又咄咄逼人。</p>
-          <p><strong>修正：</strong> 学习IPA（国际音标）中的连读特征，如省音和同化。</p>
-
-          <h2>3. 错误的重音</h2>
-          <p>在英语中，重音改变意思。"PRE-sent" 是礼物。"Pre-SENT" 是动词“呈现”。弄错重音会导致尴尬的误解。</p>
-
-          <h2>4. 忽视元音长度</h2>
-          <p>在许多语言中，元音的长度完全改变了单词。英语中的 "Sheep"（绵羊）vs "Ship"（船）很大程度上取决于元音的质量和长度。忽视这一点会让你的讲话含糊不清。</p>
-
-          <h2>5. 对 "Th" 的痴迷</h2>
-          <p>许多学习者痴迷于棘手的 "Th" 音。讽刺的是，弄错这个很少会伤害沟通。把 "the car" 说成 "ze car" 完全可以理解。</p>
-          <p><strong>真正的陷阱：</strong> 太专注于 "Th" 以至于弄乱了句子其余部分的节奏。优先考虑节奏和元音，而不是困难的辅音。</p>
-
-          <div class="tip-box">
-             <strong>行动计划：</strong> 录下自己说1分钟的话。听它。然后听母语人士说同样的话。注意速度、停顿和音调的差异。那个差距就是你的课程。
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_ES = `
-        <article>
-          <p>Conoces la gramática. Tienes un gran vocabulario. Pero tan pronto como abres la boca, la gente cambia al inglés. ¿Es tu acento? Por lo general, no es el "sonido" de las letras el problema, sino la "música" de la frase. Aquí están las 5 trampas de pronunciación en las que caen los estudiantes sofisticados.</p>
-
-          <h2>1. Hablar monótonamente</h2>
-          <p>Cada idioma tiene una melodía. El inglés sube y baja para mostrar estrés y emoción. El español es rápido y ametrallador. Si aplicas la melodía de tu lengua materna a una nueva, sonarás robótico.</p>
-          <p><strong>Solución:</strong> Tararea la frase antes de decirla. Concéntrate puramente en el movimiento hacia arriba y hacia abajo de la voz.</p>
-
-          <h2>2. Sobre-enunciar cada palabra</h2>
-          <p>En la escuela, se nos enseña a hablar TÚ-TI-BEN-TE. Pero los nativos conectan las palabras (linking). "Put it on" suena como "Pu-ti-ton". Si pronuncias cada palabra por separado, suenas antinatural.</p>
-          <p><strong>Solución:</strong> Aprende el IPA para características de habla conectada como la elisión y la asimilación.</p>
-
-          <h2>3. Estrés mal colocado</h2>
-          <p>En inglés, el estrés cambia el significado. "PRE-sent" es un regalo. "Pre-SENT" es presentar. Equivocarse en el estrés puede llevar a malentendidos vergonzosos.</p>
-
-          <h2>4. Ignorar la longitud de las vocales</h2>
-          <p>"Sheep" vs "Ship". En español, las vocales son puras y constantes. En inglés, la longitud importa. Ignorar esto hace que tu habla sea confusa.</p>
-
-          <h2>5. La obsesión con la "Th"</h2>
-          <p>Muchos estudiantes se obsesionan con el sonido "Th". Irónicamente, equivocarse en esto rara vez daña la comunicación. Prioriza el ritmo sobre las consonantes difíciles.</p>
-
-          <div class="tip-box">
-             <strong>Plan de Acción:</strong> Grábate hablando durante 1 minuto. Escúchalo. Luego escucha a un nativo decir lo mismo. Esa brecha es tu plan de estudios.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_FR = `
-        <article>
-          <p>Vous connaissez la grammaire. Vous avez un grand vocabulaire. Mais dès que vous ouvrez la bouche, les gens passent à l'anglais. Est-ce votre accent ? Généralement, ce n'est pas le "son" des lettres le problème, mais la "musique" de la phrase. Voici les 5 pièges de prononciation dans lesquels tombent les apprenants sophistiqués.</p>
-
-          <h2>1. Parler de manière monotone</h2>
-          <p>Chaque langue a une mélodie. L'anglais monte et descend pour montrer l'accent et l'émotion. Le français est plus fluide et égal. Si vous appliquez la mélodie de votre langue maternelle, vous sonnerez robotique.</p>
-          <p><strong>Solution :</strong> Fredonnez la phrase avant de la dire. Concentrez-vous uniquement sur le mouvement de haut en bas de la voix.</p>
-
-          <h2>2. Sur-énoncer chaque mot</h2>
-          <p>À l'école, on nous apprend à bien ar-ti-cu-ler. Mais les natifs lient les mots ensemble. "Put it on" sonne comme "Pu-ti-ton". Si vous prononcez chaque mot séparément, vous semblez peu naturel.</p>
-          <p><strong>Solution :</strong> Apprenez les liaisons et les élisions naturelles de l'anglais.</p>
-
-          <h2>3. Accent tonique mal placé</h2>
-          <p>En anglais, l'accent tonique change le sens. "PRE-sent" est un cadeau. "Pre-SENT" est un verbe. En français, l'accent est souvent à la fin. Se tromper d'accent peut mener à des malentendus.</p>
-
-          <h2>4. Ignorer la longueur des voyelles</h2>
-          <p>"Sheep" vs "Ship". En français, la différence de longueur est subtile. En anglais, elle est cruciale. Ignorer cela rend votre discours boueux.</p>
-
-          <h2>5. L'obsession du "Th"</h2>
-          <p>Beaucoup d'apprenants sont obsédés par le son "Th". Ironiquement, se tromper ici nuit rarement à la communication. Priorisez le rythme sur les consonnes difficiles.</p>
-
-          <div class="tip-box">
-             <strong>Plan d'Action :</strong> Enregistrez-vous en train de parler pendant 1 minute. Écoutez. Puis écoutez un natif dire la même chose. Cet écart est votre programme d'études.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_DE = `
-        <article>
-          <p>Sie kennen die Grammatik. Sie haben ein großes Vokabular. Aber sobald Sie den Mund aufmachen, wechseln die Leute zu Englisch. Ist es Ihr Akzent? Meistens ist nicht der "Klang" der Buchstaben das Problem, sondern die "Musik" des Satzes. Hier sind die Top 5 Aussprachefallen.</p>
-
-          <h2>1. Monotones Sprechen</h2>
-          <p>Jede Sprache hat eine Melodie. Englisch geht auf und ab, um Betonung und Emotion zu zeigen. Wenn Sie die Melodie Ihrer Muttersprache auf eine neue Sprache anwenden, klingen Sie roboterhaft.</p>
-          <p><strong>Lösung:</strong> Summen Sie den Satz, bevor Sie ihn sagen. Konzentrieren Sie sich rein auf die Auf- und Abbewegung der Stimme.</p>
-
-          <h2>2. Jedes Wort überbetonen</h2>
-          <p>In der Schule wird uns beigebracht, DEUT-LICH zu sprechen. Aber Muttersprachler verbinden Wörter (Linking). "Put it on" klingt wie "Pu-ti-ton".</p>
-          <p><strong>Lösung:</strong> Lernen Sie das IPA für verbundene Sprachmerkmale wie Elision und Assimilation.</p>
-
-          <h2>3. Falsche Betonung</h2>
-          <p>Im Englischen ändert die Betonung die Bedeutung. "PRE-sent" ist ein Geschenk. "Pre-SENT" ist präsentieren. Eine falsche Betonung kann zu peinlichen Missverständnissen führen.</p>
-
-          <h2>4. Vokallänge ignorieren</h2>
-          <p>"Sheep" vs "Ship". Im Deutschen gibt es auch lange und kurze Vokale (Weg vs. weg), nutzen Sie dieses Wissen für das Englische.</p>
-
-          <h2>5. Die "Th"-Obsession</h2>
-          <p>"Th" ist schwer. Aber "Ze car" statt "The car" zu sagen, ist völlig verständlich. Konzentrieren Sie sich lieber auf den Rhythmus.</p>
-
-          <div class="tip-box">
-             <strong>Aktionsplan:</strong> Nehmen Sie sich 1 Minute lang beim Sprechen auf. Hören Sie es sich an. Vergleichen Sie es mit einem Muttersprachler. Diese Lücke ist Ihr Lehrplan.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_BN = `
-        <article>
-          <p>আপনি ব্যাকরণ জানেন। আপনার একটি দুর্দান্ত শব্দভান্ডার আছে। কিন্তু আপনি মুখ খুললেই মানুষ ইংরেজিতে চলে যায়। এটা কি আপনার অ্যাকসেন্ট? সাধারণত, অক্ষরের "শব্দ" সমস্যা নয়, বরং বাক্যের "সংগীত" সমস্যা। এখানে শীর্ষ ৫টি উচ্চারণ ফাঁদ রয়েছে যা পরিশীলিত শিক্ষার্থীরাও পড়ে।</p>
-
-          <h2>১. একঘেয়ে কথা বলা (Monotone)</h2>
-          <p>প্রতিটি ভাষার একটি সুর আছে। চাপ এবং আবেগ দেখানোর জন্য ইংরেজি উপরে এবং নিচে যায়। ইতালীয় গান করে। জাপানি চ্যাপ্টা কিন্তু পিচ অ্যাকসেন্ট আছে। আপনি যদি একটি নতুন ভাষায় আপনার মাতৃভাষার সুর প্রয়োগ করেন, তবে আপনাকে রোবোটিক বা বিদেশী শোনাবে।</p>
-          <p><strong>সমাধান:</strong> কথা বলার আগে বাক্যটি গুনগুন করুন। শব্দের কথা উপেক্ষা করে সম্পূর্ণরূপে ভয়েসের উপরে এবং নিচের গতিবিধির উপর ফোকাস করুন।</p>
-
-          <h2>২. প্রতিটি শব্দকে অতি-উচ্চারণ করা</h2>
-          <p>স্কুলে, আমাদের পরিষ্কারভাবে কথা বলতে শেখানো হয়। কিন্তু নেটিভ স্পিকাররা স্পষ্টভাবে কথা বলে না। তারা শব্দগুলি একসাথে সংযুক্ত করে (লিঙ্কিং)। "Put it on" "Pu-ti-ton" এর মতো শোনাচ্ছে। আপনি যদি "Put" -> বিরতি -> "it" -> বিরতি -> "on" উচ্চারণ করেন, তবে আপনাকে অপ্রাকৃতিক এবং আক্রমণাত্মক শোনাবে।</p>
-          <p><strong>সমাধান:</strong> সংযোগ, অ্যাসিমিলেশন এবং বিলোপের মতো সংযুক্ত বক্তৃতার বৈশিষ্ট্যগুলির জন্য IPA (আন্তর্জাতিক ফোনেটিক বর্ণমালা) শিখুন।</p>
-
-          <h2>৩. ভুল জায়গায় চাপ (Stress)</h2>
-          <p>ইংরেজিতে, স্ট্রেস অর্থ পরিবর্তন করে। "PRE-sent" একটি উপহার। "Pre-SENT" একটি ক্রিয়াপদ উপস্থাপন করা। স্প্যানিশ ভাষায় "Pa-PA" বাবা, "PA-pa" আলু। স্ট্রেস ভুল করা বিব্রতকর ভুল বোঝাবুঝির কারণ হতে পারে।</p>
-
-          <h2>৪. স্বরবর্ণের দৈর্ঘ্য উপেক্ষা করা</h2>
-          <p>অনেক ভাষায় (যেমন জাপানি বা ফিনিশ), স্বরবর্ণের দৈর্ঘ্য শব্দটি সম্পূর্ণরূপে পরিবর্তন করে। "Obasan" (মাসি) বনাম "Obaasan" (দাদী)। ইংরেজিতে, "Sheep" বনাম "Ship" মূলত স্বরবর্ণের গুণমান এবং দৈর্ঘ্য সম্পর্কে। এটি উপেক্ষা করা আপনার কথা বলাকে অস্পষ্ট করে তোলে।</p>
-
-          <h2>৫. "Th" আবেশ</h2>
-          <p>অনেক শিক্ষার্থী চতুর "Th" শব্দের প্রতি আচ্ছন্ন। হাস্যকরভাবে, এটি ভুল করা খুব কমই যোগাযোগের ক্ষতি করে। "the car" এর পরিবর্তে "ze car" বলা পুরোপুরি বোধগম্য।</p>
-          <p><strong>আসল ফাঁদ:</strong> "Th" এর উপর এত বেশি ফোকাস করা যে আপনি বাকী বাক্যের ছন্দ নষ্ট করে ফেলেন। কঠিন ব্যঞ্জনবর্ণের চেয়ে ছন্দ এবং স্বরবর্ণের শব্দগুলিকে অগ্রাধিকার দিন।</p>
-
-          <div class="tip-box">
-             <strong>কর্ম পরিকল্পনা:</strong> ১ মিনিটের জন্য নিজের কথা বলার রেকর্ড করুন। এটা শুনুন। তারপরে একজন নেটিভ স্পিকার একই কথা বলছেন তা শুনুন। গতি, বিরতি এবং পিচের পার্থক্যগুলি নোট করুন। সেই ব্যবধানই আপনার পাঠ্যক্রম।
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_UR = `
-        <article>
-          <p>آپ گرامر جانتے ہیں۔ آپ کے پاس بہت اچھا ذخیرہ الفاظ ہے۔ لیکن جیسے ہی آپ اپنا منہ کھولتے ہیں، لوگ انگریزی میں بات کرنے لگتے ہیں۔ کیا یہ آپ کا لہجہ ہے؟ عام طور پر، حروف کی "آواز" مسئلہ نہیں ہوتی، بلکہ جملے کی "موسیقی" ہوتی ہے۔ یہاں تلفظ کے 5 اہم جال ہیں جن میں نفیس سیکھنے والے گر جاتے ہیں۔</p>
-
-          <h2>1. ایک لہجے میں بولنا (Monotone)</h2>
-          <p>ہر زبان کی ایک دھن ہوتی ہے۔ تناؤ اور جذبات کو ظاہر کرنے کے لیے انگریزی اوپر اور نیچے جاتی ہے۔ اطالوی گاتی ہے۔ جاپانی زیادہ ہموار ہے لیکن اس میں پچ لہجے ہیں۔ اگر آپ اپنی مادری زبان کی دھن کو نئی زبان پر لاگو کرتے ہیں، تو آپ روبوٹک یا غیر ملکی لگیں گے۔</p>
-          <p><strong>حل:</strong> جملہ کہنے سے پہلے اسے گنگنائیں۔ الفاظ کو نظر انداز کرتے ہوئے، مکمل طور پر آواز کی اوپر اور نیچے کی حرکت پر توجہ دیں۔</p>
-
-          <h2>2. ہر لفظ کو زیادہ واضح کرنا</h2>
-          <p>اسکول میں، ہمیں صاف صاف بولنا سکھایا جاتا ہے۔ لیکن مقامی بولنے والے صاف نہیں بولتے۔ وہ الفاظ کو ایک ساتھ جوڑتے ہیں ( linking)۔ "Put it on" "Pu-ti-ton" جیسا لگتا ہے۔ اگر آپ "Put" -> وقفہ -> "it" -> وقفہ -> "on" کا تلفظ کرتے ہیں، تو آپ غیر فطری اور جارحانہ لگتے ہیں۔</p>
-          <p><strong>حل:</strong> ایلیژن اور انضمام جیسی مربوط تقریر کی خصوصیات کے لیے IPA (بین الاقوامی صوتیاتی حروف تہجی) سیکھیں۔</p>
-
-          <h2>3. غلط جگہ پر تناؤ (Stress)</h2>
-          <p>انگریزی میں، تناؤ معنی بدل دیتا ہے۔ "PRE-sent" ایک تحفہ ہے۔ "Pre-SENT" پیش کرنا ایک فعل ہے۔ ہسپانوی میں، "Pa-PA" والد ہے، "PA-pa" آلو ہے۔ تناؤ غلط کرنے سے شرمناک غلط فہمی ہو سکتی ہے۔</p>
-
-          <h2>4. سر کی لمبائی کو نظر انداز کرنا</h2>
-          <p>بہت سی زبانوں (جیسے جاپانی یا فینیش) میں، سر کی لمبائی لفظ کو مکمل طور پر بدل دیتی ہے۔ "Obasan" (خالہ) بمقابلہ "Obaasan" (دادی)۔ انگریزی میں، "Sheep" بمقابلہ "Ship" بڑی حد تک سر کے معیار اور لمبائی کے بارے میں ہے۔ اسے نظر انداز کرنا آپ کی بات کو دھندلا دیتا ہے۔</p>
-
-          <h2>5. "Th" کا جنون</h2>
-          <p>بہت سے سیکھنے والے مشکل "Th" آواز پر جنونی ہوتے ہیں۔ ستم ظریفی یہ ہے کہ اسے غلط کرنا شاذ و نادر ہی مواصلات کو نقصان پہنچاتا ہے۔ "the car" کے بجائے "ze car" کہنا بالکل قابل فہم ہے۔</p>
-          <p><strong>اصل جال:</strong> "Th" پر اتنا زیادہ توجہ دینا کہ آپ باقی جملے کی تال خراب کر دیں۔ مشکل حروف صحیح پر تال اور سر کی آوازوں کو ترجیح دیں۔</p>
-
-          <div class="tip-box">
-             <strong>ایکشن پلان:</strong> 1 منٹ تک خود کو بولتے ہوئے ریکارڈ کریں۔ اسے سنیں۔ پھر ایک مقامی بولنے والے کو وہی بات کہتے ہوئے سنیں۔ رفتار، وقفوں اور پچ میں فرق نوٹ کریں۔ وہ فرق آپ کا نصاب ہے۔
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_NE = `
-        <article>
-          <p>तपाइँ व्याकरण जान्नुहुन्छ। तपाइँसँग उत्कृष्ट शब्दावली छ। तर तपाइँले मुख खोल्ने बित्तिकै, मानिसहरू अंग्रेजीमा कुरा गर्न थाल्छन्। के यो तपाइँको उच्चारण हो? सामान्यतया, समस्या अक्षरहरूको "ध्वनि" होइन, तर वाक्यको "संगीत" हो। यहाँ शीर्ष ५ उच्चारण पासोहरू छन् जसमा परिष्कृत शिक्षार्थीहरू फस्छन्।</p>
-
-          <h2>१. एकसुरे बोल्ने (Monotone)</h2>
-          <p>हरेक भाषाको एउटा धुन हुन्छ। तनाव र भावना देखाउन अंग्रेजी माथि र तल जान्छ। इटालियन गाउँछ। जापानी धेरै समतल छ तर पिच एक्सेन्टहरू छन्। यदि तपाइँ नयाँ भाषामा तपाइँको मातृभाषाको धुन लागू गर्नुहुन्छ भने, तपाइँ रोबोटिक वा विदेशी सुन्नुहुनेछ।</p>
-          <p><strong>समाधान:</strong> वाक्य भन्नु अघि यसलाई गुनगुनाउनुहोस्। शब्दहरूलाई बेवास्ता गर्दै, आवाजको माथि र तलको आन्दोलनमा पूर्ण रूपमा ध्यान केन्द्रित गर्नुहोस्।</p>
-
-          <h2>२. हरेक शब्दलाई अत्यधिक उच्चारण गर्ने</h2>
-          <p>विद्यालयमा, हामीलाई स्पष्ट रूपमा बोल्न सिकाइन्छ। तर नेटिभ वक्ताहरूले स्पष्ट रूपमा बोल्दैनन्। तिनीहरू शब्दहरू एकसाथ जोड्छन् (linking)। "Put it on" "Pu-ti-ton" जस्तै सुनिन्छ। यदि तपाइँ "Put" -> पज -> "it" -> पज -> "on" उच्चारण गर्नुहुन्छ भने, तपाइँ अप्राकृतिक र आक्रामक सुन्नुहुन्छ।</p>
-          <p><strong>समाधान:</strong> इलिजन र एस्सिमिलेशन जस्ता जडित भाषण सुविधाहरूको लागि IPA (अन्तर्राष्ट्रिय फोनेटिक वर्णमाला) सिक्नुहोस्।</p>
-
-          <h2>३. गलत ठाउँमा तनाव (Misplaced Stress)</h2>
-          <p>अंग्रेजीमा, तनावले अर्थ परिवर्तन गर्छ। "PRE-sent" उपहार हो। "Pre-SENT" प्रस्तुत गर्नु क्रिया हो। स्पेनिशमा, "Pa-PA" बुबा हो, "PA-pa" आलु हो। तनाव गलत गर्दा लाजमर्दो गलतफहमी हुन सक्छ।</p>
-
-          <h2>४. स्वरको लम्बाइलाई बेवास्ता गर्ने</h2>
-          <p>धेरै भाषाहरूमा (जस्तै जापानी वा फिनिश), स्वरको लम्बाइले शब्दलाई पूर्ण रूपमा परिवर्तन गर्छ। "Obasan" (काकी) बनाम "Obaasan" (हजुरआमा)। अंग्रेजीमा, "Sheep" बनाम "Ship" धेरै हदसम्म स्वरको गुणस्तर र लम्बाइको बारेमा हो। यसलाई बेवास्ता गर्दा तपाइँको बोली धमिलो हुन्छ।</p>
-
-          <h2>५. "Th" को जुनून</h2>
-          <p>धेरै शिक्षार्थीहरू मुश्किल "Th" ध्वनिमा ग्रसित हुन्छन्। विडम्बनाको कुरा के हो भने, यसलाई गलत गर्दा विरलै सञ्चारलाई हानि पुर्‍याउँछ। "the car" को सट्टा "ze car" भन्नु पूर्ण रूपमा बुझ्न सकिन्छ।</p>
-          <p><strong>वास्तविक पासो:</strong> "Th" मा यति धेरै ध्यान केन्द्रित गर्नु कि तपाइँ बाँकी वाक्यको लय बिगार्नुहुन्छ। कठिन व्यञ्जनहरूमा लय र स्वर ध्वनिहरूलाई प्राथमिकता दिनुहोस्।</p>
-
-          <div class="tip-box">
-             <strong>कार्य योजना:</strong> १ मिनेटको लागि आफैलाई बोल्दै रेकर्ड गर्नुहोस्। यसलाई सुन्नुहोस्। त्यसपछि नेटिभ वक्ताले उही कुरा भनिरहेको सुन्नुहोस्। गति, पज र पिचमा भिन्नताहरू नोट गर्नुहोस्। त्यो खाडल तपाइँको पाठ्यक्रम हो।
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_TR = `
-        <article>
-          <p>Gramer biliyorsunuz. Harika bir kelime dağarcığınız var. Ama ağzınızı açar açmaz insanlar İngilizceye geçiyor. Aksanınız mı? Genellikle sorun harflerin "sesi" değil, cümlenin "müziği"dir. İşte sofistike öğrencilerin düştüğü en önemli 5 telaffuz tuzağı.</p>
-
-          <h2>1. Monoton Konuşma</h2>
-          <p>Her dilin bir melodisi vardır. İngilizce vurgu ve duyguyu göstermek için yukarı ve aşağı gider. İtalyanca şarkı söyler. Japonca daha düzdür ancak perde vurguları vardır. Ana dilinizin melodisini yeni bir dile uygularsanız, robotik veya yabancı gibi duyulursunuz.</p>
-          <p><strong>Çözüm:</strong> Söylemeden önce cümleyi mırıldanın. Kelimeleri görmezden gelerek sadece sesin yukarı ve aşağı hareketine odaklanın.</p>
-
-          <h2>2. Her Kelimeyi Aşırı Telaffuz Etmek</h2>
-          <p>Okulda bize AÇIK-ÇA konuşmamız öğretilir. Ancak anadili İngilizce olanlar net konuşmazlar. Kelimeleri birbirine bağlarlar (linking). "Put it on", "Pu-ti-ton" gibi duyulur. "Put" -> duraklama -> "it" -> duraklama -> "on" şeklinde telaffuz ederseniz, doğal olmayan ve agresif bir ses çıkarırsınız.</p>
-          <p><strong>Çözüm:</strong> Elision ve asimilasyon gibi bağlantılı konuşma özellikleri için IPA'yı (Uluslararası Fonetik Alfabe) öğrenin.</p>
-
-          <h2>3. Yanlış Yerleştirilmiş Vurgu (Stress)</h2>
-          <p>İngilizcede vurgu anlamı değiştirir. "PRE-sent" bir hediyedir. "Pre-SENT" sunmak fiilidir. İspanyolcada "Pa-PA" baba, "PA-pa" patatestir. Vurguyu yanlış yapmak utanç verici yanlış anlaşılmalara yol açabilir.</p>
-
-          <h2>4. Sesli Harf Uzunluğunu Göz Ardı Etmek</h2>
-          <p>Birçok dilde (Japonca veya Fince gibi), sesli harfin uzunluğu kelimeyi tamamen değiştirir. "Obasan" (Teyze) vs "Obaasan" (Büyükanne). İngilizcede "Sheep" vs "Ship" büyük ölçüde sesli harf kalitesi ve uzunluğu ile ilgilidir. Bunu göz ardı etmek konuşmanızı bulanıklaştırır.</p>
-
-          <h2>5. "Th" Takıntısı</h2>
-          <p>Birçok öğrenci zorlu "Th" sesi konusunda takıntılıdır. İronik olarak, bunu yanlış yapmak iletişime nadiren zarar verir. "the car" yerine "ze car" demek tamamen anlaşılabilir bir durumdur.</p>
-          <p><strong>Gerçek Tuzak:</strong> "Th"ye o kadar odaklanmak ki cümlenin geri kalanının ritmini bozarsınız. Zor ünsüzler yerine ritme ve sesli harf seslerine öncelik verin.</p>
-
-          <div class="tip-box">
-             <strong>Eylem Planı:</strong> 1 dakika boyunca konuşurken kendinizi kaydedin. Dinleyin. Sonra aynı şeyi söyleyen anadili İngilizce olan birini dinleyin. hız, duraklamalar ve perde farklarını not edin. Bu boşluk sizin müfredatınızdır.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_AR = `
-        <article>
-          <p>أنت تعرف القواعد. لديك مفردات رائعة. ولكن بمجرد أن تفتح فمك، يتحول الناس إلى اللغة الإنجليزية. هل هي لهجتك؟ عادة، ليست "صوت" الحروف هي المشكلة، بل "موسيقى" الجملة. إليك أهم 5 فخاخ للنطق يقع فيها المتعلمون المتطورون.</p>
-
-          <h2>1. التحدث بنبرة رتيبة (Monotone)</h2>
-          <p>كل لغة لها لحن. اللغة الإنجليزية تصعد وتهبط لإظهار التشديد والعاطفة. الإيطالية تغني. اليابانية أكثر تسطحًا ولكن بها لهجات طبقة الصوت. إذا قمت بتطبيق لحن لغتك الأم على لغة جديدة، فستبدو آليًا أو أجنبيًا.</p>
-          <p><strong>الحل:</strong> دندن الجملة قبل أن تقولها. ركز فقط على حركة الصوت صعودًا وهبوطًا، متجاهلاً الكلمات.</p>
-
-          <h2>2. المبالغة في نطق كل كلمة</h2>
-          <p>في المدرسة، تعلمنا أن نتحدث بوضوح. لكن المتحدثين الأصليين لا يتحدثون بوضوح. إنهم يربطون الكلمات معًا (linking). "Put it on" تبدو مثل "Pu-ti-ton". إذا نطقت "Put" -> توقف مؤقت -> "it" -> توقف مؤقت -> "on"، فستبدو غير طبيعي وعدواني.</p>
-          <p><strong>الحل:</strong> تعلم IPA (الأبجدية الصوتية الدولية) لميزات الكلام المتصل مثل الحذف والاستيعاب.</p>
-
-          <h2>3. التشديد في غير محله</h2>
-          <p>في اللغة الإنجليزية، يغير التشديد المعنى. "PRE-sent" هي هدية. "Pre-SENT" هو فعل يقدم. في الإسبانية، "Pa-PA" هو أبي، "PA-pa" هي البطاطس. يمكن أن يؤدي الخطأ في التشديد إلى سوء فهم محرج.</p>
-
-          <h2>4. تجاهل طول حرف العلة</h2>
-          <p>في العديد من اللغات (مثل اليابانية أو الفنلندية)، يغير طول حرف العلة الكلمة تمامًا. "Obasan" (عمة) مقابل "Obaasan" (جدة). في اللغة الإنجليزية، "Sheep" مقابل "Ship" يتعلق إلى حد كبير بجودة وطول حرف العلة. تجاهل هذا يجعل كلامك غير واضح.</p>
-
-          <h2>5. هوس "Th"</h2>
-          <p>يهوس العديد من المتعلمين بصوت "Th" الصعب. ومن المفارقات أن الخطأ في هذا نادرًا ما يضر بالتواصل. قول "ze car" بدلاً من "the car" أمر مفهوم تمامًا.</p>
-          <p><strong>الفخ الحقيقي:</strong> التركيز بشدة على "Th" لدرجة أنك تفسد إيقاع بقية الجملة. أعط الأولوية للإيقاع وأصوات حروف العلة على الحروف الساكنة الصعبة.</p>
-
-          <div class="tip-box">
-             <strong>خطة العمل:</strong> سجل نفسك وأنت تتحدث لمدة دقيقة واحدة. استمع إليه. ثم استمع إلى متحدث أصلي يقول نفس الشيء. لاحظ الاختلافات في السرعة والتوقفات وطبقة الصوت. هذه الفجوة هي منهجك الدراسي.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_HI = `
-        <article>
-          <p>आप व्याकरण जानते हैं। आपके पास बहुत अच्छी शब्दावली है। लेकिन जैसे ही आप अपना मुँह खोलते हैं, लोग अंग्रेजी में बात करने लगते हैं। क्या यह आपका लहज़ा है? आमतौर पर, समस्या अक्षरों की "ध्वनि" नहीं है, बल्कि वाक्य का "संगीत" है। यहाँ शीर्ष 5 उच्चारण जाल हैं जिनमें परिष्कृत शिक्षार्थी गिरते हैं।</p>
-
-          <h2>1. एकसुरा बोलना (Monotone)</h2>
-          <p>हर भाषा की एक धुन होती है। तनाव और भावना दिखाने के लिए अंग्रेजी ऊपर और नीचे जाती है। इतालवी गाती है। जापानी अधिक सपाट है लेकिन इसमें पिच एक्सेंट हैं। यदि आप अपनी मूल भाषा की धुन को किसी नई भाषा पर लागू करते हैं, तो आप रोबोटिक या विदेशी लगेंगे।</p>
-          <p><strong>सुधार:</strong> वाक्य बोलने से पहले उसे गुनगुनाएं। शब्दों को अनदेखा करते हुए, पूरी तरह से आवाज़ की ऊपर और नीचे की गति पर ध्यान केंद्रित करें।</p>
-
-          <h2>2. हर शब्द का अत्यधिक उच्चारण करना</h2>
-          <p>स्कूल में, हमें स्पष्ट रूप से बोलना सिखाया जाता है। लेकिन मूल वक्ता स्पष्ट रूप से नहीं बोलते हैं। वे शब्दों को एक साथ जोड़ते हैं (linking)। "Put it on" "Pu-ti-ton" जैसा लगता है। यदि आप "Put" -> विराम -> "it" -> विराम -> "on" का उच्चारण करते हैं, तो आप अप्राकृतिक और आक्रामक लगते हैं।</p>
-          <p><strong>सुधार:</strong> एलिजन और एसिमिलेशन जैसी कनेक्टेड स्पीच विशेषताओं के लिए IPA (इंटरनेशनल फोनेटिक अल्फाबेट) सीखें।</p>
-
-          <h2>3. गलत जगह पर तनाव (Misplaced Stress)</h2>
-          <p>अंग्रेजी में, तनाव अर्थ बदल देता है। "PRE-sent" एक उपहार है। "Pre-SENT" एक क्रिया है प्रस्तुत करना। स्पेनिश में, "Pa-PA" पिताजी है, "PA-pa" आलू है। तनाव को गलत करने से शर्मनाक गलतफहमी हो सकती है।</p>
-
-          <h2>4. स्वर की लंबाई को नज़रअंदाज़ करना</h2>
-          <p>कई भाषाओं (जैसे जापानी या फिनिश) में, स्वर की लंबाई शब्द को पूरी तरह से बदल देती है। "Obasan" (चाची) बनाम "Obaasan" (दादी)। अंग्रेजी में, "Sheep" बनाम "Ship" काफी हद तक स्वर की गुणवत्ता और लंबाई के बारे में है। इसे नज़रअंदाज़ करने से आपकी बोली मैली हो जाती है।</p>
-
-          <h2>5. "Th" का जुनून</h2>
-          <p>कई शिक्षार्थी मुश्किल "Th" ध्वनि पर जुनूनी होते हैं। विडंबना यह है कि इसे गलत करने से संचार को शायद ही कभी नुकसान पहुंचता है। "the car" के बजाय "ze car" कहना पूरी तरह से समझ में आता है।</p>
-          <p><strong>असली जाल:</strong> "Th" पर इतना ध्यान केंद्रित करना कि आप बाकी वाक्य की लय गड़बड़ कर दें। कठिन व्यंजनों पर लय और स्वर ध्वनियों को प्राथमिकता दें।</p>
-
-          <div class="tip-box">
-             <strong>कार्य योजना:</strong> 1 मिनट के लिए खुद को बोलते हुए रिकॉर्ड करें। इसे सुनें। फिर एक मूल वक्ता को वही बात कहते हुए सुनें। गति, विराम और पिच में अंतर नोट करें। वह अंतर आपका पाठ्यक्रम है।
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_RU = `
-        <article>
-          <p>Вы знаете грамматику. У вас отличный словарный запас. Но как только вы открываете рот, люди переходят на английский. Это ваш акцент? Обычно проблема не в "звуке" букв, а в "музыке" предложения. Вот 5 главных ловушек произношения, в которые попадают продвинутые ученики.</p>
-
-          <h2>1. Монотонная речь</h2>
-          <p>У каждого языка есть мелодия. Английский идет вверх и вниз, чтобы показать ударение и эмоции. Итальянский поет. Японский более плоский, но имеет тональные ударения. Если вы примените мелодию своего родного языка к новому языку, вы будете звучать как робот или иностранец.</p>
-          <p><strong>Исправление:</strong> Промычите предложение, прежде чем сказать его. Сосредоточьтесь исключительно на движении голоса вверх и вниз, игнорируя слова.</p>
-
-          <h2>2. Чрезмерное артикулирование каждого слова</h2>
-          <p>В школе нас учат говорить ЧЕТ-КО. Но носители языка не говорят четко. Они соединяют слова вместе (связывание). "Put it on" звучит как "Pu-ti-ton". Если вы произносите "Put" -> пауза -> "it" -> пауза -> "on", вы звучите неестественно и агрессивно.</p>
-          <p><strong>Исправление:</strong> Изучите IPA (Международный фонетический алфавит) для таких особенностей связной речи, как элизия и ассимиляция.</p>
-
-          <h2>3. Неправильное ударение</h2>
-          <p>В английском языке ударение меняет смысл. "PRE-sent" — это подарок. "Pre-SENT" — это глагол представлять. В испанском "Pa-PA" — это папа, "PA-pa" — это картошка. Неправильное ударение может привести к неловкому недопониманию.</p>
-
-          <h2>4. Игнорирование долготы гласных</h2>
-          <p>Во многих языках (например, японском или финском) долгота гласной полностью меняет слово. "Obasan" (Тетя) против "Obaasan" (Бабушка). В английском "Sheep" против "Ship" — это во многом вопрос качества и долготы гласной. Игнорирование этого делает вашу речь невнятной.</p>
-
-          <h2>5. Одержимость "Th"</h2>
-          <p>Многие ученики зацикливаются на сложном звуке "Th". По иронии судьбы, ошибка здесь редко вредит общению. Сказать "ze car" вместо "the car" вполне понятно.</p>
-          <p><strong>Настоящая ловушка:</strong> Так сильно концентрироваться на "Th", что вы сбиваете ритм остальной части предложения. Отдавайте приоритет ритму и гласным звукам, а не сложным согласным.</p>
-
-          <div class="tip-box">
-             <strong>План действий:</strong> Запишите свою речь на 1 минуту. Послушайте ее. Затем послушайте, как носитель языка говорит то же самое. обратите внимание на разницу в скорости, паузах и высоте тона. Этот разрыв — ваша учебная программа.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_TH = `
-        <article>
-          <p>คุณรู้ไวยากรณ์ คุณมีคำศัพท์มากมาย แต่ทันทีที่คุณอ้าปากพูด ผู้คนจะเปลี่ยนไปใช้ภาษาอังกฤษ เป็นเพราะสำเนียงของคุณหรือเปล่า? ปกติแล้ว ปัญหาไม่ได้อยู่ที่ "เสียง" ของตัวอักษร แต่อยู่ที่ "ดนตรี" ของประโยค นี่คือกับดักการออกเสียง 5 ข้อที่ผู้เรียนระดับสูงมักพลาด</p>
-
-          <h2>1. การพูดเสียงเดียว (Monotone)</h2>
-          <p>ทุกภาษามีท่วงทำนอง ภาษาอังกฤษมีเสียงขึ้นและลงเพื่อแสดงการเน้นเสียงและอารมณ์ ภาษาอิตาลีเหมือนการร้องเพลง ภาษาญี่ปุ่นราบเรียบกว่าแต่มี pitch accent หากคุณนำท่วงทำนองของภาษาแม่ไปใช้กับภาษาใหม่ คุณจะฟังดูเหมือนหุ่นยนต์หรือคนต่างชาติ</p>
-          <p><strong>วิธีแก้:</strong> ฮัมเพลงประโยคนั้นก่อนพูด โฟกัสไปที่การเคลื่อนไหวขึ้นและลงของเสียงเพียงอย่างเดียว โดยเพิกเฉยต่อคำศัพท์</p>
-
-          <h2>2. ออกเสียงชัดเกินไปทุกคำ</h2>
-          <p>ในโรงเรียน เราถูกสอนให้พูด ชัด-เจน แต่เจ้าของภาษาไม่ได้พูดชัดขนาดนั้น พวกเขาเชื่อมคำเข้าด้วยกัน (linking) "Put it on" ฟังดูเหมือน "Pu-ti-ton" ถ้าคุณออกเสียง "Put" -> หยุด -> "it" -> หยุด -> "on" คุณจะฟังดูไม่เป็นธรรมชาติและก้าวร้าว</p>
-          <p><strong>วิธีแก้:</strong> เรียนรู้ IPA สำหรับลักษณะการพูดที่เชื่อมโยงกัน เช่น การตัดเสียง (elision) และการกลมกลืนเสียง (assimilation)</p>
-
-          <h2>3. การเน้นเสียงผิดที่ (Misplaced Stress)</h2>
-          <p>ในภาษาอังกฤษ การเน้นเสียงเปลี่ยนความหมาย "PRE-sent" คือของขวัญ "Pre-SENT" คือกริยานำเสนอ ในภาษาสเปน "Pa-PA" คือพ่อ "PA-pa" คือมันฝรั่ง การเน้นเสียงผิดอาจนำไปสู่ความเข้าใจผิดที่น่าอาย</p>
-
-          <h2>4. ละเลยความยาวของสระ</h2>
-          <p>ในหลายภาษา (เช่น ญี่ปุ่นหรือฟินแลนด์) ความยาวของสระเปลี่ยนความหมายของคำไปอย่างสิ้นเชิง "Obasan" (ป้า) vs "Obaasan" (ย่า/ยาย) ในภาษาอังกฤษ "Sheep" vs "Ship" ขึ้นอยู่กับคุณภาพและความยาวของสระเป็นส่วนใหญ่ การละเลยสิ่งนี้ทำให้การพูดของคุณฟังดูขุ่นมัว</p>
-
-          <h2>5. การหมกมุ่นกับ "Th"</h2>
-          <p>ผู้เรียนจำนวนมากหมกมุ่นอยู่กับเสียง "Th" ที่ยุ่งยาก น่าแปลกที่การผิดพลาดตรงนี้แทบไม่ส่งผลเสียต่อการสื่อสาร การพูดว่า "ze car" แทน "the car" เป็นที่เข้าใจได้อย่างสมบูรณ์</p>
-          <p><strong>กับดักที่แท้จริง:</strong> การโฟกัสที่ "Th" มากเกินไปจนทำให้จังหวะของประโยคที่เหลือยุ่งเหยิง ให้ความสำคัญกับจังหวะและเสียงสระมากกว่าพยัญชนะที่ยาก</p>
-
-          <div class="tip-box">
-             <strong>แผนปฏิบัติการ:</strong> บันทึกเสียงตัวเองพูดเป็นเวลา 1 นาที ฟังมัน จากนั้นฟังเจ้าของภาษาพูดสิ่งเดียวกัน สังเกตความแตกต่างของความเร็ว การหยุดชั่วคราว และระดับเสียง ช่องว่างนั้นคือหลักสูตรของคุณ
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_VI = `
-        <article>
-          <p>Bạn biết ngữ pháp. Bạn có vốn từ vựng tuyệt vời. Nhưng ngay khi bạn mở miệng, mọi người chuyển sang nói tiếng Anh. Có phải do giọng của bạn không? Thông thường, vấn đề không phải là "âm thanh" của các chữ cái, mà là "âm nhạc" của câu. Dưới đây là 5 cái bẫy phát âm hàng đầu mà những người học trình độ cao mắc phải.</p>
-
-          <h2>1. Nói giọng đều đều (Monotone)</h2>
-          <p>Mỗi ngôn ngữ đều có một giai điệu. Tiếng Anh lên xuống để thể hiện trọng âm và cảm xúc. Tiếng Ý như đang hát. Tiếng Nhật phẳng hơn nhưng có trọng âm cao độ. Nếu bạn áp dụng giai điệu của tiếng mẹ đẻ vào một ngôn ngữ mới, bạn sẽ nghe như người máy hoặc người nước ngoài.</p>
-          <p><strong>Cách khắc phục:</strong> Ngâm nga câu nói trước khi bạn nói. Chỉ tập trung vào sự chuyển động lên xuống của giọng nói, bỏ qua các từ.</p>
-
-          <h2>2. Phát âm quá rõ từng từ</h2>
-          <p>Ở trường, chúng ta được dạy phải nói RÕ RÀNG. Nhưng người bản xứ không nói rõ ràng như vậy. Họ nối các từ lại với nhau (linking). "Put it on" nghe giống như "Pu-ti-ton". Nếu bạn phát âm "Put" -> ngưng -> "it" -> ngưng -> "on", bạn nghe không tự nhiên và có vẻ hung hăng.</p>
-          <p><strong>Cách khắc phục:</strong> Học IPA cho các đặc điểm nói nối như nuốt âm (elision) và đồng hóa âm (assimilation).</p>
-
-          <h2>3. Đặt sai trọng âm</h2>
-          <p>Trong tiếng Anh, trọng âm làm thay đổi ý nghĩa. "PRE-sent" là món quà. "Pre-SENT" là động từ trình bày. Trong tiếng Tây Ban Nha, "Pa-PA" là bố, "PA-pa" là khoai tây. Sai trọng âm có thể dẫn đến những hiểu lầm đáng xấu hổ.</p>
-
-          <h2>4. Bỏ qua độ dài nguyên âm</h2>
-          <p>Trong nhiều ngôn ngữ (như tiếng Nhật hoặc tiếng Phần Lan), độ dài của nguyên âm thay đổi hoàn toàn từ đó. "Obasan" (Cô/Dì) vs "Obaasan" (Bà). Trong tiếng Anh, "Sheep" vs "Ship" chủ yếu là về chất lượng và độ dài nguyên âm. Bỏ qua điều này khiến lời nói của bạn không rõ ràng.</p>
-
-          <h2>5. Sự ám ảnh với "Th"</h2>
-          <p>Nhiều người học bị ám ảnh bởi âm "Th" khó nhằn. Trớ trêu thay, sai âm này hiếm khi gây hại cho giao tiếp. Nói "ze car" thay vì "the car" hoàn toàn có thể hiểu được.</p>
-          <p><strong>Cái bẫy thực sự:</strong> Tập trung quá nhiều vào "Th" đến mức bạn làm hỏng nhịp điệu của phần còn lại của câu. Hãy ưu tiên nhịp điệu và âm nguyên âm hơn là các phụ âm khó.</p>
-
-          <div class="tip-box">
-             <strong>Kế hoạch hành động:</strong> Ghi âm lại bản thân nói trong 1 phút. Nghe lại. Sau đó nghe một người bản xứ nói điều tương tự. Lưu ý sự khác biệt về tốc độ, khoảng dừng và cao độ. Khoảng cách đó chính là giáo trình của bạn.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_ID = `
-        <article>
-          <p>Anda tahu tata bahasanya. Anda memiliki kosakata yang bagus. Tapi begitu Anda membuka mulut, orang beralih ke bahasa Inggris. Apakah itu aksen Anda? Biasanya, masalahnya bukan pada "suara" hurufnya, tapi pada "musik" kalimatnya. Berikut adalah 5 jebakan pengucapan teratas yang dialami pelajar canggih.</p>
-
-          <h2>1. Berbicara Monoton</h2>
-          <p>Setiap bahasa memiliki melodi. Bahasa Inggris naik dan turun untuk menunjukkan penekanan dan emosi. Bahasa Italia bernyanyi. Bahasa Jepang lebih datar tapi memiliki aksen nada. Jika Anda menerapkan melodi bahasa ibu Anda ke bahasa baru, Anda akan terdengar seperti robot atau asing.</p>
-          <p><strong>Perbaikan:</strong> Gumamkan kalimat sebelum Anda mengucapkannya. Fokus murni pada gerakan naik dan turun suara, abaikan kata-katanya.</p>
-
-          <h2>2. Mengucapkan Setiap Kata Terlalu Jelas</h2>
-          <p>Di sekolah, kita diajarkan untuk berbicara dengan JELA-AS. Tapi penutur asli tidak berbicara dengan jelas. Mereka menghubungkan kata-kata (linking). "Put it on" terdengar seperti "Pu-ti-ton". Jika Anda mengucapkan "Put" -> jeda -> "it" -> jeda -> "on", Anda terdengar tidak alami dan agresif.</p>
-          <p><strong>Perbaikan:</strong> Pelajari IPA untuk fitur bicara terhubung seperti elisi dan asimilasi.</p>
-
-          <h2>3. Penekanan Salah Tempat</h2>
-          <p>Dalam bahasa Inggris, penekanan mengubah makna. "PRE-sent" adalah hadiah. "Pre-SENT" adalah kata kerja mempersembahkan. Dalam bahasa Spanyol, "Pa-PA" adalah ayah, "PA-pa" adalah kentang. Salah penekanan bisa menyebabkan kesalahpahaman yang memalukan.</p>
-
-          <h2>4. Mengabaikan Panjang Vokal</h2>
-          <p>Dalam banyak bahasa (seperti Jepang atau Finlandia), panjang vokal mengubah kata sepenuhnya. "Obasan" (Bibi) vs "Obaasan" (Nenek). Dalam bahasa Inggris, "Sheep" vs "Ship" sebagian besar tentang kualitas dan panjang vokal. Mengabaikan ini membuat bicara Anda keruh.</p>
-
-          <h2>5. Obsesi "Th"</h2>
-          <p>Banyak pelajar terobsesi dengan suara "Th" yang rumit. Ironisnya, salah dalam hal ini jarang merusak komunikasi. Mengatakan "ze car" alih-alih "the car" sangat bisa dimengerti.</p>
-          <p><strong>Jebakan Sebenarnya:</strong> Terlalu fokus pada "Th" sehingga Anda mengacaukan ritme sisa kalimat. Prioritaskan ritme dan suara vokal daripada konsonan yang sulit.</p>
-
-          <div class="tip-box">
-             <strong>Rencana Aksi:</strong> Rekam diri Anda berbicara selama 1 menit. Dengarkan. Lalu dengarkan penutur asli mengatakan hal yang sama. perhatikan perbedaan kecepatan, jeda, dan nada. Celah itu adalah kurikulum Anda.
-          </div>
-        </article>
-      `;
-
-const POST_PRONUNCIATION_CONTENT_PT = `
-        <article>
-          <p>Você conhece a gramática. Você tem um ótimo vocabulário. Mas assim que você abre a boca, as pessoas mudam para o inglês. É o seu sotaque? Geralmente, não é o "som" das letras que é o problema, mas a "música" da frase. Aqui estão as 5 principais armadilhas de pronúncia em que alunos sofisticados caem.</p>
-
-          <h2>1. Fala Monótona</h2>
-          <p>Toda língua tem uma melodia. O inglês sobe e desce para mostrar ênfase e emoção. O italiano canta. O japonês é mais plano, mas tem acentos de tom. Se você aplicar a melodia da sua língua nativa a uma nova língua, soará robótico ou estrangeiro.</p>
-          <p><strong>Correção:</strong> Cantarole a frase antes de dizê-la. Concentre-se puramente no movimento de subida e descida da voz, ignorando as palavras.</p>
-
-          <h2>2. Super-enunciar Cada Palavra</h2>
-          <p>Na escola, somos ensinados a falar CLA-RA-MEN-TE. Mas falantes nativos não falam claramente. Eles conectam as palavras (linking). "Put it on" soa como "Pu-ti-ton". Se você pronunciar "Put" -> pausa -> "it" -> pausa -> "on", você soa antinatural e agressivo.</p>
-          <p><strong>Correção:</strong> Aprenda o IPA para recursos de fala conectada como elisão e assimilação.</p>
-
-          <h2>3. Estresse Deslocado</h2>
-          <p>Em inglês, o estresse muda o significado. "PRE-sent" é um presente. "Pre-SENT" é um verbo apresentar. Em espanhol, "Pa-PA" é pai, "PA-pa" é batata. Errar o estresse pode levar a mal-entendidos embaraçosos.</p>
-
-          <h2>4. Ignorar o Comprimento da Vogal</h2>
-          <p>Em muitas línguas (como japonês ou finlandês), o comprimento da vogal muda a palavra completamente. "Obasan" (Tia) vs "Obaasan" (Avó). Em inglês, "Sheep" vs "Ship" é em grande parte sobre qualidade e comprimento da vogal. Ignorar isso torna sua fala turva.</p>
-
-          <h2>5. A Obsessão com o "Th"</h2>
-          <p>Muitos alunos ficam obcecados com o som "Th" complicado. Ironicamente, errar isso raramente prejudica a comunicação. Dizer "ze car" em vez de "the car" é perfeitamente compreensível.</p>
-          <p><strong>A Verdadeira Armadilha:</strong> Focar tanto no "Th" que você bagunça o ritmo do resto da frase. Priorize o ritmo e os sons das vogais sobre consoantes difíceis.</p>
-
-          <div class="tip-box">
-             <strong>Plano de Ação:</strong> Grave-se falando por 1 minuto. Ouça. Então ouça um falante nativo dizendo a mesma coisa. note as diferenças de velocidade, pausas e tom. Essa lacuna é o seu currículo.
-          </div>
-        </article>
-      `;
-
-// ==========================================
-// Post 5: Listening Comprehension Guide
-// ==========================================
-const POST_LISTENING_CONTENT_EN = `
-        <article>
-          <p>It's a frustrating scenario: You ace your listening exams in class. You understand your teacher perfectly. But then you turn on a movie or talk to a real person on the street, and it sounds like faster-than-light alien gibberish. What is going on?</p>
-
-          <h2>The Gap Between Textbook Audio and Reality</h2>
-          <p>Textbook audio is performed by voice actors in a soundproof studio. They articulate every syllable perfectly. They speak slowly. There is no background noise.</p>
-          <p>Real life is messy. People:</p>
-          <ul>
-             <li>Speak at 200+ words per minute</li>
-             <li>Slur words together ("Gonna", "Wanna", "Djeetyet?" for "Did you eat yet?")</li>
-             <li>Interrupt each other</li>
-             <li>Have background traffic/music noise</li>
-          </ul>
-          <p>Your brain has been trained on "Clean Data", so it fails when processing "Noisy Data".</p>
-
-          <h2>Solution 1: Dictation (Transcribing)</h2>
-          <p>This is the most painful but effective exercise. Take a 1-minute clip of real audio (not a lesson). Listen to it and try to write down <strong>every single word</strong>.</p>
-          <p>You will have to pause and rewind 20 times. You will get stuck on a blurry sound. But this struggle forces your brain to decode the "blur". When you check the transcript later, you'll realize "Oh, that weird sound was actually 'should have'!"</p>
-
-          <h2>Solution 2: Change the Speed</h2>
-          <p>Use features on YouTube or Podcast apps to slow down the audio to 0.75x. Listen until you catch the sounds, then bump it back up to 1.0x. Then, try 1.25x. Overloading your brain with fast audio makes normal speed sound slow by comparison. Athletes train with heavy weights so the game feels light; do the same with your ears.</p>
-
-          <h2>Solution 3: Learn the Reductions</h2>
-          <p>Native speakers condense words to save energy. In English:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>If you expect to hear "Going to", you will miss "Gonna". You need to study these reductions as if they were vocabulary words.</p>
-
-          <div class="tip-box">
-             <strong>The 100-Hour Rule:</strong> Listening is purely a volume game. Research suggests you need roughly 100 hours of focused listening input to notice a significant jump in comprehension. Log your hours.
-          </div>
-        </article>
-`;
-
-const POST_LISTENING_CONTENT_KO = `
-        <article>
-          <p>좌절스러운 상황이죠. 듣기 시험은 만점 받고 선생님 말씀도 다 알아듣는데, 정작 영화를 틀거나 길거리에서 원어민을 만나면 외계어처럼 들립니다. 도대체 왜 이러는 걸까요?</p>
-
-          <h2>교과서 오디오와 현실의 괴리</h2>
-          <p>교과서 속 성우들은 방음 스튜디오에서 녹음합니다. 모든 음절을 아나운서처럼 또박또박 발음하고, 천천히 말하며, 주변 소음도 없습니다. 이것은 '실험실 언어'입니다.</p>
-          <p>현실은 지저분합니다. 사람들은:</p>
-          <ul>
-             <li>분당 200단어 이상의 속도로 말합니다.</li>
-             <li>단어를 마구 뭉갭니다 ("Gonna", "Wanna"는 이젠 기본이고, "Did you eat yet?"을 "Djeetyet?(쥬-이ㅌ-옛?)"처럼 발음합니다).</li>
-             <li>서로 말을 끊고, 배경엔 차 소리 음악 소리가 섞입니다.</li>
-          </ul>
-          <p>여러분의 뇌는 '깨끗한 데이터'로만 훈련되었기 때문에, '노이즈가 섞인 데이터'를 처리하지 못하고 에러를 내는 것입니다.</p>
-
-          <h2>해결책 1: 받아쓰기 (Dictation)</h2>
-          <p>가장 고통스럽지만 가장 확실한 방법입니다. 1분짜리 리얼 오디오(뉴스 말고 드라마나 예능)를 골라 들으면서 <strong>모든 단어</strong>를 종이에 적어보세요.</p>
-          <p>20번은 멈추고 되감아야 할 것입니다. 뭉개진 소리 하나 때문에 막힐 것입니다. 하지만 그 '소리를 해독하려는 몸부림'이 귀를 뚫어줍니다. 나중에 정답을 보면 "아, 그 웅얼거리는 소리가 'should have' 였구나!" 하고 깨닫는 순간이 옵니다.</p>
-
-          <h2>해결책 2: 속도 조절 훈련</h2>
-          <p>유튜브나 팟캐스트의 배속 기능을 활용하세요. 0.75배속으로 들으면서 소리의 디테일을 파악한 뒤, 1.0배속으로 듣고, 다시 1.25배속으로 들어보세요. 뇌를 빠른 속도에 적응시키면(Overloading), 나중에 정상 속도가 상대적으로 느리고 또렷하게 들립니다.</p>
-
-          <h2>해결책 3: 축약형(Reductions) 공부하기</h2>
-          <p>원어민들은 에너지를 아끼기 위해 단어를 줄여 말합니다. 영어의 경우:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>여러분이 귀로 "Going to"를 기다리고 있다면, "Gonna"는 절대 안 들립니다. 이런 축약 현상 자체를 단어처럼 따로 공부애야 들립니다.</p>
-
-          <div class="tip-box">
-             <strong>100시간의 법칙:</strong> 듣기는 결국 절대적인 양 싸움입니다. 연구에 따르면 유의미한 청취력 향상을 느끼기 위해선 약 100시간의 집중 듣기 입력이 필요하다고 합니다. 듣기 시간을 기록해보세요.
-          </div>
-        </article>
-`;
-
-const POST_LISTENING_CONTENT_JA = `
-        <article>
-          <p>悔しいシナリオです。授業でのリスニングテストは満点。先生の言うことも完璧にわかる。でも映画を見たり、街でリアルな人と話すと、まるで早回しの宇宙語のように聞こえる。何が起きているのでしょうか？</p>
-
-          <h2>教科書の音声と現実のギャップ</h2>
-          <p>教科書の音声は防音スタジオの声優が演じています。彼らは一音一音完璧に発音し、ゆっくり話します。これは「きれいなデータ」です。</p>
-          <p>現実は雑然としています。人々は：</p>
-          <ul>
-             <li>毎分200語以上の速度で話す</li>
-             <li>単語を繋げて不明瞭にする（"Gonna", "Wanna", "Djeetyet?"="Did you eat yet?"）</li>
-             <li>互いに話を遮り、背景雑音がある</li>
-          </ul>
-          <p>あなたの脳は「きれいなデータ」で訓練されているため、「ノイズの多いデータ」を処理しようとするとエラーを起こすのです。</p>
-
-          <h2>解決策1：ディクテーション（書き取り）</h2>
-          <p>最も苦痛ですが、最も効果的な練習法です。1分間のリアルな音声（レッスンではない）を選び、聞いて、<strong>一語一句すべて</strong>書き出してみてください。</p>
-          <p>20回は一時停止して巻き戻すことになるでしょう。不明瞭な音で詰まるでしょう。しかし、その「解読しようとする葛藤」が耳を開きます。</p>
-
-          <h2>解決策2：速度を変える</h2>
-          <p>YouTubeやポッドキャストアプリの機能を使って、音声を0.75倍速に落としてください。音が聞き取れるまで聞き、その後1.0倍速に戻します。さらに1.25倍速に挑戦してください。速い音声で脳に負荷をかけると、通常の速度が遅く感じられます。</p>
-
-          <h2>解決策3：短縮形（Reductions）を学ぶ</h2>
-          <p>ネイティブはエネルギーを節約するために言葉を凝縮します。</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-          </ul>
-          <p>"Going to" が聞こえてくるのを待っていたら、"Gonna" は聞き取れません。これらを単語として学ぶ必要があります。</p>
-
-          <div class="tip-box">
-             <strong>100時間の法則：</strong> リスニングは純粋に量のゲームです。理解力が飛躍的に向上するには、約100時間の集中的なリスニング入力が必要だと言われています。時間を記録しましょう。
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_ZH = `
-        <article>
-          <p>这是一个令人沮丧的场景：你在课堂上的听力考试中得了满分。你完全理解你的老师。但是当你打开电影或在街上与真人交谈时，听起来像是比光速还快的外星胡言乱语。发生了什么？</p>
-
-          <h2>教科书音频与现实之间的差距</h2>
-          <p>教科书音频是由配音演员在隔音录音室里录制的。他们完美地发每一个音节。他们说得很慢。没有背景噪音。</p>
-          <p>现实生活是混乱的。人们：</p>
-          <ul>
-             <li>每分钟说200+个单词</li>
-             <li>把词连在一起（"Gonna", "Wanna"）</li>
-             <li>互相打断</li>
-          </ul>
-          <p>你的大脑一直在接受“干净数据”的训练，所以在处理“嘈杂数据”时会失败。</p>
-
-          <h2>解决方案1：听写（Dictation）</h2>
-          <p>这是最痛苦但也最有效的练习。取一段1分钟的真实音频（不是课程）。听它，并试图写下<strong>每一个字</strong>。</p>
-          <p>你将不得不暂停和倒带20次。你会卡在一个模糊的声音上。但这番挣扎迫使你的大脑解码那个“模糊”。</p>
-
-          <h2>解决方案2：改变速度</h2>
-          <p>使用YouTube或播客应用程序的功能将音频减慢到0.75倍。听直到你捕捉到声音，然后调回1.0倍。然后，尝试1.25倍。用快速音频让你的大脑超负荷，会使正常速度听起来变慢。</p>
-
-          <h2>解决方案3：学习缩读（Reductions）</h2>
-          <p>母语人士为了节省精力会压缩单词。</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-          </ul>
-          <p>如果你期待听到 "Going to"，你会错过 "Gonna"。你需要像学习单词一样学习这些缩读。</p>
-
-          <div class="tip-box">
-             <strong>100小时法则：</strong> 听力纯粹是一个量的游戏。研究表明，你需要大约100小时的集中听力输入才能注意到理解力的显著飞跃。记录你的时间。
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_ES = `
-        <article>
-          <p>Es un escenario frustrante: apruebas tus exámenes de escucha en clase. Entiendes a tu profesor perfectamente. Pero luego pones una película o hablas con una persona real, y suena como un galimatías alienígena. ¿Qué está pasando?</p>
-
-          <h2>La brecha entre el audio del libro de texto y la realidad</h2>
-          <p>El audio del libro de texto es interpretado por actores de voz en un estudio insonorizado. Articulan cada sílaba perfectamente. Hablan despacio. No hay ruido de fondo.</p>
-          <p>La vida real es desordenada. La gente habla rápido, murmura y se interrumpe.</p>
-
-          <h2>Solución 1: Dictado</h2>
-          <p>Este es el ejercicio más doloroso pero efectivo. Toma un clip de 1 minuto de audio real. Escúchalo e intenta escribir <strong>cada palabra</strong>.</p>
-          <p>Tendrás que pausar y rebobinar 20 veces. Pero esta lucha obliga a tu cerebro a decodificar el "borrón".</p>
-
-          <h2>Solución 2: Cambiar la velocidad</h2>
-          <p>Usa aplicaciones para ralentizar el audio a 0.75x. Escucha hasta que captes los sonidos, luego vuelve a 1.0x. Luego, intenta 1.25x. Sobrecargar tu cerebro con audio rápido hace que la velocidad normal suene lenta en comparación.</p>
-
-          <h2>Solución 3: Aprende las Reducciones</h2>
-          <p>Los hablantes nativos condensan las palabras.</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-          </ul>
-          <p>Necesitas estudiar estas reducciones como si fueran palabras de vocabulario.</p>
-
-          <div class="tip-box">
-             <strong>La Regla de las 100 Horas:</strong> La escucha es puramente un juego de volumen. Necesitas aproximadamente 100 horas de entrada de escucha enfocada para notar un salto significativo.</p>
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_FR = `
-        <article>
-          <p>C'est frustrant : vous réussissez vos examens d'écoute en classe. Vous comprenez parfaitement votre professeur. Mais ensuite, vous regardez un film ou parlez à une vraie personne, et cela ressemble à du charabia. Que se passe-t-il ?</p>
-
-          <h2>L'écart entre l'audio des manuels et la réalité</h2>
-          <p>L'audio des manuels est réalisé par des acteurs dans un studio insonorisé. Ils articulent parfaitement chaque syllabe. Ils parlent lentement.</p>
-          <p>La vraie vie est désordonnée. Les gens parlent vite, marmonnent et utilisent de l'argot.</p>
-
-          <h2>Solution 1 : Dictée</h2>
-          <p>C'est l'exercice le plus pénible mais le plus efficace. Prenez un clip d'une minute d'audio réel. Écoutez-le et essayez d'écrire <strong>chaque mot</strong>.</p>
-          <p>Vous devrez mettre en pause et rembobiner 20 fois. Mais cette lutte force votre cerveau à décoder le "flou".</p>
-
-          <h2>Solution 2 : Changez la vitesse</h2>
-          <p>Utilisez des applications pour ralentir l'audio à 0,75x. Écoutez jusqu'à ce que vous captez les sons, puis revenez à 1,0x. Ensuite, essayez 1,25x. Surcharger votre cerveau avec de l'audio rapide rend la vitesse normale lente en comparaison.</p>
-
-          <h2>Solution 3 : Apprenez les Réductions</h2>
-          <p>Les locuteurs natifs condensent les mots.</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-          </ul>
-          <p>Vous devez étudier ces réductions comme s'il s'agissait de mots de vocabulaire.</p>
-
-          <div class="tip-box">
-             <strong>La Règle des 100 Heures :</strong> L'écoute est purement un jeu de volume. Vous avez besoin d'environ 100 heures d'écoute ciblée pour remarquer un saut significatif.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_DE = `
-        <article>
-          <p>Es ist frustrierend: Sie bestehen Ihre Hörtests im Unterricht. Sie verstehen Ihren Lehrer perfekt. Aber dann schauen Sie einen Film oder sprechen mit einer echten Person, und es klingt wie außerirdisches Gebrabbel. Was ist los?</p>
-
-          <h2>Die Lücke zwischen Lehrbuch-Audio und Realität</h2>
-          <p>Lehrbuch-Audio wird von Synchronsprechern in einem schalldichten Studio aufgenommen. Sie artikulieren jede Silbe perfekt. Sie sprechen langsam.</p>
-          <p>Das echte Leben ist chaotisch. Menschen sprechen mit 200+ Wörtern pro Minute, nuscheln und unterbrechen sich gegenseitig.</p>
-
-          <h2>Lösung 1: Diktat</h2>
-          <p>Dies ist die schmerzhafteste, aber effektivste Übung. Nehmen Sie einen 1-minütigen Clip von echtem Audio. Hören Sie zu und versuchen Sie, <strong>jedes einzelne Wort</strong> aufzuschreiben.</p>
-
-          <h2>Lösung 2: Geschwindigkeit ändern</h2>
-          <p>Verlangsamen Sie das Audio auf 0,75x. Hören Sie zu, bis Sie die Töne einfangen, und gehen Sie dann zurück auf 1,0x. Versuchen Sie dann 1,25x.</p>
-
-          <h2>Lösung 3: Reduktionen lernen</h2>
-          <p>Muttersprachler verdichten Wörter ("Gonna", "Wanna"). Wenn Sie "Going to" erwarten, werden Sie "Gonna" verpassen. Lernen Sie diese.</p>
-
-          <div class="tip-box">
-             <strong>Die 100-Stunden-Regel:</strong> Hören ist ein Volumenspiel. Sie benötigen ungefähr 100 Stunden fokussierten Zuhörens, um einen signifikanten Sprung im Verständnis zu bemerken.
-          </div>
-        </article>
-      `;
-
-// ==========================================
-// Post 6: Language Learning Myths
+// Post 9: Language Learning Myths
 // ==========================================
 const POST_MYTHS_CONTENT_EN = `
         <article>
@@ -778,7 +43,7 @@ const POST_MYTHS_CONTENT_KO = `
           <p><strong>팩트:</strong> 아이들이 발음 습득에 유리한 건 맞지만, 복잡한 문법 개념을 이해하고 규칙적으로 공부하는 능력은 성인이 훨씬 뛰어납니다. 뇌가소성(Neuroplasticity)은 평생 지속됩니다. 20세든, 50세든, 80세든 배울 수 있습니다. 방법이 다를 뿐입니다.</p>
 
           <h2>오해 2: "난 언어 재능(유전자)이 없어."</h2>
-          <p><strong>팩트:</strong> 그런 유전자는 없습니다. 누구나 모국어는 완벽하게 배웠으니까요. 청각 능력이 뚸어난 사람이 있을 순 있지만, 언어 성공의 99%는 시간과 노력입니다. 우리가 '재능'이라고 부르는 것은 대부분 보이지 않는 곳에서 쏟아부은 수천 시간의 연습 결과입니다.</p>
+          <p><strong>팩트:</strong> 그런 유전자는 없습니다. 누구나 모국어는 완벽하게 배웠으니까요. 청각 능력이 뛰어난 사람이 있을 순 있지만, 언어 성공의 99%는 시간과 노력입니다. 우리가 '재능'이라고 부르는 것은 대부분 보이지 않는 곳에서 쏟아부은 수천 시간의 연습 결과입니다.</p>
 
           <h2>오해 3: "현지에 살아야만 늘지."</h2>
           <p><strong>팩트:</strong> 일본에 20년 살면서 맥주 주문도 못 하는 외국인도 있고, 브라질 시골에 살면서 완벽한 영어를 구사하는 10대도 있습니다. 몰입(Immersion)은 GPS 위치가 아니라 마음가짐의 문제입니다. 인터넷만 있다면 어디서든 현지 환경을 만들 수 있습니다.</p>
@@ -830,7 +95,7 @@ const POST_MYTHS_CONTENT_JA = `
              <strong>マインドセットの転換：</strong> 「できない」を「まだ方法を見つけていない」に置き換えてください。
           </div>
         </article>
-      `;
+`;
 
 const POST_MYTHS_CONTENT_ZH = `
         <article>
@@ -861,8 +126,100 @@ const POST_MYTHS_CONTENT_ZH = `
              <strong>心态转变：</strong>把“我不能”换成“我还没找到方法”。
           </div>
         </article>
-      `;
+`;
 
+const POST_MYTHS_CONTENT_TH = `
+        <article>
+          <p>อุปสรรคที่ใหญ่ที่สุดในการเรียนภาษาไม่ใช่ไวยากรณ์ คำศัพท์ หรือการออกเสียง แต่เป็น "จิตวิทยา" พวกเราหลายคนมีความเชื่อที่จำกัดตัวเองซึ่งบ่อนทำลายความก้าวหน้าของเราตั้งแต่ยังไม่เริ่ม มาดูความเชื่อผิดๆ ที่ต้องกำจัดทิ้งกันเถอะ</p>
+
+          <h2>ความเชื่อผิดๆ 1: "ฉันแก่เกินไปที่จะเรียน"</h2>
+          <p><strong>ความจริง:</strong> แม้ว่าเด็กจะรับสำเนียงได้ดีกว่า แต่ผู้ใหญ่มีสถิติที่ดีกว่าในการเข้าใจแนวคิดทางไวยากรณ์ที่ซับซ้อนและมีวินัยในการเรียนรู้ ความยืดหยุ่นของสมอง (Neuroplasticity) มีอยู่ตลอดชีวิต คุณสามารถเรียนได้ตอนอายุ 20, 50 หรือ 80 วิธีการแค่เปลี่ยนไปเท่านั้น</p>
+
+          <h2>ความเชื่อผิดๆ 2: "ฉันไม่มี 'ยีนภาษา' (หัวไม่ไป)"</h2>
+          <p><strong>ความจริง:</strong> ไม่มีสิ่งที่เรียกว่ายีนภาษา ทุกคนเรียนภาษาแม่ของตนเองได้อย่างสมบูรณ์แบบ "พรสวรรค์" มักจะเป็นเพียงหน้ากากของการฝึกฝนหลายพันชั่วโมงที่ไม่มีใครเห็น</p>
+
+          <h2>ความเชื่อผิดๆ 3: "ฉันต้องไปอยู่ในประเทศนั้นถึงจะเรียนได้"</h2>
+          <p><strong>ความจริง:</strong> มีชาวต่างชาติที่อาศัยอยู่ในญี่ปุ่นมา 20 ปีแต่สั่งเบียร์ไม่ได้ และมีวัยรุ่นในชนบทของบราซิลที่พูดภาษาอังกฤษได้สมบูรณ์แบบ การดื่มด่ำ (Immersion) เป็นสภาวะของจิตใจ ไม่ใช่ตำแหน่ง GPS</p>
+
+          <h2>ความเชื่อผิดๆ 4: "ความผิดพลาดเป็นเรื่องไม่ดี"</h2>
+          <p><strong>ความจริง:</strong> ความผิดพลาดคือจุดข้อมูล หากคุณไม่ทำผิด แสดงว่าคุณไม่ได้ก้าวข้ามขีดจำกัดของตัวเอง ผู้เรียนที่ทำผิด 100 ครั้งต่อวันจะเรียนรู้ได้เร็วกว่าคนที่เงียบเพื่อหลีกเลี่ยงข้อผิดพลาดถึง 100 เท่า</p>
+
+          <h2>ความเชื่อผิดๆ 5: "ภาษาอังกฤษเป็นภาษาที่ยากที่สุด"</h2>
+          <p><strong>ความจริง:</strong> ความยากเป็นเรื่องสัมพัทธ์ หยุดโฟกัสว่ามัน "ยาก" แค่ไหน นั่นเป็นเพียงข้ออ้างในการผลัดวันประกันพรุ่ง</p>
+
+          <h2>ความเชื่อผิดๆ 6: "ฉันต้องพูดคล่องถึงจะมีประโยชน์"</h2>
+          <p><strong>ความจริง:</strong> คุณสามารถเดินทางและหาเพื่อนได้ด้วยความสามารถทางภาษาระดับ A2 (ระดับเอาตัวรอด) เป้าหมายไม่ควรอยู่ที่ "ความสมบูรณ์แบบ" แต่ควรเป็น "การเชื่อมต่อ"</p>
+
+          <h2>ความเชื่อผิดๆ 7: "AI จะมาแทนที่การเรียนภาษา"</h2>
+          <p><strong>ความจริง:</strong> AI เป็นเครื่องมือช่วยเรียนรู้ ไม่ใช่สิ่งทดแทนสมองของคุณ การพูดคุยกับใครสักคนในภาษาจิตวิญญาณของพวกเขาสร้างความไว้วางใจที่เครื่องจักรไม่สามารถเลียนแบบได้</p>
+
+          <div class="tip-box">
+             <strong>เปลี่ยนกรอบความคิด:</strong> เปลี่ยนคำว่า "ฉันทำไม่ได้" เป็น "ฉันยังหาวิธีไม่เจอ" ความเชื่อของคุณกำหนดขีดจำกัดของคุณ
+          </div>
+        </article>
+`;
+
+const POST_MYTHS_CONTENT_VI = `
+        <article>
+          <p>Rào cản lớn nhất để học một ngôn ngữ không phải là ngữ pháp, từ vựng hay phát âm. Đó là tâm lý. Nhiều người trong chúng ta nuôi dưỡng những niềm tin tự giới hạn phá hoại sự tiến bộ của chúng ta trước khi bắt đầu. Hãy xem xét những lầm tưởng cần phải loại bỏ.</p>
+
+          <h2>Lầm tưởng 1: "Tôi quá già để học."</h2>
+          <p><strong>Sự thật:</strong> Trong khi trẻ em giỏi hơn trong việc tiếp thu giọng điệu, người lớn giỏi hơn trong việc hiểu các khái niệm phức tạp. Tính dẻo của não bộ tồn tại trong suốt cuộc đời bạn.</p>
+
+          <h2>Lầm tưởng 2: "Tôi không có 'Gen Ngôn ngữ'."</h2>
+          <p><strong>Sự thật:</strong> Không có thứ đó. Mọi người đều học tiếng mẹ đẻ của mình một cách hoàn hảo. "Tài năng" thường chỉ là lớp mặt nạ cho hàng ngàn giờ luyện tập không được nhìn thấy.</p>
+
+          <h2>Lầm tưởng 3: "Tôi cần sống ở đất nước đó để học."</h2>
+          <p><strong>Sự thật:</strong> Sự đắm mình là một trạng thái tâm trí, không phải là một vị trí GPS. Với internet, bạn có thể tạo ra một môi trường đắm mình ở bất cứ đâu.</p>
+
+          <h2>Lầm tưởng 4: "Sai lầm là xấu."</h2>
+          <p><strong>Sự thật:</strong> Sai lầm là các điểm dữ liệu. Nếu bạn không mắc sai lầm, bạn không đang đẩy giới hạn của mình.</p>
+
+          <h2>Lầm tưởng 5: "Tiếng Anh là ngôn ngữ khó nhất."</h2>
+          <p><strong>Sự thật:</strong> Độ khó là tương đối. Ngừng tập trung vào việc nó "khó" như thế nào—đó chỉ là một cái cớ để trì hoãn.</p>
+
+          <h2>Lầm tưởng 6: "Tôi cần phải trôi chảy mới có ích."</h2>
+          <p><strong>Sự thật:</strong> Bạn có thể đi du lịch và kết bạn với trình độ A2. Mục tiêu là "sự kết nối", không phải "sự hoàn hảo".</p>
+
+          <h2>Lầm tưởng 7: "AI sẽ thay thế việc học ngôn ngữ."</h2>
+          <p><strong>Sự thật:</strong> AI là một công cụ giúp bạn học, không phải là sự thay thế cho bộ não của bạn. Nó không thể sao chép sự kết nối giữa con người.</p>
+
+          <div class="tip-box">
+             <strong>Thay đổi tư duy:</strong> Thay thế "Tôi không thể" bằng "Tôi chưa tìm ra cách."
+          </div>
+        </article>
+`;
+
+const POST_MYTHS_CONTENT_ID = `
+        <article>
+          <p>Hambatan terbesar untuk belajar bahasa bukanlah tata bahasa, kosakata, atau pengucapan. Itu adalah psikologi. Banyak dari kita menyimpan keyakinan yang membatasi diri yang menyabotase kemajuan kita bahkan sebelum kita mulai.</p>
+
+          <h2>Mitos 1: "Saya terlalu tua untuk belajar."</h2>
+          <p><strong>Fakta:</strong> Neuroplastisitas ada sepanjang hidup Anda. Anda bisa belajar pada usia 20, 50, atau 80. Metodenya hanya berubah.</p>
+
+          <h2>Mitos 2: "Saya tidak memiliki 'Gen Bahasa'."</h2>
+          <p><strong>Fakta:</strong> Tidak ada hal seperti itu. "Bakat" biasanya hanyalah topeng untuk ribuan jam latihan yang tak terlihat.</p>
+
+          <h2>Mitos 3: "Saya perlu tinggal di negara itu untuk belajar."</h2>
+          <p><strong>Fakta:</strong> Imersi adalah keadaan pikiran, bukan lokasi GPS. Dengan internet, Anda dapat menciptakan lingkungan imersi di mana saja.</p>
+
+          <h2>Mitos 4: "Kesalahan itu buruk."</h2>
+          <p><strong>Fakta:</strong> Kesalahan adalah titik data. Pelajar yang membuat 100 kesalahan sehari belajar 100 kali lebih cepat daripada perfeksionis yang diam.</p>
+
+          <h2>Mitos 5: "Bahasa Inggris adalah bahasa tersulit."</h2>
+          <p><strong>Fakta:</strong> Kesulitan itu relatif. Berhentilah berfokus pada betapa "sulitnya" itu.</p>
+
+          <h2>Mitos 6: "Saya harus fasih agar berguna."</h2>
+          <p><strong>Fakta:</strong> Tujuan seharusnya bukan "kesempurnaan"; itu seharusnya "koneksi".</p>
+
+          <h2>Mitos 7: "AI akan menggantikan pembelajaran bahasa."</h2>
+          <p><strong>Fakta:</strong> AI adalah alat untuk membantu Anda belajar, bukan pengganti otak Anda. AI tidak bisa meniru koneksi manusia yang tulus.</p>
+
+          <div class="tip-box">
+             <strong>Pergeseran Pola Pikir:</strong> Ganti "Saya tidak bisa" dengan "Saya belum menemukan caranya."
+          </div>
+        </article>
+`;
 const POST_MYTHS_CONTENT_ES = `
         <article>
           <p>La mayor barrera para aprender un idioma no es la gramática o el vocabulario. Es la psicología. Muchos de nosotros albergamos creencias autolimitantes. Miremos los mitos que necesitan morir.</p>
@@ -892,583 +249,7 @@ const POST_MYTHS_CONTENT_ES = `
              <strong>Cambio de mentalidad:</strong> Reemplaza "No puedo" con "Aún no he descubierto cómo".
           </div>
         </article>
-      `;
-
-const POST_MYTHS_CONTENT_FR = `
-        <article>
-          <p>Le plus grand obstacle à l'apprentissage d'une langue n'est pas la grammaire. C'est la psychologie. Regardons les mythes qui doivent disparaître.</p>
-
-          <h2>Mythe 1 : "Je suis trop vieux."</h2>
-          <p><strong>Fait :</strong> La neuroplasticité existe tout au long de votre vie. Vous pouvez apprendre à 20, 50 ou 80 ans.</p>
-
-          <h2>Mythe 2 : "Je n'ai pas le 'gène de la langue'."</h2>
-          <p><strong>Fait :</strong> Le "talent" est généralement juste un masque pour des milliers d'heures de pratique invisible.</p>
-
-          <h2>Mythe 3 : "Je dois vivre dans le pays."</h2>
-          <p><strong>Fait :</strong> L'immersion est un état d'esprit, pas une localisation GPS.</p>
-
-          <h2>Mythe 4 : "Les erreurs sont mauvaises."</h2>
-          <p><strong>Fait :</strong> Les erreurs sont des points de données. Celui qui fait 100 erreurs par jour apprend plus vite que le perfectionniste.</p>
-
-          <h2>Mythe 5 : "L'anglais est la langue la plus difficile."</h2>
-          <p><strong>Fait :</strong> La difficulté est relative.</p>
-
-          <h2>Mythe 6 : "Je dois être courant pour être utile."</h2>
-          <p><strong>Fait :</strong> L'objectif ne devrait pas être la "perfection" ; ce devrait être la "connexion".</p>
-
-          <h2>Mythe 7 : "L'IA remplacera l'apprentissage des langues."</h2>
-          <p><strong>Fait :</strong> L'IA est un outil pour vous aider, pas un remplaçant.</p>
-
-          <div class="tip-box">
-             <strong>Changement d'état d'esprit :</strong> Remplacez "Je ne peux pas" par "Je n'ai pas encore trouvé comment."
-          </div>
-        </article>
-      `;
-
-const POST_MYTHS_CONTENT_DE = `
-        <article>
-          <p>Die größte Barriere beim Sprachenlernen ist nicht die Grammatik. Es ist die Psychologie. Lassen Sie uns die Mythen betrachten, die sterben müssen.</p>
-
-          <h2>Mythos 1: "Ich bin zu alt."</h2>
-          <p><strong>Fakt:</strong> Neuroplastizität existiert Ihr ganzes Leben lang. Sie können mit 20, 50 oder 80 lernen.</p>
-
-          <h2>Mythos 2: "Ich habe kein 'Sprachgen'."</h2>
-          <p><strong>Fakt:</strong> "Talent" ist meist nur eine Maske für tausende Stunden unsichtbarer Übung.</p>
-
-          <h2>Mythos 3: "Ich muss im Land leben."</h2>
-          <p><strong>Fakt:</strong> Immersion ist eine Geisteshaltung, kein GPS-Standort.</p>
-
-          <h2>Mythos 4: "Fehler sind schlecht."</h2>
-          <p><strong>Fakt:</strong> Fehler sind Datenpunkte. Wer 100 Fehler am Tag macht, lernt 100 Mal schneller als der Perfektionist.</p>
-
-          <h2>Mythos 5: "Englisch ist am schwersten."</h2>
-          <p><strong>Fakt:</strong> Schwierigkeit ist relativ.</p>
-
-          <h2>Mythos 6: "Ich muss fließend sein, um nützlich zu sein."</h2>
-          <p><strong>Fakt:</strong> Das Ziel sollte nicht "Perfektion" sein, sondern "Verbindung".</p>
-
-          <h2>Mythos 7: "KI wird das Sprachenlernen ersetzen."</h2>
-          <p><strong>Fakt:</strong> KI ist ein Werkzeug, um Ihnen zu helfen, kein Ersatz für Ihr Gehirn.</p>
-
-          <div class="tip-box">
-             <strong>Mentalitätswandel:</strong> Ersetzen Sie "Ich kann nicht" durch "Ich habe noch nicht herausgefunden, wie".
-          </div>
-        </article>
-      `;
-
-
-
-const POST_LISTENING_CONTENT_TH = `
-        <article>
-          <p>เป็นสถานการณ์ที่น่าหงุดหงิด: คุณสอบการฟังในห้องเรียนได้คะแนนเต็ม คุณเข้าใจครูของคุณอย่างสมบูรณ์แบบ แต่พอคุณเปิดหนังดูหรือคุยกับคนจริงๆ บนท้องถนน มันกลับฟังดูเหมือนภาษาต่างดาวที่เร็วกว่าแสง เกิดอะไรขึ้น?</p>
-
-          <h2>ช่องว่างระหว่างเสียงในตำราเรียนกับความเป็นจริง</h2>
-          <p>เสียงในตำราเรียนถูกแสดงโดยนักพากย์ในห้องอัดเสียงที่เก็บเสียง พวกเขาออกเสียงทุกพยางค์อย่างชัดเจน พวกเขาพูดช้า ไม่มีเสียงรบกวน</p>
-          <p>ชีวิตจริงนั้นยุ่งเหยิง ผู้คน:</p>
-          <ul>
-             <li>พูดด้วยความเร็ว 200+ คำต่อนาที</li>
-             <li>รวบคำเข้าด้วยกัน ("Gonna", "Wanna", "Djeetyet?" สำหรับ "Did you eat yet?")</li>
-             <li>พูดแทรกกัน</li>
-             <li>มีเสียงรบกวนจากการจราจร/ดนตรี</li>
-          </ul>
-          <p>สมองของคุณถูกฝึกมากับ "Clean Data" (ข้อมูลที่สะอาด) ดังนั้นมันจึงล้มเหลวเมื่อต้องประมวลผล "Noisy Data" (ข้อมูลที่มีเสียงรบกวน)</p>
-
-          <h2>วิธีแก้ที่ 1: การเขียนตามคำบอก (Dictation)</h2>
-          <p>นี่เป็นแบบฝึกหัดที่เจ็บปวดที่สุดแต่ได้ผลที่สุด เลือกคลิปเสียงจริงความยาว 1 นาที (ไม่ใช่บทเรียน) ฟังและพยายามเขียน <strong>ทุกคำ</strong> ลงไป</p>
-          <p>คุณจะต้องหยุดและย้อนกลับไปฟัง 20 ครั้ง คุณจะติดอยู่ที่เสียงที่ไม่ชัดเจน แต่การดิ้นรนนี้บังคับให้สมองของคุณถอดรหัส "ความไม่ชัดเจน" นั้น เมื่อคุณตรวจสอบบทถอดความในภายหลัง คุณจะรู้ว่า "อ๋อ เสียงแปลกๆ นั่นคือ 'should have' นี่เอง!"</p>
-
-          <h2>วิธีแก้ที่ 2: เปลี่ยนความเร็ว</h2>
-          <p>ใช้ฟีเจอร์ใน YouTube หรือแอป Podcast เพื่อชะลอเสียงลงเหลือ 0.75x ฟังจนกว่าคุณจะจับเสียงได้ แล้วปรับกลับเป็น 1.0x จากนั้นลอง 1.25x การทำให้สมองทำงานหนักเกินไปกับเสียงที่เร็วจะทำให้ความเร็วปกติฟังดูช้าลงเมื่อเปรียบเทียบกัน นักกีฬาฝึกด้วยน้ำหนักที่หนักเพื่อให้การแข่งขันรู้สึกเบา; ทำเช่นเดียวกันกับหูของคุณ</p>
-
-          <h2>วิธีแก้ที่ 3: เรียนรู้การลดรูป (Reductions)</h2>
-          <p>เจ้าของภาษาจะย่อคำเพื่อประหยัดพลังงาน ในภาษาอังกฤษ:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>ถ้าคุณคาดหวังว่าจะได้ยิน "Going to" คุณจะพลาด "Gonna" คุณต้องศึกษาการลดรูปเหล่านี้เหมือนกับว่าเป็นคำศัพท์</p>
-
-          <div class="tip-box">
-             <strong>กฎ 100 ชั่วโมง:</strong> การฟังเป็นเกมของปริมาณ งานวิจัยชี้ให้เห็นว่าคุณต้องการการฟังอย่างตั้งใจประมาณ 100 ชั่วโมงเพื่อสังเกตเห็นการก้าวกระโดดที่สำคัญในความเข้าใจ จดบันทึกเวลาของคุณ
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_VI = `
-        <article>
-          <p>Đây là một tình huống gây nản lòng: Bạn đạt điểm tối đa trong các bài kiểm tra nghe trên lớp. Bạn hiểu giáo viên của mình một cách hoàn hảo. Nhưng khi bạn bật một bộ phim hoặc nói chuyện với một người thực ngoài đời, nó nghe như tiếng người ngoài hành tinh nhanh hơn ánh sáng. Cuyện gì đang xảy ra vậy?</p>
-
-          <h2>Khoảng cách giữa âm thanh sách giáo khoa và thực tế</h2>
-          <p>Âm thanh trong sách giáo khoa được thực hiện bởi các diễn viên lồng tiếng trong phòng thu cách âm. Họ phát âm rõ ràng từng âm tiết. Họ nói chậm. Không có tiếng ồn xung quanh.</p>
-          <p>Cuộc sống thực thì lộn xộn. Mọi người:</p>
-          <ul>
-             <li>Nói với tốc độ hơn 200 từ mỗi phút</li>
-             <li>Nói nuốt chữ ("Gonna", "Wanna", "Djeetyet?" thay vì "Did you eat yet?")</li>
-             <li>Ngắt lời nhau</li>
-             <li>Có tiếng ồn giao thông/âm nhạc nền</li>
-          </ul>
-          <p>Bộ não của bạn đã được huấn luyện với "Dữ liệu sạch", vì vậy nó thất bại khi xử lý "Dữ liệu ồn".</p>
-
-          <h2>Giải pháp 1: Chép chính tả (Dictation)</h2>
-          <p>Đây là bài tập đau đớn nhất nhưng hiệu quả nhất. Lấy một đoạn âm thanh thực dài 1 phút (không phải bài học). Nghe nó và cố gắng viết xuống <strong>từng từ một</strong>.</p>
-          <p>Bạn sẽ phải tạm dừng và tua lại 20 lần. Bạn sẽ bị kẹt ở một âm thanh mờ nhạt. Nhưng sự vật lộn này buộc bộ não của bạn phải giải mã "sự mờ nhạt" đó. Khi bạn kiểm tra lại bản chép sau đó, bạn sẽ nhận ra "Ồ, âm thanh kỳ lạ đó thực ra là 'should have'!"</p>
-
-          <h2>Giải pháp 2: Thay đổi tốc độ</h2>
-          <p>Sử dụng các tính năng trên YouTube hoặc ứng dụng Podcast để làm chậm âm thanh xuống 0.75x. Nghe cho đến khi bạn bắt được các âm thanh, sau đó tăng trở lại 1.0x. Sau đó, hãy thử 1.25x. Việc làm quá tải bộ não của bạn với âm thanh nhanh khiến tốc độ bình thường nghe có vẻ chậm hơn khi so sánh. Các vận động viên tập luyện với tạ nặng để khi thi đấu cảm thấy nhẹ nhàng; hãy làm điều tương tự với đôi tai của bạn.</p>
-
-          <h2>Giải pháp 3: Học cách nuốt âm (Reductions)</h2>
-          <p>Người bản xứ rút gọn từ để tiết kiệm năng lượng. Trong tiếng Anh:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>Nếu bạn mong đợi nghe thấy "Going to", bạn sẽ bỏ lỡ "Gonna". Bạn cần học những cách rút gọn này như thể chúng là từ vựng.</p>
-
-          <div class="tip-box">
-             <strong>Quy tắc 100 giờ:</strong> Nghe hoàn toàn là một trò chơi về số lượng. Nghiên cứu cho thấy bạn cần khoảng 100 giờ nghe tập trung để nhận thấy sự nhảy vọt đáng kể trong khả năng hiểu. Hãy ghi lại giờ của bạn.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_ID = `
-        <article>
-          <p>Ini adalah skenario yang membuat frustrasi: Anda lulus ujian mendengarkan di kelas dengan nilai sempurna. Anda mengerti guru Anda dengan sempurna. Tapi kemudian Anda menyalakan film atau berbicara dengan orang sungguhan di jalan, dan itu terdengar seperti bahasa alien yang lebih cepat dari cahaya. Apa yang terjadi?</p>
-
-          <h2>Kesenjangan Antara Audio Buku Teks dan Realitas</h2>
-          <p>Audio buku teks dilakukan oleh pengisi suara di studio kedap suara. Mereka mengartikulasikan setiap suku kata dengan sempurna. Mereka berbicara pelan. Tidak ada kebisingan latar belakang.</p>
-          <p>Kehidupan nyata itu berantakan. Orang-orang:</p>
-          <ul>
-             <li>Berbicara dengan kecepatan 200+ kata per menit</li>
-             <li>Menggabungkan kata-kata ("Gonna", "Wanna", "Djeetyet?" untuk "Did you eat yet?")</li>
-             <li>Saling menyela</li>
-             <li>Memiliki suara latar lalu lintas/musik</li>
-          </ul>
-          <p>Otak Anda telah dilatih pada "Data Bersih", jadi gagal saat memproses "Data Bising".</p>
-
-          <h2>Solusi 1: Dikte (Transkrip)</h2>
-          <p>Ini adalah latihan yang paling menyakitkan tetapi efektif. Ambil klip audio nyata berdurasi 1 menit (bukan pelajaran). Dengarkan dan cobalah untuk menuliskan <strong>setiap kata</strong>.</p>
-          <p>Anda harus menjeda dan memutar ulang 20 kali. Anda akan terjebak pada suara yang tidak jelas. Tapi perjuangan ini memaksa otak Anda untuk memecahkan kode "ketidakjelasan" itu. Ketika Anda memeriksa transkrip nanti, Anda akan menyadari "Oh, suara aneh itu sebenarnya 'should have'!"</p>
-
-          <h2>Solusi 2: Ubah Kecepatan</h2>
-          <p>Gunakan fitur di YouTube atau aplikasi Podcast untuk memperlambat audio hingga 0,75x. Dengarkan sampai Anda menangkap suaranya, lalu kembalikan ke 1,0x. Kemudian, coba 1,25x. Membebani otak Anda dengan audio cepat membuat kecepatan normal terdengar lambat jika dibandingkan. Atlet berlatih dengan beban berat agar pertandingan terasa ringan; lakukan hal yang sama dengan telinga Anda.</p>
-
-          <h2>Solusi 3: Pelajari Reduksi</h2>
-          <p>Penutur asli menyingkat kata untuk menghemat energi. Dalam bahasa Inggris:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>Jika Anda berharap mendengar "Going to", Anda akan melewatkan "Gonna". Anda perlu mempelajari reduksi ini seolah-olah itu adalah kosakata.</p>
-
-          <div class="tip-box">
-             <strong>Aturan 100 Jam:</strong> Mendengarkan murni permainan volume. Penelitian menunjukkan Anda membutuhkan sekitar 100 jam input mendengarkan yang terfokus untuk melihat lonjakan pemahaman yang signifikan. Catat jam Anda.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_PT = `
-        <article>
-          <p>É um cenário frustrante: você gabarita seus exames de audição na aula. Você entende seu professor perfeitamente. Mas então você liga um filme ou fala com uma pessoa real na rua, e soa como uma algaravia alienígena mais rápida que a luz. O que está acontecendo?</p>
-
-          <h2>A Lacuna Entre o Áudio do Livro Didático e a Realidade</h2>
-          <p>O áudio do livro didático é realizado por dubladores em um estúdio à prova de som. Eles articulam cada sílaba perfeitamente. Eles falam devagar. Não há ruído de fundo.</p>
-          <p>A vida real é bagunçada. As pessoas:</p>
-          <ul>
-             <li>Falam a mais de 200 palavras por minuto</li>
-             <li>Embolam as palavras ("Gonna", "Wanna", "Djeetyet?" para "Did you eat yet?")</li>
-             <li>Interrompem umas às outras</li>
-             <li>Têm ruído de fundo de trânsito/música</li>
-          </ul>
-          <p>Seu cérebro foi treinado em "Dados Limpos", então ele falha ao processar "Dados Ruidosos".</p>
-
-          <h2>Solução 1: Ditado (Transcrição)</h2>
-          <p>Este é o exercício mais doloroso, mas eficaz. Pegue um clipe de 1 minuto de áudio real (não uma lição). Ouça e tente escrever <strong>cada palavra</strong>.</p>
-          <p>Você terá que pausar e rebobinar 20 vezes. Você ficará preso em um som borrado. Mas essa luta força seu cérebro a decodificar o "borrão". Quando você verificar a transcrição mais tarde, perceberá "Ah, aquele som estranho era na verdade 'should have'!"</p>
-
-          <h2>Solução 2: Mude a Velocidade</h2>
-          <p>Use recursos no YouTube ou aplicativos de Podcast para diminuir o áudio para 0,75x. Ouça até captar os sons, depois volte para 1,0x. Então, tente 1,25x. Sobrecarregar seu cérebro com áudio rápido faz com que a velocidade normal pareça lenta em comparação. Atletas treinam com pesos pesados para que o jogo pareça leve; faça o mesmo com seus ouvidos.</p>
-
-          <h2>Solução 3: Aprenda as Reduções</h2>
-          <p>Falantes nativos condensam palavras para economizar energia. Em inglês:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>Se você espera ouvir "Going to", perderá "Gonna". Você precisa estudar essas reduções como se fossem palavras de vocabulário.</p>
-
-          <div class="tip-box">
-             <strong>A Regra das 100 Horas:</strong> Ouvir é puramente um jogo de volume. Pesquisas sugerem que você precisa de cerca de 100 horas de entrada de audição focada para notar um salto significativo na compreensão. Registre suas horas.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_TR = `
-        <article>
-          <p>Sinir bozucu bir senaryo: Sınıftaki dinleme sınavlarından tam not alıyorsunuz. Öğretmeninizi mükemmel anlıyorsunuz. Ama sonra bir film açıyorsunuz veya sokakta gerçek bir insanla konuşuyorsunuz ve ışık hızından daha hızlı bir uzaylı saçmalığı gibi geliyor. Neler oluyor?</p>
-
-          <h2>Ders Kitabı Sesi ile Gerçeklik Arasındaki Uçurum</h2>
-          <p>Ders kitabı ses kayıtları, ses geçirmez bir stüdyoda seslendirme sanatçıları tarafından yapılır. Her heceyi mükemmel bir şekilde telaffuz ederler. Yavaş konuşurlar. Arka plan gürültüsü yoktur.</p>
-          <p>Gerçek hayat karışıktır. İnsanlar:</p>
-          <ul>
-             <li>Dakikada 200'den fazla kelime konuşurlar</li>
-             <li>Kelimeleri birbirine yuvarlarlar ("Gonna", "Wanna", "Did you eat yet?" yerine "Djeetyet?")</li>
-             <li>Birbirlerinin sözünü keserler</li>
-             <li>Arka planda trafik/müzik gürültüsü vardır</li>
-          </ul>
-          <p>Beyniniz "Temiz Veri" üzerinde eğitildi, bu yüzden "Gürültülü Veri" işlerken başarısız oluyor.</p>
-
-          <h2>Çözüm 1: Dikte (Deşifre)</h2>
-          <p>Bu en acı verici ama etkili egzersizdir. 1 dakikalık gerçek bir ses klibi alın (ders değil). Dinleyin ve <strong>her bir kelimeyi</strong> yazmaya çalışın.</p>
-          <p>20 kez duraklatıp geri sarmak zorunda kalacaksınız. Bulanık bir seste takılıp kalacaksınız. Ama bu mücadele beyninizi o "bulanıklığı" çözmeye zorlar. Daha sonra transkripti kontrol ettiğinizde, "Ah, o garip ses aslında 'should have' imiş!" diyeceksiniz.</p>
-
-          <h2>Çözüm 2: Hızı Değiştirin</h2>
-          <p>Sesi 0.75x'e yavaşlatmak için YouTube veya Podcast uygulamalarındaki özellikleri kullanın. Sesleri yakalayana kadar dinleyin, sonra 1.0x'e geri dönün. Ardından, 1.25x'i deneyin. Beynini hızlı sese aşırı yüklemek, normal hızın kıyaslandığında yavaş gelmesini sağlar. Sporcular maçın hafif gelmesi için ağır ağırlıklarla antrenman yapar; kulaklarınızla da aynısını yapın.</p>
-
-          <h2>Çözüm 3: Kısaltmaları (Reductions) Öğrenin</h2>
-          <p>Anadili İngilizce olanlar enerji tasarrufu için kelimeleri sıkıştırır. İngilizce'de:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>"Going to" duymayı beklerseniz, "Gonna"yı kaçırırsınız. Bu kısaltmaları kelime ezberler gibi çalışmalısınız.</p>
-
-          <div class="tip-box">
-             <strong>100 Saat Kuralı:</strong> Dinleme tamamen bir hacim oyunudur. Araştırmalar, anlamada önemli bir sıçrama fark etmek için yaklaşık 100 saatlik odaklanmış dinleme girdisine ihtiyacınız olduğunu öne sürüyor. Saatlerinizi kaydedin.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_AR = `
-        <article>
-          <p>إنه سيناريو محبط: تتفوق في امتحانات الاستماع في الفصل. تفهم معلمك تمامًا. ولكن بعد ذلك تقوم بتشغيل فيلم أو التحدث إلى شخص حقيقي في الشارع، ويبدو الأمر وكأنه رطانة فضائية أسرع من الضوء. ماذا يحدث؟</p>
-
-          <h2>الفجوة بين صوت الكتاب المدرسي والواقع</h2>
-          <p>يتم أداء صوت الكتاب المدرسي بواسطة ممثلين صوتيين في استوديو عازل للصوت. ينطقون كل مقطع لفظي بشكل مثالي. يتحدثون ببطء. لا توجد ضوضاء في الخلفية.</p>
-          <p>الحياة الحقيقية فوضوية. الناس:</p>
-          <ul>
-             <li>يتحدثون بسرعة 200+ كلمة في الدقيقة</li>
-             <li>يدمجون الكلمات معًا ("Gonna", "Wanna", "Djeetyet?" بدلاً من "Did you eat yet?")</li>
-             <li>يقاطعون بعضهم البعض</li>
-             <li>لديهم ضوضاء خلفية من حركة المرور/الموسيقى</li>
-          </ul>
-          <p>لقد تم تدريب عقلك على "البيانات النظيفة"، لذلك فهو يفشل عند معالجة "البيانات الصاخبة".</p>
-
-          <h2>الحل 1: الإملاء (النسخ)</h2>
-          <p>هذا هو التمرين الأكثر إيلامًا ولكنه الأكثر فعالية. خذ مقطعًا صوتيًا حقيقيًا مدته دقيقة واحدة (وليس درسًا). استمع إليه وحاول كتابة <strong>كل كلمة واحدة</strong>.</p>
-          <p>ستضطر إلى الإيقاف المؤقت والإرجاع 20 مرة. ستعلق عند صوت غير واضح. لكن هذا الصراع يجبر عقلك على فك تشفير هذا "الغموض". عندما تتحقق من النسخة النصية لاحقًا، ستدرك "أوه، هذا الصوت الغريب كان في الواقع 'should have'!"</p>
-
-          <h2>الحل 2: تغيير السرعة</h2>
-          <p>استخدم الميزات الموجودة في تطبيقات YouTube أو البودكاست لإبطاء الصوت إلى 0.75x. استمع حتى تلتقط الأصوات، ثم أعدها إلى 1.0x. ثم جرب 1.25x. إن تحميل عقلك فوق طاقته بصوت سريع يجعل السرعة العادية تبدو بطيئة بالمقارنة. يتدرب الرياضيون بأوزان ثقيلة لتشعر اللعبة بالخفة؛ افعل الشيء نفسه مع أذنيك.</p>
-
-          <h2>الحل 3: تعلم الاختصارات</h2>
-          <p>يقوم المتحدثون الأصليون بتكثيف الكلمات لتوفير الطاقة. في اللغة الإنجليزية:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>إذا كنت تتوقع سماع "Going to"، فستفوت "Gonna". تحتاج إلى دراسة هذه الاختصارات كما لو كانت مفردات.</p>
-
-          <div class="tip-box">
-             <strong>قاعدة الـ 100 ساعة:</strong> الاستماع هو مجرد لعبة حجم. تشير الأبحاث إلى أنك تحتاج إلى ما يقرب من 100 ساعة من مدخلات الاستماع المركزة لتلاحظ قفزة كبيرة في الفهم. سجل ساعاتك.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_HI = `
-        <article>
-          <p>यह एक निराशाजनक परिदृश्य है: आप कक्षा में अपनी सुनने की परीक्षाओं में पास हो जाते हैं। आप अपने शिक्षक को पूरी तरह समझते हैं। लेकिन फिर आप कोई फिल्म चलाते हैं या सड़क पर किसी असली व्यक्ति से बात करते हैं, और यह प्रकाश से भी तेज़ विदेशी बड़बड़ाहट जैसा लगता है। क्या हो रहा है?</p>
-
-          <h2>पाठ्यपुस्तक ऑडियो और वास्तविकता के बीच का अंतर</h2>
-          <p>पाठ्यपुस्तक ऑडियो को साउंडप्रूफ स्टूडियो में वॉयस एक्टर्स द्वारा प्रदर्शित किया जाता है। वे हर शब्दांश का सही उच्चारण करते हैं। वे धीरे बोलते हैं। कोई पृष्ठभूमि शोर नहीं होता है।</p>
-          <p>वास्तविक जीवन अस्त-व्यस्त है। लोग:</p>
-          <ul>
-             <li>200+ शब्द प्रति मिनट की गति से बोलते हैं</li>
-             <li>शब्दों को एक साथ मिलाते हैं ("Going to" के लिए "Gonna", "Want to" के लिए "Wanna")</li>
-             <li>एक-दूसरे को बीच में टोकते हैं</li>
-             <li>पृष्ठभूमि में यातायात/संगीत का शोर होता है</li>
-          </ul>
-          <p>आपके मस्तिष्क को "साफ डेटा" पर प्रशिक्षित किया गया है, इसलिए "शोर डेटा" को संसाधित करते समय यह विफल हो जाता है।</p>
-
-          <h2>समाधान 1: श्रुतलेख (प्रतिलेखन)</h2>
-          <p>यह सबसे दर्दनाक लेकिन प्रभावी व्यायाम है। 1 मिनट का वास्तविक ऑडियो क्लिप लें (कोई पाठ नहीं)। इसे सुनें और <strong>हर एक शब्द</strong> को लिखने का प्रयास करें।</p>
-          <p>आपको 20 बार रुकना और फिर से शुरू करना होगा। आप एक धुंधली आवाज़ पर अटक जाएंगे। लेकिन यह संघर्ष आपके मस्तिष्क को उस "धुंधलेपन" को डिकोड करने के लिए मजबूर करता है। जब आप बाद में ट्रांसक्रिप्ट की जांच करेंगे, तो आपको एहसास होगा "ओह, वह अजीब आवाज़ वास्तव में 'should have' थी!"</p>
-
-          <h2>समाधान 2: गति बदलें</h2>
-          <p>ऑडियो को 0.75x तक धीमा करने के लिए YouTube या पॉडकास्ट ऐप्स की सुविधाओं का उपयोग करें। तब तक सुनें जब तक आप ध्वनियों को पकड़ न लें, फिर इसे वापस 1.0x पर लाएं। फिर, 1.25x का प्रयास करें। तेज ऑडियो के साथ अपने मस्तिष्क को ओवरलोड करने से तुलना में सामान्य गति धीमी लगती है। एथलीट भारी वजन के साथ प्रशिक्षण लेते हैं ताकि खेल हल्का महसूस हो; अपने कानों के साथ भी ऐसा ही करें।</p>
-
-          <h2>समाधान 3: कटौती (Reductions) सीखें</h2>
-          <p>मूल वक्ता ऊर्जा बचाने के लिए शब्दों को संक्षिप्त करते हैं। अंग्रेजी में:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>यदि आप "Going to" सुनने की उम्मीद करते हैं, तो आप "Gonna" को याद करेंगे। आपको इन कटौतियों का अध्ययन वैसे ही करना होगा जैसे कि वे शब्दावली शब्द थे।</p>
-
-          <div class="tip-box">
-             <strong>100-घंटे का नियम:</strong> सुनना पूरी तरह से एक मात्रा का खेल है। शोध बताते हैं कि समझ में एक महत्वपूर्ण छलांग देखने के लिए आपको लगभग 100 घंटे के केंद्रित सुनने के इनपुट की आवश्यकता होती है। अपने घंटों को लॉग करें।
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_RU = `
-        <article>
-          <p>Это разочаровывающий сценарий: вы отлично сдаете экзамены по аудированию в классе. Вы прекрасно понимаете своего учителя. Но потом вы включаете фильм или разговариваете с реальным человеком на улице, и это звучит как инопланетная тарабарщина быстрее скорости света. Что происходит?</p>
-
-          <h2>Разрыв между аудио в учебнике и реальностью</h2>
-          <p>Аудио в учебниках записывается актерами озвучивания в звукоизолированной студии. Они идеально артикулируют каждый слог. Они говорят медленно. Нет фонового шума.</p>
-          <p>Реальная жизнь беспорядочна. Люди:</p>
-          <ul>
-             <li>Говорят со скоростью 200+ слов в минуту</li>
-             <li>Сливают слова вместе ("Gonna", "Wanna", "Djeetyet?" вместо "Did you eat yet?")</li>
-             <li>Перебивают друг друга</li>
-             <li>Имеют фоновый шум транспорта/музыки</li>
-          </ul>
-          <p>Ваш мозг был обучен на "Чистых данных", поэтому он дает сбой при обработке "Шумных данных".</p>
-
-          <h2>Решение 1: Диктант (Транскрибирование)</h2>
-          <p>Это самое болезненное, но эффективное упражнение. Возьмите 1-минутный клип реального аудио (не урок). Послушайте его и попытайтесь записать <strong>каждое слово</strong>.</p>
-          <p>Вам придется ставить на паузу и перематывать 20 раз. Вы застрянете на нечетком звуке. Но эта борьба заставляет ваш мозг расшифровывать это "размытие". Когда вы позже проверите расшифровку, вы поймете: "О, этот странный звук на самом деле был 'should have'!"</p>
-
-          <h2>Решение 2: Измените скорость</h2>
-          <p>Используйте функции YouTube или приложений для подкастов, чтобы замедлить аудио до 0.75x. Слушайте, пока не уловите звуки, затем вернитесь к 1.0x. Затем попробуйте 1.25x. Перегрузка мозга быстрым звуком заставляет нормальную скорость казаться медленной по сравнению с ним. Спортсмены тренируются с тяжелыми весами, чтобы игра казалась легкой; делайте то же самое со своими ушами.</p>
-
-          <h2>Решение 3: Изучите сокращения (Reductions)</h2>
-          <p>Носители языка сжимают слова, чтобы сэкономить энергию. В английском:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>Если вы ожидаете услышать "Going to", вы пропустите "Gonna". Вам нужно изучать эти сокращения, как если бы это были словарные слова.</p>
-
-          <div class="tip-box">
-             <strong>Правило 100 часов:</strong> Аудирование — это чисто игра объема. Исследования показывают, что вам нужно примерно 100 часов сосредоточенного прослушивания, чтобы заметить значительный скачок в понимании. Записывайте свои часы.
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_BN = `
-        <article>
-          <p>এটি একটি হতাশাজনক দৃশ্য: আপনি ক্লাসে আপনার লিসেনিং পরীক্ষায় দুর্দান্ত করেন। আপনি আপনার শিক্ষককে নিখুঁতভাবে বোঝেন। কিন্তু তারপরে আপনি একটি সিনেমা চালু করেন বা রাস্তায় একজন সত্যিকারের ব্যক্তির সাথে কথা বলেন, এবং এটি আলোর চেয়ে দ্রুত এলিয়েন बকবকানির মতো শোনায়। কি হচ্ছে?</p>
-
-          <h2>পাঠ্যবই অডিও এবং বাস্তবতার মধ্যে ব্যবধান</h2>
-          <p>পাঠ্যবই অডিও সাউন্ডপ্রুফ স্টুডিওতে ভয়েস অভিনেতাদের দ্বারা সঞ্চালিত হয়। তারা প্রতিটি অক্ষর নিখুঁতভাবে উচ্চারণ করে। তারা ধীরে কথা বলে। কোন পটভূমি শব্দ নেই।</p>
-          <p>বাস্তব জীবন অগোছালো। মানুষ:</p>
-          <ul>
-             <li>প্রতি মিনিটে ২০০+ শব্দে কথা বলে</li>
-             <li>শব্দগুলি একসাথে জুড়ে দেয় ("Gonna", "Wanna", "Djeetyet?" - "Did you eat yet?" এর জন্য)</li>
-             <li>একে অপরকে বাধা দেয়</li>
-             <li>পটভূমিতে ট্রাফিক/সঙ্গীতের শব্দ থাকে</li>
-          </ul>
-          <p>আপনার মস্তিষ্ক "পরিষ্কার ডেটা"-তে প্রশিক্ষিত হয়েছে, তাই "কোলাহলপূর্ণ ডেটা" প্রক্রিয়া করার সময় এটি ব্যর্থ হয়।</p>
-
-          <h2>সমাধান ১: শ্রুতলিখন (ট্রান্সক্রাইবিং)</h2>
-          <p>এটি সবচেয়ে বেদনাদায়ক কিন্তু কার্যকর ব্যায়াম। ১ মিনিটের একটি বাস্তব অডিও ক্লিপ নিন (কোনো পাঠ নয়)। এটি শুনুন এবং <strong>প্রতিটি শব্দ</strong> লিখে রাখার চেষ্টা করুন।</p>
-          <p>আপনাকে ২০ বার বিরতি দিয়ে রিওয়াইন্ড করতে হবে। আপনি একটি অস্পষ্ট শব্দে আটকে যাবেন। কিন্তু এই সংগ্রাম আপনার মস্তিষ্ককে সেই "অস্পষ্টতা" ডিকোড করতে বাধ্য করে। আপনি যখন পরে প্রতিলিপিটি পরীক্ষা করবেন, আপনি বুঝতে পারবেন "ওহ, সেই অদ্ভুত শব্দটি আসলে 'should have' ছিল!"</p>
-
-          <h2>সমাধান ২: গতি পরিবর্তন করুন</h2>
-          <p>অডিওটিকে 0.75x এ ধীর করতে YouTube বা পডকাস্ট অ্যাপের বৈশিষ্ট্যগুলি ব্যবহার করুন৷ যতক্ষণ না আপনি শব্দগুলি ধরতে পারেন ততক্ষণ শুনুন, তারপরে এটিকে 1.0x এ ফিরিয়ে আনুন। তারপর, 1.25x চেষ্টা করুন। দ্রুত অডিওর সাথে আপনার মস্তিষ্ককে ওভারলোড করা স্বাভাবিক গতিকে তুলনায় ধীর মনে করে। ক্রীড়াবিদরা ভারী ওজনের সাথে প্রশিক্ষণ নেয় যাতে খেলাটি হালকা মনে হয়; আপনার কানের সাথে একই কাজ করুন।</p>
-
-          <h2>সমাधान ৩: সংক্ষিপ্তকরণ শিখুন (Reductions)</h2>
-          <p>নেটিভ স্পিকাররা শক্তি সঞ্চয় করতে শব্দগুলিকে সংকুচিত করে। ইংরেজিতে:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>আপনি যদি "Going to" শোনার আশা করেন তবে আপনি "Gonna" মিস করবেন। আপনাকে এই সংক্ষিপ্তকরণগুলি অধ্যয়ন করতে হবে যেন সেগুলি শব্দভান্ডারের শব্দ।</p>
-
-          <div class="tip-box">
-             <strong>১০০-ঘন্টার নিয়ম:</strong> শোনা সম্পূর্ণরূপে একটি ভলিউম গেম। গবেষণা পরামর্শ দেয় যে বোঝার ক্ষেত্রে উল্লেখযোগ্য উল্লম্ফন লক্ষ্য করতে আপনার প্রায় ১০০ ঘন্টা ফোকাসড লিসেনিং ইনপুট প্রয়োজন। আপনার ঘন্টা লগ করুন।
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_UR = `
-        <article>
-          <p>یہ ایک مایوس کن منظر ہے: آپ کلاس میں اپنے سننے کے امتحانات میں بہترین کارکردگی کا مظاہرہ کرتے ہیں۔ آپ اپنے استاد کو مکمل طور پر سمجھتے ہیں۔ لیکن پھر آپ کوئی فلم چلاتے ہیں یا سڑک پر کسی حقیقی شخص سے بات کرتے ہیں، اور یہ روشنی سے زیادہ تیز اجنبی بکواس کی طرح لگتا ہے۔ کیا ہو رہا ہے؟</p>
-
-          <h2>ٹیکسٹ بک آڈیو اور حقیقت کے درمیان فرق</h2>
-          <p>ٹیکسٹ بک آڈیو ساؤنڈ پروف اسٹوڈیو میں وائس ایکٹرز کے ذریعے پیش کی جاتی ہے۔ وہ ہر لفظ کو مکمل طور پر ادا کرتے ہیں۔ وہ آہستہ بولتے ہیں۔ کوئی پس منظر کا شور نہیں ہوتا ہے۔</p>
-          <p>حقیقی زندگی گڑبڑ ہے۔ لوگ:</p>
-          <ul>
-             <li>200+ الفاظ فی منٹ کی رفتار سے بولتے ہیں</li>
-             <li>الفاظ کو ایک ساتھ ملا دیتے ہیں ("Gonna", "Wanna", "Djeetyet?" بجائے "Did you eat yet?")</li>
-             <li>ایک دوسرے کی بات کاٹتے ہیں</li>
-             <li>پس منظر میں ٹریفک/موسیقی کا شور ہوتا ہے</li>
-          </ul>
-          <p>آپ کے دماغ کو "صاف ڈیٹا" پر تربیت دی گئی ہے، اس لیے "شور والے ڈیٹا" پر کارروائی کرتے وقت یہ ناکام ہو جاتا ہے۔</p>
-
-          <h2>حل 1: ڈکٹیشن (نقل کرنا)</h2>
-          <p>یہ سب سے تکلیف دہ لیکن موثر مشق ہے۔ 1 منٹ کی حقیقی آڈیو کلپ لیں (سبق نہیں)۔ اسے سنیں اور <strong>ہر ایک لفظ</strong> لکھنے کی کوشش کریں۔</p>
-          <p>آپ کو 20 بار توقف اور ریوائنڈ کرنا پڑے گا۔ آپ ایک دھندلی آواز پر پھنس جائیں گے۔ لیکن یہ جدوجہد آپ کے دماغ کو اس "دھندلاپن" کو ڈی کوڈ کرنے پر مجبور کرتی ہے۔ جب آپ بعد میں ٹرانسکرپٹ چیک کریں گے، تو آپ کو احساس ہوگا "اوہ، وہ عجیب آواز دراصل 'should have' تھی!"</p>
-
-          <h2>حل 2: رفتار تبدیل کریں</h2>
-          <p>آڈیو کو 0.75x تک سست کرنے کے لیے YouTube یا پوڈ کاسٹ ایپ کی خصوصیات کا استعمال کریں۔ اس وقت تک سنیں جب تک کہ آپ آوازیں نہ پکڑ لیں، پھر اسے واپس 1.0x پر لائیں۔ پھر، 1.25x آزمائیں۔ تیز آڈیو کے ساتھ اپنے دماغ پر بوجھ ڈالنا معمول کی رفتار کو مقابلے میں سست محسوس کراتا ہے۔ کھلاڑی بھاری وزن کے ساتھ تربیت کرتے ہیں تاکہ کھیل ہلکا محسوس ہو؛ اپنے کانوں کے ساتھ بھی ایسا ہی کریں۔</p>
-
-          <h2>حل 3: تخفیفات (Reductions) سیکھیں</h2>
-          <p>مقامی بولنے والے توانائی بچانے کے لیے الفاظ کو مختصر کرتے ہیں۔ انگریزی میں:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>اگر آپ "Going to" سننے کی توقع کرتے ہیں، تو آپ "Gonna" کو یاد کریں گے۔ آپ کو ان تخفیفات کا مطالعہ کرنے کی ضرورت ہے جیسے وہ الفاظ کے الفاظ تھے۔</p>
-
-          <div class="tip-box">
-             <strong>100 گھنٹے کا قاعدہ:</strong> سننا خالصتاً ایک والیوم گیم ہے۔ تحقیق سے پتہ چلتا ہے کہ فہم میں نمایاں چھلانگ محسوس کرنے کے لیے آپ کو تقریباً 100 گھنٹے کی توجہ مرکوز سننے کی ضرورت ہے۔ اپنے گھنٹے لاگ کریں۔
-          </div>
-        </article>
-      `;
-
-const POST_LISTENING_CONTENT_NE = `
-        <article>
-          <p>यो एक निराशाजनक परिदृश्य हो: तपाइँ कक्षामा तपाइँको सुन्ने परीक्षाहरूमा उत्कृष्ट हुनुहुन्छ। तपाइँ तपाइँको शिक्षकलाई पूर्ण रूपमा बुझ्नुहुन्छ। तर त्यसपछि तपाइँ एक चलचित्र खोल्नुहुन्छ वा सडकमा वास्तविक व्यक्तिसँग कुरा गर्नुहुन्छ, र यो प्रकाश भन्दा छिटो एलियन बडबड जस्तो सुनिन्छ। के भइरहेको छ?</p>
-
-          <h2>पाठ्यपुस्तक अडियो र वास्तविकता बीचको खाडल</h2>
-          <p>पाठ्यपुस्तक अडियो साउन्डप्रुफ स्टुडियोमा आवाज कलाकारहरूद्वारा प्रदर्शन गरिन्छ। तिनीहरूले प्रत्येक अक्षर पूर्ण रूपमा उच्चारण गर्छन्। तिनीहरू बिस्तारै बोल्छन्। त्यहाँ कुनै पृष्ठभूमि शोर छैन।</p>
-          <p>वास्तविक जीवन अस्तव्यस्त छ। मानिसहरू:</p>
-          <ul>
-             <li>२००+ शब्द प्रति मिनेट बोल्छन्</li>
-             <li>शब्दहरू सँगै जोड्छन् ("Gonna", "Wanna", "Djeetyet?" "Did you eat yet?" को लागि)</li>
-             <li>एक अर्कालाई बाधा पुर्याउँछन्</li>
-             <li>पृष्ठभूमि ट्राफिक/संगीत शोर छ</li>
-          </ul>
-          <p>तपाइँको दिमागलाई "सफा डाटा" मा तालिम दिइएको छ, त्यसैले "कोलाहलपूर्ण डाटा" प्रशोधन गर्दा यो असफल हुन्छ।</p>
-
-          <h2>समाधान १: श्रुतलेख (ट्रान्सक्राइबिङ)</h2>
-          <p>यो सबैभन्दा पीडादायी तर प्रभावकारी व्यायाम हो। १ मिनेटको वास्तविक अडियो क्लिप लिनुहोस् (पाठ होइन)। यसलाई सुन्नुहोस् र <strong>हरेक शब्द</strong> लेख्ने प्रयास गर्नुहोस्।</p>
-          <p>तपाइँले २० पटक पज र रिवाइन्ड गर्नुपर्नेछ। तपाइँ एक धमिलो आवाजमा अड्कनुहुनेछ। तर यो संघर्षले तपाइँको दिमागलाई त्यो "धमिलोपन" डिकोड गर्न बाध्य पार्छ। जब तपाइँ पछि ट्रान्सक्रिप्ट जाँच गर्नुहुन्छ, तपाइँ महसुस गर्नुहुनेछ "ओहो, त्यो अनौठो आवाज वास्तवमा 'should have' थियो!"</p>
-
-          <h2>समाधान २: गति परिवर्तन गर्नुहोस्</h2>
-          <p>अडियोलाई ०.७५x मा ढिलो गर्न YouTube वा पोडकास्ट एपहरूमा सुविधाहरू प्रयोग गर्नुहोस्। जबसम्म तपाइँ आवाजहरू समात्नुहुन्न तबसम्म सुन्नुहोस्, त्यसपछि यसलाई १.०x मा फिर्ता लिनुहोस्। त्यसपछि, १.२५x प्रयास गर्नुहोस्। छिटो अडियोको साथ तपाइँको दिमागलाई ओभरलोड गर्दा सामान्य गति तुलनामा ढिलो लाग्छ। एथलीटहरू भारी तौलका साथ तालिम लिन्छन् ताकि खेल हल्का महसुस होस्; तपाइँको कानसँग पनि त्यस्तै गर्नुहोस्।</p>
-
-          <h2>समाधान ३: कटौती (Reductions) सिक्नुहोस्</h2>
-          <p>नेटिभ वक्ताहरूले ऊर्जा बचत गर्न शब्दहरू कंडेन्स गर्छन्। अंग्रेजीमा:</p>
-          <ul>
-             <li>"Going to" -> "Gonna"</li>
-             <li>"Want to" -> "Wanna"</li>
-             <li>"Let me" -> "Lemme"</li>
-             <li>"Kind of" -> "Kinda"</li>
-          </ul>
-          <p>यदि तपाइँ "Going to" सुन्ने आशा गर्नुहुन्छ भने, तपाइँ "Gonna" छुटाउनुहुनेछ। तपाइँले यी कटौतीहरू अध्ययन गर्न आवश्यक छ मानौं तिनीहरू शब्दावली शब्दहरू हुन्।</p>
-
-          <div class="tip-box">
-             <strong>१००-घण्टाको नियम:</strong> सुन्नु नितान्त भोल्युम खेल हो। अनुसन्धानले सुझाव दिन्छ कि समझमा महत्त्वपूर्ण छलाङ देख्नको लागि तपाइँलाई लगभग १०० घण्टाको केन्द्रित सुन्ने इनपुट चाहिन्छ। तपाइँको घण्टा लग गर्नुहोस्।
-          </div>
-        </article>
-      `;
-
-const POST_MYTHS_CONTENT_TH = `
-        <article>
-          <p>อุปสรรคที่ใหญ่ที่สุดในการเรียนภาษาไม่ใช่ไวยากรณ์ คำศัพท์ หรือการออกเสียง แต่เป็น "จิตวิทยา" พวกเราหลายคนมีความเชื่อที่จำกัดตัวเองซึ่งบ่อนทำลายความก้าวหน้าของเราตั้งแต่ยังไม่เริ่ม มาดูความเชื่อผิดๆ ที่ต้องกำจัดทิ้งกันเถอะ</p>
-
-          <h2>ความเชื่อผิดๆ 1: "ฉันแก่เกินไปที่จะเรียน"</h2>
-          <p><strong>ความจริง:</strong> แม้ว่าเด็กจะรับสำเนียงได้ดีกว่า แต่ผู้ใหญ่มีสถิติที่ดีกว่าในการเข้าใจแนวคิดทางไวยากรณ์ที่ซับซ้อนและมีวินัยในการเรียนรู้ ความยืดหยุ่นของสมอง (Neuroplasticity) มีอยู่ตลอดชีวิต คุณสามารถเรียนได้ตอนอายุ 20, 50 หรือ 80 วิธีการแค่เปลี่ยนไปเท่านั้น</p>
-
-          <h2>ความเชื่อผิดๆ 2: "ฉันไม่มี 'ยีนภาษา' (หัวไม่ไป)"</h2>
-          <p><strong>ความจริง:</strong> ไม่มีสิ่งที่เรียกว่ายีนภาษา ทุกคนเรียนภาษาแม่ของตนเองได้อย่างสมบูรณ์แบบ แม้บางคนอาจมีทักษะการประมวลผลการได้ยินที่ดีกว่าเล็กน้อย แต่ 99% ของความสำเร็จทางภาษาคือความพยายามและเวลา "พรสวรรค์" มักจะเป็นเพียงหน้ากากของการฝึกฝนหลายพันชั่วโมงที่ไม่มีใครเห็น</p>
-
-          <h2>ความเชื่อผิดๆ 3: "ฉันต้องไปอยู่ในประเทศนั้นถึงจะเรียนได้"</h2>
-          <p><strong>ความจริง:</strong> มีชาวต่างชาติที่อาศัยอยู่ในญี่ปุ่นมา 20 ปีแต่สั่งเบียร์ไม่ได้ และมีวัยรุ่นในชนบทของบราซิลที่พูดภาษาอังกฤษได้สมบูรณ์แบบ การดื่มด่ำ (Immersion) เป็นสภาวะของจิตใจ ไม่ใช่ตำแหน่ง GPS ด้วยอินเทอร์เน็ต คุณสามารถสร้างสภาพแวดล้อมที่ดื่มด่ำได้ทุกที่</p>
-
-          <h2>ความเชื่อผิดๆ 4: "ความผิดพลาดเป็นเรื่องไม่ดี"</h2>
-          <p><strong>ความจริง:</strong> ความผิดพลาดคือจุดข้อมูล (Data points) ถ้าคุณไม่ทำผิด แสดงว่าคุณไม่ได้ก้าวข้ามขีดจำกัดของตัวเอง ผู้เรียนที่ทำผิด 100 ครั้งต่อวันจะเรียนรู้ได้เร็วกว่าคนที่สมบูรณ์แบบที่ยอมเงียบเพื่อหลีกเลี่ยงข้อผิดพลาดถึง 100 เท่า</p>
-
-          <h2>ความเชื่อผิดๆ 5: "ภาษาอังกฤษเป็นภาษาที่ยากที่สุด / ภาษา X ยากที่สุด"</h2>
-          <p><strong>ความจริง:</strong> ความยากเป็นเรื่องสัมพัทธ์ สำหรับคนเกาหลี ภาษาญี่ปุ่นง่ายกว่าภาษาอังกฤษ สำหรับคนเยอรมัน ภาษาอังกฤษนั้นง่าย หยุดโฟกัสว่ามัน "ยาก" แค่ไหน นั่นเป็นเพียงข้ออ้างในการผลัดวันประกันพรุ่ง</p>
-
-          <h2>ความเชื่อผิดๆ 6: "ฉันต้องพูดคล่องถึงจะมีประโยชน์"</h2>
-          <p><strong>ความจริง:</strong> คุณสามารถเดินทาง หาเพื่อน และเดินทางในเมืองได้ด้วยความสามารถทางภาษาระดับ A2 (ระดับเอาตัวรอด) เป้าหมายไม่ควรอยู่ที่ "ความสมบูรณ์แบบ" แต่ควรเป็น "การเชื่อมต่อ"</p>
-
-          <h2>ความเชื่อผิดๆ 7: "AI จะมาแทนที่การเรียนภาษา"</h2>
-          <p><strong>ความจริง:</strong> แอพแปลภาษานั้นยอดเยี่ยมสำหรับเอกสารธุรกิจ แต่มันไม่สามารถแปลความสัมพันธ์ของมนุษย์ได้ การพูดคุยกับใครสักคนในภาษาจิตวิญญาณของพวกเขาสร้างความไว้วางใจและความสัมพันธ์ที่เครื่องจักรไม่สามารถเลียนแบบได้ AI เป็นเครื่องมือช่วยเรียนรู้ ไม่ใช่สิ่งทดแทนสมองของคุณ</p>
-
-          <div class="tip-box">
-             <strong>เปลี่ยนกรอบความคิด:</strong> เปลี่ยนคำว่า "ฉันทำไม่ได้" เป็น "ฉันยังหาวิธีไม่เจอ" ความเชื่อของคุณกำหนดขีดจำกัดของคุณ
-          </div>
-        </article>
-      `;
-
-const POST_MYTHS_CONTENT_VI = `
-        <article>
-          <p>Rào cản lớn nhất để học một ngôn ngữ không phải là ngữ pháp, từ vựng hay phát âm. Đó là tâm lý. Nhiều người trong chúng ta nuôi dưỡng những niềm tin tự giới hạn phá hoại sự tiến bộ của chúng ta trước khi chúng ta bắt đầu. Hãy xem xét những lầm tưởng cần phải loại bỏ.</p>
-
-          <h2>Lầm tưởng 1: "Tôi quá già để học."</h2>
-          <p><strong>Sự thật:</strong> Trong khi trẻ em giỏi hơn trong việc tiếp thu giọng điệu, người lớn theo thống kê giỏi hơn trong việc hiểu các khái niệm ngữ pháp phức tạp và có kỷ luật để học tập. Tính dẻo của não bộ tồn tại trong suốt cuộc đời bạn. Bạn có thể học ở tuổi 20, 50 hoặc 80. Phương pháp chỉ thay đổi thôi.</p>
-
-          <h2>Lầm tưởng 2: "Tôi không có 'Gen Ngôn ngữ'."</h2>
-          <p><strong>Sự thật:</strong> Không có thứ đó. Mọi người đều học tiếng mẹ đẻ của mình một cách hoàn hảo. Trong khi một số người có thể có năng khiếu nhẹ về xử lý thính giác, 99% thành công ngôn ngữ là nỗ lực và thời gian. "Tài năng" thường chỉ là lớp mặt nạ cho hàng ngàn giờ luyện tập không được nhìn thấy.</p>
-
-          <h2>Lầm tưởng 3: "Tôi cần sống ở đất nước đó để học."</h2>
-          <p><strong>Sự thật:</strong> Có những người nước ngoài sống ở Nhật Bản 20 năm và không thể gọi một cốc bia. Có những thanh thiếu niên ở vùng nông thôn Brazil nói tiếng Anh hoàn hảo. Sự đắm mình là một trạng thái tâm trí, không phải là một vị trí GPS. Với internet, bạn có thể tạo ra một môi trường đắm mình ở bất cứ đâu.</p>
-
-          <h2>Lầm tưởng 4: "Sai lầm là xấu."</h2>
-          <p><strong>Sự thật:</strong> Sai lầm là các điểm dữ liệu. Nếu bạn không mắc sai lầm, bạn không đang đẩy giới hạn của mình. Người học mắc 100 lỗi một ngày học nhanh hơn 100 lần so với người theo chủ nghĩa hoàn hảo giữ im lặng để tránh sai sót.</p>
-
-          <h2>Lầm tưởng 5: "Tiếng Anh là ngôn ngữ khó nhất / X là ngôn ngữ khó nhất."</h2>
-          <p><strong>Sự thật:</strong> Độ khó là tương đối. Đối với người nói tiếng Hàn, tiếng Nhật dễ hơn tiếng Anh. Đối với người nói tiếng Đức, tiếng Anh rất dễ. Ngừng tập trung vào việc nó "khó" như thế nào—đó chỉ là một cái cớ để trì hoãn.</p>
-
-          <h2>Lầm tưởng 6: "Tôi cần phải trôi chảy mới có ích."</h2>
-          <p><strong>Sự thật:</strong> Bạn có thể đi du lịch, kết bạn và điều hướng một thành phố với trình độ ngôn ngữ A2 (sinh tồn). Mục tiêu không nên là "sự hoàn hảo"; nó nên là "sự kết nối".</p>
-
-          <h2>Lầm tưởng 7: "AI sẽ thay thế việc học ngôn ngữ."</h2>
-          <p><strong>Sự thật:</strong> Các ứng dụng dịch thuật rất tuyệt vời cho các tài liệu kinh doanh, nhưng chúng không thể dịch sự kết nối giữa con người. Nói chuyện với ai đó bằng ngôn ngữ tâm hồn của họ xây dựng niềm tin và mối quan hệ mà máy móc không thể sao chép. AI là một công cụ giúp bạn học, không phải là sự thay thế cho bộ não của bạn.</p>
-
-          <div class="tip-box">
-             <strong>Thay đổi tư duy:</strong> Thay thế "Tôi không thể" bằng "Tôi chưa tìm ra cách." Niềm tin của bạn xác định giới hạn của bạn.
-          </div>
-        </article>
-      `;
-
-const POST_MYTHS_CONTENT_ID = `
-        <article>
-          <p>Hambatan terbesar untuk belajar bahasa bukanlah tata bahasa, kosakata, atau pengucapan. Itu adalah psikologi. Banyak dari kita menyimpan keyakinan yang membatasi diri yang menyabotase kemajuan kita bahkan sebelum kita mulai. Mari kita lihat mitos yang harus mati.</p>
-
-          <h2>Mitos 1: "Saya terlalu tua untuk belajar."</h2>
-          <p><strong>Fakta:</strong> Sementara anak-anak lebih baik dalam memperoleh aksen, orang dewasa secara statistik lebih baik dalam memahami konsep tata bahasa yang kompleks dan memiliki disiplin untuk belajar. Neuroplastisitas ada sepanjang hidup Anda. Anda bisa belajar pada usia 20, 50, atau 80. Metodenya hanya berubah.</p>
-
-          <h2>Mitos 2: "Saya tidak memiliki 'Gen Bahasa'."</h2>
-          <p><strong>Fakta:</strong> Tidak ada hal seperti itu. Semua orang belajar bahasa ibu mereka dengan sempurna. Sementara beberapa orang mungkin memiliki sedikit bakat untuk pemrosesan pendengaran, 99% keberhasilan bahasa adalah usaha dan waktu. "Bakat" biasanya hanyalah topeng untuk ribuan jam latihan yang tak terlihat.</p>
-
-          <h2>Mitos 3: "Saya perlu tinggal di negara itu untuk belajar."</h2>
-          <p><strong>Fakta:</strong> Ada ekspatriat yang telah tinggal di Jepang selama 20 tahun dan tidak bisa memesan bir. Ada remaja di pedesaan Brasil yang berbicara bahasa Inggris dengan sempurna. Imersi adalah keadaan pikiran, bukan lokasi GPS. Dengan internet, Anda dapat menciptakan lingkungan imersi di mana saja.</p>
-
-          <h2>Mitos 4: "Kesalahan itu buruk."</h2>
-          <p><strong>Fakta:</strong> Kesalahan adalah titik data. Jika Anda tidak membuat kesalahan, Anda tidak mendorong batasan Anda. Pelajar yang membuat 100 kesalahan sehari belajar 100 kali lebih cepat daripada perfeksionis yang tetap diam untuk menghindari kesalahan.</p>
-
-          <h2>Mitos 5: "Bahasa Inggris adalah bahasa tersulit / X adalah bahasa tersulit."</h2>
-          <p><strong>Fakta:</strong> Kesulitan itu relatif. Bagi penutur bahasa Korea, bahasa Jepang lebih mudah daripada bahasa Inggris. Bagi penutur bahasa Jerman, bahasa Inggris itu mudah. Berhentilah berfokus pada betapa "sulitnya" itu—itu hanya alasan untuk menunda-nunda.</p>
-
-          <h2>Mitos 6: "Saya harus fasih agar berguna."</h2>
-          <p><strong>Fakta:</strong> Anda dapat bepergian, berteman, dan menavigasi kota dengan kemahiran bahasa tingkat A2 (bertahan hidup). Tujuannya seharusnya bukan "kesempurnaan"; itu seharusnya "koneksi".</p>
-
-          <h2>Mitos 7: "AI akan menggantikan pembelajaran bahasa."</h2>
-          <p><strong>Fakta:</strong> Aplikasi terjemahan sangat bagus untuk dokumen bisnis, tetapi mereka tidak dapat menerjemahkan hubungan manusia. Berbicara dengan seseorang dalam bahasa jiwa mereka membangun kepercayaan dan hubungan yang tidak dapat ditiru oleh mesin. AI adalah alat untuk membantu Anda belajar, bukan pengganti otak Anda.</p>
-
-          <div class="tip-box">
-             <strong>Pergeseran Pola Pikir:</strong> Ganti "Saya tidak bisa" dengan "Saya belum menemukan caranya." Keyakinan Anda menentukan batas Anda.
-          </div>
-        </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_PT = `
         <article>
           <p>A maior barreira para aprender um idioma não é gramática, vocabulário ou pronúncia. É psicologia. Muitos de nós abrigam crenças autolimitantes que sabotam nosso progresso antes mesmo de começarmos. Vamos olhar para os mitos que precisam morrer.</p>
@@ -1498,8 +279,67 @@ const POST_MYTHS_CONTENT_PT = `
              <strong>Mudança de Mentalidade:</strong> Substitua "Eu não consigo" por "Ainda não descobri como." Suas crenças determinam seus limites.
           </div>
         </article>
-      `;
+`;
+const POST_MYTHS_CONTENT_FR = `
+        <article>
+          <p>Le plus grand obstacle à l'apprentissage d'une langue n'est pas la grammaire. C'est la psychologie. Regardons les mythes qui doivent disparaître.</p>
 
+          <h2>Mythe 1 : "Je suis trop vieux."</h2>
+          <p><strong>Fait :</strong> La neuroplasticité existe tout au long de votre vie. Vous pouvez apprendre à 20, 50 ou 80 ans.</p>
+
+          <h2>Mythe 2 : "Je n'ai pas le 'gène de la langue'."</h2>
+          <p><strong>Fait :</strong> Le "talent" est généralement juste un masque pour des milliers d'heures de pratique invisible.</p>
+
+          <h2>Mythe 3 : "Je dois vivre dans le pays."</h2>
+          <p><strong>Fait :</strong> L'immersion est un état d'esprit, pas une localisation GPS.</p>
+
+          <h2>Mythe 4 : "Les erreurs sont mauvaises."</h2>
+          <p><strong>Fait :</strong> Les erreurs sont des points de données. Celui qui fait 100 erreurs par jour apprend plus vite que le perfectionniste.</p>
+
+          <h2>Mythe 5 : "L'anglais est la langue la plus difficile."</h2>
+          <p><strong>Fait :</strong> La difficulté est relative.</p>
+
+          <h2>Mythe 6 : "Je dois être courant pour être utile."</h2>
+          <p><strong>Fait :</strong> L'objectif ne devrait pas être la "perfection" ; ce devrait être la "connexion".</p>
+
+          <h2>Mythe 7 : "L'IA remplacera l'apprentissage des langues."</h2>
+          <p><strong>Fait :</strong> L'IA est un outil pour vous aider, pas un remplaçant.</p>
+
+          <div class="tip-box">
+             <strong>Changement d'état d'esprit :</strong> Remplacez "Je ne peux pas" par "Je n'ai pas encore trouvé comment."
+          </div>
+        </article>
+`;
+const POST_MYTHS_CONTENT_DE = `
+        <article>
+          <p>Die größte Barriere beim Sprachenlernen ist nicht die Grammatik. Es ist die Psychologie. Fragen wir uns, welche Mythen sterben müssen.</p>
+
+          <h2>Mythos 1: "Ich bin zu alt."</h2>
+          <p><strong>Fakt:</strong> Neuroplastizität existiert Ihr ganzes Leben lang. Sie können mit 20, 50 oder 80 lernen.</p>
+
+          <h2>Mythos 2: "Ich habe kein 'Sprachgen'."</h2>
+          <p><strong>Fakt:</strong> "Talent" ist meist nur eine Maske für tausende Stunden unsichtbarer Übung.</p>
+
+          <h2>Mythos 3: "Ich muss im Land leben."</h2>
+          <p><strong>Fakt:</strong> Immersion ist eine Geisteshaltung, kein GPS-Standort.</p>
+
+          <h2>Mythos 4: "Fehler sind schlecht."</h2>
+          <p><strong>Fakt:</strong> Fehler sind Datenpunkte. Wer 100 Fehler am Tag macht, lernt 100 Mal schneller als der Perfektionist.</p>
+
+          <h2>Mythos 5: "Englisch ist am schwersten."</h2>
+          <p><strong>Fakt:</strong> Schwierigkeit ist relativ.</p>
+
+          <h2>Mythos 6: "Ich muss fließend sein, um nützlich zu sein."</h2>
+          <p><strong>Fakt:</strong> Das Ziel sollte nicht "Perfektion" sein, sondern "Verbindung".</p>
+
+          <h2>Mythos 7: "KI wird das Sprachenlernen ersetzen."</h2>
+          <p><strong>Fakt:</strong> KI ist ein Werkzeug, um Ihnen zu helfen, kein Ersatz für Ihr Gehirn.</p>
+
+          <div class="tip-box">
+             <strong>Mentalitätswandel:</strong> Ersetzen Sie "Ich kann nicht" durch "Ich habe noch nicht herausgefunden, wie".
+          </div>
+        </article>
+`;
 const POST_MYTHS_CONTENT_TR = `
         <article>
           <p>Bir dil öğrenmenin önündeki en büyük engel gramer, kelime bilgisi veya telaffuz değildir. Psikolojidir. Birçoğumuz, daha başlamadan ilerlememizi sabote eden kendi kendini sınırlayan inançlar besleriz. Ölmesi gereken efsanelere bir göz atalım.</p>
@@ -1529,8 +369,7 @@ const POST_MYTHS_CONTENT_TR = `
              <strong>Zihniyet Değişimi:</strong> "Yapamam"ı "Henüz nasıl yapacağımı çözemedim" ile değiştirin. İnançlarınız sınırlarınızı belirler.
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_AR = `
         <article>
           <p>أكبر عائق لتعلم لغة ليس القواعد أو المفردات أو النطق. إنه علم النفس. كثير منا يؤوي معتقدات مقيدة للذات تخرب تقدمنا حتى قبل أن نبدأ. لنلقِ نظرة على الخرافات التي يجب أن تموت.</p>
@@ -1539,29 +378,28 @@ const POST_MYTHS_CONTENT_AR = `
           <p><strong>الحقيقة:</strong> بينما الأطفال أفضل في اكتساب اللهجات، فإن البالغين إحصائياً أفضل في فهم مفاهيم القواعد المعقدة وامتلاك الانضباط للدراسة. المرونة العصبية موجودة طوال حياتك بأكملها. يمكنك التعلم في سن 20 أو 50 أو 80. الطريقة فقط تتغير.</p>
 
           <h2>الخرافة 2: "ليس لدي 'جين اللغة'."</h2>
-          <p><strong>الحقيقة:</strong> لا يوجد شيء من هذا القبيل. تعلم الجميع لغتهم الأم بشكل مثالي. بينما قد يكون لدى بعض الأشخاص استعداد طفيف للمعالجة السمعية، فإن 99٪ من نجاح اللغة هو الجهد والوقت. "الموهبة" عادة ما تكون مجرد قناع لآلاف الساعات من الممارسة غير المرئية.</p>
+          <p><strong>الحقيقة:</strong> لا يوجد شيء من هذا القبيل. تعلم الجميع لغتهم الأم بشكل مثالي. "الموهبة" عادة ما تكون مجرد قناع لآلاف الساعات من الممارسة غير المرئية.</p>
 
           <h2>الخرافة 3: "أحتاج للعيش في البلد لأتعلم."</h2>
-          <p><strong>الحقيقة:</strong> هناك مغتربون عاشوا في اليابان لمدة 20 عامًا ولا يستطيعون طلب بيرة. هناك مراهقون في ريف البرازيل يتحدثون الإنجليزية بطلاقة. الانغماس هو حالة ذهنية، وليس موقع GPS. مع الإنترنت، يمكنك إنشاء بيئة انغماس في أي مكان.</p>
+          <p><strong>الحقيقة:</strong> الانغماس هو حالة ذهنية، وليس موقع GPS. مع الإنترنت، يمكنك إنشاء بيئة انغماس في أي مكان.</p>
 
           <h2>الخرافة 4: "الأخطاء سيئة."</h2>
-          <p><strong>الحقيقة:</strong> الأخطاء هي نقاط بيانات. إذا لم تكن ترتكب أخطاء، فأنت لا تدفع حدودك. المتعلم الذي يرتكب 100 خطأ في اليوم يتعلم أسرع بـ 100 مرة من الكمالي الذي يظل صامتًا لتجنب الخطأ.</p>
+          <p><strong>الحقيقة:</strong> الأخطاء هي نقاط بيانات. إذا لم تكن ترتكب أخطاء، فأنت لا تدفع حدودك.</p>
 
-          <h2>الخرافة 5: "الغة الإنجليزية هي أصعب لغة / X هي أصعب لغة."</h2>
-          <p><strong>الحقيقة:</strong> الصعوبة نسبية. بالنسبة للمتحدث الكوري، اليابانية أسهل من الإنجليزية. بالنسبة للمتحدث الألماني، الإنجليزية سهلة. توقف عن التركيز على مدى "صعوبتها" - هذا مجرد عذر للمماطلة.</p>
+          <h2>الخرافة 5: "الغة الإنجليزية هي أصعب لغة."</h2>
+          <p><strong>الحقيقة:</strong> الصعوبة نسبية. توقف عن التركيز على مدى "صعوبتها" - هذا مجرد عذر للمماطلة.</p>
 
           <h2>الخرافة 6: "يجب أن أكون طليقًا لأكون مفيدًا."</h2>
-          <p><strong>الحقيقة:</strong> يمكنك السفر وتكوين صداقات والتنقل في مدينة بمهارة لغوية من المستوى A2 (البقاء على قيد الحياة). لا يجب أن يكون الهدف "الكمال"؛ يجب أن يكون "الاتصال".</p>
+          <p><strong>الحقيقة:</strong> الهدف لا يجب أن يكون "الكمال"؛ يجب أن يكون "الاتصال".</p>
 
           <h2>الخرافة 7: "الذكاء الاصطناعي سيستبدل تعلم اللغة."</h2>
-          <p><strong>الحقيقة:</strong> تطبيقات الترجمة رائعة لمستندات العمل، لكنها لا تستطيع ترجمة الاتصال البشري. التحدث مع شخص ما بلغته الروحية يبني ثقة وألفة لا تستطيع الآلة تكرارها. الذكاء الاصطناعي أداة لمساعدتك على التعلم، وليس بديلاً لعقلك.</p>
+          <p><strong>الحقيقة:</strong> الذكاء الاصطناعي أداة لمساعدتك على التعلم، وليس بديلاً لعقلك.</p>
 
           <div class="tip-box">
              <strong>تحول العقلية:</strong> استبدل "لا أستطيع" بـ "لم أكتشف ذلك بعد". معتقداتك تحدد حدودك.
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_HI = `
         <article>
           <p>भाषा सीखने में सबसे बड़ी बाधा व्याकरण, शब्दावली या उच्चारण नहीं है। यह मनोविज्ञान है। हममें से कई लोग आत्म-सीमित विश्वासों को पालते हैं जो हमारे शुरू करने से पहले ही हमारी प्रगति को सबोटेज कर देते हैं। आइए उन मिथकों को देखें जिन्हें मरना चाहिए।</p>
@@ -1570,29 +408,28 @@ const POST_MYTHS_CONTENT_HI = `
           <p><strong>तथ्य:</strong> जबकि बच्चे लहजे को प्राप्त करने में बेहतर होते हैं, वयस्क सांख्यिकीय रूप से जटिल व्याकरण अवधारणाओं को समझने और अध्ययन करने के लिए अनुशासन रखने में बेहतर होते हैं। न्यूरोप्लास्टिसिटी आपके पूरे जीवन भर मौजूद रहती है। आप 20, 50 या 80 साल की उम्र में सीख सकते हैं। तरीका बस बदल जाता है।</p>
 
           <h2>मिथक 2: "मेरे पास 'भाषा जीन' नहीं है।"</h2>
-          <p><strong>तथ्य:</strong> ऐसी कोई चीज नहीं है। हर किसी ने अपनी मातृभाषा पूरी तरह से सीखी। जबकि कुछ लोगों में श्रवण प्रसंस्करण के लिए थोड़ी योग्यता हो सकती है, 99% भाषा की सफलता प्रयास और समय है। "प्रतिभा" आमतौर पर हजारों घंटों के अदृश्य अभ्यास का सिर्फ एक मुखौटा है।</p>
+          <p><strong>तथ्य:</strong> ऐसी कोई चीज नहीं है। हर किसी ने अपनी मातृभाषा पूरी तरह से सीखी। "प्रतिभा" आमतौर पर हजारों घंटों के अदृश्य अभ्यास का सिर्फ एक मुखौटा है।</p>
 
           <h2>मिथक 3: "सीखने के लिए मुझे देश में रहना होगा।"</h2>
-          <p><strong>तथ्य:</strong> ऐसे प्रवासी हैं जो 20 वर्षों से जापान में रह रहे हैं और बीयर ऑर्डर नहीं कर सकते। ग्रामीण ब्राजील में ऐसे किशोर हैं जो फर्राटेदार अंग्रेजी बोलते हैं। विसर्जन (Immersion) मन की एक स्थिति है, जीपीएस स्थान नहीं। इंटरनेट के साथ, आप कहीं भी विसर्जन वातावरण बना सकते हैं।</p>
+          <p><strong>तथ्य:</strong> विसर्जन (Immersion) मन की एक स्थिति है, जीपीएस स्थान नहीं। इंटरनेट के साथ, आप कहीं भी विसर्जन वातावरण बना सकते हैं।</p>
 
           <h2>मिथक 4: "गलतियाँ बुरी हैं।"</h2>
-          <p><strong>तथ्य:</strong> गलतियाँ डेटा पॉइंट हैं। यदि आप गलतियाँ नहीं कर रहे हैं, तो आप अपनी सीमाओं को नहीं बढ़ा रहे हैं। जो शिक्षार्थी एक दिन में 100 गलतियाँ करता है, वह उस पूर्णतावादी की तुलना में 100 गुना तेजी से सीखता है जो गलती से बचने के लिए चुप रहता है।</p>
+          <p><strong>तथ्य:</strong> गलतियाँ डेटा पॉइंट हैं। यदि आप गलतियाँ नहीं कर रहे हैं, तो आप अपनी सीमाओं को नहीं बढ़ा रहे हैं।</p>
 
-          <h2>मिथक 5: "अंग्रेजी सबसे कठिन भाषा है / X सबसे कठिन भाषा है।"</h2>
-          <p><strong>तथ्य:</strong> कठिनाई सापेक्ष है। एक कोरियाई वक्ता के लिए, जापानी अंग्रेजी की तुलना में आसान है। एक जर्मन वक्ता के लिए, अंग्रेजी आसान है। इस पर ध्यान केंद्रित करना बंद करें कि यह कितना "कठिन" है—यह विलंब करने का सिर्फ एक बहाना है।</p>
+          <h2>मिथक 5: "अंग्रेजी सबसे कठिन भाषा है।"</h2>
+          <p><strong>तथ्य:</strong> कठिनाई सापेक्ष है। इस पर ध्यान केंद्रित करना बंद करें कि यह कितना "कठिन" है—यह विलंब करने का सिर्फ एक बहाना है।</p>
 
           <h2>मिथक 6: "उपयोगी होने के लिए मुझे धाराप्रवाह होना चाहिए।"</h2>
-          <p><strong>तथ्य:</strong> आप A2 (अस्तित्व) स्तर की भाषा दक्षता के साथ यात्रा कर सकते हैं, दोस्त बना सकते हैं और शहर में घूम सकते हैं। लक्ष्य "पूर्णता" नहीं होना चाहिए; यह "कनेक्शन" होना चाहिए।</p>
+          <p><strong>तथ्य:</strong> लक्ष्य "पूर्णता" नहीं होना चाहिए; यह "कनेक्शन" होना चाहिए।</p>
 
           <h2>मिथक 7: "AI भाषा सीखने की जगह ले लेगा।"</h2>
-          <p><strong>तथ्य:</strong> अनुवाद ऐप व्यावसायिक दस्तावेजों के लिए बहुत अच्छे हैं, लेकिन वे मानवीय संबंध का अनुवाद नहीं कर सकते। किसी से उनकी आत्मा की भाषा में बात करना विश्वास और तालमेल बनाता है जिसे मशीन दोहरा नहीं सकती। AI आपको सीखने में मदद करने वाला एक उपकरण है, आपके मस्तिष्क का प्रतिस्थापन नहीं।</p>
+          <p><strong>तथ्य:</strong> AI आपको सीखने में मदद करने वाला एक उपकरण है, आपके मस्तिष्क का प्रतिस्थापन नहीं।</p>
 
           <div class="tip-box">
              <strong>मानसिकता बदलाव:</strong> "मैं नहीं कर सकता" को "मैंने अभी तक इसका पता नहीं लगाया है" से बदलें। आपके विश्वास आपकी सीमाओं को निर्धारित करते हैं।
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_RU = `
         <article>
           <p>Самый большой барьер в изучении языка — это не грамматика, словарный запас или произношение. Это психология. Многие из нас питают самоограничивающие убеждения, которые саботируют наш прогресс еще до того, как мы начнем. Давайте посмотрим на мифы, которые должны умереть.</p>
@@ -1601,32 +438,31 @@ const POST_MYTHS_CONTENT_RU = `
           <p><strong>Факт:</strong> Хотя дети лучше усваивают акценты, взрослые статистически лучше понимают сложные грамматические концепции и обладают дисциплиной для учебы. Нейропластичность существует на протяжении всей вашей жизни. Вы можете учиться в 20, 50 или 80 лет. Метод просто меняется.</p>
 
           <h2>Миф 2: "У меня нет 'Языкового гена'."</h2>
-          <p><strong>Факт:</strong> Такого не существует. Все выучили свой родной язык идеально. Хотя у некоторых людей может быть небольшая склонность к слуховой обработке, 99% успеха в языке — это усилия и время. "Талант" — это обычно просто маска для тысяч часов невидимой практики.</p>
+          <p><strong>Факт:</strong> Такого не существует. Все выучили свой родной язык идеально. "Талант" — это обычно просто маска для тысяч часов невидимой практики.</p>
 
           <h2>Миф 3: "Мне нужно жить в стране, чтобы выучить язык."</h2>
-          <p><strong>Факт:</strong> Есть экспаты, которые живут в Японии 20 лет и не могут заказать пиво. Есть подростки в сельской Бразилии, которые говорят на идеальном английском. Погружение — это состояние ума, а не GPS-локация. С интернетом вы можете создать среду погружения где угодно.</p>
+          <p><strong>Факт:</strong> Погружение — это состояние ума, а не GPS-локация. С интернетом вы можете создать среду погружения где угодно.</p>
 
           <h2>Миф 4: "Ошибки — это плохо."</h2>
-          <p><strong>Факт:</strong> Ошибки — это точки данных. Если вы не делаете ошибок, вы не раздвигаете свои границы. Ученик, который делает 100 ошибок в день, учится в 100 раз быстрее, чем перфекционист, который молчит, чтобы избежать ошибки.</p>
+          <p><strong>Факт:</strong> Ошибки — это точки данных. Если вы не делаете ошибок, вы не раздвигаете свои границы.</p>
 
-          <h2>Миф 5: "Английский — самый сложный язык / X — самый сложный язык."</h2>
-          <p><strong>Факт:</strong> Сложность относительна. Для говорящего на корейском японский легче английского. Для говорящего на немецком английский легок. Перестаньте фокусироваться на том, насколько это "сложно" — это просто оправдание для прокрастинации.</p>
+          <h2>Миф 5: "Английский — самый сложный язык."</h2>
+          <p><strong>Факт:</strong> Сложность относительна. Перестаньте фокусироваться на том, насколько это "сложно" — это просто оправдание для прокрастинации.</p>
 
           <h2>Миф 6: "Мне нужно свободно говорить, чтобы быть полезным."</h2>
-          <p><strong>Факт:</strong> Вы можете путешествовать, заводить друзей и ориентироваться в городе с уровнем владения языком A2 (выживание). Целью должно быть не "совершенство", а "связь".</p>
+          <p><strong>Факт:</strong> Целью должно быть не "совершенство", а "связь".</p>
 
           <h2>Миф 7: "ИИ заменит изучение языков."</h2>
-          <p><strong>Факт:</strong> Приложения для перевода отлично подходят для бизнес-документов, но они не могут перевести человеческую связь. Разговор с кем-то на языке его души создает доверие и взаимопонимание, которые машина не может воспроизвести. ИИ — это инструмент, чтобы помочь вам учиться, а не замена вашему мозгу.</p>
+          <p><strong>Факт:</strong> ИИ — это инструмент, чтобы помочь вам учиться, а не замена вашему мозгу.</p>
 
           <div class="tip-box">
              <strong>Смена мышления:</strong> Замените "Я не могу" на "Я еще не понял, как это сделать." Ваши убеждения определяют ваши границы.
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_BN = `
         <article>
-          <p>ভাষা শেখার সবচেয়ে বড় बाधा ব্যাকরণ, শব্দভাণ্ডার বা উচ্চারণ নয়। এটা মনোবিজ্ঞান। আমাদের মধ্যে অনেকেই আত্ম-সীমাবদ্ধ বিশ্বাস পোষণ করি যা আমরা শুরু করার আগেই আমাদের অগ্রগতিকে ধ্বংস করে দেয়। আসুন সেই মিথগুলি দেখি যা মরা দরকার।</p>
+          <p>ভাষা শেখার সবচেয়ে বড় বাধা ব্যাকরণ, শব্দভাণ্ডার বা উচ্চারণ নয়। এটা মনোবিজ্ঞান। আমাদের মধ্যে অনেকেই আত্ম-সীমাবদ্ধ বিশ্বাস পোষণ করি যা আমরা শুরু করার আগেই আমাদের অগ্রগতিকে ধ্বংস করে দেয়। আসুন সেই মিথগুলি দেখি যা মরা দরকার।</p>
 
           <h2>মিথ ১: "আমি শেখার জন্য খুব বৃদ্ধ।"</h2>
           <p><strong>ফ্যাক্ট:</strong> যদিও শিশুরা উচ্চারণ অর্জনে ভালো, প্রাপ্তবয়স্করা পরিসংখ্যানগতভাবে জটিল ব্যাকরণ ধারণাগুলি বুঝতে এবং অধ্যয়নের জন্য শৃঙ্খলা বজায় রাখতে ভালো। নিউরোপ্লাস্টিসিটি আপনার সারা জীবন জুড়ে বিদ্যমান। আপনি ২০, ৫০ বা ৮০ বছরে শিখতে পারেন। পদ্ধতিটি কেবল পরিবর্তিত হয়।</p>
@@ -1650,11 +486,10 @@ const POST_MYTHS_CONTENT_BN = `
           <p><strong>ফ্যাক্ট:</strong> অনুবাদ অ্যাপগুলি ব্যবসায়িক নথির জন্য দুর্দান্ত, কিন্তু তারা মানবিক সংযোগ অনুবাদ করতে পারে না। কারো সাথে তাদের আত্মার ভাষায় কথা বলা বিশ্বাস এবং সম্পর্ক তৈরি করে যা একটি মেশিন প্রতিলিপি করতে পারে না। AI হল আপনাকে শিখতে সাহায্য করার একটি হাতিয়ার, আপনার মস্তিষ্কের প্রতিস্থাপন নয়।</p>
 
           <div class="tip-box">
-             <strong>মানসিকতার পরিবর্তন:</strong> "আমি পারি না" কে "আমি এখনও এটি বের করতে পারিনি" দিয়ে প্রতিস্থাপন করুন। আপনার বিশ্বাস আপনার সীমা নির্ধারণ করে।
+             <strong>মানसिकতার পরিবর্তন:</strong> "আমি পারি না" কে "আমি এখনও এটি বের করতে পারিনি" দিয়ে প্রতিস্থাপন করুন। আপনার বিশ্বাস আপনার সীমা নির্ধারণ করে।
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_UR = `
         <article>
           <p>زبان سیکھنے میں سب سے بڑی رکاوٹ گرامر، الفاظ یا تلفظ نہیں ہے۔ یہ نفسیات ہے۔ ہم میں سے بہت سے لوگ خود کو محدود کرنے والے عقائد رکھتے ہیں جو ہمارے شروع کرنے سے پہلے ہی ہماری ترقی کو سبوتاژ کر دیتے ہیں۔ آئیے ان خرافات کو دیکھتے ہیں جنہیں ختم ہونا چاہیے۔</p>
@@ -1663,29 +498,28 @@ const POST_MYTHS_CONTENT_UR = `
           <p><strong>حقیقت:</strong> اگرچہ بچے لہجے حاصل کرنے میں بہتر ہوتے ہیں، بالغ اعداد و شمار کے مطابق پیچیدہ گرامر کے تصورات کو سمجھنے اور مطالعہ کرنے کا نظم و ضبط رکھنے میں بہتر ہوتے ہیں۔ نیوروپلاسٹیٹی آپ کی پوری زندگی میں موجود رہتی ہے۔ آپ 20، 50، یا 80 سال کی عمر میں سیکھ سکتے ہیں۔ طریقہ صرف بدل جاتا ہے۔</p>
 
           <h2>خرافات 2: "میرے پاس 'زبان کی جین' نہیں ہے۔"</h2>
-          <p><strong>حقیقت:</strong> ایسی کوئی چیز نہیں ہے۔ ہر کسی نے اپنی مادری زبان بالکل درست طریقے سے سیکھی ہے۔ اگرچہ کچھ لوگوں میں سمعی پروسیسنگ کے لیے معمولی اہلیت ہوسکتی ہے، لیکن 99% زبان کی کامیابی کوشش اور وقت ہے۔ "ٹیلنٹ" عام طور پر ہزاروں گھنٹوں کی ان دیکھی مشق کا صرف ایک نقاب ہوتا ہے۔</p>
+          <p><strong>حقیقت:</strong> ایسی کوئی چیز نہیں ہے۔ ہر کسی نے اپنی مادری زبان بالکل درست طریقے سے سیکھی ہے۔ "ٹیلنٹ" عام طور پر ہزاروں گھنٹوں کی ان دیکھی مشق کا صرف ایک نقاب ہوتا ہے۔</p>
 
           <h2>خرافات 3: "مجھے سیکھنے کے لیے ملک میں رہنا ضروری ہے۔"</h2>
-          <p><strong>حقیقت:</strong> ایسے تارکین وطن ہیں جو 20 سال سے جاپان میں رہ رہے ہیں اور بیئر آرڈر نہیں کر سکتے۔ دیہی برازیل میں ایسے نوعمر ہیں جو بہترین انگریزی بولتے ہیں۔ وسرجن (Immersion) دماغ کی ایک حالت ہے، GPS کا مقام نہیں۔ انٹرنیٹ کے ساتھ، آپ کہیں بھی وسرجن کا ماحول بنا سکتے ہیں۔</p>
+          <p><strong>حقیقت:</strong> وسرجن (Immersion) دماغ کی ایک حالت ہے، GPS کا مقام نہیں۔ انٹرنیٹ کے ساتھ، آپ کہیں بھی وسرجن کا ماحول بنا سکتے ہیں۔</p>
 
           <h2>خرافات 4: "غلطیاں بری ہیں۔"</h2>
-          <p><strong>حقیقت:</strong> غلطیاں ڈیٹا پوائنٹس ہیں۔ اگر آپ غلطیاں نہیں کر رہے ہیں، تو آپ اپنی حدود کو نہیں بڑھا رہے ہیں۔ جو سیکھنے والا دن میں 100 غلطیاں کرتا ہے وہ اس کمال پرست سے 100 گنا تیزی سے سیکھتا ہے جو غلطی سے بچنے کے لیے خاموش رہتا ہے۔</p>
+          <p><strong>حقیقت:</strong> غلطیاں ڈیٹا پوائنٹس ہیں۔ اگر آپ غلطیاں نہیں کر رہے ہیں، تو آپ اپنی حدود کو نہیں بڑھا رہے ہیں۔</p>
 
-          <h2>خرافات 5: "انگریزی سب سے مشکل زبان ہے / X سب سے مشکل زبان ہے۔"</h2>
-          <p><strong>حقیقت:</strong> مشکل نسبتی ہے۔ کورین بولنے والے کے لیے، جاپانی انگریزی سے آسان ہے۔ جرمن بولنے والے کے لیے، انگریزی آسان ہے۔ اس پر توجہ مرکوز کرنا بند کریں کہ یہ کتنا "مشکل" ہے—یہ صرف تاخیر کرنے کا بہانہ ہے۔</p>
+          <h2>خرافات 5: "انگریزی سب سے مشکل زبان ہے۔"</h2>
+          <p><strong>حقیقت:</strong> مشکل نسبتی ہے۔ اس پر توجہ مرکوز کرنا بند کریں کہ یہ کتنا "مشکل" ہے—یہ صرف تاخیر کرنے کا بہانہ ہے۔</p>
 
           <h2>خرافات 6: "مفید ہونے کے لیے مجھے روانی ہونی چاہیے۔"</h2>
-          <p><strong>حقیقت:</strong> آپ A2 (بقا) کی سطح کی زبان کی مہارت کے ساتھ سفر کر سکتے ہیں، دوست بنا سکتے ہیں اور شہر میں گھوم سکتے ہیں۔ مقصد "کمال" نہیں ہونا چاہیے؛ یہ "تعلق" ہونا چاہیے۔</p>
+          <p><strong>حقیقت:</strong> مقصد "کمال" نہیں ہونا چاہیے؛ یہ "تعلق" ہونا چاہیے۔</p>
 
           <h2>خرافات 7: "AI زبان سیکھنے کی جگہ لے لے گا۔"</h2>
-          <p><strong>حقیقت:</strong> ترجمہ ایپس کاروباری دستاویزات کے لیے بہترین ہیں، لیکن وہ انسانی تعلقات کا ترجمہ نہیں کر سکتیں۔ کسی کے ساتھ ان کی روح کی زبان میں بات کرنا اعتماد اور تعلقات استوار کرتا ہے جسے مشین نقل نہیں کر سکتی۔ AI آپ کو سیکھنے میں مدد کرنے والا ایک ٹول ہے، آپ کے دماغ کا متبادل نہیں۔</p>
+          <p><strong>حقیقت:</strong> AI آپ کو سیکھنے میں مدد کرنے والا ایک ٹول ہے، آپ کے دماغ کا متبادل نہیں۔</p>
 
           <div class="tip-box">
              <strong>ذہنیت کی تبدیلی:</strong> "میں نہیں کر سکتا" کو "میں نے ابھی تک اس کا پتہ نہیں لگایا ہے" سے تبدیل کریں۔ آپ کے عقائد آپ کی حدود کا تعین کرتے ہیں۔
           </div>
         </article>
-      `;
-
+`;
 const POST_MYTHS_CONTENT_NE = `
         <article>
           <p>भाषा सिक्नको लागि सबैभन्दा ठूलो बाधा व्याकरण, शब्दावली, वा उच्चारण होइन। यो मनोविज्ञान हो। हामी मध्ये धेरैले आत्म-सीमित विश्वासहरू राख्छौं जसले हामीले सुरु गर्नु अघि हाम्रो प्रगतिलाई तोडफोड गर्दछ। आउनुहोस् ती मिथकहरू हेरौं जुन मर्न आवश्यक छ।</p>
@@ -1694,234 +528,1498 @@ const POST_MYTHS_CONTENT_NE = `
           <p><strong>तथ्य:</strong> जब बच्चाहरू उच्चारण प्राप्त गर्नमा राम्रो हुन्छन्, वयस्कहरू तथ्याङ्कीय रूपमा जटिल व्याकरण अवधारणाहरू बुझ्न र अध्ययन गर्न अनुशासन राख्नमा राम्रो हुन्छन्। न्यूरोप्लास्टिसिटी तपाइँको सम्पूर्ण जीवन भर अवस्थित छ। तपाइँ २०, ५०, वा ८० वर्षको उमेरमा सिक्न सक्नुहुन्छ। विधि मात्र परिवर्तन हुन्छ।</p>
 
           <h2>मिथक २: "मसँग 'भाषा जीन' छैन।"</h2>
-          <p><strong>तथ्य:</strong> त्यस्तो कुनै कुरा छैन। सबैले आफ्नो मातृभाषा पूर्ण रूपमा सिके। जबकि केही मानिसहरूमा श्रवण प्रशोधनको लागि थोरै योग्यता हुन सक्छ, ९९% भाषा सफलता प्रयास र समय हो। "प्रतिभा" सामान्यतया हजारौं घण्टाको अदृश्य अभ्यासको लागि मात्र मास्क हो।</p>
+          <p><strong>तथ्य:</strong> त्यस्तो कुनै कुरा छैन। सबैले आफ्नो मातृभाषा पूर्ण रूपमा सिके। "प्रतिभा" सामान्यतया हजारौं घण्टाको अदृश्य अभ्यासको लागि मात्र मास्क हो।</p>
 
           <h2>मिथक ३: "मैले सिक्नको लागि देशमा बस्नु पर्छ।"</h2>
-          <p><strong>तथ्य:</strong> त्यहाँ प्रवासीहरू छन् जो जापानमा २० वर्षदेखि बस्दै आएका छन् र बियर अर्डर गर्न सक्दैनन्। ग्रामीण ब्राजिलमा किशोरहरू छन् जो पूर्ण अंग्रेजी बोल्छन्। विसर्जन (Immersion) दिमागको अवस्था हो, GPS स्थान होइन। इन्टरनेटको साथ, तपाइँ कहाँ पनि विसर्जन वातावरण सिर्जना गर्न सक्नुहुन्छ।</p>
+          <p><strong>तथ्य:</strong> विसर्जन (Immersion) दिमागको अवस्था हो, GPS स्थान होइन। इन्टरनेटको साथ, तपाइँ कहाँ पनि विसर्जन वातावरण सिर्जना गर्न सक्नुहुन्छ।</p>
 
           <h2>मिथक ४: "गल्तीहरू नराम्रा हुन्।"</h2>
-          <p><strong>तथ्य:</strong> गल्तीहरू डाटा पोइन्टहरू हुन्। यदि तपाइँ गल्ती गरिरहनुभएको छैन भने, तपाइँ आफ्नो सीमाहरू धकेलिरहनुभएको छैन। दिनमा १०० गल्ती गर्ने सिकारुले गल्तीबाट बच्न चुप लाग्ने पूर्णतावादी भन्दा १०० गुणा छिटो सिक्छ।</p>
+          <p><strong>तथ्य:</strong> गल्तीहरू डाटा पोइन्टहरू हुन्। यदि तपाइँ गल्ती गरिरहनुभएको छैन भने, तपाइँ आफ्नो सीमाहरू धकेलिरहनुभएको छैन।</p>
 
-          <h2>मिथक ५: "अंग्रेजी सबैभन्दा गाह्रो भाषा हो / X सबैभन्दा गाह्रो भाषा हो।"</h2>
-          <p><strong>तथ्य:</strong> कठिनाई सापेक्ष छ। कोरियाली वक्ताको लागि, जापानी अंग्रेजी भन्दा सजिलो छ। जर्मन वक्ताको लागि, अंग्रेजी सजिलो छ। यो कति "गाह्रो" छ भन्ने कुरामा ध्यान केन्द्रित गर्न रोक्नुहोस्—यो ढिलाइ गर्ने बहाना मात्र हो।</p>
-
-          <h2>मिथक ६: "उपयोगी हुनको लागि म प्रवाहित हुनुपर्छ।"</h2>
-          <p><strong>तथ्य:</strong> तपाइँ A2 (अस्तित्व) स्तरको भाषा प्रवीणताको साथ यात्रा गर्न, साथी बनाउन र शहरमा नेभिगेट गर्न सक्नुहुन्छ। लक्ष्य "पूर्णता" हुनु हुँदैन; यो "जडान" हुनुपर्छ।</p>
+          <h2>मिथक ५: "अंग्रेजी सबैभन्दा गाह्रो भाषा हो।"</h2>
+          <p><strong>तथ्य:</strong> कठिनाई सापेक्ष छ। यो कति "गाह्रो" छ भन्ने कुरामा ध्यान केन्द्रित गर्न रोक्नुहोस्—यो ढिलाइ गर्ने बहाना मात्र हो।</p>
 
           <h2>मिथक ७: "AI ले भाषा सिकाइ प्रतिस्थापन गर्नेछ।"</h2>
-          <p><strong>तथ्य:</strong> अनुवाद एपहरू व्यापार कागजातहरूको लागि उत्कृष्ट छन्, तर तिनीहरूले मानव जडान अनुवाद गर्न सक्दैनन्। कसैको आत्माको भाषामा कुरा गर्दा विश्वास र सम्बन्ध निर्माण हुन्छ जुन मेसिनले प्रतिलिपि गर्न सक्दैन। AI तपाइँलाई सिक्न मद्दत गर्ने एउटा उपकरण हो, तपाइँको दिमागको प्रतिस्थापन होइन।</p>
+          <p><strong>तथ्य:</strong> AI तपाइँलाई सिक्न मद्दत गर्ने एउटा उपकरण हो, तपाइँको दिमागको प्रतिस्थापन होइन।</p>
 
           <div class="tip-box">
              <strong>मानसिकता परिवर्तन:</strong> "म सक्दिन" लाई "मैले अहिलेसम्म पत्ता लगाएको छैन" सँग बदल्नुहोस्। तपाइँको विश्वासले तपाइँको सीमा निर्धारण गर्दछ।
           </div>
         </article>
-      `;
-export const BLOG_POSTS_PART_3: Partial<BlogPost>[] = [
-  {
-    id: "pronunciation-mistakes",
-    title: {
-      en: "Stop Sounding Like a Tourist: Top 5 Pronunciation Mistakes to Avoid",
-      ko: "관광객 티 벗기: 절대 피해야 할 발음 실수 5가지",
-      ja: "観光客みたいに聞こえるのはやめよう：避けるべき5つの発音ミス",
-      zh: "别再像个游客了：要避免的5个发音错误",
-      th: "หยุดฟังดูเหมือนนักท่องเที่ยว: 5 ข้อผิดพลาดในการออกเสียงที่ควรหลีกเลี่ยง",
-      vi: "Đừng nghe như khách du lịch nữa: 5 lỗi phát âm hàng đầu cần tránh",
-      id: "Berhentilah Terdengar Seperti Turis: 5 Kesalahan Pengucapan Teratas yang Harus Dihindari",
-      es: "Deja de sonar como un turista: Los 5 principales errores de pronunciación a evitar",
-      pt: "Pare de soar como um turista: Os 5 principais erros de pronúncia a evitar",
-      fr: "Arrêtez de sonner comme un touriste : Top 5 des erreurs de prononciation à éviter",
-      de: "Klingen Sie nicht mehr wie ein Tourist: Die 5 häufigsten Aussprachefehler, die Sie vermeiden sollten",
-      tr: "Turist Gibi Kulağa Gelmeyi Bırakın: Kaçınılması Gereken En Önemli 5 Telaffuz Hatası",
-      ar: "توقف عن الظهور كسائح: أهم 5 أخطاء في النطق يجب تجنبها",
-      hi: "पर्यटक की तरह लगना बंद करें: बचने के लिए शीर्ष 5 उच्चारण गलतियाँ",
-      ru: "Хватит звучать как турист: Топ-5 ошибок произношения, которых следует избегать",
-      bn: "পর্যটকের মতো শোনানো বন্ধ করুন: এড়ানোর জন্য শীর্ষ ৫টি উচ্চারণ ভুল",
-      ur: "سیاح کی طرح آواز نکالنا بند کریں: تلفظ کی 5 اہم غلطیاں جن سے بچنا چاہیے",
-      ne: "पर्यटक जस्तै सुन्न रोक्नुहोस्: बच्नको लागि शीर्ष ५ उच्चारण गल्तीहरू"
+`;
+
+const POST_MYTHS_CONTENT_SI = `
+        <article>
+          <p>භාෂාවක් ඉගෙන ගැනීමට ඇති ලොකුම බාධාව ව්‍යාකරණ, වචන මාලාව හෝ උච්චාරණය නොවේ. ඒ මනෝවිද්යාවයි. අපි බොහෝ දෙනෙක් අප ආරම්භ කිරීමට පෙර සිටම අපගේ ප්‍රගතිය කඩාකප්පල් කරන ස්වයං-සීමා සහිත විශ්වාසයන් තබා ගනිමු. නැති විය යුතු මිථ්‍යාවන් දෙස බලමු.</p>
+
+          <h2>මිථ්‍යාව 1: "මම ඉගෙන ගැනීමට වයස වැඩියි."</h2>
+          <p><strong>කරුණ:</strong> ළමයින් උච්චාරණ ලබා ගැනීමට වඩා හොඳ වන අතර, වැඩිහිටියන් සංකීර්ණ ව්‍යාකරණ සංකල්ප තේරුම් ගැනීමට සහ ඉගෙනීමට විනය ඇති කර ගැනීමට සංඛ්‍යානමය වශයෙන් වඩා හොඳය. ස්නායු ප්ලාස්ටික් බව ඔබේ මුළු ජීවිත කාලය පුරාම පවතී. ඔබට වයස අවුරුදු 20, 50 හෝ 80 දී ඉගෙන ගත හැකිය. ක්‍රමය වෙනස් වේ.</p>
+
+          <h2>මිථ්‍යාව 2: "මට 'භාෂා ජානය' නැහැ."</h2>
+          <p><strong>කරුණ:</strong> එහෙම දෙයක් නැහැ. සෑම කෙනෙකුම තම මව් බස හොඳින් ඉගෙන ගත්තා. "දක්ෂතාවය" සාමාන්‍යයෙන් දහස් ගණනක නොපෙනෙන පුහුණුව සඳහා වෙස් මුහුණක් පමණි.</p>
+
+          <h2>මිථ්‍යාව 3: "මට ඉගෙන ගැනීමට රටේ ජීවත් විය යුතුයි."</h2>
+          <p><strong>කරුණ:</strong> ගිල්වීම (Immersion) යනු මනසෙහි තත්වයක් මිස ජීපීඑස් ස්ථානයක් නොවේ. අන්තර්ජාලය සමඟ, ඔබට ඕනෑම තැනක ගිල්වීමේ පරිසරයක් නිර්මාණය කළ හැකිය.</p>
+
+          <h2>මිථ්‍යාව 4: "වැරදි නරකයි."</h2>
+          <p><strong>කරුණ:</strong> වැරදි දත්ත ලකුණු වේ. ඔබ වැරදි නොකරන්නේ නම්, ඔබ ඔබේ සීමාවන් තල්ලු නොකරයි.</p>
+
+          <h2>මිථ්‍යාව 5: "ඉංග්‍රීසි අමාරුම භාෂාවයි."</h2>
+          <p><strong>කරුණ:</strong> දුෂ්කරතාවය සාපේක්ෂයි. එය කොතරම් "දුෂ්කර" ද යන්න ගැන අවධානය යොමු කිරීම නවත්වන්න - එය ප්‍රමාද කිරීමට නිදහසට කරුණක් පමණි.</p>
+
+          <h2>මිථ්‍යාව 6: "ප්‍රයෝජනවත් වීමට මම චතුර විය යුතුයි."</h2>
+          <p><strong>කරුණ:</strong> ඉලක්කය "පරිපූර්ණත්වය" නොවිය යුතුය; එය "සම්බන්ධතාවය" විය යුතුය.</p>
+
+          <h2>මිථ්‍යාව 7: "AI භාෂා ඉගෙනීම ප්‍රතිස්ථාපනය කරයි."</h2>
+          <p><strong>කරුණ:</strong> AI යනු ඔබට ඉගෙන ගැනීමට උපකාර වන මෙවලමක් මිස ඔබේ මොළය ප්‍රතිස්ථාපනය කිරීමක් නොවේ.</p>
+
+          <div class="tip-box">
+             <strong>මනස වෙනස් කිරීම:</strong> "මට බැහැ" යන්න "මම තවම එය සොයාගෙන නැහැ" යන්නෙන් ප්‍රතිස්ථාපනය කරන්න. ඔබේ විශ්වාසයන් ඔබේ සීමාවන් තීරණය කරයි.
+          </div>
+        </article>
+`;
+const POST_MYTHS_CONTENT_SW = `
+        <article>
+          <p>Kikwazo kikubwa cha kujifunza lugha sio sarufi, msamiati, au matamshi. Ni saikolojia. Wengi wetu tuna imani za kujizuia ambazo huharibu maendeleo yetu hata kabla hatujaanza. Hebu tuangalie hadithi ambazo zinahitaji kufa.</p>
+
+          <h2>Hadithi ya 1: "Mimi ni mzee sana kujifunza."</h2>
+          <p><strong>Ukweli:</strong> Ingawa watoto ni bora katika kupata lafudhi, watu wazima ni bora kitakwimu katika kuelewa dhana tata za sarufi na kuwa na nidhamu ya kusoma. Neuroplasticity ipo katika maisha yako yote. Unaweza kujifunza ukiwa na miaka 20, 50, au 80. Njia inabadilika tu.</p>
+
+          <h2>Hadithi ya 2: "Sina 'Jeni ya Lugha'."</h2>
+          <p><strong>Ukweli:</strong> Hakuna kitu kama hicho. Kila mtu alijifunza lugha yake ya asili kikamilifu. "Kipaji" kwa kawaida ni kinyago tu cha maelfu ya saa za mazoezi yasiyoonekana.</p>
+
+          <h2>Hadithi ya 3: "Ninahitaji kuishi nchini ili kujifunza."</h2>
+          <p><strong>Ukweli:</strong> Kuzamishwa ni hali ya akili, sio eneo la GPS. Ukiwa na intaneti, unaweza kuunda mazingira ya kuzamishwa popote.</p>
+
+          <h2>Hadithi ya 4: "Makosa ni mabaya."</h2>
+          <p><strong>Ukweli:</strong> Makosa ni pointi za data. Ikiwa hufanyi makosa, hausukumii mipaka yako.</p>
+
+          <h2>Hadithi ya 5: "Kiingereza ndiyo lugha ngumu zaidi."</h2>
+          <p><strong>Ukweli:</strong> Ugumu ni uhusiano. Acha kuzingatia jinsi ilivyo "ngumu" - hiyo ni kisingizio tu cha kuahirisha.</p>
+
+          <h2>Hadithi ya 6: "Ninahitaji kuwa mfasaha ili niwe na manufaa."</h2>
+          <p><strong>Ukweli:</strong> Lengo halipaswi kuwa "ukamilifu"; inapaswa kuwa "uhusiano".</p>
+
+          <h2>Hadithi ya 7: "AI itachukua nafasi ya kujifunza lugha."</h2>
+          <p><strong>Ukweli:</strong> AI ni zana ya kukusaidia kujifunza, sio badala ya ubongo wako.</p>
+
+          <div class="tip-box">
+             <strong>Mabadiliko ya Fikra:</strong> Badilisha "Siwezi" na "Sijajua bado." Imani yako huamua mipaka yako.
+          </div>
+        </article>
+`;
+
+// ==========================================
+// Post 10: How to Use ChatGPT
+// ==========================================
+const POST_CHATGPT_CONTENT_EN = `
+        <article>
+          <p>Stop paying $30/hour for basic conversation practice. ChatGPT (and other LLMs) can be your tireless, 24/7 language partner. It never gets tired, never judges your accent, and is free. Here is how to engineer the perfect prompts.</p>
+          <h2>1. The "Conversation Partner" Prompt</h2>
+          <p>Most people just say "Chat with me in Spanish." That's boring. Try this:</p>
+          <blockquote>"Act as a grumpy taxi driver in Paris. I am a tourist asking for directions. Speak only in French. Correct my mistakes at the end of each response."</blockquote>
+          <p><strong>Why it works:</strong> It creates a roleplay scenario which is more memorable than generic chat.</p>
+          <h2>2. The "Grammar Surgeon" Prompt</h2>
+          <p>Don't just ask "Is this right?" Paste your sentence and say:</p>
+          <blockquote>"Analyze my sentence: [Insert sentence]. Break down every grammatical error. Explain WHY it is wrong, and give me 3 natural alternatives."</blockquote>
+          <h2>3. The "Level Adjuster" Prompt</h2>
+          <p>Found an article that is too hard? Paste it and say:</p>
+          <blockquote>"Rewrite this text for a B1 (Intermediate) level language learner. Keep the meaning but simplify the vocabulary."</blockquote>
+          <h2>4. Voice Mode: The Game Changer</h2>
+          <p>The mobile app's Voice Mode allows you to practice speaking. It's not perfect, but it builds the "muscle memory" of speaking without the anxiety of a real human judging you.</p>
+          <div class="tip-box">
+             <strong>Warning:</strong> AI hallucinates. It might invent facts. Use it for language practice, not for learning history or science.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_KO = `
+        <article>
+          <p>기본 회화 연습을 위해 시간당 3만 원을 쓰지 마세요. ChatGPT는 지치지 않고, 24시간 대기하며, 당신의 발음을 판단하지 않는 무료 언어 파트너입니다. AI를 200% 활용하는 프롬프트 공식을 공개합니다.</p>
+          <h2>1. "대화 상대" 프롬프트</h2>
+          <p>그냥 "스페인어로 대화하자"고 하지 마세요. 재미없습니다. 이렇게 해보세요:</p>
+          <blockquote>"파리의 까칠한 택시 기사 연기를 해줘. 나는 길을 묻는 관광객이야. 프랑스어로만 말해. 내 대답이 끝날 때마다 틀린 부분을 고쳐줘."</blockquote>
+          <p><strong>효과적인 이유:</strong> 롤플레잉은 일반적인 대화보다 훨씬 기억에 오래 남습니다.</p>
+          <h2>2. "문법 외과의사" 프롬프트</h2>
+          <p>그냥 "이거 맞아?"라고 묻지 마세요. 문장을 붙여넣고 이렇게 말하세요:</p>
+          <blockquote>"내 문장을 분석해 줘: [문장 삽입]. 모든 문법적 오류를 분해해 줘. 왜 틀렸는지 설명하고, 자연스러운 대안 3가지를 제시해 줘."</blockquote>
+          <h2>3. "레벨 조절기" 프롬프트</h2>
+          <p>너무 어려운 기사를 찾았나요? 붙여넣고 말하세요:</p>
+          <blockquote>"이 글을 B1(중급) 수준의 학습자를 위해 다시 써줘. 뜻은 유지하되 단어를 쉽게 바꿔줘."</blockquote>
+          <h2>4. 보이스 모드: 게임 체인저</h2>
+          <p>모바일 앱의 보이스 모드는 말하기 연습에 혁명입니다. 완벽하진 않지만, 사람 앞에서 말할 때의 불안감 없이 '입 근육 기억'을 키울 수 있습니다.</p>
+          <div class="tip-box">
+             <strong>주의:</strong> AI는 환각(Hallucination)을 일으킬 수 있습니다. 사실 확인용이 아니라 언어 연습용으로만 사용하세요.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_JA = `
+        <article>
+          <p>基本的な会話練習に高いお金を払うのはやめましょう。ChatGPTは、疲れを知らず、常に利用可能で、あなたの発音を批判しない無料の言語パートナーになれます。完璧なプロンプトの作り方はこちらです。</p>
+          <h2>1. 「会話パートナー」プロンプト</h2>
+          <p>単に「スペイン語でチャットしよう」と言わないでください。退屈です。こう試してください：</p>
+          <blockquote>「パリの不機嫌なタクシー運転手として振る舞って。私は道を尋ねる観光客です。フランス語だけで話して。各応答の終わりに私の間違いを訂正して。」</blockquote>
+          <p><strong>なぜ効果的か：</strong> ロールプレイのシナリオは、一般的なチャットよりも記憶に残ります。</p>
+          <h2>2. 「文法外科医」プロンプト</h2>
+          <p>「これは正しい？」と聞くだけではいけません。あなたの文を貼り付けてこう言いましょう：</p>
+          <blockquote>「私の文を分析して：[文を挿入]。すべての文法ミスを分解して。なぜ間違っているのか説明し、3つの自然な代替案を教えて。」</blockquote>
+          <h2>3. 「レベル調整」プロンプト</h2>
+          <p>難しすぎる記事を見つけましたか？ 貼り付けてこう言いましょう：</p>
+          <blockquote>「このテキストをB1（中級）レベルの学習者向けに書き直して。意味は保ちつつ、語彙を単純化して。」</blockquote>
+          <h2>4. ボイスモード：ゲームチェンジャー</h2>
+          <p>モバイルアプリのボイスモードは革新的です。完璧ではありませんが、人間に評価される不安なしに、話す「筋肉の記憶」を構築できます。</p>
+          <div class="tip-box">
+             <strong>警告：</strong> AIは幻覚（嘘の事実を作成）を起こすことがあります。歴史や科学の学習ではなく、言語練習に使用してください。
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_ZH = `
+        <article>
+          <p>别再为基本的对话练习支付昂贵的费用了。ChatGPT可以成为你不知疲倦、全天候的语言伙伴。它从不疲倦，从不评判你的口音，而且是免费的。这里是如何设计完美的提示词。</p>
+          <h2>1. “对话伙伴”提示词</h2>
+          <p>大多数人只是说“用西班牙语和我聊天”。那很无聊。试试这个：</p>
+          <blockquote>“扮演一个巴黎的暴躁出租车司机。我是问路的游客。只说法语。在每次回复的最后纠正我的错误。”</blockquote>
+          <p><strong>为什么有效：</strong> 它创造了一个比普通聊天更难忘的角色扮演场景。</p>
+          <h2>2. “语法外科医生”提示词</h2>
+          <p>不要只问“这即使对吗？”粘贴你的句子并说：</p>
+          <blockquote>“分析我的句子：[插入句子]。分解每一个语法错误。解释为什么错了，并给我3个自然的替代方案。”</blockquote>
+          <h2>3. “水平调节器”提示词</h2>
+          <p>发现了一篇太难的文章？粘贴它并说：</p>
+          <blockquote>“为B1（中级）水平的学习者重写这篇文章。保留意思但简化词汇。”</blockquote>
+          <h2>4. 语音模式：游戏规则改变者</h2>
+          <p>移动应用的语音模式允许你练习口语。它并不完美，但它可以建立说话的“肌肉记忆”，而没有真人评判你的焦虑。</p>
+          <div class="tip-box">
+             <strong>警告：</strong> AI会产生幻觉。它可能会编造事实。用它来进行语言练习，而不是学习历史或科学。
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_TH = `
+        <article>
+          <p>หยุดจ่ายเงินราคาแพงสำหรับการฝึกสนทนาขั้นพื้นฐาน ChatGPT สามารถเป็นคู่หูทางภาษาที่ไม่รู้จักเหน็ดเหนื่อย ตลอด 24 ชั่วโมงของคุณ มันไม่เคยเหนื่อย ไม่เคยตัดสินสำเนียงของคุณ และฟรี นี่คือวิธีสร้างพรอมต์ที่สมบูรณ์แบบ</p>
+          <h2>1. พรอมต์ "คู่สนทนา"</h2>
+          <p>คนส่วนใหญ่มักพูดว่า "คุยกับฉันเป็นภาษาสเปน" นั่นน่าเบื่อ ลองแบบนี้:</p>
+          <blockquote>"แสดงบทบาทเป็นคนขับแท็กซี่ขี้หงุดหงิดในปารีส ฉันเป็นนักท่องเที่ยวที่ถามทาง พูดภาษาฝรั่งเศสเท่านั้น แก้ไขข้อผิดพลาดของฉันที่ท้ายคำตอบแต่ละข้อ"</blockquote>
+          <p><strong>ทำไมถึงได้ผล:</strong> มันสร้างสถานการณ์สมมติที่น่าจดจำมากกว่าการแชททั่วไป</p>
+          <h2>2. พรอมต์ "ศัลยแพทย์ไวยากรณ์"</h2>
+          <p>อย่าถามแค่ว่า "ถูกไหม?" วางประโยคของคุณแล้วพูดว่า:</p>
+          <blockquote>"วิเคราะห์ประโยคของฉัน: [ใส่ประโยค] แยกแยะข้อผิดพลาดทางไวยากรณ์ทุกจุด อธิบายว่าทำไมถึงผิด และให้ทางเลือกที่เป็นธรรมชาติ 3 ทาง"</blockquote>
+          <h2>3. พรอมต์ "ตัวปรับระดับ"</h2>
+          <p>เจอบทความที่ยากเกินไปใช่ไหม? วางมันลงไปแล้วพูดว่า:</p>
+          <blockquote>"เขียนข้อความนี้ใหม่สำหรับผู้เรียนระดับ B1 (ระดับกลาง) คงความหมายไว้แต่ทำให้คำศัพท์ง่ายขึ้น"</blockquote>
+          <h2>4. โหมดเสียง: ตัวเปลี่ยนเกม</h2>
+          <p>โหมดเสียงของแอปมือถือช่วยให้คุณฝึกพูดได้ มันไม่สมบูรณ์แบบ แต่มันสร้าง "ความจำกล้ามเนื้อ" ของการพูดโดยปราศจากความกังวลว่าจะมีคนจริงๆ มาตัดสินคุณ</p>
+          <div class="tip-box">
+             <strong>คำเตือน:</strong> AI อาจสร้างข้อมูลเท็จ (Hallucinate) ใช้เพื่อฝึกภาษา ไม่ใช่เพื่อเรียนรู้ประวัติศาสตร์หรือวิทยาศาสตร์
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_VI = `
+        <article>
+          <p>Ngừng trả tiền đắt đỏ cho việc luyện tập hội thoại cơ bản. ChatGPT có thể là đối tác ngôn ngữ không biết mệt mỏi, 24/7 của bạn. Nó không bao giờ mệt, không bao giờ phán xét giọng của bạn và hoàn toàn miễn phí. Dưới đây là cách tạo ra các câu lệnh (prompt) hoàn hảo.</p>
+          <h2>1. Câu lệnh "Đối tác Hội thoại"</h2>
+          <p>Hầu hết mọi người chỉ nói "Trò chuyện với tôi bằng tiếng Tây Ban Nha." Điều đó thật nhàm chán. Hãy thử cái này:</p>
+          <blockquote>"Hãy đóng vai một tài xế taxi khó tính ở Paris. Tôi là một du khách đang hỏi đường. Chỉ nói tiếng Pháp. Sửa lỗi của tôi ở cuối mỗi câu trả lời."</blockquote>
+          <p><strong>Tại sao nó hiệu quả:</strong> Nó tạo ra một kịch bản nhập vai đáng nhớ hơn là trò chuyện chung chung.</p>
+          <h2>2. Câu lệnh "Bác sĩ Phẫu thuật Ngữ pháp"</h2>
+          <p>Đừng chỉ hỏi "Cái này có đúng không?" Dán câu của bạn và nói:</p>
+          <blockquote>"Phân tích câu của tôi: [Chèn câu]. Phân tích mọi lỗi ngữ pháp. Giải thích TẠI SAO nó sai, và đưa cho tôi 3 phương án thay thế tự nhiên."</blockquote>
+          <h2>3. Câu lệnh "Điều chỉnh Trình độ"</h2>
+          <p>Tìm thấy một bài báo quá khó? Dán nó và nói:</p>
+          <blockquote>"Viết lại văn bản này cho người học trình độ B1 (Trung cấp). Giữ nguyên ý nghĩa nhưng đơn giản hóa từ vựng."</blockquote>
+          <h2>4. Chế độ Giọng nói: Người thay đổi cuộc chơi</h2>
+          <p>Chế độ Giọng nói của ứng dụng di động cho phép bạn luyện nói. Nó không hoàn hảo, nhưng nó xây dựng "trí nhớ cơ bắp" khi nói mà không có nỗi lo lắng bị người thật phán xét.</p>
+          <div class="tip-box">
+             <strong>Cảnh báo:</strong> AI có thể bịa đặt thông tin. Sử dụng nó để luyện ngữ, không phải để học lịch sử hay khoa học.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_ID = `
+        <article>
+          <p>Berhentilah membayar mahal untuk latihan percakapan dasar. ChatGPT bisa menjadi mitra bahasa Anda yang tak kenal lelah, 24/7. Ia tidak pernah lelah, tidak pernah menilai aksen Anda, dan gratis. Inilah cara merancang prompt yang sempurna.</p>
+          <h2>1. Prompt "Mitra Percakapan"</h2>
+          <p>Kebanyakan orang hanya berkata "Mengobrol dengan saya dalam bahasa Spanyol." Itu membosankan. Cobalah ini:</p>
+          <blockquote>"Bertindaklah sebagai sopir taksi yang galak di Paris. Saya turis yang menanyakan arah. Bicara hanya dalam bahasa Prancis. Perbaiki kesalahan saya di akhir setiap tanggapan."</blockquote>
+          <p><strong>Mengapa ini berhasil:</strong> Ini menciptakan skenario permainan peran yang lebih mudah diingat daripada obrolan biasa.</p>
+          <h2>2. Prompt "Dokter Bedah Tata Bahasa"</h2>
+          <p>Jangan hanya bertanya "Apakah ini benar?" Tempel kalimat Anda dan katakan:</p>
+          <blockquote>"Analisis kalimat saya: [Masukkan kalimat]. Uraikan setiap kesalahan tata bahasa. Jelaskan MENGAPA itu salah, dan beri saya 3 alternatif alami."</blockquote>
+          <h2>3. Prompt "Pengatur Level"</h2>
+          <p>Menemukan artikel yang terlalu sulit? Tempel dan katakan:</p>
+          <blockquote>"Tulis ulang teks ini untuk pelajar tingkat B1 (Menengah). Pertahankan artinya tetapi sederhanakan kosakatanya."</blockquote>
+          <h2>4. Mode Suara: Pengubah Permainan</h2>
+          <p>Mode Suara aplikasi seluler memungkinkan Anda berlatih berbicara. Ini tidak sempurna, tetapi membangun "memori otot" berbicara tanpa kecemasan dinilai oleh manusia nyata.</p>
+          <div class="tip-box">
+             <strong>Peringatan:</strong> AI bisa berhalusinasi. Gunakan untuk latihan bahasa, bukan untuk belajar sejarah atau sains.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_ES = `
+        <article>
+          <p>Deja de pagar $30/hora por práctica de conversación básica. ChatGPT puede ser tu compañero de idiomas incansable, 24/7. Nunca se cansa, nunca juzga tu acento y es gratis. Aquí te explicamos cómo diseñar los prompts perfectos.</p>
+          <h2>1. El Prompt "Compañero de Conversación"</h2>
+          <p>Prueba esto:</p>
+          <blockquote>"Actúa como un taxista gruñón en París. Soy un turista pidiendo direcciones. Habla solo en francés. Corrige mis errores al final de cada respuesta."</blockquote>
+          <h2>2. El Prompt "Cirujano de Gramática"</h2>
+          <p>Pega tu oración y di:</p>
+          <blockquote>"Analiza mi oración: [Insertar oración]. Desglosa cada error gramatical. Explica POR QUÉ está mal y dame 3 alternativas naturales."</blockquote>
+          <h2>3. El Prompt "Ajustador de Nivel"</h2>
+          <p>¿Encontraste un artículo demasiado difícil? Pégalo y di:</p>
+          <blockquote>"Reescribe este texto para un estudiante de nivel B1 (Intermedio). Mantén el significado pero simplifica el vocabulario."</blockquote>
+          <h2>4. Modo de Voz: El cambio de juego</h2>
+          <p>El Modo de Voz te permite practicar el habla sin la ansiedad de ser juzgado por un humano real.</p>
+          <div class="tip-box">
+             <strong>Advertencia:</strong> La IA alucina. Úsala para practicar idiomas, no para aprender historia o ciencia.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_PT = `
+        <article>
+          <p>Pare de pagar caro por prática básica de conversação. O ChatGPT pode ser seu parceiro de idiomas incansável, 24/7. Nunca se cansa, nunca julga seu sotaque e é gratuito. Veja como criar os prompts perfeitos.</p>
+          <h2>1. O Prompt "Parceiro de Conversa"</h2>
+          <p>Tente isto:</p>
+          <blockquote>"Aja como um taxista mal-humorado em Paris. Sou um turista pedindo direções. Fale apenas em francês. Corrija meus erros no final de cada resposta."</blockquote>
+          <h2>2. O Prompt "Cirurgião Gramatical"</h2>
+          <p>Cole sua frase e diga:</p>
+          <blockquote>"Analise minha frase: [Inserir frase]. Detalhe cada erro gramatical. Explique POR QUE está errado e me dê 3 alternativas naturais."</blockquote>
+          <h2>3. O Prompt "Ajustador de Nível"</h2>
+          <p>Achou um artigo muito difícil? Cole-o e diga:</p>
+          <blockquote>"Reescreva este texto para um aluno de nível B1 (Intermediário). Mantenha o significado, mas simplifique o vocabulário."</blockquote>
+          <h2>4. Modo de Voz: O divisor de águas</h2>
+          <p>O Modo de Voz permite praticar a fala sem a ansiedade de ser julgado por um humano real.</p>
+          <div class="tip-box">
+             <strong>Aviso:</strong> A IA alucina. Use-a para prática de idiomas, não para aprender história ou ciência.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_FR = `
+        <article>
+          <p>Arrêtez de payer pour une pratique de conversation de base. ChatGPT peut être votre partenaire linguistique 24/7. Voici comment créer les prompts parfaits.</p>
+          <h2>1. Le Prompt "Partenaire de Conversation"</h2>
+          <p>Essayez ceci :</p>
+          <blockquote>"Agis comme un chauffeur de taxi grincheux à Paris. Je suis un touriste demandant mon chemin. Parle uniquement en français. Corrige mes erreurs à la fin de chaque réponse."</blockquote>
+          <h2>2. Le Prompt "Chirurgien Grammatical"</h2>
+          <p>Collez votre phrase et dites :</p>
+          <blockquote>"Analyse ma phrase : [Insérer la phrase]. Décompose chaque erreur grammaticale. Explique POURQUOI c'est faux et donne-moi 3 alternatives naturelles."</blockquote>
+          <h2>3. Le Prompt "Ajusteur de Niveau"</h2>
+          <p>Trouvé un article trop difficile ? Collez-le et dites :</p>
+          <blockquote>"Réécris ce texte pour un apprenant de niveau B1 (Intermédiaire). Garde le sens mais simplifie le vocabulaire."</blockquote>
+          <h2>4. Mode Vocal : Le changement de jeu</h2>
+          <p>Le Mode Vocal vous permet de pratiquer l'oral sans l'anxiété d'être jugé par un humain.</p>
+          <div class="tip-box">
+             <strong>Attention :</strong> L'IA hallucine. Utilisez-la pour la pratique des langues, pas pour apprendre l'histoire.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_DE = `
+        <article>
+          <p>Hören Sie auf, für grundlegende Konversationsübungen zu bezahlen. ChatGPT kann Ihr unermüdlicher Sprachpartner sein. Hier ist, wie Sie die perfekten Prompts erstellen.</p>
+          <h2>1. Der "Gesprächspartner"-Prompt</h2>
+          <p>Versuchen Sie dies:</p>
+          <blockquote>"Handle wie ein mürrischer Taxifahrer in Paris. Ich bin ein Tourist, der nach dem Weg fragt. Sprich nur Französisch. Korrigiere meine Fehler am Ende jeder Antwort."</blockquote>
+          <h2>2. Der "Grammatik-Chirurg"-Prompt</h2>
+          <p>Fügen Sie Ihren Satz ein und sagen Sie:</p>
+          <blockquote>"Analysiere meinen Satz: [Satz einfügen]. Schlage jeden Grammatikfehler auf. Erkläre, WARUM es falsch ist, und gib mir 3 natürliche Alternativen."</blockquote>
+          <h2>3. Der "Niveau-Anpasser"-Prompt</h2>
+          <p>Zu schweren Artikel gefunden? Sagen Sie:</p>
+          <blockquote>"Schreibe diesen Text für einen Lerner auf B1-Niveau (Mittelstufe) um. Behalte die Bedeutung, aber vereinfache das Vokabular."</blockquote>
+          <h2>4. Sprachmodus: Der Game Changer</h2>
+          <p>Der Sprachmodus ermöglicht es Ihnen, das Sprechen ohne die Angst vor menschlicher Bewertung zu üben.</p>
+          <div class="tip-box">
+             <strong>Warnung:</strong> KI halluziniert. Nutzen Sie sie für Sprachpraxis, nicht für Faktenwissen.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_TR = `
+        <article>
+          <p>Temel konuşma pratiği için saatte 30$ ödemeyi bırakın. ChatGPT yorulmak bilmeyen dil ortağınız olabilir. İşte mükemmel istemleri (prompts) nasıl tasarlayacağınız.</p>
+          <h2>1. "Konuşma Ortağı" İstemi</h2>
+          <p>Şunu deneyin:</p>
+          <blockquote>"Paris'te huysuz bir taksi şoförü gibi davran. Ben yol soran bir turistim. Sadece Fransızca konuş. Her cevabın sonunda hatalarımı düzelt."</blockquote>
+          <h2>2. "Dilbilgisi Cerrahı" İstemi</h2>
+          <p>Cümlenizi yapıştırın ve şöyle deyin:</p>
+          <blockquote>"Cümlemi analiz et: [Cümleyi girin]. Her dilbilgisi hatasını ayır. NEDEN yanlış olduğunu açıkla ve bana 3 doğal alternatif ver."</blockquote>
+          <h2>3. "Seviye Ayarlayıcı" İstemi</h2>
+          <p>Çok zor bir makale mi buldunuz? Yapıştırın ve şöyle deyin:</p>
+          <blockquote>"Bu metni B1 (Orta) seviyesindeki bir dil öğrencisi için yeniden yaz. Anlamı koru ama kelimeleri basitleştir."</blockquote>
+          <h2>4. Ses Modu: Oyun Değiştirici</h2>
+          <p>Ses Modu, gerçek bir insan tarafından yargılanma kaygısı olmadan konuşma pratiği yapmanızı sağlar.</p>
+          <div class="tip-box">
+             <strong>Uyarı:</strong> Yapay zeka halüsinasyon görür (uydurur). Dil pratiği için kullanın, tarih veya bilim öğrenmek için değil.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_AR = `
+        <article>
+          <p>توقف عن دفع المال مقابل ممارسة المحادثة الأساسية. يمكن أن يكون ChatGPT شريكك اللغوي الذي لا يكل. إليك كيفية هندسة المطالبات (prompts) المثالية.</p>
+          <h2>1. مطالبة "شريك المحادثة"</h2>
+          <p>جرب هذا:</p>
+          <blockquote>"تصرف كسائق تاكسي غاضب في باريس. أنا سائح أسأل عن الاتجاهات. تحدث الفرنسية فقط. صحح أخطائي في نهاية كل رد."</blockquote>
+          <h2>2. مطالبة "جراح القواعد"</h2>
+          <p>الصق جملتك وقل:</p>
+          <blockquote>"حلل جملتي: [أدخل الجملة]. فكك كل خطأ نحوي. اشرح لماذا هو خطأ، وأعطني 3 بدائل طبيعية."</blockquote>
+          <h2>3. مطالبة "معدل المستوى"</h2>
+          <p>وجدت مقالاً صعباً جداً؟ الصقه وقل:</p>
+          <blockquote>"أعد كتابة هذا النص لمتعلم لغة بمستوى B1 (متوسط). حافظ على المعنى ولكن بسّط المفردات."</blockquote>
+          <h2>4. الوضع الصوتي: مغير اللعبة</h2>
+          <p>يسمح لك الوضع الصوتي بممارسة التحدث دون القلق من حكم إنسان حقيقي عليك.</p>
+          <div class="tip-box">
+             <strong>تحذير:</strong> الذكاء الاصطناعي يهلوث. استخدمه لممارسة اللغة، وليس لتعلم التاريخ أو العلوم.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_HI = `
+        <article>
+          <p>बुनियादी बातचीत अभ्यास के लिए भुगतान करना बंद करें। ChatGPT आपका अथक भाषा भागीदार हो सकता है। यहाँ सही प्रॉम्प्ट बनाने का तरीका बताया गया है।</p>
+          <h2>1. "बातचीत भागीदार" प्रॉम्प्ट</h2>
+          <p>यह आज़माएँ:</p>
+          <blockquote>"पेरिस में एक क्रोधी टैक्सी ड्राइवर के रूप में कार्य करें। मैं एक पर्यटक हूँ जो रास्ता पूछ रहा हूँ। केवल फ्रेंच बोलें। प्रत्येक प्रतिक्रिया के अंत में मेरी गलतियों को सुधारें।"</blockquote>
+          <h2>2. "व्याकरण सर्जन" प्रॉम्प्ट</h2>
+          <p>अपना वाक्य पेस्ट करें और कहें:</p>
+          <blockquote>"मेरे वाक्य का विश्लेषण करें: [वाक्य डालें]। हर व्याकरणिक त्रुटि को तोड़ें। समझाएं कि यह गलत क्यों है, और मुझे 3 प्राकृतिक विकल्प दें।"</blockquote>
+          <h2>3. "स्तर समायोजक" प्रॉम्प्ट</h2>
+          <p>क्या कोई लेख बहुत कठिन लगा? इसे पेस्ट करें और कहें:</p>
+          <blockquote>"इस पाठ को B1 (मध्यवर्ती) स्तर के भाषा शिक्षार्थी के लिए फिर से लिखें। अर्थ बनाए रखें लेकिन शब्दावली को सरल बनाएं।"</blockquote>
+          <h2>4. वॉयस मोड: गेम चेंजर</h2>
+          <p>वॉयस मोड आपको एक असली इंसान द्वारा आंके जाने की चिंता के बिना बोलने का अभ्यास करने की अनुमति देता है।</p>
+          <div class="tip-box">
+             <strong>चेतावनी:</strong> AI मतिभ्रम (hallucinates) करता है। इसका उपयोग भाषा अभ्यास के लिए करें, इतिहास या विज्ञान सीखने के लिए नहीं।
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_RU = `
+        <article>
+          <p>Перестаньте платить за базовую разговорную практику. ChatGPT может быть вашим неутомимым языковым партнером. Вот как создать идеальные промпты.</p>
+          <h2>1. Промпт "Партнер по разговору"</h2>
+          <p>Попробуйте это:</p>
+          <blockquote>"Веди себя как сварливый таксист в Париже. Я турист, спрашивающий дорогу. Говори только по-французски. Исправляй мои ошибки в конце каждого ответа."</blockquote>
+          <h2>2. Промпт "Грамматический хирург"</h2>
+          <p>Вставьте свое предложение и скажите:</p>
+          <blockquote>"Проанализируй мое предложение: [Вставить предложение]. Разбери каждую грамматическую ошибку. Объясни, ПОЧЕМУ это неправильно, и дай мне 3 естественные альтернативы."</blockquote>
+          <h2>3. Промпт "Регулятор уровня"</h2>
+          <p>Нашли слишком сложную статью? Вставьте ее и скажите:</p>
+          <blockquote>"Перепиши этот текст для изучающего язык уровня B1 (Intermediate). Сохрани смысл, но упрости словарный запас."</blockquote>
+          <h2>4. Голосовой режим: Меняет правила игры</h2>
+          <p>Голосовой режим позволяет практиковать устную речь без беспокойства о том, что вас осудит реальный человек.</p>
+          <div class="tip-box">
+             <strong>Предупреждение:</strong> ИИ галлюцинирует. Используйте его для языковой практики, а не для изучения истории или науки.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_BN = `
+        <article>
+          <p>মৌলিক কথোপকথন অনুশীলনের জন্য অর্থ প্রদান বন্ধ করুন। ChatGPT আপনার অক্লান্ত ভাষা অংশীদার হতে পারে। এখানে নিখুঁত প্রম্পটগুলি কীভাবে তৈরি করা যায় তা এখানে।</p>
+          <h2>১. "কথোপকথন অংশীদার" প্রম্পট</h2>
+          <p>এটি চেষ্টা করুন:</p>
+          <blockquote>"প্যারিসের একজন বদমেজাজি ট্যাক্সি ড্রাইভার হিসাবে কাজ করুন। আমি একজন পর্যটক দিকনির্দেশ চাইছি। শুধু ফরাসি বলুন। প্রতিটি উত্তরের শেষে আমার ভুলগুলি সংশোধন করুন।"</blockquote>
+          <h2>২. "ব্যাকরণ সার্জন" প্রম্পট</h2>
+          <p>আপনার বাক্য পেস্ট করুন এবং বলুন:</p>
+          <blockquote>"আমার বাক্য বিশ্লেষণ করুন: [বাক্য প্রবেশ করান]। প্রতিটি ব্যাকরণগত ত্রুটি ভেঙে দিন। এটি কেন ভুল তা ব্যাখ্যা করুন এবং আমাকে ৩টি প্রাকৃতিক বিকল্প দিন।"</blockquote>
+          <h2>৩. "স্তর অ্যাডজাস্টার" প্রম্পট</h2>
+          <p>একটি নিবন্ধ খুব কঠিন খুঁজে পেয়েছেন? এটি পেস্ট করুন এবং বলুন:</p>
+          <blockquote>"B1 (ইন্টারমিডিয়েট) স্তরের ভাষা শিক্ষার্থীর জন্য এই পাঠ্যটি পুনরায় লিখুন। অর্থ বজায় রাখুন তবে শব্দভাণ্ডার সহজ করুন।"</blockquote>
+          <h2>৪. ভয়েস মোড: গেম চেঞ্জার</h2>
+          <p>ভয়েস মোড আপনাকে একজন আসল মানুষের দ্বারা বিচার করার উদ্বেগ ছাড়াই কথা বলার অনুশীলন করতে দেয়।</p>
+          <div class="tip-box">
+             <strong>সতর্কতা:</strong> AI হ্যালুিনেট করে। এটি ভাষা অনুশীলনের জন্য ব্যবহার করুন, ইতিহাস বা বিজ্ঞান শেখার জন্য নয়।
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_UR = `
+        <article>
+          <p>بنیادی بات چیت کی مشق کے لیے ادائیگی کرنا بند کریں۔ ChatGPT آپ کا انتھک زبان کا ساتھی ہو سکتا ہے۔ یہاں بہترین پرامپٹس بنانے کا طریقہ ہے۔</p>
+          <h2>1. "بات چیت کا ساتھی" پرامپٹ</h2>
+          <p>اسے آزمائیں:</p>
+          <blockquote>"پیرس میں ایک بدمزاج ٹیکسی ڈرائیور کے طور پر کام کریں۔ میں ایک سیاح ہوں جو راستہ پوچھ رہا ہوں۔ صرف فرانسیسی بولیں۔ ہر جواب کے آخر میں میری غلطیوں کی اصلاح کریں۔"</blockquote>
+          <h2>2. "گرامر سرجن" پرامپٹ</h2>
+          <p>اپنا جملہ پیسٹ کریں اور کہیں:</p>
+          <blockquote>"میرے جملے کا تجزیہ کریں: [جملہ درج کریں]۔ ہر گرامر کی غلطی کو توڑ دیں۔ وضاحت کریں کہ یہ کیوں غلط ہے، اور مجھے 3 قدرتی متبادل دیں۔"</blockquote>
+          <h2>3. "لیول ایڈجسٹر" پرامپٹ</h2>
+          <p>کوئی مضمون بہت مشکل لگا؟ اسے پیسٹ کریں اور کہیں:</p>
+          <blockquote>"اس متن کو B1 (انٹرمیڈیٹ) سطح کے زبان سیکھنے والے کے لیے دوبارہ لکھیں۔ معنی برقرار رکھیں لیکن الفاظ کو آسان بنائیں۔"</blockquote>
+          <h2>4. وائس موڈ: گیم چینجر</h2>
+          <p>وائس موڈ آپ کو کسی حقیقی انسان کے ذریعہ فیصلہ کیے جانے کی تشویش کے بغیر بولنے کی مشق کرنے کی اجازت دیتا ہے۔</p>
+          <div class="tip-box">
+             <strong>انتباہ:</strong> AI دھوکہ دیتا ہے (hallucinates)۔ اسے زبان کی مشق کے لیے استعمال کریں، تاریخ یا سائنس سیکھنے کے لیے نہیں۔
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_NE = `
+        <article>
+          <p>आधारभूत कुराकानी अभ्यासको लागि भुक्तान गर्न बन्द गर्नुहोस्। ChatGPT तपाइँको अथक भाषा साझेदार हुन सक्छ। यहाँ उत्तम प्रम्प्टहरू कसरी बनाउने भन्ने छ।</p>
+          <h2>१. "कुराकानी साझेदार" प्रम्प्ट</h2>
+          <p>यो प्रयास गर्नुहोस्:</p>
+          <blockquote>"पेरिसमा एक रिसाहा ट्याक्सी चालकको रूपमा कार्य गर्नुहोस्। म एक पर्यटक हुँ जसले बाटो सोधिरहेको छ। केवल फ्रान्सेली बोल्नुहोस्। प्रत्येक प्रतिक्रियाको अन्त्यमा मेरा गल्तीहरू सच्याउनुहोस्।"</blockquote>
+          <h2>२. "व्याकरण सर्जन" प्रम्प्ट</h2>
+          <p>तपाइँको वाक्य टाँस्नुहोस् र भन्नुहोस्:</p>
+          <blockquote>"मेरो वाक्य विश्लेषण गर्नुहोस्: [वाक्य घुसाउनुहोस्]। हरेक व्याकरण त्रुटि तोड्नुहोस्। यो किन गलत छ व्याख्या गर्नुहोस्, र मलाई ३ प्राकृतिक विकल्पहरू दिनुहोस्।"</blockquote>
+          <h2>३. "स्तर समायोजक" प्रम्प्ट</h2>
+          <p>एउटा लेख धेरै गाह्रो लाग्यो? यसलाई टाँस्नुहोस् र भन्नुहोस्:</p>
+          <blockquote>"B1 (मध्यवर्ती) स्तरको भाषा सिकारुको लागि यो पाठ पुन: लेख्नुहोस्। अर्थ राख्नुहोस् तर शब्दावली सरल बनाउनुहोस्।"</blockquote>
+          <h2>४. भ्वाइस मोड: गेम चेन्जर</h2>
+          <p>भ्वाइस मोडले तपाइँलाई वास्तविक मानिसद्वारा न्याय गरिने चिन्ता बिना बोल्ने अभ्यास गर्न अनुमति दिन्छ।</p>
+          <div class="tip-box">
+             <strong>चेतावनी:</strong> AI ले भ्रमित गर्छ (hallucinates)। यसलाई भाषा अभ्यासको लागि प्रयोग गर्नुहोस्, इतिहास वा विज्ञान सिक्नको लागि होइन।
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_SI = `
+        <article>
+          <p>මූලික සංවාද පුහුණුව සඳහා ගෙවීම නවත්වන්න. ChatGPT ඔබේ වෙහෙස නොබලා භාෂා සහකරු විය හැක. පරිපූර්ණ විමසුම් (prompts) නිර්මාණය කරන ආකාරය මෙන්න.</p>
+          <h2>1. "සංවාද සහකරු" විමසුම</h2>
+          <p>මෙය උත්සාහ කරන්න:</p>
+          <blockquote>"පැරිසියේ මුරණ්ඩු කුලී රථ රියදුරෙකු ලෙස ක්‍රියා කරන්න. මම පාර අසන සංචාරකයෙක්මි. ප්‍රංශ භාෂාවෙන් පමණක් කතා කරන්න. එක් එක් ප්‍රතිචාරය අවසානයේ මගේ වැරදි නිවැරදි කරන්න."</blockquote>
+          <h2>2. "ව්‍යාකරණ ශල්‍ය වෛද්‍ය" විමසුම</h2>
+          <p>ඔබේ වාක්‍යය අලවා මෙසේ කියන්න:</p>
+          <blockquote>"මගේ වාක්‍යය විශ්ලේෂණය කරන්න: [වාක්‍යය ඇතුළු කරන්න]. සෑම ව්‍යාකරණ දෝෂයක්ම බිඳ දමන්න. එය වැරදි වන්නේ මන්දැයි පැහැදිලි කරන්න, සහ මට ස්වාභාවික විකල්ප 3ක් ලබා දෙන්න."</blockquote>
+          <h2>3. "මට්ටම් ගැලපුම්කරු" විමසුම</h2>
+          <p>ලිපියක් හමු වූවාද? එය අලවා මෙසේ කියන්න:</p>
+          <blockquote>"B1 (අතරමැදි) මට්ටමේ භාෂා ඉගෙන ගන්නෙකු සඳහා මෙම පෙළ නැවත ලියන්න. අර්ථය තබා ගන්න නමුත් වචන මාලාව සරල කරන්න."</blockquote>
+          <h2>4. හඬ මාදිලිය: ක්‍රීඩාව වෙනස් කරන්නා</h2>
+          <p>හඬ මාදිලිය ඔබට සැබෑ මිනිසෙකු විසින් විනිශ්චය කරනු ඇතැයි යන කනස්සල්ලෙන් තොරව කතා කිරීමට පුහුණු වීමට ඉඩ සලසයි.</p>
+          <div class="tip-box">
+             <strong>අවවාදයයි:</strong> AI මායාවන් (hallucinates) ඇති කරයි. ඉතිහාසය හෝ විද්‍යාව ඉගෙනීමට නොව භාෂා පුහුණුව සඳහා එය භාවිතා කරන්න.
+          </div>
+        </article>
+`;
+const POST_CHATGPT_CONTENT_SW = `
+        <article>
+          <p>Acha kulipia mazoezi ya kimsingi ya mazungumzo. ChatGPT inaweza kuwa mshirika wako wa lugha asiyechoka. Hapa kuna jinsi ya kuunda vidokezo (prompts) kamili.</p>
+          <h2>1. Kidokezo cha "Mshirika wa Mazungumzo"</h2>
+          <p>Jaribu hii:</p>
+          <blockquote>"Tenda kama dereva wa teksi mwenye hasira huko Paris. Mimi ni mtalii ninayeuliza maelekezo. Zungumza Kifaransa pekee. Sahihisha makosa yangu mwishoni mwa kila jibu."</blockquote>
+          <h2>2. Kidokezo cha "Daktari wa Sarufi"</h2>
+          <p>Bandika sentensi yako na useme:</p>
+          <blockquote>"Chambua sentensi yangu: [Weka sentensi]. Vunja kila kosa la sarufi. Fafanua KWA NINI ni kosa, na unipe njia mbadala 3 za asili."</blockquote>
+          <h2>3. Kidokezo cha "Marekebisho ya Kiwango"</h2>
+          <p>Umepata makala ambayo ni ngumu sana? Ibandike na useme:</p>
+          <blockquote>"Andika upya maandishi haya kwa ajili ya mwanafunzi wa lugha wa kiwango cha B1 (Kati). Weka maana lakini rahisiha msamiati."</blockquote>
+          <h2>4. Hali ya Sauti: Mbadilishaji wa Mchezo</h2>
+          <p>Hali ya Sauti inakuruhusu kufanya mazoezi ya kuzungumza bila wasiwasi wa kuhukumiwa na mwanadamu halisi.</p>
+          <div class="tip-box">
+             <strong>Onyo:</strong> AI inazua mambo. Itumie kwa mazoezi ya lugha, sio kujifunza historia au sayansi.
+          </div>
+        </article>
+`;
+
+// ==========================================
+// Post 11: The Language Audit
+// ==========================================
+const POST_AUDIT_CONTENT_EN = `
+        <article>
+          <p>The "Intermediate Plateau" feels like you are walking through mud. You study every day, but you don't feel any better. This is largely a tracking error. You are improving, but your brain adapts so fast you don't notice. You need an audit.</p>
+
+          <h2>Metric 1: Input Hours (Not "Study" Time)</h2>
+          <p>Stop counting how many Duolingo lessons you did. Start counting how many minutes of <em>comprehensible input</em> you consumed. YouTube, Podcasts, Netflix. If you aren't logging at least 30 minutes a day, you aren't plateauing; you are pausing.</p>
+
+          <h2>Metric 2: The "Comfort Test"</h2>
+          <p>Find a podcast episode or YouTube video that was difficult for you 3 months ago. Listen to it again today. Does it feel slower? Do you understand more details? This comparison is the only objective way to feel progress.</p>
+
+          <h2>Metric 3: The Video Diary</h2>
+          <p>Once a month, record yourself speaking potential answers to a randomly generated question for 1 minute. Save it. Do not watch it immediately. Watch it 3 months later. You will be shocked at how much better you are now compared to the "Old You".</p>
+
+          <div class="tip-box">
+             <strong>The Truth:</strong> Proficiency grows like a tree. You don't see it growing day by day, but look back after a season, and it's undeniable. Trust the data, not your feelings.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_KO = `
+        <article>
+          <p>'중급 정체기(Intermediate Plateau)'는 마치 진흙탕을 걷는 기분입니다. 매일 공부하지만, 전혀 나아지는 느낌이 없죠. 이건 여러분이 못해서가 아니라, 측정 방식이 잘못됐기 때문입니다. 뇌는 적응형이라 여러분의 늘어난 실력을 바로 '당연한 것'으로 받아들입니다. 객관적인 감사가 필요합니다.</p>
+
+          <h2>지표 1: 입력 시간 (공부 시간이 아님)</h2>
+          <p>문제집을 몇 장 풀었는지 세지 마세요. <em>이해 가능한 입력(Comprehensible Input)</em>을 몇 분이나 들었는지 세세요. 유튜브, 팟캐스트, 넷플릭스 등. 하루 30분 이상 듣지 않고 있다면, 실력이 정체된 게 아니라 멈춰있는 것입니다.</p>
+
+          <h2>지표 2: "편안함" 테스트</h2>
+          <p>3개월 전에 너무 어렵게 느껴졌던 팟캐스트나 영상을 다시 찾아보세요. 오늘 다시 들어보세요. 말이 더 느리게 들리나요? 더 많은 세부 내용이 들리나요? 과거의 자료와 비교하는 것만이 발전한 나를 확인하는 유일한 객관적 방법입니다.</p>
+
+          <h2>지표 3: 비디오 일기</h2>
+          <p>한 달에 한 번, 무작위 질문에 대해 1분간 대답하는 자신의 모습을 녹화하세요. 저장만 해두고 보지 마세요. 3개월 뒤에 꺼내보세요. "과거의 나"보다 지금 얼마나 더 유창해졌는지 보고 충격을 받을 겁니다.</p>
+
+          <div class="tip-box">
+             <strong>진실:</strong> 언어 실력은 나무처럼 자랍니다. 매일 보면 자라는 게 안 보이지만, 계절이 지나고 보면 확실히 커져 있습니다. 여러분의 '느낌'을 믿지 말고 '데이터'를 믿으세요.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_JA = `
+        <article>
+          <p>「中級の停滞期（プラトー）」は、泥の中を歩いているような気分にさせます。毎日勉強しているのに、上達を感じない。これは主に追跡エラーです。あなたは上達していますが、脳が適応するのが早すぎて気づかないのです。監査が必要です。</p>
+
+          <h2>指標1：インプット時間（「勉強」時間ではない）</h2>
+          <p>Duolingoのレッスン数を数えるのをやめましょう。<em>理解可能なインプット</em>を何分消費したかを数え始めてください。YouTube、ポッドキャスト、Netflix。1日30分以上記録していないなら、あなたは停滞しているのではなく、停止しているのです。</p>
+
+          <h2>指標2：「快適さ」テスト</h2>
+          <p>3ヶ月前に難しかったポッドキャストや動画を見つけてください。今日もう一度聞いてみてください。ゆっくり聞こえますか？ より詳細が理解できますか？ この比較こそが、進歩を感じる唯一の客観的な方法です。</p>
+
+          <h2>指標3：ビデオ日記</h2>
+          <p>月に一度、ランダムな質問に対して1分間話している自分を録画してください。保存して、すぐには見ないでください。3ヶ月後に見てください。「昔の自分」に比べて今の自分がどれほど優れているかにショックを受けるでしょう。</p>
+
+          <div class="tip-box">
+             <strong>真実：</strong> 語学力は木のように成長します。日々の成長は見えませんが、季節が過ぎて振り返れば、それは否定できません。感情ではなく、データを信じてください。
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_ZH = `
+        <article>
+          <p>“中级高原期”感觉就像你在泥泞中行走。你每天都在学习，但感觉不到任何进步。这很大程度上是一个追踪错误。你在进步，但你的大脑适应得太快，以至于你没有注意到。你需要一次审计。</p>
+
+          <h2>指标1：输入时间（不是“学习”时间）</h2>
+          <p>停止计算你做了多少Duolingo课程。开始计算你消耗了多少分钟的<em>可理解输入</em>。YouTube，播客，Netflix。如果你每天没有记录至少30分钟，你不是在停滞，你是在暂停。</p>
+
+          <h2>指标2：“舒适度”测试</h2>
+          <p>找一个3个月前对你来说很难的播客或视频。今天再听一遍。感觉变慢了吗？你能理解更多细节吗？这种比较是感受进步的唯一客观方式。</p>
+
+          <h2>指标3：视频日记</h2>
+          <p>每个月一次，录下自己对一个随机问题的回答，时长1分钟。保存它。不要马上看。3个月后再看。你会惊讶地发现，与“过去的你”相比，现在的你有多么优秀。</p>
+
+          <div class="tip-box">
+             <strong>真相：</strong> 语言能力像树一样生长。你每天看不到它的生长，但过了一个季节再回头看，它是不可否认的。相信数据，不要相信你的感觉。
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_TH = `
+        <article>
+          <p>"ที่ราบสูงระดับกลาง" (Intermediate Plateau) ให้ความรู้สึกเหมือนคุณกำลังเดินลุยโคลน คุณเรียนทุกวัน แต่ไม่รู้สึกดีขึ้นเลย นี่คือข้อผิดพลาดในการติดตามผล คุณกำลังพัฒนา แต่สมองของคุณปรับตัวเร็วมากจนคุณไม่สังเกตเห็น คุณต้องการการตรวจสอบ (Audit)</p>
+
+          <h2>ตัวชี้วัดที่ 1: ชั่วโมงการรับเข้า (ไม่ใช่เวลา "เรียน")</h2>
+          <p>เลิกนับว่าคุณทำบทเรียน Duolingo ไปกี่บท เริ่มนับจำนวนนาทีของ <em>comprehensible input</em> (ข้อมูลที่เข้าใจได้) ที่คุณบริโภค YouTube, Podcasts, Netflix ถ้าคุณไม่ได้บันทึกอย่างน้อย 30 นาทีต่อวัน คุณไม่ได้ติดอยู่ที่เดิม; คุณกำลังหยุดเดิน</p>
+
+          <h2>ตัวชี้วัดที่ 2: การทดสอบ "ความสบาย"</h2>
+          <p>หาพอดแคสต์หรือวิดีโอ YouTube ที่ยากสำหรับคุณเมื่อ 3 เดือนที่แล้ว ฟังอีกครั้งในวันนี้ มันรู้สึกช้าลงไหม? คุณเข้าใจรายละเอียดมากขึ้นหรือไม่? การเปรียบเทียบนี้เป็นวิธีเดียวที่จะรู้สึกถึงความก้าวหน้าอย่างเป็นรูปธรรม</p>
+
+          <h2>ตัวชี้วัดที่ 3: ไดอารี่วิดีโอ</h2>
+          <p>เดือนละครั้ง บันทึกวิดีโอตัวเองพูดตอบคำถามแบบสุ่มเป็นเวลา 1 นาที บันทึกเก็บไว้ อย่าดูทันที ให้ดูในอีก 3 เดือนให้หลัง คุณจะตกใจว่าคุณเก่งขึ้นแค่ไหนเมื่อเทียบกับ "ตัวคุณในอดีต"</p>
+
+          <div class="tip-box">
+             <strong>ความจริง:</strong> ความสามารถทางภาษาเติบโตเหมือนต้นไม้ คุณไม่เห็นมันเติบโตในแต่ละวัน แต่เมื่อมองย้อนกลับไปหลังจากผ่านไปหนึ่งฤดูกาล มันชัดเจนมาก เชื่อข้อมูล อย่าเชื่อความรู้สึกของคุณ
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_VI = `
+        <article>
+          <p>"Cao nguyên Trung cấp" cảm giác như bạn đang đi trong bùn. Bạn học mỗi ngày, nhưng không cảm thấy tiến bộ. Đây phần lớn là một lỗi theo dõi. Bạn đang tiến bộ, nhưng não bộ thích nghi quá nhanh nên bạn không nhận ra. Bạn cần một cuộc kiểm tra.</p>
+
+          <h2>Chỉ số 1: Giờ nạp vào (Không phải thời gian "Học")</h2>
+          <p>Ngừng đếm xem bạn đã làm bao nhiêu bài học Duolingo. Bắt đầu đếm xem bạn đã tiêu thụ bao nhiêu phút <em>đầu vào dễ hiểu</em> (comprehensible input). YouTube, Podcast, Netflix. Nếu bạn không ghi lại ít nhất 30 phút mỗi ngày, bạn không phải đang dậm chân tại chỗ; bạn đang tạm dừng.</p>
+
+          <h2>Chỉ số 2: Bài kiểm tra "Sự thoải mái"</h2>
+          <p>Tìm một tập podcast hoặc video YouTube khó đối với bạn 3 tháng trước. Nghe lại hôm nay. Nó có cảm giác chậm hơn không? Bạn có hiểu thêm chi tiết không? Sự so sánh này là cách khách quan duy nhất để cảm nhận sự tiến bộ.</p>
+
+          <h2>Chỉ số 3: Nhật ký Video</h2>
+          <p>Mỗi tháng một lần, hãy ghi lại cảnh bạn nói câu trả lời cho một câu hỏi ngẫu nhiên trong 1 phút. Lưu nó lại. Đừng xem ngay. Hãy xem lại sau 3 tháng. Bạn sẽ bị sốc về mức độ tiến bộ của mình so với "Bạn Cũ".</p>
+
+          <div class="tip-box">
+             <strong>Sự thật:</strong> Trình độ ngôn ngữ phát triển như một cái cây. Bạn không thấy nó lớn lên từng ngày, nhưng nhìn lại sau một mùa, điều đó là không thể phủ nhận. Hãy tin vào dữ liệu, đừng tin vào cảm xúc của bạn.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_ID = `
+        <article>
+          <p>"Dataran Menengah" terasa seperti Anda berjalan melalui lumpur. Anda belajar setiap hari, tetapi Anda tidak merasa lebih baik. Ini sebagian besar adalah kesalahan pelacakan. Anda membaik, tetapi otak Anda beradaptasi begitu cepat sehingga Anda tidak menyadarinya. Anda perlu audit.</p>
+
+          <h2>Metrik 1: Jam Input (Bukan Waktu "Belajar")</h2>
+          <p>Berhenti menghitung berapa banyak pelajaran Duolingo yang Anda lakukan. Mulailah menghitung berapa menit <em>input yang dapat dipahami</em> yang Anda konsumsi. YouTube, Podcast, Netflix. Jika Anda tidak mencatat setidaknya 30 menit sehari, Anda tidak mengalami dataran tinggi; Anda sedang jeda.</p>
+
+          <h2>Metrik 2: Tes "Kenyamanan"</h2>
+          <p>Temukan episode podcast atau video YouTube yang sulit bagi Anda 3 bulan lalu. Dengarkan lagi hari ini. Apakah terasa lebih lambat? Apakah Anda memahami lebih banyak detail? Perbandingan ini adalah satu-satunya cara objektif untuk merasakan kemajuan.</p>
+
+          <h2>Metrik 3: Buku Harian Video</h2>
+          <p>Sebulan sekali, rekam diri Anda berbicara jawaban atas pertanyaan acak selama 1 menit. Simpan. Jangan menontonnya segera. Tonton 3 bulan kemudian. Anda akan terkejut melihat betapa jauh lebih baik Anda sekarang dibandingkan dengan "Anda yang Lama".</p>
+
+          <div class="tip-box">
+             <strong>Kebenaran:</strong> Kemahiran tumbuh seperti pohon. Anda tidak melihatnya tumbuh hari demi hari, tetapi lihatlah ke belakang setelah satu musim, dan itu tidak dapat disangkal. Percaya pada data, bukan perasaan Anda.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_ES = `
+        <article>
+          <p>La "Meseta Intermedia" se siente como caminar en el barro. Estás mejorando, pero tu cerebro se adapta tan rápido que no te das cuenta. Necesitas una auditoría.</p>
+
+          <h2>Métrica 1: Horas de Entrada</h2>
+          <p>Deja de contar lecciones. Empieza a contar minutos de <em>input comprensible</em>. YouTube, Podcasts, Netflix. Si no registras al menos 30 minutos al día, estás en pausa.</p>
+
+          <h2>Métrica 2: La Prueba de "Comodidad"</h2>
+          <p>Encuentra un audio que era difícil hace 3 meses. Escúchalo de nuevo. ¿Se siente más lento? Esta comparación es la única forma objetiva de sentir el progreso.</p>
+
+          <h2>Métrica 3: El Diario de Video</h2>
+          <p>Una vez al mes, grábate hablando durante 1 minuto. Guárdalo. Míralo 3 meses después. Te sorprenderá cuánto mejor eres ahora.</p>
+
+          <div class="tip-box">
+             <strong>La Verdad:</strong> La competencia crece como un árbol. Confía en los datos, no en tus sentimientos.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_PT = `
+        <article>
+          <p>O "Planalto Intermediário" parece que você está andando na lama. Você estuda todos os dias, mas não se sente melhor. Você está melhorando, mas seu cérebro se adapta tão rápido que você não percebe. Você precisa de uma auditoria.</p>
+
+          <h2>Métrica 1: Horas de Input</h2>
+          <p>Pare de contar lições. Comece a contar minutos de <em>input compreensível</em>. YouTube, Podcasts, Netflix. Se você não está registrando pelo menos 30 minutos por dia, você não está estagnado; você está pausado.</p>
+
+          <h2>Métrica 2: O Teste de "Conforto"</h2>
+          <p>Encontre um áudio que era difícil para você há 3 meses. Ouça novamente hoje. Parece mais lento? Essa comparação é a única maneira objetiva de sentir o progresso.</p>
+
+          <h2>Métrica 3: O Diário de Vídeo</h2>
+          <p>Uma vez por mês, grave-se falando por 1 minuto. Salve. Assista 3 meses depois. Você ficará chocado com o quanto está melhor agora.</p>
+
+          <div class="tip-box">
+             <strong>A Verdade:</strong> A proficiência cresce como uma árvore. Confie nos dados, não nos seus sentimentos.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_FR = `
+        <article>
+          <p>Le "Plateau Intermédiaire" donne l'impression de marcher dans la boue. Vous vous améliorez, mais votre cerveau s'adapte si vite que vous ne le remarquez pas. Vous avez besoin d'un audit.</p>
+
+          <h2>Métrique 1 : Heures d'entrée</h2>
+          <p>Arrêtez de compter les leçons. Commencez à compter les minutes d'<em>input compréhensible</em>. Si vous n'enregistrez pas au moins 30 minutes par jour, vous êtes en pause.</p>
+
+          <h2>Métrique 2 : Le Test de "Confort"</h2>
+          <p>Trouvez un audio qui était difficile il y a 3 mois. Écoutez-le à nouveau. Est-ce qu'il semble plus lent ? Cette comparaison est le seul moyen objectif de ressentir les progrès.</p>
+
+          <h2>Métrique 3 : Le Journal Vidéo</h2>
+          <p>Une fois par mois, enregistrez-vous en train de parler pendant 1 minute. Regardez-le 3 mois plus tard. Vous serez choqué de voir à quel point vous êtes meilleur.</p>
+
+          <div class="tip-box">
+             <strong>La Vérité :</strong> La compétence grandit comme un arbre. Faites confiance aux données, pas à vos sentiments.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_DE = `
+        <article>
+          <p>Das "Mittelstufen-Plateau" fühlt sich an wie Laufen im Schlamm. Sie verbessern sich, aber Ihr Gehirn passt sich so schnell an, dass Sie es nicht bemerken. Sie brauchen ein Audit.</p>
+
+          <h2>Metrik 1: Input-Stunden</h2>
+          <p>Hören Sie auf, Lektionen zu zählen. Zählen Sie Minuten an <em>verständlichem Input</em>. Wenn Sie nicht mindestens 30 Minuten pro Tag protokollieren, pausieren Sie.</p>
+
+          <h2>Metrik 2: Der "Komfort"-Test</h2>
+          <p>Finden Sie eine Audioaufnahme, die vor 3 Monaten schwer war. Hören Sie sie heute wieder an. Fühlt sie sich langsamer an? Das ist der objektive Beweis.</p>
+
+          <h2>Metrik 3: Das Videotagebuch</h2>
+          <p>Nehmen Sie sich einmal im Monat 1 Minute lang beim Sprechen auf. Schauen Sie es sich 3 Monate später an. Sie werden schockiert sein.</p>
+
+          <div class="tip-box">
+             <strong>Die Wahrheit:</strong> Können wächst wie ein Baum. Vertrauen Sie den Daten, nicht Ihren Gefühlen.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_TR = `
+        <article>
+          <p>"Orta Seviye Platosu", çamurda yürüyormuşsunuz gibi hissettirir. İyileşiyorsunuz ama beyniniz o kadar hızlı uyum sağlıyor ki fark etmiyorsunuz. Bir denetime ihtiyacınız var.</p>
+
+          <h2>Ölçüm 1: Girdi Saatleri</h2>
+          <p>Dersleri saymayı bırakın. Tükettiğiniz <em>anlaşılabilir girdi</em> dakikalarını saymaya başlayın. Günde en az 30 dakika kaydetmiyorsanız, duraklatılmış durumdasınız.</p>
+
+          <h2>Ölçüm 2: "Rahatlık" Testi</h2>
+          <p>3 ay önce sizin için zor olan bir podcast bulun. Bugün tekrar dinleyin. Daha yavaş geliyor mu? Bu karşılaştırma ilerlemeyi hissetmenin tek objektif yoludur.</p>
+
+          <h2>Ölçüm 3: Video Günlüğü</h2>
+          <p>Ayda bir kez, kendinizi 1 dakika konuşurken kaydedin. 3 ay sonra izleyin. Ne kadar daha iyi olduğunuza şaşıracaksınız.</p>
+
+          <div class="tip-box">
+             <strong>Gerçek:</strong> Yetkinlik bir ağaç gibi büyür. Duygularınıza değil verilerre güvenin.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_AR = `
+        <article>
+          <p>"الهضبة المتوسطة" تبدو وكأنك تمشي في الطين. أنت تتحسن، لكن دماغك يتكيف بسرعة لدرجة أنك لا تلاحظ ذلك. أنت بحاجة إلى تدقيق.</p>
+
+          <h2>المقياس 1: ساعات الإدخال</h2>
+          <p>توقف عن عد الدروس. ابدأ في عد دقائق <em>الإدخال المفهوم</em>. إذا لم تكن تسجل ما لا يقل عن 30 دقيقة يوميًا، فأنت متوقف مؤقتًا.</p>
+
+          <h2>المقياس 2: اختبار "الراحة"</h2>
+          <p>ابحث عن صوت كان صعبًا عليك قبل 3 أشهر. استمع إليه مرة أخرى اليوم. هل يبدو أبطأ؟ هذه المقارنة هي الطريقة الموضوعية الوحيدة للشعور بالتقدم.</p>
+
+          <h2>المقياس 3: مذكرات الفيديو</h2>
+          <p>مرة واحدة في الشهر، سجل نفسك وأنت تتحدث لمدة دقيقة واحدة. شاهد هذا بعد 3 أشهر. ستصدم بمدى تحسنك.</p>
+
+          <div class="tip-box">
+             <strong>الحقيقة:</strong> الكفاءة تنمو مثل الشجرة. ثق بالبيانات، وليس بمشاعرك.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_HI = `
+        <article>
+          <p>"इंटरमीडिएट पठार" ऐसा लगता है जैसे आप कीचड़ में चल रहे हैं। आप बेहतर हो रहे हैं, लेकिन आपका मस्तिष्क इतनी तेजी से अनुकूलित होता है कि आप नोटिस नहीं करते हैं। आपको एक ऑडिट की आवश्यकता है।</p>
+
+          <h2>मीट्रिक 1: इनपुट घंटे</h2>
+          <p>पाठ गिनना बंद करें। <em>समझने योग्य इनपुट</em> के मिनट गिनना शुरू करें। यदि आप दिन में कम से कम 30 मिनट लॉग नहीं कर रहे हैं, तो आप रुके हुए हैं।</p>
+
+          <h2>मीट्रिक 2: "आराम" परीक्षण</h2>
+          <p>एक ऐसा ऑडियो खोजें जो 3 महीने पहले आपके लिए कठिन था। इसे आज फिर सुनें। क्या यह धीमा लगता है? यह तुलना प्रगति महसूस करने का एकमात्र उद्देश्य तरीका है।</p>
+
+          <h2>मीट्रिक 3: वीडियो डायरी</h2>
+          <p>महीने में एक बार, खुद को 1 मिनट बोलते हुए रिकॉर्ड करें। इसे 3 महीने बाद देखें। आप हैरान रह जाएंगे कि आप कितने बेहतर हैं।</p>
+
+          <div class="tip-box">
+             <strong>सच्चाई:</strong> दक्षता एक पेड़ की तरह बढ़ती है। डेटा पर भरोसा करें, अपनी भावनाओं पर नहीं।
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_RU = `
+        <article>
+          <p>"Плато среднего уровня" похоже на ходьбу по грязи. Вы улучшаетесь, но ваш мозг адаптируется так быстро, что вы этого не замечаете. Вам нужен аудит.</p>
+
+          <h2>Метрика 1: Часы ввода</h2>
+          <p>Перестаньте считать уроки. Начните считать минуты <em>понятного ввода</em>. Если вы не записываете хотя бы 30 минут в день, вы на паузе.</p>
+
+          <h2>Метрика 2: Тест "Комфорт"</h2>
+          <p>Найдите аудио, которое было трудным для вас 3 месяца назад. Послушайте его снова сегодня. Оно кажется медленнее? Это сравнение — единственный объективный способ почувствовать прогресс.</p>
+
+          <h2>Метрика 3: Видеодневник</h2>
+          <p>Раз в месяц записывайте, как вы говорите в течение 1 минуты. Посмотрите это через 3 месяца. Вы будете шокированы тем, насколько вы стали лучше.</p>
+
+          <div class="tip-box">
+             <strong>Правда:</strong> Мастерство растет как дерево. Доверяйте данным, а не своим чувствам.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_BN = `
+        <article>
+          <p>"ইন্টারমিডিয়েট মালভূমি" কাদার মধ্য দিয়ে হাঁটার মতো মনে হয়। আপনি উন্নতি করছেন, কিন্তু আপনার মস্তিষ্ক এত দ্রুত খাপ খায় যে আপনি লক্ষ্য করেন না। আপনার একটি অডিট দরকার।</p>
+
+          <h2>মেট্রিক ১: ইনপুট ঘন্টা</h2>
+          <p>পাঠ গণনা বন্ধ করুন। <em>বোধগম্য ইনপুট</em> এর মিনিট গণনা শুরু করুন। যদি আপনি দিনে অন্তত ৩০ মিনিট লগ না করেন তবে আপনি বিরতিতে আছেন।</p>
+
+          <h2>মেট্রিক ২: "আরাম" পরীক্ষা</h2>
+          <p>এমন একটি অডিও খুঁজুন যা ৩ মাস আগে আপনার জন্য কঠিন ছিল। আজ আবার শুনুন। এটা কি ধীর মনে হচ্ছে? এই তুলনা অগ্রগতি অনুভব করার একমাত্র উদ্দেশ্যমূলক উপায়।</p>
+
+          <h2>মেট্রিক ৩: ভিডিও ডায়েরি</h2>
+          <p>মাসে একবার, ১ মিনিটের জন্য নিজের কথা বলার রেকর্ড করুন। ৩ মাস পর দেখুন। আপনি কতটা ভালো তা দেখে অবাক হবেন।</p>
+
+          <div class="tip-box">
+             <strong>সত্য:</strong> দক্ষতা গাছের মতো বাড়ে। তথ্যের উপর বিশ্বাস রাখুন, আপনার অনুভূতির উপর নয়।
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_UR = `
+        <article>
+          <p>"انٹرمیڈیٹ سطح مرتفع" ایسا محسوس ہوتا ہے جیسے آپ کیچڑ میں چل رہے ہیں۔ آپ بہتر ہو رہے ہیں، لیکن آپ کا دماغ اتنی تیزی سے ڈھل جاتا ہے کہ آپ نوٹس نہیں کرتے۔ آپ کو آڈٹ کی ضرورت ہے۔</p>
+
+          <h2>میٹرک 1: ان پٹ گھنٹے</h2>
+          <p>اسباق گننا بند کریں۔ <em>قابل فہم ان پٹ</em> کے منٹ گننا شروع کریں۔ اگر آپ دن میں کم از کم 30 منٹ لاگ نہیں کر رہے ہیں، تو آپ توقف پر ہیں۔</p>
+
+          <h2>میٹرک 2: "آرام" ٹیسٹ</h2>
+          <p>ایک ایسا آڈیو ڈھونڈیں جو 3 ماہ پہلے آپ کے لیے مشکل تھا۔ اسے آج دوبارہ سنیں۔ کیا یہ سست لگتا ہے؟ یہ موازنہ ترقی محسوس کرنے کا واحد معروضی طریقہ ہے۔</p>
+
+          <h2>میٹرک 3: ویڈیو ڈائری</h2>
+          <p>مہینے میں ایک بار، خود کو 1 منٹ بولتے ہوئے ریکارڈ کریں۔ اسے 3 ماہ بعد دیکھیں۔ آپ حیران رہ جائیں گے کہ آپ کتنے بہتر ہیں۔</p>
+
+          <div class="tip-box">
+             <strong>سچائی:</strong> مہارت درخت کی طرح بڑھتی ہے۔ ڈیٹا پر بھروسہ کریں، اپنے جذبات پر نہیں۔
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_NE = `
+        <article>
+          <p>"मध्यवर्ती पठार" हिलोमा हिंड्नु जस्तै लाग्छ। तपाइँ सुधार गर्दै हुनुहुन्छ, तर तपाइँको दिमाग यति छिटो अनुकूल हुन्छ कि तपाइँ याद गर्नुहुन्न। तपाइँलाई लेखापरीक्षण चाहिन्छ।</p>
+
+          <h2>मेट्रिक १: इनपुट घण्टा</h2>
+          <p>पाठहरू गणना गर्न बन्द गर्नुहोस्। <em>बुझ्न सकिने इनपुट</em> को मिनेट गणना गर्न सुरु गर्नुहोस्। यदि तपाइँ दिनमा कम्तिमा ३० मिनेट लग गर्दै हुनुहुन्न भने, तपाइँ पजमा हुनुहुन्छ।</p>
+
+          <h2>मेट्रिक २: "आराम" परीक्षण</h2>
+          <p>एउटा अडियो फेला पार्नुहोस् जुन ३ महिना अघि तपाइँको लागि गाह्रो थियो। आज फेरि सुन्नुहोस्। के यो सुस्त लाग्छ? यो तुलना प्रगति महसुस करने एकमात्र उद्देश्य तरीका हो।</p>
+
+          <h2>मेट्रिक ३: भिडियो डायरी</h2>
+          <p>महिनामा एक पटक, आफैलाई १ मिनेट बोल्दै रेकर्ड गर्नुहोस्। ३ महिना पछि हेर्नुहोस्। तपाइँ कति राम्रो हुनुहुन्छ भनेर तपाइँ छक्क पर्नुहुनेछ।</p>
+
+          <div class="tip-box">
+             <strong>सत्य:</strong> दक्षता रूख जस्तै बढ्छ। तथ्याङ्कमा विश्वास गर्नुहोस्, तपाइँको भावनामा होइन।
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_SI = `
+        <article>
+          <p>"අතරමැදි සානුව" මඩ හරහා ඇවිදීමක් වැනිය. ඔබ දියුණු වෙමින් පවතී, නමුත් ඔබේ මොළය කොතරම් වේගයෙන් අනුවර්තනය වේද යත් ඔබට එය නොපෙනේ. ඔබට විගණනයක් අවශ්‍ය වේ.</p>
+
+          <h2>මිතික 1: ආදාන වේලාවන්</h2>
+          <p>පාඩම් ගණන් කිරීම නවත්වන්න. <em>තේරුම් ගත හැකි ආදානයේ</em> මිනිත්තු ගණන් කිරීමට පටන් ගන්න. ඔබ දිනකට අවම වශයෙන් විනාඩි 30ක් වත් ලොග් නොවන්නේ නම්, ඔබ සිටින්නේ විරාමයක ය.</p>
+
+          <h2>මිතික 2: "සුවපහසු" පරීක්ෂණය</h2>
+          <p>මාස 3 කට පෙර ඔබට අපහසු වූ ශ්‍රව්‍ය පටයක් සොයා ගන්න. අද නැවත එයට සවන් දෙන්න. එය මන්දගාමී බවක් දැනෙනවාද? මෙම සංසන්දනය ප්‍රගතිය දැනීමට ඇති එකම වෛෂයික ක්‍රමයයි.</p>
+
+          <h2>මිතික 3: වීඩියෝ දිනපොත</h2>
+          <p>මසකට වරක්, මිනිත්තු 1 ක් කතා කරන ඔබම පටිගත කරන්න. මාස 3 කට පසු එය නරඹන්න. ඔබ දැන් කෙතරම් හොඳද යන්න ගැන ඔබ පුදුම වනු ඇත.</p>
+
+          <div class="tip-box">
+             <strong>සත්‍යය:</strong> ප්‍රවීණත්වය ගසක් මෙන් වර්ධනය වේ. ඔබේ හැඟීම් නොව දත්ත විශ්වාස කරන්න.
+          </div>
+        </article>
+`;
+const POST_AUDIT_CONTENT_SW = `
+        <article>
+          <p>"Bonde la Kati" huhisi kama unatembea kwenye tope. Unaboreka, lakini ubongo wako hubadilika haraka sana hivi kwamba hutaona. Unahitaji ukaguzi.</p>
+
+          <h2>Kipimo cha 1: Saa za Kuingiza</h2>
+          <p>Acha kuhesabu masomo. Anza kuhesabu dakika za <em>ingizo linaloeleweka</em>. Ikiwa hurekodi angalau dakika 30 kwa siku, umesitisha.</p>
+
+          <h2>Kipimo cha 2: Jaribio la "Faraja"</h2>
+          <p>Pata sauti ambayo ilikuwa ngumu kwako miezi 3 iliyopita. Isikilize tena leo. Je, inahisi polepole? Ulinganifu huu ndio njia pekee ya kimadhumuni ya kuhisi maendeleo.</p>
+
+          <h2>Kipimo cha 3: Shajara ya Video</h2>
+          <p>Mara moja kwa mwezi, jirekodi ukizungumza kwa dakika 1. Itazame miezi 3 baadaye. Utashangaa jinsi ulivyo bora sasa.</p>
+
+          <div class="tip-box">
+             <strong>Ukweli:</strong> Ustadi hukua kama mti. Amini data, sio hisia zako.
+          </div>
+        </article>
+`;
+
+// ==========================================
+// Post 12: Immersion Without Travel
+// ==========================================
+const POST_IMMERSION_CONTENT_EN = `
+        <article>
+          <p>"I can't learn Spanish because I don't live in Spain." This is a lie. I know people who live in Madrid and speak zero Spanish (the "Expat Bubble"). And I know people in Nebraska who speak fluent Japanese. Immersion is not a location; it is an environment you create.</p>
+
+          <h2>1. The Phone Setting Hack</h2>
+          <p>Change your phone's language to your target language. Now, every time you check the weather, read a notification, or adjust settings, you are learning. It forces you to learn "interface vocabulary" (Settings, Cancel, Save, Delete) which is surprisingly useful.</p>
+
+          <h2>2. Algorithm Hacking</h2>
+          <p>Create a fresh YouTube/TikTok/Instagram account. Only interact with content in your target language. Within 2 days, the algorithm will serve you endless immersive content. You have now turned your procrastination time into study time.</p>
+
+          <h2>3. The Narrator Habit</h2>
+          <p>As you walk around your house, narrate what you are doing. "I am opening the fridge. I am taking out the milk." If you don't know a word (e.g., "spatula"), look it up immediately. This bridges the gap between study and real life.</p>
+
+          <div class="tip-box">
+             <strong>The Reality:</strong> A plane ticket costs $1000. Changing your phone settings costs $0. Immersion is typically just a choice to make your life 10% more inconvenient for the sake of learning.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_KO = `
+        <article>
+          <p>"스페인에 살지 않아서 스페인어를 못 배워." 이건 거짓말입니다. 마드리드에 살면서도 스페인어를 한마디도 못 하는 사람(일명 '이민자 버블')도 있고, 네브래스카 시골에 살면서 일본어를 유창하게 하는 사람도 있습니다. 몰입은 '장소'가 아니라 여러분이 만드는 '환경'입니다.</p>
+
+          <h2>1. 휴대폰 설정 해킹</h2>
+          <p>휴대폰 언어를 목표 언어로 바꾸세요. 날씨를 확인하거나, 알림을 읽거나, 설정을 바꿀 때마다 공부가 됩니다. '설정', '취소', '저장', '삭제' 같은 인터페이스 어휘를 강제로 익히게 되는데, 이게 의외로 유용합니다.</p>
+
+          <h2>2. 알고리즘 해킹</h2>
+          <p>새 유튜브/틱톡/인스타그램 계정을 만드세요. 오직 목표 언어로 된 콘텐츠만 클릭하고 좋아요를 누르세요. 이틀 안에 알고리즘은 끝없는 몰입형 콘텐츠를 제공할 것입니다. 이제 딴짓하는 시간이 공부하는 시간으로 바뀝니다.</p>
+
+          <h2>3. 내레이터 습관</h2>
+          <p>집안을 돌아다니면서 자신의 행동을 해설하세요. "냉장고를 연다. 우유를 꺼낸다." 만약 '뒤집개'라는 단어를 모른다면? 즉시 찾아보세요. 이것이 공부와 실생활의 간극을 메워줍니다.</p>
+
+          <div class="tip-box">
+             <strong>현실:</strong> 비행기 티켓은 100만 원입니다. 휴대폰 설정을 바꾸는 건 0원입니다. 몰입은 학습을 위해 내 삶을 10% 더 불편하게 만들겠다는 선택일 뿐입니다.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_JA = `
+        <article>
+          <p>「スペインに住んでいないからスペイン語が学べない。」これは嘘です。マドリードに住んでいてもスペイン語を全く話さない人（「駐在員バブル」）もいれば、ネブラスカで流暢な日本語を話す人もいます。没入（イマージョン）は場所ではなく、あなたが作り出す環境です。</p>
+
+          <h2>1. スマホ設定ハック</h2>
+          <p>スマホの言語をターゲット言語に変えてください。天気をチェックしたり、通知を読んだりするたびに学びになります。「設定」「キャンセル」「保存」「削除」といったインターフェース用語を強制的に学ぶことになり、意外と役に立ちます。</p>
+
+          <h2>2. アルゴリズム・ハッキング</h2>
+          <p>新しいYouTube/TikTokアカウントを作成してください。ターゲット言語のコンテンツとのみ対話してください。2日以内に、アルゴリズムは無限の没入型コンテンツを提供するようになります。これで、先延ばしの時間が勉強時間に変わります。</p>
+
+          <h2>3. ナレーターの習慣</h2>
+          <p>家の中を歩き回りながら、自分の行動を実況してください。「冷蔵庫を開ける。牛乳を取り出す。」もし「フライ返し」という単語を知らなければ、すぐに調べてください。これが勉強と実生活のギャップを埋めます。</p>
+
+          <div class="tip-box">
+             <strong>現実：</strong> 航空券は10万円かかります。スマホの設定変更は0円です。没入とは、学習のために自分の生活をあえて10％不便にするという選択に過ぎません。
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_ZH = `
+        <article>
+          <p>“我学不了西班牙语，因为我不住在西班牙。”这是谎言。我认识住在马德里却完全不会说西班牙语的人（“外籍人士泡沫”），也认识住在内布拉斯加却说一口流利日语的人。沉浸式学习不是一个地点，而是你创造的一个环境。</p>
+
+          <h2>1. 手机设置黑客</h2>
+          <p>把你手机的语言改成你的目标语言。现在，每次你看天气、读通知或调整设置时，你都在学习。它强迫你学习“界面词汇”（设置、取消、保存、删除），这非常有用。</p>
+
+          <h2>2. 算法黑客</h2>
+          <p>创建一个新的YouTube/TikTok账号。只与目标语言的内容互动。两天内，算法就会为你提供无尽的沉浸式内容。你现在已经把拖延时间变成了学习时间。</p>
+
+          <h2>3. 旁白习惯</h2>
+          <p>当你在家里走动时，解说你在做的事情。“我正在打开冰箱。我正在拿出牛奶。”如果你不知道一个词（比如“锅铲”），马上查。这填补了学习和现实生活之间的鸿沟。</p>
+
+          <div class="tip-box">
+             <strong>现实：</strong> 机票要花1000美元。改手机设置只要0美元。沉浸式学习通常只是一个为了学习而让生活变得10%不方便的选择。
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_TH = `
+        <article>
+          <p>"ฉันเรียนภาษาสเปนไม่ได้เพราะฉันไม่ได้อยู่ที่สเปน" นี่เป็นเรื่องโกหก ฉันรู้จักคนที่อาศัยอยู่ในมาดริดแต่พูดภาษาสเปนไม่ได้เลย ("Expat Bubble") และฉันรู้จักคนที่เนแบรสกาที่พูดภาษาญี่ปุ่นได้คล่อง การซึมซับ (Immersion) ไม่ใช่สถานที่ แต่เป็นสภาพแวดล้อมที่คุณสร้างขึ้น</p>
+
+          <h2>1. การแฮ็กการตั้งค่าโทรศัพท์</h2>
+          <p>เปลี่ยนภาษาของโทรศัพท์เป็นภาษาเป้าหมายของคุณ ตอนนี้ ทุกครั้งที่คุณเช็คสภาพอากาศ อ่านการแจ้งเตือน หรือปรับการตั้งค่า คุณกำลังเรียนรู้ มันบังคับให้คุณเรียนรู้ "คำศัพท์อินเทอร์เฟซ" (การตั้งค่า, ยกเลิก, บันทึก, ลบ) ซึ่งมีประโยชน์อย่างน่าประหลาดใจ</p>
+
+          <h2>2. การแฮ็กอัลกอริทึม</h2>
+          <p>สร้างบัญชี YouTube/TikTok ใหม่ โต้ตอบกับเนื้อหาในภาษาเป้าหมายของคุณเท่านั้น ภายใน 2 วัน อัลกอริทึมจะเสิร์ฟเนื้อหาที่น่าสนใจให้คุณไม่รู้จบ ตอนนี้คุณเปลี่ยนเวลาผลัดวันประกันพรุ่งให้เป็นเวลาเรียนแล้ว</p>
+
+          <h2>3. นิสัยนักพากย์</h2>
+          <p>ขณะที่คุณเดินไปรอบๆ บ้าน ให้บรรยายสิ่งที่คุณกำลังทำ "ฉันกำลังเปิดตู้เย็น ฉันกำลังหยิบนมออกมา" ถ้าคุณไม่รู้คำศัพท์ (เช่น "ตะหลิว") ให้ค้นหาทันที สิ่งนี้เชื่อมช่องว่างระหว่างการเรียนและชีวิตจริง</p>
+
+          <div class="tip-box">
+             <strong>ความจริง:</strong> ตั๋วเครื่องบินราคา 30,000 บาท การเปลี่ยนการตั้งค่าโทรศัพท์ราคา 0 บาท การซึมซับเป็นเพียงทางเลือกที่จะทำให้ชีวิตของคุณไม่สะดวกขึ้น 10% เพื่อประโยชน์ในการเรียนรู้
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_VI = `
+        <article>
+          <p>"Tôi không thể học tiếng Tây Ban Nha vì tôi không sống ở Tây Ban Nha." Đây là một lời nói dối. Tôi biết những người sống ở Madrid mà không nói được một từ tiếng Tây Ban Nha nào ("Bong bóng người nước ngoài"). Và tôi biết những người ở Nebraska nói tiếng Nhật trôi chảy. Đắm mình (Immersion) không phải là một địa điểm; nó là một môi trường bạn tạo ra.</p>
+
+          <h2>1. Hack Cài đặt Điện thoại</h2>
+          <p>Thay đổi ngôn ngữ điện thoại của bạn sang ngôn ngữ mục tiêu. Bây giờ, mỗi khi bạn kiểm tra thời tiết, đọc thông báo hoặc điều chỉnh cài đặt, bạn đang học. Nó buộc bạn phải học "từ vựng giao diện" (Cài đặt, Hủy, Lưu, Xóa) vốn hữu ích một cách đáng ngạc nhiên.</p>
+
+          <h2>2. Hack Thuật toán</h2>
+          <p>Tạo một tài khoản YouTube/TikTok mới. Chỉ tương tác với nội dung bằng ngôn ngữ mục tiêu của bạn. Trong vòng 2 ngày, thuật toán sẽ phục vụ bạn nội dung phong phú vô tận. Bạn đã biến thời gian trì hoãn thành thời gian học tập.</p>
+
+          <h2>3. Thói quen Người dẫn chuyện</h2>
+          <p>Khi bạn đi quanh nhà, hãy thuật lại những gì bạn đang làm. "Tôi đang mở tủ lạnh. Tôi đang lấy sữa ra." Nếu bạn không biết một từ (ví dụ: "cái xẻng"), hãy tra cứu ngay lập tức. Điều này thu hẹp khoảng cách giữa việc học và cuộc sống thực.</p>
+
+          <div class="tip-box">
+             <strong>Thực tế:</strong> Vé máy bay tốn 1000 đô la. Thay đổi cài đặt điện thoại tốn 0 đô la. Đắm mình thường chỉ là một lựa chọn làm cho cuộc sống của bạn bất tiện hơn 10% vì mục đích học tập.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_ID = `
+        <article>
+          <p>"Saya tidak bisa belajar bahasa Spanyol karena saya tidak tinggal di Spanyol." Ini bohong. Saya kenal orang yang tinggal di Madrid dan tidak bisa bahasa Spanyol sama sekali ("Gelembung Ekspatriat"). Dan saya kenal orang di Nebraska yang fasih berbahasa Jepang. Imersi bukan lokasi; itu adalah lingkungan yang Anda ciptakan.</p>
+
+          <h2>1. Peretasan Pengaturan Ponsel</h2>
+          <p>Ubah bahasa ponsel Anda ke bahasa target. Sekarang, setiap kali Anda memeriksa cuaca, membaca notifikasi, atau menyesuaikan pengaturan, Anda sedang belajar. Ini memaksa Anda mempelajari "kosakata antarmuka" (Pengaturan, Batal, Simpan, Hapus) yang ternyata sangat berguna.</p>
+
+          <h2>2. Peretasan Algoritma</h2>
+          <p>Buat akun YouTube/TikTok baru. Hanya berinteraksi dengan konten dalam bahasa target Anda. Dalam 2 hari, algoritma akan menyajikan konten imersif tanpa akhir. Anda kini telah mengubah waktu menunda-nunda menjadi waktu belajar.</p>
+
+          <h2>3. Kebiasaan Narator</h2>
+          <p>Saat Anda berjalan di sekitar rumah, narasikan apa yang Anda lakukan. "Saya membuka kulkas. Saya mengambil susu." Jika Anda tidak tahu satu kata (misalnya, "spatula"), cari segera. Ini menjembatani kesenjangan antara belajar dan kehidupan nyata.</p>
+
+          <div class="tip-box">
+             <strong>Realitas:</strong> Tiket pesawat berharga $1000. Mengubah pengaturan ponsel berharga $0. Imersi biasanya hanyalah pilihan untuk membuat hidup Anda 10% lebih tidak nyaman demi belajar.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_ES = `
+        <article>
+          <p>"No puedo aprender español porque no vivo en España". Esto es mentira. Conozco gente en Madrid que no habla español. Y conozco gente en Nebraska que habla un japonés fluido. La inmersión no es un lugar; es un entorno que tú creas.</p>
+
+          <h2>1. El Truco del Teléfono</h2>
+          <p>Cambia el idioma de tu teléfono. Cada vez que revisas el clima o ajustas configuraciones, estás aprendiendo. Te obliga a aprender "vocabulario de interfaz" que es muy útil.</p>
+
+          <h2>2. Hackear el Algoritmo</h2>
+          <p>Crea una cuenta nueva de YouTube/TikTok. Solo interactúa con contenido en tu idioma objetivo. En 2 días, el algoritmo te servirá contenido inmersivo sin fin.</p>
+
+          <h2>3. El Hábito del Narrador</h2>
+          <p>Narra lo que haces. "Estoy abriendo la nevera". Si no sabes una palabra (ej. "espátula"), búscala inmediatamente.</p>
+
+          <div class="tip-box">
+             <strong>La Realidad:</strong> Un boleto de avión cuesta $1000. Cambiar la configuración de tu teléfono cuesta $0. La inmersión es elegir hacer tu vida un 10% más incómoda para aprender.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_PT = `
+        <article>
+          <p>"Não posso aprender espanhol porque não moro na Espanha." Isso é mentira. Conheço pessoas em Madri que não falam nada de espanhol. E conheço pessoas no Nebraska que falam japonês fluente. Imersão não é um local; é um ambiente que você cria.</p>
+
+          <h2>1. O Truque do Celular</h2>
+          <p>Mude o idioma do seu celular. Toda vez que você verifica o tempo ou ajusta configurações, você está aprendendo. Isso te força a aprender "vocabulário de interface" que é surpreendentemente útil.</p>
+
+          <h2>2. Hackeando o Algoritmo</h2>
+          <p>Crie uma conta nova no YouTube/TikTok. Interaja apenas com conteúdo no seu idioma alvo. Em 2 dias, o algoritmo servirá conteúdo imersivo sem fim.</p>
+
+          <h2>3. O Hábito do Narrador</h2>
+          <p>Narre o que você está fazendo. "Estou abrindo a geladeira." Se não souber uma palavra (ex: "espátula"), procure imediatamente.</p>
+
+          <div class="tip-box">
+             <strong>A Realidade:</strong> Uma passagem de avião custa $1000. Mudar a configuração do celular custa $0. Imersão é escolher tornar sua vida 10% mais inconveniente para aprender.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_FR = `
+        <article>
+          <p>"Je ne peux pas apprendre l'espagnol car je ne vis pas en Espagne." C'est un mensonge. L'immersion n'est pas un lieu ; c'est un environnement que vous créez.</p>
+
+          <h2>1. Le Hack du Téléphone</h2>
+          <p>Changez la langue de votre téléphone. Chaque fois que vous vérifiez la météo ou réglez des paramètres, vous apprenez. Cela vous force à apprendre le "vocabulaire d'interface" très utile.</p>
+
+          <h2>2. Le Hack de l'Algorithme</h2>
+          <p>Créez un nouveau compte YouTube/TikTok. Interagissez uniquement avec du contenu dans votre langue cible. En 2 jours, l'algorithme vous servira du contenu immersif sans fin.</p>
+
+          <h2>3. L'Habitude du Narrateur</h2>
+          <p>Narrez ce que vous faites. "J'ouvre le frigo." Si vous ne connaissez pas un mot (ex: "spatule"), cherchez-le immédiatement.</p>
+
+          <div class="tip-box">
+             <strong>La Réalité :</strong> Un billet d'avion coûte 1000 $. Changer la langue du téléphone coûte 0 $. L'immersion, c'est choisir de rendre sa vie 10 % plus incommode pour apprendre.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_DE = `
+        <article>
+          <p>"Ich kann kein Spanisch lernen, weil ich nicht in Spanien lebe." Das ist eine Lüge. Immersion ist kein Ort; es ist eine Umgebung, die Sie schaffen.</p>
+
+          <h2>1. Der Handy-Trick</h2>
+          <p>Ändern Sie die Sprache Ihres Handys. Jedes Mal, wenn Sie das Wetter prüfen oder Einstellungen anpassen, lernen Sie. Es zwingt Sie, "Schnittstellen-Vokabular" zu lernen.</p>
+
+          <h2>2. Algorithmus-Hacking</h2>
+          <p>Erstellen Sie ein neues YouTube/TikTok-Konto. Interagieren Sie nur mit Inhalten in Ihrer Zielsprache. Innerhalb von 2 Tagen wird der Algorithmus Ihnen endlose immersive Inhalte servieren.</p>
+
+          <h2>3. Die Erzähler-Gewohnheit</h2>
+          <p>Erzählen Sie, was Sie tun. "Ich öffne den Kühlschrank." Wenn Sie ein Wort (z.B. "Pfannenwender") nicht kennen, schlagen Sie es sofort nach.</p>
+
+          <div class="tip-box">
+             <strong>Die Realität:</strong> Ein Flugticket kostet 1000 $. Die Spracheinstellung zu ändern kostet 0 $.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_TR = `
+        <article>
+          <p>"İspanya'da yaşamadığım için İspanyolca öğrenemem." Bu bir yalan. "Daldırma" (immersion) bir yer değildir; sizin yarattığınız bir ortamdır.</p>
+
+          <h2>1. Telefon Ayarı Tüyosu</h2>
+          <p>Telefonunuzun dilini değiştirin. Hava durumunu her kontrol ettiğinizde öğrenirsiniz. Bu sizi "arayüz kelimelerini" (Ayarlar, İptal, Kaydet) öğrenmeye zorlar.</p>
+
+          <h2>2. Algoritma Hackleme</h2>
+          <p>Yeni bir YouTube/TikTok hesabı oluşturun. Sadece hedef dilinizdeki içerikle etkileşime geçin. 2 gün içinde algoritma size sonsuz içerik sunacaktır.</p>
+
+          <h2>3. Anlatıcı Alışkanlığı</h2>
+          <p>Yaptıklarınızı anlatın. "Buzdolabını açıyorum." Bir kelimeyi (örn. "spatula") bilmiyorsanız, hemen bakın.</p>
+
+          <div class="tip-box">
+             <strong>Gerçek:</strong> Uçak bileti 1000$. Telefon ayarını değiştirmek 0$. Daldırma, öğrenmek uğruna hayatınızı %10 daha rahatsız hale getirme tercihidir.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_AR = `
+        <article>
+          <p>"لا أستطيع تعلم الإسبانية لأنني لا أعيش في إسبانيا." هذه كذبة. الانغماس ليس موقعًا؛ إنه بيئة تصنعها.</p>
+
+          <h2>1. خدعة إعدادات الهاتف</h2>
+          <p>غير لغة هاتفك. في كل مرة تتفقد فيها الطقس، أو تقرأ إشعارًا، فأنت تتعلم. يجبرك هذا على تعلم "مفردات الواجهة".</p>
+
+          <h2>2. اختراق الخوارزمية</h2>
+          <p>أنشئ حساب YouTube/TikTok جديد. تفاعل فقط مع المحتوى بلغتك المستهدفة. في غضون يومين، ستقدم لك الخوارزمية محتوى غامرًا لا نهاية له.</p>
+
+          <h2>3. عادة الراوي</h2>
+          <p>اروِ ما تفعله. "أنا أفتح الثلاجة". إذا كنت لا تعرف كلمة (مثل "ملعقة مسطحة")، فابحث عنها فورًا.</p>
+
+          <div class="tip-box">
+             <strong>الواقع:</strong> تذكرة الطائرة تكلف 1000 دولار. تغيير إعدادات هاتفك يكلف 0 دولار.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_HI = `
+        <article>
+          <p>"मैं स्पेनिश नहीं सीख सकता क्योंकि मैं स्पेन में नहीं रहता।" यह झूठ है। विसर्जन (Immersion) कोई स्थान नहीं है; यह एक वातावरण है जिसे आप बनाते हैं।</p>
+
+          <h2>1. फोन सेटिंग हैक</h2>
+          <p>अपने फोन की भाषा बदलें। हर बार जब आप मौसम की जांच करते हैं या सेटिंग बदलते हैं, तो आप सीख रहे होते हैं। यह आपको "इंटरफ़ेस शब्दावली" सीखने के लिए मजबूर करता है।</p>
+
+          <h2>2. एल्गोरिदम हैकिंग</h2>
+          <p>नया YouTube/TikTok खाता बनाएँ। केवल अपनी लक्षित भाषा की सामग्री के साथ इंटरैक्ट करें। 2 दिनों के भीतर, एल्गोरिदम आपको अंतहीन विसर्जन सामग्री परोसेगा।</p>
+
+          <h2>3. कथावाचक की आदत</h2>
+          <p>आप जो कर रहे हैं उसका वर्णन करें। "मैं फ्रिज खोल रहा हूँ।" यदि आप कोई शब्द (जैसे, "स्पैटुला") नहीं जानते हैं, तो उसे तुरंत खोजें।</p>
+
+          <div class="tip-box">
+             <strong>वास्तविकता:</strong> हवाई जहाज के टिकट की कीमत $1000 है। फोन की सेटिंग बदलने की कीमत $0 है।
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_RU = `
+        <article>
+          <p>"Я не могу выучить испанский, потому что не живу в Испании". Это ложь. Погружение — это не место; это среда, которую вы создаете.</p>
+
+          <h2>1. Хак настроек телефона</h2>
+          <p>Смените язык телефона. Каждый раз, когда вы проверяете погоду или меняете настройки, вы учитесь. Это заставляет учить "лексику интерфейса".</p>
+
+          <h2>2. Взлом алгоритма</h2>
+          <p>Создайте новый аккаунт YouTube/TikTok. Взаимодействуйте только с контентом на целевом языке. Через 2 дня алгоритм будет предлагать вам бесконечный контент.</p>
+
+          <h2>3. Привычка рассказчика</h2>
+          <p>Комментируйте свои действия. "Я открываю холодильник". Если не знаете слово (например, "лопатка"), сразу ищите его.</p>
+
+          <div class="tip-box">
+             <strong>Реальность:</strong> Билет на самолет стоит $1000. Смена настроек телефона стоит $0.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_BN = `
+        <article>
+          <p>"আমি স্প্যানিশ শিখতে পারি না কারণ আমি স্পেনে থাকি না।" এটা মিথ্যা। নিমজ্জন (Immersion) কোনো অবস্থান নয়; এটি এমন একটি পরিবেশ যা আপনি তৈরি করেন।</p>
+
+          <h2>১. ফোন সেটিং হ্যাক</h2>
+          <p>আপনার ফোনের ভাষা পরিবর্তন করুন। যখনই আপনি আবহাওয়া পরীক্ষা করেন বা সেটিংস সামঞ্জস্য করেন, আপনি শিখছেন। এটি আপনাকে "ইন্টারফেস শব্দভান্ডার" শিখতে বাধ্য করে।</p>
+
+          <h2>২. অ্যালগরিদম হ্যাকিং</h2>
+          <p>একটি নতুন ইউটিউব/টিকটক অ্যাকাউন্ট তৈরি করুন। শুধুমাত্র আপনার লক্ষ্য ভাষার বিষয়বস্তুর সাথে যোগাযোগ করুন। ২ দিনের মধ্যে, অ্যালগরিদম আপনাকে অন্তহীন নিমজ্জন সামগ্রী পরিবেশন করবে।</p>
+
+          <h2>৩. বর্ণনাকারীর অভ্যাস</h2>
+          <p>আপনি যা করছেন তা বর্ণনা করুন। "আমি ফ্রিজ খুলছি।" যদি আপনি একটি শব্দ (যেমন, "স্প্যাটুলা") না জানেন তবে তা অবিলম্বে সন্ধান করুন।</p>
+
+          <div class="tip-box">
+             <strong>বাস্তবতা:</strong> বিমানের টিকিটের দাম $১০০০। আপনার ফোনের সেটিংস পরিবর্তন করতে $০ খরচ হয়।
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_UR = `
+        <article>
+          <p>"میں ہسپانوی نہیں سیکھ سکتا کیونکہ میں سپین میں نہیں رہتا۔" یہ جھوٹ ہے۔ وسرجن (Immersion) کوئی جگہ نہیں ہے؛ یہ ایک ماحول ہے جو آپ بناتے ہیں۔</p>
+
+          <h2>1. فون سیٹنگ ہیک</h2>
+          <p>اپنے فون کی زبان تبدیل کریں۔ جب بھی آپ موسم چیک کرتے ہیں یا سیٹنگز تبدیل کرتے ہیں، آپ سیکھ رہے ہوتے ہیں۔ یہ آپ کو "انٹرفیس الفاظ" سیکھنے پر مجبور کرتا ہے۔</p>
+
+          <h2>2. الگورتھم ہیکنگ</h2>
+          <p>نیا YouTube/TikTok اکاؤنٹ بنائیں۔ صرف اپنی ٹارگٹ زبان کے مواد کے ساتھ تعامل کریں۔ 2 دنوں کے اندر، الگورتھم آپ کو لامتناہی مواد پیش کرے گا۔</p>
+
+          <h2>3. راوی کی عادت</h2>
+          <p>جو آپ کر رہے ہیں اسے بیان کریں۔ "میں فرج کھول رہا ہوں۔" اگر آپ کو کوئی لفظ (جیسے "چمچہ") نہیں معلوم تو اسے فوراً تلاش کریں۔</p>
+
+          <div class="tip-box">
+             <strong>حقیقت:</strong> ہوائی جہاز کے ٹکٹ کی قیمت $1000 ہے۔ فون کی سیٹنگ تبدیل کرنے کی قیمت $0 ہے۔
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_NE = `
+        <article>
+          <p>"म स्पेनिस सिक्न सक्दिन किनभने म स्पेनमा बस्दिन।" यो झूट हो। विसर्जन (Immersion) कुनै स्थान होइन; यो एउटा वातावरण हो जुन तपाइँ सिर्जना गर्नुहुन्छ।</p>
+
+          <h2>१. फोन सेटिङ ह्याक</h2>
+          <p>तपाइँको फोनको भाषा परिवर्तन गर्नुहोस्। हरेक पटक जब तपाइँ मौसम जाँच गर्नुहुन्छ वा सेटिङहरू समायोजन गर्नुहुन्छ, तपाइँ सिक्दै हुनुहुन्छ। यसले तपाइँलाई "इन्टरफेस शब्दावली" सिक्न बाध्य पार्छ।</p>
+
+          <h2>२. एल्गोरिदम ह्याकिङ</h2>
+          <p>नयाँ YouTube/TikTok खाता बनाउनुहोस्। केवल तपाइँको लक्षित भाषाको सामग्रीसँग अन्तरक्रिया गर्नुहोस्। २ दिन भित्र, एल्गोरिदमले तपाइँलाई अनन्त सामग्री पस्किनेछ।</p>
+
+          <h2>३. कथा वाचक बानी</h2>
+          <p>तपाइँ के गर्दै हुनुहुन्छ वर्णन गर्नुहोस्। "म फ्रिज खोल्दै छु।" यदि तपाइँलाई कुनै शब्द (जस्तै, "बाधा") थाहा छैन भने, यसलाई तुरुन्तै खोज्नुहोस्।</p>
+
+          <div class="tip-box">
+             <strong>वास्तविकता:</strong> हवाइजहाजको टिकटको मूल्य $१००० पर्छ। फोन सेटिङ परिवर्तन गर्न $० लाग्छ।
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_SI = `
+        <article>
+          <p>"මම ස්පාඤ්ඤයේ ජීවත් නොවන නිසා මට ස්පාඤ්ඤ භාෂාව ඉගෙන ගත නොහැක." මෙය බොරුවකි. ගිල්වීම (Immersion) යනු ස්ථානයක් නොවේ; එය ඔබ නිර්මාණය කරන පරිසරයකි.</p>
+
+          <h2>1. දුරකථන සැකසුම් හැක්</h2>
+          <p>ඔබගේ දුරකථනයේ භාෂාව වෙනස් කරන්න. ඔබ කාලගුණය පරීක්ෂා කරන හෝ සැකසුම් සකස් කරන සෑම විටම, ඔබ ඉගෙන ගනී. එය ඔබට "අතුරු මුහුණත් වචන මාලාව" ඉගෙන ගැනීමට බල කරයි.</p>
+
+          <h2>2. ඇල්ගොරිතම හැක් කිරීම</h2>
+          <p>නව YouTube/TikTok ගිණුමක් සාදන්න. ඔබගේ ඉලක්ක භාෂාවේ අන්තර්ගතය සමඟ පමණක් අන්තර් ක්‍රියා කරන්න. දින 2ක් ඇතුළත, ඇල්ගොරිතම ඔබට නිමක් නැති ගිල්වන අන්තර්ගතයන් ලබා දෙනු ඇත.</p>
+
+          <h2>3. කථකයාගේ පුරුද්ද</h2>
+          <p>ඔබ කරන දේ විස්තර කරන්න. "මම ෆ්‍රිජ් එක අරිනවා." ඔබට වචනයක් නොතේරෙන්නේ නම් (උදා: "හැන්ද"), එය වහාම සොයා බලන්න.</p>
+
+          <div class="tip-box">
+             <strong>යථාර්ථය:</strong> ගුවන් යොමුවක මිල ඩොලර් 1000 කි. දුරකථන සැකසුම් වෙනස් කිරීමට වැය වන්නේ $0 කි.
+          </div>
+        </article>
+`;
+const POST_IMMERSION_CONTENT_SW = `
+        <article>
+          <p>"Siwezi kujifunza Kihispania kwa sababu siishi Uhispania." Huu ni uwongo. Kuzamishwa sio mahali; ni mazingira unayoyatengeneza.</p>
+
+          <h2>1. Hila ya Mipangilio ya Simu</h2>
+          <p>Badilisha lugha ya simu yako. Kila wakati unapoangalia hali ya hewa au kurekebisha mipangilio, unajifunza. Inakulazimisha kujifunza "msamiati wa kiolesura".</p>
+
+          <h2>2. Hacking ya Algorithm</h2>
+          <p>Unda akaunti mpya ya YouTube/TikTok. Wasiliana tu na maudhui katika lugha unayolenga. Ndani ya siku 2, algorithm itakupa maudhui yasiyoisha.</p>
+
+          <h2>3. Tabia ya Msimulizi</h2>
+          <p>Simulia unachofanya. "Ninafungua friji." Ikiwa hujui neno (k.m., "mwiko"), litafute mara moja.</p>
+
+          <div class="tip-box">
+             <strong>Ukweli:</strong> Tikiti ya ndege inagharimu $1000. Kubadilisha mipangilio ya simu kunagharimu $0.
+          </div>
+        </article>
+`;
+
+export const BLOG_POSTS_PART_3 = [
+    {
+        id: '9-language-myths',
+        title: {
+            en: "7 Myths That Are Killing Your Fluency",
+            ko: "당신의 유창함을 망치는 7가지 신화",
+            ja: "あなたの流暢さを殺している7つの神話",
+            zh: "扼杀你流利度的7个神话",
+            th: "7 ความเชื่อผิดๆ ที่กำลังฆ่าความคล่องแคล่วของคุณ",
+            vi: "7 Lầm Tưởng Đang Giết Chết Sự Trôi Chảy Của Bạn",
+            id: "7 Mitos yang Membunuh Kelancaran Anda",
+            es: "7 Mitos Que Están Matando Tu Fluidez",
+            pt: "7 Mitos Que Estão Matando Sua Fluência",
+            fr: "7 Mythes Qui Tuent Votre Fluidité",
+            de: "7 Mythen, die Ihre Sprachgewandtheit töten",
+            tr: "Akıcılığınızı Öldüren 7 Efsane",
+            ar: "7 أساطير تقتل طلاقتك",
+            hi: "7 मिथक जो आपकी प्रवाह को मार रहे हैं",
+            ru: "7 мифов, убивающих вашу беглость",
+            bn: "৭টি মিথ যা আপনার সাবলীলতা হত্যা করছে",
+            ur: "7 خرافات جو آپ کی روانی کو مار رہی ہیں",
+            ne: "७ मिथकहरू जसले तपाइँको प्रवाहलाई मारिरहेका छन्",
+            si: "ඔබේ චතුරතාව මරා දමන මිථ්‍යාවන් 7 ක්",
+            sw: "Hadithi 7 Zinazoua Ufasaha Wako"
+        },
+        excerpt: {
+            en: "You don't have a 'bad memory'. You have a bad strategy. Let's debug your beliefs.",
+            ko: "'나쁜 기억력'은 없습니다. '나쁜 전략'만 있을 뿐입니다. 당신의 믿음을 디버깅해 봅시다.",
+            ja: "あなたに「悪い記憶力」はありません。「悪い戦略」があるだけです。あなたの信念をデバッグしましょう。",
+            zh: "你没有“坏记性”。你只有“坏策略”。让我们调试你的信念。",
+            th: "คุณไม่ได้มีความจำไม่ดี คุณแค่มีกลยุทธ์ที่ไม่ดี มาแก้ไขความเชื่อของคุณกันเถอะ",
+            vi: "Bạn không có 'trí nhớ kém'. Bạn có một chiến lược tồi. Hãy gỡ lỗi niềm tin của bạn.",
+            id: "Anda tidak memiliki 'ingatan buruk'. Anda memiliki strategi yang buruk. Mari kita debug keyakinan Anda.",
+            es: "No tienes 'mala memoria'. Tienes una mala estrategia.",
+            pt: "Você não tem 'memória ruim'. Você tem uma estratégia ruim.",
+            fr: "Vous n'avez pas une 'mauvaise mémoire'. Vous avez une mauvaise stratégie.",
+            de: "Sie haben kein 'schlechtes Gedächtnis'. Sie haben eine schlechte Strategie.",
+            tr: "'Kötü hafıza' diye bir şey yoktur. Kötü strateji vardır.",
+            ar: "ليس لديك 'ذاكرة سيئة'. لديك استراتيجية سيئة.",
+            hi: "आपकी याददाश्त खराब नहीं है। आपकी रणनीति खराब है।",
+            ru: "У вас нет 'плохой памяти'. У вас плохая стратегия.",
+            bn: "আপনার স্মৃতিশক্তি খারাপ নয়। আপনার কৌশল খারাপ।",
+            ur: "آپ کی یادداشت خراب نہیں ہے۔ آپ کی حکمت عملی خراب ہے۔",
+            ne: "तपाइँसँग 'खराब स्मृति' छैन। तपाइँसँग खराब रणनीति छ।",
+            si: "ඔබට 'නරක මතකයක්' නැත. ඔබට ඇත්තේ නරක උපාය මාර්ගයකි.",
+            sw: "Huna 'kumbukumbu mbaya'. Una mkakati mbaya."
+        },
+        content: {
+            en: POST_MYTHS_CONTENT_EN,
+            ko: POST_MYTHS_CONTENT_KO,
+            ja: POST_MYTHS_CONTENT_JA,
+            zh: POST_MYTHS_CONTENT_ZH,
+            th: POST_MYTHS_CONTENT_TH,
+            vi: POST_MYTHS_CONTENT_VI,
+            id: POST_MYTHS_CONTENT_ID,
+            es: POST_MYTHS_CONTENT_ES,
+            pt: POST_MYTHS_CONTENT_PT,
+            fr: POST_MYTHS_CONTENT_FR,
+            de: POST_MYTHS_CONTENT_DE,
+            tr: POST_MYTHS_CONTENT_TR,
+            ar: POST_MYTHS_CONTENT_AR,
+            hi: POST_MYTHS_CONTENT_HI,
+            ru: POST_MYTHS_CONTENT_RU,
+            bn: POST_MYTHS_CONTENT_BN,
+            ur: POST_MYTHS_CONTENT_UR,
+            ne: POST_MYTHS_CONTENT_NE,
+            si: POST_MYTHS_CONTENT_SI,
+            sw: POST_MYTHS_CONTENT_SW
+        },
+        date: "2024-03-10",
+        readTime: 6,
+        category: "Mindset",
+        coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
     },
-    excerpt: {
-      en: "Accent is about more than just vowels. Discover the subtle mistakes in rhythm and stress that give you away immediately.",
-      ko: "억양은 단순히 모음 발음 문제가 아닙니다. 당신을 외국인처럼 들리게 만드는 리듬과 강세의 미묘한 실수들을 바로잡으세요.",
-      ja: "アクセントは母音だけの問題ではありません。あなたをすぐに外国人だと分からせてしまう、リズムとストレスの微妙な間違いを発見しましょう。",
-      zh: "口音不仅仅是元音的问题。发现リズム和重音中那些立刻让你暴露的微妙错误。",
-      th: "สำเนียงเป็นมากกว่าแค่สระ ค้นพบข้อผิดพลาดเล็กๆ น้อยๆ ในจังหวะและการเน้นเสียงที่ทำให้คุณถูกจับได้ทันที",
-      vi: "Giọng điệu không chỉ là về nguyên âm. Khám phá những sai lầm tinh tế trong nhịp điệu và trọng âm khiến bạn bị lộ tẩy ngay lập tức.",
-      id: "Aksen lebih dari sekadar vokal. Temukan kesalahan halus dalam ritme dan penekanan yang membuat Anda langsung ketahuan.",
-      es: "El acento es más que solo vocales. Descubre los errores sutiles en el ritmo y el estrés que te delatan de inmediato.",
-      pt: "Sotaque é mais do que apenas vogais. Descubra os erros sutis de ritmo e ênfase que o denunciam imediatamente.",
-      fr: "L'accent ne concerne pas seulement les voyelles. Découvrez les erreurs subtiles de rythme et d'accentuation qui vous trahissent immédiatement.",
-      de: "Akzent ist mehr als nur Vokale. Entdecken Sie die subtilen Fehler in Rhythmus und Betonung, die Sie sofort verraten.",
-      tr: "Aksan sadece sesli harflerden ibaret değildir. Sizi hemen ele veren ritim ve vurgudaki ince hataları keşfedin.",
-      ar: "اللكنة لا تتعلق فقط بأحرف العلة. اكتشف الأخطاء الدقيقة في الإيقاع والتشديد التي تكشف أمرك على الفور.",
-      hi: "उच्चारण केवल स्वरों के बारे में नहीं है। लय और तनाव में उन सूक्ष्म गलतियों को खोजें जो आपको तुरंत बता देती हैं।",
-      ru: "Акцент — это больше, чем просто гласные. Узнайте о тонких ошибках в ритме и ударении, которые сразу же выдают вас.",
-      bn: "অ্যাকসেন্ট শুধু স্বরবর্ণের চেয়ে বেশি। ছন্দ এবং চাপের সূক্ষ্ম ভুলগুলি আবিষ্কার করুন যা আপনাকে অবিলম্বে ধরিয়ে দেয়।",
-      ur: "لہجہ صرف سروں کے بارے میں نہیں ہے۔ تال اور تناؤ میں وہ باریک غلطیاں دریافت کریں جو آپ کو فوراً ظاہر کر دیتی ہیں۔",
-      ne: "एक्सेन्ट स्वरवर्ण मात्र होइन। लय र तनावमा सूक्ष्म गल्तीहरू पत्ता लगाउनुहोस् जसले तपाईंलाई तुरुन्तै टाढा दिन्छ।"
+    {
+        id: '10-chatgpt-guide',
+        title: {
+            en: "How to Use ChatGPT as Your Free Language Tutor",
+            ko: "ChatGPT를 무료 언어 과외 선생님으로 쓰는 법",
+            ja: "ChatGPTを無料の言語家庭教師として使う方法",
+            zh: "如何将ChatGPT用作你的免费语言导师",
+            th: "วิธีใช้ ChatGPT เป็นครูสอนภาษาฟรีของคุณ",
+            vi: "Cách Sử Dụng ChatGPT Làm Gia Sư Ngôn Ngữ Miễn Phí",
+            id: "Cara Menggunakan ChatGPT Sebagai Tutor Bahasa Gratis",
+            es: "Cómo Usar ChatGPT Como Tu Tutor de Idiomas Gratuito",
+            pt: "Como Usar o ChatGPT Como Seu Tutor de Idiomas Gratuito",
+            fr: "Comment Utiliser ChatGPT Comme Tuteur Gratuit",
+            de: "Wie Sie ChatGPT als kostenlosen Sprachlehrer nutzen",
+            tr: "ChatGPT'yi Ücretsiz Dil Öğretmeniniz Olarak Nasıl Kullanırsınız",
+            ar: "كيف تستخدم ChatGPT كمعلم لغة مجاني",
+            hi: "ChatGPT को अपने मुफ्त भाषा ट्यूटर के रूप में कैसे उपयोग करें",
+            ru: "Как использовать ChatGPT в качестве бесплатного репетитора",
+            bn: "ChatGPT কে আপনার বিনামূল্যে ভাষা গৃহশিক্ষক হিসেবে কীভাবে ব্যবহার করবেন",
+            ur: "ChatGPT کو اپنے مفت زبان کے ٹیوٹر کے طور پر کیسے استعمال کریں",
+            ne: "ChatGPT लाई तपाइँको नि:शुल्क भाषा ट्यूटरको रूपमा कसरी प्रयोग गर्ने",
+            si: "ඔබගේ නොමිලේ භාෂා උපදේශක ලෙස ChatGPT භාවිතා කරන්නේ කෙසේද",
+            sw: "Jinsi ya Kutumia ChatGPT Kama Mkufunzi Wako wa Lugha Bila Malipo"
+        },
+        excerpt: {
+            en: "Stop paying for basic conversation practice. Here are the 4 prompts that turn AI into a native speaker.",
+            ko: "기본 회화 연습에 돈 쓰지 마세요. AI를 원어민으로 바꿔주는 4가지 프롬프트를 공개합니다.",
+            ja: "基本的な会話練習にお金を払うのはやめましょう。AIをネイティブスピーカーに変える4つのプロンプトがここにあります。",
+            zh: "停止为基本的对话练习付费。这里有4个可以将AI变成母语者的提示词。",
+            th: "หยุดจ่ายเงินสำหรับการฝึกสนทนาขั้นพื้นฐาน นี่คือ 4 พรอมต์ที่จะเปลี่ยน AI ให้เป็นเจ้าของภาษา",
+            vi: "Ngừng trả tiền cho việc luyện tập hội thoại cơ bản. Đây là 4 câu lệnh biến AI thành người bản xứ.",
+            id: "Berhenti membayar untuk latihan percakapan dasar. Inilah 4 prompt yang mengubah AI menjadi penutur asli.",
+            es: "Deja de pagar por práctica básica. Aquí hay 4 prompts mágicos.",
+            pt: "Pare de pagar por prática básica. Aqui estão 4 prompts mágicos.",
+            fr: "Arrêtez de payer pour la pratique de base. Voici 4 prompts magiques.",
+            de: "Hören Sie auf, für Grundübungen zu bezahlen. Hier sind 4 magische Prompts.",
+            tr: "Temel pratik için ödeme yapmayı bırakın. İşte 4 sihirli istem.",
+            ar: "توقف عن الدفع مقابل الممارسة الأساسية. إليك 4 مطالبات سحرية.",
+            hi: "बुनियादी अभ्यास के लिए भुगतान करना बंद करें। यहाँ 4 जादुई संकेत दिए गए हैं।",
+            ru: "Перестаньте платить за базовую практику. Вот 4 волшебных промпта.",
+            bn: "মৌলিক অনুশীলনের জন্য অর্থ প্রদান বন্ধ করুন। এখানে ৪টি জাদুকরী প্রম্পট রয়েছে।",
+            ur: "بنیادی مشق کے لیے ادائیگی کرنا بند کریں۔ یہاں 4 جادوئی اشارے ہیں۔",
+            ne: "आधारभूत अभ्यास को लागी भुक्तान गर्न बन्द गर्नुहोस्। यहाँ ४ जादुई प्रम्प्टहरू छन्।",
+            si: "මූලික පුහුණුව සඳහා මුදල් ගෙවීම නවත්වන්න. මෙන්න මැජික් විමසුම් 4ක්.",
+            sw: "Acha kulipia mazoezi ya kimsingi. Hapa kuna vidokezo 4 vya kichawi."
+        },
+        content: {
+            en: POST_CHATGPT_CONTENT_EN,
+            ko: POST_CHATGPT_CONTENT_KO,
+            ja: POST_CHATGPT_CONTENT_JA,
+            zh: POST_CHATGPT_CONTENT_ZH,
+            th: POST_CHATGPT_CONTENT_TH,
+            vi: POST_CHATGPT_CONTENT_VI,
+            id: POST_CHATGPT_CONTENT_ID,
+            es: POST_CHATGPT_CONTENT_ES,
+            pt: POST_CHATGPT_CONTENT_PT,
+            fr: POST_CHATGPT_CONTENT_FR,
+            de: POST_CHATGPT_CONTENT_DE,
+            tr: POST_CHATGPT_CONTENT_TR,
+            ar: POST_CHATGPT_CONTENT_AR,
+            hi: POST_CHATGPT_CONTENT_HI,
+            ru: POST_CHATGPT_CONTENT_RU,
+            bn: POST_CHATGPT_CONTENT_BN,
+            ur: POST_CHATGPT_CONTENT_UR,
+            ne: POST_CHATGPT_CONTENT_NE,
+            si: POST_CHATGPT_CONTENT_SI,
+            sw: POST_CHATGPT_CONTENT_SW
+        },
+        date: "2024-03-20",
+        readTime: 5,
+        category: "Tools",
+        coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop"
     },
-    content: {
-      en: POST_PRONUNCIATION_CONTENT_EN,
-      ko: POST_PRONUNCIATION_CONTENT_KO,
-      ja: POST_PRONUNCIATION_CONTENT_JA,
-      zh: POST_PRONUNCIATION_CONTENT_ZH,
-      es: POST_PRONUNCIATION_CONTENT_ES,
-      fr: POST_PRONUNCIATION_CONTENT_FR,
-      de: POST_PRONUNCIATION_CONTENT_DE,
-      th: POST_PRONUNCIATION_CONTENT_TH,
-      vi: POST_PRONUNCIATION_CONTENT_VI,
-      id: POST_PRONUNCIATION_CONTENT_ID,
-      pt: POST_PRONUNCIATION_CONTENT_PT,
-      tr: POST_PRONUNCIATION_CONTENT_TR,
-      ar: POST_PRONUNCIATION_CONTENT_AR,
-      hi: POST_PRONUNCIATION_CONTENT_HI,
-      ru: POST_PRONUNCIATION_CONTENT_RU,
-      bn: POST_PRONUNCIATION_CONTENT_BN,
-      ur: POST_PRONUNCIATION_CONTENT_UR,
-      ne: POST_PRONUNCIATION_CONTENT_NE
+    {
+        id: '11-language-audit',
+        title: {
+            en: "The Language Audit: Why You Are Stuck at Intermediate",
+            ko: "언어 감사: 당신이 중급에 갇힌 진짜 이유",
+            ja: "言語監査：なぜあなたは中級で立ち往生しているのか",
+            zh: "语言审计：为什么你被困在中级",
+            th: "การตรวจสอบภาษา: ทำไมคุณถึงติดอยู่ที่ระดับกลาง",
+            vi: "Kiểm Toán Ngôn Ngữ: Tại Sao Bạn Bị Mắc Kẹt Ở Trình Độ Trung Cấp",
+            id: "Audit Bahasa: Mengapa Anda Terjebak di Tingkat Menengah",
+            es: "La Auditoría de Idiomas: Por Qué Estás Atascado",
+            pt: "A Auditoria de Idiomas: Por Que Você Está Preso",
+            fr: "L'Audit Linguistique : Pourquoi Vous Bloquez",
+            de: "Das Sprach-Audit: Warum Sie feststecken",
+            tr: "Dil Denetimi: Neden Orta Seviyede Kaldınız",
+            ar: "تدقيق اللغة: لماذا أنت عالق في المستوى المتوسط",
+            hi: "भाषा ऑडिट: आप इंटरमीडिएट में क्यों अटके हैं",
+            ru: "Языковой аудит: Почему вы застряли на среднем уровне",
+            bn: "ভাষা অডিট: কেন আপনি ইন্টারমিডিয়েটে আটকে আছেন",
+            ur: "زبان کا آڈٹ: آپ انٹرمیڈیٹ میں کیوں پھنس گئے ہیں",
+            ne: "भाषा लेखापरीक्षण: किन तपाइँ मध्यवर्तीमा अड्कनुभयो",
+            si: "භාෂා විගණනය: ඔබ අතරමැදි මට්ටමේ සිරවී සිටින්නේ ඇයි",
+            sw: "Ukaguzi wa Lugha: Kwa Nini Umekwama Katika Kati"
+        },
+        excerpt: {
+            en: "You feel like you aren't improving. You are wrong. You just have bad metrics. Here is how to measure real progress.",
+            ko: "실력이 안 느는 것 같나요? 틀렸습니다. 측정 기준이 잘못됐을 뿐입니다. 진짜 성장을 측정하는 법을 알려드립니다.",
+            ja: "上達していないように感じますか？ 間違いです。指標が悪いだけです。本当の進歩を測定する方法はこちらです。",
+            zh: "你觉得自己没有进步。你错了。你只是指标不对。这是衡量真正进步的方法。",
+            th: "คุณรู้สึกเหมือนไม่ได้พัฒนา คุณคิดผิด คุณแค่มีตัวชี้วัดที่ไม่ดี นี่คือวิธีวัดความก้าวหน้าที่แท้จริง",
+            vi: "Bạn cảm thấy mình không tiến bộ. Bạn đã sai. Bạn chỉ có các chỉ số tồi. Đây là cách đo lường sự tiến bộ thực sự.",
+            id: "Anda merasa tidak berkembang. Anda salah. Anda hanya memiliki metrik yang buruk. Inilah cara mengukur kemajuan nyata.",
+            es: "Sientes que no mejoras. Estás equivocado. Solo mides mal.",
+            pt: "Você sente que não melhora. Você está errado. Só mede mal.",
+            fr: "Vous sentez que vous ne progressez pas. Vous avez tort.",
+            de: "Sie fühlen sich, als ob Sie sich nicht verbessern. Sie liegen falsch.",
+            tr: "Gelişmediğinizi hissediyorsunuz. Yanılıyorsunuz.",
+            ar: "تشعر أنك لا تتحسن. أنت مخطئ.",
+            hi: "आपको लगता है कि आप सुधार नहीं कर रहे हैं। आप गलत हैं।",
+            ru: "Вам кажется, что вы не улучшаетесь. Вы ошибаетесь.",
+            bn: "আপনার মনে হচ্ছে আপনি উন্নতি করছেন না। আপনি ভুল।",
+            ur: "آپ کو لگتا ہے کہ آپ بہتر نہیں ہو رہے ہیں۔ آپ غلط ہیں۔",
+            ne: "तपाइँलाई लाग्छ कि तपाइँ सुधार गर्दै हुनुहुन्न। तपाइँ गलत हुनुहुन्छ।",
+            si: "ඔබ දියුණු නොවන බව ඔබට හැඟේ. ඔයා වැරදියි.",
+            sw: "Unahisi kuwa hauboreki. Umekosea."
+        },
+        content: {
+            en: POST_AUDIT_CONTENT_EN,
+            ko: POST_AUDIT_CONTENT_KO,
+            ja: POST_AUDIT_CONTENT_JA,
+            zh: POST_AUDIT_CONTENT_ZH,
+            th: POST_AUDIT_CONTENT_TH,
+            vi: POST_AUDIT_CONTENT_VI,
+            id: POST_AUDIT_CONTENT_ID,
+            es: POST_AUDIT_CONTENT_ES,
+            pt: POST_AUDIT_CONTENT_PT,
+            fr: POST_AUDIT_CONTENT_FR,
+            de: POST_AUDIT_CONTENT_DE,
+            tr: POST_AUDIT_CONTENT_TR,
+            ar: POST_AUDIT_CONTENT_AR,
+            hi: POST_AUDIT_CONTENT_HI,
+            ru: POST_AUDIT_CONTENT_RU,
+            bn: POST_AUDIT_CONTENT_BN,
+            ur: POST_AUDIT_CONTENT_UR,
+            ne: POST_AUDIT_CONTENT_NE,
+            si: POST_AUDIT_CONTENT_SI,
+            sw: POST_AUDIT_CONTENT_SW
+        },
+        date: "2024-03-30",
+        readTime: 4,
+        category: "Strategy",
+        coverImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop"
     },
-    coverImage: "/assets/blog/pronunciation_mistakes.png",
-    author: "Lisa Park",
-    tags: ["Pronunciation", "Speaking", "Mistakes", "Guide"],
-    published: true,
-    createdAt: new Date("2024-02-01"),
-    updatedAt: new Date("2024-02-01")
-  },
-  {
-    id: "listening-comprehension-guide",
-    title: {
-      en: "Why You Can't Understand Native Speakers (And How to Fix It)",
-      ko: "원어민 말이 안 들리는 이유와 해결책 (귀 뚫는 법)",
-      ja: "なぜネイティブの話が理解できないのか（そしてそれを修正する方法）",
-      zh: "为什么你听不懂母语者说话（以及如何解决）",
-      th: "ทำไมคุณถึงฟังเจ้าของภาษาไม่ออก (และวิธีแก้ไข)",
-      vi: "Tại sao bạn không thể hiểu người bản xứ (Và cách khắc phục)",
-      id: "Mengapa Anda Tidak Mengerti Pembicara Asli (Dan Cara Memperbaikinya)",
-      es: "Por qué no entiendes a los hablantes nativos (y cómo solucionarlo)",
-      pt: "Por que você não entende falantes nativos (e como consertar isso)",
-      fr: "Pourquoi vous ne comprenez pas les locuteurs natifs (et comment y remédier)",
-      de: "Warum Sie Muttersprachler nicht verstehen (und wie Sie das beheben können)",
-      tr: "Anadili İngilizce Olanları Neden Anlayamıyorsunuz (Ve Bunu Nasıl Düzeltebilirsiniz)",
-      ar: "لماذا لا تستطيع فهم المتحدثين الأصليين (وكيفية إصلاح ذلك)",
-      hi: "आप देशी वक्ताओं को क्यों नहीं समझ पाते (और इसे कैसे ठीक करें)",
-      ru: "Почему вы не понимаете носителей языка (и как это исправить)",
-      bn: "কেন আপনি স্থানীয় ভাষাভাষীদের বুঝতে পারেন না (এবং এটি কীভাবে ঠিক করবেন)",
-      ur: "آپ مقامی بولنے والوں کو کیوں نہیں سمجھ سکتے (اور اسے کیسے ٹھیک کیا جائے)",
-      ne: "तपाईं किन स्थानीय वक्ताहरूलाई बुझ्न सक्नुहुन्न (र यसलाई कसरी ठीक गर्ने)"
-    },
-    excerpt: {
-      en: "Textbooks lie to you. Real people speak fast, mumble, and use slang. Here is the rigorous training regimen to upgrade your ears.",
-      ko: "교과서에 속지 마세요. 실제 사람들은 빠르고, 웅얼거리고, 줄임말을 씁니다. 당신의 듣기 능력을 업그레이드할 훈련법.",
-      ja: "教科書は嘘をつきます。実際の人は早口で、モゴモゴ話し、スラングを使います。あなたの耳をアップグレードするための厳格なトレーニングメニューがここにあります。",
-      zh: "教科书在骗你。真实的人说话很快，含糊不清，还使用俚语。这是升级你耳朵的严格训练方案。",
-      th: "หนังสือเรียนโกหกคุณ คนจริงๆ พูดเร็ว พูดพึมพำ และใช้คำแสลง นี่คือแผนการฝึกฝนที่เข้มงวดเพื่ออัปเกรดหูของคุณ",
-      vi: "Sách giáo khoa nói dối bạn. Người thật nói nhanh, lầm bầm và dùng tiếng lóng. Đây là chế độ luyện tập nghiêm ngặt để nâng cấp đôi taiของ bạn.",
-      id: "Buku pelajaran membohongi Anda. Orang sungguhan berbicara cepat, bergumam, dan menggunakan bahasa gaul. Inilah rejimen pelatihan yang ketat untuk meningkatkan telinga Anda.",
-      es: "Los libros de texto te mienten. La gente real habla rápido, murmura y usa jerga. Aquí está el riguroso régimen de entrenamiento para mejorar tus oídos.",
-      pt: "Os livros didáticos mentem para você. Pessoas reais falam rápido, murmuram e usam gírias. Aqui está o regime de treinamento rigoroso para atualizar seus ouvidos.",
-      fr: "Les manuels vous mentent. Les vrais gens parlent vite, marmonnent et utilisent de l'argot. Voici le régime d'entraînement rigoureux pour améliorer vos oreilles.",
-      de: "Lehrbücher lügen Sie an. Echte Menschen sprechen schnell, nuscheln und verwenden Slang. Hier ist das strenge Trainingsprogramm, um Ihre Ohren zu verbessern.",
-      tr: "Ders kitapları size yalan söylüyor. Gerçek insanlar hızlı konuşur, mırıldanır ve argo kullanır. İşte kulaklarınızı geliştirmek için sıkı bir eğitim rejimi.",
-      ar: "الكتب المدرسية تكذب عليك. الناس الحقيقيون يتحدثون بسرعة، ويتمتمون، ويستخدمون العامية. إليك نظام التدريب الصارم لترقية أذنيك.",
-      hi: "पाठ्यपुस्तकें आपसे झूठ बोलती हैं। असली लोग तेज़ी से बोलते हैं, बुदबुदाते हैं और कठबोली का उपयोग करते हैं। आपके कानों को अपग्रेड करने के लिए यहां कठोर प्रशिक्षण नियम है।",
-      ru: "Учебники вам врут. Реальные люди говорят быстро, бормочут и используют сленг. Вот строгий режим тренировок для прокачки ваших ушей.",
-      bn: "পাঠ্যবই আপনাকে মিথ্যা বলে। প্রকৃত মানুষ দ্রুত কথা বলে, বিড়বিড় করে এবং অপশব্দ ব্যবহার করে। আপনার কান আপগ্রেড করার জন্য এখানে কঠোর প্রশিক্ষণের নিয়ম রয়েছে।",
-      ur: "درسی کتابیں آپ سے جھوٹ بولتی ہیں۔ حقیقی لوگ تیزی سے بولتے ہیں، بڑبڑاتے ہیں اور بول چال کا استعمال کرتے ہیں۔ آپ کے کانوں کو اپ گریڈ کرنے کے لیے یہ سخت تربیتی نظام ہے۔",
-      ne: "पाठ्यपुस्तकहरूले तपाईंलाई झूट बोल्छन्। वास्तविक मानिसहरू छिटो बोल्छन्, गनगन गर्छन्, र अपशब्द प्रयोग गर्छन्। तपाइँको कान अपग्रेड गर्न यहाँ कठोर प्रशिक्षण नियम छ।"
-    },
-    content: {
-      en: POST_LISTENING_CONTENT_EN,
-      ko: POST_LISTENING_CONTENT_KO,
-      ja: POST_LISTENING_CONTENT_JA,
-      zh: POST_LISTENING_CONTENT_ZH,
-      es: POST_LISTENING_CONTENT_ES,
-      fr: POST_LISTENING_CONTENT_FR,
-      de: POST_LISTENING_CONTENT_DE,
-      th: POST_LISTENING_CONTENT_TH,
-      vi: POST_LISTENING_CONTENT_VI,
-      id: POST_LISTENING_CONTENT_ID,
-      pt: POST_LISTENING_CONTENT_PT,
-      tr: POST_LISTENING_CONTENT_TR,
-      ar: POST_LISTENING_CONTENT_AR,
-      hi: POST_LISTENING_CONTENT_HI,
-      ru: POST_LISTENING_CONTENT_RU,
-      bn: POST_LISTENING_CONTENT_BN,
-      ur: POST_LISTENING_CONTENT_UR,
-      ne: POST_LISTENING_CONTENT_NE
-    },
-    coverImage: "/assets/blog/listening_comprehension_guide.png",
-    author: "Sound Engineer",
-    tags: ["Listening", "Comprehension", "Tips", "Practice"],
-    published: true,
-    createdAt: new Date("2024-02-05"),
-    updatedAt: new Date("2024-02-05")
-  },
-  {
-    id: "language-learning-myths",
-    title: {
-      en: "7 Dangerous Myths About Language Learning That Are Holding You Back",
-      ko: "당신의 발목을 잡는 언어 학습에 대한 7가지 위험한 오해",
-      ja: "あなたの足を引っ張っている言語学習に関する7つの危険な神話",
-      zh: "阻碍你进步的7个关于语言学习的危险误区",
-      th: "7 ความเชื่อผิดๆ เกี่ยวกับการเรียนภาษาที่ฉุดรั้งคุณไว้",
-      vi: "7 lầm tưởng nguy hiểm về việc học ngôn ngữ đang kìm hãm bạn",
-      id: "7 Mitos Berbahaya Tentang Belajar Bahasa yang Menghambat Anda",
-      es: "7 mitos peligrosos sobre el aprendizaje de idiomas que te están frenando",
-      pt: "7 mitos perigosos sobre o aprendizado de idiomas que estão te impedindo",
-      fr: "7 mythes dangereux sur l'apprentissage des langues qui vous retiennent",
-      de: "7 gefährliche Mythen über das Sprachenlernen, die Sie zurückhalten",
-      tr: "Sizi Geri Tutun Dil Öğrenimi Hakkındaki 7 Tehlikeli Efsane",
-      ar: "7 خرافات خطيرة حول تعلم اللغة تعيق تقدمك",
-      hi: "भाषा सीखने के बारे में 7 खतरनाक मिथक जो आपको पीछे रोक रहे हैं",
-      ru: "7 опасных мифов об изучении языков, которые тянут вас назад",
-      bn: "ভাষা শেখার বিষয়ে ৭টি বিপদজনক মিথ যা আপনাকে পিছিয়ে রাখছে",
-      ur: "زبان سیکھنے کے بارے میں 7 خطرناک خرافات جو آپ کو پیچھے روک رہی ہیں",
-      ne: "भाषा सिकाइको बारेमा ७ खतरनाक मिथकहरू जसले तपाईंलाई पछाडि समातिरहेका छन्"
-    },
-    excerpt: {
-      en: "\"You're too old,\" \"You have no talent.\" Debunking the common misconceptions that prevent adults from achieving fluency.",
-      ko: "\"나는 머리가 굳었어\", \"언어 재능이 없어\". 성인 학습자의 성공을 가로막는 흔해 빠진 거짓말들을 박살 내드립니다.",
-      ja: "「年を取りすぎている」「才能がない」。大人が流暢になるのを妨げる一般的な誤解を解きます。",
-      zh: "“你太老了”，“你没有天赋”。揭穿那些阻碍成年人达到流利程度的常见误解。",
-      th: "\"คุณแก่เกินไป\" \"คุณไม่มีพรสวรรค์\" หักล้างความเข้าใจผิดทั่วไปที่ขัดขวางไม่ให้ผู้ใหญ่ประสบความสำเร็จในการใช้ภาษา",
-      vi: "\"Bạn quá già\", \"Bạn không có tài năng\". Vạch trần những quan niệm sai lầm phổ biến ngăn cản người lớn đạt được sự thông thạo.",
-      id: "\"Kamu terlalu tua,\" \"Kamu tidak punya bakat.\" Membantah kesalahpahaman umum yang mencegah orang dewasa mencapai kefasihan.",
-      es: "\"Eres demasiado viejo\", \"No tienes talento\". Desmontando los conceptos erróneos comunes que impiden que los adultos alcancen la fluidez.",
-      pt: "\"Você é muito velho\", \"Você não tem talento\". Desmascarando os conceitos errôneos comuns que impedem os adultos de alcançar a fluência.",
-      fr: "\"Vous êtes trop vieux\", \"Vous n'avez pas de talent\". Démystifier les idées fausses courantes qui empêchent les adultes d'atteindre la fluidité.",
-      de: "\"Du bist zu alt\", \"Du hast kein Talent\". Entlarvung der gängigen Missverständnisse, die Erwachsene daran hindern, fließend zu sprechen.",
-      tr: "\"Çok yaşlısın\", \"Yeteneğin yok.\" Yetişkinlerin akıcılığa ulaşmasını engelleyen yaygın yanlış kanıları çürütüyoruz.",
-      ar: "\"أنت كبير جداً في السن\"، \"ليس لديك موهبة\". دحض المفاهيم الخاطئة الشائعة التي تمنع البالغين من تحقيق الطلاقة.",
-      hi: "\"आप बहुत बूढ़े हो गए हैं,\" \"आपके पास कोई प्रतिभा नहीं है।\" उन सामान्य गलत धारणाओं का खंडन करना जो वयस्कों को प्रवाह प्राप्त करने से रोकती हैं।",
-      ru: "\"Ты слишком старый\", \"У тебя нет таланта\". Развенчиваем распространенные заблуждения, которые мешают взрослым достичь беглости.",
-      bn: "\"আপনি খুব বয়স্ক,\" \"আপনার কোন প্রতিভা নেই।\" সাধারণ ভুল ধারণাগুলি খণ্ডন করা যা প্রাপ্তবয়স্কদের সাবলীলতা অর্জন থেকে বাধা দেয়।",
-      ur: "\"آپ بہت بوڑھے ہو چکے ہیں،\" \"آپ کے پاس کوئی قابلیت نہیں ہے۔\" ان عام غلط فہمیوں کا پردہ فاش کرنا جو بالغوں کو روانی حاصل کرنے سے روکتی ہیں۔",
-      ne: "\"तपाईं धेरै बुढो हुनुहुन्छ,\" \"तपाईँसँग कुनै प्रतिभा छैन।\" वयस्कहरूलाई प्रवाहितता प्राप्त गर्नबाट रोक्ने सामान्य गलत धारणाहरू हटाउँदै।"
-    },
-    content: {
-      en: POST_MYTHS_CONTENT_EN,
-      ko: POST_MYTHS_CONTENT_KO,
-      ja: POST_MYTHS_CONTENT_JA,
-      zh: POST_MYTHS_CONTENT_ZH,
-      es: POST_MYTHS_CONTENT_ES,
-      fr: POST_MYTHS_CONTENT_FR,
-      de: POST_MYTHS_CONTENT_DE,
-      th: POST_MYTHS_CONTENT_TH,
-      vi: POST_MYTHS_CONTENT_VI,
-      id: POST_MYTHS_CONTENT_ID,
-      pt: POST_MYTHS_CONTENT_PT,
-      tr: POST_MYTHS_CONTENT_TR,
-      ar: POST_MYTHS_CONTENT_AR,
-      hi: POST_MYTHS_CONTENT_HI,
-      ru: POST_MYTHS_CONTENT_RU,
-      bn: POST_MYTHS_CONTENT_BN,
-      ur: POST_MYTHS_CONTENT_UR,
-      ne: POST_MYTHS_CONTENT_NE
-    },
-    coverImage: "/assets/blog/language_learning_myths.png",
-    author: "Brain Hacker",
-    tags: ["Mindset", "Myths", "Motivation", "Psychology"],
-    published: true,
-    createdAt: new Date("2024-02-10"),
-    updatedAt: new Date("2024-02-10")
-  }
+    {
+        id: '12-immersion-no-travel',
+        title: {
+            en: "Deep Immersion Without a Plane Ticket",
+            ko: "비행기 티켓 없이 완벽하게 언어에 몰입하는 법",
+            ja: "航空券なしでの完全な没入",
+            zh: "无需机票的深度沉浸",
+            th: "การซึมซับอย่างลึกซึ้งโดยไม่ต้องใช้ตั๋วเครื่องบิน",
+            vi: "Đắm Mình Sâu Sắc Mà Không Cần Vé Máy Bay",
+            id: "Imersi Mendalam Tanpa Tiket Pesawat",
+            es: "Inmersión Profunda Sin Boleto de Avión",
+            pt: "Imersão Profunda Sem Passagem de Avião",
+            fr: "Immersion Profonde Sans Billet d'Avion",
+            de: "Tiefes Eintauchen ohne Flugticket",
+            tr: "Uçak Bileti Olmadan Derin Daldırma",
+            ar: "انغماس عميق بدون تذكرة طائرة",
+            hi: "हवाई जहाज के टिकट के बिना गहरा विसर्जन",
+            ru: "Глубокое погружение без билета на самолет",
+            bn: "বিমানের টিকিট ছাড়াই গভীর নিমজ্জন",
+            ur: "ہوائی جہاز کے ٹکٹ کے بغیر گہرا وسرجن",
+            ne: "हवाइजहाज टिकट बिना गहिरो विसर्जन",
+            si: "ගුවන් ටිකට් පතක් නොමැතිව ගැඹුරු ගිල්වීම",
+            sw: "Kuzamishwa Kwa Kina Bila Tikiti ya Ndege"
+        },
+        excerpt: {
+            en: "Living abroad doesn't guarantee fluency. Doing these 3 things at home does.",
+            ko: "해외에 산다고 유창해지는 건 아닙니다. 집에서 이 3가지를 하는 것이 훨씬 더 확실합니다.",
+            ja: "海外に住むことが流暢さを保証するわけではありません。家でこれら3つのことを行うことが保証します。",
+            zh: "住在国外并不保证流利。在家里做这3件事可以。",
+            th: "การอาศัยอยู่ในต่างประเทศไม่ได้รับประกันความคล่องแคล่ว การทำ 3 สิ่งนี้ที่บ้านต่างหากที่รับประกัน",
+            vi: "Sống ở nước ngoài không đảm bảo sự trôi chảy. Làm 3 điều này ở nhà mới đảm bảo.",
+            id: "Tinggal di luar negeri tidak menjamin kelancaran. Melakukan 3 hal ini di rumah menjaminnya.",
+            es: "Vivir en el extranjero no garantiza nada. Hacer esto en casa sí.",
+            pt: "Morar no exterior não garante nada. Fazer isso em casa sim.",
+            fr: "Vivre à l'étranger ne garantit rien. Faire cela à la maison, oui.",
+            de: "Im Ausland zu leben garantiert nichts. Dies zu Hause zu tun schon.",
+            tr: "Yurt dışında yaşamak akıcılığı garanti etmez. Evde bunları yapmak eder.",
+            ar: "العيش في الخارج لا يضمن الطلاقة. القيام بهذه الأشياء في المنزل يضمن ذلك.",
+            hi: "विदेश में रहने से प्रवाह की गारंटी नहीं मिलती। घर पर ये 3 काम करने से मिलती है।",
+            ru: "Жизнь за границей не гарантирует беглости. Эти 3 вещи дома — гарантируют.",
+            bn: "বিদেশে বসবাস সাবলীলতার নিশ্চয়তা দেয় না। বাড়িতে এই ৩টি কাজ করা দেয়।",
+            ur: "بیرون ملک رہنا روانی کی ضمانت نہیں دیتا۔ گھر پر یہ 3 چیزیں کرنا دیتا ہے۔",
+            ne: "विदेशमा बस्दैमा प्रवाहको ग्यारेन्टी हुँदैन। घरमा यी ३ कुरा गर्दा हुन्छ।",
+            si: "විදෙස්ගත වීම චතුර බව සහතික නොකරයි. ගෙදර ඉඳන් මේ වැඩ 3 කළාම හරියනවා.",
+            sw: "Kuishi nje ya nchi hakuhakikishi ufasaha. Kufanya mambo haya 3 nyumbani kunafanya."
+        },
+        content: {
+            en: POST_IMMERSION_CONTENT_EN,
+            ko: POST_IMMERSION_CONTENT_KO,
+            ja: POST_IMMERSION_CONTENT_JA,
+            zh: POST_IMMERSION_CONTENT_ZH,
+            th: POST_IMMERSION_CONTENT_TH,
+            vi: POST_IMMERSION_CONTENT_VI,
+            id: POST_IMMERSION_CONTENT_ID,
+            es: POST_IMMERSION_CONTENT_ES,
+            pt: POST_IMMERSION_CONTENT_PT,
+            fr: POST_IMMERSION_CONTENT_FR,
+            de: POST_IMMERSION_CONTENT_DE,
+            tr: POST_IMMERSION_CONTENT_TR,
+            ar: POST_IMMERSION_CONTENT_AR,
+            hi: POST_IMMERSION_CONTENT_HI,
+            ru: POST_IMMERSION_CONTENT_RU,
+            bn: POST_IMMERSION_CONTENT_BN,
+            ur: POST_IMMERSION_CONTENT_UR,
+            ne: POST_IMMERSION_CONTENT_NE,
+            si: POST_IMMERSION_CONTENT_SI,
+            sw: POST_IMMERSION_CONTENT_SW
+        },
+        date: "2024-04-05",
+        readTime: 4,
+        category: "Immersion",
+        coverImage: "https://images.unsplash.com/photo-1528747045269-390fe33c19f2?w=800&auto=format&fit=crop"
+    }
 ];
+
