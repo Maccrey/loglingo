@@ -30,7 +30,8 @@
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
     "radio": "Radio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Blog de Idiomas",

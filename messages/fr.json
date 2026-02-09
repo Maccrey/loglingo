@@ -30,7 +30,8 @@
     "login": "Connexion",
     "logout": "Déconnexion",
     "radio": "Radio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Blog d'Apprentissage",

@@ -4,421 +4,246 @@ import { BlogPost } from "../src/domain/blog";
 // ==========================================
 // Post 1: Consistency vs. Intensity
 // ==========================================
-const POST_CONSISTENCY_CONTENT_EN = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_EN = `
         <article>
-          <p>Language requires synaptic reinforcement. Daily exposure keeps the connections alive.</p>
-          <p>Imagine two people. <strong>Person A</strong> studies for 5 hours every Sunday. <strong>Person B</strong> studies for 30 minutes every day. Who learns faster?</p>
-          <p>Most of us intuitively know the answer is Person B, but we act like Person A. We rely on "Intensity"—bursts of motivation where we cram vocabulary for hours. But language learning is not a sprint; it's a marathon. Here is why <strong>Consistency</strong> always beats Intensity.</p>
-          <h2>The Forgetting Curve</h2>
-          <p>Our brains are designed to forget. If you study for 5 hours on Sunday, by next Sunday you will have forgotten 80% of what you learned because you didn't review it during the week. Person B, however, reinforces their neural pathways every single day, keeping the memory fresh.</p>
-          <h2>The Compound Effect</h2>
-          <p>30 minutes a day is 182 hours a year. But it's worth more than that because of the <strong>compound effect</strong>. Learning a word on Monday helps you understand a sentence on Tuesday, which helps you learn a grammar rule on Wednesday. Knowledge builds on knowledge.</p>
-          <h2>How to Build Consistency</h2>
-          <ul>
-             <li><strong>Anchor habits:</strong> "I will study for 15 minutes <em>after</em> I drink my morning coffee."</li>
-             <li><strong>Lower the bar:</strong> On bad days, aim for just 5 minutes. The goal is not to improve, but to <em>not break the chain</em>.</li>
-             <li><strong>Make it enjoyable:</strong> Don't force yourself to read boring textbooks. Watch a YouTube video or listen to a song.</li>
-          </ul>
-          <h2>Conclusion</h2>
-          <p>Be the tortoise, not the hare. Stop waiting for "enough time" to study for hours. It will never come. Find 20 minutes today, and do it again tomorrow. That is the only secret.</p>
-          
-          <h2>FAQ</h2>
-          <h3>What's the minimum daily time I should study?</h3>
-          <p>There's no magic number, but 15-20 minutes is a good starting point. The key is consistency, not duration. Even 5 minutes daily is better than 2 hours once a week. Your brain needs regular exposure to build and maintain neural pathways.</p>
-          
-          <h3>What if I'm too busy to study every day?</h3>
-          <p>You're never too busy for 5 minutes. Listen to a podcast during your commute, review flashcards while waiting in line, or watch one YouTube video before bed. The goal is to keep the chain unbroken. On truly hectic days, even opening your language app for 2 minutes counts as maintaining the habit.</p>
-          
-          <h3>When is intensity useful in language learning?</h3>
-          <p>Intensity has its place during immersion experiences (like traveling or intensive courses) or when preparing for a specific deadline (exam, interview). But even then, consistency should be your foundation. Think of intensity as sprints within a marathon—useful occasionally, but not sustainable as your primary strategy.</p>
+          <p>Most language learners quit. It's not because they lack talent; it's because they lack a restart strategy.</p>
+          <h3>The "What the Hell" Effect</h3>
+          <p>In psychology, this describes the moment you start eating a cookie, break your diet, and say "What the hell, I'll eat the whole box." The same happens with languages. You miss one day of Duolingo, feel guilty, and quit entirely.</p>
+          <h3>The 2-Day Rule</h3>
+          <p>The solution is simple: <strong>Never miss two days in a row.</strong> Missing one day is a slip-up. Missing two days is the start of a new habit—the habit of quitting.</p>
+          <h3>How to Restart</h3>
+          <p>When you break your streak, don't try to make up for lost time by studying for 5 hours. Just do 5 minutes. Re-establish the habit, not the intensity.</p>
         </article>
       `;
 
 
-const POST_CONSISTENCY_CONTENT_KO = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_KO = `
         <article>
-          <p>언어는 시냅스 강화를 요구합니다. 매일 노출되어야 연결이 유지됩니다.</p>
-          <p>두 사람을 상상해보세요. <strong>A씨</strong>는 일요일마다 5시간씩 공부합니다. <strong>B씨</strong>는 매일 30분씩 공부합니다. 누가 더 빨리 배우게 될까요?</p>
-          <p>우리 대부분은 직관적으로 정답이 B씨라는 걸 알지만, 행동은 A씨처럼 합니다. 우리는 '강도(Intensity)'에 의존합니다. 의욕이 솟구칠 때 몇 시간이고 단어를 벼락치기 하죠. 하지만 언어 학습은 단거리 경주가 아니라 마라톤입니다. 여기 <strong>일관성(Consistency)</strong>이 항상 강도를 이기는 이유가 있습니다.</p>
-
-          <h2>망각 곡선 (The Forgetting Curve)</h2>
-          <p>우리 뇌는 잊어버리도록 설계되어 있습니다. 일요일에 5시간을 공부해도, 주중에 복습하지 않으면 다음 일요일엔 80%를 까먹습니다. 반면 B씨는 매일 신경 회로를 자극하며 기억을 신선하게 유지합니다.</p>
-
-          <h2>복리 효과 (The Compound Effect)</h2>
-          <p>하루 30분이면 1년에 182시간입니다. 하지만 <strong>복리 효과</strong> 때문에 실제 가치는 그 이상입니다. 월요일에 배운 단어가 화요일의 문장 이해를 돕고, 그 문장이 수요일의 문법 학습을 돕습니다. 지식은 지식 위에 쌓입니다.</p>
-
-          <h2>일관성을 만드는 법</h2>
-          <ul>
-             <li><strong>습관 닻 내리기:</strong> "아침 커피를 마신 <em>후에</em> 15분 공부한다."</li>
-             <li><strong>기대치 낮추기:</strong> 컨디션 안 좋은 날은 딱 5분만 하세요. 목표는 실력 향상이 아니라 <em>사슬을 끊지 않는 것</em>입니다.</li>
-             <li><strong>즐겁게 하기:</strong> 지루한 교과서 억지로 보지 마세요. 유튜브를 보거나 노래를 들으세요.</li>
-          </ul>
-
-          <h2>결론</h2>
-          <p>토끼가 아니라 거북이가 되세요. 시간이 "충분할 때"를 기다리지 마세요. 그런 날은 절대 오지 않습니다. 오늘 20분을 찾고, 내일 또 하세요. 그것이 유일한 비결입니다.</p>
-          
-          <h2>자주 묻는 질문 (FAQ)</h2>
-          <h3>하루에 최소 몇 분을 공부해야 하나요?</h3>
-          <p>정해진 마법의 숫자는 없지만, 15-20분이 좋은 시작점입니다. 핵심은 지속 시간이 아니라 일관성입니다. 일주일에 한 번 2시간보다 매일 5분이 더 낫습니다. 뇌는 신경 경로를 구축하고 유지하기 위해 규칙적인 노출이 필요합니다.</p>
-          
-          <h3>매일 공부하기엔 너무 바쁜데 어떻게 하나요?</h3>
-          <p>5분조차 낼 수 없을 만큼 바쁜 사람은 없습니다. 출퇴근 중 팟캐스트를 듣거나, 줄 서 있을 때 플래시카드를 보거나, 자기 전 유튜브 영상 하나를 보세요. 목표는 사슬을 끊지 않는 것입니다. 정말 바쁜 날에는 언어 앱을 2분만 열어도 습관 유지로 인정됩니다.</p>
-          
-          <h3>언어 학습에서 강도가 유용할 때는 언제인가요?</h3>
-          <p>강도는 몰입 경험(여행이나 집중 코스) 중이거나 특정 마감일(시험, 면접)을 준비할 때 유용합니다. 하지만 그때도 일관성이 기초가 되어야 합니다. 강도를 마라톤 안의 스프린트로 생각하세요—가끔은 유용하지만, 주요 전략으로는 지속 가능하지 않습니다.</p>
+          <p>대부분의 언어 학습자는 중도에 포기합니다. 재능이 없어서가 아니라, 재시작 전략이 없기 때문입니다.</p>
+          <h3>"에라 모르겠다" 효과 (The "What the Hell" Effect)</h3>
+          <p>심리학에서는 다이어트 중 쿠키 한 조각을 먹고는 "에라 모르겠다, 그냥 한 상자 다 먹자"라고 하는 순간을 이렇게 부릅니다. 언어도 마찬가지입니다. 듀오링고 하루 빼먹었다고 죄책감을 느끼며 아예 관둬버리죠.</p>
+          <h3>2일 규칙 (The 2-Day Rule)</h3>
+          <p>해결책은 간단합니다: <strong>절대 이틀 연속으로 빠지지 마세요.</strong> 하루 빠지는 건 실수입니다. 이틀 빠지는 건 새로운 습관의 시작입니다—바로 포기하는 습관이죠.</p>
+          <h3>다시 시작하는 법</h3>
+          <p>연속 기록이 깨졌을 때, 5시간 공부해서 만회하려고 하지 마세요. 그냥 5분만 하세요. 강도가 아니라 습관을 다시 세우세요.</p>
         </article>
       `;
 
 
-const POST_CONSISTENCY_CONTENT_JA = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_JA = `
         <article>
-          <p>二人の人物を想像してください。<strong>Aさん</strong>は毎週日曜日に5時間勉強します。<strong>Bさん</strong>は毎日30分勉強します。どちらが早く習得するでしょうか？</p>
-          <p>私たちの多くは直感的にBさんだと分かりますが、行動はAさんのようになりがちです。私たちは「強度（Intensity）」に頼ります。やる気が出た時に何時間も単語を詰め込みます。しかし、言語学習は短距離走ではなく、マラソンです。ここに<strong>一貫性（Consistency）</strong>が常に強度に勝る理由があります。</p>
-          <h2>忘却曲線</h2>
-          <p>私たちの脳は忘れるように設計されています。日曜日に5時間勉強しても、その週に復習しなければ、次の日曜日には学んだことの80％を忘れています。しかし、Bさんは毎日神経回路を強化し、記憶を新鮮に保ちます。</p>
-          <h2>複利効果</h2>
-          <p>1日30分は年間182時間です。しかし、<strong>複利効果</strong>のおかげで、実際の価値はそれ以上です。月曜日に学んだ単語が火曜日の文の理解を助け、それが水曜日の文法学習を助けます。知識は知識の上に積み重なります。</p>
-          <h2>一貫性を築く方法</h2>
-          <ul>
-             <li><strong>習慣のアンカー：「</strong>朝のコーヒーを飲んだ<em>後に</em>15分勉強する。」</li>
-             <li><strong>ハードルを下げる：</strong>調子の悪い日は5分だけでいいのです。目標は上達することではなく、<em>連鎖を断ち切らないこと</em>です。</li>
-             <li><strong>楽しむ：</strong>退屈な教科書を無理に読まないでください。YouTubeを見たり、歌を聴いたりしましょう。</li>
-          </ul>
-          <h2>結論</h2>
-          <p>ウサギではなく、カメになりましょう。何時間も勉強できる「十分な時間」を待つのはやめてください。そんな日は決して来ません。今日20分を見つけて、明日もまたやるのです。それが唯一の秘密です。</p>
-          
-          <h2>よくある質問 (FAQ)</h2>
-          <h3>毎日最低何分勉強すべきですか？</h3>
-          <p>魔法の数字はありませんが、15〜20分が良い出発点です。重要なのは時間の長さではなく、一貫性です。週に1回2時間よりも、毎日5分の方が効果的です。脳は神経経路を構築し維持するために、定期的な露出が必要です。</p>
-          
-          <h3>毎日勉強する時間がない場合はどうすればいいですか？</h3>
-          <p>5分すら取れないほど忙しい人はいません。通勤中にポッドキャストを聴いたり、列に並んでいる間にフラッシュカードを見たり、寝る前にYouTube動画を1本見たりしましょう。目標は連鎖を断ち切らないことです。本当に忙しい日は、言語アプリを2分開くだけでも習慣の維持になります。</p>
-          
-          <h3>言語学習で強度が役立つのはいつですか？</h3>
-          <p>強度は、イマージョン体験（旅行や集中コースなど）や特定の締め切り（試験、面接）に備えるときに役立ちます。しかしその場合でも、一貫性が基盤であるべきです。強度をマラソンの中のスプリントと考えてください—時々は有用ですが、主要な戦略としては持続可能ではありません。</p>
+          <p>ほとんどの言語学習者は途中で辞めてしまいます。才能がないからではなく、再開する戦略がないからです。</p>
+          <h3>「どうでもいいや」効果 (The "What the Hell" Effect)</h3>
+          <p>心理学では、ダイエット中にクッキーを1枚食べてしまい、「もういいや、箱ごと食べちゃえ」となる瞬間をこう呼びます。言語も同じです。Duolingoを1日サボっただけで罪悪感を感じ、完全に辞めてしまうのです。</p>
+          <h3>2日ルール (The 2-Day Rule)</h3>
+          <p>解決策はシンプルです：<strong>絶対に2日連続で休まないこと。</strong> 1日休むのはミスです。2日休むのは新しい習慣の始まりです—つまり、辞めるという習慣です。</p>
+          <h3>再開する方法</h3>
+          <p>記録が途切れたとき、5時間勉強して取り戻そうとしないでください。ただ5分だけやってください。強度ではなく、習慣を取り戻すのです。</p>
         </article>
       `;
 
 
-const POST_CONSISTENCY_CONTENT_ZH = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_ZH = `
         <article>
-          <p>想象两个人。<strong>A</strong>每周日学习5小时。<strong>B</strong>每天学习30分钟。谁学得更快？</p>
-          <p>我们大多数人直觉上知道答案是B，但我们的行为却像A。我们依赖“强度”——在动力爆发时死记硬背几个小时的单词。但语言学习不是短跑；它是马拉松。这就是为什么<strong>一致性</strong>总是胜过强度的原因。</p>
-          <h2>遗忘曲线</h2>
-          <p>我们的大脑是被设计来遗忘的。如果你在周日学习5小时，到下周日你会忘记80%，因为你在这一周没有复习。然而，B每天都在强化神经通路，保持记忆新鲜。</p>
-          <h2>复利效应</h2>
-          <p>每天30分钟一年就是182小时。但由于<strong>复利效应</strong>，它的价值远不止于此。周一学的单词帮助你理解周二的句子，从而帮助你学习周三的语法规则。知识是建立在知识之上的。</p>
-          <h2>如何建立一致性</h2>
-          <ul>
-             <li><strong>锚定习惯：</strong> “我会在喝完晨咖啡<em>后</em>学习15分钟。”</li>
-             <li><strong>降低门槛：</strong> 在糟糕的日子里，只学5分钟。目标不是进步，而是<em>不要打破链条</em>。</li>
-             <li><strong>让它变得有趣：</strong> 不要强迫自己读无聊的教科书。看YouTube视频或听歌。</li>
-          </ul>
-          <h2>结论</h2>
-          <p>做乌龟，不要做兔子。停止等待“足够的时间”来学习几个小时。那一天永远不会到来。今天找出20分钟，明天再做一次。这是唯一的秘密。</p>
+          <p>大多数语言学习者都会半途而废。不是因为缺乏天赋，而是因为缺乏重新开始的策略。</p>
+          <h3>“管他呢”效应 (The "What the Hell" Effect)</h3>
+          <p>在心理学中，这描述了当你打破节食吃了一块饼干，然后说“管他呢，我把整盒都吃了”的那一刻。语言学习也是如此。你错过了一天的Duolingo打卡，感到内疚，然后彻底放弃。</p>
+          <h3>两天规则 (The 2-Day Rule)</h3>
+          <p>解决方案很简单：<strong>绝对不要连续错过两天。</strong> 错过一天是失误。错过两天是新习惯的开始——放弃的习惯。</p>
+          <h3>如何重新开始</h3>
+          <p>当你的连续记录中断时，不要试图通过学习5小时来弥补。只需要做5分钟。重建习惯，而不是强度。</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_ES = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_ES = `
         <article>
-          <p>Imagina a dos personas. <strong>Persona A</strong> estudia 5 horas cada domingo. <strong>Persona B</strong> estudia 30 minutos todos los días. ¿Quién aprende más rápido?</p>
-          <p>La mayoría de nosotros sabemos intuitivamente que la respuesta es la Persona B, pero actuamos como la Persona A. Confiamos en la "Intensidad": ráfagas de motivación donde nos atiborramos de vocabulario durante horas. Pero el aprendizaje de idiomas no es un sprint; es un maratón. He aquí por qué la <strong>Consistencia</strong> siempre vence a la Intensidad.</p>
-          <h2>La Curva del Olvido</h2>
-          <p>Nuestros cerebros están diseñados para olvidar. Si estudias 5 horas el domingo, para el próximo domingo habrás olvidado el 80% de lo que aprendiste porque no lo repasaste durante la semana. La Persona B, sin embargo, refuerza sus vías neuronales todos los días, manteniendo la memoria fresca.</p>
-          <h2>El Efecto Compuesto</h2>
-          <p>30 minutos al día son 182 horas al año. Pero vale más que eso debido al <strong>efecto compuesto</strong>. Aprender una palabra el lunes te ayuda a entender una oración el martes, lo que te ayuda a aprender una regla gramatical el miércoles. El conocimiento se construye sobre el conocimiento.</p>
-          <h2>Cómo Construir Consistencia</h2>
-          <ul>
-             <li><strong>Anclar hábitos:</strong> "Estudiaré 15 minutos <em>después</em> de beber mi café matutino".</li>
-             <li><strong>Bajar el listón:</strong> En los días malos, apunta a solo 5 minutos. El objetivo no es mejorar, sino <em>no romper la cadena</em>.</li>
-             <li><strong>Hazlo agradable:</strong> No te obligues a leer libros de texto aburridos. Mira un video de YouTube o escucha una canción.</li>
-          </ul>
-          <h2>Conclusión</h2>
-          <p>Sé la tortuga, no la liebre. Deja de esperar "suficiente tiempo" para estudiar durante horas. Nunca llegará. Encuentra 20 minutos hoy y vuelve a hacerlo mañana. Ese es el único secreto.</p>
+          <p>La mayoría de los estudiantes de idiomas abandonan. No es porque les falte talento; es porque les falta una estrategia de reinicio.</p>
+          <h3>El efecto "Qué diablos" (The "What the Hell" Effect)</h3>
+          <p>En psicología, esto describe el momento en que comes una galleta, rompes la dieta y dices "Qué diablos, me comeré la caja entera". Lo mismo sucede con los idiomas. Te pierdes un día de Duolingo, te sientes culpable y abandonas por completo.</p>
+          <h3>La regla de los 2 días (The 2-Day Rule)</h3>
+          <p>La solución es simple: <strong>Nunca te pierdas dos días seguidos.</strong> Perderse un día es un desliz. Perderse dos días es el comienzo de un nuevo hábito: el hábito de abandonar.</p>
+          <h3>Cómo reiniciar</h3>
+          <p>Cuando rompas tu racha, no intentes recuperar el tiempo perdido estudiando durante 5 horas. Solo haz 5 minutos. Restablece el hábito, no la intensidad.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_FR = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_FR = `
         <article>
-          <p>Imaginez deux personnes. <strong>Personne A</strong> étudie 5 heures chaque dimanche. <strong>Personne B</strong> étudie 30 minutes chaque jour. Qui apprend le plus vite ?</p>
-          <p>La plupart d'entre nous savent intuitivement que la réponse est la Personne B, mais nous agissons comme la Personne A. Nous comptons sur l'"Intensité" : des bouffées de motivation où nous apprenons du vocabulaire par cœur pendant des heures. Mais l'apprentissage des langues n'est pas un sprint ; c'est un marathon. Voici pourquoi la <strong>Cohérence</strong> bat toujours l'Intensité.</p>
-          <h2>La Courbe de l'Oubli</h2>
-          <p>Nos cerveaux sont conçus pour oublier. Si vous étudiez 5 heures le dimanche, dimanche prochain, vous aurez oublié 80 % de ce que vous avez appris parce que vous ne l'avez pas révisé pendant la semaine. La Personne B, cependant, renforce ses voies neuronales chaque jour, gardant la mémoire fraîche.</p>
-          <h2>L'Effet Composé</h2>
-          <p>30 minutes par jour, c'est 182 heures par an. Mais cela vaut plus que cela grâce à l'<strong>effet composé</strong>. Apprendre un mot le lundi vous aide à comprendre une phrase le mardi, ce qui vous aide à apprendre une règle de grammaire le mercredi. La connaissance se construit sur la connaissance.</p>
-          <h2>Comment Construire la Cohérence</h2>
-          <ul>
-             <li><strong>Ancrer les habitudes :</strong> "J'étudierai 15 minutes <em>après</em> avoir bu mon café du matin."</li>
-             <li><strong>Baisser la barre :</strong> Les mauvais jours, visez juste 5 minutes. Le but n'est pas de s'améliorer, mais de <em>ne pas briser la chaîne</em>.</li>
-             <li><strong>Rendre cela agréable :</strong> Ne vous forcez pas à lire des manuels ennuyeux. Regardez une vidéo YouTube ou écoutez une chanson.</li>
-          </ul>
-          <h2>Conclusion</h2>
-          <p>Soyez la tortue, pas le lièvre. Arrêtez d'attendre d'avoir "assez de temps" pour étudier pendant des heures. Cela n'arrivera jamais. Trouvez 20 minutes aujourd'hui, et recommencez demain. C'est le seul secret.</p>
+          <p>La plupart des apprenants en langues abandonnent. Ce n'est pas parce qu'ils manquent de talent ; c'est parce qu'ils manquent d'une stratégie de redémarrage.</p>
+          <h3>L'effet "Foutu pour foutu" (The "What the Hell" Effect)</h3>
+          <p>En psychologie, cela décrit le moment où vous mangez un biscuit, brisez votre régime et dites "Foutu pour foutu, je vais manger toute la boîte". La même chose se produit avec les langues. Vous manquez un jour de Duolingo, vous vous sentez coupable et vous abandonnez complètement.</p>
+          <h3>La règle des 2 jours (The 2-Day Rule)</h3>
+          <p>La solution est simple : <strong>Ne manquez jamais deux jours de suite.</strong> Manquer un jour est un faux pas. Manquer deux jours est le début d'une nouvelle habitude : l'habitude d'abandonner.</p>
+          <h3>Comment redémarrer</h3>
+          <p>Lorsque vous brisez votre série, n'essayez pas de rattraper le temps perdu en étudiant pendant 5 heures. Faites juste 5 minutes. Rétablissez l'habitude, pas l'intensité.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_DE = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_DE = `
         <article>
-          <p>Sprache erfordert synaptische Verstärkung. Tägliche Exposition hält die Verbindungen am Leben.</p>
-          <p>Stell dir zwei Personen vor. <strong>Person A</strong> lernt jeden Sonntag 5 Stunden lang. <strong>Person B</strong> lernt jeden Tag 30 Minuten lang. Wer lernt schneller?</p>
-          <p>Die meisten von uns wissen intuitiv, dass die Antwort Person B ist, aber wir handeln wie Person A. Wir verlassen uns auf "Intensität": Motivationsschübe, in denen wir stundenlang Vokabeln büffeln. Aber Sprachenlernen ist kein Sprint; es ist ein Marathon. Hier ist der Grund, warum <strong>Konsistenz</strong> immer die Intensität schlägt.</p>
-          <h2>Die Vergessenskurve</h2>
-          <p>Unsere Gehirne sind darauf ausgelegt, zu vergessen. Wenn du am Sonntag 5 Stunden lernst, wirst du bis zum nächsten Sonntag 80 % des Gelernten vergessen haben, weil du es unter der Woche nicht wiederholt hast. Person B hingegen stärkt jeden Tag ihre neuronalen Bahnen und hält die Erinnerung frisch.</p>
-          <h2>Der Zinseszinseffekt</h2>
-          <p>30 Minuten am Tag sind 182 Stunden im Jahr. Aber es ist mehr wert als das, dank des <strong>Zinseszinseffekts</strong>. Ein Wort am Montag zu lernen hilft dir, einen Satz am Dienstag zu verstehen, was dir hilft, eine Grammatikregel am Mittwoch zu lernen. Wissen baut auf Wissen auf.</p>
-          <h2>Wie man Konsistenz aufbaut</h2>
-          <ul>
-             <li><strong>Gewohnheiten verankern:</strong> "Ich werde 15 Minuten lernen, <em>nachdem</em> ich meinen Morgenkaffee getrunken habe."</li>
-             <li><strong>Die Latte niedriger legen:</strong> An schlechten Tagen versuche nur 5 Minuten. Das Ziel ist nicht, besser zu werden, sondern <em>die Kette nicht zu unterbrechen</em>.</li>
-             <li><strong>Mach es angenehm:</strong> Zwinge dich nicht, langweilige Lehrbücher zu lesen. Schau ein YouTube-Video oder höre ein Lied.</li>
-          </ul>
-          <h2>Fazit</h2>
-          <p>Sei die Schildkröte, nicht der Hase. Hör auf, auf "genug Zeit" zu warten, um stundenlang zu lernen. Das wird nie passieren. Finde heute 20 Minuten und tu es morgen wieder. Das ist das einzige Geheimnis.</p>
+          <p>Die meisten Sprachlerner geben auf. Nicht, weil ihnen das Talent fehlt; sondern weil ihnen eine Neustart-Strategie fehlt.</p>
+          <h3>Der "Scheiß-drauf"-Effekt (The "What the Hell" Effect)</h3>
+          <p>In der Psychologie beschreibt dies den Moment, in dem du einen Keks isst, deine Diät brichst und sagst: "Scheiß drauf, ich esse die ganze Schachtel." Dasselbe passiert mit Sprachen. Du verpasst einen Tag Duolingo, fühlst dich schuldig und gibst ganz auf.</p>
+          <h3>Die 2-Tage-Regel (The 2-Day Rule)</h3>
+          <p>Die Lösung ist einfach: <strong>Verpasse niemals zwei Tage hintereinander.</strong> Einen Tag zu verpassen ist ein Ausrutscher. Zwei Tage zu verpassen ist der Beginn einer neuen Gewohnheit – der Gewohnheit aufzugeben.</p>
+          <h3>Wie man neu startet</h3>
+          <p>Wenn deine Serie reißt, versuche nicht, die verlorene Zeit durch 5 Stunden Lernen aufzuholen. Mach einfach 5 Minuten. Stelle die Gewohnheit wieder her, nicht die Intensität.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_TH = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_TH = `
         <article>
-          <p>ภาษาต้องการการเสริมแรงทางประสาท การสัมผัสภาษาทุกวันช่วยรักษาการเชื่อมต่อให้คงอยู่</p>
-          <p>ลองจินตนาการถึงคนสองคน <strong>คน A</strong> เรียน 5 ชั่วโมงทุกวันอาทิตย์ <strong>คน B</strong> เรียน 30 นาทีทุกวัน ใครเรียนรู้ได้เร็วกว่ากัน?</p>
-          <p>พวกเราส่วนใหญ่รู้คำตอบโดยสัญชาตญาณว่าเป็นคน B แต่เรากลับทำตัวเหมือนคน A เราพึ่งพา "ความเข้มข้น" (Intensity) — แรงฮึดชั่ววูบที่เราอัดจำคำศัพท์เป็นชั่วโมงๆ แต่การเรียนภาษาไม่ใช่การวิ่งระยะสั้น มันคือการวิ่งมาราธอน นี่คือเหตุผลที่ <strong>ความสม่ำเสมอ (Consistency)</strong> ชนะความเข้มข้นเสมอ</p>
-          <h2>เส้นโค้งการลืม (The Forgetting Curve)</h2>
-          <p>สมองของเราถูกออกแบบมาให้ลืม หากคุณเรียน 5 ชั่วโมงในวันอาทิตย์ พอถึงวันอาทิตย์หน้า คุณจะลืมสิ่งที่คุณเรียนไป 80% เพราะคุณไม่ได้ทบทวนระหว่างสัปดาห์ ในทางกลับกัน คน B ได้เสริมแรงเส้นประสาทของพวกเขาทุกวัน ทำให้ความทรงจำยังคงสดใหม่อยู่เสมอ</p>
-          <h2>ผลของดอกเบี้ยทบต้น (The Compound Effect)</h2>
-          <p>30 นาทีต่อวัน คิดเป็น 182 ชั่วโมงต่อปี แต่มันมีค่ามากกว่านั้นเนื่องจาก <strong>ผลของดอกเบี้ยทบต้น</strong> การเรียนรู้คำศัพท์ในวันจันทร์ช่วยให้คุณเข้าใจประโยคในวันอังคาร ซึ่งช่วยให้คุณเรียนรู้กฎไวยากรณ์ในวันพุธ ความรู้ถูกสร้างขึ้นบนความรู้</p>
-          <h2>วิธีสร้างความสม่ำเสมอ</h2>
-          <ul>
-             <li><strong>ผูกติดกับนิสัยเดิม:</strong> "ฉันจะเรียน 15 นาที <em>หลังจาก</em> ดื่มกาแฟตอนเช้า"</li>
-             <li><strong>ลดมาตรฐานลง:</strong> ในวันที่แย่ๆ ตั้งเป้าแค่ 5 นาทีก็พอ เป้าหมายไม่ใช่การพัฒนา แต่คือการ <em>ไม่ทำให้โซ่ขาด</em></li>
-             <li><strong>ทำให้สนุก:</strong> อย่าบังคับตัวเองให้อ่านตำราเรียนที่น่าเบื่อ ดูวิดีโอ YouTube หรือฟังเพลงแทน</li>
-          </ul>
-          <h2>บทสรุป</h2>
-          <p>จงเป็นเต่า ไม่ใช่กระต่าย เลิกรอ "เวลาที่เพียงพอ" เพื่อจะเรียนเป็นชั่วโมงๆ วันนั้นจะไม่มีวันมาถึง หาเวลา 20 นาทีในวันนี้ แล้วทำอีกครั้งในวันพรุ่งนี้ นั่นคือความลับเดียวที่มีอยู่</p>
+          <p>ผู้เรียนภาษาเกือบทุกคนล้มเลิก ไม่ใช่เพราะพวกเขาขาดพรสวรรค์ แต่เป็นเพราะพวกเขาขาดกลยุทธ์ในการเริ่มต้นใหม่</p>
+          <h3>ปรากฏการณ์ "ช่างมันเถอะ" (The "What the Hell" Effect)</h3>
+          <p>ในทางจิตวิทยา สิ่งนี้อธิบายช่วงเวลาที่คุณกินคุกกี้หนึ่งชิ้น ทำลายการไดเอทของคุณ และพูดว่า "ช่างมันเถอะ กินทั้งกล่องเลยแล้วกัน" สิ่งเดียวกันนี้เกิดขึ้นกับภาษา คุณพลาด Duolingo ไปหนึ่งวัน รู้สึกผิด และล้มเลิกไปทั้งหมด</p>
+          <h3>กฎ 2 วัน (The 2-Day Rule)</h3>
+          <p>ทางออกนั้นง่ายมาก: <strong>ห้ามพลาดติดต่อกันสองวันเด็ดขาด</strong> การพลาดหนึ่งวันคือความผิดพลาด การพลาดสองวันคือจุดเริ่มต้นของนิสัยใหม่—นิสัยของการล้มเลิก</p>
+          <h3>วิธีเริ่มต้นใหม่</h3>
+          <p>เมื่อคุณทำลายสถิติของคุณ อย่าพยายามชดเชยเวลาที่เสียไปโดยการเรียน 5 ชั่วโมง ให้ทำแค่ 5 นาทีก็พอ สร้างนิสัยขึ้นมาใหม่ ไม่ใช่ความเข้มข้น</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_VI = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_VI = `
         <article>
-          <p>Ngôn ngữ đòi hỏi sự củng cố khớp thần kinh. Tiếp xúc hàng ngày giữ cho các kết nối luôn hoạt động.</p>
-          <p>Hãy tưởng tượng hai người. <strong>Người A</strong> học 5 tiếng mỗi Chủ Nhật. <strong>Người B</strong> học 30 phút mỗi ngày. Ai học nhanh hơn?</p>
-          <p>Hầu hết chúng ta đều biết câu trả lời là Người B, nhưng chúng ta lại hành động như Người A. Chúng ta dựa vào "Cường độ" — những cơn bùng nổ động lực nơi chúng ta nhồi nhét từ vựng trong nhiều giờ. Nhưng học ngôn ngữ không phải là chạy nước rút; đó là chạy marathon. Dưới đây là lý do tại sao <strong>Sự nhất quán</strong> luôn đánh bại Cường độ.</p>
-          <h2>Đường cong lãng quên (The Forgetting Curve)</h2>
-          <p>Bộ não của chúng ta được thiết kế để quên. Nếu bạn học 5 tiếng vào Chủ Nhật, đến Chủ Nhật tuần sau bạn sẽ quên 80% những gì đã học vì bạn không ôn tập trong tuần. Tuy nhiên, Người B củng cố các đường dẫn thần kinh của họ mỗi ngày, giữ cho trí nhớ luôn tươi mới.</p>
-          <h2>Hiệu ứng lãi kép (The Compound Effect)</h2>
-          <p>30 phút mỗi ngày là 182 giờ một năm. Nhưng nó có giá trị hơn thế nhờ <strong>hiệu ứng lãi kép</strong>. Học một từ vào thứ Hai giúp bạn hiểu một câu vào thứ Ba, điều này giúp bạn học một quy tắc ngữ pháp vào thứ Tư. Kiến thức được xây dựng dựa trên kiến thức.</p>
-          <h2>Cách xây dựng sự nhất quán</h2>
-          <ul>
-             <li><strong>Neo thói quen:</strong> "Tôi sẽ học 15 phút <em>sau khi</em> uống cà phê sáng."</li>
-             <li><strong>Hạ thấp tiêu chuẩn:</strong> Vào những ngày tồi tệ, hãy nhắm đến chỉ 5 phút. Mục tiêu không phải là cải thiện, mà là <em>không làm đứt chuỗi</em>.</li>
-             <li><strong>Làm cho nó thú vị:</strong> Đừng ép bản thân đọc những cuốn sách giáo khoa nhàm chán. Xem một video YouTube hoặc nghe một bài hát.</li>
-          </ul>
-          <h2>Kết luận</h2>
-          <p>Hãy là con rùa, đừng là con thỏ. Đừng chờ đợi "đủ thời gian" để học trong nhiều giờ. Nó sẽ không bao giờ đến. Hãy tìm 20 phút hôm nay và làm lại vào ngày mai. Đó là bí mật duy nhất.</p>
+          <p>Hầu hết người học ngôn ngữ đều bỏ cuộc. Không phải vì họ thiếu tài năng; mà là vì họ thiếu chiến lược khởi động lại.</p>
+          <h3>Hiệu ứng "Mặc kệ nó" (The "What the Hell" Effect)</h3>
+          <p>Trong tâm lý học, điều này mô tả khoảnh khắc bạn ăn một chiếc bánh quy, phá vỡ chế độ ăn kiêng và nói "Mặc kệ nó, mình sẽ ăn cả hộp." Điều tương tự cũng xảy ra với ngôn ngữ. Bạn bỏ lỡ một ngày Duolingo, cảm thấy tội lỗi và bỏ cuộc hoàn toàn.</p>
+          <h3>Quy tắc 2 ngày (The 2-Day Rule)</h3>
+          <p>Giải pháp rất đơn giản: <strong>Không bao giờ bỏ lỡ hai ngày liên tiếp.</strong> Bỏ lỡ một ngày là sơ suất. Bỏ lỡ hai ngày là bắt đầu một thói quen mới—thói quen bỏ cuộc.</p>
+          <h3>Cách khởi động lại</h3>
+          <p>Khi bạn phá vỡ chuỗi của mình, đừng cố gắng bù đắp thời gian đã mất bằng cách học trong 5 giờ. Chỉ cần làm 5 phút. Thiết lập lại thói quen, không phải cường độ.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_ID = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_ID = `
         <article>
-          <p>Bahasa membutuhkan penguatan sinaptik. Paparan setiap hari menjaga koneksi tetap hidup.</p>
-          <p>Bayangkan dua orang. <strong>Orang A</strong> belajar selama 5 jam setiap hari Minggu. <strong>Orang B</strong> belajar selama 30 menit setiap hari. Siapa yang belajar lebih cepat?</p>
-          <p>Sebagian besar dari kita secara intuitif tahu jawabannya adalah Orang B, tetapi kita bertindak seperti Orang A. Kita mengandalkan "Intensitas" — ledakan motivasi di mana kita menjejalkan kosakata selama berjam-jam. Tapi belajar bahasa bukanlah lari cepat; itu maraton. Inilah mengapa <strong>Konsistensi</strong> selalu mengalahkan Intensitas.</p>
-          <h2>Kurva Lupa (The Forgetting Curve)</h2>
-          <p>Otak kita dirancang untuk melupakan. Jika Anda belajar selama 5 jam pada hari Minggu, pada hari Minggu berikutnya Anda akan melupakan 80% dari apa yang Anda pelajari karena Anda tidak mengulanginya selama seminggu. Orang B, bagaimanapun, memperkuat jalur saraf mereka setiap hari, menjaga ingatan tetap segar.</p>
-          <h2>Efek Majemuk (The Compound Effect)</h2>
-          <p>30 menit sehari adalah 182 jam setahun. Tapi itu bernilai lebih dari itu karena <strong>efek majemuk</strong>. Mempelajari satu kata pada hari Senin membantu Anda memahami kalimat pada hari Selasa, yang membantu Anda mempelajari aturan tata bahasa pada hari Rabu. Pengetahuan dibangun di atas pengetahuan.</p>
-          <h2>Cara Membangun Konsistensi</h2>
-          <ul>
-             <li><strong>Jangkar kebiasaan:</strong> "Saya akan belajar selama 15 menit <em>setelah</em> saya minum kopi pagi."</li>
-             <li><strong>Turunkan standar:</strong> Pada hari-hari buruk, targetkan hanya 5 menit. Tujuannya bukan untuk meningkatkan, tetapi untuk <em>tidak memutus rantai</em>.</li>
-             <li><strong>Buat menyenangkan:</strong> Jangan paksa diri Anda membaca buku teks yang membosankan. Tonton video YouTube atau dengarkan lagu.</li>
-          </ul>
-          <h2>Kesimpulan</h2>
-          <p>Jadilah kura-kura, bukan kelinci. Berhenti menunggu "cukup waktu" untuk belajar berjam-jam. Hari itu tidak akan pernah datang. Temukan 20 menit hari ini, dan lakukan lagi besok. Itulah satu-satunya rahasia.</p>
+          <p>Sebagian besar pelajar bahasa berhenti. Bukan karena mereka kurang berbakat; itu karena mereka tidak memiliki strategi untuk memulai kembali.</p>
+          <h3>Efek "Masa Bodoh" (The "What the Hell" Effect)</h3>
+          <p>Dalam psikologi, ini menggambarkan momen ketika Anda memakan satu kue, melanggar diet Anda, dan berkata "Masa bodoh, saya akan makan satu kotak." Hal yang sama terjadi dengan bahasa. Anda melewatkan satu hari Duolingo, merasa bersalah, dan berhenti sepenuhnya.</p>
+          <h3>Aturan 2 Hari (The 2-Day Rule)</h3>
+          <p>Solusinya sederhana: <strong>Jangan pernah melewatkan dua hari berturut-turut.</strong> Melewatkan satu hari adalah kekhilafan. Melewatkan dua hari adalah awal dari kebiasaan baru—kebiasaan berhenti.</p>
+          <h3>Cara Memulai Kembali</h3>
+          <p>Ketika Anda memutus rantai Anda, jangan mencoba menebus waktu yang hilang dengan belajar selama 5 jam. Cukup lakukan 5 menit. Bangun kembali kebiasaan, bukan intensitas.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_PT = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_PT = `
         <article>
-          <p>A linguagem requer reforço sináptico. A exposição diária mantém as conexões vivas.</p>
-          <p>Imagine duas pessoas. <strong>Pessoa A</strong> estuda por 5 horas todo domingo. <strong>Pessoa B</strong> estuda por 30 minutos todos os dias. Quem aprende mais rápido?</p>
-          <p>A maioria de nós sabe intuitivamente que a resposta é a Pessoa B, mas agimos como a Pessoa A. Confiamos na "Intensidade" — explosões de motivação onde devoramos vocabulário por horas. Mas aprender um idioma não é um tiro curto; é uma maratona. Eis por que a <strong>Consistência</strong> sempre vence a Intensidade.</p>
-          <h2>A Curva do Esquecimento</h2>
-          <p>Nossos cérebros são projetados para esquecer. Se você estudar 5 horas no domingo, no próximo domingo terá esquecido 80% do que aprendeu porque não revisou durante a semana. A Pessoa B, no entanto, reforça seus caminhos neurais todos os dias, mantendo a memória fresca.</p>
-          <h2>O Efeito Composto</h2>
-          <p>30 minutos por dia são 182 horas por ano. Mas vale mais do que isso devido ao <strong>efeito composto</strong>. Aprender uma palavra na segunda-feira ajuda você a entender uma frase na terça, o que ajuda a aprender uma regra gramatical na quarta. O conhecimento se constrói sobre o conhecimento.</p>
-          <h2>Como Construir Consistência</h2>
-          <ul>
-             <li><strong>Ancorar hábitos:</strong> "Vou estudar por 15 minutos <em>depois</em> de tomar meu café da manhã."</li>
-             <li><strong>Baixar a barra:</strong> Nos dias ruins, mire em apenas 5 minutos. O objetivo não é melhorar, mas <em>não quebrar a corrente</em>.</li>
-             <li><strong>Torne agradável:</strong> Não se force a ler livros didáticos chatos. Assista a um vídeo do YouTube ou ouça uma música.</li>
-          </ul>
-          <h2>Conclusão</h2>
-          <p>Seja a tartaruga, não a lebre. Pare de esperar ter "tempo suficiente" para estudar por horas. Esse dia nunca chegará. Encontre 20 minutos hoje e faça de novo amanhã. Esse é o único segredo.</p>
+          <p>A maioria dos estudantes de idiomas desiste. Não é porque lhes falta talento; é porque lhes falta uma estratégia de recomeço.</p>
+          <h3>O Efeito "Que se dane" (The "What the Hell" Effect)</h3>
+          <p>Na psicologia, isso descreve o momento em que você come um biscoito, quebra sua dieta e diz "Que se dane, vou comer a caixa inteira". O mesmo acontece com os idiomas. Você perde um dia de Duolingo, se sente culpado e desiste completamente.</p>
+          <h3>A Regra dos 2 Dias (The 2-Day Rule)</h3>
+          <p>A solução é simples: <strong>Nunca perca dois dias seguidos.</strong> Perder um dia é um deslize. Perder dois dias é o início de um novo hábito—o hábito de desistir.</p>
+          <h3>Como Recomeçar</h3>
+          <p>Quando você quebrar sua sequência, não tente compensar o tempo perdido estudando por 5 horas. Faça apenas 5 minutos. Restabeleça o hábito, não a intensidade.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_TR = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_TR = `
         <article>
-          <p>Dil, sinaptik güçlendirme gerektirir. Günlük maruz kalma, bağlantıları canlı tutar.</p>
-          <p>İki kişiyi hayal edin. <strong>A Kişisi</strong> her Pazar 5 saat çalışıyor. <strong>B Kişisi</strong> her gün 30 dakika çalışıyor. Kim daha hızlı öğrenir?</p>
-          <p>Çoğumuz sezgisel olarak cevabın B Kişisi olduğunu biliyoruz, ancak A Kişisi gibi davranıyoruz. "Yoğunluğa" güveniyoruz — saatlerce kelime ezberlediğimiz motivasyon patlamaları. Ancak dil öğrenimi bir kısa mesafe koşusu değildir; bir maratondur. İşte <strong>Tutarlılığın</strong> her zaman Yoğunluğu yenmesinin nedeni.</p>
-          <h2>Unutma Eğrisi</h2>
-          <p>Beyinlerimiz unutmak için tasarlanmıştır. Pazar günü 5 saat çalışırsanız, hafta boyunca tekrar etmediğiniz için bir sonraki Pazar gününe kadar öğrendiklerinizin %80'ini unutmuş olursunuz. Ancak B Kişisi, nöral yollarını her gün güçlendirerek hafızayı taze tutar.</p>
-          <h2>Bileşik Etki</h2>
-          <p>Günde 30 dakika yılda 182 saat eder. Ancak <strong>bileşik etki</strong> sayesinde bundan daha değerlidir. Pazartesi günü bir kelime öğrenmek, Salı günü bir cümleyi anlamanıza yardımcı olur, bu da Çarşamba günü bir dilbilgisi kuralını öğrenmenize yardımcı olur. Bilgi bilgi üzerine inşa edilir.</p>
-          <h2>Tutarlılık Nasıl Oluşturulur</h2>
-          <ul>
-             <li><strong>Alışkanlıkları çapalayın:</strong> "Sabah kahvemi içtikten <em>sonra</em> 15 dakika çalışacağım."</li>
-             <li><strong>Çıtayı düşürün:</strong> Kötü günlerde sadece 5 dakikayı hedefleyin. Amaç gelişmek değil, <em>zinciri kırmamaktır</em>.</li>
-             <li><strong>Eğlenceli hale getirin:</strong> Kendinizi sıkıcı ders kitapları okumaya zorlamayın. Bir YouTube videosu izleyin veya bir şarkı dinleyin.</li>
-          </ul>
-          <h2>Sonuç</h2>
-          <p>Tavşan değil, kaplumbağa olun. Saatlerce çalışmak için "yeterli zamanı" beklemeyi bırakın. O zaman asla gelmeyecek. Bugün 20 dakika bulun ve yarın tekrar yapın. Tek sır budur.</p>
+          <p>Çoğu dil öğrencisi bırakır. Yetenekleri olmadığı için değil; yeniden başlama stratejileri olmadığı için.</p>
+          <h3>"Amaaan Boşver" Etkisi (The "What the Hell" Effect)</h3>
+          <p>Psikolojide bu, bir kurabiye yediğiniz, diyetinizi bozduğunuz ve "Amaaan boşver, bütün kutuyu yiyeceğim" dediğiniz anı tanımlar. Aynısı dillerde de olur. Duolingo'yu bir gün kaçırırsınız, suçlu hissedersiniz ve tamamen bırakırsınız.</p>
+          <h3>2 Gün Kuralı (The 2-Day Rule)</h3>
+          <p>Çözüm basit: <strong>Asla üst üste iki gün kaçırmayın.</strong> Bir gün kaçırmak bir hatadır. İki gün kaçırmak yeni bir alışkanlığın başlangıcıdır—bırakma alışkanlığı.</p>
+          <h3>Nasıl Yeniden Başlanır</h3>
+          <p>Serinizi bozduğunuzda, kayıp zamanı telafi etmek için 5 saat çalışmaya çalışmayın. Sadece 5 dakika yapın. Yoğunluğu değil, alışkanlığı yeniden kurun.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_AR = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_AR = `
         <article>
-          <p>اللغة تتطلب تعزيز التشابك العصبي. التعرض اليومي يبقي الروابط حية.</p>
-          <p>تخيل شخصين. <strong>الشخص أ</strong> يدرس لمدة 5 ساعات كل يوم أحد. <strong>الشخص ب</strong> يدرس لمدة 30 دقيقة كل يوم. من يتعلم أسرع؟</p>
-          <p>معظمنا يعرف حدسيًا أن الجواب هو الشخص ب، لكننا نتصرف مثل الشخص أ. نحن نعتمد على "الكثافة" — نوبات من الحماس حيث نحشو المفردات لساعات. لكن تعلم اللغة ليس سباق سرعة؛ إنه ماراثون. إليك لماذا <strong>الاستمرارية</strong> تهزم الكثافة دائمًا.</p>
-          <h2>منحنى النسيان (The Forgetting Curve)</h2>
-          <p>أدمغتنا مصممة للنسيان. إذا درست لمدة 5 ساعات يوم الأحد، فبحلول الأحد التالي ستكون قد نسيت 80% مما تعلمته لأنك لم تراجعه خلال الأسبوع. ومع ذلك، يقوم الشخص ب بتعزيز مساراته العصبية كل يوم، مما يحافظ على الذاكرة نشطة.</p>
-          <h2>التأثير التراكمي (The Compound Effect)</h2>
-          <p>30 دقيقة في اليوم تعادل 182 ساعة في السنة. لكنها تساوي أكثر من ذلك بسبب <strong>التأثير التراكمي</strong>. تعلم كلمة يوم الاثنين يساعدك على فهم جملة يوم الثلاثاء، مما يساعدك على تعلم قاعدة نحوية يوم الأربعاء. المعرفة تبنى فوق المعرفة.</p>
-          <h2>كيف تبني الاستمرارية</h2>
-          <ul>
-             <li><strong>اربط العادات:</strong> "سأدرس لمدة 15 دقيقة <em>بعد</em> أن أشرب قهوتي الصباحية."</li>
-             <li><strong>اخفض التوقعات:</strong> في الأيام السيئة، استهدف 5 دقائق فقط. الهدف ليس التحسن، بل <em>عدم كسر السلسلة</em>.</li>
-             <li><strong>اجعلها ممتعة:</strong> لا تجبر نفسك على قراءة كتب مملة. شاهد فيديو يوتيوب أو استمع إلى أغنية.</li>
-          </ul>
-          <h2>الخاتمة</h2>
-          <p>كن السلحفاة، لا الأرنب. توقف عن انتظار "الوقت الكافي" للدراسة لساعات. ذلك الوقت لن يأتي أبدًا. جد 20 دقيقة اليوم، وكررها غدًا. هذا هو السر الوحيد.</p>
+          <p>معظم متعلمي اللغة يتركون الدراسة. ليس لأنهم يفتقرون إلى الموهبة؛ بل لأنهم يفتقرون إلى استراتيجية لإعادة البدء.</p>
+          <h3>تأثير "تبًا لهذا" (The "What the Hell" Effect)</h3>
+          <p>في علم النفس، يصف هذا اللحظة التي تأكل فيها كعكة، وتكسر نظامك الغذائي، وتقول "تبًا لهذا، سأكل العلبة بأكملها." يحدث نفس الشيء مع اللغات. تفوت يومًا واحدًا من دوولينجو، وتشعر بالذنب، وتتوقف تمامًا.</p>
+          <h3>قاعدة اليومين (The 2-Day Rule)</h3>
+          <p>الحل بسيط: <strong>لا تفوت يومين متتاليين أبدًا.</strong> تفويت يوم واحد هو زلة. تفويت يومين هو بداية عادة جديدة—عادة الإقلاع.</p>
+          <h3>كيف تعيد البدء</h3>
+          <p>عندما تكسر سلسلتك، لا تحاول تعويض الوقت الضائع بالدراسة لمدة 5 ساعات. فقط ادرس لمدة 5 دقائق. أعد ترسيخ العادة، وليس الكثافة.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_HI = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_HI = `
         <article>
-          <p>भाषा को सिनैप्टिक सुदृढ़ीकरण की आवश्यकता होती है। दैनिक संपर्क कनेक्शन को जीवित रखता है।</p>
-          <p>दो लोगों की कल्पना करें। <strong>व्यक्ति A</strong> हर रविवार को 5 घंटे पढ़ाई करता है। <strong>व्यक्ति B</strong> हर दिन 30 मिनट पढ़ाई करता है। कौन तेजी से सीखता है?</p>
-          <p>हम में से अधिकांश सहज रूप से जानते हैं कि इसका उत्तर व्यक्ति B है, लेकिन हम व्यक्ति A की तरह व्यवहार करते हैं। हम "तीव्रता" पर भरोसा करते हैं - प्रेरणा के विस्फोट जहां हम घंटों तक शब्दावली रटते हैं। लेकिन भाषा सीखना कोई स्प्रिंट नहीं है; यह एक मैराथन है। यहाँ बताया गया है कि क्यों <strong>निरंतरता</strong> हमेशा तीव्रता को हरा देती है।</p>
-          <h2>भूलने की अवस्था (The Forgetting Curve)</h2>
-          <p>हमारा दिमाग भूलने के लिए बना है। यदि आप रविवार को 5 घंटे पढ़ाई करते हैं, तो अगले रविवार तक आप जो कुछ भी सीखा है उसका 80% भूल चुके होंगे क्योंकि आपने सप्ताह के दौरान इसकी समीक्षा नहीं की थी। हालाँकि, व्यक्ति B हर दिन अपने तंत्रिका मार्गों को मजबूत करता है, स्मृति को ताजा रखता है।</p>
-          <h2>मिश्रित प्रभाव (The Compound Effect)</h2>
-          <p>दिन में 30 मिनट साल में 182 घंटे होते हैं। लेकिन <strong>मिश्रित प्रभाव</strong> के कारण इसका मूल्य इससे कहीं अधिक है। सोमवार को एक शब्द सीखने से आपको मंगलवार को एक वाक्य समझने में मदद मिलती है, जिससे आपको बुधवार को व्याकरण का नियम सीखने में मदद मिलती है। ज्ञान ज्ञान पर बनता है।</p>
-          <h2>निरंतरता कैसे बनाएँ</h2>
-          <ul>
-             <li><strong>आदतों को जोड़ें:</strong> "मैं अपनी सुबह की कॉफी पीने के <em>बाद</em> 15 मिनट पढ़ाई करूँगा।"</li>
-             <li><strong>मानक कम करें:</strong> बुरे दिनों में, केवल 5 मिनट का लक्ष्य रखें। लक्ष्य सुधार करना नहीं है, बल्कि <em>श्रृंखला को नहीं तोड़ना</em> है।</li>
-             <li><strong>इसे सुखद बनाएँ:</strong> उबाऊ पाठ्यपुस्तकें पढ़ने के लिए खुद को मजबूर न करें। YouTube वीडियो देखें या गाना सुनें।</li>
-          </ul>
-          <h2>निष्कर्ष</h2>
-          <p>कछुआ बनें, खरगोश नहीं। घंटों पढ़ाई करने के लिए "पर्याप्त समय" का इंतजार करना बंद करें। वह कभी नहीं आएगा। आज 20 मिनट निकालें, और कल फिर से करें। यही एकमात्र रहस्य है।</p>
+          <p> अधिकांश भाषा सीखने वाले छोड़ देते हैं। इसलिए नहीं कि उनमें प्रतिभा की कमी है; बल्कि इसलिए कि उनके पास फिर से शुरू करने की रणनीति का अभाव है।</p>
+          <h3>"भाड़ में जाए" प्रभाव (The "What the Hell" Effect)</h3>
+          <p>मनोविज्ञान में, यह उस क्षण का वर्णन करता है जब आप एक कुकी खाते हैं, अपना आहार तोड़ते हैं, और कहते हैं "भाड़ में जाए, मैं पूरा डिब्बा खा लूँगा।" भाषाओं के साथ भी ऐसा ही होता है। आप Duolingo का एक दिन चूक जाते हैं, दोषी महसूस करते हैं, और पूरी तरह से छोड़ देते हैं।</p>
+          <h3>2-दिन का नियम (The 2-Day Rule)</h3>
+          <p>समाधान सरल है: <strong>कभी भी लगातार दो दिन न चूकें।</strong> एक दिन चूकना एक भूल है। दो दिन चूकना एक नई आदत की शुरुआत है—छोड़ने की आदत।</p>
+          <h3>फिर से कैसे शुरू करें</h3>
+          <p>जब आप अपनी श्रृंखला तोड़ते हैं, तो 5 घंटे पढ़ाई करके खोए हुए समय की भरपाई करने की कोशिश न करें। बस 5 मिनट करें। आदत को फिर से स्थापित करें, तीव्रता को नहीं।</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_RU = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_RU = `
         <article>
-          <p>Язык требует синаптического подкрепления. Ежедневное воздействие сохраняет связи живыми.</p>
-          <p>Представьте двух людей. <strong>Человек А</strong> учится по 5 часов каждое воскресенье. <strong>Человек Б</strong> учится по 30 минут каждый день. Кто учится быстрее?</p>
-          <p>Большинство из нас интуитивно знают, что ответ — Человек Б, но мы действуем как Человек А. Мы полагаемся на «Интенсивность» — вспышки мотивации, когда мы часами зубрим слова. Но изучение языка — это не спринт; это марафон. Вот почему <strong>Постоянство</strong> всегда побеждает Интенсивность.</p>
-          <h2>Кривая забывания (The Forgetting Curve)</h2>
-          <p>Наш мозг устроен так, чтобы забывать. Если вы учитесь 5 часов в воскресенье, к следующему воскресенью вы забудете 80% того, что выучили, потому что не повторяли это в течение недели. Человек Б, однако, подкрепляет свои нейронные связи каждый день, сохраняя память свежей.</p>
-          <h2>Сложный процент (The Compound Effect)</h2>
-          <p>30 минут в день — это 182 часа в год. Но это стоит большего благодаря <strong>эффекту сложного процента</strong>. Изучение слова в понедельник помогает вам понять предложение во вторник, что помогает вам выучить грамматическое правило в среду. Знание строится на знании.</p>
-          <h2>Как выработать постоянство</h2>
-          <ul>
-             <li><strong>Якорение привычек:</strong> «Я буду учиться 15 минут <em>после</em> того, как выпью утренний кофе».</li>
-             <li><strong>Снизьте планку:</strong> В плохие дни цельтесь всего на 5 минут. Цель не в том, чтобы улучшить навыки, а в том, чтобы <em>не прервать цепь</em>.</li>
-             <li><strong>Сделайте это приятным:</strong> Не заставляйте себя читать скучные учебники. Посмотрите видео на YouTube или послушайте песню.</li>
-          </ul>
-          <h2>Заключение</h2>
-          <p>Будьте черепахой, а не зайцем. Перестаньте ждать «достаточно времени», чтобы учиться часами. Это время никогда не придет. Найдите 20 минут сегодня и повторите это завтра. Это единственный секрет.</p>
+          <p>Большинство изучающих язык бросают. Не потому, что у них нет таланта; а потому, что у них нет стратегии перезапуска.</p>
+          <h3>Эффект «Какого чёрта» (The "What the Hell" Effect)</h3>
+          <p>В психологии это описывает момент, когда вы съедаете печенье, нарушаете диету и говорите: «Какого чёрта, съем всю коробку». То же самое происходит с языками. Вы пропускаете один день в Duolingo, чувствуете вину и бросаете совсем.</p>
+          <h3>Правило 2 дней (The 2-Day Rule)</h3>
+          <p>Решение простое: <strong>Никогда не пропускайте два дня подряд.</strong> Пропуск одного дня — это оплошность. Пропуск двух дней — это начало новой привычки: привычки бросать.</p>
+          <h3>Как начать заново</h3>
+          <p>Когда вы прерываете свою серию, не пытайтесь компенсировать потерянное время, занимаясь 5 часов. Просто позанимайтесь 5 минут. Восстановите привычку, а не интенсивность.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_BN = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_BN = `
         <article>
-          <p>ভাষার জন্য সিনাপটিক শক্তিবृদ্ধি প্রয়োজন। প্রতিদিনের সংস্পর্শ সংযোগগুলিকে जीवित রাখে।</p>
-          <p>দুজন মানুষের কথা কল্পনা করুন। <strong>ব্যক্তি A</strong> প্রতি রবিবার ৫ ঘন্টা পড়াশোনা করে। <strong>ব্যক্তি B</strong> প্রতিদিন ৩০ মিনিট পড়াশোনা করে। কে দ্রুত শেখে?</p>
-          <p>আমাদের বেশিরভাগই সহজাতভাবে জানি উত্তরটি ব্যক্তি B, কিন্তু আমরা ব্যক্তি A-এর মতো আচরণ করি। আমরা "তীব্রতা"-এর উপর নির্ভর করি — অনুপ্রেরণার বিস্ফোরণ যেখানে আমরা ঘন্টার পর ঘন্টা শব্দভান্ডার মুখস্থ করি। কিন্তু ভাষা শেখা কোনো স্প্রিন্ট নয়; এটি একটি ম্যারাথন। এখানে কারণ কেন <strong>ধারাবাহিকতা</strong> সর্বদা তীব্রতাকে হারায়।</p>
-          <h2>ভুলে যাওয়ার বক্ররেখা (The Forgetting Curve)</h2>
-          <p>আমাদের মস্তিষ্ক ভুলে যাওয়ার জন্য তৈরি। আপনি যদি রবিবার ৫ ঘন্টা পড়াশোনা করেন, তবে পরের রবিবারের মধ্যে আপনি যা শিখেছেন তার ৮০% ভুলে যাবেন কারণ আপনি সপ্তাহে এটি পর্যালোচনা করেননি। তবে, ব্যক্তি B প্রতিদিন তাদের স্নায়বিক পথগুলিকে শক্তিশালী করে, স্মৃতিকে সতেজ রাখে।</p>
-          <h2>যৌগিক প্রভাব (The Compound Effect)</h2>
-          <p>দিনে ৩০ মিনিট মানে বছরে ১৮২ ঘন্টা। কিন্তু <strong>যৌগিক প্রভাবের</strong> কারণে এর মূল্য তার চেয়ে বেশি। সোমবারে একটি শব্দ শেখা আপনাকে মঙ্গলবারে একটি বাক্য বুঝতে সাহায্য করে, যা আপনাকে বুধবারে একটি ব্যাকরণ নিয়ম শিখতে সাহায্য করে। জ্ঞান জ্ঞানের উপর ভিত্তি করে তৈরি হয়।</p>
-          <h2>কীভাবে ধারাবাহিকতা তৈরি করবেন</h2>
-          <ul>
-             <li><strong>অভ্যাস নোঙর করা:</strong> "আমি আমার সকালের কফি পান করার <em>পরে</em> ১৫ মিনিট পড়াশোনা করব।"</li>
-             <li><strong>দণ্ড নিচে নামান:</strong> খারাপ দিনগুলিতে, মাত্র ৫ মিনিটের লক্ষ্য রাখুন। লক্ষ্য উন্নতি করা নয়, বরং <em>শিকল না ভাঙা</em>।</li>
-             <li><strong>এটি উপভোগ্য করুন:</strong> বিরক্তিকর পাঠ্যবই পড়তে নিজেকে বাধ্য করবেন না। একটি ইউটিউব ভিডিও দেখুন বা একটি গান শুনুন।</li>
-          </ul>
-          <h2>উপসংহার</h2>
-          <p>খরগোশ নয়, কচ্ছপ হোন। ঘন্টার পর ঘন্টা পড়াশোনা করার জন্য "পর্যাপ্ত সময়"-এর অপেক্ষা করা বন্ধ করুন। তা কখনই আসবে না। আজ ২০ মিনিট সময় বের করুন, এবং আগামীকাল আবার করুন। এটিই একমাত্র গোপন রহস্য।</p>
+          <p>অধিকাংশ ভাষা শিক্ষার্থীই ছেড়ে দেয়। তাদের মেধার অভাবের কারণে নয়; বরং তাদের পুনরায় শুরু করার কৌশলের অভাবের কারণে।</p>
+          <h3>"জাহান্নামে যাক" প্রভাব (The "What the Hell" Effect)</h3>
+          <p>মনোবিজ্ঞানে, এটি সেই মুহূর্তটিকে বর্ণনা করে যখন আপনি একটি কুকি খান, আপনার ডায়েট ভঙ্গ করেন এবং বলেন "জাহান্নামে যাক, আমি পুরো বাক্সটি খাব।" ভাষার ক্ষেত্রেও একই ঘটনা ঘটে। আপনি ডুওলিঙ্গোর এক দিন মিস করেন, অপরাধবোধ করেন এবং পুরোপুরি ছেড়ে দেন।</p>
+          <h3>২-দিনের নিয়ম (The 2-Day Rule)</h3>
+          <p>সমাধানটি সহজ: <strong>কখনও টানা দুই দিন মিস করবেন না।</strong> এক দিন মিস করা একটি ভুল। দুই দিন মিস করা একটি নতুন অভ্যাসের শুরু—ছেড়ে দেওয়ার অভ্যাস।</p>
+          <h3>কীভাবে পুনরায় শুরু করবেন</h3>
+          <p>যখন আপনি আপনার ধারাবাহিকতা ভাঙেন, তখন ৫ ঘন্টা পড়াশোনা করে হারানো সময় পূরণ করার চেষ্টা করবেন না। শুধু ৫ মিনিট করুন। তীব্রতা নয়, অভ্যাসটি পুনরায় প্রতিষ্ঠা করুন।</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_UR = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_UR = `
         <article>
-          <p>زبان کو synaptic کمک کی ضرورت ہے۔ روزانہ کی نمائش رابطوں کو زندہ رکھتی ہے۔</p>
-          <p>دو لوگوں کا تصور کریں۔ <strong>شخص A</strong> ہر اتوار کو 5 گھنٹے پڑھتا ہے۔ <strong>شخص B</strong> ہر روز 30 منٹ پڑھتا ہے۔ کون تیزی سے سیکھتا ہے؟</p>
-          <p>ہم میں سے زیادہ تر لوگ بدیہی طور پر جانتے ہیں کہ جواب شخص B ہے، لیکن ہم شخص A کی طرح برتاؤ کرتے ہیں۔ ہم "شدت" پر انحصار کرتے ہیں — حوصلہ افزائی کے پھٹنے جہاں ہم گھنٹوں الفاظ کو رٹتے ہیں۔ لیکن زبان سیکھنا کوئی سپرنٹ نہیں ہے؛ یہ ایک میراتھن ہے۔ یہاں وجہ ہے کہ <strong>مستقل مزاجی</strong> ہمیشہ شدت کو ہرا دیتی ہے۔</p>
-          <h2>بھولنے کا منحنی خطوط (The Forgetting Curve)</h2>
-          <p>ہمارے دماغ بھولنے کے لیے ڈیزائن کیے گئے ہیں۔ اگر آپ اتوار کو 5 گھنٹے پڑھتے ہیں، تو اگلے اتوار تک آپ جو کچھ سیکھا ہے اس کا 80% بھول چکے ہوں گے کیونکہ آپ نے ہفتے کے دوران اس کا جائزہ نہیں لیا تھا۔ تاہم، شخص B ہر روز اپنے اعصابی راستوں کو مضبوط کرتا ہے، یادداشت کو تازہ رکھتا ہے۔</p>
-          <h2>مرکب اثر (The Compound Effect)</h2>
-          <p>دن میں 30 منٹ سال میں 182 گھنٹے ہوتے ہیں۔ لیکن <strong>مرکب اثر</strong> کی وجہ سے اس کی قیمت اس سے کہیں زیادہ ہے۔ پیر کو ایک لفظ سیکھنے سے آپ کو منگل کو ایک جملہ سمجھنے میں مدد ملتی ہے، جس سے آپ کو بدھ کو گرائمر کا اصول سیکھنے میں مدد ملتی ہے۔ علم علم پر بنتا ہے۔</p>
-          <h2>مستقل مزاجی کیسے پیدا کریں</h2>
-          <ul>
-             <li><strong>عادات کو لنگر انداز کریں:</strong> "میں اپنی صبح کی کافی پینے کے <em>بعد</em> 15 منٹ پڑھوں گا۔"</li>
-             <li><strong>بار کو نیچے کریں:</strong> برے دنوں میں، صرف 5 منٹ کا مقصد رکھیں۔ مقصد بہتر ہونا نہیں ہے، بلکہ <em>زنجیر کو نہ توڑنا</em> ہے۔</li>
-             <li><strong>اسے خوشگوار بنائیں:</strong> بورنگ نصابی کتابیں پڑھنے پر خود کو مجبور نہ کریں۔ یوٹیوب ویڈیو دیکھیں یا گانا سنیں۔</li>
-          </ul>
-          <h2>نتیجہ</h2>
-          <p>کچھوا بنیں، خرگوش نہیں۔ گھنٹوں پڑھنے کے لیے "کافی وقت" کا انتظار کرنا چھوڑ دیں۔ وہ کبھی نہیں آئے گا۔ آج 20 منٹ نکالیں، اور کل دوبارہ کریں۔ یہ واحد راز ہے۔</p>
+          <p>زیادہ تر زبان سیکھنے والے چھوڑ دیتے ہیں۔ اس لیے نہیں کہ ان میں صلاحیت کی کمی ہے؛ بلکہ اس لیے کہ ان کے پاس دوبارہ شروع کرنے کی حکمت عملی کی کمی ہے۔</p>
+          <h3>"بھاڑ میں جائے" اثر (The "What the Hell" Effect)</h3>
+          <p>نفسیات میں، یہ اس لمحے کو بیان کرتا ہے جب آپ ایک کوکی کھاتے ہیں، اپنی ڈائٹ توڑتے ہیں، اور کہتے ہیں "بھاڑ میں جائے، میں پورا ڈبہ کھا لوں گا۔" زبانوں کے ساتھ بھی ایسا ہی ہوتا ہے۔ آپ Duolingo کا ایک دن چھوڑ دیتے ہیں، مجرم محسوس کرتے ہیں، اور مکمل طور پر چھوڑ دیتے ہیں۔</p>
+          <h3>2 دن کا اصول (The 2-Day Rule)</h3>
+          <p>حل آسان ہے: <strong>کبھی بھی لگاتار دو دن نہ چھوڑیں۔</strong> ایک دن چھوڑنا ایک غلطی ہے۔ دو دن چھوڑنا ایک نئی عادت کی شروعات ہے—چھوڑنے کی عادت۔</p>
+          <h3>دوبارہ کیسے شروع کریں</h3>
+          <p>جب آپ اپنی سٹریک توڑتے ہیں، تو 5 گھنٹے پڑھ کر ضائع شدہ وقت کی تلافی کرنے کی کوشش نہ کریں۔ صرف 5 منٹ کریں۔ عادت کو دوبارہ قائم کریں، شدت کو نہیں۔</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_NE = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_NE = `
         <article>
-          <p>भाषालाई सिनाप्टिक सुदृढीकरण चाहिन्छ। दैनिक सम्पर्कले जडानहरूलाई जीवित राख्छ।</p>
-          <p>दुई व्यक्तिहरूको कल्पना गर्नुहोस्। <strong>व्यक्ति A</strong> हरेक आइतबार ५ घण्टा पढ्छन्। <strong>व्यक्ति B</strong> हरेक दिन ३० मिनेट पढ्छन्। कसले छिटो सिक्छ?</p>
-          <p>हामी मध्ये धेरैलाई सहज रूपमा थाहा छ कि जवाफ व्यक्ति B हो, तर हामी व्यक्ति A जस्तै व्यवहार गर्छौं। हामी "तीव्रता" मा भर पर्छौं — प्रेरणाको विस्फोट जहाँ हामी घण्टौंसम्म शब्दावली रट्छौं। तर भाषा सिक्नु कुनै स्प्रिन्ट होइन; यो म्याराथन हो। यहाँ कारण छ किन <strong>निरन्तरता (Consistency)</strong> ले सधैं तीव्रतालाई जित्छ।</p>
-          <h2>बिर्सने वक्र (The Forgetting Curve)</h2>
-          <p>हाम्रो दिमाग बिर्सनको लागि डिजाइन गरिएको हो। यदि तपाईं आइतबार ५ घण्टा पढ्नुहुन्छ भने, अर्को आइतबारसम्म तपाईंले सिकेको ८०% बिर्सनुहुनेछ किनभने तपाईंले हप्ताको समयमा यसको समीक्षा गर्नुभएन। यद्यपि, व्यक्ति B ले हरेक दिन आफ्नो स्नायु मार्गहरूलाई सुदृढ बनाउँछ, स्मृतिलाई ताजा राख्दै।</p>
-          <h2>चक्रिय प्रभाव (The Compound Effect)</h2>
-          <p>दिनमा ३० मिनेट वर्षमा १८२ घण्टा हुन्छ। तर <strong>चक्रिय प्रभाव</strong> को कारण यसको मूल्य त्यो भन्दा बढी छ। सोमबार एउटा शब्द सिक्नाले तपाईंलाई मंगलबार एउटा वाक्य बुझ्न मद्दत गर्छ, जसले तपाईंलाई बुधबार व्याकरण नियम सिक्न मद्दत गर्छ। ज्ञान ज्ञानमा निर्माण हुन्छ।</p>
-          <h2>निरन्तरता कसरी निर्माण गर्ने</h2>
-          <ul>
-             <li><strong>बानीहरू जोड्नुहोस्:</strong> "म मेरो बिहानको कफी पिए <em>पछि</em> १५ मिनेट पढ्नेछु।"</li>
-             <li><strong>मापदण्ड कम गर्नुहोस्:</strong> खराब दिनहरूमा, केवल ५ मिनेटको लक्ष्य राख्नुहोस्। लक्ष्य सुधार गर्नु होइन, तर <em>साङ्लो नतोड्नु</em> हो।</li>
-             <li><strong>यसलाई रमाइलो बनाउनुहोस्:</strong> बोरिङ पाठ्यपुस्तकहरू पढ्न आफैलाई नधकेल्नुहोस्। युट्युब भिडियो हेर्नुहोस् वा गीत सुन्नुहोस्।</li>
-          </ul>
-          <h2>निष्कर्ष</h2>
-          <p>कछुवा बन्नुहोस्, खरायो होइन। घण्टौं पढ्नको लागि "पर्याप्त समय" को प्रतीक्षा गर्न छोड्नुहोस्। त्यो कहिल्यै आउँदैन। आज २० मिनेट खोज्नुहोस्, र भोलि फेरि गर्नुहोस्। यो मात्र एउटा रहस्य हो।</p>
+          <p>धेरैजसो भाषा सिक्नेहरूले छोड्छन्। उनीहरुमा प्रतिभाको कमी भएर होइन; यो किनभने तिनीहरूसँग पुन: सुरु गर्ने रणनीतिको अभाव छ।</p>
+          <h3>"जे सुकै होस्" प्रभाव (The "What the Hell" Effect)</h3>
+          <p>मनोविज्ञानमा, यसले त्यो क्षणलाई वर्णन गर्दछ जब तपाइँ कुकी खानुहुन्छ, तपाइँको आहार तोड्नुहुन्छ, र भन्नुहुन्छ "जे सुकै होस्, म पूरै बक्स खान्छु।" भाषाको हकमा पनि त्यस्तै हुन्छ। तपाईंले Duolingo को एक दिन छुटाउनुहुन्छ, दोषी महसुस गर्नुहुन्छ, र पूर्ण रूपमा छोड्नुहुन्छ।</p>
+          <h3>२-दिनको नियम (The 2-Day Rule)</h3>
+          <p>समाधान सरल छ: <strong>लगातार दुई दिन कहिल्यै नछुटाउनुहोस्।</strong> एक दिन छुटाउनु एउटा गल्ती हो। दुई दिन छुटाउनु नयाँ बानीको सुरुवात हो—छोड्ने बानी।</p>
+          <h3>कसरी पुन: सुरु गर्ने</h3>
+          <p>जब तपाइँ आफ्नो स्ट्रीक तोड्नुहुन्छ, ५ घण्टा अध्ययन गरेर गुमेको समयको पूर्ति गर्ने प्रयास नगर्नुहोस्। मात्र ५ मिनेट गर्नुहोस्। बानी पुनः स्थापित गर्नुहोस्, तीव्रता होइन।</p>
         </article>
       `;
 
-
-const POST_CONSISTENCY_CONTENT_SI = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_SI = `
         <article>
-          <p>भाषालाई सिन्याप्टिक सुदृढीकरण चाहिन्छ। दैनिक बानीहरू तीव्रता भन्दा महत्त्वपूर्ण छन्。</p>
-          <p>आइतबार १० घण्टा पढ्नु भन्दा दैनिक ३० मिनेट पढ्नु राम्रो हो। हाम्रो दिमाग "प्रयोग गर वा गुमाऊ" को आधारमा काम गर्छ।</p>
-          <h2>कछुवा नियम</h2>
-          <p>1. <strong>आवृत्ति (Frequency):</strong> दिनमा कति पटक?</p>
-          <p>2. <strong>अवधि (Duration):</strong> कति लामो समय?</p>
-          <p>3. <strong>तीव्रता (Intensity):</strong> कति गाह्रो?</p>
-          <p>निरन्तरता नै कुञ्जी हो। हतार नगर्नुहोस्, बस नछोड्नुहोस्।</p>
+          <p>බොහෝ භාෂා ඉගෙන ගන්නන් අත්හරිනවා. ඒ ඔවුන්ට දක්ෂතා නැති නිසා නොවේ; ඒ ඔවුන්ට නැවත ආරම්භ කිරීමේ උපාය මාර්ගයක් නොමැති නිසා.</p>
+          <h3>"කෙළ වී ගියාවේ" බලපෑම (The "What the Hell" Effect)</h3>
+          <p>මනෝවිද්‍යාවේදී, මෙය විස්තර කරන්නේ ඔබ කුකී එකක් අනුභව කරන, ඔබේ ආහාර පාලනය කඩ කරන සහ "කෙළ වී ගියාවේ, මම මුළු පෙට්ටියම කන්නම්" යැයි පවසන මොහොතයි. භාෂා සම්බන්ධයෙන්ද එය එසේම වේ. ඔබ Duolingo හි දිනක් මග හරිමන්, වරදකාරී හැඟීමක් ඇති වී සම්පූර්ණයෙන්ම අත්හැර දමයි.</p>
+          <h3>දින 2 රීතිය (The 2-Day Rule)</h3>
+          <p>විසඳුම සරලයි: <strong>කිසිවිටක පිට පිට දින දෙකක් මග හරින්න එපා.</strong> දිනක් මග හැරීම අතපසු වීමකි. දින දෙකක් මග හැරීම නව පුරුද්දක ආරම්භයයි—අත්හැරීමේ පුරුද්ද.</p>
+          <h3>නැවත ආරම්භ කරන්නේ කෙසේද</h3>
+          <p>ඔබ ඔබේ අඛණ්ඩතාව බිඳ දමන විට, පැය 5ක් පාඩම් කරමින් නැති වූ කාලය පිරිමැසීමට උත්සාහ නොකරන්න. විනාඩි 5ක් පමණක් කරන්න. තීව්‍රතාවය නොව, පුරුද්ද නැවත ඇති කරගන්න.</p>
         </article>
       `;
 
-const POST_CONSISTENCY_CONTENT_SW = `
+const POST_QUITTING_PSYCHOLOGY_CONTENT_SW = `
         <article>
-          <p>Lugha inahitaji uimarishaji wa sinepsi. Tabia za kila siku ni muhimu kuliko nguvu.</p>
-          <p>Kusoma saa 10 Jumapili ni mbaya zaidi kuliko dakika 30 kila siku. Ubongo wetu unafanya kazi kwa msingi wa "itumie au ipoteze".</p>
-          <h2>Kanuni ya Kobe</h2>
-          <p>1. <strong>Marudio (Frequency):</strong> Mara ngapi kwa siku?</p>
-          <p>2. <strong>Muda (Duration):</strong> Kwa muda gani?</p>
-          <p>3. <strong>Nguvu (Intensity):</strong> Ngumu kiasi gani?</p>
-          <p>Msimamo ndio ufunguo. Usikimbilie, usiache tu.</p>
+          <p>Wanafunzi wengi wa lugha huacha. Sio kwa sababu hawana talanta; ni kwa sababu wanakosa mkakati wa kuanza upya.</p>
+          <h3>Athari ya "Liwalo na Liwe" (The "What the Hell" Effect)</h3>
+          <p>Katika saikolojia, hii inaelezea wakati unakula kuki, unavunja lishe yako, na kusema "Liwalo na liwe, nitakula sanduku nzima." Vivyo hivyo hutokea kwa lugha. Unakosa siku moja ya Duolingo, unajihisi hatia, na unaacha kabisa.</p>
+          <h3>Sheria ya Siku 2 (The 2-Day Rule)</h3>
+          <p>Suluhisho ni rahisi: <strong>Usikose kamwe siku mbili mfululizo.</strong> Kukosa siku moja ni kuteleza. Kukosa siku mbili ni mwanzo wa tabia mpya—tabia ya kuacha.</p>
+          <h3>Jinsi ya Kuanza Upya</h3>
+          <p>Unapovunja mfululizo wako, usijaribu kufidia muda uliopotea kwa kusoma kwa saa 5. Fanya dakika 5 tu. Rejesha tabia, sio nguvu.</p>
         </article>
       `;
 
@@ -756,19 +581,37 @@ const POST_NETFLIX_CONTENT_NE = `
 
 const POST_NETFLIX_CONTENT_SI = `
         <article>
-          <p>केवल हेरेर मात्र नबस्नुहोस्। आफ्नो मनपर्ने शृङ्खला र गीतहरूलाई शक्तिशाली भाषा सिक्ने उपकरणहरूमा परिणत गर्नुहोस्।</p>
-          <h2>सक्रिय विसर्जन (Active Immersion)</h2>
-          <p>नेटफ्लिक्स हेर्दा उपशीर्षक (Subtitles) को प्रयोग बुद्धिमानीपूर्वक गर्नुहोस्। निष्क्रिय हुनुको सट्टा सक्रिय हुनुहोस्।</p>
-          <p>डबल उपशीर्षक प्रयोग गर्नुहोस् वा अडियो वर्णन (Audio Description) अन गर्नुहोस्।</p>
+          <p>ව්‍යාකරණ සඳහා පෙළපොත් ඉතා හොඳයි, නමුත් ව්‍යවහාරික බස, ස්වභාවික වේගය සහ සංස්කෘතික පසුබිම සඳහා ඒවා එතරම් හොඳ නැහැ. ඔබට ස්වදේශිකයෙකු ලෙස (රොබෝවරයෙකු ලෙස නොව) කතා කිරීමට අවශ්‍ය නම්, ඔබ පන්ති කාමරයෙන් ඉවත් වී විසිත්ත කාමරයට ඇතුළු විය යුතුයි. දැන් <strong>Netflix සහ Spotify</strong> සමඟ ඉගෙන ගැනීමට කාලයයි.</p>
+          <h2>"සක්‍රීය ගිල්වීම" (Active Immersion) ක්‍රමය</h2>
+          <p>පොප්කෝන් කන ගමන් නාට්‍යයක් නරඹන එක විනෝදජනකයි, නමුත් ඒක පාඩම් කිරීමක් නෙවෙයි. ඉගෙන ගැනීමට නම්, ඔබට <strong>සක්‍රීය ගිල්වීම</strong> අවශ්‍යයි.</p>
+          <ul>
+            <li><strong>උපසිරැසි නැතුව (හෝ ඉලක්ක භාෂා උපසිරැසි):</strong> ඔබ ඉංග්‍රීසි උපසිරැසි සමඟ නරඹන්නේ නම්, ඔබ කරන්නේ කියවීමක් මිස සවන් දීමක් නොවේ. ශබ්දය සහ පෙළ ගැලපීම සඳහා ඉලක්ක භාෂා උපසිරැසි වෙත මාරු වන්න.</li>
+            <li><strong>Shadowing (අනුකරණය):</strong> චරිතයක් ප්‍රයෝජනවත් වාක්ය ඛණ්ඩයක් පැවසූ විට, එය නවතා එය හරියටම නැවත කියන්න. ඔවුන්ගේ හැඟීම් සහ වේගය අනුකරණය කරන්න.</li>
+            <li><strong>Mining (වචන කැණීම):</strong> සටහන් පොතක් ළඟ තබා ගන්න. එක් කොටසකට (episode) වැදගත් වාක්‍ය ඛණ්ඩ 3-5ක් ලියන්න. හැම දෙයක්ම ලියන්න උත්සාහ කරන්න එපා, නැත්නම් ඔබට ඒක එපා වෙයි.</li>
+          </ul>
+          <h2>මතක කොක්කක් ලෙස සංගීතය</h2>
+          <p>සංගීතය මතකයේ රැඳෙන සුළුයි. වසර 10 කට පෙර ඔබ ඇසූ ගීතවල පද රචනා ඔබට බොහෝ විට මතක ඇති. මෙය භාවිතා කරන්න!</p>
+          <p>ඔබේ ඉලක්ක භාෂාවෙන් ගීතයක් සොයා ගන්න. පද රචනය කියවා තේරුම වටහා ගන්න. ඉන්පසු, නැවත නැවත අසන්න. තනු නිර්මාණය ඔබේ මොළය තුළ වාක්ය මාලාව "රඳවා" ගනු ඇත. ඊළඟ වතාවේ ඔබට එම වචනය භාවිතා කිරීමට අවශ්‍ය වූ විට, ගීතය ඔබේ හිසෙහි වාදනය වේ.</p>
+          <h2>නිගමනය</h2>
+          <p>භාෂාව විඳිය යුතු දෙයක් මිස විඳවිය යුතු දෙයක් නොවේ. ඔබ ආදරය කරන අන්තර්ගතය භාවිතා කිරීමෙන්, ඔබ ස්වභාවිකවම භාෂාව සමඟ වැඩි කාලයක් ගත කරයි. චතුර ලෙස කතා කිරීමට කාලය ඉතා වැදගත් සාධකයකි.</p>
         </article>
       `;
 
 const POST_NETFLIX_CONTENT_SW = `
         <article>
-          <p>Acha kutazama tu bila kufanya chochote. Badilisha mfululizo na nyimbo zako uzipendazo kuwa zana zenye nguvu za kujifunza lugha.</p>
-          <h2>Kuzama Kikamilifu (Active Immersion)</h2>
-          <p>Tumia maelezo mafupi (subtitles) kwa busara unapotazama Netflix. Kuwa hai badala ya kuwa mvivu.</p>
-          <p>Tumia maelezo mafupi mawili au washa maelezo ya sauti (Audio Description).</p>
+          <p>Vitabu vya kiada ni vizuri kwa sarufi, lakini ni vibaya kwa lugha ya mtaani, kasi ya asili, na muktadha wa kitamaduni. Ikiwa unataka kusikika kama mzawa (na sio kama roboti), unahitaji kuondoka darasani na kuingia sebuleni. Ni wakati wa kujifunza na <strong>Netflix na Spotify</strong>.</p>
+          <h2>Njia ya "Kuzama Kikamilifu" (Active Immersion)</h2>
+          <p>Kutazama tamthilia huku ukila bisi ni furaha, lakini sio kusoma. Ili kujifunza, unahitaji <strong>Kuzama Kikamilifu</strong>.</p>
+          <ul>
+            <li><strong>Hakuna Manukuu (au Manukuu ya Lugha Lengwa):</strong> Ikiwa unatazama na manukuu ya Kiingereza, unasoma tu, husikilizi. Badilisha hadi manukuu ya lugha lengwa ili kulinganisha sauti na maandishi.</li>
+            <li><strong>Shadowing (Kufuatisha):</strong> Mhusika anaposema kishazi muhimu, sitisha na ukirudie vile vile. Iga hisia na kasi yao.</li>
+            <li><strong>Kuchimba (Mining):</strong> Weka daftari tayari. Andika vishazi 3-5 vizuri kwa kila kipindi. Usijaribu kuandika kila kitu, au utachukia.</li>
+          </ul>
+          <h2>Muziki kama Chonjo ya Kumbukumbu</h2>
+          <p>Muziki unanata. Pengine unakumbuka mashairi ya nyimbo ulizosikia miaka 10 iliyopita. Tumia hii!</p>
+          <p>Tafuta wimbo katika lugha yako lengwa. Soma mashairi na uelewe maana. Kisha, sikiliza kwa kurudia. Wimbo huo "utanasa" msamiati kwenye ubongo wako. Wakati ujao unapotaka kutumia neno hilo, wimbo utacheza kichwani mwako.</p>
+          <h2>Hitimisho</h2>
+          <p>Lugha inapaswa kufurahiwa, sio kuvumiliwa. Kwa kutumia maudhui unayopenda, unatumia muda mwingi na lugha hiyo kiasili. Na muda ni sababu muhimu zaidi katika ufasaha.</p>
         </article>
       `;
 
@@ -777,536 +620,706 @@ const POST_NETFLIX_CONTENT_SW = `
 // ==========================================
 const POST_SMART_CONTENT_EN = `
         <article>
-          <p>We have all said it: "I want to be fluent." It sounds like a noble ambition, but in reality, it is a trap. It is vague, unmeasurable, and endless. Without a clear destination, you are just wandering in the woods. To truly succeed in language learning, you need a map. You need <strong>SMART Goals</strong>.</p>
-          <h2>The Problem with "Fluency"</h2>
-          <p>Fluency is not a finish line; it is a spectrum. Are you fluent if you can order a coffee? Or do you need to debate philosophy? By chasing an undefined "fluency," you set yourself up for failure because you never feel like you have arrived. You need milestones.</p>
-          <h2>Decoding S.M.A.R.T.</h2>
+          <p>You finished the Duolingo owl tree. You have a 500-day streak. But can you order a coffee in Paris without panic? Probably not.</p>
+          <h2>The Gamification Trap</h2>
+          <p>Apps like Duolingo allow you to feel like you are learning without actually learning. They optimize for <strong>engagement</strong>, not fluency. Translating "The bear eats an apple" is not the same as having a conversation.</p>
+          <h2>CEFR Levels: The Real Metrics</h2>
+          <p>Real language proficiency is measured by the CEFR scale (A1 to C2).</p>
           <ul>
-            <li><strong>S - Specific:</strong> Vague goals get vague results. Instead of "I will study Spanish," say "I will learn 20 vocabulary words related to booking a hotel." The more specific, the better.</li>
-            <li><strong>M - Measurable:</strong> If you can't measure it, you can't manage it. "Improve listening" is a feeling. "Understand 70% of a 5-minute YouTube video" is a metric. Give yourself a scorecard.</li>
-            <li><strong>A - Achievable:</strong> Be honest with your schedule. If you work 60 hours a week, aiming for 2 hours of study a day is setting yourself up to quit. Consistency beats intensity. Aim for 15 minutes a day, and hit it 100% of the time.</li>
-            <li><strong>R - Relevant:</strong> Why are you learning? If it is for travel, don't waste time on business jargon. If it is for reading manga, don't focus on formal speech. Learn what excites you <em>now</em>.</li>
-            <li><strong>T - Time-bound:</strong> A goal without a deadline is just a wish. "Someday" is not a day of the week. Set a date: "By July 1st, I will hold a 5-minute conversation." urgency fuels focus.</li>
+            <li><strong>A1-A2 (Tourist):</strong> You can survive. "Where is the bathroom?"</li>
+            <li><strong>B1-B2 (Independent):</strong> You can work and have friends. This is where fluency lives.</li>
+            <li><strong>C1-C2 (Mastery):</strong> You can write academic papers.</li>
           </ul>
-          <h2>From Bad to Good</h2>
-          <p><strong>Bad Goal:</strong> "I want to learn Japanese this year." (Too big, too vague)</p>
-          <p><strong>SMART Goal:</strong> "By December 31st, I will act out my self-introduction in Japanese including my hobbies and job, without looking at notes, recorded on video."</p>
-          <h2>Conclusion</h2>
-          <p>Stop wishing for fluency and start planning for it. Break your big dream into small, conquerable SMART goals. Each time you tick one off, you build the confidence to tackle the next. That is how mountains are climbed—one step at a time.</p>
+          <h2>How to Escape the App</h2>
+          <p>Use apps for vocabulary, but stop treating them as the main course. To reach B1, you need to speak to humans and consume real media. Delete the app if it's your only method.</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_KO = `
         <article>
-          <p>누구나 한 번쯤 "원어민처럼 유창해지고 싶다"고 말합니다. 멋진 야망처럼 들리지만, 사실 이것은 함정입니다. '유창함'은 너무나 모호하고, 측정할 수 없으며, 끝이 없는 목표이기 때문입니다. 목적지가 없는 여행은 방황일 뿐입니다. 언어 학습에서 길을 잃지 않으려면 지도가 필요합니다. 바로 <strong>SMART 목표</strong>입니다.</p>
-
-          <h2>'유창함'이라는 환상</h2>
-          <p>유창함은 결승선이 아니라 스펙트럼입니다. 커피를 주문할 줄 알면 유창한 걸까요? 아니면 철학 토론을 해야 할까요? 정의되지 않은 '유창함'을 쫓다 보면, 아무리 공부해도 도달했다는 느낌을 받지 못해 결국 포기하게 됩니다. 우리에겐 마일스톤이 필요합니다.</p>
-
-          <h2>S.M.A.R.T. 해독하기</h2>
+          <p>듀오링고 부엉이 트리를 다 끝냈습니다. 500일 연속 기록도 있죠. 하지만 파리에서 당황하지 않고 커피를 주문할 수 있나요? 아마 아닐 겁니다.</p>
+          <h2>게임화의 함정</h2>
+          <p>듀오링고 같은 앱은 실제로 배우지 않아도 배우고 있는 것처럼 느끼게 해줍니다. 그들은 유창함이 아니라 <strong>참여(engagement)</strong>에 최적화되어 있습니다. "곰이 사과를 먹습니다"를 번역하는 것은 대화를 하는 것과 다릅니다.</p>
+          <h2>CEFR 레벨: 진짜 측정 지표</h2>
+          <p>진짜 언어 능력은 CEFR 척도(A1~C2)로 측정됩니다.</p>
           <ul>
-            <li><strong>S - 구체적인 (Specific):</strong> 모호한 목표는 모호한 결과를 낳습니다. "스페인어 공부하기" 대신 "호텔 예약 관련 단어 20개 외우기"라고 하세요. 구체적일수록 실행하기 쉽습니다.</li>
-            <li><strong>M - 측정 가능한 (Measurable):</strong> 측정할 수 없으면 관리할 수 없습니다. "듣기 실력 늘리기"는 느낌입니다. "5분짜리 유튜브 영상 70% 이해하기"는 데이터입니다. 스스로에게 점수표를 주세요.</li>
-            <li><strong>A - 달성 가능한 (Achievable):</strong> 자신의 스케줄에 솔직해지세요. 매일 야근하는데 "하루 2시간 공부"를 목표로 잡는 건 포기하겠다고 선언하는 것과 같습니다. 강도보다 중요한 건 꾸준함입니다. 하루 15분을 목표로 잡고, 매일 100% 달성하세요.</li>
-            <li><strong>R - 관련된 (Relevant):</strong> 왜 배우시나요? 여행이 목적이라면 비즈니스 용어는 버리세요. 만화를 읽고 싶다면 격식 차린 뉴스 어휘보다 구어체를 배우세요. 지금 당장 흥미로운 것을 배워야 지치지 않습니다.</li>
-            <li><strong>T - 기한이 있는 (Time-bound):</strong> 마감일 없는 목표는 망상에 불과합니다. "언젠가"라는 요일은 달력에 없습니다. 날짜를 박으세요. "7월 1일까지 5분 동안 대화하기." 마감 임박의 긴장감이 집중력을 만듭니다.</li>
+            <li><strong>A1-A2 (여행자):</strong> 생존할 수 있습니다. "화장실이 어디인가요?"</li>
+            <li><strong>B1-B2 (독립적 사용자):</strong> 일을 하고 친구를 사귈 수 있습니다. 여기가 진짜 유창함이 사는 곳입니다.</li>
+            <li><strong>C1-C2 (숙련자):</strong> 학술 논문을 쓸 수 있습니다.</li>
           </ul>
-
-          <h2>나쁜 목표 vs 좋은 목표</h2>
-          <p><strong>나쁜 목표:</strong> "올해 안에 일본어 마스터해야지." (너무 크고 막연함)</p>
-          <p><strong>SMART 목표:</strong> "12월 31일까지 내 취미와 직업을 포함한 자기소개를, 노트 없이, 3분 동안 말하고 영상으로 녹화하겠다."</p>
-
-          <h2>결론</h2>
-          <p>유창함을 바라기만 하지 말고 계획하세요. 거대한 꿈을 정복 가능한 작은 SMART 목표들로 쪼개세요. 하나씩 달성할 때마다 생기는 자신감이 당신을 다음 단계로 이끌어 줄 것입니다. 산은 그렇게 오르는 것입니다. 한 걸음씩 말이죠.</p>
+          <h2>앱을 탈출하는 법</h2>
+          <p>어휘를 위해 앱을 사용하되, 메인 코스로 취급하지 마세요. B1에 도달하려면 사람과 대화하고 진짜 미디어를 소비해야 합니다. 앱이 유일한 방법이라면 앱을 지우세요.</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_JA = `
         <article>
-          <p>私たちは皆、「流暢になりたい」と言います。立派な野心のように聞こえますが、実際には罠です。それは曖昧で、測定不可能で、終わりのない目標だからです。明確な目的地がなければ、ただ森の中をさまようだけです。言語学習で真に成功するには、地図が必要です。つまり、<strong>SMARTな目標</strong>が必要です。</p>
-          <h2>「流暢さ」の問題点</h2>
-          <p>流暢さはゴールラインではなく、スペクトルです。コーヒーを注文できれば流暢ですか？それとも哲学を議論する必要がありますか？定義されていない「流暢さ」を追いかけると、いつまでたっても到達した気がしないため、失敗する運命にあります。マイルストーンが必要です。</p>
-          <h2>S.M.A.R.T.の解読</h2>
+          <p>Duolingoのフクロウのツリーを完成させました。500日連続記録もあります。でも、パリでパニックにならずにコーヒーを注文できますか？たぶん無理でしょう。</p>
+          <h2>ゲーミフィケーションの罠</h2>
+          <p>Duolingoのようなアプリは、実際には学習していなくても学習しているような気分にさせてくれます。これらは流暢さではなく、<strong>エンゲージメント</strong>に最適化されています。「熊がリンゴを食べる」を翻訳することは、会話をすることと同じではありません。</p>
+          <h2>CEFRレベル：真の指標</h2>
+          <p>本当の言語能力はCEFR尺度（A1からC2）で測定されます。</p>
           <ul>
-            <li><strong>S - 具体的（Specific）：</strong> 曖昧な目標は曖昧な結果を生みます。「スペイン語を勉強する」ではなく、「ホテルの予約に関する単語を20個覚える」と言いましょう。具体的であればあるほど良いです。</li>
-            <li><strong>M - 測定可能（Measurable）：</strong> 測定できなければ管理できません。「リスニングを上達させる」は感覚です。「5分間のYouTube動画を70％理解する」は指標です。自分にスコアカードを与えましょう。</li>
-            <li><strong>A - 達成可能（Achievable）：</strong> スケジュールに正直になりましょう。週60時間働いているのに、1日2時間の勉強を目指すのは、挫折するための準備をしているようなものです。強さより一貫性が勝ります。1日15分を目指し、それを100％達成しましょう。</li>
-            <li><strong>R - 関連性（Relevant）：</strong> なぜ学ぶのですか？旅行のためなら、ビジネス用語に時間を無駄にしないでください。漫画を読むためなら、堅苦しいスピーチではなく話し言葉を学びましょう。<em>今</em>ワクワクすることを学びましょう。</li>
-            <li><strong>T - 期限付き（Time-bound）：</strong> 期限のない目標はただの願いです。「いつか」という曜日はありません。日付を設定しましょう。「7月1日までに5分間会話をする」。緊急性が集中力を生みます。</li>
+            <li><strong>A1-A2（旅行者）：</strong> 生き残ることができます。「トイレはどこですか？」</li>
+            <li><strong>B1-B2（自立した使用者）：</strong> 仕事ができ、友達が作れます。ここに流暢さが存在します。</li>
+            <li><strong>C1-C2（熟達者）：</strong> 学術論文が書けます。</li>
           </ul>
-          <h2>悪い例から良い例へ</h2>
-          <p><strong>悪い目標：</strong> 「今年中に日本語を学ぶ。」（大きすぎて曖昧）</p>
-          <p><strong>SMARTな目標：</strong> 「12月31日までに、趣味や仕事を含む自己紹介を、メモを見ずに3分間話し、動画に記録する。」</p>
-          <h2>結論</h2>
-          <p>流暢さをただ願うのはやめて、計画を立てましょう。大きな夢を、征服可能な小さなSMART目標に分割しましょう。一つ達成するたびに、次に挑む自信が生まれます。山はそのようにして登るものです—一歩ずつ。</p>
+          <h2>アプリから脱出する方法</h2>
+          <p>単語のためにアプリを使うのはいいですが、メインコースとして扱うのはやめましょう。B1に到達するには、人間と話し、本物のメディアを消費する必要があります。もしアプリが唯一の方法なら、アプリを削除してください。</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_ZH = `
         <article>
-          <p>我们都说过：“我想说得流利。”这听起来是个崇高的志向，但实际上，这是一个陷阱。因为它是模糊的、不可衡量的、无止境的。没有明确的目的地，你只是在森林里徘徊。要在语言学习上取得真正的成功，你需要一张地图。你需要<strong>SMART目标</strong>。</p>
-          <h2>“流利”的问题</h2>
-          <p>流利不是终点线，而是一个光谱。如果你能点咖啡，算流利吗？还是你需要辩论哲学？通过追逐未定义的“流利”，你注定会失败，因为你永远不会觉得你已经到达了。你需要里程碑。</p>
-          <h2>解读 S.M.A.R.T.</h2>
+          <p>你完成了Duolingo的猫头鹰树。你有500天的连续打卡记录。但是你能在巴黎点一杯咖啡而不惊慌失措吗？可能不行。</p>
+          <h2>游戏化的陷阱</h2>
+          <p>像Duolingo这样的应用程序让你感觉自己在学习，而实际上并没有。它们针对<strong>参与度</strong>而非流利度进行了优化。翻译“熊吃苹果”与进行对话是不一样的。</p>
+          <h2>CEFR等级：真正的指标</h2>
+          <p>真正的语言能力是通过CEFR量表（A1到C2）衡量的。</p>
           <ul>
-            <li><strong>S - 具体（Specific）：</strong> 模糊的目标得到模糊的结果。不要说“我要学西班牙语”，而要说“我要学20个关于预订酒店的单词”。越具体越好。</li>
-            <li><strong>M - 可衡量（Measurable）：</strong> 如果你不能衡量它，你就不能管理它。“提高听力”是一种感觉。“理解5分钟YouTube视频的70%”是一个指标。给自己一张记分卡。</li>
-            <li><strong>A - 可实现（Achievable）：</strong> 对你的日程安排要诚实。如果你每周工作60小时，却以此为目标每天学习2小时，那你就是在为放弃做准备。一致性胜过强度。目标定在每天15分钟，并100%达成。</li>
-            <li><strong>R - 相关（Relevant）：</strong> 你为什么要学？如果是为了旅行，不要在商务术语上浪费时间。如果是为了看漫画，不要专注于正式演讲。学习让你<em>现在</em>兴奋的东西。</li>
-            <li><strong>T - 有时限（Time-bound）：</strong> 没有截止日期的目标只是一个愿望。“有一天”并不是星期几。设定一个日期：“在7月1日之前，我要进行5分钟的对话。”紧迫感能激发专注力。</li>
+            <li><strong>A1-A2（游客）：</strong> 你能生存。“洗手间在哪里？”</li>
+            <li><strong>B1-B2（独立使用者）：</strong> 你可以工作并结交朋友。这是流利度存在的地方。</li>
+            <li><strong>C1-C2（精通）：</strong> 你可以写学术论文。</li>
           </ul>
-          <h2>从坏到好</h2>
-          <p><strong>坏目标：</strong> “我想今年学日语。”（太大，太模糊）</p>
-          <p><strong>SMART目标：</strong> “在12月31日之前，我不看笔记，用日语表演包括我的爱好和工作的自我介绍，并录制成视频。”</p>
-          <h2>结论</h2>
-          <p>停止通过许愿来获得流利度，开始为之计划。将你的大梦想分解成小的、可征服的SMART目标。每当你完成一个，你就会建立起攻克下一个的信心。这就是登山的方式——一步一个脚印。</p>
+          <h2>如何逃离应用程序</h2>
+          <p>使用应用程序背单词，但不要把它当作主菜。要达到B1，你需要与人交谈并消费真正的媒体。如果应用程序是你唯一的方法，请删除它。</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_ES = `
         <article>
-          <p>Todos lo hemos dicho: "Quiero ser fluido". Suena como una ambición noble, pero en realidad, es una trampa. Es vaga, inconmensurable e interminable. Sin un destino claro, solo estás vagando por el bosque. Para tener verdadero éxito en el aprendizaje de idiomas, necesitas un mapa. Necesitas <strong>Metas SMART</strong>.</p>
-          <h2>El Problema con la "Fluidez"</h2>
-          <p>La fluidez no es una línea de meta; es un espectro. ¿Eres fluido si puedes pedir un café? ¿O necesitas debatir filosofía? Al perseguir una "fluidez" indefinida, te preparas para el fracaso porque nunca sientes que has llegado. Necesitas hitos.</p>
-          <h2>Decodificando S.M.A.R.T.</h2>
+          <p>Terminaste el árbol del búho de Duolingo. Tienes una racha de 500 días. Pero, ¿puedes pedir un café en París sin entrar en pánico? Probablemente no.</p>
+          <h2>La trampa de la gamificación</h2>
+          <p>Las aplicaciones como Duolingo te permiten sentir que estás aprendiendo sin aprender realmente. Optimizan para el <strong>compromiso</strong>, no para la fluidez. Traducir "El oso come una manzana" no es lo mismo que tener una conversación.</p>
+          <h2>Niveles CEFR: Las métricas reales</h2>
+          <p>La verdadera competencia lingüística se mide por la escala CEFR (A1 a C2).</p>
           <ul>
-            <li><strong>S - Específica (Specific):</strong> Las metas vagas obtienen resultados vagos. En lugar de "Estudiaré español", di "Aprenderé 20 palabras relacionadas con reservar un hotel". Cuanto más específico, mejor.</li>
-            <li><strong>M - Medible (Measurable):</strong> Si no puedes medirlo, no puedes gestionarlo. "Mejorar la escucha" es un sentimiento. "Entender el 70% de un video de YouTube de 5 minutos" es una métrica. Date una tarjeta de puntuación.</li>
-            <li><strong>A - Alcanzable (Achievable):</strong> Sé honesto con tu horario. Si trabajas 60 horas a la semana, aspirar a 2 horas de estudio al día es prepararte para renunciar. La consistencia supera a la intensidad. Apunta a 15 minutos al día y cúmplelo el 100% de las veces.</li>
-            <li><strong>R - Relevante (Relevant):</strong> ¿Por qué estás aprendiendo? Si es para viajar, no pierdas tiempo en jerga empresarial. Si es para leer manga, no te centres en el discurso formal. Aprende lo que te emociona <em>ahora</em>.</li>
-            <li><strong>T - Con límite de tiempo (Time-bound):</strong> Una meta sin fecha límite es solo un deseo. "Algún día" no es un día de la semana. Fija una fecha: "Para el 1 de julio, mantendré una conversación de 5 minutos". La urgencia alimenta el enfoque.</li>
-  </ul>
-  <h2>De Malo a Bueno</h2>
-  <p><strong>Mala Meta:</strong> "Quiero aprender japonés este año". (Demasiado grande, demasiado vago)</p>
-  <p><strong>Meta SMART:</strong> "Para el 31 de diciembre, representaré mi autopresentación en japonés, incluyendo mis pasatiempos y trabajo, sin mirar notas, grabado en video".</p>
-  <h2>Conclusión</h2>
-  <p>Deja de desear la fluidez y empieza a planificarla. Divide tu gran sueño en metas SMART pequeñas y conquistables. Cada vez que marcas una, construyes la confianza para abordar la siguiente. Así es como se escalan las montañas: un paso a la vez.</p>
-</article>
+            <li><strong>A1-A2 (Turista):</strong> Puedes sobrevivir. "¿Dónde está el baño?"</li>
+            <li><strong>B1-B2 (Independiente):</strong> Puedes trabajar y tener amigos. Aquí es donde vive la fluidez.</li>
+            <li><strong>C1-C2 (Maestría):</strong> Puedes escribir trabajos académicos.</li>
+          </ul>
+          <h2>Cómo escapar de la aplicación</h2>
+          <p>Usa aplicaciones para vocabulario, pero deja de tratarlas como el plato principal. Para llegar a B1, necesitas hablar con humanos y consumir medios reales. Borra la aplicación si es tu único método.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_FR = `
         <article>
-          <p>Nous l'avons tous dit : "Je veux être courant". Cela semble être une noble ambition, mais en réalité, c'est un piège. C'est vague, non mesurable et sans fin. Sans destination claire, vous errez simplement dans les bois. Pour vraiment réussir l'apprentissage d'une langue, vous avez besoin d'une carte. Vous avez besoin d'<strong>Objectifs SMART</strong>.</p>
-          <h2>Le Problème avec la "Fluidité"</h2>
-          <p>La fluidité n'est pas une ligne d'arrivée ; c'est un spectre. Êtes-vous courant si vous pouvez commander un café ? Ou devez-vous débattre de philosophie ? En poursuivant une "fluidité" indéfinie, vous vous préparez à l'échec car vous n'avez jamais l'impression d'être arrivé. Vous avez besoin de jalons.</p>
-          <h2>Décoder S.M.A.R.T.</h2>
+          <p>Vous avez fini l'arbre du hibou Duolingo. Vous avez une série de 500 jours. Mais pouvez-vous commander un café à Paris sans paniquer ? Probablement pas.</p>
+          <h2>Le piège de la ludification</h2>
+          <p>Les applications comme Duolingo vous permettent de vous sentir comme si vous appreniez sans vraiment apprendre. Elles optimisent pour l'<strong>engagement</strong>, pas pour la fluidité. Traduire "L'ours mange une pomme" n'est pas la même chose qu'avoir une conversation.</p>
+          <h2>Niveaux CECR : Les vraies métriques</h2>
+          <p>La vraie compétence linguistique est mesurée par l'échelle CECR (A1 à C2).</p>
           <ul>
-            <li><strong>S - Spécifique (Specific) :</strong> Les objectifs vagues donnent des résultats vagues. Au lieu de "J'étudierai l'espagnol", dites "J'apprendrai 20 mots de vocabulaire liés à la réservation d'un hôtel". Plus c'est spécifique, mieux c'est.</li>
-            <li><strong>M - Mesurable (Measurable) :</strong> Si vous ne pouvez pas le mesurer, vous ne pouvez pas le gérer. "Améliorer l'écoute" est un sentiment. "Comprendre 70 % d'une vidéo YouTube de 5 minutes" est une métrique. Donnez-vous une carte de score.</li>
-            <li><strong>A - Atteignable (Achievable) :</strong> Soyez honnête avec votre emploi du temps. Si vous travaillez 60 heures par semaine, viser 2 heures d'étude par jour, c'est vous préparer à abandonner. La cohérence bat l'intensité. Visez 15 minutes par jour, et tenez-vous-y à 100 %.</li>
-            <li><strong>R - Pertinent (Relevant) :</strong> Pourquoi apprenez-vous ? Si c'est pour voyager, ne perdez pas de temps avec le jargon des affaires. Si c'est pour lire des mangas, ne vous concentrez pas sur le discours formel. Apprenez ce qui vous passionne <em>maintenant</em>.</li>
-            <li><strong>T - Temporel (Time-bound) :</strong> Un objectif sans date limite n'est qu'un souhait. "Un jour" n'est pas un jour de la semaine. Fixez une date : "D'ici le 1er juillet, je tiendrai une conversation de 5 minutes." L'urgence alimente la concentration.</li>
+            <li><strong>A1-A2 (Touriste) :</strong> Vous pouvez survivre. "Où sont les toilettes ?"</li>
+            <li><strong>B1-B2 (Indépendant) :</strong> Vous pouvez travailler et avoir des amis. C'est là que vit la fluidité.</li>
+            <li><strong>C1-C2 (Maîtrise) :</strong> Vous pouvez écrire des articles académiques.</li>
           </ul>
-          <h2>De Mauvais à Bon</h2>
-          <p><strong>Mauvais Objectif :</strong> "Je veux apprendre le japonais cette année." (Trop grand, trop vague)</p>
-          <p><strong>Objectif SMART :</strong> "D'ici le 31 décembre, je ferai ma propre présentation en japonais incluant mes loisirs et mon travail, sans regarder de notes, enregistrée en vidéo."</p>
-          <h2>Conclusion</h2>
-          <p>Arrêtez de souhaiter la fluidité et commencez à la planifier. Brisez votre grand rêve en petits objectifs SMART conquérables. Chaque fois que vous en cochez un, vous gagnez la confiance nécessaire pour vous attaquer au suivant. C'est ainsi que l'on gravit les montagnes : un pas à la fois.</p>
-</article>
+          <h2>Comment échapper à l'application</h2>
+          <p>Utilisez des applications pour le vocabulaire, mais arrêtez de les traiter comme le plat principal. Pour atteindre le niveau B1, vous devez parler à des humains et consommer de vrais médias. Supprimez l'application si c'est votre seule méthode.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_DE = `
         <article>
-          <p>Wir haben es alle schon gesagt: "Ich will fließend sprechen." Es klingt wie ein nobles Ziel, aber in Wirklichkeit ist es eine Falle. Es ist vage, nicht messbar und endlos. Ohne ein klares Ziel wanderst du nur im Wald umher. Um beim Sprachenlernen wirklich erfolgreich zu sein, brauchst du eine Karte. Du brauchst <strong>SMART-Ziele</strong>.</p>
-          <h2>Das Problem mit der "Fließendkeit"</h2>
-          <p>Fließendkeit ist keine Ziellinie; es ist ein Spektrum. Bist du fließend, wenn du einen Kaffee bestellen kannst? Oder musst du über Philosophie debattieren? Indem du einer undefinierten "Fließendkeit" nachjagst, programmierst du dich auf das Scheitern, weil du nie das Gefühl hast, angekommen zu sein. Du brauchst Meilensteine.</p>
-          <h2>S.M.A.R.T. entschlüsseln</h2>
+          <p>Du hast den Duolingo-Eulenbaum beendet. Du hast einen 500-Tage-Streak. Aber kannst du in Paris einen Kaffee bestellen, ohne in Panik zu geraten? Wahrscheinlich nicht.</p>
+          <h2>Die Gamification-Falle</h2>
+          <p>Apps wie Duolingo geben dir das Gefühl, zu lernen, ohne tatsächlich zu lernen. Sie optimieren auf <strong>Engagement</strong>, nicht auf Fließendkeit. "Der Bär isst einen Apfel" zu übersetzen ist nicht dasselbe wie eine Unterhaltung zu führen.</p>
+          <h2>GER-Niveaus: Die wahren Metriken</h2>
+          <p>Echte Sprachkompetenz wird anhand der GER-Skala (A1 bis C2) gemessen.</p>
           <ul>
-            <li><strong>S - Spezifisch (Specific):</strong> Vage Ziele bringen vage Ergebnisse. Statt "Ich werde Spanisch lernen", sag "Ich werde 20 Vokabeln zum Thema Hotelbuchung lernen". Je spezifischer, desto besser.</li>
-            <li><strong>M - Messbar (Measurable):</strong> Wenn du es nicht messen kannst, kannst du es nicht managen. "Hören verbessern" ist ein Gefühl. "70 % eines 5-minütigen YouTube-Videos verstehen" ist eine Metrik. Gib dir selbst eine Punktekarte.</li>
-            <li><strong>A - Erreichbar (Achievable):</strong> Sei ehrlich mit deinem Zeitplan. Wenn du 60 Stunden die Woche arbeitest, ist das Ziel von 2 Stunden Lernen pro Tag ein Rezept zum Aufgeben. Konsistenz schlägt Intensität. Ziele auf 15 Minuten pro Tag, und halte das zu 100 % ein.</li>
-            <li><strong>R - Relevant (Relevant):</strong> Warum lernst du? Wenn es für Reisen ist, verschwende keine Zeit mit Business-Jargon. Wenn es zum Manga-Lesen ist, konzentriere dich nicht auf formelle Sprache. Lerne das, was dich <em>jetzt</em> begeistert.</li>
-            <li><strong>T - Zeitgebunden (Time-bound):</strong> Ein Ziel ohne Deadline ist nur ein Wunsch. "Irgendwann" ist kein Wochentag. Setze ein Datum: "Bis zum 1. Juli werde ich ein 5-minütiges Gespräch führen." Dringlichkeit fördert den Fokus.</li>
+            <li><strong>A1-A2 (Tourist):</strong> Du kannst überleben. "Wo ist die Toilette?"</li>
+            <li><strong>B1-B2 (Selbstständig):</strong> Du kannst arbeiten und Freunde haben. Hier lebt die Fließendkeit.</li>
+            <li><strong>C1-C2 (Meisterschaft):</strong> Du kannst akademische Arbeiten schreiben.</li>
           </ul>
-          <h2>Von Schlecht zu Gut</h2>
-          <p><strong>Schlechtes Ziel:</strong> "Ich will dieses Jahr Japanisch lernen." (Zu groß, zu vage)</p>
-          <p><strong>SMART-Ziel:</strong> "Bis zum 31. Dezember werde ich meine Selbstvorstellung auf Japanisch inklusive meiner Hobbys und meines Jobs vortragen, ohne auf Notizen zu schauen, und auf Video aufnehmen."</p>
-          <h2>Fazit</h2>
-          <p>Hör auf, dir Fließendkeit zu wünschen, und fang an, sie zu planen. Zerlege deinen großen Traum in kleine, bezwingbare SMART-Ziele. Jedes Mal, wenn du eines abhakst, baust du das Selbstvertrauen auf, das nächste anzugehen. So werden Berge erklommen – Schritt für Schritt.</p>
-</article>
+          <h2>Wie man der App entkommt</h2>
+          <p>Nutze Apps für Vokabeln, aber betrachte sie nicht mehr als Hauptgericht. Um B1 zu erreichen, musst du mit Menschen sprechen und echte Medien konsumieren. Lösche die App, wenn sie deine einzige Methode ist.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_TH = `
         <article>
-          <p>เราทุกคนเคยพูดว่า "ฉันอยากพูดคล่อง" ฟังดูเป็นความตั้งใจที่ยิ่งใหญ่ แต่จริงๆ แล้วมันคือกับดัก เพราะมันคลุมเครือ วัดผลไม่ได้ และไม่มีที่สิ้นสุด หากไม่มีจุดหมายที่ชัดเจน คุณก็แค่เดินหลงทางอยู่ในป่า เพื่อที่จะประสบความสำเร็จในการเรียนภาษาอย่างแท้จริง คุณต้องการแผนที่ คุณต้องการ <strong>เป้าหมายแบบ SMART</strong></p>
-          <h2>ปัญหาของคำว่า "ความคล่องแคล่ว"</h2>
-          <p>ความคล่องแคล่วไม่ใช่เส้นชัย แต่มันเป็นสเปกตรัม คุณพูดคล่องไหมถ้าคุณสั่งกาแฟได้? หรือคุณต้องถกเถียงปรัชญาได้? การไล่ตาม "ความคล่องแคล่ว" ที่ไม่มีนิยามที่ชัดเจน ทำให้คุณเตรียมตัวล้มเหลว เพราะคุณจะไม่รู้สึกว่าคุณมาถึงแล้ว คุณต้องการหมุดหมาย</p>
-          <h2>ถอดรหัส S.M.A.R.T.</h2>
+          <p>คุณทำต้นไม้นกฮูก Duolingo เสร็จแล้ว คุณมีสถิติต่อเนื่อง 500 วัน แต่คุณสั่งกาแฟในปารีสโดยไม่ตื่นตระหนกได้ไหม? อาจจะไม่ได้ครับ</p>
+          <h2>กับดักของเกม</h2>
+          <p>แอปอย่าง Duolingo ทำให้คุณรู้สึกว่ากำลังเรียนรู้โดยไม่ได้เรียนรู้จริงๆ พวกเขาปรับให้เหมาะสมเพื่อ<strong>การมีส่วนร่วม</strong> ไม่ใช่ความคล่องแคล่ว การแปล "หมีกินแอปเปิ้ล" ไม่เหมือนกับการสนทนาครับ</p>
+          <h2>ระดับ CEFR: ตัวชี้วัดที่แท้จริง</h2>
+          <p>ความสามารถทางภาษาที่แท้จริงวัดด้วยระดับ CEFR (A1 ถึง C2) ครับ</p>
           <ul>
-            <li><strong>S - จำเพาะเจาะจง (Specific):</strong> เป้าหมายที่คลุมเครือให้ผลลัพธ์ที่คลุมเครือ แทนที่จะพูดว่า "ฉันจะเรียนภาษาสเปน" ให้พูดว่า "ฉันจะเรียนคำศัพท์ 20 คำที่เกี่ยวกับการจองโรงแรม" ยิ่งเจาะจงยิ่งดี</li>
-            <li><strong>M - วัดผลได้ (Measurable):</strong> ถ้าคุณวัดผลไม่ได้ คุณก็จัดการมันไม่ได้ "พัฒนาการฟัง" เป็นความรู้สึก "เข้าใจ 70% ของวิดีโอ YouTube ความยาว 5 นาที" เป็นตัวชี้วัด ให้คะแนนตัวเอง</li>
-            <li><strong>A - บรรลุได้จริง (Achievable):</strong> ซื่อสัตย์กับตารางเวลาของคุณ ถ้าคุณทำงาน 60 ชั่วโมงต่อสัปดาห์ การตั้งเป้าเรียนวันละ 2 ชั่วโมงคือการเตรียมตัวล้มเลิก ความสม่ำเสมอชนะความเข้มข้น ตั้งเป้าวันละ 15 นาที และทำให้ได้ 100%</li>
-            <li><strong>R - เกี่ยวข้อง (Relevant):</strong> คุณเรียนไปทำไม? ถ้าเพื่อการท่องเที่ยว อย่าเสียเวลากับศัพท์ธุรกิจ ถ้าเพื่ออ่านมังงะ อย่าเน้นภาษาทางการ เรียนสิ่งที่ทำให้คุณตื่นเต้น <em>ตอนนี้</em></li>
-            <li><strong>T - มีกรอบเวลา (Time-bound):</strong> เป้าหมายที่ไม่มีเดดไลน์เป็นเพียงความปรารถนา "สักวันหนึ่ง" ไม่ใช่วันในสัปดาห์ กำหนดวันที่: "ภายในวันที่ 1 กรกฎาคม ฉันจะสนทนาเป็นเวลา 5 นาที" ความเร่งด่วนกระตุ้นสมาธิ</li>
+            <li><strong>A1-A2 (นักท่องเที่ยว):</strong> คุณเอาตัวรอดได้ "ห้องน้ำอยู่ที่ไหน?"</li>
+            <li><strong>B1-B2 (อิสระ):</strong> คุณทำงานและมีเพื่อนได้ นี่คือจุดที่ความคล่องแคล่วอยู่ครับ</li>
+            <li><strong>C1-C2 (เชี่ยวชาญ):</strong> คุณเขียนบทความวิชาการได้ครับ</li>
           </ul>
-          <h2>จากแย่เป็นดี</h2>
-          <p><strong>เป้าหมายที่แย่:</strong> "ฉันอยากเรียนภาษาญี่ปุ่นปีนี้" (ใหญ่เกินไป คลุมเครือเกินไป)</p>
-          <p><strong>เป้าหมายแบบ SMART:</strong> "ภายในวันที่ 31 ธันวาคม ฉันจะแสดงการแนะนำตัวเองเป็นภาษาญี่ปุ่น รวมถึงงานอดิเรกและงานของฉัน โดยไม่ดูโน้ต และอัดวิดีโอไว้"</p>
-          <h2>บทสรุป</h2>
-          <p>เลิกหวังว่าจะพูดคล่อง แล้วเริ่มวางแผนซะ แบ่งความฝันอันยิ่งใหญ่ของคุณออกเป็นเป้าหมาย SMART เล็กๆ ที่พิชิตได้ ทุกครั้งที่คุณทำสำเร็จหนึ่งข้อ คุณจะสร้างความมั่นใจใจเพื่อจัดการกับข้อต่อไป นั่นคือวิธีที่เราปีนภูเขา—ทีละก้าว</p>
+          <h2>วิธีหนีจากแอป</h2>
+          <p>ใช้แอปเพื่อคำศัพท์ แต่เลิกปฏิบัติกับมันเหมือนจานหลัก เพื่อไปถึง B1 คุณต้องคุยกับมนุษย์และเสพสื่อจริง ลบแอปถ้ามันเป็นวิธีเดียวของคุณครับ</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_VI = `
         <article>
-          <p>Tất cả chúng ta đều từng nói: "Tôi muốn nói trôi chảy." Nghe có vẻ là một tham vọng cao cả, nhưng thực tế, đó là một cái bẫy. Nó mơ hồ, không đo lường được và vô tận. Không có đích đến rõ ràng, bạn chỉ đang lang thang trong rừng. Để thực sự thành công trong việc học ngôn ngữ, bạn cần một tấm bản đồ. Bạn cần <strong>Mục tiêu SMART</strong>.</p>
-          <h2>Vấn đề với sự "Trôi chảy"</h2>
-          <p>Trôi chảy không phải là vạch đích; nó là một phổ. Bạn có trôi chảy không nếu bạn có thể gọi cà phê? Hay bạn cần phải tranh luận về triết học? Bằng cách theo đuổi sự "trôi chảy" không xác định, bạn đang tự chuốc lấy thất bại vì bạn không bao giờ cảm thấy mình đã đến nơi. Bạn cần các cột mốc.</p>
-          <h2>Giải mã S.M.A.R.T.</h2>
+          <p>Bạn đã hoàn thành cây cú Duolingo. Bạn có chuỗi 500 ngày. Nhưng bạn có thể gọi cà phê ở Paris mà không hoảng loạn không? Chắc là không.</p>
+          <h2>Cái bẫy Gamification</h2>
+          <p>Các ứng dụng như Duolingo cho phép bạn cảm thấy như mình đang học mà không thực sự học. Họ tối ưu hóa cho <strong>sự tương tác</strong>, không phải sự trôi chảy. Dịch "Con gấu ăn quả táo" không giống như đang trò chuyện.</p>
+          <h2>Cấp độ CEFR: Số liệu thực tế</h2>
+          <p>Trình độ ngôn ngữ thực sự được đo bằng thang đo CEFR (A1 đến C2).</p>
           <ul>
-            <li><strong>S - Cụ thể (Specific):</strong> Mục tiêu mơ hồ mang lại kết quả mơ hồ. Thay vì "Tôi sẽ học tiếng Tây Ban Nha", hãy nói "Tôi sẽ học 20 từ vựng liên quan đến đặt phòng khách sạn". Càng cụ thể càng tốt.</li>
-            <li><strong>M - Đo lường được (Measurable):</strong> Nếu bạn không thể đo lường nó, bạn không thể quản lý nó. "Cải thiện khả năng nghe" là một cảm giác. "Hiểu 70% video YouTube dài 5 phút" là một số liệu. Hãy tự cho mình một bảng điểm.</li>
-            <li><strong>A - Khả thi (Achievable):</strong> Hãy trung thực với lịch trình của bạn. Nếu bạn làm việc 60 giờ một tuần, đặt mục tiêu học 2 giờ một ngày là bạn đang chuẩn bị để bỏ cuộc. Sự nhất quán đánh bại cường độ. Nhắm đến 15 phút một ngày và đạt được nó 100%.</li>
-            <li><strong>R - Liên quan (Relevant):</strong> Tại sao bạn lại học? Nếu là để đi du lịch, đừng lãng phí thời gian vào thuật ngữ kinh doanh. Nếu là để đọc manga, đừng tập trung vào ngôn ngữ trang trọng. Học những gì khiến bạn hào hứng <em>ngay bây giờ</em>.</li>
-            <li><strong>T - Có thời hạn (Time-bound):</strong> Một mục tiêu không có thời hạn chỉ là một điều ước. "Một ngày nào đó" không phải là một ngày trong tuần. Đặt ngày: "Trước ngày 1 tháng 7, tôi sẽ thực hiện một cuộc trò chuyện dài 5 phút." Sự cấp bách thúc đẩy sự tập trung.</li>
+            <li><strong>A1-A2 (Khách du lịch):</strong> Bạn có thể tồn tại. "Nhà vệ sinh ở đâu?"</li>
+            <li><strong>B1-B2 (Độc lập):</strong> Bạn có thể làm việc và có bạn bè. Đây là nơi sự trôi chảy tồn tại.</li>
+            <li><strong>C1-C2 (Thành thạo):</strong> Bạn có thể viết các bài báo học thuật.</li>
           </ul>
-          <h2>Từ Xấu đến Tốt</h2>
-          <p><strong>Mục tiêu Xấu:</strong> "Tôi muốn học tiếng Nhật trong năm nay." (Quá lớn, quá mơ hồ)</p>
-          <p><strong>Mục tiêu SMART:</strong> "Trước ngày 31 tháng 12, tôi sẽ tự giới thiệu bản thân bằng tiếng Nhật bao gồm sở thích và công việc của mình, không nhìn vào ghi chú, và quay video lại."</p>
-          <h2>Kết luận</h2>
-          <p>Ngừng mong ước sự trôi chảy và bắt đầu lên kế hoạch cho nó. Chia nhỏ giấc mơ lớn của bạn thành những mục tiêu SMART nhỏ, có thể chinh phục được. Mỗi khi bạn đánh dấu hoàn thành một mục tiêu, bạn sẽ xây dựng được sự tự tin để giải quyết mục tiêu tiếp theo. Đó là cách những ngọn núi được chinh phục—từng bước một.</p>
+          <h2>Cách thoát khỏi ứng dụng</h2>
+          <p>Sử dụng ứng dụng cho từ vựng, nhưng đừng coi chúng là món chính. Để đạt B1, bạn cần nói chuyện với con người và tiêu thụ phương tiện truyền thông thực tế. Xóa ứng dụng nếu đó là phương pháp duy nhất của bạn.</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_ID = `
         <article>
-          <p>Kita semua pernah mengatakannya: "Saya ingin lancar." Terdengar seperti ambisi mulia, tapi kenyataannya, ini adalah jebakan. Ini tidak jelas, tidak terukur, dan tidak berujung. Tanpa tujuan yang jelas, Anda hanya berkeliaran di hutan. Untuk benar-benar sukses dalam belajar bahasa, Anda butuh peta. Anda butuh <strong>Tujuan SMART</strong>.</p>
-          <h2>Masalah dengan "Kelancaran"</h2>
-          <p>Kelancaran bukanlah garis finis; ini adalah spektrum. Apakah Anda lancar jika bisa memesan kopi? Atau apakah Anda perlu mendebatkan filsafat? Dengan mengejar "kelancaran" yang tidak terdefinisi, Anda menyiapkan diri untuk gagal karena Anda tidak pernah merasa sudah sampai. Anda butuh pencapaian (milestone).</p>
-          <h2>Mendekode S.M.A.R.T.</h2>
+          <p>Anda menyelesaikan pohon burung hantu Duolingo. Anda memiliki rekor 500 hari. Tapi bisakah Anda memesan kopi di Paris tanpa panik? Mungkin tidak.</p>
+          <h2>Jebakan Gamifikasi</h2>
+          <p>Aplikasi seperti Duolingo memungkinkan Anda merasa seperti sedang belajar tanpa benar-benar belajar. Mereka mengoptimalkan <strong>keterlibatan</strong>, bukan kefasihan. Menerjemahkan "Beruang memakan apel" tidak sama dengan melakukan percakapan.</p>
+          <h2>Tingkat CEFR: Metrik Nyata</h2>
+          <p>Kemahiran bahasa yang sebenarnya diukur dengan skala CEFR (A1 hingga C2).</p>
           <ul>
-            <li><strong>S - Spesifik (Specific):</strong> Tujuan yang samar memberikan hasil yang samar. Daripada "Saya akan belajar bahasa Spanyol," katakan "Saya akan belajar 20 kosakata terkait pemesanan hotel." Semakin spesifik, semakin baik.</li>
-            <li><strong>M - Terukur (Measurable):</strong> Jika Anda tidak bisa mengukurnya, Anda tidak bisa mengaturnya. "Meningkatkan kemampuan mendengar" adalah perasaan. "Memahami 70% dari video YouTube 5 menit" adalah metrik. Berikan diri Anda kartu nilai.</li>
-            <li><strong>A - Dapat Dicapai (Achievable):</strong> Jujurlah dengan jadwal Anda. Jika Anda bekerja 60 jam seminggu, menargetkan belajar 2 jam sehari adalah persiapan untuk berhenti. Konsistensi mengalahkan intensitas. Bidik 15 menit sehari, dan lakukan 100%.</li>
-            <li><strong>R - Relevan (Relevant):</strong> Kenapa Anda belajar? Jika untuk perjalanan, jangan buang waktu dengan jargon bisnis. Jika untuk membaca manga, jangan fokus pada bahasa formal. Pelajari apa yang membuat Anda bersemangat <em>sekarang</em>.</li>
-            <li><strong>T - Terikat Waktu (Time-bound):</strong> Tujuan tanpa tenggat waktu hanyalah keinginan. "Suatu hari nanti" bukanlah nama hari. Tetapkan tanggal: "Pada 1 Juli, saya akan melakukan percakapan selama 5 menit." Urgensi memicu fokus.</li>
+            <li><strong>A1-A2 (Turis):</strong> Anda bisa bertahan. "Di mana kamar mandi?"</li>
+            <li><strong>B1-B2 (Mandiri):</strong> Anda bisa bekerja dan punya teman. Di sinilah kefasihan hidup.</li>
+            <li><strong>C1-C2 (Penguasaan):</strong> Anda bisa menulis makalah akademis.</li>
           </ul>
-          <h2>Dari Buruk ke Baik</h2>
-          <p><strong>Tujuan Buruk:</strong> "Saya ingin belajar bahasa Jepang tahun ini." (Terlalu besar, terlalu samar)</p>
-          <p><strong>Tujuan SMART:</strong> "Pada 31 Desember, saya akan melakukan perkenalan diri dalam bahasa Jepang termasuk hobi dan pekerjaan saya, tanpa melihat catatan, direkam dalam video."</p>
-          <h2>Kesimpulan</h2>
-          <p>Berhenti berharap untuk lancar dan mulailah merencanakannya. Pecah impian besar Anda menjadi tujuan SMART kecil yang bisa ditaklukkan. Setiap kali Anda mencentang satu, Anda membangun kepercayaan diri untuk menangani yang berikutnya. Begitulah cara gunung didaki—selangkah demi selangkah.</p>
+          <h2>Cara Melarikan Diri dari Aplikasi</h2>
+          <p>Gunakan aplikasi untuk kosakata, tapi berhenti memperlakukannya sebagai hidangan utama. Untuk mencapai B1, Anda perlu berbicara dengan manusia dan mengonsumsi media nyata. Hapus aplikasi jika itu satu-satunya metode Anda.</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_PT = `
         <article>
-          <p>Todos nós já dissemos: "Quero ser fluente". Parece uma ambição nobre, mas na realidade é uma armadilha. É vago, imensurável e sem fim. Sem um destino claro, você está apenas vagando pela floresta. Para ter sucesso real no aprendizado de idiomas, você precisa de um mapa. Você precisa de <strong>Metas SMART</strong>.</p>
-          <h2>O Problema com a "Fluência"</h2>
-          <p>A fluência não é uma linha de chegada; é um espectro. Você é fluente se consegue pedir um café? Ou precisa debater filosofia? Ao perseguir uma "fluência" indefinida, você se prepara para o fracasso porque nunca sente que chegou lá. Você precisa de marcos.</p>
-          <h2>Decodificando S.M.A.R.T.</h2>
+          <p>Você terminou a árvore da coruja do Duolingo. Você tem uma ofensiva de 500 dias. Mas você consegue pedir um café em Paris sem entrar em pânico? Provavelmente não.</p>
+          <h2>A Armadilha da Gamificação</h2>
+          <p>Aplicativos como o Duolingo permitem que você sinta que está aprendendo sem realmente aprender. Eles otimizam para <strong>engajamento</strong>, não fluência. Traduzir "O urso come uma maçã" não é o mesmo que ter uma conversa.</p>
+          <h2>Níveis CEFR: As Métricas Reais</h2>
+          <p>A verdadeira proficiência no idioma é medida pela escala CEFR (A1 a C2).</p>
           <ul>
-            <li><strong>S - Específico (Specific):</strong> Metas vagas geram resultados vagos. Em vez de "Vou estudar espanhol", diga "Vou aprender 20 palavras de vocabulário relacionadas a reservar um hotel". Quanto mais específico, melhor.</li>
-            <li><strong>M - Mensurável (Measurable):</strong> Se você não pode medir, não pode gerenciar. "Melhorar a audição" é um sentimento. "Entender 70% de um vídeo do YouTube de 5 minutos" é uma métrica. Dê a si mesmo um placar.</li>
-            <li><strong>A - Alcançável (Achievable):</strong> Seja honesto com sua agenda. Se você trabalha 60 horas por semana, tentar estudar 2 horas por dia é se preparar para desistir. Consistência vence intensidade. Mire em 15 minutos por dia e cumpra 100% das vezes.</li>
-            <li><strong>R - Relevante (Relevant):</strong> Por que você está aprendendo? Se é para viajar, não perca tempo com jargão de negócios. Se é para ler mangá, não foque no discurso formal. Aprenda o que te empolga <em>agora</em>.</li>
-            <li><strong>T - Temporal (Time-bound):</strong> Uma meta sem prazo é apenas um desejo. "Algum dia" não é um dia da semana. Defina uma data: "Até 1º de julho, terei uma conversa de 5 minutos." A urgência alimenta o foco.</li>
+            <li><strong>A1-A2 (Turista):</strong> Você pode sobreviver. "Onde fica o banheiro?"</li>
+            <li><strong>B1-B2 (Independente):</strong> Você pode trabalhar e ter amigos. É aqui que vive a fluência.</li>
+            <li><strong>C1-C2 (Domínio):</strong> Você pode escrever artigos acadêmicos.</li>
           </ul>
-          <h2>De Ruim para Bom</h2>
-          <p><strong>Meta Ruim:</strong> "Quero aprender japonês este ano." (Muito grande, muito vago)</p>
-          <p><strong>Meta SMART:</strong> "Até 31 de dezembro, farei minha autoapresentação em japonês, incluindo meus hobbies e trabalho, sem olhar anotações, gravado em vídeo."</p>
-          <h2>Conclusão</h2>
-          <p>Pare de desejar fluência e comece a planejá-la. Quebre seu grande sonho em pequenas e conquistáveis metas SMART. Cada vez que você marca uma, constrói a confiança para enfrentar a próxima. É assim que montanhas são escaladas — um passo de cada vez.</p>
-</article>
+          <h2>Como Escapar do Aplicativo</h2>
+          <p>Use aplicativos para vocabulário, mas pare de tratá-los como o prato principal. Para chegar ao B1, você precisa falar com humanos e consumir mídia real. Exclua o aplicativo se for seu único método.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_TR = `
         <article>
-          <p>Hepimiz söylemişizdir: "Akıcı olmak istiyorum." Kulağa asil bir hırs gibi geliyor ama aslında bu bir tuzak. Muğlak, ölçülemez ve sonu yok. Net bir varış noktası olmadan, sadece ormanda dolaşıyorsunuz. Dil öğreniminde gerçekten başarılı olmak için bir haritaya ihtiyacınız var. <strong>SMART Hedeflere</strong> ihtiyacınız var.</p>
-          <h2>"Akıcılık" Sorunu</h2>
-          <p>Akıcılık bir bitiş çizgisi değildir; bir spektrumdur. Bir kahve sipariş edebilirseniz akıcı mısınız? Yoksa felsefe tartışmanız mı gerekiyor? Tanımlanmamış bir "akıcılık" peşinde koşarak, kendinizi başarısızlığa hazırlıyorsunuz çünkü asla varmış gibi hissetmiyorsunuz. Kilometre taşlarına ihtiyacınız var.</p>
-          <h2>S.M.A.R.T. Çözümlemesi</h2>
+          <p>Duolingo baykuş ağacını bitirdin. 500 günlük serin var. Ama Paris'te panik yapmadan kahve sipariş edebilir misin? Muhtemelen hayır.</p>
+          <h2>Oyunlaştırma Tuzağı</h2>
+          <p>Duolingo gibi uygulamalar, aslında öğrenmeden öğreniyormuşsun gibi hissetmeni sağlar. Akıcılık için değil, <strong>etkileşim</strong> için optimize ederler. "Ayı elma yer" cümlesini çevirmek, sohbet etmekle aynı şey değildir.</p>
+          <h2>CEFR Seviyeleri: Gerçek Ölçümler</h2>
+          <p>Gerçek dil yeterliliği CEFR ölçeği (A1 - C2) ile ölçülür.</p>
           <ul>
-            <li><strong>S - Spesifik (Specific):</strong> Muğlak hedefler muğlak sonuçlar doğurur. "İspanyolca çalışacağım" yerine, "Otel rezervasyonuyla ilgili 20 kelime öğreneceğim" deyin. Ne kadar spesifik olursa o kadar iyi.</li>
-            <li><strong>M - Ölçülebilir (Measurable):</strong> Ölçemezseniz yönetemezsiniz. "Dinlemeyi geliştirmek" bir histir. "5 dakikalık bir YouTube videosunun %70'ini anlamak" bir metriktir. Kendinize bir puan kartı verin.</li>
-            <li><strong>A - Ulaşılabilir (Achievable):</strong> Programınız konusunda dürüst olun. Haftada 60 saat çalışıyorsanız, günde 2 saat çalışmayı hedeflemek pes etmeye hazırlanmaktır. Tutarlılık yoğunluğu yener. Günde 15 dakikayı hedefleyin ve bunu %100 yapın.</li>
-            <li><strong>R - İlgili (Relevant):</strong> Neden öğreniyorsunuz? Seyahat içinse, iş jargonuyla vakit kaybetmeyin. Manga okumak içinse, resmi konuşmaya odaklanmayın. Sizi <em>şu anda</em> heyecanlandıran şeyi öğrenin.</li>
-            <li><strong>T - Zaman Sınırlı (Time-bound):</strong> Son teslim tarihi olmayan bir hedef sadece bir dilektir. "Bir gün" haftanın bir günü değildir. Bir tarih belirleyin: "1 Temmuz'a kadar 5 dakikalık bir konuşma yapacağım." Aciliyet odağı besler.</li>
+            <li><strong>A1-A2 (Turist):</strong> Hayatta kalabilirsin. "Tuvalet nerede?"</li>
+            <li><strong>B1-B2 (Bağımsız):</strong> Çalışabilir ve arkadaş edinebilirsin. Akıcılığın yaşadığı yer burasıdır.</li>
+            <li><strong>C1-C2 (Ustalık):</strong> Akademik makaleler yazabilirsin.</li>
           </ul>
-          <h2>Kötüden İyiye</h2>
-          <p><strong>Kötü Hedef:</strong> "Bu yıl Japonca öğrenmek istiyorum." (Çok büyük, çok muğlak)</p>
-          <p><strong>SMART Hedef:</strong> "31 Aralık'a kadar, hobilerim ve işim dahil olmak üzere Japonca kendimi tanıtma konuşmamı, notlara bakmadan yapacağım ve videoya kaydedeceğim."</p>
-          <h2>Sonuç</h2>
-          <p>Akıcılık dilemeyi bırakın ve planlamaya başlayın. Büyük hayalinizi küçük, fethedilebilir SMART hedeflere bölün. Her birini tamamladığınızda, bir sonrakini ele alma güvenini inşa edersiniz. Dağlar böyle tırmanılır; adım adım.</p>
-</article>
+          <h2>Uygulamadan Nasıl Kaçılır</h2>
+          <p>Kelime bilgisi için uygulamaları kullan, ama onlara ana yemek muamelesi yapmayı bırak. B1'e ulaşmak için insanlarla konuşman ve gerçek medya tüketmen gerekir. Tek yöntemin buysa uygulamayı sil.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_AR = `
         <article>
-          <p>لقد قلناها جميعًا: "أريد أن أكون طليقًا." يبدو وكأنه طموح نبيل، لكنه في الواقع فخ. إنه غامض وغير قابل للقياس ولا نهاية له. بدون وجهة واضحة، أنت مجرد تتجول في الغابة. لكي تنجح حقًا في تعلم اللغة، تحتاج إلى خريطة. تحتاج إلى <strong>أهداف SMART</strong>.</p>
-          <h2>مشكلة "الطلاقة"</h2>
-          <p>الطلاقة ليست خط نهاية؛ إنها طيف. هل أنت طليق إذا كنت تستطيع طلب قهوة؟ أم هل تحتاج للمناقشة في الفلسفة؟ بمطاردة "طلاقة" غير محددة، أنت تعد نفسك للفشل لأنك لن تشعر أبدًا أنك قد وصلت. تحتاج إلى معالم.</p>
-          <h2>فك شفرة S.M.A.R.T.</h2>
+          <p>لقد أنهيت شجرة بومة Duolingo. لديك سلسلة 500 يوم. ولكن هل يمكنك طلب قهوة في باريس دون ذعر؟ على الأرجح لا.</p>
+          <h2>فخ التلعيب (Gamification)</h2>
+          <p>تسمح لك تطبيقات مثل Duolingo بالشعور بأنك تتعلم دون أن تتعلم بالفعل. إنها مصممة من أجل <strong>المشاركة</strong>، وليس الطلاقة. ترجمة "الدب يأكل تفاحة" ليس مثل إجراء محادثة.</p>
+          <h2>مستويات CEFR: المقاييس الحقيقية</h2>
+          <p>تُقاس الكفاءة اللغوية الحقيقية بمقياس CEFR (من A1 إلى C2).</p>
           <ul>
-            <li><strong>S - محدد (Specific):</strong> الأهداف الغامضة تعطي نتائج غامضة. بدلًا من "سأدرس الإسبانية"، قل "سأتعلم 20 مفردة تتعلق بحجز فندق". كلما كان أكثر تحديدًا، كان أفضل.</li>
-            <li><strong>M - قابل للقياس (Measurable):</strong> إذا لم تتمكن من قياسه، فلا يمكنك إدارته. "تحسين الاستماع" هو شعور. "فهم 70% من فيديو يوتيوب مدته 5 دقائق" هو مقياس. أعط نفسك بطاقة نتائج.</li>
-            <li><strong>A - قابل للتحقيق (Achievable):</strong> كن صادقًا مع جدولك. إذا كنت تعمل 60 ساعة في الأسبوع، فإن استهداف ساعتين من الدراسة يوميًا هو إعداد لنفسك للاستسلام. الاستمرارية تغلب الكثافة. استهدف 15 دقيقة يوميًا، وحققها بنسبة 100%.</li>
-            <li><strong>R - ذو صلة (Relevant):</strong> لماذا تتعلم؟ إذا كان للسفر، فلا تضيع الوقت في المصطلحات التجارية. إذا كان لقراءة المانجا، فلا تركز على الخطاب الرسمي. تعلم ما يثيرك <em>الآن</em>.</li>
-            <li><strong>T - محدد زمنيًا (Time-bound):</strong> الهدف بدون موعد نهائي هو مجرد أمنية. "يومًا ما" ليس يومًا من أيام الأسبوع. حدد تاريخًا: "بحلول 1 يوليو، سأجري محادثة مدتها 5 دقائق." الإلحاح يغذي التركيز.</li>
+            <li><strong>A1-A2 (سائح):</strong> يمكنك البقاء على قيد الحياة. "أين الحمام؟"</li>
+            <li><strong>B1-B2 (مستقل):</strong> يمكنك العمل وتكوين صداقات. هذا هو المكان الذي تعيش فيه الطلاقة.</li>
+            <li><strong>C1-C2 (إتقان):</strong> يمكنك كتابة أوراق بحثية أكاديمية.</li>
           </ul>
-          <h2>من سيء إلى جيد</h2>
-          <p><strong>هدف سيء:</strong> "أريد تعلم اليابانية هذا العام." (كبير جدًا، غامض جدًا)</p>
-          <p><strong>هدف SMART:</strong> "بحلول 31 ديسمبر، سأقوم بتمثيل مقدمة عن نفسي باللغة اليابانية بما في ذلك هواياتي وعملي، دون النظر إلى الملاحظات، ومسجلة بالفيديو."</p>
-          <h2>الخاتمة</h2>
-          <p>توقف عن تمني الطلاقة وابدأ في التخطيط لها. قسم حلمك الكبير إلى أهداف SMART صغيرة وقابلة للغزو. في كل مرة تحقق فيها هدفًا، تبني الثقة للتعامل مع الهدف التالي. هكذا يتم تسلق الجبال - خطوة بخطوة.</p>
-</article>
+          <h2>كيف تهرب من التطبيق</h2>
+          <p>استخدم التطبيقات للمفردات، ولكن توقف عن معاملتها كوجبة رئيسية. للوصول إلى B1، تحتاج إلى التحدث مع البشر واستهلاك وسائط حقيقية. احذف التطبيق إذا كان هو طريقتك الوحيدة.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_HI = `
         <article>
-          <p>हम सभी ने यह कहा है: "मैं धाराप्रवाह होना चाहता हूँ।" यह एक नेक महत्वाकांक्षा की तरह लगता है, लेकिन वास्तव में, यह एक जाल है। यह अस्पष्ट, अमापनीय और अनंत है। स्पष्ट मंजिल के बिना, आप बस जंगल में भटक रहे हैं। भाषा सीखने में वास्तव में सफल होने के लिए, आपको एक नक्शे की आवश्यकता है। आपको <strong>SMART लक्ष्यों</strong> की आवश्यकता है।</p>
-          <h2>"धाराप्रवाह" के साथ समस्या</h2>
-          <p>धाराप्रवाह कोई अंतिम रेखा नहीं है; यह एक स्पेक्ट्रम है। क्या आप धाराप्रवाह हैं यदि आप कॉफी ऑर्डर कर सकते हैं? या क्या आपको दर्शन पर बहस करने की आवश्यकता है? एक अपरिभाषित "धाराप्रवाह" का पीछा करते हुए, आप खुद को असफलता के लिए तैयार कर रहे हैं क्योंकि आपको कभी ऐसा महसूस नहीं होगा कि आप पहुँच गए हैं। आपको मील के पत्थरों की आवश्यकता है।</p>
-          <h2>S.M.A.R.T. को डिकोड करना</h2>
+          <p>आपने Duolingo उल्लू का पेड़ पूरा कर लिया है। आपके पास 500 दिनों का स्ट्रीक है। लेकिन क्या आप पेरिस में बिना घबराए कॉफी ऑर्डर कर सकते हैं? शायद नहीं।</p>
+          <h2>गेमिफिकेशन का जाल</h2>
+          <p>Duolingo जैसे ऐप्स आपको यह महसूस कराते हैं कि आप वास्तव में सीखे बिना सीख रहे हैं। वे प्रवाह के लिए नहीं, बल्कि <strong>जुड़ाव (engagement)</strong> के लिए अनुकूलित हैं। "भालू सेब खाता है" का अनुवाद करना बातचीत करने जैसा नहीं है।</p>
+          <h2>CEFR स्तर: असली मेट्रिक्स</h2>
+          <p>असली भाषा दक्षता CEFR पैमाने (A1 से C2) द्वारा मापी जाती है।</p>
           <ul>
-            <li><strong>S - विशिष्ट (Specific):</strong> अस्पष्ट लक्ष्य अस्पष्ट परिणाम देते हैं। "मैं स्पेनिश का अध्ययन करूँगा" के बजाय, कहें "मैं होटल बुक करने से संबंधित 20 शब्दावली शब्द सीखूंगा।" जितना अधिक विशिष्ट, उतना बेहतर।</li>
-            <li><strong>M - मापनीय (Measurable):</strong> यदि आप इसे माप नहीं सकते, तो आप इसे प्रबंधित नहीं कर सकते। "सुनने में सुधार" एक भावना है। "5 मिनट के YouTube वीडियो का 70% समझना" एक मीट्रिक है। अपने आप को एक स्कोरकार्ड दें।</li>
-            <li><strong>A - प्राप्त करने योग्य (Achievable):</strong> अपने कार्यक्रम के प्रति ईमानदार रहें। यदि आप सप्ताह में 60 घंटे काम करते हैं, तो दिन में 2 घंटे पढ़ाई का लक्ष्य रखना खुद को छोड़ने के लिए तैयार करना है। निरंतरता तीव्रता को हरा देती है। दिन में 15 मिनट का लक्ष्य रखें, और इसे 100% पूरा करें।</li>
-            <li><strong>R - प्रासंगिक (Relevant):</strong> आप क्यों सीख रहे हैं? यदि यह यात्रा के लिए है, तो व्यावसायिक शब्दजाल पर समय बर्बाद न करें। यदि यह मंगा पढ़ने के लिए है, तो औपचारिक भाषण पर ध्यान केंद्रित न करें। जानें कि आपको <em>अब</em> क्या उत्साहित करता है।</li>
-            <li><strong>T - समयबद्ध (Time-bound):</strong> समय सीमा के बिना लक्ष्य सिर्फ एक इच्छा है। "किसी दिन" सप्ताह का दिन नहीं है। एक तारीख निर्धारित करें: "1 जुलाई तक, मैं 5 मिनट की बातचीत करूँगा।" तात्कालिकता फोकस को बढ़ावा देती है।</li>
+            <li><strong>A1-A2 (पर्यटक):</strong> आप जीवित रह सकते हैं। "बाथरूम कहाँ है?"</li>
+            <li><strong>B1-B2 (स्वतंत्र):</strong> आप काम कर सकते हैं और दोस्त बना सकते हैं। यहीं प्रवाह रहता है।</li>
+            <li><strong>C1-C2 (महारत):</strong> आप अकादमिक पेपर लिख सकते हैं।</li>
           </ul>
-          <h2>बुरे से अच्छे की ओर</h2>
-          <p><strong>बुरा लक्ष्य:</strong> "मैं इस साल जापानी सीखना चाहता हूँ।" (बहुत बड़ा, बहुत अस्पष्ट)</p>
-          <p><strong>SMART लक्ष्य:</strong> "31 दिसंबर तक, मैं बिना नोट्स देखे, वीडियो पर रिकॉर्ड किए गए अपने शौक और नौकरी सहित जापानी में अपना आत्म-परिचय दूंगा।"</p>
-          <h2> निष्कर्ष</h2>
-          <p>धाराप्रवाह होने की कामना करना बंद करें और इसके लिए योजना बनाना शुरू करें। अपने बड़े सपने को छोटे, जीतने योग्य SMART लक्ष्यों में तोड़ें। हर बार जब आप एक को पूरा करते हैं, तो आप अगले से निपटने के लिए आत्मविश्वास का निर्माण करते हैं। पहाड़ इसी तरह चढ़े जाते हैं - एक बार में एक कदम।</p>
-</article>
+          <h2>ऐप से कैसे बचें</h2>
+          <p>शब्दावली के लिए ऐप्स का उपयोग करें, लेकिन उन्हें मुख्य पाठ्यक्रम के रूप में मानना बंद करें। B1 तक पहुँचने के लिए, आपको इंसानों से बात करने और असली मीडिया का उपभोग करने की आवश्यकता है। अगर यह आपका एकमात्र तरीका है तो ऐप को डिलीट कर दें।</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_RU = `
         <article>
-          <p>Мы все это говорили: «Я хочу свободно говорить». Это звучит как благородная амбиция, но на самом деле это ловушка. Это расплывчато, неизмеримо и бесконечно. Без четкого пункта назначения вы просто блуждаете в лесу. Чтобы действительно преуспеть в изучении языка, вам нужна карта. Вам нужны <strong>цели SMART</strong>.</p>
-          <h2>Проблема с «Беглостью»</h2>
-          <p>Беглость — это не финишная черта; это спектр. Свободно ли вы говорите, если можете заказать кофе? Или вам нужно спорить о философии? Гонясь за неопределенной «беглостью», вы обрекаете себя на неудачу, потому что никогда не почувствуете, что достигли цели. Вам нужны вехи.</p>
-          <h2>Расшифровка S.M.A.R.T.</h2>
+          <p>Вы закончили дерево совы Duolingo. У вас 500-дневная серия. Но сможете ли вы заказать кофе в Париже без паники? Вероятно, нет.</p>
+          <h2>Ловушка геймификации</h2>
+          <p>Приложения, такие как Duolingo, позволяют вам чувствовать, что вы учитесь, не учась на самом деле. Они оптимизированы для <strong>вовлеченности</strong>, а не для беглости. Перевод фразы «Медведь ест яблоко» — это не то же самое, что и разговор.</p>
+          <h2>Уровни CEFR: Реальные метрики</h2>
+          <p>Настоящее владение языком измеряется по шкале CEFR (от A1 до C2).</p>
           <ul>
-            <li><strong>S - Конкретный (Specific):</strong> Расплывчатые цели дают расплывчатые результаты. Вместо «Я буду учить испанский» скажите «Я выучу 20 слов, связанных с бронированием отеля». Чем конкретнее, тем лучше.</li>
-            <li><strong>M - Измеримый (Measurable):</strong> Если вы не можете это измерить, вы не можете этим управлять. «Улучшить аудирование» — это ощущение. «Понять 70% 5-минутного видео на YouTube» — это метрика. Дайте себе оценочный лист.</li>
-            <li><strong>A - Достижимый (Achievable):</strong> Будьте честны со своим расписанием. Если вы работаете 60 часов в неделю, цель учиться 2 часа в день — это подготовка к тому, чтобы бросить. Постоянство побеждает интенсивность. Цельтесь на 15 минут в день и выполняйте это на 100%.</li>
-            <li><strong>R - Актуальный (Relevant):</strong> Зачем вы учите? Если для путешествий, не тратьте время на бизнес-жаргон. Если для чтения манги, не сосредотачивайтесь на официальной речи. Учите то, что вас волнует <em>сейчас</em>.</li>
-            <li><strong>T - Ограниченный по времени (Time-bound):</strong> Цель без дедлайна — это просто желание. «Когда-нибудь» — это не день недели. Установите дату: «К 1 июля я проведу 5-минутный разговор». Срочность подпитывает фокус.</li>
+            <li><strong>A1-A2 (Турист):</strong> Вы можете выжить. «Где туалет?»</li>
+            <li><strong>B1-B2 (Независимый):</strong> Вы можете работать и иметь друзей. Здесь живет беглость.</li>
+            <li><strong>C1-C2 (Мастерство):</strong> Вы можете писать научные статьи.</li>
           </ul>
-          <h2>От плохого к хорошему</h2>
-          <p><strong>Плохая цель:</strong> «Я хочу выучить японский в этом году». (Слишком большая, слишком расплывчатая)</p>
-          <p><strong>SMART цель:</strong> «К 31 декабря я разыграю свое самопредставление на японском языке, включая мои хобби и работу, не глядя в заметки, записанное на видео».</p>
-          <h2>Заключение</h2>
-          <p>Перестаньте желать беглости и начните планировать ее. Разбейте свою большую мечту на маленькие, достижимые цели SMART. Каждый раз, когда вы отмечаете одну, вы укрепляете уверенность, чтобы взяться за следующую. Так покоряются горы — шаг за шагом.</p>
-</article>
+          <h2>Как сбежать из приложения</h2>
+          <p>Используйте приложения для словарного запаса, но перестаньте относиться к ним как к основному блюду. Чтобы достичь уровня B1, вам нужно говорить с людьми и потреблять реальный контент. Удалите приложение, если это ваш единственный метод.</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_BN = `
         <article>
-          <p>আমরা সবাই এটি বলেছি: "আমি অনর্গল বলতে চাই।" এটি একটি মহৎ উচ্চাকাঙ্ক্ষার মতো শোনাচ্ছে, কিন্তু বাস্তবে, এটি একটি ফাঁদ। এটি অস্পষ্ট, পরিমাপযোগ্য নয় এবং অন্তহীন। একটি পরিষ্কার গন্তব্য ছাড়া, আপনি কেবল বনের মধ্যে ঘোরাফেরা করছেন। ভাষা শিক্ষায় সত্যিকার অর্থে সফল হওয়ার জন্য, আপনার একটি মানচিত্র দরকার। আপনার <strong>SMART লক্ষ্য</strong> দরকার।</p>
-          <h2>"অনর্গলতা" নিয়ে সমস্যা</h2>
-          <p>অনর্গলতা কোন শেষ সীমা নয়; এটি একটি বর্ণালী। আপনি যদি কফি অর্ডার করতে পারেন তবে কি আপনি অনর্গল? নাকি আপনাকে দর্শন নিয়ে বিতর্ক করতে হবে? একটি অসংজ্ঞায়িত "অনর্গলতা" এর পেছনে ছুটে, আপনি নিজেকে ব্যর্থতার জন্য তৈরি করছেন কারণ আপনার মনে হবে না যে আপনি পৌঁছেছেন। আপনার মাইলফলক দরকার।</p>
-          <h2>S.M.A.R.T. ডিকোড করা</h2>
+          <p>আপনি Duolingo পেঁচার গাছ শেষ করেছেন। আপনার ৫০০ দিনের স্ট्रीক আছে। কিন্তু আপনি কি প্যারিসে আতঙ্কিত না হয়ে কফি অর্ডার করতে পারেন? সম্ভবত না।</p>
+          <h2>গেমফিকেশনের ফাঁদ</h2>
+          <p>Duolingo-এর মতো অ্যাপগুলি আপনাকে মনে করায় যে আপনি শিখছেন, আসলে না শিখেই। তারা <strong>এনগেজমেন্ট</strong>-এর, সাবলীলতার জন্য নয়। "ভালুক আপেল খায়" অনুবাদ করা আর কথোপকথন করা এক নয়।</p>
+          <h2>CEFR স্তর: আসল পরিমাপ</h2>
+          <p>আসল ভাষার দক্ষতা CEFR স্কেল (A1 থেকে C2) দ্বারা পরিমাপ করা হয়।</p>
           <ul>
-            <li><strong>S - নির্দিষ্ট (Specific):</strong> অস্পষ্ট লক্ষ্য অস্পষ্ট ফলাফল দেয়। "আমি স্প্যানিশ শিখব" না বলে, বলুন "আমি হোটেল বুকিং সম্পর্কিত ২০টি শব্দ শিখব।" যত নির্দিষ্ট, তত ভালো।</li>
-            <li><strong>M - পরিমাপযোগ্য (Measurable):</strong> যদি আপনি এটি পরিমাপ করতে না পারেন, তবে আপনি এটি পরিচালনা করতে পারবেন না। "শোনার উন্নতি" একটি অনুভূতি। "৫ মিনিটের ইউটিউব ভিডিওর ৭০% বোঝা" একটি মেট্রিক। নিজেকে একটি স্কোরকার্ড দিন।</li>
-            <li><strong>A - অর্জনযোগ্য (Achievable):</strong> আপনার সময়সূচী সম্পর্কে সৎ হন। আপনি যদি সপ্তাহে ৬০ ঘন্টা কাজ করেন, তবে দিনে ২ ঘন্টা অধ্যয়নের লক্ষ্য রাখা মানে নিজেকে ছেড়ে দেওয়ার জন্য প্রস্তুত করা। ধারাবাহিকতা তীব্রতাকে হারায়। দিনে ১৫ মিনিটের লক্ষ্য রাখুন, এবং এটি ১০০% করুন।</li>
-            <li><strong>R - প্রাসঙ্গিক (Relevant):</strong> আপনি কেন শিখছেন? যদি ভ্রমণের জন্য হয়, তবে ব্যবসায়িক পরিভাষায় সময় নষ্ট করবেন না। যদি মাঙ্গা পড়ার জন্য হয়, তবে আনুষ্ঠানিক বক্তৃতায় ফোকাস করবেন না। যা আপনাকে <em>এখন</em> উত্তেজিত করে তা শিখুন।</li>
-            <li><strong>T - সময়সীমাবদ্ধ (Time-bound):</strong> সময়সীমা ছাড়া লক্ষ্য কেবল একটি ইচ্ছা। "কোন একদিন" সপ্তাহের দিন নয়। একটি তারিখ নির্ধারণ করুন: "১ জুলাইয়ের মধ্যে, আমি ৫ মিনিটের কথোপকথন করব।" জরুরি ভাব ফোকাস বাড়ায়।</li>
+            <li><strong>A1-A2 (পর্যটক):</strong> আপনি বেঁচে থাকতে পারবেন। "বাথরুম কোথায়?"</li>
+            <li><strong>B1-B2 (স্বাধীন):</strong> আপনি কাজ করতে পারেন এবং বন্ধু বানাতে পারেন। এখানেই সাবলীলতা থাকে।</li>
+            <li><strong>C1-C2 (দক্ষতা):</strong> আপনি একাডেমিক কাগজ লিখতে পারেন।</li>
           </ul>
-          <h2>খারাপ থেকে ভালো</h2>
-          <p><strong>খারাপ লক্ষ্য:</strong> "আমি এই বছর জাপানি শিখতে চাই।" (খুব বড়, খুব অস্পষ্ট)</p>
-          <p><strong>SMART লক্ষ্য:</strong> "৩১ ডিসেম্বরের মধ্যে, আমি আমার শখ এবং কাজ সহ জাপানি ভাষায় আমার নিজের পরিচয় দেব, নোট না দেখে, ভিডিওতে রেকর্ড করা।"</p>
-          <h2>উপসংহার</h2>
-          <p>অনর্গলতার ইচ্ছা করা বন্ধ করুন এবং এর জন্য পরিকল্পনা শুরু করুন। আপনার বড় স্বপ্নকে ছোট, জয়যোগ্য SMART লক্ষ্যে ভেঙে ফেলুন। প্রতিবার যখন আপনি একটি সম্পন্ন করেন, আপনি পরেরটি মোকাবেলা করার জন্য আত্মবিশ্বাস তৈরি করেন। এভাবেই পাহাড় চড়া হয় - একবারে এক ধাপ।</p>
-</article>
+          <h2>অ্যাপ থেকে পালানোর উপায়</h2>
+          <p>শব্দভাণ্ডারের জন্য অ্যাপ ব্যবহার করুন, কিন্তু সেগুলিকে প্রধান খাবার হিসেবে মনে করা বন্ধ করুন। B1 এ পৌঁছাতে, আপনাকে মানুষের সাথে কথা বলতে হবে এবং আসল মিডিয়া ব্যবহার করতে হবে। অ্যাপটি যদি আপনার একমাত্র পদ্ধতি হয় তবে এটি মুছে ফেলুন।</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_UR = `
         <article>
-          <p>ہم سب نے یہ کہا ہے: "میں روانی چاہتا ہوں۔" یہ ایک عظیم عزم کی طرح لگتا ہے، لیکن حقیقت میں، یہ ایک جال ہے۔ یہ مبہم، ناقابل پیمائش، اور لامتناہی ہے۔ منزل واضح نہ ہونے کی صورت میں، آپ صرف جنگل میں بھٹک رہے ہیں۔ زبان سیکھنے میں واقعی کامیاب ہونے کے لیے، آپ کو نقشے کی ضرورت ہے۔ آپ کو <strong>SMART اہداف</strong> کی ضرورت ہے۔</p>
-          <h2>"روانی" کے ساتھ مسئلہ</h2>
-          <p>روانی کوئی اختتامی لکیر نہیں ہے؛ یہ ایک طیف ہے۔ کیا آپ روانی رکھتے ہیں اگر آپ کافی آرڈر کر سکتے ہیں? یا کیا آپ کو فلسفے پر بحث کرنے کی ضرورت ہے؟ ایک غیر متعین "روانی" کا پیچھا کرتے ہوئے، آپ خود کو ناکامی کے لیے تیار کر رہے ہیں کیونکہ آپ کو کبھی ایسا محسوس نہیں ہوگا کہ آپ پہنچ گئے ہیں۔ آپ کو سنگ میل کی ضرورت ہے۔</p>
-          <h2>S.M.A.R.T. کی ضابطہ کشائی</h2>
+          <p>آپ نے Duolingo الو کا درخت مکمل کر لیا ہے۔ آپ کے پاس 500 دن کی اسٹریک ہے۔ لیکن کیا آپ پیرس میں گھبرائے بغیر کافی کا آرڈر دے سکتے ہیں? شاید نہیں۔</p>
+          <h2>گیمفیکیشن کا جال</h2>
+          <p>Duolingo جیسی ایپس آپ کو یہ محسوس کرنے دیتی ہیں کہ آپ سیکھ رہے ہیں بغیر اصل میں سیکھے۔ وہ <strong>مصروفیت</strong> کے لیے موزوں ہیں، روانی کے لیے نہیں۔ "ریچھ سیب کھاتا ہے" کا ترجمہ کرنا گفتگو کرنے جیسا نہیں ہے۔</p>
+          <h2>CEFR لیولز: اصل میٹرکس</h2>
+          <p>حقیقی زبان کی مہارت CEFR پیمانے (A1 سے C2) سے ناپی جاتی ہے۔</p>
           <ul>
-            <li><strong>S - مخصوص (Specific):</strong> مبہم اہداف مبہم نتائج دیتے ہیں۔ "میں ہسپانوی پڑھوں گا" کہنے کے بجائے، کہیں "میں ہوٹل بک کرنے سے متعلق 20 الفاظ سیکھوں گا۔" جتنا مخصوص، اتنا بہتر۔</li>
-            <li><strong>M - قابل پیمائش (Measurable):</strong> اگر آپ اس کی پیمائش نہیں کر سکتے، تو آپ اس کا انتظام نہیں کر سکتے۔ "سننے میں بہتری" ایک احساس ہے۔ "5 منٹ کی یوٹیوب ویڈیو کا 70% سمجھنا" ایک میٹرک ہے۔ خود کو ایک اسکور کارڈ دیں۔</li>
-            <li><strong>A - قابل حصول (Achievable):</strong> اپنے شیڈول کے ساتھ ایماندار رہیں۔ اگر آپ ہفتے میں 60 گھنٹے کام کرتے ہیں، تو دن میں 2 گھنٹے پڑھائی کا مقصد رکھنا خود کو چھوڑنے کے لیے تیار کرنا ہے۔ مستقل مزاجی شدت کو ہرا دیتی ہے۔ دن میں 15 منٹ کا مقصد رکھیں، اور اسے 100% کریں۔</li>
-            <li><strong>R - متعلقہ (Relevant):</strong> آپ کیوں سیکھ رہے ہیں؟ اگر یہ سفر کے لیے ہے، تو کاروباری اصطلاحات پر وقت ضائع نہ کریں۔ اگر یہ مانگا پڑھنے کے لیے ہے، تو رسمی تقریر پر توجہ نہ دیں۔ وہ سیکھیں جو آپ کو <em>ابھی</em> پرجوش کرتا ہے۔</li>
-            <li><strong>T - وقت کا پابند (Time-bound):</strong> آخری تاریخ کے بغیر مقصد صرف ایک خواہش ہے۔ "کسی دن" ہفتے کا دن نہیں ہے۔ ایک تاریخ مقرر کریں: "یکم جولائی تک، میں 5 منٹ کی گفتگو کروں گا۔" عجلت توجہ کو بڑھاتی ہے۔</li>
+            <li><strong>A1-A2 (سیاح):</strong> آپ زندہ رہ سکتے ہیں۔ "باتھ روم کہاں ہے؟"</li>
+            <li><strong>B1-B2 (آزاد):</strong> آپ کام کر سکتے ہیں اور دوست بنا سکتے ہیں۔ یہیں روانی رہتی ہے۔</li>
+            <li><strong>C1-C2 (مہارت):</strong> آپ تعلیمی مقالے لکھ سکتے ہیں۔</li>
           </ul>
-          <h2>برے سے اچھے تک</h2>
-          <p><strong>برا مقصد:</strong> "میں اس سال جاپانی سیکھنا چاہتا ہوں۔" (بہت بڑا، بہت مبہم)</p>
-          <p><strong>SMART مقصد:</strong> "31 دسمبر تک، میں نوٹس دیکھے بغیر، ویڈیو پر ریکارڈ کی گئی اپنی مشاغل اور نوکری سمیت جاپانی زبان میں اپنا تعارف کراؤں گا۔"</p>
-          <h2>نتیجہ</h2>
-          <p>روانی کی خواہش کرنا چھوڑ دیں اور اس کے لیے منصوبہ بندی شروع کریں۔ اپنے بڑے خواب کو چھوٹے، قابل فتح SMART اہداف میں توڑ دیں۔ ہر بار جب آپ ایک کو ٹک کرتے ہیں، تو آپ اگلے سے نمٹنے کے لیے اعتماد پیدا کرتے ہیں۔ پہاڑ اسی طرح سر ہوتے ہیں - ایک وقت میں ایک قدم۔</p>
-</article>
+          <h2>ایپ سے کیسے بچیں</h2>
+          <p>الفاظ کے لیے ایپس کا استعمال کریں، لیکن انہیں مین کورس سمجھنا بند کریں۔ B1 تک پہنچنے کے لیے، آپ کو انسانوں سے بات کرنے اور اصلی میڈیا استعمال کرنے کی ضرورت ہے۔ ایپ کو ڈیلیٹ کر دیں اگر یہ آپ کا واحد طریقہ ہے۔</p>
+        </article>
       `;
 
 const POST_SMART_CONTENT_NE = `
         <article>
-          <p>हामी सबैले यो भनेका छौं: "म फरर बोल्न चाहन्छु।" यो एक महान महत्वाकांक्षा जस्तो सुनिन्छ, तर वास्तवमा, यो एक पासो हो। यो अस्पष्ट, मापन गर्न नसकिने र अनन्त छ। स्पष्ट गन्तव्य बिना, तपाईं केवल जंगलमा भौतारिरहनुभएको छ। भाषा सिकाइमा साँच्चै सफल हुनको लागि, तपाईंलाई नक्सा चाहिन्छ। तपाईंलाई <strong>SMART लक्ष्यहरू</strong> चाहिन्छ।</p>
-          <h2>"प्रवाह" को समस्या</h2>
-          <p>प्रवाह कुनै अन्तिम रेखा होइन; यो एक स्पेक्ट्रम हो। के तपाईंले कफी अर्डर गर्न सक्नुभयो भने तपाईं फरर हुनुहुन्छ? वा तपाईंले दर्शनमा बहस गर्न आवश्यक छ? अपरिभाषित "प्रवाह" को पछि लागेर, तपाईं आफैलाई असफलताको लागि तयार गर्दै हुनुहुन्छ किनकि तपाईंलाई कहिल्यै पुगेको महसुस हुँदैन। तपाईंलाई कोसेढुङ्गाहरू (milestones) चाहिन्छ।</p>
-          <h2>S.M.A.R.T. डिकोड गर्दै</h2>
+          <p>तपाईंले Duolingo उल्लूको रूख पूरा गर्नुभयो। तपाईंसँग ५०० दिनको स्ट्रिक छ। तर के तपाईं पेरिसमा नडराइकन कफी अर्डर गर्न सक्नुहुन्छ? सायद सक्नुहुन्न।</p>
+          <h2>गेमिफिकेशनको पासो</h2>
+          <p>Duolingo जस्ता एपहरूले तपाईंलाई वास्तवमा नसिकिकन सिक्सिरहेको महसुस गराउँछन्। तिनीहरू <strong>संलग्नता</strong> को लागि अप्टिमाइज गर्छन्, प्रवाहको लागि होइन। "भालुले स्याउ खान्छ" अनुवाद गर्नु कुराकानी गर्नु जस्तै होइन।</p>
+          <h2>CEFR स्तरहरू: वास्तविक मेट्रिक्स</h2>
+          <p>वास्तविक भाषा दक्षता CEFR मापन (A1 देखि C2) द्वारा मापन गरिन्छ।</p>
           <ul>
-            <li><strong>S - विशिष्ट (Specific):</strong> अस्पष्ट लक्ष्यहरूले अस्पष्ट नतिजाहरू दिन्छ। "म स्पेनिश पढ्नेछु" भन्नुको सट्टा, "म होटल बुकिङसँग सम्बन्धित २० वटा शब्दावली सिक्नेछु" भन्नुहोस्। जति विशिष्ट, उति राम्रो।</li>
-            <li><strong>M - मापनयोग्य (Measurable):</strong> यदि तपाईं यसलाई मापन गर्न सक्नुहुन्न भने, तपाईं यसलाई व्यवस्थापन गर्न सक्नुहुन्न। "सुन्ने क्षमता सुधार" एक भावना हो। "५ मिनेटको युट्युब भिडियोको ७०% बुझ्नु" एक मेट्रिक हो। आफैलाई स्कोरकार्ड दिनुहोस्।</li>
-            <li><strong>A - प्राप्त गर्न सकिने (Achievable):</strong> आफ्नो तालिकाप्रति इमानदार हुनुहोस्। यदि तपाईं हप्तामा ६० घण्टा काम गर्नुहुन्छ भने, दिनमा २ घण्टा पढ्ने लक्ष्य राख्नु भनेको आफैलाई छोड्न तयार गर्नु हो। निरन्तरताले तीव्रतालाई जित्छ। दिनमा १५ मिनेटको लक्ष्य राख्नुहोस्, र यसलाई १००% पूरा गर्नुहोस्।</li>
-            <li><strong>R - सान्दर्भिक (Relevant):</strong> तपाईं किन सिक्दै हुनुहुन्छ? यदि यो यात्राको लागि हो भने, व्यापारिक शब्दजालमा समय बर्बाद नगर्नुहोस्। यदि यो मङ्गा पढ्नको लागि हो भने, औपचारिक भाषणमा ध्यान केन्द्रित नगर्नुहोस्। तपाईंलाई <em>अहिले</em> उत्साहित गर्ने कुरा सिक्नुहोस्।</li>
-            <li><strong>T - समयबद्ध (Time-bound):</strong> समय सीमा बिनाको लक्ष्य केवल एक इच्छा हो। "कुनै दिन" हप्ताको दिन होइन। मिति सेट गर्नुहोस्: "जुलाई १ सम्म, म ५ मिनेटको कुराकानी गर्नेछु।" हतारले ध्यान केन्द्रित गर्छ।</li>
+            <li><strong>A1-A2 (पर्यटक):</strong> तपाईं बाँच्न सक्नुहुन्छ। "शौचालय कहाँ छ?"</li>
+            <li><strong>B1-B2 (स्वतन्त्र):</strong> तपाईं काम गर्न र साथीहरू बनाउन सक्नुहुन्छ। यहाँ प्रवाह रहन्छ।</li>
+            <li><strong>C1-C2 (निपुणता):</strong> तपाईं शैक्षिक पेपरहरू लेख्न सक्नुहुन्छ।</li>
           </ul>
-          <h2>नराम्रो देखि राम्रो सम्म</h2>
-          <p><strong>नराम्रो लक्ष्य:</strong> "म यो वर्ष जापानी सिक्न चाहन्छु।" (धेरै ठूलो, धेरै अस्पष्ट)</p>
-          <p><strong>SMART लक्ष्य:</strong> "डिसेम्बर ३१ सम्म, म नोटहरू नहेरी, भिडियोमा रेकर्ड गरिएको मेरो शौक र जागिर सहित जापानी भाषामा मेरो आत्म-परिचय दिनेछु।"</p>
-          <h2>निष्कर्ष</h2>
-          <p>प्रवाहको कामना गर्न छोड्नुहोस् र यसको लागि योजना बनाउन सुरु गर्नुहोस्। तपाईंको ठूलो सपनालाई साना, जित्न सकिने SMART लक्ष्यहरूमा तोड्नुहोस्। प्रत्येक पटक जब तपाईं एउटा पूरा गर्नुहुन्छ, तपाईं अर्कोसँग जुध्न आत्मविश्वास निर्माण गर्नुहुन्छ। हिमाल त्यसरी नै चढिन्छ - एक पटकमा एक पाइला।</p>
-</article>
+          <h2>एपबाट कसरी बच्ने</h2>
+          <p>शब्दावलीको लागि एपहरू प्रयोग गर्नुहोस्, तर तिनीहरूलाई मुख्य भोजनको रूपमा व्यवहार गर्न बन्द गर्नुहोस्। B1 पुग्न, तपाईंले मानिसहरूसँग कुरा गर्नुपर्छ र वास्तविक मिडिया उपभोग गर्नुपर्छ। यदि यो तपाईंको एकमात्र विधि हो भने एप हटाउनुहोस्।</p>
+        </article>
       `;
 
 
 const POST_SMART_CONTENT_SI = `
         <article>
-          <p>'म फरर बोल्न चाहन्छु' एउटा नराम्रो लक्ष्य हो। यसको सट्टा SMART लक्ष्यहरू सेट गर्नुहोस्।</p>
-          <h2>SMART डिकोड गर्दै</h2>
+          <p>ඔබ Duolingo බකමූණ ගස අවසන් කළා. ඔබට දින 500ක අඛණ්ඩ වාර්තාවක් ඇත. නමුත් ඔබට පැරිසියේදී කලබල නොවී කෝපි එකක් ඇණවුම් කළ හැකිද? බොහෝ විට නොහැක.</p>
+          <h2>Gamification උගුල</h2>
+          <p>Duolingo වැනි යෙදුම් ඔබට ඇත්ත වශයෙන්ම ඉගෙන නොගෙන ඉගෙන ගන්නා බවක් දැනීමට ඉඩ සලසයි. ඔවුන් ප්‍රශස්ත කරන්නේ <strong>සම්බන්ධතාවය</strong> සඳහා මිස, චතුරභාවය සඳහා නොවේ. "වලහා ඇපල් ගෙඩියක් කයි" පරිවර්තනය කිරීම සංවාදයක් පැවැත්වීම හා සමාන නොවේ.</p>
+          <h2>CEFR මට්ටම්: සැබෑ මිමි</h2>
+          <p>සැබෑ භාෂා ප්‍රවීණතාවය CEFR පරිමාණයෙන් (A1 සිට C2 දක්වා) මනිනු ලැබේ.</p>
           <ul>
-            <li><strong>S - विशिष्ट (Specific):</strong> स्पष्ट हुनुहोस्।</li>
-            <li><strong>M - मापनयोग्य (Measurable):</strong> यसलाई मापन गर्नुहोस्।</li>
-            <li><strong>A - प्राप्य (Achievable):</strong> यथार्थवादी हुनुहोस्।</li>
-            <li><strong>R - सान्दर्भिक (Relevant):</strong> यो किन महत्त्वपूर्ण छ?</li>
-            <li><strong>T - समयबद्ध (Time-bound):</strong> एउटा म्याद तोक्नुहोस्।</li>
+            <li><strong>A1-A2 (සංචාරක):</strong> ඔබට ජීවත් විය හැක. "වැසිකිළිය කොහෙද?"</li>
+            <li><strong>B1-B2 (ස්වාධීන):</strong> ඔබට වැඩ කිරීමට සහ මිතුරන් ඇති කර ගත හැක. චතුරභාවය ඇත්තේ මෙතනය.</li>
+            <li><strong>C1-C2 (ප්‍රවීණත්වය):</strong> ඔබට ශාස්ත්‍රීය ලිපි ලියන්න පුළුවන්.</li>
           </ul>
+          <h2>යෙදුමෙන් ගැලවෙන්නේ කෙසේද</h2>
+          <p>වචන මාලාව සඳහා යෙදුම් භාවිතා කරන්න, නමුත් ඒවා ප්‍රධාන ආහාර වේල ලෙස සැලකීම නවත්වන්න. B1 වෙත ළඟා වීමට, ඔබ මිනිසුන් සමඟ කතා කළ යුතු අතර සැබෑ මාධ්‍ය පරිභෝජනය කළ යුතුය. එය ඔබගේ එකම ක්‍රමය නම් යෙදුම මකා දමන්න.</p>
         </article>
       `;
 
 const POST_SMART_CONTENT_SW = `
         <article>
-          <p>'Nataka kuwa fasaha' ni lengo baya. Weka malengo ya SMART badala yake.</p>
-          <h2>Kufafanua SMART</h2>
+          <p>Umemaliza mti wa bundi wa Duolingo. Una mfululizo wa siku 500. Lakini je, unaweza kuagiza kahawa mjini Paris bila hofu? Pengine hapana.</p>
+          <h2>Mtego wa Gamification</h2>
+          <p>Programu kama Duolingo hukuruhusu kuhisi kama unajifunza bila kujifunza kweli. Wanaboresha kwa ajili ya <strong>ushiriki</strong>, si ufasaha. Kutafsiri "Dubu anakula tufaha" si sawa na kufanya mazungumzo.</p>
+          <h2>Viwango vya CEFR: Vipimo Halisi</h2>
+          <p>Umahiri halisi wa lugha hupimwa na kipimo cha CEFR (A1 hadi C2).</p>
           <ul>
-            <li><strong>S - Mahususi (Specific):</strong> Kuwa wazi.</li>
-            <li><strong>M - Inapimika (Measurable):</strong> Ipime.</li>
-            <li><strong>A - Inawezekana (Achievable):</strong> Kuwa na uhalisia.</li>
-            <li><strong>R - Inafaa (Relevant):</strong> Kwa nini ni muhimu?</li>
-            <li><strong>T - Ina muda maalum (Time-bound):</strong> Weka tarehe ya mwisho.</li>
+            <li><strong>A1-A2 (Mtalii):</strong> Unaweza kuishi. "Choo kiko wapi?"</li>
+            <li><strong>B1-B2 (Huru):</strong> Unaweza kufanya kazi na kuwa na marafiki. Hapa ndipo ufasaha unaishi.</li>
+            <li><strong>C1-C2 (Umahiri):</strong> Unaweza kuandika makala za kitaaluma.</li>
           </ul>
+          <h2>Jinsi ya Kutoroka Programu</h2>
+          <p>Tumia programu kwa msamiati, lakini acha kuzichukulia kama chakula kikuu. Ili kufikia B1, unahitaji kuzungumza na binadamu na kutumia vyombo vya habari halisi. Futa programu ikiwa ni njia yako pekee.</p>
         </article>
       `;
 
 // ==========================================
 // Post 4: How to Find (and Keep) a Language Partner
 // ==========================================
-const POST_PARTNER_CONTENT_EN = `
+const POST_NO_SUBTITLES_CONTENT_EN = `
         <article>
-          <p>Be specific about what you want. Do you want correction? Or just casual chat?</p>
+          <p>You’re watching *Squid Game*. You feel like you’re learning Korean. But if I turn off the subtitles, can you understand what they said? No. You were reading English, not listening to Korean.</p>
+          <h2>The Subtitle Crutch</h2>
+          <p>When subtitles are on, your brain chooses the path of least resistance: reading. It ignores the audio. You aren't training your ears; you're training your speed-reading skills.</p>
+          <h2>The "Comprehensible Input" Trap</h2>
+          <p>Stephen Krashen says we need input we can understand. But if the <em>understanding</em> comes from the text, the audio becomes background noise. To learn <strong>listening</strong>, the understanding must come from the <strong>sound</strong> (and context).</p>
+          <h2>The Solution: The 3-Step Method</h2>
+          <ol>
+            <li><strong>Watch with Subs (L1):</strong> Understand the plot.</li>
+            <li><strong>Watch with Subs (L2):</strong> Connect sounds to words.</li>
+            <li><strong>Watch Raw (No Subs):</strong> This is where the magic happens. Your brain <em>must</em> listen to survive.</li>
+          </ol>
+          <h2>Conclusion</h2>
+          <p>It’s painful at first. You will feel lost. But that struggle is your brain rewiring itself to process foreign sounds. Embrace the confusion.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_KO = `
+const POST_NO_SUBTITLES_CONTENT_KO = `
         <article>
-          <p>원하는 것을 구체적으로 말하세요. 교정을 원하시나요? 아니면 가벼운 잡담을 원하시나요?</p>
+          <p>당신은 *오징어 게임*을 보고 있습니다. 한국어를 배우고 있다고 느끼죠. 하지만 자막을 끄면 그들이 무슨 말을 했는지 알아들을 수 있나요? 아니요. 당신은 한국어를 듣는 게 아니라 영어를 읽고 있었습니다.</p>
+          <h2>자막이라는 목발</h2>
+          <p>자막이 켜져 있으면 뇌는 가장 저항이 적은 경로인 '읽기'를 선택합니다. 오디오는 무시하죠. 당신은 귀를 훈련하는 게 아니라 속독 기술을 훈련하고 있는 겁니다.</p>
+          <h2>'이해 가능한 입력'의 함정</h2>
+          <p>스티븐 크라센은 우리가 이해할 수 있는 입력이 필요하다고 말합니다. 하지만 <em>이해</em>가 텍스트에서 나온다면, 오디오는 배경 소음이 됩니다. <strong>듣기</strong>를 배우려면, 이해는 <strong>소리</strong>(와 문맥)에서 나와야 합니다.</p>
+          <h2>해결책: 3단계 방법</h2>
+          <ol>
+            <li><strong>자막과 함께 보기 (L1):</strong> 줄거리를 이해하세요.</li>
+            <li><strong>자막과 함께 보기 (L2):</strong> 소리와 단어를 연결하세요.</li>
+            <li><strong>생으로 보기 (자막 없음):</strong> 여기서 마법이 일어납니다. 당신의 뇌는 살아남기 위해 <em>들어야만</em> 합니다.</li>
+          </ol>
+          <h2>결론</h2>
+          <p>처음에는 고통스럽습니다. 길을 잃은 기분이 들 겁니다. 하지만 그 투쟁이야말로 당신의 뇌가 외국어 소리를 처리하도록 재배선되는 과정입니다. 혼란을 받아들이세요.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_JA = `
+const POST_NO_SUBTITLES_CONTENT_JA = `
         <article>
-          <p>自分が何を望んでいるのかを具体的に伝えてください。訂正してほしいですか？それともただの雑談がいいですか？</p>
+          <p>あなたは『イカゲーム』を見ています。韓国語を学んでいるような気分になります。でも字幕を消したら、彼らが何と言ったか理解できますか？いいえ。あなたは韓国語を聞いていたのではなく、英語を読んでいたのです。</p>
+          <h2>字幕という松葉杖</h2>
+          <p>字幕がオンになっていると、脳は最も抵抗の少ない道、「読むこと」を選びます。音声は無視されます。あなたは耳を鍛えているのではなく、速読スキルを鍛えているのです。</p>
+          <h2>「理解可能なインプット」の罠</h2>
+          <p>スティーブン・クラッシェンは、理解できるインプットが必要だと言います。しかし、<em>理解</em>がテキストから来るなら、音声は背景ノイズになります。<strong>リスニング</strong>を学ぶには、理解は<strong>音</strong>（と文脈）から来なければなりません。</p>
+          <h2>解決策：3ステップ法</h2>
+          <ol>
+            <li><strong>字幕ありで見る（L1）：</strong> プロットを理解する。</li>
+            <li><strong>字幕ありで見る（L2）：</strong> 音と単語を結びつける。</li>
+            <li><strong>生で見る（字幕なし）：</strong> ここで魔法が起こります。あなたの脳は生き残るために<em>聞かなければ</em>なりません。</li>
+          </ol>
+          <h2>結論</h2>
+          <p>最初は苦痛です。迷子になったように感じるでしょう。しかし、その葛藤こそが、外国語の音声を処理するために脳が再配線されている過程なのです。混乱を受け入れましょう。</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_ZH = `
+const POST_NO_SUBTITLES_CONTENT_ZH = `
         <article>
-          <p>具体说明你想要什么。你想要纠正吗？还是只是随意的聊天？</p>
+          <p>你正在看《鱿鱼游戏》。你觉得自己正在学习韩语。但是如果我关掉字幕，你能听懂他们在说什么吗？不。你在读英语，而不是听韩语。</p>
+          <h2>字幕的拐杖</h2>
+          <p>当字幕开启时，你的大脑会选择阻力最小的路径：阅读。它会忽略音频。你不是在训练你的耳朵；你是在训练你的速读技能。</p>
+          <h2>“可理解输入”的陷阱</h2>
+          <p>斯蒂芬·克拉申说我们需要我们能理解的输入。但如果<em>理解</em>来自文本，音频就变成了背景噪音。要学习<strong>听力</strong>，理解必须来自<strong>声音</strong>（和语境）。</p>
+          <h2>解决方案：三步法</h2>
+          <ol>
+            <li><strong>带字幕观看（L1）：</strong> 理解情节。</li>
+            <li><strong>带字幕观看（L2）：</strong> 将声音与单词联系起来。</li>
+            <li><strong>生肉观看（无字幕）：</strong> 这就是奇迹发生的地方。你的大脑为了生存<em>必须</em>去听。</li>
+          </ol>
+          <h2>结论</h2>
+          <p>起初很痛苦。你会感到迷失。但那种挣扎正是你的大脑重新连接以处理外语声音的过程。拥抱困惑。</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_ES = `
+const POST_NO_SUBTITLES_CONTENT_ES = `
         <article>
-          <p>Sé específico sobre lo que quieres. ¿Quieres correcciones? ¿O simplemente una charla informal?</p>
+          <p>Estás viendo *El juego del calamar*. Sientes que estás aprendiendo coreano. Pero si apago los subtítulos, ¿puedes entender lo que dijeron? No. Estabas leyendo inglés, no escuchando coreano.</p>
+          <h2>La muleta de los subtítulos</h2>
+          <p>Cuando los subtítulos están activados, tu cerebro elige el camino de menor resistencia: leer. Ignora el audio. No estás entrenando tus oídos; estás entrenando tus habilidades de lectura rápida.</p>
+          <h2>La trampa de la "Entrada Comprensible"</h2>
+          <p>Stephen Krashen dice que necesitamos una entrada que podamos entender. Pero si la <em>comprensión</em> proviene del texto, el audio se convierte en ruido de fondo. Para aprender a <strong>escuchar</strong>, la comprensión debe provenir del <strong>sonido</strong> (y el contexto).</p>
+          <h2>La Solución: El Método de 3 Pasos</h2>
+          <ol>
+            <li><strong>Ver con subtítulos (L1):</strong> Entiende la trama.</li>
+            <li><strong>Ver con subtítulos (L2):</strong> Conecta sonidos con palabras.</li>
+            <li><strong>Ver sin editar (Sin subtítulos):</strong> Aquí es donde ocurre la magia. Tu cerebro <em>debe</em> escuchar para sobrevivir.</li>
+          </ol>
+          <h2>Conclusión</h2>
+          <p>Al principio es doloroso. Te sentirás perdido. Pero esa lucha es tu cerebro recableándose para procesar sonidos extranjeros. Acepta la confusión.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_FR = `
+const POST_NO_SUBTITLES_CONTENT_FR = `
         <article>
-          <p>Soyez précis sur ce que vous voulez. Voulez-vous être corrigé ? Ou juste une discussion décontractée ?</p>
+          <p>Vous regardez *Squid Game*. Vous avez l'impression d'apprendre le coréen. Mais si je désactive les sous-titres, pouvez-vous comprendre ce qu'ils ont dit ? Non. Vous lisiez l'anglais, vous n'écoutiez pas le coréen.</p>
+          <h2>La béquille des sous-titres</h2>
+          <p>Lorsque les sous-titres sont activés, votre cerveau choisit la voie de la moindre résistance : la lecture. Il ignore l'audio. Vous n'entraînez pas vos oreilles ; vous entraînez vos compétences en lecture rapide.</p>
+          <h2>Le piège de l'"Entrée Compréhensible"</h2>
+          <p>Stephen Krashen dit que nous avons besoin d'une entrée que nous pouvons comprendre. Mais si la <em>compréhension</em> vient du texte, l'audio devient un bruit de fond. Pour apprendre à <strong>écouter</strong>, la compréhension doit venir du <strong>son</strong> (et du contexte).</p>
+          <h2>La Solution : La Méthode en 3 Étapes</h2>
+          <ol>
+            <li><strong>Regarder avec sous-titres (L1) :</strong> Comprendre l'intrigue.</li>
+            <li><strong>Regarder avec sous-titres (L2) :</strong> Connecter les sons aux mots.</li>
+            <li><strong>Regarder brut (Sans sous-titres) :</strong> C'est là que la magie opère. Votre cerveau <em>doit</em> écouter pour survivre.</li>
+          </ol>
+          <h2>Conclusion</h2>
+          <p>C'est douloureux au début. Vous vous sentirez perdu. Mais cette lutte est votre cerveau qui se recâble pour traiter les sons étrangers. Embrassez la confusion.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_DE = `
+const POST_NO_SUBTITLES_CONTENT_DE = `
         <article>
-          <p>Seien Sie spezifisch, was Sie wollen. Wollen Sie Korrekturen? Oder nur eine lockere Unterhaltung?</p>
+          <p>Du schaust *Squid Game*. Du hast das Gefühl, Koreanisch zu lernen. Aber wenn ich die Untertitel ausschalte, kannst du verstehen, was sie gesagt haben? Nein. Du hast Englisch gelesen, nicht Koreanisch gehört.</p>
+          <h2>Die Untertitel-Krücke</h2>
+          <p>Wenn Untertitel eingeschaltet sind, wählt dein Gehirn den Weg des geringsten Widerstands: Lesen. Es ignoriert das Audio. Du trainierst nicht deine Ohren; du trainierst deine Schnelllesefähigkeiten.</p>
+          <h2>Die "Verständlicher Input"-Falle</h2>
+          <p>Stephen Krashen sagt, wir brauchen Input, den wir verstehen können. Aber wenn das <em>Verständnis</em> aus dem Text kommt, wird das Audio zu Hintergrundgeräuschen. Um <strong>Hören</strong> zu lernen, muss das Verständnis aus dem <strong>Klang</strong> (und dem Kontext) kommen.</p>
+          <h2>Die Lösung: Die 3-Schritte-Methode</h2>
+          <ol>
+            <li><strong>Mit Untertiteln schauen (L1):</strong> Die Handlung verstehen.</li>
+            <li><strong>Mit Untertiteln schauen (L2):</strong> Klänge mit Wörtern verbinden.</li>
+            <li><strong>Roh schauen (Keine Untertitel):</strong> Hier passiert die Magie. Dein Gehirn <em>muss</em> zuhören, um zu überleben.</li>
+          </ol>
+          <h2>Fazit</h2>
+          <p>Es ist anfangs schmerzhaft. Du wirst dich verloren fühlen. Aber dieser Kampf ist dein Gehirn, das sich neu verdrahtet, um fremde Klänge zu verarbeiten. Umarme die Verwirrung.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_TH = `
+const POST_NO_SUBTITLES_CONTENT_TH = `
         <article>
-          <p>ระบุสิ่งที่คุณต้องการให้ชัดเจน คุณต้องการการแก้ไขหรือไม่? หรือแค่คุยเล่นสบายๆ?</p>
+          <p>คุณกำลังดู *Squid Game* คุณรู้สึกเหมือนกำลังเรียนภาษาเกาหลี แต่ถ้าฉันปิดซับไตเติ้ล คุณจะเข้าใจสิ่งที่พวกเขาพูดไหม? ไม่ครับ คุณกำลังอ่านภาษาอังกฤษ ไม่ได้ฟังภาษาเกาหลี</p>
+          <h2>ไม้ค้ำยันที่เรียกว่าซับไตเติ้ล</h2>
+          <p>เมื่อเปิดซับไตเติ้ล สมองของคุณจะเลือกเส้นทางที่ต้านทานน้อยที่สุด: การอ่าน มันละเลยเสียง คุณไม่ได้ฝึกหูของคุณ; คุณกำลังฝึกทักษะการอ่านเร็วของคุณ</p>
+          <h2>กับดัก "ข้อมูลที่เข้าใจได้"</h2>
+          <p>Stephen Krashen บอกว่าเราต้องการข้อมูลที่เราเข้าใจได้ แต่ถ้า <em>ความเข้าใจ</em> มาจากข้อความ เสียงจะกลายเป็นเสียงรบกวนพื้นหลัง เพื่อเรียนรู้การ<strong>ฟัง</strong> ความเข้าใจต้องมาจาก<strong>เสียง</strong> (และบริบท)</p>
+          <h2>ทางแก้: วิธี 3 ขั้นตอน</h2>
+          <ol>
+            <li><strong>ดูพร้อมซับ (L1):</strong> เข้าใจพล็อตเรื่อง</li>
+            <li><strong>ดูพร้อมซับ (L2):</strong> เชื่อมโยงเสียงกับคำ</li>
+            <li><strong>ดูแบบดิบๆ (ไม่มีซับ):</strong> นี่คือที่ที่เวทมนตร์เกิดขึ้น สมองของคุณ <em>ต้อง</em> ฟังเพื่อความอยู่รอด</li>
+          </ol>
+          <h2>บทสรุป</h2>
+          <p>มันเจ็บปวดในตอนแรก คุณจะรู้สึกหลงทาง แต่ความดิ้นรนนั้นคือการที่สมองของคุณกำลังเชื่อมต่อใหม่เพื่อประมวลผลเสียงต่างประเทศ โอบกอดความสับสนนั้นไว้ครับ</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_VI = `
+const POST_NO_SUBTITLES_CONTENT_VI = `
         <article>
-          <p>Hãy cụ thể về những gì bạn muốn. Bạn có muốn được sửa lỗi không? Hay chỉ là trò chuyện bình thường?</p>
+          <p>Bạn đang xem *Squid Game*. Bạn cảm thấy như mình đang học tiếng Hàn. Nhưng nếu tôi tắt phụ đề, bạn có hiểu họ nói gì không? Không. Bạn đang đọc tiếng Anh, không phải nghe tiếng Hàn.</p>
+          <h2>Cái nạng Phụ đề</h2>
+          <p>Khi bật phụ đề, não của bạn chọn con đường ít kháng cự nhất: đọc. Nó bỏ qua âm thanh. Bạn không đang rèn luyện đôi tai của mình; bạn đang rèn luyện kỹ năng đọc nhanh của mình.</p>
+          <h2>Cái bẫy "Đầu vào Dễ hiểu"</h2>
+          <p>Stephen Krashen nói rằng chúng ta cần đầu vào mà chúng ta có thể hiểu được. Nhưng nếu <em>sự hiểu biết</em> đến từ văn bản, âm thanh sẽ trở thành tiếng ồn nền. Để học <strong>nghe</strong>, sự hiểu biết phải đến từ <strong>âm thanh</strong> (và ngữ cảnh).</p>
+          <h2>Giải pháp: Phương pháp 3 Bước</h2>
+          <ol>
+            <li><strong>Xem với Phụ đề (L1):</strong> Hiểu cốt truyện.</li>
+            <li><strong>Xem với Phụ đề (L2):</strong> Kết nối âm thanh với từ ngữ.</li>
+            <li><strong>Xem thô (Không phụ đề):</strong> Đây là nơi phép màu xảy ra. Bộ não của bạn <em>phải</em> nghe để tồn tại.</li>
+          </ol>
+          <h2>Kết luận</h2>
+          <p>Lúc đầu thật đau đớn. Bạn sẽ cảm thấy lạc lõng. Nhưng cuộc đấu tranh đó là bộ não của bạn đang tự điều chỉnh để xử lý những âm thanh lạ. Hãy đón nhận sự bối rối.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_ID = `
+const POST_NO_SUBTITLES_CONTENT_ID = `
         <article>
-          <p>Jelaskan secara spesifik apa yang Anda inginkan. Apakah Anda ingin dikoreksi? Atau hanya obrolan santai?</p>
+          <p>Anda sedang menonton *Squid Game*. Anda merasa seperti sedang belajar bahasa Korea. Tapi jika saya mematikan subtitle, bisakah Anda mengerti apa yang mereka katakan? Tidak. Anda membaca bahasa Inggris, bukan mendengarkan bahasa Korea.</p>
+          <h2>Tongkat Penyangga Subtitle</h2>
+          <p>Saat subtitle aktif, otak Anda memilih jalan yang paling sedikit hambatannya: membaca. Ia mengabaikan audio. Anda tidak melatih telinga Anda; Anda melatih keterampilan membaca cepat Anda.</p>
+          <h2>Jebakan "Input yang Dapat Dipahami"</h2>
+          <p>Stephen Krashen mengatakan kita membutuhkan input yang dapat kita pahami. Tapi jika <em>pemahaman</em> berasal dari teks, audio menjadi kebisingan latar belakang. Untuk belajar <strong>mendengarkan</strong>, pemahaman harus berasal dari <strong>suara</strong> (dan konteks).</p>
+          <h2>Solusi: Metode 3 Langkah</h2>
+          <ol>
+            <li><strong>Tonton dengan Subtitle (L1):</strong> Pahami alur ceritanya.</li>
+            <li><strong>Tonton dengan Subtitle (L2):</strong> Hubungkan suara dengan kata-kata.</li>
+            <li><strong>Tonton Mentah (Tanpa Subtitle):</strong> Di sinilah keajaiban terjadi. Otak Anda <em>harus</em> mendengarkan untuk bertahan hidup.</li>
+          </ol>
+          <h2>Kesimpulan</h2>
+          <p>Awalnya menyakitkan. Anda akan merasa tersesat. Tapi perjuangan itu adalah otak Anda yang sedang menyambungkan kembali dirinya untuk memproses suara asing. Rangkullah kebingungan itu.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_PT = `
+const POST_NO_SUBTITLES_CONTENT_PT = `
         <article>
-          <p>Seja específico sobre o que você quer. Você quer correção? Ou apenas um bate-papo casual?</p>
+          <p>Você está assistindo *Round 6*. Você sente que está aprendendo coreano. Mas se eu desligar as legendas, você consegue entender o que eles disseram? Não. Você estava lendo inglês, não ouvindo coreano.</p>
+          <h2>A Muleta da Legenda</h2>
+          <p>Quando as legendas estão ligadas, seu cérebro escolhe o caminho de menor resistência: ler. Ele ignora o áudio. Você não está treinando seus ouvidos; você está treinando suas habilidades de leitura dinâmica.</p>
+          <h2>A Armadilha da "Entrada Compreensível"</h2>
+          <p>Stephen Krashen diz que precisamos de entrada que possamos entender. Mas se a <em>compreensão</em> vem do texto, o áudio se torna ruído de fundo. Para aprender a <strong>ouvir</strong>, a compreensão deve vir do <strong>som</strong> (e contexto).</p>
+          <h2>A Solução: O Método de 3 Passos</h2>
+          <ol>
+            <li><strong>Assistir com Legendas (L1):</strong> Entenda o enredo.</li>
+            <li><strong>Assistir com Legendas (L2):</strong> Conecte sons a palavras.</li>
+            <li><strong>Assistir Puro (Sem Legendas):</strong> É aqui que a mágica acontece. Seu cérebro <em>deve</em> ouvir para sobreviver.</li>
+          </ol>
+          <h2>Conclusão</h2>
+          <p>É doloroso no começo. Você se sentirá perdido. Mas essa luta é seu cérebro se reconfigurando para processar sons estrangeiros. Abrace a confusão.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_TR = `
+const POST_NO_SUBTITLES_CONTENT_TR = `
         <article>
-          <p>Ne istediğiniz konusunda spesifik olun. Düzeltilmek mi istiyorsunuz? Yoksa sadece havadan sudan konuşmak mı?</p>
+          <p>*Squid Game* izliyorsunuz. Korece öğrendiğinizi hissediyorsunuz. Ama altyazıları kapatırsam, ne dediklerini anlayabilir misiniz? Hayır. İngilizce okuyordunuz, Korece dinlemiyordunuz.</p>
+          <h2>Altyazı Koltuk Değneği</h2>
+          <p>Altyazılar açık olduğunda, beyniniz en az dirençli yolu seçer: okumak. Sesi görmezden gelir. Kulaklarınızı eğitmiyorsunuz; hızlı okuma becerilerinizi eğitiyorsunuz.</p>
+          <h2>"Anlaşılabilir Girdi" Tuzağı</h2>
+          <p>Stephen Krashen, anlayabileceğimiz girdiye ihtiyacımız olduğunu söylüyor. Ama <em>anlama</em> metinden geliyorsa, ses arka plan gürültüsü olur. <strong>Dinlemeyi</strong> öğrenmek için, anlayış <strong>sesten</strong> (ve bağlamdan) gelmelidir.</p>
+          <h2>Çözüm: 3 Adımlı Yöntem</h2>
+          <ol>
+            <li><strong>Altyazılı İzle (L1):</strong> Konuyu anla.</li>
+            <li><strong>Altyazılı İzle (L2):</strong> Sesleri kelimelere bağla.</li>
+            <li><strong>Ham İzle (Altyazısız):</strong> Sihrin gerçekleştiği yer burasıdır. Beyniniz hayatta kalmak için <em>dinlemelidir</em>.</li>
+          </ol>
+          <h2>Sonuç</h2>
+          <p>Başlangıçta acı vericidir. Kaybolmuş hissedeceksiniz. Ama bu mücadele, beyninizin yabancı sesleri işlemek için kendini yeniden yapılandırmasıdır. Karmaşayı kucaklayın.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_AR = `
+const POST_NO_SUBTITLES_CONTENT_AR = `
         <article>
-          <p>كن محددًا بشأن ما تريده. هل تريد التصحيح؟ أم مجرد دردشة غير رسمية؟</p>
+          <p>أنت تشاهد *Squid Game*. تشعر وكأنك تتعلم الكورية. ولكن إذا أطفأت الترجمة، هل يمكنك فهم ما قالوه؟ لا. كنت تقرأ الإنجليزية، وليس تستمع إلى الكورية.</p>
+          <h2>عكاز الترجمة</h2>
+          <p>عندما تكون الترجمة قيد التشغيل، يختار دماغك المسار الأقل مقاومة: القراءة. يتجاهل الصوت. أنت لا تدرب أذنيك؛ أنت تدرب مهارات القراءة السريعة لديك.</p>
+          <h2>فخ "المدخلات المفهومة"</h2>
+          <p>يقول ستيفن كراشين أننا بحاجة إلى مدخلات يمكننا فهمها. ولكن إذا كان <em>الفهم</em> يأتي من النص، يصبح الصوت ضوضاء خلفية. لتعلم <strong>الاستماع</strong>، يجب أن يأتي الفهم من <strong>الصوت</strong> (والسياق).</p>
+          <h2>الحل: طريقة الخطوات الثلاث</h2>
+          <ol>
+            <li><strong>شاهد مع ترجمة (L1):</strong> افهم الحبكة.</li>
+            <li><strong>شاهد مع ترجمة (L2):</strong> اربط الأصوات بالكلمات.</li>
+            <li><strong>شاهد خام (بدون ترجمة):</strong> هنا يحدث السحر. <em>يجب</em> على دماغك الاستماع للبقاء على قيد الحياة.</li>
+          </ol>
+          <h2>الخاتمة</h2>
+          <p>إنه مؤلم في البداية. ستشعر بالضياع. لكن هذا النضال هو إعادة توصيل دماغك لنفسه لمعالجة الأصوات الأجنبية. تقبل الارتباك.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_HI = `
+const POST_NO_SUBTITLES_CONTENT_HI = `
         <article>
-          <p>आप क्या चाहते हैं, इसके बारे में स्पष्ट रहें। क्या आप सुधार चाहते हैं? या बस अनौपचारिक बातचीत?</p>
+          <p>आप *Squid Game* देख रहे हैं। आपको लगता है कि आप कोरियाई सीख रहे हैं। लेकिन अगर मैं उपशीर्षक बंद कर दूँ, तो क्या आप समझ सकते हैं कि उन्होंने क्या कहा? नहीं। आप अंग्रेजी पढ़ रहे थे, कोरियाई सुन नहीं रहे थे।</p>
+          <h2>उपशीर्षक बैसाखी</h2>
+          <p>जब उपशीर्षक चालू होते हैं, तो आपका मस्तिष्क सबसे कम प्रतिरोध का रास्ता चुनता है: पढ़ना। यह ऑडियो की उपेक्षा करता है। आप अपने कानों को प्रशिक्षित नहीं कर रहे हैं; आप अपने गति-पढ़ने के कौशल को प्रशिक्षित कर रहे हैं।</p>
+          <h2>"बोधगम्य इनपुट" जाल</h2>
+          <p>स्टीफन क्रैशन का कहना है कि हमें ऐसे इनपुट की आवश्यकता है जिसे हम समझ सकें। लेकिन अगर <em>समझ</em> पाठ से आती है, तो ऑडियो पृष्ठभूमि शोर बन जाता है। <strong>सुनना</strong> सीखने के लिए, समझ <strong>ध्वनि</strong> (और संदर्भ) से आनी चाहिए।</p>
+          <h2>समाधान: 3-चरणीय विधि</h2>
+          <ol>
+            <li><strong>उपशीर्षक के साथ देखें (L1):</strong> कथानक को समझें।</li>
+            <li><strong>उपशीर्षक के साथ देखें (L2):</strong> ध्वनियों को शब्दों से जोड़ें।</li>
+            <li><strong>कच्चा देखें (कोई उपशीर्षक नहीं):</strong> यहीं जादू होता है। आपके मस्तिष्क को जीवित रहने के लिए <em>सुनना</em> होगा।</li>
+          </ol>
+          <h2>निष्कर्ष</h2>
+          <p>यह शुरू में दर्दनाक है। आप खोया हुआ महसूस करेंगे। लेकिन वह संघर्ष आपके मस्तिष्क का विदेशी ध्वनियों को संसाधित करने के लिए खुद को फिर से तार-तार करना है। भ्रम को गले लगाओ।</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_RU = `
+const POST_NO_SUBTITLES_CONTENT_RU = `
         <article>
-          <p>Будьте конкретны в том, чего вы хотите. Вы хотите исправлений? Или просто непринужденной болтовни?</p>
+          <p>Вы смотрите *Игру в кальмара*. Вам кажется, что вы учите корейский. Но если я выключу субтитры, сможете ли вы понять, что они сказали? Нет. Вы читали по-английски, а не слушали по-корейски.</p>
+          <h2>Костыль субтитров</h2>
+          <p>Когда субтитры включены, ваш мозг выбирает путь наименьшего сопротивления: чтение. Он игнорирует аудио. Вы не тренируете уши; вы тренируете навыки скорочтения.</p>
+          <h2>Ловушка «понятного ввода»</h2>
+          <p>Стивен Крашен говорит, что нам нужен ввод, который мы можем понять. Но если <em>понимание</em> исходит из текста, аудио становится фоновым шумом. Чтобы научиться <strong>слушать</strong>, понимание должно исходить из <strong>звука</strong> (и контекста).</p>
+          <h2>Решение: 3-шаговый метод</h2>
+          <ol>
+            <li><strong>Смотреть с субтитрами (L1):</strong> Понять сюжет.</li>
+            <li><strong>Смотреть с субтитрами (L2):</strong> Связать звуки со словами.</li>
+            <li><strong>Смотреть в оригинале (Без субтитров):</strong> Здесь происходит магия. Ваш мозг <em>должен</em> слушать, чтобы выжить.</li>
+          </ol>
+          <h2>Заключение</h2>
+          <p>Сначала это больно. Вы будете чувствовать себя потерянным. Но эта борьба — это перестройка вашего мозга для обработки иностранных звуков. Примите замешательство.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_BN = `
+const POST_NO_SUBTITLES_CONTENT_BN = `
         <article>
-          <p>আপনি কি চান সে সম্পর্কে নির্দিষ্ট হন। আপনি কি সংশোধন চান? নাকি শুধুই சாதாரண আড্ডা?</p>
+          <p>আপনি *স্কুইড গেম* দেখছেন। আপনার মনে হচ্ছে আপনি কোরিয়ান শিখছেন। কিন্তু আমি যদি সাবটাইটেল বন্ধ করে দিই, তবে তারা কী বলেছিল তা কি আপনি বুঝতে পারবেন? না। আপনি ইংরেজি পড়ছিলেন, কোরিয়ান শুনছিলেন না।</p>
+          <h2>সাবটাইটেল ক্রাচ</h2>
+          <p>যখন সাবটাইটেল চালু থাকে, তখন আপনার মস্তিষ্ক সবচেয়ে কম প্রতিরোধের পথ বেছে নেয়: পড়া। এটি অডিও উপেক্ষা করে। আপনি আপনার কানকে প্রশিক্ষণ দিচ্ছেন না; আপনি আপনার দ্রুত পড়ার দক্ষতাকে প্রশিক্ষণ দিচ্ছেন।</p>
+          <h2>"বোধগম্য ইনপুট" ফাঁদ</h2>
+          <p>স্টিফেন ক্রাশেন বলেছেন যে আমাদের এমন ইনপুট দরকার যা আমরা বুঝতে পারি। কিন্তু যদি <em>বোঝা</em> পাঠ্য থেকে আসে, তবে অডিওটি পটভূমির শব্দ হয়ে যায়। <strong>শোনা</strong> শিখতে, বোঝা অবশ্যই <strong>শব্দ</strong> (এবং প্রসঙ্গ) থেকে আসতে হবে।</p>
+          <h2>সমাধান: ৩-ধাপ পদ্ধতি</h2>
+          <ol>
+            <li><strong>সাব সহ দেখুন (L1):</strong> প্লট বুঝুন।</li>
+            <li><strong>সাব সহ দেখুন (L2):</strong> শব্দের সাথে শব্দ সংযুক্ত করুন।</li>
+            <li><strong>র দেখুন (কোন সাব নেই):</strong> এখানেই জাদু ঘটে। আপনার মস্তিষ্ককে বেঁচে থাকার জন্য <em>শুনতে</em> হবে।</li>
+          </ol>
+          <h2>উপসংহার</h2>
+          <p>প্রথমে এটি বেদনাদায়ক। আপনি হারিয়ে যাওয়া অনুভব করবেন। কিন্তু সেই সংগ্রাম হল আপনার মস্তিষ্ক বিদেশী শব্দ প্রক্রিয়া করার জন্য নিজেকে পুনরায় তারযুক্ত করা। বিভ্রান্তিকে আলিঙ্গন করুন।</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_UR = `
+const POST_NO_SUBTITLES_CONTENT_UR = `
         <article>
-          <p>اس بارے میں مخصوص رہیں کہ آپ کیا چاہتے ہیں۔ کیا آپ اصلاح چاہتے ہیں؟ یا صرف غیر رسمی بات چیت؟</p>
+          <p>آپ *Squid Game* دیکھ رہے ہیں۔ آپ کو لگتا ہے کہ آپ کورین سیکھ رہے ہیں۔ لیکن اگر میں سب ٹائٹلز بند کر دوں تو کیا آپ سمجھ سکتے ہیں کہ انہوں نے کیا کہا؟ نہیں۔ آپ انگریزی پڑھ رہے تھے، کورین سن نہیں رہے تھے۔</p>
+          <h2>سب ٹائٹل بیساکھی</h2>
+          <p>جب سب ٹائٹلز آن ہوتے ہیں، تو آپ کا دماغ کم سے کم مزاحمت کا راستہ منتخب کرتا ہے: پڑھنا۔ یہ آڈیو کو نظر انداز کرتا ہے۔ آپ اپنے کانوں کو تربیت نہیں دے رہے ہیں؛ آپ اپنی اسپیڈ ریڈنگ کی مہارت کو تربیت دے رہے ہیں۔</p>
+          <h2>"قابل فہم ان پٹ" جال</h2>
+          <p>اسٹیفن کرشین کا کہنا ہے کہ ہمیں ایسے ان پٹ کی ضرورت ہے جسے ہم سمجھ سکیں۔ لیکن اگر <em>سمجھ</em> متن سے آتی ہے، تو آڈیو پس منظر کا شور بن جاتا ہے۔ <strong>سننا</strong> سیکھنے کے لیے، سمجھ <strong>آواز</strong> (اور سیاق و سباق) سے آنی چاہیے۔</p>
+          <h2>حل: 3-مرحلہ طریقہ</h2>
+          <ol>
+            <li><strong>سبز کے ساتھ دیکھیں (L1):</strong> پلاٹ کو سمجھیں۔</li>
+            <li><strong>سبز کے ساتھ دیکھیں (L2):</strong> آوازوں کو الفاظ سے جوڑیں۔</li>
+            <li><strong>خام دیکھیں (کوئی سبز نہیں):</strong> یہیں جادو ہوتا ہے۔ آپ کے دماغ کو زندہ رہنے کے لیے <em>سننا</em> ہوگا۔</li>
+          </ol>
+          <h2>نتیجہ</h2>
+          <p>یہ شروع میں تکلیف دہ ہے۔ آپ کھویا ہوا محسوس کریں گے۔ لیکن وہ جدوجہد آپ کے دماغ کا غیر ملکی آوازوں پر عمل کرنے کے لیے خود کو دوبارہ وائر کرنا ہے۔ الجھن کو گلے لگائیں۔</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_NE = `
+const POST_NO_SUBTITLES_CONTENT_NE = `
         <article>
-          <p>तपाईं के चाहनुहुन्छ भन्ने बारे स्पष्ट हुनुहोस्। के तपाइँ सुधार चाहनुहुन्छ? वा मात्र अनौपचारिक कुराकानी?</p>
+          <p>तपाईं *Squid Game* हेर्दै हुनुहुन्छ। तपाईंलाई लाग्छ कि तपाईं कोरियाली सिक्दै हुनुहुन्छ। तर यदि मैले उपशीर्षकहरू बन्द गरेँ भने, के तपाईंले उनीहरूले के भने भनेर बुझ्न सक्नुहुन्छ? होइन। तपाईं अंग्रेजी पढ्दै हुनुहुन्थ्यो, कोरियाली सुन्दै हुनुहुन्न थियो।</p>
+          <h2>उपशीर्षक बैसाखी</h2>
+          <p>जब उपशीर्षकहरू अन हुन्छन्, तपाईंको दिमागले कम्तिमा प्रतिरोधको बाटो रोज्छ: पढ्ने। यसले अडियोलाई बेवास्ता गर्छ। तपाईं आफ्नो कानलाई तालिम दिइरहनुभएको छैन; तपाईं आफ्नो गति-पढ्ने कौशललाई तालिम दिइरहनुभएको छ।</p>
+          <h2>"बोधगम्य इनपुट" पासो</h2>
+          <p>स्टीफन क्र्यासेन भन्छन् कि हामीलाई इनपुट चाहिन्छ जुन हामीले बुझ्न सक्छौं। तर यदि <em>बुझाइ</em> पाठबाट आउँछ भने, अडियो पृष्ठभूमि शोर बन्छ। <strong>सुन्न</strong> सिक्नको लागि, बुझाइ <strong>ध्वनि</strong> (र सन्दर्भ) बाट आउनुपर्छ।</p>
+          <h2>समाधान: ३-चरण विधि</h2>
+          <ol>
+            <li><strong>सब्ससँग हेर्नुहोस् (L1):</strong> कथानक बुझ्नुहोस्।</li>
+            <li><strong>सब्ससँग हेर्नुहोस् (L2):</strong> ध्वनिहरूलाई शब्दहरूसँग जोड्नुहोस्।</li>
+            <li><strong>काँचो हेर्नुहोस् (कुनै सब्स छैन):</strong> यहीं जादु हुन्छ। तपाईंको दिमागले बाँच्नको लागि <em>सुन्नै पर्छ</em>।</li>
+          </ol>
+          <h2>निष्कर्ष</h2>
+          <p>यो सुरुमा पीडादायी छ। तपाईं हराएको महसुस गर्नुहुनेछ। तर त्यो संघर्ष भनेको तपाईंको दिमागले विदेशी ध्वनिहरू प्रशोधन गर्न आफैलाई पुन: तार गर्नु हो। भ्रमलाई अँगाल्नुहोस्।</p>
         </article>
       `;
 
 
-const POST_PARTNER_CONTENT_SI = `
+const POST_NO_SUBTITLES_CONTENT_SI = `
         <article>
-          <p>तपाईं के चाहनुहुन्छ भन्ने बारे स्पष्ट हुनुहोस्। के तपाइँ सुधार चाहनुहुन्छ? वा मात्र अनौपचारिक कुराकानी?</p>
+          <p>ඔබ *Squid Game* නරඹමින් සිටී. ඔබ කොරියානු භාෂාව ඉගෙන ගන්නා බව ඔබට හැඟේ. නමුත් මම උපසිරැසි ක්‍රියා විරහිත කළහොත්, ඔවුන් පැවසූ දේ ඔබට තේරුම් ගත හැකිද? නැත. ඔබ ඉංග්‍රීසි කියවමින් සිටියා මිස කොරියානු භාෂාවට සවන් දුන්නේ නැත.</p>
+          <h2>උපසිරැසි කිහිලිකරුව</h2>
+          <p>උපසිරැසි ක්‍රියාත්මක වන විට, ඔබේ මොළය අවම ප්‍රතිරෝධයේ මාවත තෝරා ගනී: කියවීම. එය ශ්‍රව්‍ය නොසලකා හරියි. ඔබ ඔබේ කන් පුහුණු කරන්නේ නැත; ඔබ ඔබේ වේගයෙන් කියවීමේ කුසලතා පුහුණු කරයි.</p>
+          <h2>"තේරුම් ගත හැකි ආදාන" උගුල</h2>
+          <p>Stephen Krashen පවසන්නේ අපට තේරුම් ගත හැකි ආදානය අවශ්‍ය බවයි. නමුත් <em>තේරුම් ගැනීම</em> පැමිණෙන්නේ පෙළෙන් නම්, ශ්‍රව්‍ය පසුබිම් ශබ්දයක් බවට පත්වේ. <strong>සවන්දීම</strong> ඉගෙන ගැනීමට, අවබෝධය <strong>ශබ්දයෙන්</strong> (සහ සන්දර්භය) පැමිණිය යුතුය.</p>
+          <h2>විසඳුම: පියවර 3 ක්‍රමය</h2>
+          <ol>
+            <li><strong>උපසිරැසි සමඟ නරඹන්න (L1):</strong> කතාව තේරුම් ගන්න.</li>
+            <li><strong>උපසිරැසි සමඟ නරඹන්න (L2):</strong> ශබ්ද වචනවලට සම්බන්ධ කරන්න.</li>
+            <li><strong>Raw නරඹන්න (උපසිරැසි නැත):</strong> මැජික් සිදු වන්නේ මෙතැනයි. ඔබේ මොළයට ජීවත් වීමට <em>සවන් දීමට</em> සිදුවේ.</li>
+          </ol>
+          <h2>නිගමනය</h2>
+          <p>එය මුලදී වේදනාකාරී ය. ඔබට අතරමං වූ බවක් දැනෙනු ඇත. නමුත් එම අරගලය විදේශීය ශබ්ද සැකසීම සඳහා ඔබේ මොළය නැවත සකස් කිරීමයි. ව්යාකූලත්වය වැළඳ ගන්න.</p>
         </article>
       `;
 
-const POST_PARTNER_CONTENT_SW = `
+const POST_NO_SUBTITLES_CONTENT_SW = `
         <article>
-          <p>Kuwa maalum kuhusu kile unachotaka. Je, unataka marekebisho? Au mazungumzo ya kawaida tu?</p>
+          <p>Unatazama *Squid Game*. Unahisi kama unajifunza Kikorea. Lakini nikizima manukuu, unaweza kuelewa walichosema? Hapana. Ulikuwa unasoma Kiingereza, husikilizi Kikorea.</p>
+          <h2>Haina ya Manukuu</h2>
+          <p>Manukuu yamewashwa, ubongo wako huchagua njia ya upinzani mdogo: kusoma. Inapuuza sauti. Hufunzi masikio yako; unafunza ujuzi wako wa kusoma kwa kasi.</p>
+          <h2>Mtego wa "Ingizo Inayoeleweka"</h2>
+          <p>Stephen Krashen anasema tunahitaji mchango tunaoweza kuelewa. Lakini ikiwa <em>uelewa</em> unatokana na maandishi, sauti inakuwa kelele ya chinichini. Ili kujifunza <strong>kusikiliza</strong>, uelewa lazima utoke kwa <strong>sauti</strong> (na muktadha).</p>
+          <h2>Suluhisho: Mbinu ya Hatua 3</h2>
+          <ol>
+            <li><strong>Tazama na Subs (L1):</strong> Elewa njama.</li>
+            <li><strong>Tazama na Subs (L2):</strong> Unganisha sauti na maneno.</li>
+            <li><strong>Tazama Ghafi (Hakuna Subs):</strong> Hapa ndipo maajabu hufanyika. Ubongo wako <em>lazima</em> usikilize ili kuishi.</li>
+          </ol>
+          <h2>Hitimisho</h2>
+          <p>Inauma mwanzoni. Utahisi kupotea. Lakini pambano hilo ni ubongo wako kujirekebisha ili kuchakata sauti za kigeni. Kubali mkanganyiko.</p>
         </article>
       `;
 
@@ -2669,26 +2682,26 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
   {
      id: "habits-vs-intensity",
      title: { 
-       en: "Consistency vs. Intensity: The Tortoise Wins", 
-       ko: "꾸준함 vs 강도: 결국 거북이가 이긴다",
-       ja: "一貫性 vs 強度：カメが勝つ",
-       zh: "一致性 vs 强度：乌龟胜出",
-       es: "Consistencia vs. Intensidad: La tortuga gana",
-       fr: "Cohérence vs Intensité : La tortue gagne",
-       de: "Konsistenz vs. Intensität: Die Schildkröte gewinnt",
-       th: "ความสม่ำเสมอ vs ความเข้มข้น: เต่าเป็นผู้ชนะ",
-       vi: "Sự nhất quán vs Cường độ: Rùa chiến thắng",
-       id: "Konsistensi vs. Intensitas: Kura-kura Menang",
-       pt: "Consistência vs. Intensidade: A Tartaruga Vence",
-       tr: "Tutarlılık vs. Yoğunluk: Kaplumbağa Kazanır",
-       ar: "الاستمرارية مقابل الكثافة: السلحفاة تفوز",
-       hi: "निरंतरता बनाम तीव्रता: कछुआ जीतता है",
-       ru: "Постоянство против Интенсивности: Черепаха побеждает",
-       bn: "ধারাবাহিকতা বনাম তীব্রতা: কচ্ছপ জয়ী হয়",
-       ur: "مستقل مزاجی بمقابلہ شدت: کچھوا جیت جاتا ہے",
-       ne: "निरन्तरता vs तीव्रता: कछुवा जित्छ",
-       si: "निरन्तरता vs तीव्रता: कछुवा जित्छ",
-       sw: "Msimamo vs Nguvu: Kobe Anashinda"
+       en: "The Psychology of Quitting: Why You Fail and How to Restart", 
+       ko: "중도 포기의 심리학: 왜 실패하고 어떻게 다시 시작할까?",
+       ja: "挫折の心理学：なぜ失敗し、どう再開するか",
+       zh: "放弃的心理学：你为何失败以及如何重新开始",
+       es: "La psicología del abandono: Por qué fallas y cómo reiniciar",
+       fr: "La psychologie de l'abandon : Pourquoi vous échouez et comment redémarrer",
+       de: "Die Psychologie des Aufgebens: Warum du scheiterst und wie du neu startest",
+       th: "จิตวิทยาของการล้มเลิก: ทำไมคุณถึงล้มเหลวและจะเริ่มต้นใหม่ได้อย่างไร",
+       vi: "Tâm lý học về việc bỏ cuộc: Tại sao bạn thất bại và cách bắt đầu lại",
+       id: "Psikologi Berhenti: Mengapa Anda Gagal dan Cara Memulai Kembali",
+       pt: "A Psicologia da Desistência: Por que você falha e como recomeçar",
+       tr: "Bırakmanın Psikolojisi: Neden Başarısız Olursunuz ve Nasıl Yeniden Başlarsınız",
+       ar: "سيكولوجية الإقلاع: لماذا تفشل وكيف تعيد البدء",
+       hi: "छोड़ने का मनोविज्ञान: आप क्यों असफल होते हैं और फिर से कैसे शुरू करें",
+       ru: "Психология отказа: почему вы терпите неудачу и как начать заново",
+       bn: "ছেড়ে দেওয়ার মনস্তত্ত্ব: কেন আপনি ব্যর্থ হন এবং কীভাবে পুনরায় শুরু করবেন",
+       ur: "ترک کرنے کی نفسیات: آپ کیوں ناکام ہوتے ہیں اور دوبارہ کیسے شروع کریں",
+       ne: "छोड्ने मनोविज्ञान: तपाईं किन असफल हुनुहुन्छ र कसरी पुनः सुरु गर्ने",
+       si: "අත්හැරීමේ මනෝවිද්‍යාව: ඔබ අසමත් වන්නේ ඇයි සහ නැවත ආරම්භ කරන්නේ කෙසේද",
+       sw: "Saikolojia ya Kuacha: Kwa Nini Unashindwa na Jinsi ya Kuanza Upya"
      },
      excerpt: { 
        en: "Studying 10 hours on Sunday is worse than 30 mins daily. Language requires synaptic reinforcement.", 
@@ -2713,26 +2726,26 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
        sw: "Kusoma saa 10 Jumapili ni mbaya zaidi kuliko dakika 30 kila siku. Lugha inahitaji uimarishaji wa sinepsi."
      },
      content: { 
-        en: POST_CONSISTENCY_CONTENT_EN,
-        ko: POST_CONSISTENCY_CONTENT_KO,
-        ja: POST_CONSISTENCY_CONTENT_JA,
-        zh: POST_CONSISTENCY_CONTENT_ZH,
-        es: POST_CONSISTENCY_CONTENT_ES,
-        fr: POST_CONSISTENCY_CONTENT_FR,
-        de: POST_CONSISTENCY_CONTENT_DE,
-        th: POST_CONSISTENCY_CONTENT_TH,
-        vi: POST_CONSISTENCY_CONTENT_VI,
-        id: POST_CONSISTENCY_CONTENT_ID,
-        pt: POST_CONSISTENCY_CONTENT_PT,
-        tr: POST_CONSISTENCY_CONTENT_TR,
-        ar: POST_CONSISTENCY_CONTENT_AR,
-        hi: POST_CONSISTENCY_CONTENT_HI,
-        ru: POST_CONSISTENCY_CONTENT_RU,
-        bn: POST_CONSISTENCY_CONTENT_BN,
-        ur: POST_CONSISTENCY_CONTENT_UR,
-        ne: POST_CONSISTENCY_CONTENT_NE,
-        si: POST_CONSISTENCY_CONTENT_SI,
-        sw: POST_CONSISTENCY_CONTENT_SW
+        en: POST_QUITTING_PSYCHOLOGY_CONTENT_EN,
+        ko: POST_QUITTING_PSYCHOLOGY_CONTENT_KO,
+        ja: POST_QUITTING_PSYCHOLOGY_CONTENT_JA,
+        zh: POST_QUITTING_PSYCHOLOGY_CONTENT_ZH,
+        es: POST_QUITTING_PSYCHOLOGY_CONTENT_ES,
+        fr: POST_QUITTING_PSYCHOLOGY_CONTENT_FR,
+        de: POST_QUITTING_PSYCHOLOGY_CONTENT_DE,
+        th: POST_QUITTING_PSYCHOLOGY_CONTENT_TH,
+        vi: POST_QUITTING_PSYCHOLOGY_CONTENT_VI,
+        id: POST_QUITTING_PSYCHOLOGY_CONTENT_ID,
+        pt: POST_QUITTING_PSYCHOLOGY_CONTENT_PT,
+        tr: POST_QUITTING_PSYCHOLOGY_CONTENT_TR,
+        ar: POST_QUITTING_PSYCHOLOGY_CONTENT_AR,
+        hi: POST_QUITTING_PSYCHOLOGY_CONTENT_HI,
+        ru: POST_QUITTING_PSYCHOLOGY_CONTENT_RU,
+        bn: POST_QUITTING_PSYCHOLOGY_CONTENT_BN,
+        ur: POST_QUITTING_PSYCHOLOGY_CONTENT_UR,
+        ne: POST_QUITTING_PSYCHOLOGY_CONTENT_NE,
+        si: POST_QUITTING_PSYCHOLOGY_CONTENT_SI,
+        sw: POST_QUITTING_PSYCHOLOGY_CONTENT_SW
      },
      coverImage: "/assets/blog/habits_vs_intensity.png",
      author: "Dr. Lingua",
@@ -2744,26 +2757,26 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
   {
      id: "learning-via-netflix",
      title: { 
-       en: "Learning Through Netflix and Spotify: Active Immersion", 
-       ko: "넷플릭스와 스포티파이로 공부하기: 능동적 몰입",
-       ja: "NetflixとSpotifyで学ぶ：能動的没入感",
-       zh: "通过Netflix和Spotify学习：主动沉浸",
-       es: "Aprender a través de Netflix y Spotify: Inmersión Activa",
-       fr: "Apprendre avec Netflix et Spotify : Immersion Active",
-       de: "Lernen durch Netflix und Spotify: Aktive Immersion",
-       th: "การเรียนรู้ผ่าน Netflix และ Spotify: การซึมซับเชิงรุก",
-       vi: "Học qua Netflix và Spotify: Đắm mình chủ động",
-       id: "Belajar Melalui Netflix dan Spotify: Imersi Aktif",
-       pt: "Aprendendo com Netflix e Spotify: Imersão Ativa",
-       tr: "Netflix ve Spotify ile Öğrenme: Aktif Daldırma",
-       ar: "التعلم من خلال Netflix و Spotify: الانغماس النشط",
-       hi: "Netflix और Spotify के माध्यम से सीखना: सक्रिय विसर्जन",
-       ru: "Изучение языка с помощью Netflix и Spotify: Активное погружение",
-       bn: "Netflix এবং Spotify এর মাধ্যমে শেখা: সক্রিয় নিমজ্জন",
-       ur: "Netflix اور Spotify کے ذریعے سیکھنا: فعال وسرجن",
-       ne: "Netflix र Spotify मार्फत सिक्दै: सक्रिय विसर्जन",
-       si: "Netflix र Spotify मार्फत सिक्दै: सक्रिय विसर्जन",
-       sw: "Kujifunza kupitia Netflix na Spotify: Kuzama Kikamilifu"
+       en: "Netflix & Skill: How to Actually Learn Languages with Movies", 
+       ko: "넷플릭스와 스킬: 영화로 진짜 언어를 배우는 법",
+       ja: "Netflix & スキル：映画で実際に言語を学ぶ方法",
+       zh: "Netflix与技能：如何真正通过电影学习语言",
+       es: "Netflix y Habilidad: Cómo aprender idiomas realmente con películas",
+       fr: "Netflix & Compétence : Comment apprendre vraiment des langues avec des films",
+       de: "Netflix & Skill: Wie man mit Filmen tatsächlich Sprachen lernt",
+       th: "Netflix & Skill: วิธีเรียนภาษาจากภาพยนตร์ให้ได้ผลจริง",
+       vi: "Netflix & Kỹ năng: Cách thực sự học ngôn ngữ qua phim",
+       id: "Netflix & Keahlian: Cara Benar-benar Belajar Bahasa dengan Film",
+       pt: "Netflix e Habilidade: Como realmente aprender idiomas com filmes",
+       tr: "Netflix ve Beceri: Filmlerle Gerçekten Dil Nasıl Öğrenilir",
+       ar: "نتفليكس والمهارة: كيف تتعلم اللغات بالفعل مع الأفلام",
+       hi: "नेटफ्लिक्स और कौशल: फिल्मों के साथ वास्तव में भाषाएँ कैसे सीखें",
+       ru: "Netflix и навыки: Как на самом деле учить языки с помощью фильмов",
+       bn: "নেটফ্লিক্স এবং দক্ষতা: সিনেমার মাধ্যমে আসলে কীভাবে ভাষা শিখবেন",
+       ur: "نیٹ فلیکس اور مہارت: فلموں کے ساتھ واقعی زبانیں کیسے سیکھیں",
+       ne: "Netflix र कौशल: चलचित्रहरूसँग वास्तवमा कसरी भाषाहरू सिक्ने",
+       si: "Netflix සහ කුසලතා: චිත්‍රපට සමඟ ඇත්තෙන්ම භාෂා ඉගෙන ගන්නේ කෙසේද",
+       sw: "Netflix & Ujuzi: Jinsi ya Kujifunza Lugha na Sinema Kweli"
      },
      excerpt: { 
        en: "Stop passively watching. Learn how to turn your favorite series and songs into powerful language learning tools.", 
@@ -2818,30 +2831,30 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
   },
   {
      id: "smart-goals-language",
-     title: { 
-       en: "Setting SMART Goals for Language Fluency", 
-       ko: "언어 유창성을 위한 SMART 목표 설정법",
-       ja: "流暢になるためのSMARTな目標設定",
-       zh: "为语言流利度设定SMART目标",
-       es: "Establecer metas SMART para la fluidez lingüística",
-       fr: "Définir des objectifs SMART pour la fluidité linguistique",
-       de: "SMART-Ziele für Sprachfließendkeit setzen",
-        th: "การตั้งเป้าหมายแบบ SMART เพื่อความคล่องแคล่วทางภาษา",
-        vi: "Thiết lập Mục tiêu SMART để Thành thạo Ngôn ngữ",
-        id: "Menetapkan Tujuan SMART untuk Kelancaran Bahasa",
-        pt: "Definindo Metas SMART para Fluência no Idioma",
-        tr: "Dil Akıcılığı İçin SMART Hedefler Belirleme",
-        ar: "تحديد أهداف SMART لطلاقة اللغة",
-        hi: "भाषा प्रवाह के लिए SMART लक्ष्य निर्धारित करना",
-        ru: "Установка целей SMART для беглости языка",
-        bn: "ভাষার অনর্গলতার জন্য SMART লক্ষ্য নির্ধারণ করা",
-        ur: "زبان کی روانی کے لیے SMART اہداف کا تعین",
-        ne: "भाषा प्रवाहको लागि SMART लक्ष्यहरू सेट गर्दै",
-        si: "भाषा प्रवाहको लागि SMART लक्ष्यहरू सेट गर्दै",
-        sw: "Kuweka Malengo ya SMART kwa Ufasaha wa Lugha",
+     title: {
+       en: "Language Levels vs. Duolingo: Why Your Score is a Lie",
+       ko: "언어 레벨 vs 듀오링고: 당신의 점수가 거짓말인 이유",
+       ja: "言語レベル vs Duolingo：あなたのスコアが嘘である理由",
+       zh: "语言等级 vs Duolingo：为什么你的分数是谎言",
+       es: "Niveles de idioma vs. Duolingo: Por qué tu puntuación es una mentira",
+       fr: "Niveaux de langue vs Duolingo : Pourquoi votre score est un mensonge",
+       de: "Sprachniveaus vs. Duolingo: Warum dein Punktestand eine Lüge ist",
+       th: "ระดับภาษา vs Duolingo: ทำไมคะแนนของคุณถึงเป็นเรื่องโกหก",
+       vi: "Trình độ ngôn ngữ vs Duolingo: Tại sao điểm sốของคุณ là một lời nói dối",
+       id: "Tingkat Bahasa vs Duolingo: Mengapa Skor Anda Bohong",
+       pt: "Níveis de Idioma vs. Duolingo: Por que sua pontuação é uma mentira",
+       tr: "Dil Seviyeleri vs. Duolingo: Puanınız Neden Bir Yalan",
+       ar: "مستويات اللغة مقابل دوولينجو: لماذا درجاتك كذبة",
+       hi: "भाषा स्तर बनाम डुओलिंगो: आपका स्कोर झूठ क्यों है",
+       ru: "Уровни языка против Duolingo: Почему ваш счет — это ложь",
+       bn: "ভাষার স্তর বনাম ডুওলিঙ্গো: কেন আপনার স্কোর একটি মিথ্যা",
+       ur: "زبان کی سطحیں بمقابلہ Duolingo: آپ کا سکور جھوٹ کیوں ہے",
+       ne: "भाषा स्तर vs Duolingo: किन तपाईंको स्कोर झूट हो",
+       si: "භාෂා මට්ටම් vs Duolingo: ඔබේ ලකුණු බොරුවක් වන්නේ ඇයි",
+       sw: "Viwango vya Lugha vs Duolingo: Kwa Nini Alama Yako ni Uongo"
      },
-     excerpt: { 
-       en: "'I want to be fluent' is a bad goal. Learn how to set Specific, Measurable, Achievable, Relevant, and Time-bound goals.", 
+     excerpt: {
+       en: "'I want to be fluent' is a bad goal. Learn how to set Specific, Measurable, Achievable, Relevant, and Time-bound goals.",
        ko: "'유창해지고 싶다'는 나쁜 목표입니다. 구체적이고, 측정 가능하고, 달성 가능하며, 관련성 있고, 기한이 있는 목표를 세워보세요.",
        ja: "「流暢になりたい」は悪い目標です。具体的で、測定可能で、達成可能で、関連性があり、期限のある目標の設定方法を学びます。",
        zh: "“我想变得流利”是一个坏目标。学习如何设定具体的、可衡量的、可实现的、相关的和有时限的目标。",
@@ -2892,76 +2905,76 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
      updatedAt: new Date("2024-02-20")
   },
    {
-      id: "find-language-partner",
+      id: "movies-no-subtitles",
       title: { 
-        en: "How to Find (and Keep) a Language Partner", 
-        ko: "언어 교환 파트너를 찾고 유지하는 법",
-        ja: "言語パートナーを見つけて維持する方法",
-        zh: "如何寻找（并保持）语言伙伴",
-        es: "Cómo encontrar (y mantener) un compañero de intercambio de idiomas",
-        fr: "Comment trouver (et garder) un partenaire linguistique",
-        de: "Wie man einen Sprachpartner findet (und behält)",
-        th: "วิธีค้นหา (และรักษา) คู่หูฝึกภาษา",
-        vi: "Cách tìm (và giữ) bạn trao đổi ngôn ngữ",
-        id: "Cara Menemukan (dan Menjaga) Partner Bahasa",
-        pt: "Como encontrar (e manter) um parceiro de idiomas",
-        tr: "Bir Dil Partneri Nasıl Bulunur (ve Tutulur)",
-        ar: "كيفية العثور على شريك لغوي (والحفاظ عليه)",
-        hi: "भाषा भागीदार कैसे खोजें (और बनाए रखें)",
-        ru: "Как найти (и сохранить) языкового партнера",
-        bn: "কীভাবে একজন ভাষা সঙ্গী খুঁজবেন (এবং ধরে রাখবেন)",
-        ur: "زبان کا ساتھی کیسے تلاش کریں (اور اسے رکھیں)",
-        ne: "भाषा साझेदार कसरी फेला पार्ने (र राख्ने)",
-        si: "भाषा साझेदार कसरी फेला पार्ने (र राख्ने)",
-        sw: "Jinsi ya Kupata (na Kutunza) Mshirika wa Lugha",
+        en: "How to Actually Learn with Movies (Stop Reading Subtitles)", 
+        ko: "영화로 진짜 배우는 법 (자막 좀 그만 읽으세요)",
+        ja: "映画で実際に学ぶ方法（字幕を読むのをやめて）",
+        zh: "如何真正通过电影学习（停止阅读字幕）",
+        es: "Cómo aprender realmente con películas (Deja de leer subtítulos)",
+        fr: "Comment apprendre vraiment avec des films (Arrêtez de lire les sous-titres)",
+        de: "Wie man mit Filmen wirklich lernt (Hör auf, Untertitel zu lesen)",
+        th: "วิธีเรียนกับหนังให้ได้ผลจริง (เลิกอ่านซับไตเติ้ล)",
+        vi: "Cách thực sự học với phim (Ngừng đọc phụ đề)",
+        id: "Cara Benar-benar Belajar dengan Film (Berhenti Membaca Subtitle)",
+        pt: "Como realmente aprender com filmes (Pare de ler legendas)",
+        tr: "Filmlerle Gerçekten Nasıl Öğrenilir (Altyazıları Okumayı Bırakın)",
+        ar: "كيف تتعلم بالفعل مع الأفلام (توقف عن قراءة الترجمة)",
+        hi: "फिल्मों के साथ वास्तव में कैसे सीखें (उपशीर्षक पढ़ना बंद करें)",
+        ru: "Как на самом деле учиться по фильмам (Престаньте читать субтитры)",
+        bn: "সিনেমার মাধ্যমে আসলে কীভাবে শিখবেন (সাবটাইটেল পড়া বন্ধ করুন)",
+        ur: "فلموں کے ساتھ واقعی کیسے سیکھیں (سب ٹائٹلز پڑھنا بند کریں)",
+        ne: "चलचित्रहरूसँग वास्तवमा कसरी सिक्ने (उपशीर्षकहरू पढ्न बन्द गर्नुहोस्)",
+        si: "චිත්‍රපට සමඟ ඇත්තෙන්ම ඉගෙන ගන්නේ කෙසේද (උපසිරැසි කියවීම නවත්වන්න)",
+        sw: "Jinsi ya Kujifunza Kweli na Sinema (Acha Kusoma Manukuu)"
       },
       excerpt: { 
-        en: "It’s like dating. You need chemistry and shared goals.", 
-        ko: "마치 데이트와 같습니다. 케미와 공유된 목표가 필요하죠.",
-        ja: "デートのようなものです。相性と共有の目標が必要です。",
-        zh: "这就像约会。你们需要化学反应和共同的目标。",
-        es: "Es como tener citas. Necesitas química y objetivos compartidos.",
-        fr: "C'est comme une rencontre amoureuse. Il faut de l'alchimie et des objectifs communs.",
-        de: "Es ist wie Dating. Man braucht Chemie und gemeinsame Ziele.",
-        th: "มันเหมือนกับการเดท คุณต้องมีเคมีที่ตรงกันและเป้าหมายร่วมกัน",
-        vi: "Nó giống như hẹn hò vậy. Bạn cần sự ăn ý và mục tiêu chung.",
-        id: "Ini seperti berkencan. Anda butuh chemistry dan tujuan yang sama.",
-        pt: "É como namorar. Você precisa de química e objetivos compartilhados.",
-        tr: "Bu flört etmek gibidir. Kimyaya ve ortak hedeflere ihtiyacınız var.",
-        ar: "الأمر يشبه المواعدة. تحتاج إلى كيمياء وأهداف مشتركة.",
-        hi: "यह डेटिंग जैसा है। आपको केमिस्ट्री और साझा लक्ष्यों की आवश्यकता है।",
-        ru: "Это как свидания. Нужна химия и общие цели.",
-        bn: "এটা ডেটিং এর মত। আপনার রসায়ন এবং ভাগ করা লক্ষ্য প্রয়োজন।",
-        ur: "زبان کا ساتھی کیسے تلاش کریں (اور اسے رکھیں)",
-        ne: "यो डेटिङ जस्तै हो। तपाईंलाई रसायन विज्ञान र साझा लक्ष्यहरू चाहिन्छ।",
-        si: "यो डेटिङ जस्तै हो। तपाईंलाई रसायन विज्ञान र साझा लक्ष्यहरू चाहिन्छ।",
-        sw: "Hii ni kama uchumba. Unahitaji kemia na malengo ya pamoja.",
+        en: "Subtitles are a crutch. Learn why they kill your progress and how to train your ears.", 
+        ko: "자막은 목발입니다. 왜 그것이 당신의 발전을 죽이는지, 그리고 귀를 훈련하는 법을 알아보세요.",
+        ja: "字幕は松葉杖です。なぜそれが進歩を妨げるのか、そして耳を鍛える方法を学びましょう。",
+        zh: "字幕是拐杖。了解为什么它们会扼杀你的进步以及如何训练你的耳朵。",
+        es: "Los subtítulos son una muleta. Aprende por qué matan tu progreso y cómo entrenar tus oídos.",
+        fr: "Les sous-titres sont une béquille. Découvrez pourquoi ils tuent vos progrès et comment entraîner vos oreilles.",
+        de: "Untertitel sind eine Krücke. Lerne, warum sie deinen Fortschritt töten und wie du deine Ohren trainierst.",
+        th: "ซับไตเติ้ลคือไม้ค้ำยัน เรียนรู้ว่าทำไมมันถึงฆ่าความก้าวหน้าของคุณและวิธีฝึกหูของคุณ",
+        vi: "Phụ đề là cái nạng. Tìm hiểu lý do tại sao chúng giết chết sự tiến bộ của bạn và cách rèn luyện đôi tai.",
+        id: "Subtitle adalah tongkat penyangga. Pelajari mengapa mereka membunuh kemajuan Anda dan cara melatih telinga Anda.",
+        pt: "Legendas são uma muleta. Aprenda por que elas matam seu progresso e como treinar seus ouvidos.",
+        tr: "Altyazılar bir koltuk değneğidir. Neden ilerlemenizi öldürdüklerini ve kulaklarınızı nasıl eğiteceğinizi öğrenin.",
+        ar: "الترجمات هي عكاز. تعلم لماذا تقتل تقدمك وكيف تدرب أذنيك.",
+        hi: "उपशीर्षक एक बैसाखी हैं। जानें कि वे आपकी प्रगति को क्यों मारते हैं और अपने कानों को कैसे प्रशिक्षित करें।",
+        ru: "Субтитры — это костыль. Узнайте, почему они убивают ваш прогресс и как тренировать уши.",
+        bn: "সাবটাইটেল একটি ক্রাচ। জানুন কেন তারা আপনার অগ্রগতি হত্যা করে এবং কীভাবে আপনার কানকে প্রশিক্ষণ দেবেন।",
+        ur: "سب ٹائٹلز ایک بیساکھی ہیں۔ جانیں کہ وہ آپ کی ترقی کو کیوں مارتے ہیں اور اپنے کانوں کو کیسے تربیت دیں۔",
+        ne: "उपशीर्षकहरू एक वैशाखी हुन्। जान्नुहोस् किन तिनीहरूले तपाईंको प्रगतिलाई मार्छन् र कसरी तपाईंको कानलाई तालिम दिने।",
+        si: "උපසිරැසි යනු කිහිලිකරුවකි. ඒවා ඔබේ දියුණුව විනාශ කරන්නේ ඇයි සහ ඔබේ කන් පුහුණු කරන්නේ කෙසේද යන්න ඉගෙන ගන්න।",
+        sw: "Manukuu ni haina. Jifunze kwa nini yanaua maendeleo yako na jinsi ya kufunza masikio yako."
       },
       content: { 
-         en: POST_PARTNER_CONTENT_EN,
-         ko: POST_PARTNER_CONTENT_KO,
-         ja: POST_PARTNER_CONTENT_JA,
-         zh: POST_PARTNER_CONTENT_ZH,
-         es: POST_PARTNER_CONTENT_ES,
-         fr: POST_PARTNER_CONTENT_FR,
-         de: POST_PARTNER_CONTENT_DE,
-         th: POST_PARTNER_CONTENT_TH,
-         vi: POST_PARTNER_CONTENT_VI,
-         id: POST_PARTNER_CONTENT_ID,
-         pt: POST_PARTNER_CONTENT_PT,
-         tr: POST_PARTNER_CONTENT_TR,
-         ar: POST_PARTNER_CONTENT_AR,
-         hi: POST_PARTNER_CONTENT_HI,
-         ru: POST_PARTNER_CONTENT_RU,
-         bn: POST_PARTNER_CONTENT_BN,
-         ur: POST_PARTNER_CONTENT_UR,
-         ne: POST_PARTNER_CONTENT_NE,
-         si: POST_PARTNER_CONTENT_SI,
-         sw: POST_PARTNER_CONTENT_SW,
+         en: POST_NO_SUBTITLES_CONTENT_EN,
+         ko: POST_NO_SUBTITLES_CONTENT_KO,
+         ja: POST_NO_SUBTITLES_CONTENT_JA,
+         zh: POST_NO_SUBTITLES_CONTENT_ZH,
+         es: POST_NO_SUBTITLES_CONTENT_ES,
+         fr: POST_NO_SUBTITLES_CONTENT_FR,
+         de: POST_NO_SUBTITLES_CONTENT_DE,
+         th: POST_NO_SUBTITLES_CONTENT_TH,
+         vi: POST_NO_SUBTITLES_CONTENT_VI,
+         id: POST_NO_SUBTITLES_CONTENT_ID,
+         pt: POST_NO_SUBTITLES_CONTENT_PT,
+         tr: POST_NO_SUBTITLES_CONTENT_TR,
+         ar: POST_NO_SUBTITLES_CONTENT_AR,
+         hi: POST_NO_SUBTITLES_CONTENT_HI,
+         ru: POST_NO_SUBTITLES_CONTENT_RU,
+         bn: POST_NO_SUBTITLES_CONTENT_BN,
+         ur: POST_NO_SUBTITLES_CONTENT_UR,
+         ne: POST_NO_SUBTITLES_CONTENT_NE,
+         si: POST_NO_SUBTITLES_CONTENT_SI,
+         sw: POST_NO_SUBTITLES_CONTENT_SW
       },
       coverImage: "/assets/blog/find_language_partner.png",
       author: "James Yoon",
-      tags: ["Community", "Social"],
+      tags: ["Listening", "Immersion", "Methods"],
       published: true,
       createdAt: new Date("2024-02-12"),
       updatedAt: new Date("2024-02-12")
@@ -2986,7 +2999,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         ru: "Язык — это культура: почему их нельзя разделить",
         bn: "ভাষা হল সংস্কৃতি: কেন আপনি তাদের আলাদা করতে পারবেন না",
         ur: "زبان ثقافت ہے: آپ انہیں الگ کیوں نہیں کر سکتے",
-        ne: "भाषा संस्कृति हो: किन तपाईं तिनीहरूलाई अलग गर्न सक्नुहुन्न"
+        ne: "भाषा संस्कृति हो: किन तपाईं तिनीहरूलाई अलग गर्न सक्नुहुन्न",
+        si: "භාෂාව යනු සංස්කෘතියයි: ඔබට ඒවා වෙන් කළ නොහැක්කේ ඇයි",
+        sw: "Lugha ni Utamaduni: Kwa Nini Huwezi Kuzitenganisha"
       },
       excerpt: {
         en: "To speak like a native, you must understand their values and history.",
@@ -3006,7 +3021,9 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
         ru: "Чтобы говорить как носитель языка, вы должны понимать их ценности и историю.",
         bn: "স্থানীয়দের মতো কথা বলতে, আপনাকে অবশ্যই তাদের মূল্যবোধ এবং ইতিহাস বুঝতে হবে।",
         ur: "مقامی لوگوں کی طرح بولنے کے لیے، آپ کو ان کی اقدار اور تاریخ کو سمجھنا ہوگا۔",
-        ne: "मूल वक्ता जस्तै बोल्न, तपाईंले तिनीहरूको मान र इतिहास बुझ्नुपर्छ।"
+        ne: "मूल वक्ता जस्तै बोल्न, तपाईंले तिनीहरूको मान र इतिहास बुझ्नुपर्छ।",
+        si: "ස්වදේශිකයෙකු මෙන් කතා කිරීමට, ඔබ ඔවුන්ගේ වටිනාකම් සහ ඉතිහාසය තේරුම් ගත යුතුය.",
+        sw: "Ili kuzungumza kama mwenyeji, lazima uelewe maadili na historia yao."
       },
       content: {
         en: POST_CULTURE_CONTENT_EN,
@@ -3111,24 +3128,26 @@ export const BLOG_POSTS_PART_6: Partial<BlogPost>[] = [
   {
      id: "listening-vs-hearing",
      title: { 
-       en: "Listening vs Hearing: Active Immersion", 
-       ko: "들리는 것과 듣는 것의 차이: 능동적 몰입",
-       ja: "聞くこと vs 聴くこと：能動的没入",
-       zh: "听见 vs 倾听：主动沉浸",
-       es: "Oír vs Escuchar: Inmersión Activa",
-       fr: "Entendre vs Écouter : Immersion Active",
-       de: "Hören vs. Zuhören: Aktive Immersion",
-       th: "การได้ยิน vs การฟัง: การมีส่วนร่วมอย่างกระตือรือร้น",
-       vi: "Nghe thấy vs Lắng nghe: Đắm mình chủ động",
-       id: "Mendengar vs Menyimak: Imersi Aktif",
-       pt: "Ouvir vs Escutar: Imersão Ativa",
-       tr: "Duymak vs Dinlemek: Aktif Daldırma",
-       ar: "الاستماع مقابل السمع: الغمس النشط",
-       hi: "सुनना बनाम ध्यान से सुनना: सक्रिय विसर्जन",
-       ru: "Слушать против Слышать: Активное погружение",
-       bn: "শোনা বনাম মনোযোগ দিয়ে শোনা: সক্রিয় নিমজ্জন",
-       ur: "سننا بمقابلہ غور سے سننا: فعال وسرجن",
-       ne: "सुन्नु vs ध्यान दिएर सुन्नु: सक्रिय विसर्जन"
+       en: "How to Actually Learn with Movies (Stop Reading Subtitles)", 
+       ko: "영화로 실제로 배우는 법 (자막 읽기는 그만)",
+       ja: "映画で実際に学ぶ方法（字幕を読むのはやめよう）",
+       zh: "如何通过电影真正学习（停止阅读字幕）",
+       es: "Cómo aprender realmente con películas (Deja de leer subtítulos)",
+       fr: "Comment apprendre vraiment avec des films (Arrêtez de lire les sous-titres)",
+       de: "Wie man mit Filmen tatsächlich lernt (Hör auf, Untertitel zu lesen)",
+       th: "วิธีเรียนรู้จากภาพยนตร์จริงๆ (เลิกอ่านซับไตเติ้ล)",
+       vi: "Cách thực sự học qua phim (Ngừng đọc phụ đề)",
+       id: "Cara Benar-benar Belajar dengan Film (Berhenti Membaca Subtitle)",
+       pt: "Como realmente aprender com filmes (Pare de ler legendas)",
+       tr: "Filmlerle Gerçekten Nasıl Öğrenilir (Altyazıları Okumayı Bırakın)",
+       ar: "كيف تتعلم بالفعل مع الأفلام (توقف عن قراءة الترجمة)",
+       hi: "फिल्मों के साथ वास्तव में कैसे सीखें (उपशीर्षक पढ़ना बंद करें)",
+       ru: "Как на самом деле учиться с помощью фильмов (Перестаньте читать субтитры)",
+       bn: "সিনেমার মাধ্যমে আসলে কীভাবে শিখবেন (সাবটাইটেল পড়া বন্ধ করুন)",
+       ur: "فلموں کے ساتھ واقعی کیسے سیکھیں (سب ٹائٹلز پڑھنا بند کریں)",
+       ne: "चलचित्रहरूसँग वास्तवमा कसरी सिक्ने (उपशीर्षकहरू पढ्न बन्द गर्नुहोस्)",
+       si: "චිත්‍රපට සමඟ ඇත්තෙන්ම ඉගෙන ගන්නේ කෙසේද (උපසිරැසි කියවීම නවත්වන්න)",
+       sw: "Jinsi ya Kujifunza Kweli na Sinema (Acha Kusoma Manukuu)"
      },
      excerpt: { 
        en: "Background noise is not studying. Turn on your active focus using transcription and shadowing techniques.", 

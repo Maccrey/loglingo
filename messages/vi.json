@@ -30,7 +30,8 @@
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
     "radio": "Radio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Blog Học Ngôn Ngữ",

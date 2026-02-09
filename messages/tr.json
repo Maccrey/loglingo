@@ -30,7 +30,8 @@
     "login": "Giriş yap",
     "logout": "Çıkış yap",
     "radio": "Radyo",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Dil Öğrenme Blogu",

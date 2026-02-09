@@ -30,7 +30,8 @@
     "login": "Anmelden",
     "logout": "Abmelden",
     "radio": "Radio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Sprachlern-Blog",

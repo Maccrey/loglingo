@@ -30,7 +30,8 @@
     "login": "Entrar",
     "logout": "Sair",
     "radio": "Rádio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Blog de Aprendizado",

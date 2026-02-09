@@ -30,7 +30,8 @@
     "login": "เข้าสู่ระบบ",
     "logout": "ออกจากระบบ",
     "radio": "วิทยุ",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "บล็อก"
   },
   "blog": {
     "title": "บล็อกการเรียนรู้ภาษา",

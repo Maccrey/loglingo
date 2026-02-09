@@ -30,7 +30,8 @@
     "login": "Masuk",
     "logout": "Keluar",
     "radio": "Radio",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "Blog"
   },
   "blog": {
     "title": "Blog Belajar Bahasa",

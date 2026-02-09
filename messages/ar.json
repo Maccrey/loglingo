@@ -30,7 +30,8 @@
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",
     "radio": "راديو",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "blog": "مدونة"
   },
   "blog": {
     "title": "مدونة تعلم اللغات",
