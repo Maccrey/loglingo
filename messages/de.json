@@ -234,7 +234,7 @@
     "delete_confirm_title": "Diesen Eintrag löschen?",
     "delete_confirm_desc": "Dieser Eintrag und verbundene Quizze werden ebenfalls gelöscht.",
     "delete_confirm_loading": "Löschen...",
-    "level_up": "Aufleveln",
+    "level_up": "Sprechübung",
     "advice_filter_applied": "Gefiltert nach {topic}.",
     "advice_filter_applied_all": "Nach allen Elementen gefiltert."
   },

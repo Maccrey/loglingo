@@ -477,7 +477,8 @@ export default function ArchivePage() {
                   <div className="h-px bg-primary/20 w-full" />
 
                   {/* Speaking Level */}
-                  <div className="flex items-center justify-between">
+                  {/* Speaking Level */}
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                      <div>
                       <p className="text-xs uppercase text-accent/80">{t("level_speaking")}</p>
                       <div className="mt-1 flex items-end gap-2">
@@ -501,26 +502,22 @@ export default function ArchivePage() {
                         )}
                       </div>
                     </div>
-                     <div className="text-right">
+                     <div className="text-right w-full sm:w-auto">
                         {latestSpeakingLevel ? (
-                          <div className="flex flex-col items-end gap-1">
-                            <p className="text-[10px] text-muted-foreground">
+                          <div className="flex flex-col items-end gap-1 w-full sm:w-auto">
+                            <p className="text-[10px] text-muted-foreground mb-1">
                               {formatDate(latestSpeakingLevel.createdAt, locale)}
                             </p>
                             <Button
-                              size="sm"
-                              variant="glass"
-                              className="h-6 text-[10px] bg-accent/10 border-accent/20 text-accent hover:bg-accent/20 px-2"
+                              className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10 px-6"
                               onClick={() => router.push("/speaking")}
                             >
                               {t("level_up")}
                             </Button>
                           </div>
                         ) : (
-                          <Button
-                            size="sm"
-                            variant="glass"
-                            className="h-8 text-[11px] bg-accent/10 border-accent/20 text-accent hover:bg-accent/20"
+                          <Button 
+                            className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10 px-6"
                             onClick={() => router.push("/speaking")}
                           >
                             {t("start_speaking_practice")}

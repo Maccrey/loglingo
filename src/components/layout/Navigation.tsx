@@ -114,8 +114,8 @@ export function Navigation() {
           </div>
         </Link>
         <div className="flex items-center gap-3">
-          {/* Mobile Auth & Language */}
-          {mounted && (user ? (
+          {mounted && user !== undefined && (
+            user ? (
             <button
               onClick={() => {
                 import("@/lib/analytics").then(({ trackEvent }) => {
@@ -132,7 +132,7 @@ export function Navigation() {
             >
               <LogOut className="h-5 w-5" />
             </button>
-          ) : (
+            ) : (
             <button
               onClick={() => {
                 import("@/lib/analytics").then(({ trackEvent }) => {
@@ -150,7 +150,8 @@ export function Navigation() {
             >
               <LogIn className="h-5 w-5" />
             </button>
-          ))}
+            )
+          )}
           <LanguageSelector 
             locale={locale} 
             tSettings={tSettings} 

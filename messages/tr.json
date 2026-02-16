@@ -234,7 +234,7 @@
     "delete_confirm_title": "Bu kaydı silinsin mi?",
     "delete_confirm_desc": "Bu kayıt ve ilişkili quizler de silinecek.",
     "delete_confirm_loading": "Siliniyor...",
-    "level_up": "Seviye Atla",
+    "level_up": "Konuşma Pratiği",
     "advice_filter_applied": "{topic} ile filtrelendi.",
     "advice_filter_applied_all": "Tüm öğelerle filtrelendi."
   },

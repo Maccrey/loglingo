@@ -234,7 +234,7 @@
     "delete_confirm_title": "Supprimer cet élément ?",
     "delete_confirm_desc": "Cet élément et ses quiz liés seront également supprimés.",
     "delete_confirm_loading": "Suppression...",
-    "level_up": "Niveau supérieur",
+    "level_up": "Pratique de l'oral",
     "advice_filter_applied": "Filtré par {topic}.",
     "advice_filter_applied_all": "Filtré par tous les éléments."
   },

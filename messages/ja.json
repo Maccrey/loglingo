@@ -234,7 +234,7 @@
     "delete_confirm_title": "このアーカイブを削除しますか？",
     "delete_confirm_desc": "このアーカイブと関連クイズも削除されます。",
     "delete_confirm_loading": "削除中...",
-    "level_up": "レベルアップ",
+    "level_up": "スピーキング練習",
     "advice_filter_applied": "{topic}でフィルタリングしました。",
     "advice_filter_applied_all": "すべての項目でフィルタリングしました。"
   },

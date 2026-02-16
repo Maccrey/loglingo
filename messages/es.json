@@ -234,7 +234,7 @@
     "delete_confirm_title": "¿Eliminar este archivo?",
     "delete_confirm_desc": "Este archivo y sus quizzes relacionados también se eliminarán.",
     "delete_confirm_loading": "Eliminando...",
-    "level_up": "Subir nivel",
+    "level_up": "Práctica de habla",
     "advice_filter_applied": "Filtrado por {topic}.",
     "advice_filter_applied_all": "Filtrado por todos los elementos."
   },

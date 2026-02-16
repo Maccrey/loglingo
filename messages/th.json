@@ -234,7 +234,7 @@
     "delete_confirm_title": "ลบรายการนี้หรือไม่?",
     "delete_confirm_desc": "รายการนี้และควิซที่เชื่อมโยงจะถูกลบด้วย",
     "delete_confirm_loading": "กำลังลบ...",
-    "level_up": "เลื่อนระดับ",
+    "level_up": "ฝึกพูด",
     "advice_filter_applied": "กรองด้วย {topic}",
     "advice_filter_applied_all": "กรองด้วยรายการทั้งหมด"
   },

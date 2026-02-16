@@ -234,7 +234,7 @@
     "delete_confirm_title": "यो अभिलेख मेटाउने?",
     "delete_confirm_desc": "यो अभिलेख र यसका लिङ्क गरिएका क्विजहरू पनि मेटाइनेछन्।",
     "delete_confirm_loading": "मेटाइदै...",
-    "level_up": "तह माथि",
+    "level_up": "बोल्ने अभ्यास",
     "advice_filter_applied": "{topic} द्वारा फिल्टर गरिएको।",
     "advice_filter_applied_all": "सबै वस्तुहरू द्वारा फिल्टर गरिएको।"
   },

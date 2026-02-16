@@ -234,7 +234,7 @@
     "delete_confirm_title": "Удалить эту запись?",
     "delete_confirm_desc": "Эта запись и связанные викторины также будут удалены.",
     "delete_confirm_loading": "Удаление...",
-    "level_up": "Повысить уровень",
+    "level_up": "Практика речи",
     "advice_filter_applied": "Отфильтровано по: {topic}.",
     "advice_filter_applied_all": "Отфильтровано по всем элементам."
   },

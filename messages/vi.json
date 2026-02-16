@@ -234,7 +234,7 @@
     "delete_confirm_title": "Xóa mục này?",
     "delete_confirm_desc": "Mục này và các quiz liên quan cũng sẽ bị xóa.",
     "delete_confirm_loading": "Đang xóa...",
-    "level_up": "Lên cấp",
+    "level_up": "Luyện nói",
     "advice_filter_applied": "Đã lọc theo {topic}.",
     "advice_filter_applied_all": "Đã lọc theo tất cả các mục."
   },

@@ -234,7 +234,7 @@
     "delete_confirm_title": "এই আর্কাইভ মুছবেন?",
     "delete_confirm_desc": "এই আর্কাইভ এবং এর লিংক করা কুইজগুলিও মুছে ফেলা হবে।",
     "delete_confirm_loading": "মোছা হচ্ছে...",
-    "level_up": "লেভেল আপ",
+    "level_up": "কথা বলার অনুশীলন",
     "advice_filter_applied": "{topic} দ্বারা ফিল্টার করা হয়েছে।",
     "advice_filter_applied_all": "সব আইটেম দ্বারা ফিল্টার করা হয়েছে।"
   },

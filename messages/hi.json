@@ -234,7 +234,7 @@
     "delete_confirm_title": "क्या इस प्रविष्टि को हटाएं?",
     "delete_confirm_desc": "यह प्रविष्टि और संबंधित क्विज भी हट जाएंगे।",
     "delete_confirm_loading": "हटा रहा है...",
-    "level_up": "मानक बढ़ाएं",
+    "level_up": "बोलने का अभ्यास",
     "advice_filter_applied": "{topic} द्वारा फ़िल्टर किया गया।",
     "advice_filter_applied_all": "सभी आइटम द्वारा फ़िल्टर किया गया।"
   },
