@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Deleting...",
     "level_up": "Speaking Practice",
     "advice_filter_applied": "Filtered by {topic}.",
-    "advice_filter_applied_all": "Filtered by all items."
+    "advice_filter_applied_all": "Filtered by all items.",
+    "last_updated": "Last updated: "
   },
   "dictionary": {
     "fab_label": "AI Dictionary",

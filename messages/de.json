@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Löschen...",
     "level_up": "Sprechübung",
     "advice_filter_applied": "Gefiltert nach {topic}.",
-    "advice_filter_applied_all": "Nach allen Elementen gefiltert."
+    "advice_filter_applied_all": "Nach allen Elementen gefiltert.",
+    "last_updated": "Letzte Aktualisierung: "
   },
   "dictionary": {
     "fab_label": "KI-Wörterbuch",

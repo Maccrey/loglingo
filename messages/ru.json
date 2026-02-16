@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Удаление...",
     "level_up": "Практика речи",
     "advice_filter_applied": "Отфильтровано по: {topic}.",
-    "advice_filter_applied_all": "Отфильтровано по всем элементам."
+    "advice_filter_applied_all": "Отфильтровано по всем элементам.",
+    "last_updated": "Последнее обновление: "
   },
   "dictionary": {
     "fab_label": "AI словарь",

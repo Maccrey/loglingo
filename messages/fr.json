@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Suppression...",
     "level_up": "Pratique de l'oral",
     "advice_filter_applied": "Filtré par {topic}.",
-    "advice_filter_applied_all": "Filtré par tous les éléments."
+    "advice_filter_applied_all": "Filtré par tous les éléments.",
+    "last_updated": "Dernière mise à jour: "
   },
   "dictionary": {
     "fab_label": "Dictionnaire IA",

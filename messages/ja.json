@@ -236,7 +236,8 @@
     "delete_confirm_loading": "削除中...",
     "level_up": "スピーキング練習",
     "advice_filter_applied": "{topic}でフィルタリングしました。",
-    "advice_filter_applied_all": "すべての項目でフィルタリングしました。"
+    "advice_filter_applied_all": "すべての項目でフィルタリングしました。",
+    "last_updated": "最終更新: "
   },
   "dictionary": {
     "fab_label": "AI辞書",

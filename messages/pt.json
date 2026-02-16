@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Excluindo...",
     "level_up": "Prática de fala",
     "advice_filter_applied": "Filtrado por {topic}.",
-    "advice_filter_applied_all": "Filtrado por todos os itens."
+    "advice_filter_applied_all": "Filtrado por todos os itens.",
+    "last_updated": "Última atualização: "
   },
   "dictionary": {
     "fab_label": "Dicionário IA",

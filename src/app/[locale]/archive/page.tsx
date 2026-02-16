@@ -478,52 +478,65 @@ export default function ArchivePage() {
 
                   {/* Speaking Level */}
                   {/* Speaking Level */}
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                     <div>
-                      <p className="text-xs uppercase text-accent/80">{t("level_speaking")}</p>
-                      <div className="mt-1 flex items-end gap-2">
-                        <p className="text-2xl font-bold text-foreground">
-                          {(() => {
-                            const lvl = latestSpeakingLevel?.level;
-                            const score = latestSpeakingLevel?.score;
-                            if (lvl === 'unknown' && typeof score === 'number') {
-                              if (score >= 95) return "C2";
-                              if (score >= 85) return "C1";
-                              if (score >= 75) return "B2";
-                              if (score >= 60) return "B1";
-                              if (score >= 40) return "A2";
-                              return "A1";
-                            }
-                            return lvl ?? "-";
-                          })()}
-                        </p>
-                        {typeof latestSpeakingLevel?.score === "number" && (
-                          <span className="text-xs text-muted-foreground">({latestSpeakingLevel.score})</span>
-                        )}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                       {/* Left: Level Info */}
+                       <div>
+                        <p className="text-xs uppercase text-accent/80">{t("level_speaking")}</p>
+                        <div className="mt-1 flex items-end gap-2">
+                          <p className="text-2xl font-bold text-foreground">
+                            {(() => {
+                              const lvl = latestSpeakingLevel?.level;
+                              const score = latestSpeakingLevel?.score;
+                              if (lvl === 'unknown' && typeof score === 'number') {
+                                if (score >= 95) return "C2";
+                                if (score >= 85) return "C1";
+                                if (score >= 75) return "B2";
+                                if (score >= 60) return "B1";
+                                if (score >= 40) return "A2";
+                                return "A1";
+                              }
+                              return lvl ?? "-";
+                            })()}
+                          </p>
+                          {typeof latestSpeakingLevel?.score === "number" && (
+                            <span className="text-xs text-muted-foreground">({latestSpeakingLevel.score})</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                     <div className="text-right w-full sm:w-auto">
-                        {latestSpeakingLevel ? (
-                          <div className="flex flex-col items-end gap-1 w-full sm:w-auto">
-                            <p className="text-[10px] text-muted-foreground mb-1">
-                              {formatDate(latestSpeakingLevel.createdAt, locale)}
-                            </p>
+
+                       {/* Right: Date & Desktop Button */}
+                       <div className="text-right">
+                          <p className="text-[10px] text-muted-foreground mb-1">
+                            {latestSpeakingLevel && (
+                              <>
+                                {t("last_updated")}{formatDate(latestSpeakingLevel.createdAt, locale)}
+                              </>
+                            )}
+                          </p>
+                          {/* Desktop Button */}
+                          <div className="hidden sm:block">
                             <Button
-                              className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10 px-6"
+                              variant="ghost"
+                              className="bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-9 px-6"
                               onClick={() => router.push("/speaking")}
                             >
-                              {t("level_up")}
+                              {latestSpeakingLevel ? t("level_up") : t("start_speaking_practice")}
                             </Button>
                           </div>
-                        ) : (
-                          <Button 
-                            className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10 px-6"
-                            onClick={() => router.push("/speaking")}
-                          >
-                            {t("start_speaking_practice")}
-                          </Button>
-                        )}
-                     </div>
+                       </div>
+                    </div>
+
+                    {/* Mobile Button (Full Width) */}
+                    <div className="sm:hidden">
+                       <Button 
+                          variant="ghost"
+                          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10"
+                          onClick={() => router.push("/speaking")}
+                        >
+                          {latestSpeakingLevel ? t("level_up") : t("start_speaking_practice")}
+                        </Button>
+                    </div>
                   </div>
                 </div>
               </div>

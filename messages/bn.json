@@ -236,7 +236,8 @@
     "delete_confirm_loading": "মোছা হচ্ছে...",
     "level_up": "কথা বলার অনুশীলন",
     "advice_filter_applied": "{topic} দ্বারা ফিল্টার করা হয়েছে।",
-    "advice_filter_applied_all": "সব আইটেম দ্বারা ফিল্টার করা হয়েছে।"
+    "advice_filter_applied_all": "সব আইটেম দ্বারা ফিল্টার করা হয়েছে।",
+    "last_updated": "সর্বশেষ আপডেট: "
   },
   "dictionary": {
     "fab_label": "এআই অভিধান",

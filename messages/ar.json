@@ -236,7 +236,8 @@
     "delete_confirm_loading": "جارٍ الحذف...",
     "level_up": "ممارسة التحدث",
     "advice_filter_applied": "تم التصفية بواسطة {topic}.",
-    "advice_filter_applied_all": "تمت التصفية حسب جميع العناصر."
+    "advice_filter_applied_all": "تمت التصفية حسب جميع العناصر.",
+    "last_updated": "آخر تحديث: "
   },
   "dictionary": {
     "fab_label": "قاموس الذكاء الاصطناعي",

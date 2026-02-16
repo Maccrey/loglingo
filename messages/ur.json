@@ -236,7 +236,8 @@
     "delete_confirm_loading": "حذف ہو رہا ہے...",
     "level_up": "بولنے کی مشق",
     "advice_filter_applied": "{topic} کے لحاظ سے فلٹر کیا گیا۔",
-    "advice_filter_applied_all": "تمام اشیاء کے لحاظ سے فلٹر کیا گیا۔"
+    "advice_filter_applied_all": "تمام اشیاء کے لحاظ سے فلٹر کیا گیا۔",
+    "last_updated": "آخری بار اپ ڈیٹ کیا گیا: "
   },
   "dictionary": {
     "fab_label": "AI لغت",

@@ -236,7 +236,8 @@
     "delete_confirm_loading": "삭제 중...",
     "level_up": "말하기 연습",
     "advice_filter_applied": "{topic} 관련 항목으로 필터링되었습니다.",
-    "advice_filter_applied_all": "전체 항목으로 필터링되었습니다."
+    "advice_filter_applied_all": "전체 항목으로 필터링되었습니다.",
+    "last_updated": "마지막 업데이트: "
   },
   "dictionary": {
     "fab_label": "AI 사전",

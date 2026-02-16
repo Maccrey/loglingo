@@ -236,7 +236,8 @@
     "delete_confirm_loading": "删除中...",
     "level_up": "口语练习",
     "advice_filter_applied": "已按 {topic} 筛选。",
-    "advice_filter_applied_all": "已筛选所有项目。"
+    "advice_filter_applied_all": "已筛选所有项目。",
+    "last_updated": "最后更新: "
   },
   "dictionary": {
     "fab_label": "AI词典",

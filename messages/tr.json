@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Siliniyor...",
     "level_up": "Konuşma Pratiği",
     "advice_filter_applied": "{topic} ile filtrelendi.",
-    "advice_filter_applied_all": "Tüm öğelerle filtrelendi."
+    "advice_filter_applied_all": "Tüm öğelerle filtrelendi.",
+    "last_updated": "Son güncelleme: "
   },
   "dictionary": {
     "fab_label": "AI Sözlük",

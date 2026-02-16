@@ -236,7 +236,8 @@
     "delete_confirm_loading": "กำลังลบ...",
     "level_up": "ฝึกพูด",
     "advice_filter_applied": "กรองด้วย {topic}",
-    "advice_filter_applied_all": "กรองด้วยรายการทั้งหมด"
+    "advice_filter_applied_all": "กรองด้วยรายการทั้งหมด",
+    "last_updated": "อัปเดตล่าสุด: "
   },
   "dictionary": {
     "fab_label": "พจนานุกรม AI",

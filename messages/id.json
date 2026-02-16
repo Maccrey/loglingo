@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Menghapus...",
     "level_up": "Latihan Berbicara",
     "advice_filter_applied": "Difilter berdasarkan {topic}.",
-    "advice_filter_applied_all": "Difilter berdasarkan semua item."
+    "advice_filter_applied_all": "Difilter berdasarkan semua item.",
+    "last_updated": "Terakhir diperbarui: "
   },
   "dictionary": {
     "fab_label": "Kamus AI",

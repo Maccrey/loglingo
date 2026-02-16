@@ -236,7 +236,8 @@
     "delete_confirm_loading": "Đang xóa...",
     "level_up": "Luyện nói",
     "advice_filter_applied": "Đã lọc theo {topic}.",
-    "advice_filter_applied_all": "Đã lọc theo tất cả các mục."
+    "advice_filter_applied_all": "Đã lọc theo tất cả các mục.",
+    "last_updated": "Cập nhật lần cuối: "
   },
   "dictionary": {
     "fab_label": "Từ điển AI",

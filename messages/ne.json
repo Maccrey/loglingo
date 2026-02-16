@@ -236,7 +236,8 @@
     "delete_confirm_loading": "मेटाइदै...",
     "level_up": "बोल्ने अभ्यास",
     "advice_filter_applied": "{topic} द्वारा फिल्टर गरिएको।",
-    "advice_filter_applied_all": "सबै वस्तुहरू द्वारा फिल्टर गरिएको।"
+    "advice_filter_applied_all": "सबै वस्तुहरू द्वारा फिल्टर गरिएको।",
+    "last_updated": "अन्तिम अपडेट: "
   },
   "dictionary": {
     "fab_label": "AI शब्दकोश",
