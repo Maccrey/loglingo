@@ -67,7 +67,10 @@ export function Navigation() {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false);
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const handleOpenLogin = () => setIsLoginOpen(true);
     window.addEventListener("open-login-modal", handleOpenLogin);
     return () => window.removeEventListener("open-login-modal", handleOpenLogin);
@@ -110,11 +113,49 @@ export function Navigation() {
             Loglingo
           </div>
         </Link>
-        <LanguageSelector 
-          locale={locale} 
-          tSettings={tSettings} 
-          onChange={handleLanguageChange} 
-        />
+        <div className="flex items-center gap-3">
+          {mounted && (user ? (
+            <button
+              onClick={() => {
+                import("@/lib/analytics").then(({ trackEvent }) => {
+                  trackEvent("click_button", {
+                    component_name: "MobileHeader",
+                    action_detail: "로그아웃",
+                    value_korean: "모바일 헤더 로그아웃 클릭"
+                  });
+                });
+                signOutUser();
+              }}
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label={t('logout') ?? "Logout"}
+            >
+              <LogOut className="h-5 w-5" />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                import("@/lib/analytics").then(({ trackEvent }) => {
+                  trackEvent("click_button", {
+                    component_name: "MobileHeader",
+                    action_detail: "로그인 모달 열기",
+                    value_korean: "모바일 헤더 로그인 클릭"
+                  });
+                });
+                setIsLoginOpen(true);
+              }}
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label={t('login') ?? "Login"}
+              disabled={loading}
+            >
+              <LogIn className="h-5 w-5" />
+            </button>
+          ))}
+          <LanguageSelector 
+            locale={locale} 
+            tSettings={tSettings} 
+            onChange={handleLanguageChange} 
+          />
+        </div>
       </header>
 
       {/* Desktop Top Nav / Mobile Bottom Nav */}
