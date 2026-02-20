@@ -8,7 +8,7 @@ import { useSpeaking } from '@/application/speaking/useSpeaking';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { ArrowLeft, Mic, Sparkles, AlertCircle, Check, RefreshCw } from 'lucide-react';
-import Link from 'next/link';
+import { useRouter } from '@/i18n/routing';
 import { useAuth } from '@/application/auth/AuthProvider';
 import { useSpeakingChallenge } from '@/application/speaking/useSpeakingChallenge';
 import { AuthGate } from '@/components/auth/AuthGate';
@@ -39,6 +39,7 @@ const LANGUAGE_MAP: Record<string, string> = {
 
 export default function SpeakingPage() {
   const t = useTranslations('Speaking'); // Ensure keys exist or use fallback
+  const router = useRouter();
   const { user } = useAuth(); // for language preference if needed
   const { learningLanguage } = useLearningLanguage();
   const locale = useLocale();
@@ -149,9 +150,12 @@ export default function SpeakingPage() {
       
         {/* Header */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between mb-8 max-w-4xl gap-4">
-          <Link href="/" className="p-2 hover:bg-accent/10 rounded-full transition self-start md:self-auto text-muted-foreground hover:text-foreground">
+          <button 
+            onClick={() => router.back()}
+            className="p-2 hover:bg-accent/10 rounded-full transition self-start md:self-auto text-muted-foreground hover:text-foreground"
+          >
             <ArrowLeft className="w-6 h-6" />
-          </Link>
+          </button>
           <div className="flex flex-col items-center gap-6">
               <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-center">
                 {t('title')}

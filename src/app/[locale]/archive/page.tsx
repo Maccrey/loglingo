@@ -478,7 +478,8 @@ export default function ArchivePage() {
 
                   {/* Speaking Level */}
                   {/* Speaking Level */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
+                    {/* Top Row: Level Info & Date */}
                     <div className="flex items-center justify-between">
                        {/* Left: Level Info */}
                        <div>
@@ -505,38 +506,26 @@ export default function ArchivePage() {
                         </div>
                       </div>
 
-                       {/* Right: Date & Desktop Button */}
+                       {/* Right: Date Info */}
                        <div className="text-right">
-                          <p className="text-[10px] text-muted-foreground mb-1">
+                          <p className="text-[10px] text-muted-foreground">
                             {latestSpeakingLevel && (
                               <>
                                 {t("last_updated")}{formatDate(latestSpeakingLevel.createdAt, locale)}
                               </>
                             )}
                           </p>
-                          {/* Desktop Button */}
-                          <div className="hidden sm:block">
-                            <Button
-                              variant="ghost"
-                              className="bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-9 px-6"
-                              onClick={() => router.push("/speaking")}
-                            >
-                              {latestSpeakingLevel ? t("level_up") : t("start_speaking_practice")}
-                            </Button>
-                          </div>
                        </div>
                     </div>
 
-                    {/* Mobile Button (Full Width) */}
-                    <div className="sm:hidden">
-                       <Button 
-                          variant="ghost"
-                          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 border-none h-10"
-                          onClick={() => router.push("/speaking")}
-                        >
-                          {latestSpeakingLevel ? t("level_up") : t("start_speaking_practice")}
-                        </Button>
-                    </div>
+                    {/* Bottom Row: Button (Always visible, full width) */}
+                    <Button 
+                       variant="ghost"
+                       className="w-full h-12 text-lg font-bold shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 !bg-orange-500/20 !text-orange-500 !border !border-orange-500/50 hover:!bg-gradient-to-r hover:!from-orange-500 hover:!to-orange-600 hover:!text-white hover:!border-orange-600"
+                       onClick={() => router.push("/speaking")}
+                    >
+                      {latestSpeakingLevel ? t("level_up") : t("start_speaking_practice")}
+                    </Button>
                   </div>
                 </div>
               </div>

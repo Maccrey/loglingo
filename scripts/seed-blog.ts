@@ -9,6 +9,8 @@ import { BLOG_POSTS_PART_5 } from "./blog-data-part5";
 import { BLOG_POSTS_PART_6 } from "./blog-data-part6";
 import { BLOG_POSTS_PART_7 } from "./blog-data-part7";
 import { BLOG_POSTS_PART_8 } from "./blog-data-part8";
+import { BLOG_POSTS_PART_9 } from './blog-data-part9';
+import { BLOG_POSTS_PART_10 } from './blog-data-part10';
 import { loadEnvConfig } from '@next/env';
 
 loadEnvConfig(process.cwd());
@@ -64,7 +66,9 @@ async function seedBlog() {
     ...BLOG_POSTS_PART_5,
     ...BLOG_POSTS_PART_6,
     ...BLOG_POSTS_PART_7,
-    ...BLOG_POSTS_PART_8
+    ...BLOG_POSTS_PART_8,
+    ...BLOG_POSTS_PART_9,
+    ...BLOG_POSTS_PART_10
   ];
 
   let count = 0;

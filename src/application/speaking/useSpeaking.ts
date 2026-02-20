@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { toast } from 'sonner';
 import { SpeakingFeedback, SpeakingSession } from '@/domain/speaking';
 import { useAuth } from '@/application/auth/AuthProvider'; // Assuming AuthProvider exists
 import { useAddLevelRecord } from '@/application/learning-profile/hooks';
@@ -28,18 +29,10 @@ export function useSpeaking() {
   const [isPromptLoading, setIsPromptLoading] = useState(false);
 
   const fetchPrompt = useCallback(async (language: string, uiLocale: string, force: boolean = false) => {
-      // Prevent fetching if already loading
-      // Prevent fetching if prompt exists and not forcing
       setPrompt(prev => {
-          if (!force && prev) return prev; // Return current state if we have it and not forcing
+          if (!force && prev) return prev;
           return force ? null : prev;
       });
-
-      // We need a way to check current state. 
-      // Since we can't easily access 'prompt' state inside useCallback without adding it to deps (which causes loops),
-      // we'll rely on the caller or a ref, OR simply rely on the 'force' flag primarily.
-      // But actsually, the cleanest way in the hook is to trust the caller.
-      // However, to be extra safe against double-invocations:
       
       setIsPromptLoading(true);
       try {
@@ -73,7 +66,6 @@ export function useSpeaking() {
     setStep('analyzing');
 
     try {
-      // 1. Call AI API
       const response = await fetch('/api/ai/analyze-speaking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -81,41 +73,56 @@ export function useSpeaking() {
             text,
             language,
             userId: user?.uid,
-            uiLocale: uiLanguage // API expects uiLocale or uiLanguage mapped
+            uiLocale: uiLanguage
         }),
       });
 
       if (!response.ok) throw new Error('Analysis failed');
 
       const data = await response.json();
-      // data should contain { feedback, session } ideally
+      console.log("Received analysis data:", data);
       
       setFeedback(data.feedback);
       setStep('feedback');
       
       // Save result if valid score
-      if (data.feedback && typeof data.feedback.accuracyScore === 'number' && data.feedback.accuracyScore > 0) {
-        const score = data.feedback.accuracyScore;
+      const score = data.feedback?.accuracyScore;
+      console.log("Checking score for save:", score, typeof score);
+
+      if (data.feedback && typeof score === 'number' && score > 0) {
         const rawLevel = data.feedback.estimatedLevel;
         const validLevels: LevelBand[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
         
-        let levelToSave: LevelBand = "A1"; // Default safe fallback
+        let levelToSave: LevelBand = "A1"; 
         
         if (rawLevel && validLevels.includes(rawLevel as LevelBand)) {
              levelToSave = rawLevel as LevelBand;
         } else {
-             // Fallback estimate
              levelToSave = estimateLevelFromScore(score);
         }
+
+        console.log("Attempting to save speaking result:", { level: levelToSave, score });
 
         addLevelRecord.mutate({
              level: levelToSave,
              score: score,
              confidence: score / 100,
              sourceType: 'speaking',
-             sourceId: data.feedback.sessionId, // AI API should return session ID
+             sourceId: data.feedback.sessionId,
              language: language
+        }, {
+             onSuccess: () => {
+                 console.log("Speaking result saved to profile successfully");
+                 toast.success("Speaking result saved!");
+             },
+             onError: (err) => {
+                 console.error("Failed to save speaking result", err);
+                 toast.error("Failed to save result: " + err.message);
+             }
         });
+      } else {
+          console.warn("Skipping save: Invalid accuracy score", data.feedback);
+          toast.warning("Result not saved: Score invalid (" + score + ")");
       }
       
     } catch (err: any) {
@@ -130,7 +137,6 @@ export function useSpeaking() {
     setTranscript('');
     setFeedback(null);
     setError(null);
-    // Don't clear prompt to allow reuse, or clear if we want fresh? Keep it for now.
   }, []);
 
   return {
