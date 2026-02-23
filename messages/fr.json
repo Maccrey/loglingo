@@ -131,7 +131,9 @@
     "generate_audio": "Générer un audio IA",
     "checking_audio": "Vérification de l'état...",
     "generating_audio": "Génération de l'audio...",
-    "audio_ready": "L'audio IA est prêt"
+    "audio_ready": "L'audio IA est prêt",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Nouvelle entrée",

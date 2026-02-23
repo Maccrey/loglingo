@@ -131,7 +131,9 @@
     "generate_audio": "KI-Audio generieren",
     "checking_audio": "Status wird überprüft...",
     "generating_audio": "Audio wird generiert...",
-    "audio_ready": "KI-Audio ist bereit"
+    "audio_ready": "KI-Audio ist bereit",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Neuer Eintrag",

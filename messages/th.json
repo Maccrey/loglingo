@@ -131,7 +131,9 @@
     "generate_audio": "สร้างเสียง AI",
     "checking_audio": "กำลังตรวจสอบสถานะ...",
     "generating_audio": "กำลังสร้างเสียง...",
-    "audio_ready": "เสียง AI พร้อมแล้ว"
+    "audio_ready": "เสียง AI พร้อมแล้ว",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",

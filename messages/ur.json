@@ -131,7 +131,9 @@
     "generate_audio": "AI آڈیو بنائیں",
     "checking_audio": "سٹیٹس چیک ہو رہا ہے...",
     "generating_audio": "آڈیو بنائی جا رہی ہے...",
-    "audio_ready": "AI آڈیو تیار ہے"
+    "audio_ready": "AI آڈیو تیار ہے",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "نیا اندراج",

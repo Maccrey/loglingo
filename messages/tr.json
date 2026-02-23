@@ -131,7 +131,9 @@
     "generate_audio": "Yapay Zeka Sesi Oluştur",
     "checking_audio": "Durum kontrol ediliyor...",
     "generating_audio": "Ses oluşturuluyor...",
-    "audio_ready": "Yapay Zeka Sesi hazır"
+    "audio_ready": "Yapay Zeka Sesi hazır",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Yeni Günlük",

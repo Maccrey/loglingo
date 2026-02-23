@@ -1,5 +1,26 @@
 import { NextResponse } from "next/server";
-import admin from "@/infrastructure/firebase/admin";
+import { Storage } from "@google-cloud/storage";
+
+// Cloud Run 기본 서비스 계정에는 signBlob 권한이 없으므로
+// Firebase 서비스 계정 키를 명시적으로 사용해 Signed URL을 생성
+function createStorage() {
+  const clientEmail = process.env.SERVICE_FIREBASE_CLIENT_EMAIL;
+  const privateKey = process.env.SERVICE_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+
+  if (clientEmail && privateKey) {
+    return new Storage({
+      projectId,
+      credentials: { client_email: clientEmail, private_key: privateKey },
+    });
+  }
+
+  // ADC fallback (개발환경)
+  return new Storage({ projectId });
+}
+
+const storage = createStorage();
+const bucketName = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!;
 
 export async function GET(req: Request) {
   try {
@@ -10,10 +31,10 @@ export async function GET(req: Request) {
       return NextResponse.json({ message: "diaryId is required" }, { status: 400 });
     }
 
-    const bucket = admin.storage().bucket();
+    const bucket = storage.bucket(bucketName);
     const filePath = `diary-tts/${diaryId}.mp3`;
     const file = bucket.file(filePath);
-    
+
     const [exists] = await file.exists();
     if (exists) {
       const [url] = await file.getSignedUrl({
@@ -53,11 +74,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const bucket = admin.storage().bucket();
+    const bucket = storage.bucket(bucketName);
     const filePath = `diary-tts/${diaryId}.mp3`;
     const file = bucket.file(filePath);
 
-    // 1. Check if file already exists in Firebase Storage
+    // 1. 이미 존재하면 Signed URL 반환
     const [exists] = await file.exists();
     if (exists) {
       const [url] = await file.getSignedUrl({
@@ -67,14 +88,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ url, cached: true });
     }
 
-    // 2. File doesn't exist, generate via OpenAI TTS
-    // Add language optimization prompt if learningLanguage is provided.
-    // However, the TTS API only accepts plain text without system prompts.
-    // According to OpenAI docs, providing the text in the target language is usually enough.
-    // If we want to strongly hint the language, we can prepend a short silent/invisible hint, 
-    // but Native OpenAI TTS auto-detects based on the written text very well.
-    // For now, we will just send the content. The model 'tts-1' supports multi-language.
-    
+    // 2. OpenAI TTS로 오디오 생성
     const response = await fetch("https://api.openai.com/v1/audio/speech", {
       method: "POST",
       headers: {
@@ -84,7 +98,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         model: "tts-1",
         input: content,
-        voice: "alloy", // "alloy", "echo", "fable", "onyx", "nova", "shimmer"
+        voice: "alloy",
       }),
     });
 
@@ -97,23 +111,21 @@ export async function POST(req: Request) {
       );
     }
 
-    // 3. Save to Firebase Storage
+    // 3. Firebase Storage에 저장
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
     await file.save(buffer, {
       contentType: "audio/mpeg",
       metadata: {
-        metadata: {
-          originalLanguage: learningLanguage || "unknown",
-        }
-      }
+        originalLanguage: learningLanguage || "unknown",
+      },
     });
 
-    // 4. Return the temporary signed URL (or public URL if bucket is public, but signed is safer)
+    // 4. Signed URL 반환 (1주일 유효)
     const [url] = await file.getSignedUrl({
       action: "read",
-      expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // 1 week
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     });
 
     return NextResponse.json({ url, cached: false });

@@ -28,10 +28,11 @@ const remotePatterns: RemotePattern[] = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig: import("next").NextConfig = {
-  turbopack: {
-    // Force workspace root to avoid picking up sibling lockfiles (e.g. /Users/maccrey/package-lock.json)
-    root: __dirname,
-  },
+  outputFileTracingRoot: __dirname,
+
+  // firebase-admin은 Node.js 전용 패키지이므로 번들링에서 제외
+  // Cloud Functions 환경에서 직접 node_modules에서 resolve 됨
+  serverExternalPackages: ['firebase-admin', 'firebase-functions'],
   images: {
     domains: ['images.unsplash.com'],
     remotePatterns,

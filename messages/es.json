@@ -131,7 +131,9 @@
     "generate_audio": "Generar audio con IA",
     "checking_audio": "Comprobando estado...",
     "generating_audio": "Generando audio...",
-    "audio_ready": "El audio de IA está listo"
+    "audio_ready": "El audio de IA está listo",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Nuevo diario",

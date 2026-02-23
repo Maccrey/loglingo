@@ -131,7 +131,9 @@
     "generate_audio": "AI 음성 생성",
     "checking_audio": "상태 확인 중...",
     "generating_audio": "음성 생성 중...",
-    "audio_ready": "AI 음성이 준비되었습니다"
+    "audio_ready": "AI 음성이 준비되었습니다",
+    "failed_to_generate_audio": "오디오 생성 실패",
+    "failed_to_generate_audio_desc": "음성을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."
   },
   "write": {
     "title": "새 일기 쓰기",

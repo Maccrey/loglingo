@@ -131,7 +131,9 @@
     "generate_audio": "Hasilkan Audio AI",
     "checking_audio": "Memeriksa status...",
     "generating_audio": "Menghasilkan Audio...",
-    "audio_ready": "Audio AI sudah siap"
+    "audio_ready": "Audio AI sudah siap",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Entri baru",

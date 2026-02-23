@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
@@ -13,6 +13,7 @@
     "lhci:collect": "npm run build && npx @lhci/cli autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.19.0",
     "@tanstack/react-query": "^5.90.11",
     "clsx": "^2.1.1",
     "firebase": "^12.6.0",

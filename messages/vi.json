@@ -131,7 +131,9 @@
     "generate_audio": "Tạo âm thanh AI",
     "checking_audio": "Đang kiểm tra trạng thái...",
     "generating_audio": "Đang tạo âm thanh...",
-    "audio_ready": "Âm thanh AI đã sẵn sàng"
+    "audio_ready": "Âm thanh AI đã sẵn sàng",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "Nhật ký mới",

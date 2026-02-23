@@ -131,7 +131,9 @@
     "generate_audio": "توليد صوت AI",
     "checking_audio": "جاري التحقق من الحالة...",
     "generating_audio": "جاري توليد الصوت...",
-    "audio_ready": "صوت AI جاهز"
+    "audio_ready": "صوت AI جاهز",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "إدخال جديد",

@@ -130,8 +130,10 @@
     "play_audio": "Play Audio",
     "generate_audio": "Generate AI Audio",
     "checking_audio": "Checking status...",
-    "generating_audio": "Generating Audio...",
-    "audio_ready": "AI Audio is ready"
+    "generating_audio": "Generating audio...",
+    "audio_ready": "AI Audio is ready",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "New Entry",

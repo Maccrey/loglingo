@@ -131,7 +131,9 @@
     "generate_audio": "AI ऑडियो जनरेट करें",
     "checking_audio": "स्थिति जांची जा रही है...",
     "generating_audio": "ऑडियो जनरेट किया जा रहा है...",
-    "audio_ready": "AI ऑडियो तैयार है"
+    "audio_ready": "AI ऑडियो तैयार है",
+    "failed_to_generate_audio": "Audio Generation Failed",
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
   },
   "write": {
     "title": "नई डायरी",
