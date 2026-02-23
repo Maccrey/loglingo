@@ -66,7 +66,7 @@ export function useDiaryTts(diaryId?: string) {
       });
 
       if (!response.ok) {
-        throw new Error(t("failed_to_generate_audio"));
+        throw new Error(t("failed_to_generate_audio") || "Failed to generate audio");
       }
 
       const data = await response.json();
@@ -79,7 +79,7 @@ export function useDiaryTts(diaryId?: string) {
       }
     } catch (error: any) {
       console.error("Audio generation failed:", error);
-      toast.error(error.message || t("failed_to_generate_audio_desc"));
+      toast.error(error.message || t("failed_to_generate_audio_desc") || "Please try again later.");
     } finally {
       setIsGenerating(false);
     }
