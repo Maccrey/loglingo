@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "เนื้อหาต้นฉบับ",
     "clear_date_filter": "Clear date",
-    "back": "กลับไปที่รายการ"
+    "back": "กลับไปที่รายการ",
+    "play_audio": "เล่นเสียง",
+    "generate_audio": "สร้างเสียง AI",
+    "checking_audio": "กำลังตรวจสอบสถานะ...",
+    "generating_audio": "กำลังสร้างเสียง...",
+    "audio_ready": "เสียง AI พร้อมแล้ว"
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",

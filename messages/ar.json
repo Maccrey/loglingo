@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "المحتوى الأصلي",
     "clear_date_filter": "Clear date",
-    "back": "العودة إلى القائمة"
+    "back": "العودة إلى القائمة",
+    "play_audio": "تشغيل الصوت",
+    "generate_audio": "توليد صوت AI",
+    "checking_audio": "جاري التحقق من الحالة...",
+    "generating_audio": "جاري توليد الصوت...",
+    "audio_ready": "صوت AI جاهز"
   },
   "write": {
     "title": "إدخال جديد",

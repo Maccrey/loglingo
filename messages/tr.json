@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Orijinal İçerik",
     "clear_date_filter": "Tarihi Temizle",
-    "back": "Listeye dön"
+    "back": "Listeye dön",
+    "play_audio": "Sesi Oynat",
+    "generate_audio": "Yapay Zeka Sesi Oluştur",
+    "checking_audio": "Durum kontrol ediliyor...",
+    "generating_audio": "Ses oluşturuluyor...",
+    "audio_ready": "Yapay Zeka Sesi hazır"
   },
   "write": {
     "title": "Yeni Günlük",

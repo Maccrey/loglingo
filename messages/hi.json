@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "मूल सामग्री",
     "clear_date_filter": "Clear date",
-    "back": "सूची में वापस"
+    "back": "सूची में वापस",
+    "play_audio": "ऑडियो चलाएं",
+    "generate_audio": "AI ऑडियो जनरेट करें",
+    "checking_audio": "स्थिति जांची जा रही है...",
+    "generating_audio": "ऑडियो जनरेट किया जा रहा है...",
+    "audio_ready": "AI ऑडियो तैयार है"
   },
   "write": {
     "title": "नई डायरी",

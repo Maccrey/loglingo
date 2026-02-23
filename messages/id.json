@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Konten Asli",
     "clear_date_filter": "Hapus Tanggal",
-    "back": "Kembali ke daftar"
+    "back": "Kembali ke daftar",
+    "play_audio": "Putar Audio",
+    "generate_audio": "Hasilkan Audio AI",
+    "checking_audio": "Memeriksa status...",
+    "generating_audio": "Menghasilkan Audio...",
+    "audio_ready": "Audio AI sudah siap"
   },
   "write": {
     "title": "Entri baru",

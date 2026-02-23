@@ -126,7 +126,12 @@
     "not_found_desc": "یہ ڈائری اندراج موجود نہیں ہے یا اسے ہٹا دیا گیا تھا۔",
     "original_content": "اصل مواد",
     "clear_date_filter": "تاریخ صاف کریں",
-    "back": "واپس"
+    "back": "واپس",
+    "play_audio": "آڈیو چلائیں",
+    "generate_audio": "AI آڈیو بنائیں",
+    "checking_audio": "سٹیٹس چیک ہو رہا ہے...",
+    "generating_audio": "آڈیو بنائی جا رہی ہے...",
+    "audio_ready": "AI آڈیو تیار ہے"
   },
   "write": {
     "title": "نیا اندراج",

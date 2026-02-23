@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { useTranslations } from "next-intl";
 import { AuthGate } from "@/components/auth/AuthGate";
 import { useRouter } from "@/i18n/routing";
-import { Archive, Sparkles, Edit3, ArrowLeft, ChevronDown } from "lucide-react";
+import { Archive, Sparkles, Edit3, ArrowLeft, ChevronDown, Play, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import NextImage from "next/image";
 import { formatDate } from "@/lib/intl-format";
@@ -17,6 +17,7 @@ import { ResponsiveAd } from "@/components/ads/ResponsiveAd";
 import { AD_UNITS, AD_SIZES } from "@/config/ads";
 import { cn } from "@/lib/utils";
 import type { LearningArchive } from "@/domain/archive";
+import { useDiaryTts } from "@/application/diary/useDiaryTts";
 
 // 개별 아카이브 카드 컴포넌트
 function ArchiveCard({ 
@@ -99,6 +100,7 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
   const router = useRouter();
   const { data, isLoading } = useDiaryDetail(userId, id);
   const { data: archives = [], isLoading: archivesLoading } = useArchiveList(userId, undefined, { sourceId: id });
+  const { isGenerating, audioUrl, generateAndPlayAudio, isAudioExisting, isChecking } = useDiaryTts(id);
 
   if (isLoading) {
     return (
@@ -192,6 +194,47 @@ export default function DiaryViewPage({ params }: { params: Promise<{ id: string
                  </div>
               </div>
             )}
+
+            {/* AI TTS 오디오 재생 섹션 */}
+            <div className="mt-6 pt-6 border-t border-border/50">
+              {!audioUrl ? (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    const formattedDateForTts = formatDate(new Date(`${data.date}T00:00:00`), locale);
+                    const textToRead = `${formattedDateForTts}.\n\n${data.content}`;
+                    generateAndPlayAudio(id, textToRead, locale);
+                  }}
+                  disabled={isGenerating || isChecking}
+                  className="w-full sm:w-auto border-orange-500/50"
+                  style={{ backgroundColor: '#f97316', color: 'white' }}
+                >
+                  {isGenerating || isChecking ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {isGenerating ? t("generating_audio") : t("checking_audio")}
+                    </>
+                  ) : (
+                    <>
+                      <Play className="mr-2 h-4 w-4" />
+                      {isAudioExisting ? t("play_audio") : t("generate_audio")}
+                    </>
+                  )}
+                </Button>
+              ) : (
+                <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 flex flex-col items-center gap-3">
+                  <p className="text-sm text-foreground font-medium text-center">
+                    {t("audio_ready")}
+                  </p>
+                  <audio
+                    controls
+                    autoPlay
+                    className="w-full"
+                    src={audioUrl || undefined}
+                  />
+                </div>
+              )}
+            </div>
           </CardContent>
         </Card>
 

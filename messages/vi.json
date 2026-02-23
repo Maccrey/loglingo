@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Nội dung gốc",
     "clear_date_filter": "Clear date",
-    "back": "Quay lại danh sách"
+    "back": "Quay lại danh sách",
+    "play_audio": "Phát âm thanh",
+    "generate_audio": "Tạo âm thanh AI",
+    "checking_audio": "Đang kiểm tra trạng thái...",
+    "generating_audio": "Đang tạo âm thanh...",
+    "audio_ready": "Âm thanh AI đã sẵn sàng"
   },
   "write": {
     "title": "Nhật ký mới",

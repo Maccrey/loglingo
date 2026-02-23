@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "Contenu original",
     "clear_date_filter": "Effacer la Date",
-    "back": "Retour à la liste"
+    "back": "Retour à la liste",
+    "play_audio": "Lire l'audio",
+    "generate_audio": "Générer un audio IA",
+    "checking_audio": "Vérification de l'état...",
+    "generating_audio": "Génération de l'audio...",
+    "audio_ready": "L'audio IA est prêt"
   },
   "write": {
     "title": "Nouvelle entrée",

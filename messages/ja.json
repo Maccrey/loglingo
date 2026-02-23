@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "原文",
     "clear_date_filter": "日付をクリア",
-    "back": "一覧に戻る"
+    "back": "一覧に戻る",
+    "play_audio": "音声を再生",
+    "generate_audio": "AI音声を生成",
+    "checking_audio": "ステータスを確認中...",
+    "generating_audio": "音声を生成中...",
+    "audio_ready": "AI音声の準備ができました"
   },
   "write": {
     "title": "新しい日記を書く",

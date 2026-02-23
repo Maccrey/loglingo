@@ -126,7 +126,12 @@
     "not_found_desc": "This diary entry does not exist or was removed.",
     "original_content": "原文",
     "clear_date_filter": "Clear date",
-    "back": "返回列表"
+    "back": "返回列表",
+    "play_audio": "播放音频",
+    "generate_audio": "生成AI音频",
+    "checking_audio": "正在检查状态...",
+    "generating_audio": "正在生成音频...",
+    "audio_ready": "AI音频已就绪"
   },
   "write": {
     "title": "写新日记",
