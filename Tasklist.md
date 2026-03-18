@@ -457,3 +457,16 @@
 
 
 
+
+## 31. Retention & Onboarding (Version Update)
+
+### 1) 데이터 모델 및 스트릭(Streak) 시스템 코어 (Micro-TDD)
+- [x] `User` 인터페이스에 `streak` 구조체 추가 (current, longest, lastEntryDate)
+- [x] `src/domain/user/streak.ts` 파일 생성 및 순수 함수 `calculateNextStreak` 구현
+- [x] `calculateNextStreak`에 대한 Unit Test 작성 및 검증 (Red-Green-Refactor)
+
+### 2) 게스트 체험(Guest Trial) 홈 화면 모달 구현
+- [ ] `src/components/home/StartButton.tsx` 수정: 체험하기 클릭 시 모달 띄우기
+- [ ] `src/components/home/GuestTrialModal.tsx` 컴포넌트 생성 및 1문장 입력 폼 작성 (모국어/학습어 설정)
+- [ ] 제출 시 기존 `/api/ai/tts`와 `/api/ai/correct` 연결하여 교정된 내용 및 음성 노출
+- [ ] 가입 유도 버튼 및 기존 `/diary/trial` 페이지 삭제
