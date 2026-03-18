@@ -30,8 +30,8 @@
     "login": "Connexion",
     "logout": "Déconnexion",
     "radio": "Radio",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Blog d'Apprentissage",
@@ -538,5 +538,48 @@
       "message_24": "Sauvegardez vos phrases préférées.",
       "message_25": "Bienvenue l'ami ! Connectez-vous pour continuer."
     }
+  },
+  "footer": {
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions",
+    "contact": "Contact"
+  },
+  "cookie": {
+    "message": "Nous utilisons des cookies pour améliorer votre expérience et diffuser des annonces personnalisées.",
+    "accept": "Accepter"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "description_meta": "Contactez l'équipe Loglingo pour un support, des retours ou des demandes commerciales.",
+    "email_desc": "Si vous avez des questions, des retours ou besoin de support pour votre expérience Loglingo, n'hésitez pas à nous contacter. Nous visons à répondre à toutes les demandes aussi rapidement que possible.",
+    "inquiry_note": "Pour les problèmes liés au compte ou le support technique, veuillez inclure autant de détails que possible dans votre message afin que nous puissions vous aider efficacement.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "À propos de Loglingo",
+    "description_meta": "Découvrez Loglingo, votre compagnon d'apprentissage des langues personnalisé et alimenté par l'IA, conçu pour vous aider à maîtriser les langues de manière naturelle.",
+    "p1": "Bienvenue sur Loglingo, une plateforme moderne alimentée par l'IA pour les apprenants de langues du monde entier. Nous croyons que l'apprentissage d'une nouvelle langue devrait être aussi naturel que de tenir une conversation ou de tenir un journal quotidien.",
+    "p2": "Chez Loglingo, nous utilisons l'intelligence artificielle avancée pour vous fournir des retours personnalisés, des traductions naturelles et un espace où vous pouvez pratiquer sans crainte de faire des erreurs.",
+    "p3": "Que vous soyez un débutant cherchant à maîtriser les bases ou un apprenant avancé visant la fluidité, Loglingo propose une suite d'outils, des corrections de journal IA à la pratique d'écoute interactive, adaptés à votre parcours d'apprentissage unique.",
+    "p4": "Notre mission est de briser les barrières linguistiques et de rendre l'éducation linguistique de haute qualité accessible à tous. Nous mettons continuellement à jour notre plateforme avec de nouvelles fonctionnalités et un support pour plus de langues afin d'autonomiser notre communauté mondiale."
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "description_meta": "Lisez les Conditions d'utilisation pour utiliser Loglingo. Comprenez vos droits et responsabilités lors de l'accès à nos outils d'apprentissage des langues.",
+    "p1": "Bienvenue sur Loglingo. En accédant ou en utilisant notre site web et nos services, vous acceptez d'être lié par ces Conditions d'utilisation. Veuillez les lire attentivement.",
+    "p2": "Loglingo fournit une plateforme pour la pratique des langues, incluant des corrections de texte et des traductions générées par l'IA. Le service est fourni 'tel quel', et nous ne garantissons pas l'exactitude absolue du contenu généré par l'IA.",
+    "p3": "Les utilisateurs sont responsables du contenu qu'ils soumettent à la plateforme. Vous acceptez de ne pas utiliser Loglingo à des fins illégales ou de télécharger du contenu abusif, harcelant ou violant les droits d'autrui. Nous nous réservons le droit de suspendre ou de résilier les comptes qui violent ces conditions.",
+    "p4": "Tous les droits de propriété intellectuelle relatifs à la plateforme Loglingo, à l'exclusion du contenu généré par les utilisateurs, appartiennent aux propriétaires de Loglingo. Vous ne pouvez pas reproduire, distribuer ou créer des œuvres dérivées de notre plateforme sans autorisation expresse.",
+    "p5": "Nous nous réservons le droit de modifier ces Conditions d'utilisation à tout moment. Votre utilisation continue du service après toute modification constitue une acceptation de ces changements."
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "description_meta": "Consultez notre Politique de confidentialité pour découvrir comment Loglingo collecte, utilise et protège vos données personnelles lors de l'utilisation de notre plateforme.",
+    "p1": "Chez Loglingo, votre vie privée est notre priorité. Cette Politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez nos services.",
+    "p2": "Nous collectons les informations que vous fournissez directement, comme lors de la création d'un compte, de la rédaction d'entrées de journal ou de l'interaction avec nos outils d'apprentissage. Nous pouvons également collecter des données d'utilisation pour améliorer nos services et analyser l'expérience utilisateur.",
+    "p3": "Nous utilisons des partenaires publicitaires tiers, y compris Google AdSense, pour diffuser des publicités sur notre site. Ces partenaires peuvent utiliser des cookies pour diffuser des publicités personnalisées basées sur vos visites précédentes sur notre site web ou d'autres sites web sur Internet.",
+    "p4": "Vous pouvez gérer vos préférences de cookies via notre bannière de cookies sur site ou les paramètres de votre navigateur. Vous pouvez également refuser la publicité personnalisée en visitant les paramètres appropriés fournis par votre réseau publicitaire.",
+    "p5": "Nous prenons des mesures techniques et organisationnelles appropriées pour protéger vos données contre un accès non autorisé, une altération, une divulgation ou une destruction. Nous ne vendons pas vos informations personnelles à des tiers."
   }
 }

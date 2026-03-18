@@ -30,8 +30,8 @@
     "login": "Giriş yap",
     "logout": "Çıkış yap",
     "radio": "Radyo",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Dil Öğrenme Blogu",
@@ -538,5 +538,48 @@
       "message_24": "Favori cümlelerini kaydet.",
       "message_25": "Hoş geldin dostum! Devam etmek için giriş yap."
     }
+  },
+  "footer": {
+    "about": "Hakkımızda",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Şartlar",
+    "contact": "İletişim"
+  },
+  "cookie": {
+    "message": "Deneyiminizi geliştirmek ve kişiselleştirilmiş reklamlar sunmak için çerezleri kullanıyoruz.",
+    "accept": "Kabul Et"
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "description_meta": "Destek, geri bildirim veya iş sorguları için Loglingo ekibiyle iletişime geçin.",
+    "email_desc": "Herhangi bir sorunuz, geri bildiriminiz veya Loglingo deneyiminizle ilgili destek ihtiyacınız varsa, bize ulaşmaktan çekinmeyin. Tüm sorgulara mümkün olan en kısa sürede yanıt vermeyi hedefliyoruz.",
+    "inquiry_note": "Hesapla ilgili sorunlar veya teknik destek için, size verimli bir şekilde yardımcı olabilmemiz için mesajınıza mümkün olan en fazla detayı ekleyin.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "Loglingo Hakkında",
+    "description_meta": "Loglingo hakkında bilgi edinin; doğal dilleri öğrenmenize yardımcı olmak için tasarlanmış kişiselleştirilmiş AI destekli dil öğrenme yoldaşınız.",
+    "p1": "Loglingo'ya hoş geldiniz, dünyanın dört bir yanındaki dil öğrenenleri için modern, AI destekli bir platform. Yeni bir dil öğrenmenin bir sohbet etmek veya günlük tutmak kadar doğal olması gerektiğine inanıyoruz.",
+    "p2": "Loglingo'da, gelişmiş yapay zekayı kullanarak kişiselleştirilmiş geri bildirim, doğal çeviriler ve hata yapma korkusu olmadan pratik yapabileceğiniz bir alan sağlıyoruz.",
+    "p3": "Temel kavramları kavramak isteyen bir acemi misiniz yoksa akıcılığa ulaşmayı hedefleyen ileri düzey bir öğrenen mi? Loglingo, AI günlük düzeltmelerinden etkileşimli dinleme pratiğine kadar, benzersiz öğrenme yolculuğunuza özel bir araç seti sunar.",
+    "p4": "Misyonumuz, dil bariyerlerini yıkmak ve yüksek kaliteli dil eğitimini herkes için erişilebilir hale getirmektir. Küresel topluluğumuzu güçlendirmek için platformumuzu yeni özellikler ve daha fazla dil desteğiyle sürekli güncelliyoruz."
+  },
+  "terms": {
+    "title": "Hizmet Şartları",
+    "description_meta": "Loglingo'yu kullanmak için Hizmet Şartlarını okuyun. Dil öğrenme araçlarımıza erişirken haklarınızı ve sorumluluklarınızı anlayın.",
+    "p1": "Loglingo'ya hoş geldiniz. Web sitemize ve hizmetlerimize erişerek veya kullanarak, bu Hizmet Şartları'na bağlı olmayı kabul edersiniz. Lütfen bunları dikkatlice okuyun.",
+    "p2": "Loglingo, AI tarafından üretilen metin düzeltmeleri ve çeviriler dahil dil pratiği için bir platform sağlar. Hizmet 'olduğu gibi' sağlanır ve AI tarafından üretilen içeriğin mutlak doğruluğu konusunda garanti vermeyiz.",
+    "p3": "Kullanıcılar, platforma sundukları içerikten sorumludur. Loglingo'yu yasa dışı herhangi bir amaçla kullanmamayı veya başkalarının haklarını ihlal eden, taciz edici veya saldırgan içerik yüklememeyi kabul edersiniz. Bu şartları ihlal eden hesapları askıya alma veya sonlandırma hakkını saklı tutarız.",
+    "p4": "Loglingo platformuyla ilgili tüm fikri mülkiyet hakları, kullanıcı tarafından üretilen içerik hariç, Loglingo sahiplerine aittir. Açık izinimiz olmadan platformumuzu çoğaltamaz, dağıtamaz veya türev eserler oluşturamazsınız.",
+    "p5": "Bu Hizmet Şartlarını herhangi bir zamanda değiştirme hakkını saklı tutarız. Değişikliklerden sonra hizmetin devam eden kullanımı, bu değişikliklerin kabulü anlamına gelir."
+  },
+  "privacy": {
+    "title": "Gizlilik Politikası",
+    "description_meta": "Loglingo'nun platformumuzu kullanırken kişisel verilerinizi nasıl topladığını, kullandığını ve koruduğunu öğrenmek için Gizlilik Politikamızı inceleyin.",
+    "p1": "Loglingo'da, gizliliğiniz önceliğimizdir. Bu Gizlilik Politikası, hizmetlerimizi kullandığınızda kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu özetler.",
+    "p2": "Hesap oluşturduğunuzda, günlük girişleri yazdığınızda veya öğrenme araçlarımızla etkileşimde bulunduğunuzda doğrudan sağladığınız bilgileri toplarız. Hizmetlerimizi iyileştirmek ve kullanıcı deneyimini analiz etmek için kullanım verilerini de toplayabiliriz.",
+    "p3": "Sitemizde reklam sunmak için Google AdSense dahil üçüncü taraf reklam ortaklarını kullanırız. Bu ortaklar, web sitemizi veya internetteki diğer siteleri daha önceki ziyaretlerinize dayanarak kişiselleştirilmiş reklamlar sunmak için çerezler kullanabilir.",
+    "p4": "Çerez tercihlerinizi sitemizdeki çerez bildiriminden veya tarayıcı ayarlarınızdan yönetebilirsiniz. Reklam ağınız tarafından sağlanan uygun ayarları ziyaret ederek kişiselleştirilmiş reklamlardan vazgeçebilirsiniz.",
+    "p5": "Verilerinizi yetkisiz erişime, değişikliğe, ifşaya veya yok etmeye karşı korumak için uygun teknik ve organizasyonel önlemler alırız. Kişisel bilgilerinizi üçüncü taraflara satmayız."
   }
 }

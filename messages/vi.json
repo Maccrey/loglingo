@@ -30,8 +30,8 @@
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
     "radio": "Radio",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Blog Học Ngôn Ngữ",
@@ -538,5 +538,48 @@
       "message_24": "Lưu lại những câu bạn thích.",
       "message_25": "Chào bạn! Đăng nhập để tiếp tục."
     }
+  },
+  "footer": {
+    "about": "Giới thiệu",
+    "privacy": "Bảo mật",
+    "terms": "Điều khoản",
+    "contact": "Liên hệ"
+  },
+  "cookie": {
+    "message": "Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn và cung cấp quảng cáo được cá nhân hóa.",
+    "accept": "Chấp nhận"
+  },
+  "contact": {
+    "title": "Liên hệ Với Chúng Tôi",
+    "description_meta": "Liên hệ với đội ngũ Loglingo để được hỗ trợ, phản hồi hoặc yêu cầu kinh doanh.",
+    "email_desc": "Nếu bạn có bất kỳ câu hỏi, phản hồi hoặc cần hỗ trợ với trải nghiệm Loglingo của bạn, hãy đừng ngần ngại liên hệ với chúng tôi. Chúng tôi cam kết trả lời tất cả các yêu cầu một cách nhanh chóng nhất có thể.",
+    "inquiry_note": "Đối với các vấn đề liên quan đến tài khoản hoặc hỗ trợ kỹ thuật, vui lòng cung cấp càng nhiều chi tiết càng tốt trong tin nhắn của bạn để chúng tôi có thể hỗ trợ bạn hiệu quả.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "Về Loglingo",
+    "description_meta": "Tìm hiểu về Loglingo, người bạn đồng hành học ngôn ngữ được hỗ trợ bởi AI cá nhân hóa, được thiết kế để giúp bạn làm chủ các ngôn ngữ một cách tự nhiên.",
+    "p1": "Chào mừng đến với Loglingo, một nền tảng hiện đại được hỗ trợ bởi AI dành cho những người học ngôn ngữ trên toàn thế giới. Chúng tôi tin rằng việc học một ngôn ngữ mới nên tự nhiên như trò chuyện hoặc viết nhật ký hàng ngày.",
+    "p2": "Tại Loglingo, chúng tôi tận dụng trí tuệ nhân tạo tiên tiến để cung cấp cho bạn phản hồi cá nhân hóa, bản dịch tự nhiên và một không gian nơi bạn có thể thực hành mà không sợ mắc lỗi.",
+    "p3": "Dù bạn là người mới bắt đầu muốn nắm vững kiến thức cơ bản hay người học nâng cao hướng tới sự lưu loát, Loglingo cung cấp một bộ công cụ, từ sửa chữa nhật ký AI đến thực hành nghe tương tác, được điều chỉnh phù hợp với hành trình học tập độc đáo của bạn.",
+    "p4": "Sứ mệnh của chúng tôi là phá vỡ rào cản ngôn ngữ và làm cho giáo dục ngôn ngữ chất lượng cao trở nên dễ tiếp cận với mọi người. Chúng tôi liên tục cập nhật nền tảng với các tính năng mới và hỗ trợ thêm ngôn ngữ để trao quyền cho cộng đồng toàn cầu của chúng tôi."
+  },
+  "terms": {
+    "title": "Điều khoản Dịch vụ",
+    "description_meta": "Đọc Điều khoản Dịch vụ để sử dụng Loglingo. Hiểu quyền và trách nhiệm của bạn khi truy cập các công cụ học ngôn ngữ của chúng tôi.",
+    "p1": "Chào mừng đến với Loglingo. Bằng cách truy cập hoặc sử dụng trang web và dịch vụ của chúng tôi, bạn đồng ý bị ràng buộc bởi các Điều khoản Dịch vụ này. Vui lòng đọc kỹ chúng.",
+    "p2": "Loglingo cung cấp nền tảng để thực hành ngôn ngữ, bao gồm sửa chữa văn bản và bản dịch được tạo bởi AI. Dịch vụ được cung cấp 'như hiện tại', và chúng tôi không đảm bảo về độ chính xác tuyệt đối của nội dung được tạo bởi AI.",
+    "p3": "Người dùng chịu trách nhiệm về nội dung họ gửi lên nền tảng. Bạn đồng ý không sử dụng Loglingo cho bất kỳ mục đích bất hợp pháp nào hoặc tải lên nội dung lạm dụng, quấy rối hoặc vi phạm quyền của người khác. Chúng tôi bảo lưu quyền tạm dừng hoặc chấm dứt tài khoản vi phạm các điều khoản này.",
+    "p4": "Tất cả quyền sở hữu trí tuệ liên quan đến nền tảng Loglingo, ngoại trừ nội dung do người dùng tạo, thuộc về chủ sở hữu Loglingo. Bạn không được sao chép, phân phối hoặc tạo tác phẩm phái sinh từ nền tảng của chúng tôi mà không có sự cho phép rõ ràng.",
+    "p5": "Chúng tôi bảo lưu quyền sửa đổi các Điều khoản Dịch vụ này bất kỳ lúc nào. Việc bạn tiếp tục sử dụng dịch vụ sau bất kỳ thay đổi nào sẽ构成 sự chấp nhận những thay đổi đó."
+  },
+  "privacy": {
+    "title": "Chính sách Bảo mật",
+    "description_meta": "Xem xét Chính sách Bảo mật của chúng tôi để tìm hiểu cách Loglingo thu thập, sử dụng và bảo vệ dữ liệu cá nhân của bạn khi sử dụng nền tảng của chúng tôi.",
+    "p1": "Tại Loglingo, quyền riêng tư của bạn là ưu tiên hàng đầu. Chính sách Bảo mật này phác thảo cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn khi bạn sử dụng dịch vụ của chúng tôi.",
+    "p2": "Chúng tôi thu thập thông tin bạn cung cấp trực tiếp, chẳng hạn như khi bạn tạo tài khoản, viết mục nhật ký hoặc tương tác với các công cụ học tập của chúng tôi. Chúng tôi cũng có thể thu thập dữ liệu sử dụng để cải thiện dịch vụ và phân tích trải nghiệm người dùng.",
+    "p3": "Chúng tôi sử dụng các đối tác quảng cáo bên thứ ba, bao gồm Google AdSense, để hiển thị quảng cáo trên trang web của chúng tôi. Các đối tác này có thể sử dụng cookie để hiển thị quảng cáo cá nhân hóa dựa trên các lượt truy cập trước đó của bạn vào trang web của chúng tôi hoặc các trang web khác trên internet.",
+    "p4": "Bạn có thể quản lý sở thích cookie của mình qua biểu ngữ cookie trên trang web hoặc cài đặt trình duyệt của bạn. Bạn cũng có thể từ chối quảng cáo cá nhân hóa bằng cách truy cập các cài đặt phù hợp được cung cấp bởi mạng quảng cáo của bạn.",
+    "p5": "Chúng tôi thực hiện các biện pháp kỹ thuật và tổ chức phù hợp để bảo vệ dữ liệu của bạn khỏi truy cập trái phép, thay đổi, tiết lộ hoặc phá hủy. Chúng tôi không bán thông tin cá nhân của bạn cho bên thứ ba."
   }
 }

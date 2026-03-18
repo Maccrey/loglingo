@@ -30,8 +30,8 @@
     "login": "Anmelden",
     "logout": "Abmelden",
     "radio": "Radio",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Sprachlern-Blog",
@@ -538,5 +538,48 @@
       "message_24": "Speichere deine Lieblingssätze.",
       "message_25": "Willkommen Freund! Log dich ein."
     }
+  },
+  "footer": {
+    "about": "Über uns",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "contact": "Kontakt"
+  },
+  "cookie": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und personalisierte Anzeigen bereitzustellen.",
+    "accept": "Akzeptieren"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "description_meta": "Nehmen Sie Kontakt mit dem Loglingo-Team für Support, Feedback oder geschäftliche Anfragen auf.",
+    "email_desc": "Wenn Sie Fragen, Feedback haben oder Unterstützung bei Ihrer Loglingo-Erfahrung benötigen, zögern Sie nicht, uns zu kontaktieren. Wir streben danach, auf alle Anfragen so schnell wie möglich zu antworten.",
+    "inquiry_note": "Für kontobezogene Probleme oder technischen Support geben Sie bitte so viele Details wie möglich in Ihrer Nachricht an, damit wir Ihnen effizient helfen können.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "Über Loglingo",
+    "description_meta": "Erfahren Sie mehr über Loglingo, Ihren personalisierten KI-gestützten Sprachlernbegleiter, der Ihnen hilft, Sprachen natürlich zu meistern.",
+    "p1": "Willkommen bei Loglingo, einer modernen, KI-gestützten Plattform für Sprachlerner auf der ganzen Welt. Wir glauben, dass das Lernen einer neuen Sprache so natürlich sein sollte wie ein Gespräch oder das Führen eines täglichen Tagebuchs.",
+    "p2": "Bei Loglingo nutzen wir fortschrittliche künstliche Intelligenz, um Ihnen personalisiertes Feedback, natürliche Übersetzungen und einen Raum zu bieten, in dem Sie ohne Angst vor Fehlern üben können.",
+    "p3": "Ob Sie Anfänger sind, der die Grundlagen erlernen möchte, oder ein Fortgeschrittener, der Flüssigkeit anstrebt, Loglingo bietet eine Reihe von Tools, von KI-Tagebuchkorrekturen bis hin zu interaktiven Hörübungen, die auf Ihre einzigartige Lernreise zugeschnitten sind.",
+    "p4": "Unsere Mission ist es, Sprachbarrieren abzubauen und hochwertige Sprachbildung für alle zugänglich zu machen. Wir aktualisieren unsere Plattform kontinuierlich mit neuen Funktionen und Unterstützung für weitere Sprachen, um unsere globale Community zu stärken."
+  },
+  "terms": {
+    "title": "Nutzungsbedingungen",
+    "description_meta": "Lesen Sie die Nutzungsbedingungen für die Nutzung von Loglingo. Verstehen Sie Ihre Rechte und Verpflichtungen beim Zugriff auf unsere Sprachlern-Tools.",
+    "p1": "Willkommen bei Loglingo. Durch den Zugriff auf oder die Nutzung unserer Website und Dienste stimmen Sie dieser Nutzungsbedingungen zu. Bitte lesen Sie sie sorgfältig durch.",
+    "p2": "Loglingo bietet eine Plattform für Sprachübungen, einschließlich KI-generierter Textkorrekturen und Übersetzungen. Der Dienst wird 'wie gesehen' bereitgestellt, und wir geben keine Garantien für die absolute Genauigkeit von KI-generierten Inhalten ab.",
+    "p3": "Nutzer sind für den von ihnen eingereichten Inhalt verantwortlich. Sie stimmen zu, Loglingo nicht für unrechtmäßige Zwecke zu nutzen oder Inhalte hochzuladen, die missbräuchlich, belästigend sind oder die Rechte anderer verletzen. Wir behalten uns das Recht vor, Konten zu sperren oder zu kündigen, die diese Bedingungen verletzen.",
+    "p4": "Alle geistigen Eigentumsrechte im Zusammenhang mit der Loglingo-Plattform, ausgenommen nutzergenerierte Inhalte, gehören den Eigentümern von Loglingo. Sie dürfen unsere Plattform ohne ausdrückliche Erlaubnis nicht vervielfältigen, verteilen oder abgeleitete Werke erstellen.",
+    "p5": "Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Ihre fortgesetzte Nutzung des Dienstes nach Änderungen stellt die Annahme dieser Änderungen dar."
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "description_meta": "Lesen Sie unsere Datenschutzerklärung, um zu erfahren, wie Loglingo Ihre personenbezogenen Daten während der Nutzung unserer Plattform erhebt, verwendet und schützt.",
+    "p1": "Bei Loglingo ist Ihr Datenschutz unsere Priorität. Diese Datenschutzerklärung beschreibt, wie wir Ihre personenbezogenen Informationen erheben, verwenden und schützen, wenn Sie unsere Dienste nutzen.",
+    "p2": "Wir erheben Informationen, die Sie uns direkt mitteilen, z. B. wenn Sie ein Konto erstellen, Tagebucheinträge schreiben oder mit unseren Lern-Tools interagieren. Wir können auch Nutzungsdaten erheben, um unsere Dienste zu verbessern und die Benutzererfahrung zu analysieren.",
+    "p3": "Wir nutzen Drittanbieter-Werbepartner, einschließlich Google AdSense, um Anzeigen auf unserer Website zu schalten. Diese Partner können Cookies verwenden, um personalisierte Anzeigen basierend auf Ihren früheren Besuchen auf unserer Website oder anderen Websites im Internet zu schalten.",
+    "p4": "Sie können Ihre Cookie-Einstellungen über unser Cookie-Banner auf der Website oder die Einstellungen Ihres Browsers verwalten. Sie können sich auch von personalisierter Werbung abmelden, indem Sie die entsprechenden Einstellungen Ihres Werbenetzwerks besuchen.",
+    "p5": "Wir treffen angemessene technische und organisatorische Maßnahmen, um Ihre Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen. Wir verkaufen Ihre personenbezogenen Informationen nicht an Dritte."
   }
 }

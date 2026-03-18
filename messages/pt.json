@@ -30,8 +30,8 @@
     "login": "Entrar",
     "logout": "Sair",
     "radio": "Rádio",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Blog de Aprendizado",
@@ -538,5 +538,48 @@
       "message_24": "Salve suas frases favoritas.",
       "message_25": "Bem-vindo amigo! Entre para continuar."
     }
+  },
+  "footer": {
+    "about": "Sobre",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "contact": "Contato"
+  },
+  "cookie": {
+    "message": "Usamos cookies para melhorar sua experiência e exibir anúncios personalizados.",
+    "accept": "Aceitar"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "description_meta": "Entre em contato com a equipe do Loglingo para suporte, feedback ou consultas comerciais.",
+    "email_desc": "Se você tiver alguma dúvida, feedback ou precisar de suporte com sua experiência no Loglingo, não hesite em nos contatar. Nosso objetivo é responder a todas as consultas o mais rápido possível.",
+    "inquiry_note": "Para problemas relacionados à conta ou suporte técnico, inclua o máximo de detalhes possível em sua mensagem para que possamos ajudá-lo de forma eficiente.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "Sobre o Loglingo",
+    "description_meta": "Saiba mais sobre o Loglingo, seu companheiro personalizado de aprendizado de idiomas impulsionado por IA, projetado para ajudá-lo a dominar idiomas de forma natural.",
+    "p1": "Bem-vindo ao Loglingo, uma plataforma moderna e impulsionada por IA para aprendizes de idiomas em todo o mundo. Acreditamos que aprender um novo idioma deve ser tão natural quanto ter uma conversa ou manter um diário diário.",
+    "p2": "No Loglingo, utilizamos inteligência artificial avançada para fornecer feedback personalizado, traduções naturais e um espaço onde você pode praticar sem medo de cometer erros.",
+    "p3": "Seja você um iniciante buscando dominar os conceitos básicos ou um aprendiz avançado visando fluência, o Loglingo oferece uma suíte de ferramentas, desde correções de diário por IA até prática interativa de escuta, adaptadas à sua jornada de aprendizado única.",
+    "p4": "Nossa missão é derrubar barreiras linguísticas e tornar a educação de idiomas de alta qualidade acessível a todos. Continuamos atualizando nossa plataforma com novos recursos e suporte para mais idiomas para capacitar nossa comunidade global."
+  },
+  "terms": {
+    "title": "Termos de Serviço",
+    "description_meta": "Leia os Termos de Serviço para usar o Loglingo. Entenda seus direitos e responsabilidades ao acessar nossas ferramentas de aprendizado de idiomas.",
+    "p1": "Bem-vindo ao Loglingo. Ao acessar ou usar nosso site e serviços, você concorda em ficar vinculado a estes Termos de Serviço. Por favor, leia-os com atenção.",
+    "p2": "O Loglingo fornece uma plataforma para prática de idiomas, incluindo correções de texto geradas por IA e traduções. O serviço é fornecido 'como está', e não garantimos a precisão absoluta do conteúdo gerado por IA.",
+    "p3": "Os usuários são responsáveis pelo conteúdo que enviam à plataforma. Você concorda em não usar o Loglingo para fins ilícitos ou para carregar conteúdo abusivo, assediador ou que viole os direitos de outros. Reservamo-nos o direito de suspender ou encerrar contas que violem estes termos.",
+    "p4": "Todos os direitos de propriedade intelectual relacionados à plataforma Loglingo, excluindo o conteúdo gerado pelo usuário, pertencem aos proprietários do Loglingo. Você não pode reproduzir, distribuir ou criar obras derivadas de nossa plataforma sem permissão expressa.",
+    "p5": "Reservamo-nos o direito de modificar estes Termos de Serviço a qualquer momento. Seu uso contínuo do serviço após quaisquer alterações constitui aceitação dessas mudanças."
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "description_meta": "Revise nossa Política de Privacidade para saber como o Loglingo coleta, usa e protege seus dados pessoais ao usar nossa plataforma.",
+    "p1": "No Loglingo, sua privacidade é nossa prioridade. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais quando você usa nossos serviços.",
+    "p2": "Coletamos informações que você fornece diretamente, como ao criar uma conta, escrever entradas de diário ou interagir com nossas ferramentas de aprendizado. Também podemos coletar dados de uso para melhorar nossos serviços e analisar a experiência do usuário.",
+    "p3": "Usamos parceiros de publicidade de terceiros, incluindo o Google AdSense, para exibir anúncios em nosso site. Esses parceiros podem usar cookies para exibir anúncios personalizados com base em suas visitas anteriores ao nosso site ou a outros sites na internet.",
+    "p4": "Você pode gerenciar suas preferências de cookies através do banner de cookies em nosso site ou das configurações do seu navegador. Você também pode optar por não receber publicidade personalizada visitando as configurações apropriadas fornecidas pela sua rede de anúncios.",
+    "p5": "Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição. Não vendemos suas informações pessoais a terceiros."
   }
 }

@@ -538,5 +538,48 @@
       "message_24": "Save your favorite sentences.",
       "message_25": "Welcome friend! Login to continue."
     }
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact"
+  },
+  "cookie": {
+    "message": "We use cookies to improve your experience and serve personalized ads.",
+    "accept": "Accept"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description_meta": "Get in touch with the Loglingo team for support, feedback, or business inquiries.",
+    "email_desc": "If you have any questions, feedback, or need support with your Loglingo experience, please don't hesitate to reach out to us. We aim to respond to all inquiries as quickly as possible.",
+    "inquiry_note": "For account-related issues or technical support, please include as much detail as possible in your message so we can assist you efficiently.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "About Loglingo",
+    "description_meta": "Learn about Loglingo, your personalized AI-powered language learning companion designed to help you master languages naturally.",
+    "p1": "Welcome to Loglingo, a modern, AI-powered platform for language learners around the world. We believe that learning a new language should be as natural as having a conversation or keeping a daily diary.",
+    "p2": "At Loglingo, we leverage advanced artificial intelligence to provide you with personalized feedback, natural translations, and a space where you can practice without fear of making mistakes.",
+    "p3": "Whether you are a beginner looking to grasp the basics or an advanced learner aiming for fluency, Loglingo offers a suite of tools, from AI diary corrections to interactive listening practice, tailored to your unique learning journey.",
+    "p4": "Our mission is to break down language barriers and make high-quality language education accessible to everyone. We continually update our platform with new features and support for more languages to empower our global community."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description_meta": "Read the Terms of Service for using Loglingo. Understand your rights and responsibilities when accessing our language learning tools.",
+    "p1": "Welcome to Loglingo. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully.",
+    "p2": "Loglingo provides a platform for language practice, including AI-generated text corrections and translations. The service is provided 'as is', and we make no guarantees regarding the absolute accuracy of AI-generated content.",
+    "p3": "Users are responsible for the content they submit to the platform. You agree not to use Loglingo for any unlawful purpose or to upload content that is abusive, harassing, or violates the rights of others. We reserve the right to suspend or terminate accounts that violate these terms.",
+    "p4": "All intellectual property rights related to the Loglingo platform, excluding user-generated content, belong to Loglingo owners. You may not reproduce, distribute, or create derivative works from our platform without express permission.",
+    "p5": "We reserve the right to modify these Terms of Service at any time. Your continued use of the service following any changes constitutes acceptance of those changes."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description_meta": "Review our Privacy Policy to learn how Loglingo collects, uses, and protects your personal data while using our platform.",
+    "p1": "At Loglingo, your privacy is our priority. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our services.",
+    "p2": "We collect information you provide directly, such as when you create an account, write diary entries, or interact with our learning tools. We may also collect usage data to improve our services and analyze user experience.",
+    "p3": "We use third-party advertising partners, including Google AdSense, to serve ads on our site. These partners may use cookies to serve personalized ads based on your prior visits to our website or other websites across the internet.",
+    "p4": "You can manage your cookie preferences through our on-site cookie banner or your browser settings. You may also opt-out of personalized advertising by visiting the appropriate settings provided by your ad network.",
+    "p5": "We take appropriate technical and organizational measures to protect your data against unauthorized access, alteration, disclosure, or destruction. We do not sell your personal information to third parties."
   }
 }

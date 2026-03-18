@@ -30,8 +30,8 @@
     "login": "Masuk",
     "logout": "Keluar",
     "radio": "Radio",
-    "loading": "Loading...",
-    "blog": "Blog"
+    "blog": "Blog",
+    "loading": "Loading..."
   },
   "blog": {
     "title": "Blog Belajar Bahasa",
@@ -538,5 +538,48 @@
       "message_24": "Simpan kalimat favoritmu.",
       "message_25": "Halo teman! Login untuk lanjut."
     }
+  },
+  "footer": {
+    "about": "Tentang Kami",
+    "privacy": "Privasi",
+    "terms": "Syarat",
+    "contact": "Kontak"
+  },
+  "cookie": {
+    "message": "Kami menggunakan cookie untuk meningkatkan pengalaman Anda dan menyajikan iklan yang dipersonalisasi.",
+    "accept": "Terima"
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "description_meta": "Hubungi tim Loglingo untuk dukungan, umpan balik, atau pertanyaan bisnis.",
+    "email_desc": "Jika Anda memiliki pertanyaan, umpan balik, atau membutuhkan dukungan dengan pengalaman Loglingo Anda, jangan ragu untuk menghubungi kami. Kami berusaha merespons semua pertanyaan secepat mungkin.",
+    "inquiry_note": "Untuk masalah terkait akun atau dukungan teknis, silakan sertakan sebanyak mungkin detail dalam pesan Anda agar kami dapat membantu Anda dengan efisien.",
+    "email": "01071630214@gmail.com"
+  },
+  "about": {
+    "title": "Tentang Loglingo",
+    "description_meta": "Pelajari tentang Loglingo, pendamping pembelajaran bahasa berbasis AI yang dipersonalisasi untuk membantu Anda menguasai bahasa secara alami.",
+    "p1": "Selamat datang di Loglingo, platform modern berbasis AI untuk pembelajar bahasa di seluruh dunia. Kami percaya bahwa belajar bahasa baru haruslah sesuatu yang alami seperti berbicara atau menulis buku harian harian.",
+    "p2": "Di Loglingo, kami memanfaatkan kecerdasan buatan canggih untuk memberikan umpan balik yang dipersonalisasi, terjemahan alami, dan ruang di mana Anda bisa berlatih tanpa takut membuat kesalahan.",
+    "p3": "Baik Anda pemula yang ingin memahami dasar-dasar atau pembelajar tingkat lanjut yang bertujuan mencapai kefasihan, Loglingo menawarkan rangkaian alat, mulai dari koreksi buku harian AI hingga latihan mendengarkan interaktif, yang disesuaikan dengan perjalanan belajar unik Anda.",
+    "p4": "Misi kami adalah menghancurkan penghalang bahasa dan membuat pendidikan bahasa berkualitas tinggi dapat diakses oleh semua orang. Kami terus memperbarui platform kami dengan fitur baru dan dukungan untuk lebih banyak bahasa untuk memberdayakan komunitas global kami."
+  },
+  "terms": {
+    "title": "Syarat dan Ketentuan Layanan",
+    "description_meta": "Baca Syarat dan Ketentuan Layanan untuk menggunakan Loglingo. Pahami hak dan tanggung jawab Anda saat mengakses alat pembelajaran bahasa kami.",
+    "p1": "Selamat datang di Loglingo. Dengan mengakses atau menggunakan situs web dan layanan kami, Anda setuju untuk terikat oleh Syarat dan Ketentuan Layanan ini. Silakan baca dengan saksama.",
+    "p2": "Loglingo menyediakan platform untuk latihan bahasa, termasuk koreksi teks yang dihasilkan AI dan terjemahan. Layanan ini disediakan 'sebagaimana adanya', dan kami tidak menjamin akurasi mutlak dari konten yang dihasilkan AI.",
+    "p3": "Pengguna bertanggung jawab atas konten yang mereka kirimkan ke platform. Anda setuju untuk tidak menggunakan Loglingo untuk tujuan yang melanggar hukum atau mengunggah konten yang kasar, mengganggu, atau melanggar hak orang lain. Kami berhak menangguhkan atau menghentikan akun yang melanggar syarat ini.",
+    "p4": "Semua hak kekayaan intelektual yang terkait dengan platform Loglingo, kecuali konten yang dihasilkan pengguna, adalah milik pemilik Loglingo. Anda tidak boleh mereproduksi, mendistribusikan, atau membuat karya turunan dari platform kami tanpa izin tegas.",
+    "p5": "Kami berhak untuk memodifikasi Syarat dan Ketentuan Layanan ini kapan saja. Penggunaan layanan Anda yang berlanjut setelah perubahan apa pun merupakan penerimaan terhadap perubahan tersebut."
+  },
+  "privacy": {
+    "title": "Kebijakan Privasi",
+    "description_meta": "Tinjau Kebijakan Privasi kami untuk mempelajari bagaimana Loglingo mengumpulkan, menggunakan, dan melindungi data pribadi Anda saat menggunakan platform kami.",
+    "p1": "Di Loglingo, privasi Anda adalah prioritas kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat Anda menggunakan layanan kami.",
+    "p2": "Kami mengumpulkan informasi yang Anda berikan secara langsung, seperti saat Anda membuat akun, menulis entri buku harian, atau berinteraksi dengan alat pembelajaran kami. Kami juga mungkin mengumpulkan data penggunaan untuk meningkatkan layanan kami dan menganalisis pengalaman pengguna.",
+    "p3": "Kami menggunakan mitra iklan pihak ketiga, termasuk Google AdSense, untuk menyajikan iklan di situs kami. Mitra ini mungkin menggunakan cookie untuk menyajikan iklan yang dipersonalisasi berdasarkan kunjungan Anda sebelumnya ke situs web kami atau situs web lain di internet.",
+    "p4": "Anda dapat mengelola preferensi cookie Anda melalui spanduk cookie di situs kami atau pengaturan browser Anda. Anda juga dapat memilih keluar dari iklan yang dipersonalisasi dengan mengunjungi pengaturan yang sesuai yang disediakan oleh jaringan iklan Anda.",
+    "p5": "Kami mengambil langkah-langkah teknis dan organisasional yang tepat untuk melindungi data Anda dari akses tidak sah, perubahan, pengungkapan, atau penghancuran. Kami tidak menjual informasi pribadi Anda kepada pihak ketiga."
   }
 }

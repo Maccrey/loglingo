@@ -3,6 +3,8 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import { Providers } from "../providers";
 import DictionaryFAB from "@/components/dictionary/DictionaryFAB";
 import GlobalMascot from "@/components/mascot/GlobalMascot";
@@ -36,6 +38,8 @@ export default async function LocaleLayout({
         <main className="min-h-screen px-4 py-20 md:p-8 max-w-screen-xl mx-auto" dir={isRtl ? 'rtl' : 'ltr'}>
           {children}
         </main>
+        <Footer />
+        <CookieConsent />
         <GlobalMascot />
         <DictionaryFAB />
       </Providers>
