@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/application/auth/AuthProvider";
+import { GuestTrialModal } from "./GuestTrialModal";
 
 
 export function StartButton() {
@@ -37,25 +38,26 @@ export function StartButton() {
   }
 
   const showTrial = isTrialAvailable;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       <div className="flex flex-col items-center gap-3">
         {showTrial ? (
           <>
-            <Link href="/diary/trial">
-              <Button 
-                size="lg" 
-                className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow px-8 py-6 text-lg"
-                style={{ backgroundColor: '#f97316', color: 'white' }}
-              >
-                {t('try_it_out')}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              onClick={() => setIsModalOpen(true)}
+              className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow px-8 py-6 text-lg"
+              style={{ backgroundColor: '#f97316', color: 'white' }}
+            >
+              {t('try_it_out')}
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Button>
             <span className="text-xs text-muted-foreground font-medium tracking-wide">
               {t('trial_hint')}
             </span>
+            <GuestTrialModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
           </>
         ) : (
           <Link href="/diary/new">
