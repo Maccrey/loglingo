@@ -153,6 +153,4 @@ export default async function GuideFeaturePage({ params }: Props) {
   );
 }
 
-export async function generateStaticParams() {
-  return VALID_FEATURES.map((feature) => ({ feature }));
-}
+
