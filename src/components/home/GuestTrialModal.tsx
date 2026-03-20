@@ -160,21 +160,21 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
               <p className="text-sm text-red-400">{errorMsg}</p>
             )}
 
-            <Button 
+            <button 
               onClick={handleSubmit} 
               disabled={!content.trim() || isLoading}
-              className={`w-full py-6 text-lg transition-all border-none ${
+              className={`w-full py-4 rounded-xl flex items-center justify-center font-semibold text-lg transition-all duration-200 outline-none ${
                 content.trim() && !isLoading
-                  ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-[0_10px_15px_-3px_rgba(249,115,22,0.2),0_4px_6px_-2px_rgba(249,115,22,0.1)]'
-                  : 'bg-white/10 text-white/50 hover:bg-white/10'
+                  ? 'bg-orange-500 hover:bg-orange-600 active:scale-[0.98] text-white shadow-[0_10px_15px_-3px_rgba(249,115,22,0.2),0_4px_6px_-2px_rgba(249,115,22,0.1)] cursor-pointer'
+                  : 'bg-white/10 text-white/30 cursor-not-allowed'
               }`}
             >
               {isLoading ? (
                 <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Analyzing...</>
               ) : (
-                <><Sparkles className="mr-2 h-5 w-5" /> {t("try_it_out")}</>
+                <><Sparkles className="mr-2 h-5 w-5 fill-current" /> {t("try_it_out")}</>
               )}
-            </Button>
+            </button>
           </>
         ) : (
           <>
