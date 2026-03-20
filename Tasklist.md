@@ -470,3 +470,14 @@
 - [x] `src/components/home/GuestTrialModal.tsx` 컴포넌트 생성 및 1문장 입력 폼 작성 (모국어/학습어 설정)
 - [x] 제출 시 기존 `/api/ai/tts`와 `/api/ai/correct` 연결하여 교정된 내용 및 음성 노출
 - [x] 가입 유도 버튼 및 기존 `/diary/trial` 페이지 삭제
+
+### 3) AI 감성 피드백 (Emotional AI)
+- [x] `src/domain/ai-correction.ts`의 `CorrectionResult`에 `emotionalComment?: string` 필드 추가
+- [x] `src/app/api/ai/correct/route.ts`의 프롬프트에서 `emotionalComment`를 반환하도록 지시 (출력어: 학습어)
+- [x] `src/components/diary/AiFeedback.tsx` 상단에 Duck 마스코트(Teacher/Party)와 함께 코멘트 표시
+- [x] 커스텀 TTS 버튼 추가 및 `useDiaryTts` 훅과 연동
+
+### 4) 오늘의 질문 (Daily Prompt)
+- [x] `src/constants/dailyPrompts.ts` 생성 및 다국어 지원을 위한 18개 질문 키 설정
+- [x] `src/application/diary/useDailyPrompt.ts` 생성 및 날짜 기반 훅 구현
+- [x] `src/components/diary/DiaryForm.tsx` 빈 에디터 상단에 표시 및 삽입 버튼 추가

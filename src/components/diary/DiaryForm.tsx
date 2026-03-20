@@ -18,7 +18,7 @@ import {
 } from "@/application/diary/diary-service";
 import { getImagePreview } from "@/lib/image";
 import { toast } from "sonner";
-import { Image as ImageIcon, Loader2, Sparkles, Trash2 } from "lucide-react";
+import { Image as ImageIcon, Loader2, Sparkles, Trash2, Lightbulb } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import NextImage from "next/image";
@@ -33,6 +33,7 @@ import { auth } from "@/lib/firebase";
 import { persistInsightsFromCorrection } from "@/application/learning-profile/service";
 
 import { LearningArchiveDraft } from "@/domain/archive";
+import { useDailyPrompt } from "@/application/diary/useDailyPrompt";
 import { TRIAL_SAMPLES } from "@/constants/trial-samples";
 import { DuckMascot } from "@/components/mascot/DuckMascot";
 
@@ -63,6 +64,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
   const { user } = useAuth();
   const userId = user?.uid || "";
   const { learningLanguage } = useLearningLanguage();
+  const dailyPromptText = useDailyPrompt();
   // Safe to call hook as long as we don't invoke the mutation in trial mode
   const { create: createArchive } = useArchiveMutations(userId);
   const validationKeyMap: Record<string, string> = {
@@ -457,6 +459,28 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
               <label htmlFor="content" className="text-sm font-medium text-muted-foreground">
                 {t("content_label")}
               </label>
+
+              {!content && !isSampleMode && (
+                <div className="mb-2 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm text-primary/80">
+                  <div className="flex items-start gap-3">
+                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <div className="flex-1">
+                      <p className="font-medium mb-1">{tDiary("dailyPrompt")}</p>
+                      <p>{dailyPromptText}</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="mt-3 h-auto px-3 py-1.5 text-xs bg-primary/10 hover:bg-primary/20 text-primary w-fit"
+                        onClick={() => setContent(dailyPromptText + "\n\n")}
+                      >
+                        {tDiary("usePrompt")}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="relative">
                 <textarea
                   id="content"
