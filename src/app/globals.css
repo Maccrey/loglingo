@@ -62,24 +62,3 @@ body {
 .animate-orange-pulse-glow {
   animation: orange-pulse-glow 1.5s infinite;
 }
-
-/* Guest Trial Button Guaranteed Styles */
-.btn-trial {
-  /* 기본 모드 */
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.3);
-  cursor: not-allowed;
-  opacity: 1;
-}
-.btn-trial[data-active="true"] {
-  background-color: #f97316 !important;
-  color: #ffffff !important;
-  box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.2), 0 4px 6px -2px rgba(249, 115, 22, 0.1) !important;
-  cursor: pointer !important;
-}
-.btn-trial[data-active="true"]:hover {
-  background-color: #ea580c !important; 
-}
-.btn-trial[data-active="true"]:active {
-  transform: scale(0.98);
-}
