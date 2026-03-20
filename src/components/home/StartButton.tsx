@@ -18,13 +18,13 @@ export function StartButton() {
 
   useEffect(() => {
     setMounted(true);
-    const trialDone = localStorage.getItem("loglingo_trial_completed");
-    // Trial is available if user is NOT logged in AND trial is NOT done
+    // Trial is available if user is NOT logged in AND trial count is less than 3
     // Only set this when NOT loading to ensure accuracy
     if (!loading) {
-      setIsTrialAvailable(!user && !trialDone);
+      const trialCount = parseInt(localStorage.getItem("loglingo_trial_count") || "0");
+      setIsTrialAvailable(!user && trialCount < 3);
     }
-  }, [user, loading]);
+  }, [user, loading, isModalOpen]);
 
   // Avoid hydration mismatch and wait for auth loading
   if (!mounted || loading) {

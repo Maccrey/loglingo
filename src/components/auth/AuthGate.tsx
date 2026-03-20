@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, useEffect, type ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/application/auth/AuthProvider";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -21,9 +22,18 @@ export function AuthGate({ children }: AuthGateProps) {
   const t = useTranslations("auth");
   const locale = useLocale();
   
+  const searchParams = useSearchParams();
+  const signupQuery = searchParams ? searchParams.get("signup") : null;
+
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(signupQuery === "true");
   const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false);
+
+  useEffect(() => {
+    if (signupQuery === "true") {
+      setIsSignupOpen(true);
+    }
+  }, [signupQuery]);
 
   const languageList = useMemo(() => {
     try {

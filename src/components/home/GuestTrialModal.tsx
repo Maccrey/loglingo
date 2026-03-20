@@ -89,6 +89,13 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
 
       const data: CorrectionResult = await res.json();
       setResult(data);
+      
+      if (typeof window !== "undefined") {
+        const currentCount = parseInt(localStorage.getItem("loglingo_trial_count") || "0");
+        localStorage.setItem("loglingo_trial_count", String(currentCount + 1));
+        // Also set the old key for fallback just in case
+        localStorage.setItem("loglingo_trial_completed", "true");
+      }
     } catch (err: unknown) {
       setErrorMsg((err as Error).message || "Failed to process text.");
     } finally {
@@ -102,12 +109,8 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
   };
 
   const handleSignup = () => {
-    // 체험 완료 마킹 후 회원가입 이동
-    if (typeof window !== "undefined") {
-      localStorage.setItem("loglingo_trial_completed", "true");
-    }
     onClose();
-    router.push("/diary/new");
+    router.push("/diary/new?signup=true");
   };
 
   return (
