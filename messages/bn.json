@@ -292,7 +292,8 @@
     "save_archive": "আর্কাইভে সংরক্ষণ করুন",
     "saving": "সংরক্ষণ হচ্ছে...",
     "show_examples": "উদাহরণ দেখান ({count})",
-    "hide_examples": "উদাহরণ লুকান"
+    "hide_examples": "উদাহরণ লুকান",
+    "listen": "শুনুন"
   },
   "radio": {
     "title": "গ্লোবাল রেডিও",

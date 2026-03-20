@@ -292,7 +292,8 @@
     "save_archive": "Lưu vào kho lưu trữ",
     "saving": "Đang lưu...",
     "show_examples": "Hiển thị ví dụ ({count})",
-    "hide_examples": "Ẩn ví dụ"
+    "hide_examples": "Ẩn ví dụ",
+    "listen": "Nghe"
   },
   "radio": {
     "title": "Radio Toàn Cầu",

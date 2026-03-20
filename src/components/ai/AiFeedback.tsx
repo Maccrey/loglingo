@@ -142,7 +142,7 @@ export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel,
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <audio ref={audioRef} src={audioUrl || ""} className="hidden" />
+        <audio ref={audioRef} src={audioUrl || undefined} className="hidden" />
         <div 
           className="rounded-lg border border-primary/30 bg-black/20 p-3 text-sm leading-relaxed"
           dangerouslySetInnerHTML={{ __html: result.corrected }}

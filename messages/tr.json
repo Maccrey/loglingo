@@ -292,7 +292,8 @@
     "save_archive": "Arşive kaydet",
     "saving": "Kaydediliyor...",
     "show_examples": "Örnekleri göster ({count})",
-    "hide_examples": "Örnekleri gizle"
+    "hide_examples": "Örnekleri gizle",
+    "listen": "Dinle"
   },
   "radio": {
     "title": "Küresel Radyo",

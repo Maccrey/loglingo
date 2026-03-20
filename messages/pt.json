@@ -292,7 +292,8 @@
     "save_archive": "Salvar no arquivo",
     "saving": "Salvando...",
     "show_examples": "Mostrar exemplos ({count})",
-    "hide_examples": "Ocultar exemplos"
+    "hide_examples": "Ocultar exemplos",
+    "listen": "Ouvir"
   },
   "radio": {
     "title": "Rádio Global",

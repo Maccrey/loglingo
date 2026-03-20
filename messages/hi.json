@@ -292,7 +292,8 @@
     "save_archive": "आर्काइव में सहेजें",
     "saving": "सहेजा जा रहा है...",
     "show_examples": "उदाहरण दिखाएं ({count})",
-    "hide_examples": "उदाहरण छुपाएं"
+    "hide_examples": "उदाहरण छुपाएं",
+    "listen": "सुनें"
   },
   "radio": {
     "title": "वैश्विक रेडियो",

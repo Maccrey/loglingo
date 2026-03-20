@@ -292,7 +292,8 @@
     "save_archive": "Сохранить в архив",
     "saving": "Сохранение...",
     "show_examples": "Показать примеры ({count})",
-    "hide_examples": "Скрыть примеры"
+    "hide_examples": "Скрыть примеры",
+    "listen": "Слушать"
   },
   "radio": {
     "title": "Глобальное Радио",

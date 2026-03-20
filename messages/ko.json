@@ -292,7 +292,8 @@
     "save_archive": "아카이브에 저장",
     "saving": "저장 중...",
     "show_examples": "예제 보기 ({count}개)",
-    "hide_examples": "예제 숨기기"
+    "hide_examples": "예제 숨기기",
+    "listen": "듣기"
   },
   "radio": {
     "title": "글로벌 라디오",

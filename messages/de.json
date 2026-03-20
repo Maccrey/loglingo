@@ -292,7 +292,8 @@
     "save_archive": "In Archiv speichern",
     "saving": "Speichern...",
     "show_examples": "Beispiele anzeigen ({count})",
-    "hide_examples": "Beispiele ausblenden"
+    "hide_examples": "Beispiele ausblenden",
+    "listen": "Anhören"
   },
   "radio": {
     "title": "Weltradio",

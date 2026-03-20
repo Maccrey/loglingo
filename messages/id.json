@@ -292,7 +292,8 @@
     "save_archive": "Simpan ke arsip",
     "saving": "Menyimpan...",
     "show_examples": "Tampilkan contoh ({count})",
-    "hide_examples": "Sembunyikan contoh"
+    "hide_examples": "Sembunyikan contoh",
+    "listen": "Dengarkan"
   },
   "radio": {
     "title": "Radio Global",
