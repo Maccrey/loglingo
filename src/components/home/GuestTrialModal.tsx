@@ -157,7 +157,11 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
             <Button 
               onClick={handleSubmit} 
               disabled={!content.trim() || isLoading}
-              className="w-full py-6 text-lg bg-orange-500 hover:bg-orange-600 text-white"
+              className={`w-full py-6 text-lg transition-colors border-none ${
+                content.trim() && !isLoading
+                  ? "bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20"
+                  : "bg-white/10 text-white/50 cursor-not-allowed"
+              }`}
             >
               {isLoading ? (
                 <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Analyzing...</>
@@ -233,7 +237,7 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
               </div>
             </div>
             
-            <audio ref={audioRef} src={audioUrl || ""} className="hidden" />
+            <audio ref={audioRef} src={audioUrl || undefined} className="hidden" />
           </>
         )}
       </div>
