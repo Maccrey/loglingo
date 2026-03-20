@@ -157,11 +157,12 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
             <Button 
               onClick={handleSubmit} 
               disabled={!content.trim() || isLoading}
-              className={`w-full py-6 text-lg transition-colors border-none ${
-                content.trim() && !isLoading
-                  ? "bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-white/10 text-white/50 cursor-not-allowed"
-              }`}
+              className="w-full py-6 text-lg transition-all border-none"
+              style={{
+                backgroundColor: content.trim() && !isLoading ? '#f97316' : 'rgba(255,255,255,0.1)',
+                color: content.trim() && !isLoading ? 'white' : 'rgba(255,255,255,0.5)',
+                boxShadow: content.trim() && !isLoading ? '0 10px 15px -3px rgba(249, 115, 22, 0.2), 0 4px 6px -2px rgba(249, 115, 22, 0.1)' : 'none'
+              }}
             >
               {isLoading ? (
                 <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Analyzing...</>
