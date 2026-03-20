@@ -464,6 +464,8 @@
 - [x] `User` 인터페이스에 `streak` 구조체 추가 (current, longest, lastEntryDate)
 - [x] `src/domain/user/streak.ts` 파일 생성 및 순수 함수 `calculateNextStreak` 구현
 - [x] `calculateNextStreak`에 대한 Unit Test 작성 및 검증 (Red-Green-Refactor)
+- [x] `user-repository.ts` 및 `diary-service.ts`에 일기 저장 시 스트릭을 업데이트하는 로직 연동
+- [x] `Navigation.tsx`에 로그인 사용자 스트릭(🔥 아이콘) 표시 컴포넌트 추가
 
 ### 2) 게스트 체험(Guest Trial) 홈 화면 모달 구현
 - [x] `src/components/home/StartButton.tsx` 수정: 체험하기 클릭 시 모달 띄우기

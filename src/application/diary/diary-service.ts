@@ -8,6 +8,8 @@ import {
 } from "@/domain/diary";
 import { convertImageToWebP } from "@/lib/image";
 import { firebaseDiaryRepository } from "@/infrastructure/firebase/diary-repository";
+import { getUserProfile, updateUserStreak } from "@/infrastructure/firebase/user-repository";
+import { calculateNextStreak } from "@/domain/user/streak";
 
 export interface DiaryPayload {
   date: string;
@@ -69,7 +71,18 @@ export async function createDiary(
     draft.imageUrl = uploaded.url;
   }
 
-  return repository.create(draft);
+  const created = await repository.create(draft);
+  
+  // 스트릭 업데이트 로직
+  try {
+    const userProfile = await getUserProfile(userId);
+    const nextStreak = calculateNextStreak(userProfile?.streak, payload.date);
+    await updateUserStreak(userId, nextStreak);
+  } catch (err) {
+    console.error("Failed to update user streak:", err);
+  }
+
+  return created;
 }
 
 export async function updateDiary(

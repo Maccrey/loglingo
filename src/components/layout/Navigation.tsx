@@ -9,6 +9,9 @@ import { useAuth } from "@/application/auth/AuthProvider";
 import { LoginModal } from "@/components/auth/LoginModal";
 import { SignupModal } from "@/components/auth/SignupModal";
 import { PasswordResetModal } from "@/components/auth/PasswordResetModal";
+import { Flame } from "lucide-react";
+import { useUserProfile } from "@/application/user/useUserProfile";
+import { computeDisplayStreak } from "@/domain/user/streak";
 
 import { LANGUAGES } from "@/constants/languages";
 
@@ -62,10 +65,13 @@ export function Navigation() {
   const t = useTranslations('nav');
   const tSettings = useTranslations('settings');
   const { user, signOutUser, loading } = useAuth();
+  const { data: userProfile } = useUserProfile(user?.uid);
   
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false);
+
+  const displayStreak = computeDisplayStreak(userProfile?.streak, new Date().toISOString().split("T")[0]);
 
   const [mounted, setMounted] = useState(false);
 
@@ -207,8 +213,12 @@ export function Navigation() {
             {user ? (
               <>
                 <div className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
-                  <span className="max-w-[180px] truncate">{user.email || user.displayName || "User"}</span>
+                  <div className="flex items-center gap-1 rounded-full bg-orange-500/10 px-2 py-1 text-xs font-semibold text-orange-400">
+                    <Flame className="h-4 w-4 fill-orange-400" />
+                    <span>{displayStreak}</span>
+                  </div>
+                  <User className="h-4 w-4 ml-1" />
+                  <span className="max-w-[150px] truncate">{user.email || user.displayName || "User"}</span>
                 </div>
                 <button
                   onClick={() => {
