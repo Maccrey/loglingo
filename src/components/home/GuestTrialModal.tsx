@@ -165,7 +165,7 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
               disabled={!content.trim() || isLoading}
               className={`w-full py-4 rounded-xl flex items-center justify-center font-semibold text-lg transition-all duration-200 outline-none ${
                 content.trim() && !isLoading
-                  ? 'bg-orange-500 hover:bg-orange-600 active:scale-[0.98] text-white shadow-[0_10px_15px_-3px_rgba(249,115,22,0.2),0_4px_6px_-2px_rgba(249,115,22,0.1)] cursor-pointer'
+                  ? 'bg-primary hover:opacity-90 active:scale-[0.98] text-primary-foreground shadow-[0_10px_15px_-3px_rgba(249,115,22,0.2),0_4px_6px_-2px_rgba(249,115,22,0.1)] cursor-pointer'
                   : 'bg-white/10 text-white/30 cursor-not-allowed'
               }`}
             >

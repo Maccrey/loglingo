@@ -48,8 +48,7 @@ export function StartButton() {
             <Button 
               size="lg" 
               onClick={() => setIsModalOpen(true)}
-              className="group hover:bg-orange-400 text-white border-0 animate-orange-pulse-glow px-8 py-6 text-lg"
-              style={{ backgroundColor: '#f97316', color: 'white' }}
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground border-0 animate-orange-pulse-glow px-8 py-6 text-lg shadow-lg"
             >
               {t('try_it_out')}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
