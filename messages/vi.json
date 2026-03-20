@@ -134,7 +134,9 @@
     "generating_audio": "Đang tạo âm thanh...",
     "audio_ready": "Âm thanh AI đã sẵn sàng",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Gợi ý nhật ký hôm nay",
+    "usePrompt": "Sử dụng gợi ý này"
   },
   "write": {
     "title": "Nhật ký mới",

@@ -134,7 +134,9 @@
     "generating_audio": "กำลังสร้างเสียง...",
     "audio_ready": "เสียง AI พร้อมแล้ว",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ คำถามสำหรับบันทึกประจำวันของวันนี้",
+    "usePrompt": "ใช้พรอมต์นี้"
   },
   "write": {
     "title": "เขียนไดอารี่ใหม่",

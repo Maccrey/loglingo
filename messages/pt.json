@@ -134,7 +134,9 @@
     "generating_audio": "Gerando Áudio...",
     "audio_ready": "O Áudio com IA está pronto",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Pergunta do diário de hoje",
+    "usePrompt": "Usar este prompt"
   },
   "write": {
     "title": "Novo diário",

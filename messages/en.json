@@ -134,7 +134,9 @@
     "generating_audio": "Generating audio...",
     "audio_ready": "AI Audio is ready",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Today's Diary Prompt",
+    "usePrompt": "Use this prompt"
   },
   "write": {
     "title": "New Entry",

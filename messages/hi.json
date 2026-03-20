@@ -134,7 +134,9 @@
     "generating_audio": "ऑडियो जनरेट किया जा रहा है...",
     "audio_ready": "AI ऑडियो तैयार है",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ आज का डायरी प्रॉम्प्ट",
+    "usePrompt": "इस प्रॉम्प्ट का उपयोग करें"
   },
   "write": {
     "title": "नई डायरी",

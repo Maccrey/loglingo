@@ -134,7 +134,9 @@
     "generating_audio": "آڈیو بنائی جا رہی ہے...",
     "audio_ready": "AI آڈیو تیار ہے",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ آج کی ڈائری کا سوال",
+    "usePrompt": "یہ پرامپٹ استعمال کریں"
   },
   "write": {
     "title": "نیا اندراج",

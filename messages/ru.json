@@ -134,7 +134,9 @@
     "generating_audio": "Генерация аудио...",
     "audio_ready": "ИИ-аудио готово",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Вопрос для дневника на сегодня",
+    "usePrompt": "Использовать эту подсказку"
   },
   "write": {
     "title": "Новая запись",

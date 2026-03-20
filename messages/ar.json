@@ -134,7 +134,9 @@
     "generating_audio": "جاري توليد الصوت...",
     "audio_ready": "صوت AI جاهز",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ سؤال اليوم",
+    "usePrompt": "استخدم هذا الموجه"
   },
   "write": {
     "title": "إدخال جديد",

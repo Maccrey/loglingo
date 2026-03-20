@@ -134,7 +134,9 @@
     "generating_audio": "Ses oluşturuluyor...",
     "audio_ready": "Yapay Zeka Sesi hazır",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Günlük Soru İstemi",
+    "usePrompt": "Bu istemi kullan"
   },
   "write": {
     "title": "Yeni Günlük",

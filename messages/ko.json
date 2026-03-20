@@ -134,7 +134,9 @@
     "generating_audio": "음성 생성 중...",
     "audio_ready": "AI 음성이 준비되었습니다",
     "failed_to_generate_audio": "오디오 생성 실패",
-    "failed_to_generate_audio_desc": "음성을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."
+    "failed_to_generate_audio_desc": "음성을 생성하지 못했습니다. 잠시 후 다시 시도해주세요.",
+    "dailyPrompt": "✏️ 오늘의 일기 소재 추천",
+    "usePrompt": "이 질문으로 일기 쓰기"
   },
   "write": {
     "title": "새 일기 쓰기",

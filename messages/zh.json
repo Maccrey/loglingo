@@ -134,7 +134,9 @@
     "generating_audio": "正在生成音频...",
     "audio_ready": "AI音频已就绪",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ 今日日记提示",
+    "usePrompt": "使用此提示"
   },
   "write": {
     "title": "写新日记",

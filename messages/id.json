@@ -134,7 +134,9 @@
     "generating_audio": "Menghasilkan Audio...",
     "audio_ready": "Audio AI sudah siap",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Prompt Buku Harian Hari Ini",
+    "usePrompt": "Gunakan prompt ini"
   },
   "write": {
     "title": "Entri baru",

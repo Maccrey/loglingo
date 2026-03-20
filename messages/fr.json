@@ -134,7 +134,9 @@
     "generating_audio": "Génération de l'audio...",
     "audio_ready": "L'audio IA est prêt",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Sujet pour le journal d'aujourd'hui",
+    "usePrompt": "Utiliser cette invite"
   },
   "write": {
     "title": "Nouvelle entrée",

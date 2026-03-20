@@ -134,7 +134,9 @@
     "generating_audio": "Audio wird generiert...",
     "audio_ready": "KI-Audio ist bereit",
     "failed_to_generate_audio": "Audio Generation Failed",
-    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later."
+    "failed_to_generate_audio_desc": "Failed to generate audio. Please try again later.",
+    "dailyPrompt": "✏️ Heutige Tagebuchfrage",
+    "usePrompt": "Diesen Prompt verwenden"
   },
   "write": {
     "title": "Neuer Eintrag",
