@@ -111,7 +111,9 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
 
   const handleSignup = () => {
     onClose();
-    router.push("/diary/new?signup=true");
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("open-signup-modal"));
+    }, 100);
   };
 
   return (

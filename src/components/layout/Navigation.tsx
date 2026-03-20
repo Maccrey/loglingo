@@ -78,8 +78,13 @@ export function Navigation() {
   useEffect(() => {
     setMounted(true);
     const handleOpenLogin = () => setIsLoginOpen(true);
+    const handleOpenSignup = () => setIsSignupOpen(true);
     window.addEventListener("open-login-modal", handleOpenLogin);
-    return () => window.removeEventListener("open-login-modal", handleOpenLogin);
+    window.addEventListener("open-signup-modal", handleOpenSignup);
+    return () => {
+      window.removeEventListener("open-login-modal", handleOpenLogin);
+      window.removeEventListener("open-signup-modal", handleOpenSignup);
+    };
   }, []);
 
   const navItems = [
