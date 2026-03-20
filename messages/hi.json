@@ -618,5 +618,65 @@
     "question_28": "If you could describe today in one word, what would it be?",
     "question_29": "If you could go back in time, when would you go to?",
     "question_30": "What does 'success' mean to you?"
+  },
+  "guide": {
+    "back": "होम पर जाएं",
+    "start_cta": "अभी शुरू करें",
+    "write": {
+      "title": "रोज लिखें",
+      "subtitle": "अपनी लक्ष्य भाषा में डायरी लिखकर स्वाभाविक रूप से सीखें।",
+      "why_title": "Why is diary writing effective?",
+      "why_desc": "Languages improve fastest through consistent use. Even a short daily entry builds vocabulary naturally. Write unknown phrases in your native language and AI will teach them in the target language.",
+      "step1_title": "1. Pick a Date & Write",
+      "step1_desc": "Select a date and write freely about your day, feelings, or learnings. Even one sentence is great.",
+      "step2_title": "2. Attach a Photo (Optional)",
+      "step2_desc": "Capture today with a photo. Images are automatically optimized.",
+      "step3_title": "3. Get AI Correction",
+      "step3_desc": "Press AI Correction after writing for instant feedback on grammar, vocabulary, and expression.",
+      "tip_title": "Tip",
+      "tip_desc": "Use the Daily Prompt feature when you are unsure what to write about."
+    },
+    "correct": {
+      "title": "AI सुधार",
+      "subtitle": "Grok AI तुरंत व्याकरण, शब्दावली और प्राकृतिक अभिव्यक्तियों का विश्लेषण करता है।",
+      "why_title": "Why is AI correction different?",
+      "why_desc": "Unlike basic spell-checkers, Loglingo AI suggests expressions native speakers actually use, with explanations so you stop repeating the same mistakes.",
+      "step1_title": "1. Click AI Correction",
+      "step1_desc": "Write your diary and press AI Correction. Results appear in seconds.",
+      "step2_title": "2. Review Results",
+      "step2_desc": "Grammar errors, awkward expressions, and better alternatives are clearly organized with reasons and example sentences.",
+      "step3_title": "3. Apply & Save",
+      "step3_desc": "Apply corrections you like and save important expressions to your learning archive.",
+      "tip_title": "Tip",
+      "tip_desc": "AI emotional feedback is included. The duck mascot leaves a supportive comment on your diary."
+    },
+    "archive": {
+      "title": "व्यक्तिगत आर्काइव",
+      "subtitle": "AI सुधार से अभिव्यक्तियाँ सहेजें और प्रश्नोत्तरी से समीक्षा करें।",
+      "why_title": "Why is the archive effective?",
+      "why_desc": "Unlike a word list, Loglingo saves expressions from your actual mistakes — your own error-based learning database that is far more memorable.",
+      "step1_title": "1. Save After AI Correction",
+      "step1_desc": "Press Save next to any expression in AI correction results. Classify by grammar, vocabulary, or idiom.",
+      "step2_title": "2. Browse Your Archive",
+      "step2_desc": "Filter saved expressions by type. Use the AI dictionary for instant meaning lookup.",
+      "step3_title": "3. Review with Quizzes",
+      "step3_desc": "Take instant quizzes with your saved expressions using hints and answer checks.",
+      "tip_title": "Tip",
+      "tip_desc": "Check your current CEFR language level and priority learning advice on the dashboard."
+    },
+    "speaking": {
+      "title": "बोलने का अभ्यास",
+      "subtitle": "AI के साथ उच्चारण और अभिव्यक्ति का अभ्यास करें और तुरंत फीडबैक पाएं।",
+      "why_title": "Why speaking practice?",
+      "why_desc": "Reading and writing alone will not improve real conversation skills. Loglingo analyzes your pronunciation in real time and suggests more natural expressions.",
+      "step1_title": "1. Free Speaking",
+      "step1_desc": "Press the mic button and speak freely in your target language. AI analyzes pronunciation and grammar.",
+      "step2_title": "2. Challenge Mode",
+      "step2_desc": "AI picks a weak expression and creates a practice sentence. Repeat it aloud for focused improvement.",
+      "step3_title": "3. Check Results & Continue",
+      "step3_desc": "See pronunciation accuracy, better expressions, and grammar points instantly, then continue to the next challenge.",
+      "tip_title": "Tip",
+      "tip_desc": "Complete 3 sessions a day to receive an AI tutor prompt for deeper practice with ChatGPT or Gemini."
+    }
   }
 }

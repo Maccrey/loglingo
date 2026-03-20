@@ -26,47 +26,52 @@ export default function Home() {
 
       {/* Features Grid */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        <Card className="border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors">
-          <CardHeader>
-            <BookOpen className="h-10 w-10 text-primary mb-2" />
-            <CardTitle>{t('features.write')}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              {t('features.write_desc')}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-accent/20 bg-accent/5 hover:bg-accent/10 transition-colors">
-          <CardHeader>
-            <Sparkles className="h-10 w-10 text-accent mb-2" />
-            <CardTitle>{t('features.correct')}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              {t('features.correct_desc')}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-blue-500/20 bg-blue-500/5 hover:bg-blue-500/10 transition-colors">
-          <CardHeader>
-            <GraduationCap className="h-10 w-10 text-blue-500 mb-2" />
-            <CardTitle>{t('features.learn')}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              {t('features.learn_desc')}
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* <Link href="/speaking" className="block h-full"> */}
-        <div className="block h-full">
-          <Card className="h-full border-orange-500/20 bg-orange-500/5 transition-colors group">
+        <Link href="/guide/write" className="block">
+          <Card className="border-primary/20 bg-primary/5 hover:bg-primary/10 hover:scale-[1.02] transition-all duration-200 cursor-pointer h-full">
             <CardHeader>
-            <Mic className="h-10 w-10 text-orange-500 mb-2" />
+              <BookOpen className="h-10 w-10 text-primary mb-2" />
+              <CardTitle>{t('features.write')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                {t('features.write_desc')}
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link href="/guide/correct" className="block">
+          <Card className="border-accent/20 bg-accent/5 hover:bg-accent/10 hover:scale-[1.02] transition-all duration-200 cursor-pointer h-full">
+            <CardHeader>
+              <Sparkles className="h-10 w-10 text-accent mb-2" />
+              <CardTitle>{t('features.correct')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                {t('features.correct_desc')}
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link href="/guide/archive" className="block">
+          <Card className="border-blue-500/20 bg-blue-500/5 hover:bg-blue-500/10 hover:scale-[1.02] transition-all duration-200 cursor-pointer h-full">
+            <CardHeader>
+              <GraduationCap className="h-10 w-10 text-blue-500 mb-2" />
+              <CardTitle>{t('features.learn')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                {t('features.learn_desc')}
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link href="/guide/speaking" className="block">
+          <Card className="h-full border-orange-500/20 bg-orange-500/5 hover:bg-orange-500/10 hover:scale-[1.02] transition-all duration-200 cursor-pointer">
+            <CardHeader>
+              <Mic className="h-10 w-10 text-orange-500 mb-2" />
               <CardTitle>{t('features.speaking')}</CardTitle>
             </CardHeader>
             <CardContent>
@@ -75,8 +80,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-        </div>
-        {/* </Link> */}
+        </Link>
       </section>
 
       {/* PC Ad (728x90) - Only visible on md+ screens */}
