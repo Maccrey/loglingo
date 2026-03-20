@@ -14,6 +14,7 @@ export function StartButton() {
   const { user, loading } = useAuth();
   const [isTrialAvailable, setIsTrialAvailable] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -38,7 +39,6 @@ export function StartButton() {
   }
 
   const showTrial = isTrialAvailable;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
