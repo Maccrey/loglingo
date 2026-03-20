@@ -82,7 +82,8 @@ Respond with ONLY valid JSON, no prose, using this exact shape:
   "issues": [
     { "type": "grammar"|"word"|"style"|"pattern"|"other", "original": "<problem snippet>", "suggestion": "<correction>", "explanation": "<reason in UI language>", "exampleSentences": ["<example in target language>", ...], "exampleTranslations": ["<translation in UI language>", ...] }
   ],
-  "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>"
+  "rootMeaningGuide": "<short note of key roots/grammar patterns in UI language>",
+  "emotionalComment": "<1-2 sentences of emotional and supportive comment regarding the user's diary content in the TARGET LANGUAGE>"
 }
 
 CRITICAL INSTRUCTIONS:
@@ -119,7 +120,7 @@ CRITICAL INSTRUCTIONS:
 
 Focus on ${mode === "sentence" ? "sentence-level corrections" : "overall coherence"}.
 LANGUAGE RULES - DO NOT VIOLATE:
-- 'corrected', 'suggestion', 'exampleSentences' → TARGET LANGUAGE (${targetLanguage}) ONLY
+- 'corrected', 'suggestion', 'exampleSentences', 'emotionalComment' → TARGET LANGUAGE (${targetLanguage}) ONLY
 - 'explanation', 'rootMeaningGuide', 'exampleTranslations' → UI LANGUAGE (${uiLanguage}) ONLY
 User diary text:
 ${content}`;
@@ -186,7 +187,8 @@ async function callGrok(
                   additionalProperties: false
                 }
               },
-              rootMeaningGuide: { type: "string" }
+              rootMeaningGuide: { type: "string" },
+              emotionalComment: { type: "string", description: "Emotional and supportive comment in target language" }
             },
             required: ["corrected", "issues"],
             additionalProperties: false

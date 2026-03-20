@@ -10,6 +10,7 @@ import { routing, useRouter } from "@/i18n/routing";
 import { useDiaryTts } from "@/application/diary/useDiaryTts";
 import { CorrectionResult } from "@/domain/ai-correction";
 import { trackEvent } from "@/lib/analytics";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 interface GuestTrialModalProps {
   isOpen: boolean;
@@ -169,6 +170,14 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
           <>
             {/* 2. 결과 UI */}
             <div className="space-y-4">
+              {result.emotionalComment && (
+                <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4">
+                  <DuckMascot mode="teacher" width={60} height={60} enableEgg={false} className="shrink-0 drop-shadow-md" />
+                  <p className="text-sm font-medium text-white/90 text-center sm:text-left leading-relaxed flex-1">
+                    {result.emotionalComment}
+                  </p>
+                </div>
+              )}
               <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-5 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-3 opacity-10">
                   <CheckCircle2 className="w-24 h-24" />

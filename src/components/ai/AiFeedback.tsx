@@ -1,16 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { CorrectionResult, CorrectionIssue } from "@/domain/ai-correction";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Info, Sparkles, Wand2 } from "lucide-react";
+import { ChevronDown, Info, Sparkles, Wand2, Volume2, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useDiaryTts } from "@/application/diary/useDiaryTts";
+import { DuckMascot } from "@/components/mascot/DuckMascot";
 
 interface Props {
   result: CorrectionResult;
-  onApply: (text: string) => void;
+  onApply?: (text: string) => void;
   applying?: boolean;
   isTrialMode?: boolean;
   applyLabel?: string;
+  learningLanguage?: string;
 }
 
 function IssueItem({ issue }: { issue: CorrectionIssue }) {
@@ -76,16 +79,50 @@ function IssueItem({ issue }: { issue: CorrectionIssue }) {
   );
 }
 
-export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel }: Props) {
+export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel, learningLanguage }: Props) {
   const t = useTranslations("ai");
+  const ttsId = useRef(`feedback_${Date.now()}`);
+  const { generateAndPlayAudio, isGenerating, audioUrl } = useDiaryTts(ttsId.current);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioUrl && audioRef.current) {
+      audioRef.current.play().catch(console.error);
+    }
+  }, [audioUrl]);
+
+  const handleTts = () => {
+    if (!result.emotionalComment) return;
+    generateAndPlayAudio(ttsId.current, result.emotionalComment, learningLanguage);
+  };
 
   return (
     <Card className="border-primary/30 bg-primary/5">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0">
-        <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-primary" />
-          <CardTitle>{t("result_title")}</CardTitle>
-        </div>
+      <CardHeader className="flex flex-col space-y-4 pb-4">
+        {result.emotionalComment && (
+          <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4">
+            <DuckMascot mode="teacher" width={70} height={70} enableEgg={false} className="shrink-0 drop-shadow-md" />
+            <div className="flex-1 space-y-2 text-center sm:text-left">
+              <p className="text-sm md:text-base font-medium text-white/90 leading-relaxed">
+                {result.emotionalComment}
+              </p>
+              <button
+                onClick={handleTts}
+                disabled={isGenerating}
+                className="inline-flex items-center text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                title={t("listen") || "Listen"}
+              >
+                {isGenerating ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : <Volume2 className="w-4 h-4 mr-1" />}
+                {t("listen") || "Listen"}
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="flex flex-row items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-5 w-5 text-primary" />
+            <CardTitle>{t("result_title")}</CardTitle>
+          </div>
         <div className="flex gap-2">
           {onApply && (
             <button
@@ -102,8 +139,10 @@ export function AiFeedback({ result, onApply, applying, isTrialMode, applyLabel 
             </button>
           )}
         </div>
+        </div>
       </CardHeader>
       <CardContent className="space-y-4">
+        <audio ref={audioRef} src={audioUrl || ""} className="hidden" />
         <div 
           className="rounded-lg border border-primary/30 bg-black/20 p-3 text-sm leading-relaxed"
           dangerouslySetInnerHTML={{ __html: result.corrected }}

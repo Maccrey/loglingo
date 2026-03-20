@@ -618,6 +618,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
             applying={isSubmitting}
             isTrialMode={isTrialMode}
             applyLabel={t("apply_and_save")} // New prop
+            learningLanguage={learningLanguage}
           />
         )}
         

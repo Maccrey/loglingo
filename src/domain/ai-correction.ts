@@ -13,6 +13,7 @@ export interface CorrectionResult {
   corrected: string;
   issues: CorrectionIssue[];
   rootMeaningGuide?: string;
+  emotionalComment?: string;
   fallback?: boolean;
   levelAssessment?: {
     level: import("./learning-profile").LevelBand;
