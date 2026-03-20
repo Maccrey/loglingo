@@ -170,7 +170,8 @@
     "save_prompt_title": "Save Diary",
     "save_prompt_desc": "Would you like to get AI correction before saving?",
     "save_prompt_ai": "Get AI Correction",
-    "save_prompt_just_save": "Just Save"
+    "save_prompt_just_save": "Just Save",
+    "relax_msg": "Feel free to write in your native language if you don't know how to say it. AI will explain it in detail."
   },
   "archive": {
     "title": "Learning Archive",

@@ -170,7 +170,8 @@
     "save_prompt_title": "Guardar diario",
     "save_prompt_desc": "¿Quieres recibir corrección de IA antes de guardar?",
     "save_prompt_ai": "Obtener corrección de IA",
-    "save_prompt_just_save": "Solo guardar"
+    "save_prompt_just_save": "Solo guardar",
+    "relax_msg": "Siéntete libre de escribir en tu idioma nativo si no sabes cómo decirlo. La IA te lo explicará en detalle."
   },
   "archive": {
     "title": "Archivo de aprendizaje",

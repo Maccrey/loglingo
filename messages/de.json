@@ -170,7 +170,8 @@
     "save_prompt_title": "Tagebuch speichern",
     "save_prompt_desc": "Möchten Sie vor dem Speichern eine KI-Korrektur erhalten?",
     "save_prompt_ai": "KI-Korrektur erhalten",
-    "save_prompt_just_save": "Einfach speichern"
+    "save_prompt_just_save": "Einfach speichern",
+    "relax_msg": "Schreibe ruhig in deiner Muttersprache, wenn du etwas nicht weißt. Die KI wird es im Detail erklären."
   },
   "archive": {
     "title": "Lernarchiv",

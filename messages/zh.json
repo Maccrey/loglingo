@@ -170,7 +170,8 @@
     "save_prompt_title": "保存日记",
     "save_prompt_desc": "保存前是否要获取AI纠正？",
     "save_prompt_ai": "获取AI纠正",
-    "save_prompt_just_save": "仅保存"
+    "save_prompt_just_save": "仅保存",
+    "relax_msg": "遇到不会的单词或句子可以轻松地用母语写出，AI会为您详细讲解。"
   },
   "archive": {
     "title": "学习档案",

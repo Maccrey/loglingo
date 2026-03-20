@@ -170,7 +170,8 @@
     "save_prompt_title": "Günlüğü Kaydet",
     "save_prompt_desc": "Kaydetmeden önce AI düzeltmesi almak ister misiniz?",
     "save_prompt_ai": "AI Düzeltmesi Al",
-    "save_prompt_just_save": "Sadece Kaydet"
+    "save_prompt_just_save": "Sadece Kaydet",
+    "relax_msg": "Nasıl söyleyeceğinizi bilmiyorsanız çekinmeden ana dilinizde yazın. Yapay zeka size ayrıntılı olarak açıklayacaktır."
   },
   "archive": {
     "title": "Öğrenme Arşivi",

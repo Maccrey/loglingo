@@ -170,7 +170,8 @@
     "save_prompt_title": "Simpan Buku Harian",
     "save_prompt_desc": "Apakah Anda ingin mendapatkan koreksi AI sebelum menyimpan?",
     "save_prompt_ai": "Dapatkan Koreksi AI",
-    "save_prompt_just_save": "Simpan Saja"
+    "save_prompt_just_save": "Simpan Saja",
+    "relax_msg": "Jangan ragu menulis dalam bahasa ibu Anda jika tidak tahu cara mengungkapkannya. AI akan menjelaskannya secara detail."
   },
   "archive": {
     "title": "Arsip pembelajaran",

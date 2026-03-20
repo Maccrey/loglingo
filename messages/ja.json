@@ -170,7 +170,8 @@
     "save_prompt_title": "日記を保存",
     "save_prompt_desc": "保存する前にAI校正を受けますか？",
     "save_prompt_ai": "AI校正を受ける",
-    "save_prompt_just_save": "そのまま保存"
+    "save_prompt_just_save": "そのまま保存",
+    "relax_msg": "分からない文章は母語で気楽に書いても、AIが詳しく教えてくれます。"
   },
   "archive": {
     "title": "学習アーカイブ",

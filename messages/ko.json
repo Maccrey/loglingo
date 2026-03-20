@@ -170,7 +170,8 @@
     "save_prompt_title": "일기 저장",
     "save_prompt_desc": "저장하기 전에 AI 교정을 받으시겠습니까?",
     "save_prompt_ai": "AI 교정 받기",
-    "save_prompt_just_save": "그냥 저장하기"
+    "save_prompt_just_save": "그냥 저장하기",
+    "relax_msg": "모르는 문장은 모국어로 편하게 써도 인공지능이 자세히 가르쳐줍니다."
   },
   "archive": {
     "title": "학습 아카이브",

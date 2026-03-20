@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const messagesDir = path.join(__dirname, 'messages');
+const messagesDir = path.join(__dirname, '../messages');
 
 const translations = {
   ko: "모르는 문장은 모국어로 편하게 써도 인공지능이 자세히 가르쳐줍니다.",

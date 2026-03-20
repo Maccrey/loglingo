@@ -170,7 +170,8 @@
     "save_prompt_title": "Enregistrer le journal",
     "save_prompt_desc": "Souhaitez-vous obtenir une correction IA avant d'enregistrer?",
     "save_prompt_ai": "Obtenir une correction IA",
-    "save_prompt_just_save": "Enregistrer simplement"
+    "save_prompt_just_save": "Enregistrer simplement",
+    "relax_msg": "N'hésitez pas à écrire dans votre langue maternelle si vous ne savez pas comment le dire. L'IA l'expliquera en détail."
   },
   "archive": {
     "title": "Archive d'apprentissage",
