@@ -185,7 +185,8 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
         ) : (
           <>
             {/* 2. 결과 UI */}
-            <div className="space-y-4">
+            <div className="flex flex-col h-full max-h-[70vh]">
+              <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar flex-1 pb-4">
               {result.emotionalComment && (
                 <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4">
                   <DuckMascot mode="teacher" width={60} height={60} enableEgg={false} className="shrink-0 drop-shadow-md" />
@@ -217,7 +218,7 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
               </div>
 
               {result.issues && result.issues.length > 0 && (
-                <div className="space-y-3 max-h-[200px] overflow-y-auto pr-2 custom-scrollbar">
+                <div className="space-y-3">
                   {result.issues.map((issue, idx) => (
                     <div key={idx} className="bg-white/5 border border-white/10 rounded-lg p-3 text-sm">
                       <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -235,7 +236,9 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
                 </div>
               )}
               
-              <div className="pt-4 border-t border-white/10">
+              </div>
+              
+              <div className="pt-4 border-t border-white/10 mt-auto shrink-0 bg-zinc-950">
                 <Button 
                   onClick={handleSignup} 
                   className="w-full py-6 text-lg bg-white text-black hover:bg-gray-200"
