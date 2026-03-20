@@ -24,6 +24,7 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
   const router = useRouter();
   
   const { learningLanguage, setLearningLanguage } = useLearningLanguage();
+  const tWrite = useTranslations("write");
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<CorrectionResult | null>(null);
@@ -138,6 +139,8 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
                 </select>
               </div>
             </div>
+
+            <p className="text-xs text-orange-300 font-medium">✨ {tWrite("relax_msg")}</p>
 
             <div className="relative">
               <textarea

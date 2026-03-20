@@ -459,6 +459,7 @@ export function DiaryForm({ initial, onSubmit, onDelete, isSubmitting, onSuccess
               <label htmlFor="content" className="text-sm font-medium text-muted-foreground">
                 {t("content_label")}
               </label>
+              <p className="text-xs text-primary/80 font-medium pb-1">✨ {t("relax_msg")}</p>
 
               {!content && !isSampleMode && (
                 <div className="mb-2 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm text-primary/80">
