@@ -6,7 +6,8 @@
     "banner_title": "Chế độ Thử nghiệm",
     "banner_desc": "Dữ liệu không được lưu trong chế độ thử nghiệm.",
     "sample_guide": "Xem AI sửa câu này như thế nào",
-    "sample_hint": "Nhấp vào văn bản để viết riêng"
+    "sample_hint": "Nhấp vào văn bản để viết riêng",
+    "try_it_out": "Try it out"
   },
   "common": {
     "save": "Lưu",

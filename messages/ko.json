@@ -6,7 +6,8 @@
     "banner_title": "체험 모드",
     "banner_desc": "체험 모드에서는 데이터가 저장되지 않습니다.",
     "sample_guide": "아래 문장을 AI가 어떻게 고쳐주는지 보세요",
-    "sample_hint": "텍스트를 클릭하여 직접 입력할 수도 있습니다."
+    "sample_hint": "텍스트를 클릭하여 직접 입력할 수도 있습니다.",
+    "try_it_out": "체험하기"
   },
   "common": {
     "save": "저장",

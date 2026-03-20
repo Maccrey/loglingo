@@ -6,7 +6,8 @@
     "banner_title": "体験モード",
     "banner_desc": "体験モードではデータは保存されません。",
     "sample_guide": "AIがこの文章をどう修正するか見てみましょう",
-    "sample_hint": "テキストをクリックして自分で入力できます"
+    "sample_hint": "テキストをクリックして自分で入力できます",
+    "try_it_out": "Try it out"
   },
   "common": {
     "save": "保存",

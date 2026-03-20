@@ -6,7 +6,8 @@
     "banner_title": "Trial Mode",
     "banner_desc": "Data is not saved in trial mode.",
     "sample_guide": "See how AI corrects this sentence below",
-    "sample_hint": "Click text to write your own."
+    "sample_hint": "Click text to write your own.",
+    "try_it_out": "Try it out"
   },
   "common": {
     "save": "Save",

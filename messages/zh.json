@@ -6,7 +6,8 @@
     "banner_title": "体验模式",
     "banner_desc": "体验模式下不会保存数据。",
     "sample_guide": "看看AI如何修正下面的句子",
-    "sample_hint": "点击文本自行输入"
+    "sample_hint": "点击文本自行输入",
+    "try_it_out": "Try it out"
   },
   "common": {
     "save": "保存",

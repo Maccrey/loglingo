@@ -6,7 +6,8 @@
     "banner_title": "Deneme Modu",
     "banner_desc": "Deneme modunda veriler kaydedilmez.",
     "sample_guide": "Yapay zekanın bu cümleyi nasıl düzelttiğini görün",
-    "sample_hint": "Kendi metnini yazmak için tıkla"
+    "sample_hint": "Kendi metnini yazmak için tıkla",
+    "try_it_out": "Try it out"
   },
   "common": {
     "save": "Kaydet",
