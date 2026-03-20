@@ -40,13 +40,11 @@ export function GuestTrialModal({ isOpen, onClose }: GuestTrialModalProps) {
     }
   }, [audioUrl]);
 
+  const tCommon = useTranslations("common");
+
   // 언어 이름 가져오기
   const getLanguageLabel = (code: string) => {
-    try {
-      return new Intl.DisplayNames([locale], { type: "language" }).of(code) ?? code;
-    } catch {
-      return code;
-    }
+    return tCommon(`languages.${code}`) || code;
   };
 
   const handleClose = () => {

@@ -39,6 +39,7 @@ const LANGUAGE_MAP: Record<string, string> = {
 
 export default function SpeakingPage() {
   const t = useTranslations('Speaking'); // Ensure keys exist or use fallback
+  const tCommon = useTranslations('common');
   const router = useRouter();
   const { user } = useAuth(); // for language preference if needed
   const { learningLanguage } = useLearningLanguage();
@@ -49,12 +50,8 @@ export default function SpeakingPage() {
 
   // Get localized language name (e.g., "Korean" instead of "KO")
   const targetLanguageName = React.useMemo(() => {
-    try {
-        return new Intl.DisplayNames([locale], { type: 'language' }).of(learningLanguage) || learningLanguage.toUpperCase();
-    } catch (e) {
-        return learningLanguage.toUpperCase();
-    }
-  }, [learningLanguage, locale]);
+    return tCommon(`languages.${learningLanguage}`) || learningLanguage.toUpperCase();
+  }, [learningLanguage, tCommon]);
 
   const {
     step,
@@ -75,12 +72,9 @@ export default function SpeakingPage() {
   
   // Get UI Language Name for AI Explanations
   const uiLanguageName = React.useMemo(() => {
-    try {
-        return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || t('localeName');
-    } catch {
-        return t('localeName');
-    }
-  }, [locale]);
+    const raw = tCommon(`languages.${locale}`);
+    return raw && raw !== `languages.${locale}` ? raw : t('localeName');
+  }, [locale, tCommon, t]);
 
   // Daily Limit Logic
   const [sessionCount, setSessionCount] = React.useState<number>(0);

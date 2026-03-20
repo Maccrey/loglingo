@@ -27,15 +27,8 @@ export function LearningLanguageOnboarding() {
     setSelectedLanguage(learningLanguage);
   }, [learningLanguage]);
 
-  const languageNames = useMemo(() => {
-    try {
-      return new Intl.DisplayNames([locale], { type: "language" });
-    } catch {
-      return new Intl.DisplayNames(["en"], { type: "language" });
-    }
-  }, [locale]);
-
-  const getLanguageLabel = (code: string) => languageNames?.of(code) ?? code;
+  const tCommon = useTranslations("common");
+  const getLanguageLabel = (code: string) => tCommon(`languages.${code}`) || code;
 
   const handleSave = () => {
     setLearningLanguage(selectedLanguage);

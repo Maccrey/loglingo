@@ -35,16 +35,13 @@ export function AuthGate({ children }: AuthGateProps) {
     }
   }, [signupQuery]);
 
+  const tCommon = useTranslations("common");
+
   const languageList = useMemo(() => {
-    try {
-      const displayNames = new Intl.DisplayNames([locale], { type: "language" });
-      return routing.locales
-        .map((code) => displayNames.of(code) || code)
-        .join(" · ");
-    } catch {
-      return routing.locales.join(" · ");
-    }
-  }, [locale]);
+    return routing.locales
+      .map((code) => tCommon(`languages.${code}`) || code)
+      .join(" · ");
+  }, [tCommon]);
 
   if (loading) {
     return (

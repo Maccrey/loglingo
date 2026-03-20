@@ -20,7 +20,27 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "success": "Success",
-    "delete": "Delete"
+    "delete": "Delete",
+    "languages": {
+      "en": "English",
+      "ko": "Korean",
+      "ja": "Japanese",
+      "zh": "Chinese",
+      "th": "Thai",
+      "vi": "Vietnamese",
+      "id": "Indonesian",
+      "es": "Spanish",
+      "pt": "Portuguese",
+      "fr": "French",
+      "de": "German",
+      "tr": "Turkish",
+      "ar": "Arabic",
+      "hi": "Hindi",
+      "ru": "Russian",
+      "bn": "Bangla",
+      "ur": "Urdu",
+      "ne": "Nepali"
+    }
   },
   "nav": {
     "home": "Home",
