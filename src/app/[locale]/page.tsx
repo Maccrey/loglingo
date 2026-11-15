@@ -24,6 +24,24 @@ export default function Home() {
         </div>
       </section>
 
+      <a href="https://www.kinora.date" className="group block w-full min-w-0 overflow-hidden rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-50 via-pink-50 to-violet-50 p-5 text-rose-950 shadow-sm transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-500 sm:p-8">
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div className="min-w-0">
+            <p className="text-xs font-bold tracking-widest text-rose-500">♥ KINORA</p>
+            <h2 className="mt-2 text-xl font-bold sm:text-2xl">멀리 있어도, 마음은 가까이</h2>
+            <p className="mt-2 text-sm text-rose-800">소중한 사람과 함께하는 특별한 공간을 만나보세요.</p>
+            <span className="mt-4 inline-block rounded-full bg-rose-500 px-5 py-2 text-sm font-bold text-white group-hover:bg-rose-600">키노라 만나보기 →</span>
+          </div>
+          <div className="grid w-full max-w-md grid-cols-6 items-end gap-1 self-center md:w-1/2" aria-hidden="true">
+            {['dog', 'cat', 'fluffy', 'raccoon', 'parrot', 'otter'].map((character) => (
+              // The original Kinora assets are served by Kinora.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img key={character} src={`https://www.kinora.date/landing/assets/${character}.png`} alt="" className="h-auto w-full min-w-0 object-contain" />
+            ))}
+          </div>
+        </div>
+      </a>
+
       {/* Features Grid */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         <Link href="/guide/write" className="block">
