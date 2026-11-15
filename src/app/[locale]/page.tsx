@@ -36,7 +36,7 @@ export default function Home() {
             {['dog', 'cat', 'fluffy', 'raccoon', 'parrot', 'otter'].map((character) => (
               // The original Kinora assets are served by Kinora.
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={character} src={`https://www.kinora.date/landing/assets/${character}.png`} alt="" className="h-auto w-full min-w-0 object-contain" />
+              <img key={character} src={`https://www.kinora.date/landing/assets/${character}.webp`} alt="" className="h-auto w-full min-w-0 object-contain" />
             ))}
           </div>
         </div>
