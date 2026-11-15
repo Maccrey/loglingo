@@ -62,3 +62,19 @@ body {
 .animate-orange-pulse-glow {
   animation: orange-pulse-glow 1.5s infinite;
 }
+@keyframes kinora-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(3deg); }
+}
+
+.kinora-characters img {
+  animation: kinora-float 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.kinora-characters img:nth-child(2n) { animation-delay: -1s; }
+.kinora-characters img:nth-child(3n) { animation-delay: -2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kinora-characters img { animation: none; }
+}

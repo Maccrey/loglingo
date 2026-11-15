@@ -32,7 +32,7 @@ export default function Home() {
             <p className="mt-2 text-sm text-rose-800">소중한 사람과 함께하는 특별한 공간을 만나보세요.</p>
             <span className="mt-4 inline-block rounded-full bg-rose-500 px-5 py-2 text-sm font-bold text-white group-hover:bg-rose-600">키노라 만나보기 →</span>
           </div>
-          <div className="grid w-full max-w-md grid-cols-6 items-end gap-1 self-center md:w-1/2" aria-hidden="true">
+          <div className="kinora-characters grid w-full max-w-md grid-cols-6 items-end gap-1 self-center md:w-1/2" aria-hidden="true">
             {['dog', 'cat', 'fluffy', 'raccoon', 'parrot', 'otter'].map((character) => (
               // The original Kinora assets are served by Kinora.
               // eslint-disable-next-line @next/next/no-img-element
