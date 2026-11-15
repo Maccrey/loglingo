@@ -1,5 +1,6 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { RemotePattern } from "next/dist/shared/lib/image-config";
+import { existsSync } from 'node:fs';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
@@ -76,4 +77,6 @@ const nextConfig: import("next").NextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+// Firebase's runtime package contains the built application, but not src/.
+// The next-intl plugin is needed during build, not when loading runtime config.
+export default existsSync('./src/i18n/request.ts') ? withNextIntl(nextConfig) : nextConfig;
