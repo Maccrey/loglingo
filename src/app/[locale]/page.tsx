@@ -2,12 +2,14 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { ArrowRight, BookOpen, Sparkles, GraduationCap, Mic } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import KakaoAdFit from "@/components/ads/KakaoAdFit";
 import { StartButton } from "@/components/home/StartButton";
+import { kinoraCopy } from "@/components/home/kinoraCopy";
 
 export default function Home() {
   const t = useTranslations('home');
+  const copy = kinoraCopy[useLocale()] ?? kinoraCopy.en;
 
   return (
     <div className="flex flex-col space-y-12 py-8">
@@ -28,9 +30,9 @@ export default function Home() {
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div className="min-w-0">
             <p className="text-xs font-bold tracking-widest text-rose-500">♥ KINORA</p>
-            <h2 className="mt-2 text-xl font-bold sm:text-2xl">멀리 있어도, 마음은 가까이</h2>
-            <p className="mt-2 text-sm text-rose-800">소중한 사람과 함께하는 특별한 공간을 만나보세요.</p>
-            <span className="mt-4 inline-block rounded-full bg-rose-500 px-5 py-2 text-sm font-bold text-white group-hover:bg-rose-600">키노라 만나보기 →</span>
+            <h2 className="mt-2 text-xl font-bold sm:text-2xl">{copy[0]}</h2>
+            <p className="mt-2 text-sm text-rose-800">{copy[1]}</p>
+            <span className="mt-4 inline-block rounded-full bg-rose-500 px-5 py-2 text-sm font-bold text-white group-hover:bg-rose-600">{copy[2]} <span aria-hidden="true">→</span></span>
           </div>
           <div className="kinora-characters grid w-full max-w-md grid-cols-6 items-end gap-1 self-center md:w-1/2" aria-hidden="true">
             {['dog', 'cat', 'fluffy', 'raccoon', 'parrot', 'otter'].map((character) => (
